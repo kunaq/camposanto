@@ -156,7 +156,7 @@
 												<label class="">
 												T.C.:
 												</label>
-												<div class="input-group m-input-group">
+												<div class="input-group m-input-group p-bottom3">
 													<input type="text" class="form-control m-input" id="tc" name="tc" value=" <?php $prueba = controladorEmpresa::ctrtipoCambio(); ?>" placeholder="">
 												</div>
 											</div>
@@ -189,7 +189,7 @@
 												&nbsp;
 											</label>
 											<br>
-											<div class="input-group m-input-group">
+											<div class="input-group m-input-group p-bottom1">
 												<input type="text" class="form-control m-input" name="nomVendedor" disabled id="nomVendedor" placeholder="">
 												<div class="input-group-append">
 													<span data-toggle="modal" data-target="#m_modal_4">
@@ -206,9 +206,9 @@
 							</div>
 							<br>
 							<div class="row">
-								<div class="col-lg-6">
+								<div class="col-lg-6 p-bottom3">
 									<div class="row">
-										<div class="col-lg-12">
+										<div class="col-lg-5">
 											<label>
 												<h5>Plan/Subtipo de servicio</h5>
 											</label>
@@ -255,7 +255,7 @@
 								<br><br>
 								<div class="col-lg-6">
 									<div class="row">
-										<div class="col-lg-3">
+										<div class="col-lg-3 m-top3">
 											<label class="">
 												<h5>Cliente *</h5>
 											</label>
@@ -282,7 +282,7 @@
 									</div>
 									<div class="m-input-icon m-input-icon--right">
 										<div class="row" style="margin-top: 10px;">
-											<div class="col-lg-4">
+											<div class="col-lg-4 m-top1">
 												<label>Tipo doc: </label>
 												<select disabled class="form-control m-input custom-select custom-select-danger" id="TipoDcoCliente" name="TipoDcoCliente">
 													<option value="">
@@ -333,7 +333,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="m-input-icon m-input-icon--right" style="margin-top: 10px;">
+									<div class="m-input-icon m-input-icon--right m-top1">
 										<label>Apellido y Nombre: * </label>
 										<div class="input-group m-input-group">
 											<input type="text" class="form-control m-input" name="nombreCliente" disabled id="nombreCliente">
@@ -426,7 +426,7 @@
 								</div>
 							</div>
 							<div class="form-group m-form__group row">
-								<div class="col-lg-6">
+								<div class="col-lg-6 m-top3">
 									<label>
 										<h5>Contrato</h5>
 									</label>

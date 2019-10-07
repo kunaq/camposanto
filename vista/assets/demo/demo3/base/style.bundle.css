@@ -44368,7 +44368,7 @@ body.m-page--boxed {
 }
 
 .m-body .m-content {
-    padding: 30px 30px
+    padding: 20px 20px
 }
 
 .m-body .m-wrapper {
@@ -50588,6 +50588,40 @@ body {
     z-index: 9999;
     background: url('../media/img/pageLoader.gif') 50% 50% no-repeat rgb(249,249,249);
     opacity: .8;
+}
+
+.logo{
+    width: 140px;
+    height: 67px;
+}
+.m-top1{
+    margin-top: 10px;
+}
+.m-top3{
+    margin-top: 27px;
+}
+
+@media (max-width: 1025px){
+    .logo{
+        width: 120px;
+        height: 50px;
+    }
+    .col-lg-12{
+        padding-left: 0px;
+        padding-right: 0px
+    }
+    .m-portlet .m-portlet__body{
+        padding: 2.2rem 0.3rem
+    }
+    .m-body .m-content {
+        padding: 10px 10px
+    }
+    .p-bottom3{
+    padding-bottom: 30px;
+    }
+    .p-bottom1{
+    padding-bottom: 10px;
+    }
 }
 
 .table-fixed thead, .table-fixed tfoot {

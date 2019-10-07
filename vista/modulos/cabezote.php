@@ -7,7 +7,7 @@
 								<div class="m-stack__item m-stack__item--middle m-stack__item--center m-brand__logo">
 									<a href="inicio2" class="m-brand__logo-wrapper">
 										<!-- <img alt="" src="vista/assets/demo/demo3/media/img/logo/logo.png"/> -->
-										<img src="vista/img/Logo_KQ_web.png" style="height: 67px; width: 140px;">
+										<img src="vista/img/Logo_KQ_web.png" class="logo">
 									</a>
 								</div>
 								<div class="m-stack__item m-stack__item--middle m-brand__tools">
