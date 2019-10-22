@@ -4,7 +4,7 @@ require_once "../../modelo/conexion.php";
    //var_dump($cod);
     $db = new Conexion();                                             
 
-       	$sql = $db->consulta("SELECT cod_cliente, dsc_cliente, dsc_documento, cod_tipo_documento, flg_juridico  FROM vtama_cliente where (cod_cliente = '$cod') OR (dsc_documento = '$cod')");
+       	$sql = $db->consulta("SELECT c.cod_cliente, c.dsc_cliente, c.dsc_documento, c.cod_tipo_documento, c.flg_juridico, c.dsc_telefono_1, d.dsc_direccion, c.cod_cliente FROM vtama_cliente c INNER JOIN vtade_cliente_direccion d ON c.cod_cliente=d.cod_cliente where c.cod_cliente = '$cod' OR c.dsc_documento = '$cod' AND d.flg_comprobante='SI';");
 
         if ($sql) {
           $datos = array();
@@ -30,7 +30,7 @@ require_once "../../modelo/conexion.php";
               }
 
                 $datos[] =  $key;
-                $respuesta = $key['dsc_cliente'].'/'.$key['cod_tipo_documento'].'/'.$key['dsc_documento'].'/'.$key['flg_juridico'];
+                $respuesta = $key['dsc_cliente'].'/'.$key['cod_tipo_documento'].'/'.$key['dsc_documento'].'/'.$key['flg_juridico'].'/'.$key['dsc_telefono_1'].'/'.$key['dsc_direccion'].'/'.$key['cod_cliente'];
           
           }
         }

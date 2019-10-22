@@ -45,4 +45,9 @@ class Conexion{
 
   }
 
+  public function row($query){
+
+    return sqlsrv_has_rows($query);
+  }
+
 }

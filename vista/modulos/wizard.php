@@ -307,11 +307,12 @@
 												</select>
 											</div>
 											<div class="col-lg-3" style="padding-left: 0px;">
+											<div class="col-lg-3 non-p-left padding-left">
 												<br><br>	
 												<div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
 													<div class="btn-group m-btn-group mr-2" role="group" aria-label="First group">
 														<span data-toggle="modal" data-target="#m_modal_2">
-														<button type="button" class="m-btn btn btn-danger" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar cliente" onclick="creaTablaCliente();">
+														<button type="button" class="m-btn btn btn-danger" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar cliente" onclick="creaTablaCliente('cliente');">
 															<i class="la la-search"></i>
 														</button>
 														</span>
@@ -344,7 +345,7 @@
 							</div>
 							<br>
 							<div class="row">
-								<div class="col-lg-12">
+								<div class="col-lg-5">
 									<label>
 										<h5>Datos de espacio</h5>
 									</label>
@@ -653,7 +654,7 @@
 																	Código
 																</th>
 																<th width="20%">
-																	Descripción del descuento
+																	Desc. descuento
 																</th>
 																<th width="10%">
 																	M
@@ -780,7 +781,7 @@
 									</label>
 									<div class="m-input-icon m-input-icon--right">
 										<div class="m-section  m-demo m-demo__preview">
-											<div class="m-section__content table-responsive-m" data-scrollbar-shown="true" data-scrollable="true" data-max-height="400"">
+											<div class="m-section__content table-responsive-m" data-scrollbar-shown="true" data-scrollable="true" data-max-height="400">
 												<div class="table-responsive">
 												<table class="table table-fixed">
 													<thead style="text-align: center;">
@@ -1232,7 +1233,7 @@
 													</label>
 												</div>
 												<div class="col-lg-3">
-													<select class="form-control m-input custom-select custom-select-danger" disabled name="tipoDocBenef" id="tipoDocBenef">
+													<select class="form-control m-input custom-select custom-select-danger tipoDocBenef" disabled name="tipoDocBenef" id="tipoDocBenef" onchange="DocLengthBenef(this.value);">
 														<option value="">
 														Seleccione
 														</option>
@@ -1248,7 +1249,7 @@
 													</label>
 												</div>
 												<div class="col-lg-3">
-													<input type="text" id="numDocBenef" disabled class="form-control m-input" >
+													<input type="text" id="numDocBenef" disabled class="form-control m-input numDocBenef" >
 												</div>
 											</div>
 										</div>
@@ -1500,25 +1501,13 @@
 									</label>
 								</div>
 								<div class="col-lg-3">
-									<select id="tipoCom" disabled class="form-control m-input custom-select custom-select-danger" name="option">
+									<select id="tipoCom" disabled class="form-control m-input custom-select custom-select-danger" name="option" onchange="buscaSerie(this.value);">
 										<option value="">
-											Seleccione
-										</option>
-										<option>
-											1
-										</option>
-										<option>
-											2
-										</option>
-										<option>
-											3
-										</option>
-										<option>
-											4
-										</option>
-										<option>
-											5
-										</option>
+														Seleccione
+													</option>
+													<?php
+											$prueba = controladorEmpresa::ctrtipoCom();
+													  ?> 
 									</select>
 								</div>
 								<div class="col-lg-3">
@@ -1527,13 +1516,7 @@
 											N°: &nbsp;
 										</label>
 										<div class="input-group-prepend">
-											<select class="form-control m-input" id="numCom" disabled name="option">
-												<option value="">
-													1
-												</option>
-												<option>
-													2
-												</option>
+											<select class="form-control m-input" id="numCom" disabled name="option">												
 											</select>
 										</div>
 										<input type="text" class="form-control m-input" id="nnumCom" disabled placeholder="">
@@ -1546,7 +1529,7 @@
 										</div>
 										<div class="col-lg-8">
 											<div class="input-group date">
-												<input type="text" class="form-control m-input" disabled readonly  placeholder="Seleccionar fecha" id="m_datepicker_3"/>
+												<input type="text" class="form-control m-input" disabled readonly  placeholder="Seleccionar fecha" id="m_datepicker_3" value="<?php echo date('d/m/Y', strtotime(date('d/m/Y'))); ?>"/>
 												<div class="input-group-append">
 													<span class="input-group-text">
 														<i class="la la-calendar-check-o"></i>
@@ -1568,9 +1551,11 @@
 									<div class="input-group">
 										<input type="text" disabled id="deuCom" class="form-control m-input" placeholder="">
 										<div class="input-group-append">
-											<button type="button" disabled id="btn1Com" class="btn btn-danger">
-												<i class="flaticon-search"></i>
+											<span data-toggle="modal" data-target="#m_modal_2">
+											<button type="button" disabled="" id="btn1Com" class="m-btn btn btn-danger" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar cliente" onclick="creaTablaCliente('comprobante');">
+												<i class="la la-search"></i>
 											</button>
+											</span>
 											<button type="button" disabled id="btn2Com" class="btn btn-success">
 												<i class="flaticon-plus"></i>
 											</button>
@@ -1838,4 +1823,5 @@ include "modals/modalTablaClientes.php";
 include "modals/modalTablaDscto.php";
 include "modals/modalTablaEndosos.php";
 include "modals/modalTablaservicios.php";
+include "modals/modalTablaDeuda.php";
 ?>
