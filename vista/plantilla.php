@@ -128,12 +128,12 @@ $_SESSION['captcha'] = simple_php_captcha();
         <?php
         if(isset($_GET["ruta"])){
             if($_GET["ruta"] == 'wizard' ||
-        		$_GET["ruta"] == 'periodo_venta'){  
+        		$_GET["ruta"] == 'periodo-venta'){  
                 echo '<script type="text/javascript" src="vista/js/'.$_GET["ruta"].'.js"></script>';
             }
         }
         ?>
-		<script src="vista/js/wizard.js" type="text/javascript"></script>
+		<!-- <script src="vista/js/wizard.js" type="text/javascript"></script> -->
 		<script src="vista/js/select2.js" type="text/javascript"></script>
 		<script src="vista/js/html-table.js" type="text/javascript"></script>
 		<script src="vista/js/data-local.js" type="text/javascript"></script>
