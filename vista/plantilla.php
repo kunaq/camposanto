@@ -91,10 +91,8 @@ $_SESSION['captcha'] = simple_php_captcha();
 			}
 			else{
 				if($_GET["ruta"] == "login" || $_GET["ruta"] == ""){
-
 					echo '<body  class="m--skin- m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-dark m-aside-left--offcanvas m-footer--push m-aside--offcanvas-default"  >';
 					include("modulos/login.php");
-
 				}
 				else{
 					echo '<body  class="m--skin- m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-dark m-aside-left--offcanvas m-footer--push m-aside--offcanvas-default"  >';
