@@ -41,6 +41,8 @@ require_once "../../modelo/conexion.php";
                         $funcion = '"cambiaDocumento('.$cod.')"';
                     }elseif ($tipobtn == "comprobante"){
                         $funcion = '"cambiaDeudor('.$codcliente.')"';
+                    }elseif ($tipobtn == "contrato"){
+                        $funcion = '"cambiaCliCon('.$codcliente.')"';
                     }
                     
                    echo 

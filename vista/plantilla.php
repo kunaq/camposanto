@@ -69,6 +69,7 @@ $_SESSION['captcha'] = simple_php_captcha();
 		        			$_GET["ruta"] == "genContrato2" ||
 		        			$_GET["ruta"] == "genContrato" ||
 		        			$_GET["ruta"] == "wizard" ||
+		        			$_GET["ruta"] == "listadoContrato" ||
 		        			$_GET["ruta"] == "wizard--"){
 
 		           		   	include "modulos/".$_GET["ruta"].".php";
@@ -125,12 +126,14 @@ $_SESSION['captcha'] = simple_php_captcha();
 
         <?php
         if(isset($_GET["ruta"])){
-            if($_GET["ruta"] == 'wizard'){  
+            if($_GET["ruta"] == 'wizard' || 
+        	   $_GET["ruta"] == 'listadoContrato'){  
                 echo '<script type="text/javascript" src="vista/js/'.$_GET["ruta"].'.js"></script>';
             }
         }
         ?>
-		<script src="vista/js/wizard.js" type="text/javascript"></script>
+		<!-- <script src="vista/js/wizard.js" type="text/javascript"></script> -->
+		<!-- <script src="vista/js/listContract.js" type="text/javascript"></script> -->
 		<script src="vista/js/select2.js" type="text/javascript"></script>
 		<script src="vista/js/html-table.js" type="text/javascript"></script>
 		<script src="vista/js/data-local.js" type="text/javascript"></script>

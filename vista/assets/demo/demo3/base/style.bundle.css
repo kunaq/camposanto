@@ -50597,8 +50597,8 @@ body {
 .m-top1{
     margin-top: 10px;
 }
-.m-top3{
-    margin-top: 27px;
+.m-top2{
+    margin-top: 20px;
 }
 .p-left10{
     padding-left: 10px;
@@ -50611,10 +50611,6 @@ body {
     .logo{
         width: 120px;
         height: 50px;
-    }
-    .col-lg-12{
-        padding-left: 0px;
-        padding-right: 0px
     }
     .m-portlet .m-portlet__body{
         padding: 2.2rem 0.3rem
@@ -50793,4 +50789,11 @@ body {
     vertical-align: sub;
     padding-top:15px;
     width:3rem;
+}
+
+/* ------------  Listado de Contratos  ------------ */
+.tittle-box{
+    color: #e60000;
+    font-size: 15px;
+    font-weight: 500;
 }
