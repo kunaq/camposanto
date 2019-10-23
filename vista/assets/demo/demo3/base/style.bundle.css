@@ -36,7 +36,7 @@ body {
     line-height: 1.5;
     color: #212529;
     text-align: left;
-    background-color: #fff
+    background-color: #fff;
 }
 
 [tabindex="-1"]:focus {
@@ -44368,7 +44368,7 @@ body.m-page--boxed {
 }
 
 .m-body .m-content {
-    padding: 30px 30px
+    padding: 20px 20px
 }
 
 .m-body .m-wrapper {
@@ -50593,6 +50593,12 @@ body {
 .table-fixed th {
     background-color: #f4516c !important;
     color: white !important;
+}
+.table tbody{
+    max-height: 260px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 100%;
 }
 
 .table-fixed tfoot{

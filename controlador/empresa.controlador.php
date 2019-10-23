@@ -102,4 +102,11 @@ class ControladorEmpresa{
 		return $respuesta;
 	}
 
+	static public function ctrtipoCom(){
+
+		$respuesta = ModeloEmpresa::mdltipoCom();
+
+		return $respuesta;
+	}
+
 }//class ControladorPlantilla

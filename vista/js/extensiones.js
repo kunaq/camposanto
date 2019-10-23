@@ -2,8 +2,27 @@
 
 $('.nvoRegistroUser').on('change', function(){
 	select = $(this).closest("form").find("select.selectTipoDoc").val();
-
 	$('#m_modal_1_loader').addClass('loader');
+	var ndoc = $(this).val();
+	$.ajax({
+		type:'POST',
+		url:'extensiones/captcha/verificaCliente.php',
+		data:{tipodoc:select, ndoc:ndoc},
+			success: function(response){
+				$('#m_modal_1_loader').removeClass('loader');
+				var info = JSON.parse(response);
+				if (info.cod == "1") {
+					swal({
+				        title:"",
+				        text: info.msg,
+				        type: "info",
+				        confirmButtonText: "Aceptar",
+				    });
+				    $('#nvoClienteWiz').val('');
+				}
+			}//success
+		});
+
 	if(select == 'DI001'){
 		var dni = $(this).val();
 		var url = 'extensiones/consultaReniec/consulta_reniec.php';
@@ -72,3 +91,48 @@ $('.nvoRegistroUser').on('change', function(){
 
  
 
+$('.numDocBenef').on('change', function(){
+	select = $(this).closest("form").find("select.tipoDocBenef").val();
+	console.log(select);
+
+	//$('#m_modal_1_loader').addClass('loader');
+	if(select == 'DI001'){
+		var dni = $(this).val();
+		var url = 'extensiones/consultaReniec/consulta_reniec.php';
+		$.ajax({
+		type:'POST',
+		url:url,
+		data:'dni='+dni,
+			success: function(datos_dni){
+				//$('#m_modal_1_loader').removeClass('loader');
+				var datos = eval(datos_dni);
+				//console.log(datos);
+				if(datos[1] == '' && dni != ''){
+					swal({
+				        title:"Error",
+				        text: "El DNI no figura en el registro del RENIEC.",
+				        type: "error",
+				        confirmButtonText: "Aceptar",
+				    })
+				    $('#apellPaternoBenef').val('');
+					$('#apellMaternoBenef').val('');
+					$('#nombreBenef').val('');
+				}else{
+					$('#apellPaternoBenef').val(datos[1]);
+					$('#apellMaternoBenef').val(datos[2]);
+					$('#nombreBenef').val(datos[3]);
+				}//else
+			}//success
+		});
+		return false;
+	}else if(select == ''){
+		//$('#m_modal_1_loader').removeClass('loader');
+		swal({
+	        title:"Error",
+	        text: "Debe seleccionar un tipo de documento.",
+	        type: "error",
+	        confirmButtonText: "Aceptar",
+	    })
+	    $(".tipoDoc").focus();
+	}
+});

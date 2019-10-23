@@ -418,6 +418,24 @@ class ModeloEmpresa{
 
     }
 
-    	//
+    static public function mdltipoCom(){
+
+        $db = new Conexion();                                             
+
+                $sql = $db->consulta("SELECT cod_tipo_comprobante , dsc_tipo_comprobante FROM vtama_tipo_comprobante WHERE flg_activo = 'SI'");
+ 
+                $datos = array();
+
+                while($key = $db->recorrer($sql)){
+                    $datos[] =  $key;
+                    echo '<option value="'.$key['cod_tipo_comprobante'].'">'.$key['dsc_tipo_comprobante'].'</option>';
+                }
+
+        $db->liberar($sql);
+        $db->cerrar();
+
+        return $datos;
+
+    }
 
 }//class ModeloPaises
