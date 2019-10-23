@@ -1104,3 +1104,90 @@ function anadeEndoso(cod, nombre){
         }
 }
 
+function eliminaFila(id){
+  swal({
+        title: "¿Está seguro de eliminar los elementos seleccionados?",
+        type: "question",
+        showCancelButton: !0,
+        confirmButtonText: "Si, eliminar",
+        cancelButtonText: "No, cancelar"
+    }).then(function(e) {
+        e.value ? swal({
+          title:"Eliminados", 
+          text:"Se han eliminado los elementos seleccionados.",
+          type: "success",
+          onBeforeOpen: eliminaServicio(id)          
+        }) : "cancel" === e.dismiss
+    })
+}
+
+function eliminaServicio(id){
+  $("#"+id).parents("tr").remove();
+  if ($("#bodyServicio tr").length==0) {
+    document.getElementsByClassName("Total A")[0].innerHTML = '0.00';
+    document.getElementsByClassName("Total B")[0].innerHTML = '0.00';
+    document.getElementsByClassName("Total C")[0].innerHTML = '0.00';
+    document.getElementsByClassName("Total D")[0].innerHTML = '0.00';
+    document.getElementsByClassName("Total E")[0].innerHTML = '0.00';
+    document.getElementsByClassName("Total F")[0].innerHTML = '0.00';
+    document.getElementsByClassName("Total G")[0].innerHTML = '0.00';
+    document.getElementsByClassName("Total H")[0].innerHTML = '0.00';
+    var cui = document.getElementsByClassName("Total E")[0].innerHTML;
+    document.getElementById("importeCUI").value = cui;
+    var tot = document.getElementsByClassName("Total A")[0].innerHTML;
+    document.getElementsByClassName("TotalD A")[0].innerHTML = tot;
+    document.getElementById("saldopagar").value = tot;
+    document.getElementById("saldoFinanciar").value = tot;
+    document.getElementById("cuitotal").value = cui;
+    document.getElementById("total1").value = tot;
+    document.getElementById("imp_cobertura").value = tot;
+    document.getElementById("imp_dscto").value = tot;
+    var container = document.querySelector('#bodyDscto');
+    container.querySelectorAll('tr').forEach(function (chek) {
+        $(chek).remove();
+    });
+    document.getElementsByClassName("totalEndoso")[0].innerHTML = tot;
+    var container1 = document.querySelector('#bodyCobertura');
+    cdocument.getElementById("endoso1").value = tot;
+    ontainer1.querySelectorAll('tr').forEach(function (chek) {
+        $(chek).remove();
+    });
+    $("#numCuotas").val('').trigger('change');
+    $("#interes").val('').trigger('change');
+    document.getElementById("imp_saldo_foma").value = tot;
+    $("#cuota_FOMA").val('').trigger('change');
+    aux_dia = ldt_fch_ven.getDate();
+    aux_mes1 = ldt_fch_ven.setMonth(ldt_fch_ven.getMonth() + 1);
+    var aux_mes = ldt_fch_ven.getMonth();
+    if(aux_mes == '0'){
+       aux_mes = '12';
+    }
+    aux_anio = ldt_fch_ven.getFullYear();               
+    lda_vencimiento = aux_dia+'/'+aux_mes+'/'+aux_anio;
+    $("#m_datepicker_1").datepicker({ dateFormat: 'dd/mm/yy' }).datepicker("setDate", lda_vencimiento);
+    $("#m_datepicker_2_validate").datepicker({ dateFormat: 'dd/mm/yy' }).datepicker("setDate", lda_vencimiento);
+    var container2 = document.querySelector('#bodyCronograma');
+    container2.querySelectorAll('tr').forEach(function (chek) {
+        $(chek).remove();
+    });
+    calcular();
+  }
+  else{
+    sumatabla();
+  }   
+}
+
+function eliminaFilaDscto(id){
+  $("#"+id).parents("tr").remove();
+  sumatabla();
+  cambiaTodo();
+}
+
+function eliminaFilaEndoso(id){
+  $("#"+id).parents("tr").remove();
+  if ($("#bodyCobertura tr").length==0) {
+      document.getElementsByClassName("totalEndoso")[0].innerHTML = '0.00';
+  }
+  sumatabla();
+  cambiaTodo();
+}

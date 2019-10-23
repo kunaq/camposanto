@@ -50590,38 +50590,189 @@ body {
     opacity: .8;
 }
 
-.table-fixed thead, .table-fixed tfoot {
-    width: 97%;
-}
-
-.table-fixed tbody {
-    height: 260px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    width: 100%;
-}
-
-.table-fixed tbody, .table-fixed td, .table-fixed th {
-    display: block;
-}
-
 .table-fixed th {
-    background-color: #f4516c;
-    color: white;
+    background-color: #f4516c !important;
+    color: white !important;
 }
 
-.table-fixed tbody td, .table-fixed thead > tr> th {
-    float: left;
-    border-bottom-width: 0;
+.table-fixed tfoot{
+    font-size: 11px;
 }
 
-.table-fixed tfoot > tr> td {
-    border-bottom-width: 0;
-    float: left;
+@media (min-width: 576px) {
+        
+    .table-fixed thead, .table-fixed tfoot {
+        width: 100%;
+    }
+
+    .table-fixed tbody {
+       height: 260px;
+        /*overflow-y: auto;
+        overflow-x: hidden;
+        width: 100%;*/
+    }
+
+    .table-fixed tbody, .table-fixed td, .table-fixed th {
+        /*display: block;*/
+    }
+
+    .table-fixed th {
+        background-color: #f4516c !important;
+        color: white !important;
+    }
+
+    .table-fixed tbody td, .table-fixed thead > tr> th {
+       /*float: left;*/
+       /*  border-bottom-width: 0;*/
+    }
+
+    .table-fixed tfoot > tr> td {
+        border-bottom-width: 0;
+        float: left;
+    }
+
+    .table-fixed {
+        table-layout: fixed;
+    }
+    .table-fixed tfoot {
+        position: absolute;
+     }
 }
 
-.table-fixed {
-    table-layout: fixed;
+@media (min-width: 768px) {
+    
+    .table-fixed thead, .table-fixed tfoot {
+        /*width: 97%;*/
+    }
+
+    .table-fixed tbody {
+       height: 260px;
+        /*overflow-y: auto;
+        overflow-x: hidden;
+        width: 100%;*/
+    }
+
+    .table-fixed tbody, .table-fixed td, .table-fixed th {
+        display: block;
+    }
+
+    .table-fixed tbody td, .table-fixed thead > tr> th {
+       float: left;
+       /*  border-bottom-width: 0;*/
+    }
+
+    .table-fixed tfoot > tr> td {
+        border-bottom-width: 0;
+        float: left;
+    }
+
+    .table-fixed {
+        table-layout: fixed;
+    }
+    .table-fixed tfoot {
+        position: absolute;
+     }
+}
+
+@media (min-width: 992px) {
+       
+    .table-fixed thead, .table-fixed tfoot {
+        /*width: 97%;*/
+    }
+
+    .table-fixed tbody {
+       height: 260px;
+        /*overflow-y: auto;
+        overflow-x: hidden;
+        width: 100%;*/
+    }
+
+    .table-fixed tbody, .table-fixed td, .table-fixed th {
+        display: block;
+    }
+
+    .table-fixed th {
+        background-color: #f4516c;
+        color: white;
+    }
+
+    .table-fixed tbody td, .table-fixed thead > tr> th {
+       float: left;
+       /*  border-bottom-width: 0;*/
+    }
+
+    .table-fixed tfoot > tr> td {
+        border-bottom-width: 0;
+        float: left;
+    }
+
+    .table-fixed {
+        table-layout: fixed;
+    }
+    .table-fixed tfoot {
+        position: absolute;
+        margin-top: -1.5rem;
+     }
+}
+
+@media (min-width: 1200px) {
+        
+    .table-fixed thead, .table-fixed tfoot {
+        /*width: 97%;*/
+    }
+
+    .table-fixed tbody {
+       height: 260px;
+        /*overflow-y: auto;
+        overflow-x: hidden;
+        width: 100%;*/
+    }
+
+    .table-fixed tbody, .table-fixed td, .table-fixed th {
+        display: block;
+    }
+
+    .table-fixed th {
+        background-color: #f4516c;
+        color: white;
+    }
+
+    .table-fixed tbody td, .table-fixed thead > tr> th {
+       float: left;
+         border-bottom-width: 0;
+    }
+
+    .table-fixed tfoot > tr> td {
+        border-bottom-width: 0;
+        float: left;
+    }
+
+    .table-fixed {
+        table-layout: fixed;
+    }
+    .table-fixed tfoot {
+        position: absolute;
+        margin-top: -1.5rem;
+     }
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
 }
 
 .stickResumen{
@@ -50655,20 +50806,20 @@ body {
     color: red;
 }
 .tdDscServicioAdd{
-    width: 18rem;
+    width: 16.5rem;
 }
 .tdCtdServicioAdd{
-    width: 5rem;
+    width: 4rem;
 }
 .tdPrecioListaServicioAdd{
     text-align: right;
     padding-top:15px;
-    width: 7rem;
+    width: 6rem;
 }
 .tdPrecioVentaServicioAdd{
     text-align: right;
     padding-top:15px;
-    width:7rem;
+    width:6.5rem;
 }
 .tdImpDsctoServicioAdd{
     text-align: right;
@@ -50677,15 +50828,15 @@ body {
 .tdImpTotalServicioAdd{
     text-align: right;
     padding-top:15px;
-    width:7.5rem;
+    width:7rem;
 }
 .tdFomaServicioAdd{
     text-align: right;
-    width:6.7rem; 
+    width:6rem; 
 }
 .tdImpCarenciaServicioAdd{
     text-align: right;
-    width:9.5rem;
+    width:6.5rem;
 }
 .tdImpCuiServicioAdd{
     text-align: right;
@@ -50693,16 +50844,158 @@ body {
 }
 .tdImpEndosoServicioAdd{
     text-align: right;
-    width:8rem;
+    width:6.5rem;
 }
 .tdImpSaldoServicioAdd{
     text-align: right;
     padding-top:15px;
-    width:7rem;
+    width:6rem;
 }
 .tdAccionServicioAdd{
     text-align: center;
     vertical-align: sub;
     padding-top:15px;
     width:3rem;
+}
+#bodyServicio{
+    font-size: 11px;
+}
+.tdDsctoCod{
+    text-align: center;
+    width: 8rem;
+}
+.tdDsctoDsc{
+    width: 20.6rem;
+}
+.tdDsctoMon{
+    text-align: center;
+    width: 6rem;
+}
+.tdDsctoVal{
+    text-align: right;
+    width: 13rem;
+}
+.tdDsctoLib{
+    text-align: center;
+    padding-top:15px;
+    width: 8rem;
+}
+.tdDsctoPor{
+    text-align: center;
+    padding-top:15px;
+    width: 8rem;
+}
+.tdDsctoFin{
+    text-align: right;
+    width: 15rem;
+}
+.tdDsctoAcc{
+    text-align: center;
+    width: 5.4rem;
+}
+.tdEndDsc{
+    padding-left:30px;
+    width: 30rem;
+}
+.tdEndFchVen{
+    text-align: center;
+    padding-top:15px;
+    width: 18rem;
+}
+.tdEndMon{
+    text-align: center;
+    width: 6rem;
+}
+.tdEndVal{
+    text-align: right;
+    width: 19rem;
+}
+.tdEndAcc{
+    text-align: center;
+    vertical-align: sub;
+    padding-top:18px;
+    width: 8rem;
+}
+.ulListaKqPst{
+  background-color: #ffe4e8 !important;
+  display: block;
+  height: 53rem;
+  overflow-y: scroll;
+}
+.liListaKqPstPar{
+    /*border-bottom:2px solid #f55753;*/
+    background-color: #ffe4e8 !important;
+}
+.liListaKqPstPar:hover,.liListaKqPstImpar:hover{
+    background-color: #f39aa8 !important;
+}
+.liListaKqPstImpar{
+    /*border-bottom:2px solid #f55753;*/
+    background-color: #ffd1d8 !important;
+}
+.liListaKqPstActive{
+    /*border-bottom:2px solid #f55753;*/
+    background-color: #f39aa8 !important;
+}
+.btnAgregarKqPst{
+    /*background-color: #dc2c32;
+    border-color: #922326;*/
+    background-color: #498ebd;
+    border-color: #285879;
+}
+.btnAgregarKqPst:hover,.btnAgregarKqPst:focus,.btnAgregarKqPst:active{
+    background-color: #3979a5 !important;
+    border-color: #3979a5 !important;
+}
+.btnAgregarKqPst2{
+    /*background-color: #dc2c32;
+    border-color: #922326;*/
+    background-color: #1f7184;
+    border-color: #185563;
+}
+.btnAgregarKqPst2:hover,.btnAgregarKqPst2:focus,.btnAgregarKqPst2:active{
+    background-color: #185563 !important;
+    border-color: #0d333c !important;
+}
+.vertical-middle-kqPst{
+  vertical-align: middle !important;
+}
+.btnEditarKqPst{
+    background-color: #2cb54bd1 !important;
+    border-color: #3d9250 !important;
+}
+.btnEditarKqPst:hover,.btnEditarKqPst:focus,.btnEditarKqPst:active{
+    background-color: #3d9050 !important;
+    border-color: #2e6d3c !important;
+}
+.btnEditarKqPst2{
+    background-color: #d4ad33 !important;
+    border-color: #c3a443 !important;
+}
+.btnEditarKqPst2:hover,.btnEditarKqPs2:focus,.btnEditarKqPst2:active{
+    background-color: #bf9d33 !important;
+    border-color: #8e7528 !important;
+}
+.btnGuardarKqPst{
+    background-color: #795548 !important;
+    border-color: #4e3830 !important;
+}
+.btnGuardarKqPst:hover,.btnGuardarKqPst:focus,.btnGuardarKqPst:active{
+    background-color: #694e44 !important;
+    border-color: #352722 !important;
+}
+.fieldFormHorizontal{
+  border: 1px solid #e4e1e1;
+}
+.fieldFormHorizontal legend{
+  background-color: #fafafa;
+  font-size: 1.2rem;
+}
+.spanTextoActiveKq{
+    /*font-weight: bold;*/
+    color: #000;
+}
+
+ul >li, ol > li{
+    line-height: 24px;
 }

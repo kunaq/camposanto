@@ -28,7 +28,7 @@ require_once "../../modelo/conexion.php";
             $ls_flg_ds_temporal = $key['flg_ds_temporal'];
             $ls_flg_ssf = $key['flg_sfunerario'];*/
             
-            echo "<tr height='100' name='".$cod."' id='".$cod."' >
+            echo "<tr height='60' name='".$cod."' id='".$cod."' >
                     <td class='tdDscServicioAdd'>
                       ".$key['dsc_servicio']."
                       <input type='hidden' value=".$key['flg_afecto_igv']." id='flg_afecto_igv_".$cod."'>
@@ -82,7 +82,7 @@ require_once "../../modelo/conexion.php";
                       <input type='hidden' value=".$impTot." class='form-control form-control-sm m-input numH' id='numH1_".$cod."'>
                     </td>
                     <td class='tdAccionServicioAdd'>
-                      <button class='btn btn-danger m-btn elimina' type='button' data-toggle='m-tooltip' data-container='body' data-placement='top' title='' data-original-title='Eliminar servicio' id='elimina_".$cod."'>
+                      <button class='btn btn-danger m-btn m_sweetalert_elimina_servicio' type='button' data-toggle='m-tooltip' data-container='body' data-placement='top' title='' data-original-title='Eliminar servicio' onclick='eliminaFila(this.id);' id='elimina_".$cod."'>
                           <i class='fa fa-trash'></i>
                         </button>
                     </td>

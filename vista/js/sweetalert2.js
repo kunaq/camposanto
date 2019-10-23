@@ -59,7 +59,8 @@ var SweetAlert2Demo = {
                 customClass: "animated tada"
             })
         }),
-        $("#m_sweetalert_demo_8").click(function(e) {
+        $(".m_sweetalert_elimina_servicio").click(function(e) {
+            console.log(this.id);
         	var nFilas = $("#bodyServicio tr").length;
         	if(nFilas == 0){
 
@@ -192,6 +193,7 @@ jQuery(document).ready(function() {
 
 function igual0(){
 	document.querySelectorAll('.elimina').forEach(function (chek) {
+        console.log('llego igual0');
 		if(chek.checked){
 			$(chek).parents("tr").remove();
 			if ($("#bodyServicio tr").length==0) {

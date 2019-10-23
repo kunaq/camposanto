@@ -15,6 +15,8 @@
 			</div>
 		</div>
 		<!--end: Portlet Head-->
+		<div class="m-portlet__body">
+		<!--begin: Portlet Body-->	
 <!--begin: Form Wizard-->
 		<div class="m-wizard m-wizard--2 m-wizard--danger" id="m_wizard">
 			<!--begin: Message container -->
@@ -42,7 +44,7 @@
 							</a>
 							<div class="m-wizard__step-info">
 								<div class="m-wizard__step-title">
-									1. Información general
+									1. Inf. general
 								</div>
 							</div>
 						</div>
@@ -97,7 +99,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="m-separator m-separator--dashed m-separator--lg"></div>
+			<div class="m-separator m-separator--dashed m-separator--lg" style="margin: 40px 0 -10px 0;"></div>
 			<div class="m-wizard__form">
 				<form class="m-form m-form--label-align-left- m-form--state-" id="m_form">
 					<!--begin: Form Body -->
@@ -491,12 +493,7 @@
 <!--begin: Form Wizard Step 2-->
 						<div class="m-wizard__form-step" id="m_wizard_form_step_2">
 							<div class="row">
-								<div class="col-sm-10 col-md-4">
-									<label>
-										<h5>Servicios principales (Planes y/o adicionales)</h5>
-									</label>
-								</div>
-								<div class="col-sm-2 col-md-1">
+								<div class="col-sm-2 offset-sm-10 col-md-1 offset-md-11">
 									<div class="row">
 										<div class="col-lg-12">
 											<p style="text-align: center;"><button  class="btn btn-metal m-btn m-btn--icon m-btn--icon-only m-btn--pill" data-placement="top" data-toggle="m-tooltip" data-container="body" data-original-title="Para modificación se tomará como descuento lo ya pagado."><i class="fa fa-question"></i></button>
@@ -504,128 +501,124 @@
 										</div>
 									</div>
 								</div>
-								<div class="col-sm-6 col-md-2 offset-md-3" style="align-self:start">		
-									<label class="">
-										<h5>CUI</h5>
+							</div>
+							<div class="row">
+								<div class="col-sm-10 col-md-6">
+									<label>
+										<h4>Servicios principales (Planes y/o adicionales)</h4>
 									</label>
+								</div>
+								<div class="col-sm-6 col-md-3 offset-md-2" style="align-self:start; margin-right: -0.7rem;">		
 									<div class="row">
-										<div class="col-lg-4">
+										<div class="col-lg-6">
 											<label class="">
-											Importe:
+											Importe CUI:
 											</label>
 										</div>
-										<div class="col-lg-8"> 
+										<div class="col-lg-6"> 
 											<div class="input-group">
 												<input type="text" class="form-control m-input" id="importeCUI" name="importeCUI" placeholder="0,00" onchange="cambiaCUI();" style="text-align: right;">
 											</div>
 										</div>
 									</div>
 								</div>
-								<div class="col-sm-6 col-md-2">
+								<div class="col-sm-6 col-md-1">
 									<div class="row">
-										<div class="col-lg-6" style="text-align: right;">
+										<div class="col-lg-12" style="text-align: right;">
 											<span data-toggle="modal" data-target="#m_modal_6">
 												<button class="btn btn-success m-btn" type="button" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Añadir servicio" onclick="callTablaServiciosAdic();">
 													<i class="fa fa-plus"></i>
 												</button>
 											</span>
 										</div>
-										<div class="col-lg-6">
-											<span >
-												<button class="btn btn-danger m-btn" type="button" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Eliminar servicio" id="m_sweetalert_demo_8">
-													<i class="fa fa-minus"></i>
-												</button>
-											</span>
-										</div>
 									</div>
 								</div>
-								
 							</div>
 							<div class="form-group m-form__group row">
 								<div class="col-lg-12">
 									<div class="m-input-icon m-input-icon--right">
 										<div class="m-section m-demo m-demo__preview">
-											<div class="m-section__content" data-max-height="380">
+											<div class="m-section__content " data-max-height="380">
 												<div class="table-responsive">
                		 							<table class="table table-fixed" id="servAgregados">
 													<thead style="text-align: center;">
 														<tr>
-															<th style="width:18rem;">
+															<th style="width:16.4rem;">
 																Servicio
 															</th>
-															<th style="width:5rem;">
+															<th style="width:4rem;">
 																Ctd
 															</th>
-															<th style="width:7rem;">
+															<th style="width:6.5rem;">
 																P. lista
 															</th>
-															<th style="width:7rem;">
+															<th style="width:6.5rem;">
 																P. venta
 															</th>
 															<th style="width:7.5rem;">
 																Imp. Dscto
 															</th>
-															<th style="width:7.5rem;">
+															<th style="width:6.5rem;">
 																Imp. total
 															</th>
-															<th style="width:6.7rem;">
+															<th style="width:6rem;">
 																FOMA
 															</th>
-															<th style="width:9.5rem;">
-																Imp. carencias
+															<th style="width:6.5rem;">
+																Carencia
 															</th>
 															<th style="width:6.5rem;">
 																Imp. CUI
 															</th>
-															<th style="width:8rem;">
-																Imp. endoso
+															<th style="width:6.5rem;">
+																Endoso
 															</th>
-															<th style="width:7rem;">
-																Imp. saldo
+															<th style="width:6rem;">
+																Saldo
 															</th>
-															<th style="width:5rem;">
+															<th style="width:4.7rem;">
 																Acción
 															</th>
 														</tr>
 													</thead>
-													<tbody id="bodyServicio">	
+													<tbody  id="bodyServicio">
 													</tbody>
 													<tfoot >
 														<tr>
-															<td width="15%" >
+															<td style="width:15rem;" >
 																&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 															</td>
-															<td width="8%">
+															<td style="width:6rem;">
 																&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 															</td>
-															<td style="text-align: center;" class="Total" width="8%">
+															<td style="text-align: center; width:6rem;" class="Total">
 																<b>Totales:</b>
 															</td>
-															<td style="text-align: right;" class="Total A" width="7%">
+															<td style="text-align: right; width: 6rem;" class="Total A">
 																0.00
 															</td>
-															<td style="text-align: right;" class="Total B" width="7%">
+															<td style="text-align: right; width:7rem; " class="Total B">
 																0.00
 															</td>
-															<td style="text-align: right;" class="Total C" width="8%">
+															<td style="text-align: right;width:7.5rem;" class="Total C">
 																0.00
 															</td>
-															<td style="text-align: right;" class="Total D" width="8%">
+															<td style="text-align: right;width:6rem;" class="Total D">
 																0.00
 															</td>
-															<td style="text-align: right;" class="Total E" width="7%">
+															<td style="text-align: right;width:6.5rem;" class="Total E">
 																0.00
 															</td>
-															<td style="text-align: right;" class="Total F" width="8%">
+															<td style="text-align: right;width:6rem;" class="Total F">
 																0.00
 															</td>
-															<td style="text-align: right;" class="Total G" width="8%">
+															<td style="text-align: right;width: 6rem;" class="Total G" width="8%">
 																0.00
 															</td>
-															<td style="text-align: right;" class="Total H" width="8%">
+															<td style="text-align: right;width: 7rem;" class="Total H" width="8%">
 																0.00
 															</td>
-															<td style="text-align: right;" width="2%">
+															<td style="text-align: right;width: 3rem;" width="2%">
 																&nbsp;
 															</td>
 														</tr>
@@ -637,136 +630,88 @@
 									</div>
 								</div>
 							</div>
-							<div class="form-group m-form__group row">
-								<div class="col-lg-10">
+							<div class="row">
+								<div class="col-sm-2 offset-sm-10 col-md-1 offset-md-11">
+									<p style="text-align: center;"><button  class="btn btn-metal m-btn m-btn--icon m-btn--icon-only m-btn--pill" data-placement="top" data-toggle="m-tooltip" data-container="body" data-original-title="Ingrese los descuentos que van a reducir el precio total por los servicios adquiridos por el usuario."><i class="fa fa-question"></i></button>
+									</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-10 col-md-6">
 									<label>
-										<h5>Descuentos</h5>
+										<h4>Descuentos</h4>
 									</label>
+								</div>
+								<div class="col-sm-6 col-md-1 offset-md-5">
+									<span data-toggle="modal" >
+										<button class="btn btn-success m-btn" type="button" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Añadir descuento" onclick="callTablaDscto();">
+											<i class="fa fa-plus"></i>
+										</button>
+									</span>		
+								</div>
+							</div>
+							<div class="form-group m-form__group row">
+								<div class="col-lg-12">
 									<div class="m-input-icon m-input-icon--right">
 										<div class="m-section  m-demo m-demo__preview">
 											<div class="m-section__content" data-max-height="320">
 												<div class="table-responsive">
-												<table class="table table-fixed">
-													<thead style="text-align: center;">
+													<table class="table table-fixed">
+														<thead style="text-align: center;">
 															<tr>
-																<th width="10%">
+																<th style="width: 8rem;">
 																	Código
 																</th>
-																<th width="20%">
+																<th style="width: 20.6rem;">
 																	Descripción del descuento
 																</th>
-																<th width="10%">
+																<th style="width: 6rem;">
 																	M
 																</th>
-																<th width="15%">
+																<th style="width: 13rem;">
 																	Valor del dscto
 																</th>
-																<th width="10%">
+																<th style="width: 8rem;">
 																	Dscto libre
 																</th>
-																<th width="10%">
+																<th style="width: 8rem;">
 																	Dscto %
 																</th>
-																<th width="15%">
+																<th style="width: 15rem;">
 																	Descuento final 
 																</th>
-																<th width="10%">
+																<th style="width: 5.4rem;">
 																	Acción
 																</th>
 															</tr>
 														</thead>
-														<tbody id="bodyDscto">
-															
-														</tbody>
+														<tbody id="bodyDscto"></tbody>
 														<tfoot>
-														<tr>
-															<td width="10">
-																&nbsp;
-															</td>
-															<td style="text-align: center;" width="300">
-																&nbsp;
-															</td>
-															<td style="text-align: center;" width="30">
-																&nbsp;
-															</td>
-															<td style="text-align: right;" width="250">
-																&nbsp;
-															</td>
-															<td style="text-align: right;" width="150">
-																<b>Total S/:</b>
-															</td>
-															<td style="text-align: right;" width="30">
-																&nbsp;
-															</td>
-															<td style="text-align: right;" class="TotalD A" width="150">
-																0,00
-															</td>
-														</tr>
-														<tr>
-															<td width="10">
-																&nbsp;
-															</td>
-															<td style="text-align: center;" width="300">
-																&nbsp;
-															</td>
-															<td style="text-align: center;" width="30">
-																&nbsp;
-															</td>
-															<td style="text-align: right;" width="250">
-																&nbsp;
-															</td>
-															<td style="text-align: right;" width="150">
-																<b>Total USD:</b>
-															</td>
-															<td style="text-align: right;" width="30">
-																&nbsp;
-															</td>
-															<td style="text-align: right;" width="150">
-																0,00
-															</td>
-														</tr>
-													</tfoot>
-												</table>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-2">
-									<br><br><br>
-									<div class="row">
-										<div class="col-lg-12">
-											<div class="m-demo">
-												<div class="m-demo__preview" style="padding:10px;">
-													<div class="row">
-														<div class="col-lg-6" style="text-align: right;">
-															<span data-toggle="modal" >
-																<button class="btn btn-success btn-lg m-btn" type="button" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Añadir descuento" onclick="callTablaDscto();">
-																	<i class="fa fa-plus"></i>
-																</button>
-															</span>
-														</div>
-														<div class="col-lg-6">
-															<span >
-																<button class="btn btn-danger btn-lg m-btn" type="button" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Eliminar descuento" id="m_sweetalert_demo_9">
-																	<i class="fa fa-minus"></i>
-																</button>
-															</span>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-									<br>
-									<div class="row" >
-										<div class="m-demo">
-											<div class="m-demo__preview" style="padding:10px;">
-												<div>
-													<p style="text-align: center;"><button disabled="disabled" class="btn btn-metal m-btn m-btn--icon btn-lg m-btn--icon-only  m-btn--pill"><i class="fa fa-question"></i></button>
-													<br><br>
-
-													Ingrese los descuentos que van a reducir el precio total por los servicios adquiridos por el usuario.</p>
+															<tr>
+																<td style="width: 8rem;">
+																	&nbsp;
+																</td>
+																<td style="text-align: center;width: 20.6rem;">
+																	&nbsp;
+																</td>
+																<td style="text-align: center;width: 6rem;">
+																	&nbsp;
+																</td>
+																<td style="text-align: right;width: 13rem;">
+																	&nbsp;
+																</td>
+																<td style="text-align: right;width: 8rem;">
+																	<b>Total S/:</b>
+																</td>
+																<td style="text-align: right;width: 8rem;">
+																	&nbsp;
+																</td>
+																<td style="text-align: right;width: 15rem;" class="TotalD A">
+																	0,00
+																</td>
+															</tr>	
+														</tfoot>
+													</table>
 												</div>
 											</div>
 										</div>
@@ -774,113 +719,82 @@
 								</div>
 							</div>
 							<div class="form-group m-form__group row">
-								<div class="col-lg-9">
+								<div class="col-sm-10 col-md-6">
 									<label>
-										<h5>Coberturas (Endosos)</h5>
+										<h4>Coberturas (Endosos)</h4>
 									</label>
-									<div class="m-input-icon m-input-icon--right">
-										<div class="m-section  m-demo m-demo__preview">
-											<div class="m-section__content table-responsive-m" data-scrollbar-shown="true" data-scrollable="true" data-max-height="400"">
-												<div class="table-responsive">
-												<table class="table table-fixed">
-													<thead style="text-align: center;">
-														<tr>
-															<th width="30%">
-																Entidad
-															</th>
-															<th width="30%">
-																Fecha de vencimiento
-															</th>
-															<th width="10%">
-																M
-															</th>
-															<th width="20%">
-																Importe
-															</th>
-															<th width="10%">
-																Acción
-															</th>
-														</tr>
-													</thead>
-													<tbody id="bodyCobertura">
-														
-													</tbody>
-													<tfoot>
-														<tr>
-															<td style="text-align: right;" width="400">
-																&nbsp;
-															</td>
-															<td style="text-align: right;" width="220">
-																<b>Total S/:</b>
-															</td>
-															<td style="text-align: right;" width="30">
-																&nbsp;
-															</td>
-															<td style="text-align: right;" class="totalEndoso" width="220">
-																0,00
-															</td>
-														</tr>
-														<tr>	
-															<td style="text-align: right;" width="400">
-																&nbsp;
-															</td>
-															<td style="text-align: right;" width="220">
-																<b>Total USD:</b>
-															</td>
-															<td style="text-align: right;" width="30">
-																&nbsp;
-															</td>
-															<td style="text-align: right;" width="220">
-																0,00
-															</td>
-														</tr>
-													</tfoot>
-												</table>
-												</div>
-											</div>
-										</div>
-									</div>
 								</div>
-								<div class="col-lg-3">
-									<br><br><br>
+								<div class="col-sm-6 col-md-4 offset-md-1" style="align-self:start; margin-right: -0.2rem;">		
 									<div class="row">
-										<div class="col-lg-7 offset-lg-2">
-											<div class="m-demo">
-												<div class="m-demo__preview" style="padding:10px;">
-													<div class="row">
-														<div class="col-lg-6" style="text-align: right;">
-															<span data-toggle="modal" >
-																<button class="btn btn-success btn-lg m-btn" type="button" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Añadir descuento" onclick="callTablaEndoso();">
-																	<i class="fa fa-plus"></i>
-																</button>
-															</span>
-														</div>
-														<div class="col-lg-6">
-															<span >
-																<button class="btn btn-danger btn-lg m-btn" type="button" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Eliminar descuento" id="m_sweetalert_demo_10">
-																	<i class="fa fa-minus"></i>
-																</button>
-															</span>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-									<br>
-									<div class="row" >
-										<div class="col-lg-4">
+										<div class="col-md-6">
 											<label class="">
 											Importe total en S/.:
 											</label>
 										</div>
-										<div class="col-lg-6"> 
+										<div class="col-md-6"> 
 											<div class="input-group">
 												<input type="text" disabled class="form-control m-input" id="endoso1" name="endoso1" placeholder="0,00" style="text-align: right;">
 											</div>
 										</div>
 									</div>
-								</div>	
+								</div>
+								<div class="col-sm-6 col-md-1" style="text-align: center;">
+									<span data-toggle="modal" >
+										<button class="btn btn-success m-btn" type="button" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Añadir descuento" onclick="callTablaEndoso();">
+											<i class="fa fa-plus"></i>
+										</button>
+									</span>
+								</div>
+							</div>
+								<div class="col-lg-12">
+									<div class="m-input-icon m-input-icon--right">
+										<div class="m-section  m-demo m-demo__preview">
+											<div class="m-section__content table-responsive-m" data-scrollbar-shown="true" data-scrollable="true" data-max-height="320"">
+												<div class="table-responsive">
+												<table class="table table-fixed">
+													<thead style="text-align: center;">
+														<tr>
+															<th style="width:30rem;">
+																Entidad
+															</th>
+															<th style="width:18rem;">
+																Fecha de vencimiento
+															</th>
+															<th style="width:6rem;">
+																M
+															</th>
+															<th style="width:19rem">
+																Importe
+															</th>
+															<th style="width:8.3rem">
+																Acción
+															</th>
+														</tr>
+													</thead>
+													<tbody id="bodyCobertura">	
+													</tbody>
+													<tfoot>
+														<tr>
+															<td style="text-align: right;width:30rem;">
+																&nbsp;
+															</td>
+															<td style="text-align: right;width:18rem;">
+																<b>Total S/:</b>
+															</td>
+															<td style="text-align: right;width:6rem;">
+																&nbsp;
+															</td>
+															<td style="text-align: right;width:19rem" class="totalEndoso">
+																0,00
+															</td>
+														</tr>
+													</tfoot>
+												</table>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
 								
 						</div>
@@ -1829,6 +1743,8 @@
 			<!--end: Form Wizard Form-->
 		</div>
 		<!--end: Form Wizard-->
+		</div>
+		<!--End::Portlet Body-->
 	</div> 
 	<!--End::Main Portlet-->
 </div>

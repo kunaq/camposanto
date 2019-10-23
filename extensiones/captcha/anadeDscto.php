@@ -47,13 +47,17 @@ require_once "../../modelo/conexion.php";
                               %
                             </span>
                           </div>";
+                  $checkLib = '';
+                  $checkPor = "<i class='fa fa-check'></i>";
                 }
                 else{
                   $dscto_final = $lde_importe;
                   $vista = '';
+                  $checkLib = "<i class='fa fa-check'></i>";
+                  $checkPor = "";
                 }
               echo "<tr height='50' name='".$cod."' id='".$cod."' >
-                      <td width='100' style='text-align: center;'>
+                      <td class='tdDsctoCod'>
                         ".$cod."
                         <input type='hidden' value=".$cod." id='cod_tipo_descuento_".$cod."'>
                         <input type='hidden' value='NO' id='flg_modif_contrato_".$cod."'>
@@ -61,32 +65,34 @@ require_once "../../modelo/conexion.php";
                         <input type='hidden' value='".$ls_flg_periodo."' id='flg_periodo_carencia_".$cod."'>
                         <input type='hidden' value='".$ls_flg_porcentaje."' id='ls_flg_porcentaje_".$cod."'>
                       </td>
-                      <td width='200'>
+                      <td class='tdDsctoDsc'>
                         ".$nombre."
                       </td>
-                      <td style='text-align: center;' width='90'>
+                      <td class='tdDsctoMon'>
                         <select class='form-control m-input' name='cod_moneda' id='cod_moneda' disabled style='padding-right:1rem;'>
                           <option value='SOL' selected>S/.</option>
                           <option value='DOLAR'>$</option>
                         </select>
                       </td>
-                      <td style='text-align: right;' width='180'>
+                      <td class='tdDsctoVal'>
                         <div class='input-group'>                   
-                          <input type='text'  id='imp_valor_".$cod."' ".$dis." name='imp_valor_".$cod."' class='form-control m-input' value='".$lde_importe."' style='text-align: right; padding-right:15px;'>
+                          <input type='text'  id='imp_valor_".$cod."' ".$dis." name='imp_valor_".$cod."' class='form-control m-input' value='".$lde_importe."' onchange='sumaDscto();' style='text-align: right; padding-right:15px;'>
                           ".$vista."
                         </div
                       </td>
-                      <td style='text-align: center; padding-top:15px;' width='100'>
-                        
+                      <td class='tdDsctoLib'>
+                      ".$checkLib."
                       </td>
-                      <td style='text-align: center; padding-top:15px;' width='100'>
-                        <i class='fa fa-check'></i>
+                      <td class='tdDsctoPor'>
+                        ".$checkPor."
                       </td>
-                      <td style='text-align: right;' width='180'>
+                      <td class='tdDsctoFin'>
                         <input type='text'  id='imp_monto_".$cod."' name='imp_monto_".$cod."' class='form-control m-input numDsctoA' value='".$dscto_final."' disabled style='text-align: right;'>
                       </td>
-                      <td style='text-align: center; vertical-align: sub;' width='50'>
-                        <input type='checkbox' class='m-checkbox eliminaDscto' id='eliminaDscto_".$cod."'>
+                      <td class='tdDsctoAcc'>
+                        <button class='btn btn-danger m-btn m_sweetalert_elimina_servicio' type='button' data-toggle='m-tooltip' data-container='body' data-placement='top' title='' data-original-title='Eliminar servicio' onclick='eliminaFilaDscto(this.id);' id='eliminaDscto_".$cod."'>
+                          <i class='fa fa-trash'></i>
+                        </button>
                       </td>
                     </tr>";  
              
