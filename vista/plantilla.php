@@ -70,7 +70,9 @@ $_SESSION['captcha'] = simple_php_captcha();
 		        			$_GET["ruta"] == "genContrato" ||
 		        			$_GET["ruta"] == "wizard" ||
 		        			$_GET["ruta"] == "wizard--" ||
-		        			$_GET["ruta"] == "periodo-venta"){
+		        			$_GET["ruta"] == "periodo-venta" ||
+		        			$_GET["ruta"] == "arbol-vendedores" ||
+		        			$_GET["ruta"] == "listado-prospectos"){
 
 		           		   	include "modulos/".$_GET["ruta"].".php";
 
@@ -128,7 +130,9 @@ $_SESSION['captcha'] = simple_php_captcha();
         <?php
         if(isset($_GET["ruta"])){
             if($_GET["ruta"] == 'wizard' ||
-        		$_GET["ruta"] == 'periodo-venta'){  
+        		$_GET["ruta"] == 'periodo-venta' ||
+        		$_GET["ruta"] == 'arbol-vendedores' ||
+        		$_GET["ruta"] == 'listado-prospectos'){  
                 echo '<script type="text/javascript" src="vista/js/'.$_GET["ruta"].'.js"></script>';
             }
         }
@@ -150,6 +154,7 @@ $_SESSION['captcha'] = simple_php_captcha();
     	<script src="vista/assets/vendors/custom/datatables.net-bs/js/responsive.bootstrap.min.js"></script>
     	<!--datepicker-->
     	<script src="vista/assets/vendors/custom/bootstrap-datepicker.js" type="text/javascript"></script>
+    	<script src="vista/assets/vendors/custom/bootstrap-datetimepicker.js" type="text/javascript"></script>
     	<script src="vista/assets/demo/demo3/base/typeahead.js" type="text/javascript"></script>
     	<script src="vista/js/login.js" type="text/javascript"></script>
     	<script src="vista/js/lafuncion.js" type="text/javascript"></script>

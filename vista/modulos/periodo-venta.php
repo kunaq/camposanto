@@ -55,39 +55,15 @@
 								</div>
 							</a>	
 						</li>
-						<?php
-						// $respuesta = ControladorAnio::ctrMostrarAnioPeriodo();
-						// foreach ($respuesta as $key => $value) {
-						// 	if($key == 0){
-						// 		$classRespuesta = ' liListaKqPstImpar';
-						// 	}else if($key%2 == 0){
-						// 		$classRespuesta = 'liListaKqPstImpar';
-						// 	}else{
-						// 		$classRespuesta = 'liListaKqPstPar';
-						// 	}
-						// 	$periodo = nombrePeriodo($value['cod_periodo']);
-							// echo '<li class="nav-item '.$classRespuesta.'">
-							// 	<a href="#" id='.$value["cod_anno"].'|'.$value["cod_periodo"].'|'.$value["cod_estado"].' data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
-							// 		<div class="row">
-							// 			<div class="col-md-3">'.$value["cod_anno"].'</div>
-							// 			<div class="col-md-3">'.$periodo.'</div>
-							//			<div class="col-md-3">'.$value["fch_inicio"].'</div>
-							//			<div class="col-md-3">'.$value["fch_fin"].'</div>
-							// 		</div>
-							// 	</a>
-							// 	</li>';
-						// }//foreach
-						?>
 					</ul>							
 					<div class="tab-content-active bg-white divFormularioKqPst col-sm-10 col-md-7" style="align-self: auto;padding-top: 1rem;">
 						<div class="tab-pane slide-left" id="tabConfigPeriodo">
 							<form enctype="multipart/form-data" id="formConfigPeriodo" role="form" method="POST">
 								<div class="row">
 									<div class="col-md-12">
-										<span id="tituloPeriodoCerrado"></span>
 										<p class="pull-right">
-											<button type="button" class="btn btn-sm btn-primary btnAgregarKqPst2" title="Crear año" id="btnAgregarGestor"  style="margin-right:6px;"><i class="fa fa-plus"></i></button>	
-											<button type="button" class="btn btn-sm btn-primary btnGuardarKqPst" title="Copiar año siguiente" id="btnGuardarCambios"><i class="fa fa-copy"></i></button>
+											<button type="button" class="btn btn-sm btn-primary btnGuardarKqPst" title="Crear año" id="btnAgregarGestor"  style="margin-right:6px;"><i class="fa fa-plus"></i></button>	
+											<button type="button" class="btn btn-sm btn-primary btnEditarKqPst2" title="Copiar año siguiente" id="btnGuardarCambios"><i class="fa fa-copy"></i></button>
 										</p>										
 									</div>
 								</div>
@@ -96,13 +72,13 @@
 										<label>Periodo:</label>
 									</div>
 									<div class="col-lg-4">
-										<input type="text" class="form-control m-input" name="" id="">
+										<input type="text" disabled class="form-control m-input" name="" id="">
 									</div>
 									<div class="col-lg-2">
 										<label>Mes:</label>
 									</div>
 									<div class="col-lg-4">
-										<input type="text" class="form-control m-input" name="" id="">
+										<input type="text" disabled class="form-control m-input" name="" id="">
 									</div>	
 								</div>
 								<br>
@@ -111,7 +87,7 @@
 										<label>Descripción:</label>
 									</div>
 									<div class="col-lg-10">
-										<input type="text" class="form-control m-input" name="" id="">
+										<input type="text" disabled class="form-control m-input" name="" id="">
 									</div>
 								</div>
 								<br>
@@ -120,13 +96,27 @@
 										<label>Fecha Inicio:</label>
 									</div>
 									<div class="col-lg-4">
-										<input type="text" class="form-control m-input" name="" id="">
+										<div class="input-group date">
+											<input type="text" class="form-control m-input"  id="fchIniPerVen" name="fchIniPerVen" data-date-format="mm/dd/yyyy" value="<?php echo date('m/d/Y', strtotime(date('m/d/Y').'+ 1 month')); ?>"/>
+											<div class="input-group-append">
+												<span class="input-group-text">
+													<i class="la la-calendar-check-o"></i>
+												</span>
+											</div>
+										</div>
 									</div>
 									<div class="col-lg-2">
 										<label>Fecha Fin:</label>
 									</div>
 									<div class="col-lg-4">
-										<input type="text" class="form-control m-input" name="" id="">
+										<div class="input-group date">
+											<input type="text" class="form-control m-input"  id="fchFinPerVen" name="fchFinPerVen" data-date-format="mm/dd/yyyy" value="<?php echo date('m/d/Y', strtotime(date('m/d/Y').'+ 1 month')); ?>"/>
+											<div class="input-group-append">
+												<span class="input-group-text">
+													<i class="la la-calendar-check-o"></i>
+												</span>
+											</div>
+										</div>
 									</div>	
 								</div>
 								<br>
@@ -135,13 +125,16 @@
 										<label>Periodo anterior:</label>
 									</div>
 									<div class="col-lg-4">
-										<input type="text" class="form-control m-input" name="" id="">
+										<input type="text" disabled class="form-control m-input" name="" id="">
 									</div>
 									<div class="col-lg-2">
 										<label>Estado:</label>
 									</div>
 									<div class="col-lg-4">
-										<input type="text" class="form-control m-input" name="" id="">
+										<select class="form-control m-input m-select2 m-select2-general" name="edoPerVen" id="edoPerVen">
+											<option value="ABI">ABIERTO</option>
+											<option value="CER">CERRADO</option>
+										</select>
 									</div>	
 								</div>
 								<br>
@@ -153,7 +146,7 @@
 												<label>Fecha Cierre:</label>
 											</div>
 											<div class="col-lg-4">
-												<input type="text" class="form-control m-input" name="" id="">
+												<input type="text" disabled class="form-control m-input" name="" id="">
 											</div>
 											<div class="col-lg-6">
 												<div class="row">
@@ -165,7 +158,7 @@
 													<div class="col-lg-6">
 														<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
 															<label>
-																<input type="checkbox" name="" id="">
+																<input type="checkbox" disabled name="" id="">
 																<span></span>
 															</label>
 														</span>
@@ -178,7 +171,7 @@
 												<label>Usuario:</label>
 											</div>
 											<div class="col-lg-4">
-												<input type="text" class="form-control m-input" name="" id="">
+												<input type="text" disabled class="form-control m-input" name="" id="">
 											</div>
 										</div>
 									</fieldset>
@@ -198,7 +191,7 @@
 													<div class="col-lg-6">
 														<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
 															<label>
-																<input type="checkbox" name="" id="">
+																<input type="checkbox" disabled name="" id="">
 																<span></span>
 															</label>
 														</span>
@@ -209,7 +202,7 @@
 												<label>Fecha:</label>
 											</div>
 											<div class="col-lg-4">
-												<input type="text" class="form-control m-input" name="" id="">
+												<input type="text" disabled class="form-control m-input" name="" id="">
 											</div>	
 										</div>
 										<div class="form-group row">
@@ -223,7 +216,7 @@
 													<div class="col-lg-6">
 														<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
 															<label>
-																<input type="checkbox" name="" id="">
+																<input type="checkbox" disabled name="" id="">
 																<span></span>
 															</label>
 														</span>
@@ -234,7 +227,7 @@
 												<label>Fecha:</label>
 											</div>
 											<div class="col-lg-4">
-												<input type="text" class="form-control m-input" name="" id="">
+												<input type="text" disabled class="form-control m-input" name="" id="">
 											</div>	
 										</div>
 										<div class="form-group row">
@@ -248,7 +241,7 @@
 													<div class="col-lg-6">
 														<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
 															<label>
-																<input type="checkbox" name="" id="">
+																<input type="checkbox" name="chkProComPerVen" id="chkProComPerVen">
 																<span></span>
 															</label>
 														</span>
@@ -259,7 +252,7 @@
 												<label>Fecha:</label>
 											</div>
 											<div class="col-lg-4">
-												<input type="text" class="form-control m-input" name="" id="">
+												<input type="text" class="form-control m-input" name="fchProComPerVen" id="fchProComPerVen">
 											</div>	
 										</div>
 									</fieldset>
