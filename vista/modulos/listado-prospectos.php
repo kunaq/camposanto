@@ -93,17 +93,55 @@
 									<label>Doc. de Identidad</label>
 								</div>
 								<div class="col-lg-2">
-									<select class="form-control m-select2 m-select2-general" id="" name="" >
-										<option>
-											tipo de documento
+									<select class="form-control m-select2 m-select2-general" id="tipoDocLisPro" name="tipoDocLisPro" onchange="DocLenghtBusq(this.value);" >
+										<option value="vacio">
+											Seleccione
 										</option>
 										<?php
 											$prueba = controladorEmpresa::ctrtipoDoc();
 										?>
 									</select>
 								</div>
+								<div class="col-lg-3">
+									<input type="text"  class="form-control m-input" name="numDocLisPro" id="numDocLisPro">
+								</div>
+								<div class="col-lg-1">
+									<label>Supervisor:</label>
+								</div>
 								<div class="col-lg-2">
-									<input type="text" disabled class="form-control m-input" name="" id="">
+									<select class="form-control m-select2 m-select2-general" >
+										<option>
+											Seleccione 
+										</option>
+										<option>
+											A
+										</option>
+										<option>
+											B
+										</option>
+										<option>
+											C
+										</option>
+									</select>
+								</div>
+								<div class="col-lg-1">
+									<label>Consejero:</label>
+								</div>
+								<div class="col-lg-2">
+									<select class="form-control m-select2 m-select2-general" >
+										<option>
+											Seleccione
+										</option>
+										<option>
+											A
+										</option>
+										<option>
+											B
+										</option>
+										<option>
+											C
+										</option>
+									</select>
 								</div>
 							</div>
 
