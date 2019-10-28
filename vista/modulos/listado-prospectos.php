@@ -16,8 +16,9 @@
 		<!--begin: Portlet Body-->	
 			<!-- <div class="col-xl-12"> -->
 					<div class="row">
-						<fieldset class="col-md-12 fieldFormHorizontal">
-							<legend class="col-md-3">Filtros</legend>
+						<fieldset class="col-md-12 fieldFormHorizontal" style="margin-bottom: 1rem;">
+							<legend class="col-md-3">Filtros</legend>							
+							<form id="formLisPros" method="POST">
 							<div class="form-group row">
 								<div class="col-lg-1">
 									<label>De la fecha:</label>
@@ -144,9 +145,113 @@
 									</select>
 								</div>
 							</div>
-
 							<br>
+						</form>
 						</fieldset>
+						<div class="table-responsive">
+							<table class="table" id="tablListPros">
+								<thead>
+									<tr>
+										<th>Fch. registro</th>
+										<th>Días</th>
+										<th>Código</th>
+										<th>Prospecto</th>
+										<th>Tipo doc.</th>
+										<th>Núm. doc.</th>
+										<th>Télefono</th>
+										<th>Canal Venta</th>
+										<th>Calif.</th>
+										<th>Consejero</th>
+										<th>Edo.</th>
+										<th>Ultimo contacto</th>
+										<th>Observación</th>
+										<th>Importe venta</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>20/10/2019</td>
+										<td style="text-align: center;">33</td>
+										<td>PVT0028014</td>
+										<td>HUANCO, KATHERIN</td>
+										<td>DNI</td>
+										<td>12345678</td>
+										<td>912123123</td>
+										<td>TURNO CAMPO</td>
+										<td style="text-align: center;">C</td>
+										<td>A. CERRON</td>
+										<td>TRUNCO</td>
+										<td>20/10/2019</td>
+										<td>LLAMAR 20/10/2019</td>
+										<td style="text-align: right;">1,234.44</td>
+									</tr>
+									<tr>
+										<td>20/10/2019</td>
+										<td style="text-align: center;">33</td>
+										<td>PVT0028014</td>
+										<td>HUANCO, KATHERIN</td>
+										<td>DNI</td>
+										<td>12345678</td>
+										<td>912123123</td>
+										<td>TURNO CAMPO</td>
+										<td style="text-align: center;">C</td>
+										<td>A. CERRON</td>
+										<td>TRUNCO</td>
+										<td>20/10/2019</td>
+										<td>LLAMAR 20/10/2019</td>
+										<td style="text-align: right;">1,234.44</td>
+									</tr>
+									<tr>
+										<td>20/10/2019</td>
+										<td style="text-align: center;">33</td>
+										<td>PVT0028014</td>
+										<td>HUANCO, KATHERIN</td>
+										<td>DNI</td>
+										<td>12345678</td>
+										<td>912123123</td>
+										<td>TURNO CAMPO</td>
+										<td style="text-align: center;">C</td>
+										<td>A. CERRON</td>
+										<td>TRUNCO</td>
+										<td>20/10/2019</td>
+										<td>LLAMAR 20/10/2019</td>
+										<td style="text-align: right;">1,234.44</td>
+									</tr>
+									<tr>
+										<td>20/10/2019</td>
+										<td style="text-align: center;">33</td>
+										<td>PVT0028014</td>
+										<td>HUANCO, KATHERIN</td>
+										<td>DNI</td>
+										<td>12345678</td>
+										<td>912123123</td>
+										<td>TURNO CAMPO</td>
+										<td style="text-align: center;">C</td>
+										<td>A. CERRON</td>
+										<td>TRUNCO</td>
+										<td>20/10/2019</td>
+										<td>LLAMAR 20/10/2019</td>
+										<td style="text-align: right;">1,234.44</td>
+									</tr>
+									<tr>
+										<td>20/10/2019</td>
+										<td style="text-align: center;">33</td>
+										<td>PVT0028014</td>
+										<td>HUANCO, KATHERIN</td>
+										<td>DNI</td>
+										<td>12345678</td>
+										<td>912123123</td>
+										<td>TURNO CAMPO</td>
+										<td style="text-align: center;">C</td>
+										<td>A. CERRON</td>
+										<td>TRUNCO</td>
+										<td>20/10/2019</td>
+										<td>LLAMAR 20/10/2019</td>
+										<td style="text-align: right;">1,234.44</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
 					
 				</div>
 		<!--End: Portlet Body-->

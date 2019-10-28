@@ -8,6 +8,9 @@ $("#fchFinLisPro").datepicker({
   autoclose: true
 });//datepicker
 
+$("#numDocLisPro").number(true);
+$("#tablListPros").DataTable();
+
 function DocLenghtBusq(tipo){
     if (tipo == "DI001") {
       document.getElementById("numDocLisPro").setAttribute('maxlength',8);
@@ -21,4 +24,3 @@ function DocLenghtBusq(tipo){
       $("#numDocLisPro").removeAttr("maxlength");
     }
 }
-
