@@ -10640,7 +10640,7 @@ body,html {
     padding: 0;
     font-size: 13px;
     font-weight: 300;
-    font-family: Montserrat;
+    font-family: Roboto;
     -ms-text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale
@@ -50656,6 +50656,12 @@ body {
     background-color: #0050CC;
     color: #fff;
 }
+.border-left{
+    border-radius: 25px 0px 0px 0px;
+}
+.border-right{
+    border-radius: 0px 25px 0px 0px;
+}
 .myTableDeuda thead th,.myTableDeuda tbody td,.myTableDeuda tfoot td{
     text-align: center;
 }
@@ -50796,4 +50802,43 @@ body {
     color: #e60000;
     font-size: 15px;
     font-weight: 500;
+}
+.mytableContrato{
+    font-size: 12px;
+}
+.mytableContrato thead th{
+    background-color: #99e6ff !important;
+    color: #FFF;
+    text-align: center;
+    font-size: 12px;
+    font-family: Roboto;
+    border-radius: 5px;
+    border-bottom: none!important;
+}
+.mytableContrato tbody td{
+    text-align: center;
+    vertical-align: middle;
+}
+.mytableContrato td, .mytableContrato th{
+    border: 1px solid #fff !important;
+}
+.tdlisCliCon{
+    min-width: 15rem;
+    text-align: center;
+}
+.tdTipNecCon{
+    min-width: 0.5rem;
+    text-align: center;
+}
+/* ------------ Modal Editar Contrato ------------ */
+.mt25{
+    margin-top: 25px
+}
+@media (max-width: 1025px){
+    .mt25{
+        margin-top: 5px;
+    }
+    .jurid{
+        top: 17px;
+    }
 }

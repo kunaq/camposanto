@@ -39,27 +39,27 @@ function creaTablaCliente(tipo){
 
 function creaTablaContrato(){
     var tipoFecha = document.getElementById("tipoFecha").value;
-    var fechaInicio = $('#m_datepicker_1_modal').datepicker("getDate");
-    var fechaFin = $('#m_datepicker_2').datepicker("getDate");
+    var fechaInicio = ($('#m_datepicker_1').datepicker("getDate")).toLocaleDateString();
+    var fechaFin = ($('#m_datepicker_2').datepicker("getDate")).toLocaleDateString();
     var codCliente = document.getElementById("codCliCon").value;
     var localidad = document.getElementById("localidad").value;
     var saldo = document.getElementById("saldo").value;
-    var numCom = document.getElementById("numCom").value;
+    var numContrato = document.getElementById("numContrato").value;
     var tipoNec = document.getElementById("tipoNec").value;
     var tipoServ = document.getElementById("tipoServ").value;
 
         $('#tablaContrato').html('<div class="loader"></div>');
         $.ajax({
-            type:'GET',
+            type:'POST',
             url: 'extensiones/captcha/creaTablaContrato.php',
             dataType: 'text',
-            data: {tipoFecha:tipoFecha, fechaInicio:fechaInicio, fechaFin:fechaFin, codCliente:codCliente, localidad:localidad, saldo:saldo, numCom:numCom, tipoNec:tipoNec, tipoServ:tipoServ},
+            data: {'tipoFecha':tipoFecha, 'fechaInicio':fechaInicio, 'fechaFin':fechaFin, 'codCliente':codCliente, 'localidad':localidad, 'saldo':saldo, 'numContrato':numContrato, 'tipoNec':tipoNec, 'tipoServ':tipoServ},
             success : function(respuesta){
                 $('#tablaContrato').html('')
                 $("#tablaContrato").html(respuesta);
+                $('#mytableContrato').DataTable();
             }
         });
-        console.log(tipoFecha);
 }
 
 function init(){
