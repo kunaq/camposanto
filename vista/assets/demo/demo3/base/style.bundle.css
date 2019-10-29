@@ -51003,11 +51003,7 @@ ul >li, ol > li{
 
 .spanTextoKq2{
     text-decoration: none;
-     background-color: #e4e1e1;
+     /*background-color: #e4e1e1;*/
      font-size: 1.2rem;
      color: black;
-}
-
-.spanTextoKq2:hover{
-    text-decoration: none;
 }

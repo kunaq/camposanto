@@ -50,13 +50,13 @@
 					</ul>
 					<div class="col-sm-10 col-md-7">
 						<ul class="nav nav-tabs m-tabs-line" role="tablist" data-init-reponsive-tabs="dropdownfx" id="ulTabsEmsCnt">
-							<li class="nav-item liTabHorizontalKq2 liFirstEmsCnt">
+							<li class="nav-item m-tabs__item liTabHorizontalKq2 liFirstEmsCnt">
 								<a class="active" data-toggle="tab" role="tab" data-target="#tab1ArbVen" href="#"><span class="spanTextoKq2">Historial de conformación</span></a>
 							</li>
-							<li class="nav-item liTabHorizontalKq2">
+							<li class="nav-item m-tabs__item liTabHorizontalKq2">
 								<a data-toggle="tab" role="tab" data-target="#tab2ArbVen" href="#"><span class="spanTextoKq2">General</span></a>
 							</li>
-							<li class="nav-item liTabHorizontalKq2">
+							<li class="nav-item m-tabs__item liTabHorizontalKq2">
 								<a data-toggle="tab" role="tab" data-target="#tab3ArbVen" href="#" id=""><span class="spanTextoKq2">Contratos</span></a>
 							</li>
 						</ul>	
