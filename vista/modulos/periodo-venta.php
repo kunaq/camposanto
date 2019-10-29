@@ -16,46 +16,59 @@
 		<!--begin: Portlet Body-->	
 			<!-- <div class="col-xl-12"> -->
 				<div class="card card-transparent flex-row">
-					<ul class="nav nav-tabs nav-tabs-simple nav-tabs-left bg-white ulListaKqPst ulListaConfigPeriodo col-sm-2 col-md-5" id="tab-2" style="border-radius: 3px;margin-bottom: 0;">
-						<li class="spanTextoActiveKq">
-							<div class="row">
-								<div class="text-center col-md-3">Año</div>
-								<div class="text-center col-md-3">Periodo</div>
-								<div class="text-center col-md-3">Fecha Inicio</div>
-								<div class="text-center col-md-3">Fecha Fin</div>
-							</div>
-						</li>
-						<li class="nav-item liListaKqPstImpar">
-							<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
-								<div class="row">
-									<div class="col-md-3">2019</div>
-									<div class="col-md-3">Enero</div>
-									<div class="col-md-3">10/10/2000</div>
-									<div class="col-md-3">10/10/2000</div>
+					<div class="col-md-5">
+						<div class="row">
+							<div class="input-group transparent px-0 col-md-12">
+								<div class="input-group-prepend">
+									<span class="input-group-text transparent"><i class="flaticon-search"></i>
+									</span>
 								</div>
-							</a>	
-						</li>
-						<li class="nav-item liListaKqPstPar">
-							<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
-								<div class="row">
-									<div class="col-md-3">2019</div>
-									<div class="col-md-3">Febrero</div>
-									<div class="col-md-3">10/10/2000</div>
-									<div class="col-md-3">10/10/2000</div>
-								</div>
-							</a>	
-						</li>
-						<li class="nav-item liListaKqPstImpar">
-							<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
-								<div class="row">
-									<div class="col-md-3">2019</div>
-									<div class="col-md-3">Marzo</div>
-									<div class="col-md-3">10/10/2000</div>
-									<div class="col-md-3">10/10/2000</div>
-								</div>
-							</a>	
-						</li>
-					</ul>							
+								<input placeholder="Buscar" class="search form-control">
+							</div>		
+						</div>
+						<div class="row">
+							<ul class="nav nav-tabs nav-tabs-simple nav-tabs-left bg-white ulListaKqPst ulListaConfigPeriodo col-sm-2 col-md-12" id="tab-2" style="border-radius: 3px;margin-bottom: 0;">
+								<li class="spanTextoActiveKq">
+									<div class="row">
+										<div class="text-center col-md-3">Año</div>
+										<div class="text-center col-md-3">Periodo</div>
+										<div class="text-center col-md-3">Fecha Inicio</div>
+										<div class="text-center col-md-3">Fecha Fin</div>
+									</div>
+								</li>
+								<li class="nav-item liListaKqPstImpar">
+									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
+										<div class="row">
+											<div class="col-md-3">2019</div>
+											<div class="col-md-3">Enero</div>
+											<div class="col-md-3">10/10/2000</div>
+											<div class="col-md-3">10/10/2000</div>
+										</div>
+									</a>	
+								</li>
+								<li class="nav-item liListaKqPstPar">
+									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
+										<div class="row">
+											<div class="col-md-3">2019</div>
+											<div class="col-md-3">Febrero</div>
+											<div class="col-md-3">10/10/2000</div>
+											<div class="col-md-3">10/10/2000</div>
+										</div>
+									</a>	
+								</li>
+								<li class="nav-item liListaKqPstImpar">
+									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
+										<div class="row">
+											<div class="col-md-3">2019</div>
+											<div class="col-md-3">Marzo</div>
+											<div class="col-md-3">10/10/2000</div>
+											<div class="col-md-3">10/10/2000</div>
+										</div>
+									</a>	
+								</li>
+							</ul>
+						</div>		
+					</div>					
 					<div class="tab-content-active bg-white divFormularioKqPst col-sm-10 col-md-7" style="align-self: auto;padding-top: 1rem;">
 						<div class="tab-pane slide-left" id="tabConfigPeriodo">
 							<form enctype="multipart/form-data" id="formConfigPeriodo" role="form" method="POST">
@@ -137,129 +150,131 @@
 										</select>
 									</div>	
 								</div>
-								<br>
-								<div class="row">
-									<fieldset class="col-md-10 offset-md-1 fieldFormHorizontal">
-										<legend class="col-md-3">Cierre</legend>
-										<div class="form-group row">
-											<div class="col-lg-2">
-												<label>Fecha Cierre:</label>
-											</div>
-											<div class="col-lg-4">
-												<input type="text" disabled class="form-control m-input" name="" id="">
-											</div>
-											<div class="col-lg-6">
-												<div class="row">
-													<div class="col-lg-6">
-														<label class="m-checkbox">
-															Cierre manual:
-														</label>
-													</div>
-													<div class="col-lg-6">
-														<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
-															<label>
-																<input type="checkbox" disabled name="" id="">
-																<span></span>
-															</label>
-														</span>
-													</div>
-												</div>
-											</div>	
-										</div>
-										<div class="form-group row">
-											<div class="col-lg-2">
-												<label>Usuario:</label>
-											</div>
-											<div class="col-lg-4">
-												<input type="text" disabled class="form-control m-input" name="" id="">
-											</div>
-										</div>
-									</fieldset>
-								</div>
-								<br>
-								<div class="row">
-									<fieldset class="col-md-10 offset-md-1 fieldFormHorizontal">
-										<legend class="col-md-3">Procesos</legend>
-										<div class="form-group row">
-											<div class="col-lg-6">
-												<div class="row">
-													<div class="col-lg-6">
-														<label class="m-checkbox">
-															Árbol vendedor:
-														</label>
-													</div>
-													<div class="col-lg-6">
-														<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
-															<label>
-																<input type="checkbox" disabled name="" id="">
-																<span></span>
-															</label>
-														</span>
-													</div>
-												</div>
-											</div>
-											<div class="col-lg-2">
-												<label>Fecha:</label>
-											</div>
-											<div class="col-lg-4">
-												<input type="text" disabled class="form-control m-input" name="" id="">
-											</div>	
-										</div>
-										<div class="form-group row">
-											<div class="col-lg-6">
-												<div class="row">
-													<div class="col-lg-6">
-														<label class="m-checkbox">
-															Parámetros comisiones:
-														</label>
-													</div>
-													<div class="col-lg-6">
-														<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
-															<label>
-																<input type="checkbox" disabled name="" id="">
-																<span></span>
-															</label>
-														</span>
-													</div>
-												</div>
-											</div>
-											<div class="col-lg-2">
-												<label>Fecha:</label>
-											</div>
-											<div class="col-lg-4">
-												<input type="text" disabled class="form-control m-input" name="" id="">
-											</div>	
-										</div>
-										<div class="form-group row">
-											<div class="col-lg-6">
-												<div class="row">
-													<div class="col-lg-6">
-														<label class="m-checkbox">
-															Procesos comisiones:
-														</label>
-													</div>
-													<div class="col-lg-6">
-														<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
-															<label>
-																<input type="checkbox" name="chkProComPerVen" id="chkProComPerVen">
-																<span></span>
-															</label>
-														</span>
-													</div>
-												</div>
-											</div>
-											<div class="col-lg-2">
-												<label>Fecha:</label>
-											</div>
-											<div class="col-lg-4">
-												<input type="text" class="form-control m-input" name="fchProComPerVen" id="fchProComPerVen">
-											</div>	
-										</div>
-									</fieldset>
-								</div>
+								
 							</form>
 						</div>
 					</div>
+				</div>
+				<br>
+				<div class="row">
+					<div class="col-md-6">
+					<fieldset class="fieldFormHorizontal" style="padding-left: 1rem;">
+						<legend class="col-md-3">Cierre</legend>
+						<div class="form-group row">
+							<div class="col-lg-2">
+								<label>Fecha Cierre:</label>
+							</div>
+							<div class="col-lg-4">
+								<input type="text" disabled class="form-control m-input" name="" id="">
+							</div>
+							<div class="col-lg-6">
+								<div class="row">
+									<div class="col-lg-6">
+										<label class="m-checkbox">
+											Cierre manual:
+										</label>
+									</div>
+									<div class="col-lg-6">
+										<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
+											<label>
+												<input type="checkbox" disabled name="" id="">
+												<span></span>
+											</label>
+										</span>
+									</div>
+								</div>
+							</div>	
+						</div>
+						<div class="form-group row">
+							<div class="col-lg-2">
+								<label>Usuario:</label>
+							</div>
+							<div class="col-lg-4">
+								<input type="text" disabled class="form-control m-input" name="" id="">
+							</div>
+						</div>
+					</fieldset>
+					</div>
+					<div class="col-md-6">
+					<fieldset class="fieldFormHorizontal" style="padding-left: 1rem; padding-right: 1rem">
+						<legend class="col-md-3">Procesos</legend>
+						<div class="form-group row">
+							<div class="col-lg-6">
+								<div class="row">
+									<div class="col-lg-6">
+										<label class="m-checkbox">
+											Árbol vendedor:
+										</label>
+									</div>
+									<div class="col-lg-6">
+										<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
+											<label>
+												<input type="checkbox" disabled name="" id="">
+												<span></span>
+											</label>
+										</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-2">
+								<label>Fecha:</label>
+							</div>
+							<div class="col-lg-4">
+								<input type="text" disabled class="form-control m-input" name="" id="">
+							</div>	
+						</div>
+						<div class="form-group row">
+							<div class="col-lg-6">
+								<div class="row">
+									<div class="col-lg-6">
+										<label class="m-checkbox">
+											Parámetros comisiones:
+										</label>
+									</div>
+									<div class="col-lg-6">
+										<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
+											<label>
+												<input type="checkbox" disabled name="" id="">
+												<span></span>
+											</label>
+										</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-2">
+								<label>Fecha:</label>
+							</div>
+							<div class="col-lg-4">
+								<input type="text" disabled class="form-control m-input" name="" id="">
+							</div>	
+						</div>
+						<div class="form-group row">
+							<div class="col-lg-6">
+								<div class="row">
+									<div class="col-lg-6">
+										<label class="m-checkbox">
+											Procesos comisiones:
+										</label>
+									</div>
+									<div class="col-lg-6">
+										<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
+											<label>
+												<input type="checkbox" name="chkProComPerVen" id="chkProComPerVen">
+												<span></span>
+											</label>
+										</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-2">
+								<label>Fecha:</label>
+							</div>
+							<div class="col-lg-4">
+								<input type="text" class="form-control m-input" name="fchProComPerVen" id="fchProComPerVen">
+							</div>	
+						</div>
+					</fieldset>
+				</div>
 				</div>
 			<!-- </div> -->
 		</div>

@@ -50919,8 +50919,9 @@ body {
 .ulListaKqPst{
   background-color: #ffe4e8 !important;
   display: block;
-  height: 53rem;
+  height: 18rem;
   overflow-y: scroll;
+  align-self: end;
 }
 .liListaKqPstPar{
     /*border-bottom:2px solid #f55753;*/
