@@ -80,7 +80,7 @@
 										</p>										
 									</div>
 								</div>
-								<div class="row">
+								<div class="row" style="margin-bottom: .3rem">
 									<div class="col-lg-2">
 										<label>Periodo:</label>
 									</div>
@@ -94,8 +94,7 @@
 										<input type="text" disabled class="form-control m-input" name="" id="">
 									</div>	
 								</div>
-								<br>
-								<div class="row">
+								<div class="row" style="margin-bottom: .3rem">
 									<div class="col-lg-2">
 										<label>Descripción:</label>
 									</div>
@@ -103,8 +102,7 @@
 										<input type="text" disabled class="form-control m-input" name="" id="">
 									</div>
 								</div>
-								<br>
-								<div class="row">
+								<div class="row" style="margin-bottom: .3rem">
 									<div class="col-lg-2">
 										<label>Fecha Inicio:</label>
 									</div>
@@ -132,8 +130,7 @@
 										</div>
 									</div>	
 								</div>
-								<br>
-								<div class="row">
+								<div class="row" style="margin-bottom: .3rem">
 									<div class="col-lg-2">
 										<label>Periodo anterior:</label>
 									</div>
@@ -198,7 +195,7 @@
 					<div class="col-md-6">
 					<fieldset class="fieldFormHorizontal" style="padding-left: 1rem; padding-right: 1rem">
 						<legend class="col-md-3">Procesos</legend>
-						<div class="form-group row">
+						<div class="row" style="margin-bottom: .3rem">
 							<div class="col-lg-6">
 								<div class="row">
 									<div class="col-lg-6">
@@ -223,7 +220,7 @@
 								<input type="text" disabled class="form-control m-input" name="" id="">
 							</div>	
 						</div>
-						<div class="form-group row">
+						<div class="row" style="margin-bottom: .3rem">
 							<div class="col-lg-6">
 								<div class="row">
 									<div class="col-lg-6">
@@ -248,7 +245,7 @@
 								<input type="text" disabled class="form-control m-input" name="" id="">
 							</div>	
 						</div>
-						<div class="form-group row">
+						<div class="row" style="margin-bottom: .3rem">
 							<div class="col-lg-6">
 								<div class="row">
 									<div class="col-lg-6">
