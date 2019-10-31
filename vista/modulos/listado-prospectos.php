@@ -15,7 +15,7 @@
 		<div class="m-portlet__body">
 		<!--begin: Portlet Body-->	
 			<!-- <div class="col-xl-12"> -->
-					<div class="row">
+					<div class="row" style="margin-top: -1rem;">
 						<fieldset class="col-md-12 fieldFormHorizontal" style="margin-bottom: 1rem;">
 							<legend class="col-md-3">Filtros</legend>							
 							<form id="formLisPros" method="POST">
@@ -88,7 +88,6 @@
 									</select>
 								</div>
 							</div>
-							<br>
 							<div class="row">
 								<div class="col-lg-1">
 									<label>Doc. de Identidad</label>

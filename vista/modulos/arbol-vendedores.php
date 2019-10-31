@@ -16,38 +16,51 @@
 		<!--begin: Portlet Body-->	
 			<!-- <div class="col-xl-12"> -->
 				<div class="card card-transparent flex-row">
-					<ul class="nav nav-tabs nav-tabs-simple nav-tabs-left bg-white ulListaKqPst ulListaConfigPeriodo col-sm-2 col-md-5" id="tab-2" style="border-radius: 3px;margin-bottom: 0; height: 28rem;">
-						<li class="spanTextoActiveKq">
-							<div class="row">
-								<div class="text-center col-md-3">Código</div>
-								<div class="text-center col-md-9">Apellidos y nombre</div>
-							</div>
-						</li>
-						<li class="nav-item liListaKqPstImpar">
-							<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
-								<div class="row">
-									<div class="col-md-3">TRA00012</div>
-									<div class="col-md-9">RAMOS ARAUCO, NATALI GUADALUPE</div>
+					<div class="col-md-5">
+						<div class="row">
+							<div class="input-group transparent px-0 col-md-12">
+								<div class="input-group-prepend">
+									<span class="input-group-text transparent"><i class="flaticon-search"></i>
+									</span>
 								</div>
-							</a>	
-						</li>
-						<li class="nav-item liListaKqPstPar">
-							<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
-								<div class="row">
-									<div class="col-md-3">TRA00012</div>
-									<div class="col-md-9">RAMOS ARAUCO, NATALI GUADALUPE</div>
-								</div>
-							</a>	
-						</li>
-						<li class="nav-item liListaKqPstImpar">
-							<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
-								<div class="row">
-									<div class="col-md-3">TRA00012</div>
-									<div class="col-md-9">RAMOS ARAUCO, NATALI GUADALUPE</div>
-								</div>
-							</a>	
-						</li>
-					</ul>
+								<input placeholder="Buscar" class="search form-control">
+							</div>		
+						</div>
+						<div class="row">
+							<ul class="nav nav-tabs nav-tabs-simple nav-tabs-left bg-white ulListaKqPst ulListaConfigPeriodo  col-md-12" id="tab-2" style="border-radius: 3px;margin-bottom: 0; height: 28rem;">
+								<li class="spanTextoActiveKq">
+									<div class="row">
+										<div class="text-center col-md-3">Código</div>
+										<div class="text-center col-md-9">Apellidos y nombre</div>
+									</div>
+								</li>
+								<li class="nav-item liListaKqPstImpar">
+									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
+										<div class="row">
+											<div class="col-md-3">TRA00012</div>
+											<div class="col-md-9">RAMOS ARAUCO, NATALI GUADALUPE</div>
+										</div>
+									</a>	
+								</li>
+								<li class="nav-item liListaKqPstPar">
+									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
+										<div class="row">
+											<div class="col-md-3">TRA00012</div>
+											<div class="col-md-9">RAMOS ARAUCO, NATALI GUADALUPE</div>
+										</div>
+									</a>	
+								</li>
+								<li class="nav-item liListaKqPstImpar">
+									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
+										<div class="row">
+											<div class="col-md-3">TRA00012</div>
+											<div class="col-md-9">RAMOS ARAUCO, NATALI GUADALUPE</div>
+										</div>
+									</a>	
+								</li>
+							</ul>
+						</div>
+					</div>
 					<div class="col-sm-10 col-md-7">
 						<ul class="nav nav-tabs m-tabs-line" role="tablist" data-init-reponsive-tabs="dropdownfx" id="ulTabsEmsCnt">
 							<li class="nav-item m-tabs__item liTabHorizontalKq2 liFirstEmsCnt">
