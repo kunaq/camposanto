@@ -144,4 +144,5 @@
 include "modals/modalTablaClientes.php";
 include "modals/modalEditContrato.php";
 include "modals/modalResolucionContrato.php";
+include "modals/modalPrintContrato.php";
  ?>

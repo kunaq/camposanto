@@ -24635,8 +24635,8 @@ body.m-portlet--fullscreen.m-aside-left--fixed .m-aside-left {
 }
 
 .m-widget2 .m-widget2__item {
-    disply: table;
-    margin-bottom: 1.4rem;
+    display: table;
+    margin-bottom: 0.5rem;
     position: relative
 }
 
@@ -24656,16 +24656,19 @@ body.m-portlet--fullscreen.m-aside-left--fixed .m-aside-left {
     display: table-cell;
     vertical-align: middle;
     padding-left: 2.2rem;
-    padding-top: 1rem;
-    vertical-align: top
+    /*padding-top: 1rem;*/
+    vertical-align: middle;
+}
+.m-widget2__checkbox label span{
+    margin-top: .5rem;
 }
 
 .m-widget2 .m-widget2__item .m-widget2__desc {
     display: table-cell;
     width: 100%;
-    vertical-align: top;
+    vertical-align: middle;
     padding-left: .3rem;
-    padding-top: .23rem;
+    /*padding-top: .23rem;*/
     font-size: 1rem
 }
 
@@ -50807,20 +50810,13 @@ body {
     font-size: 12px;
 }
 .mytableContrato thead th{
-    background-color: #99e6ff !important;
-    color: #FFF;
     text-align: center;
     font-size: 12px;
     font-family: Roboto;
-    border-radius: 5px;
-    border-bottom: none!important;
 }
 .mytableContrato tbody td{
     text-align: center;
     vertical-align: middle;
-}
-.mytableContrato td, .mytableContrato th{
-    border: 1px solid #fff !important;
 }
 .tdlisCliCon{
     min-width: 15rem;
@@ -50829,6 +50825,24 @@ body {
 .tdTipNecCon{
     min-width: 0.5rem;
     text-align: center;
+}
+.static-last{
+    display: inline-flex;
+    position: absolute !important;
+    z-index: 2;
+    right:49px;
+}
+.last-column{
+  padding-right: 200px !important;
+  text-align: initial;
+}
+@media (max-width: 1025px){
+    .static-last{
+        display: inline-flex;
+        position: absolute !important;
+        z-index: 2;
+        right:10px;
+}
 }
 /* ------------ Modal Editar Contrato ------------ */
 .mt25{
@@ -50842,3 +50856,46 @@ body {
         top: 17px;
     }
 }
+
+/* ------------ Modal Resolución Contrato ------------ */
+.myTableConformacion{
+    font-size: 12px;
+}
+.myTableConformacion tbody{
+    height: 160px;
+    text-align: center;
+}
+.myTableConformacion thead{
+    text-align: center;
+}
+.myTableEstado{
+    width: 100%;
+    overflow-x: auto;
+}
+.myTableEstado th, td{
+    padding: 0.75rem;
+    background-color: #FFF;
+    text-align: center;
+}
+.myTableEstado thead th{
+    background-color: #fff;
+}
+.static{
+    position: absolute;
+    width: 74.5px;
+    text-align: initial !important;
+}
+.first-col{
+    padding-left: 80px !important;
+}
+.check-comisiones{
+    text-align: center;
+}
+@media (max-width: 1025px){
+    .myTableEstado{
+        width: 100%;
+        overflow-x: auto;
+        display: block;
+    }
+}
+

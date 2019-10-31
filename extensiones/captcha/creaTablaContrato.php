@@ -59,12 +59,12 @@ WHEN 'ACT' THEN CONVERT(DATE, vtade_contrato.fch_activacion) END ) <= '$fechaFin
                                 <th>Cod. Ser</th>
 	                    		<th class="tdlisCliCon">Cliente</th>
                                 <th class="tdTipNecCon">T.N.</th>
-	                    		<th>Fch. Emisión</th>
-	                    		<th>Fch. Activación</th>
-	                    		<th>Fch. Resolución</th>
-	                    		<th>Fch. Anulación</th>
+	                    		<th>Fecha Emisión</th>
+	                    		<th>Fecha Activación</th>
+	                    		<th>Fecha Resolución</th>
+	                    		<th>Fecha Anulación</th>
 	                    		<th>Vendedor</th>
-	                    		<th>Tipo Servicio</th>
+	                    		<th style="min-width: 80px;">Tipo Servicio</th>
 	                    		<th>N° Cuotas</th>
 	                    		<th>Total</th>
                                 <th>Acciones</th>
@@ -168,17 +168,15 @@ WHEN 'ACT' THEN CONVERT(DATE, vtade_contrato.fch_activacion) END ) <= '$fechaFin
                                     <i class="fa fa-edit"></i>
                                 </button>
                             </span>
-                            <span data-toggle="modal" data-target="#m_modal_contrato">
                                 <button type="button" class="m-btn btn btn-success" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Activación" onclick="">
                                     <i class="fa fa-check"></i>
                                 </button>
-                            </span>
                             <span data-toggle="modal" data-target="#m_modal_resolucion">
                                 <button type="button" class="m-btn btn btn-danger" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Resolución" onclick="">
                                     <i class="fa fa-file-excel-o"></i>
                                 </button>
                             </span>
-                            <span data-toggle="modal" data-target="#m_modal_contrato">
+                            <span data-toggle="modal" data-target="#m_modal_print_contrato">
                                 <button type="button" class="m-btn btn btn-info" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Imprimir" onclick="">
                                     <i class="fa fa-print"></i>
                                 </button>
