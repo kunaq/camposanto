@@ -361,7 +361,7 @@
 							<fieldset class=" fieldFormHorizontal" style=" padding: 1rem; margin-left: 0.6rem;">
 								<legend class="col-md-3">Estado de gestión</legend>
 								<div class="row">
-									<div class="col-lg-3">
+									<div class="col-md-3">
 										<select class="form-control m-select2 m-select2-general" id="edoGesRegPro">
 											<option value="ACT">
 												ACTIVO
@@ -377,8 +377,37 @@
 											</option>
 										</select>
 									</div>
-									<div class="col-lg-">
-										
+									<div id="cttoRegPro" class="col-md-8 offset-md-1" hidden>
+										<div class="row">
+											<div class="col-md-2">
+												<label>Contrato vendido:</label>
+											</div>
+											<div class="col-md-3">
+												<select class="form-control m-select2 m-select2-general"  width="100%">
+													<option>
+														Empresa 1
+													</option>
+													<option>
+														Empresa 2
+													</option>
+													<option>
+														Empresa 3
+													</option>
+													<option>
+														Empresa 4
+													</option>
+												</select>
+											</div>
+											<div class="col-md-3">
+												<input type="text" class="form-control m-input" disabled id="" name=""/>
+											</div>
+											<div class="col-md-2">
+												<input type="text" class="form-control m-input" disabled id="" name=""/>
+											</div>
+											<div class="col-md-2">
+												<input type="text" class="form-control m-input" disabled id="" name=""/>
+											</div>
+										</div>
 									</div>
 								</div>	
 								<br>									
@@ -397,7 +426,7 @@
 					</div>
 					<div class="row">
 						<div class="table-responsive col-lg-12">
-						<table class="table" id="tabRegConRegPro">
+						<table class="table" width="100%" id="tabRegConRegPro">
 							<thead>
 								<tr>
 									<th>#</th>
@@ -414,7 +443,7 @@
 									<td style="text-align: center;">1</td>
 									<td>20/10/2019</td>
 									<td>
-										<select class="form-control m-select2 m-select2-general" >
+										<select class="form-control m-select2 m-select2-general">
 											<option>
 												SIN CALIFICACIÓN
 											</option>
@@ -439,7 +468,7 @@
 									</td>
 									<td>A. CERRON</td>
 									<td>Primera</td>
-									<td>ibservaciones lorem ipsun......</td>
+									<td>Observaciones lorem ipsun lorem ipsun lorem ipsun lorem ipsun lorem ipsun lorem ipsun lorem ipsun lorem ipsun lorem ipsun</td>
 								</tr>
 								<tr>
 									<td style="text-align: center;">1</td>
@@ -470,7 +499,7 @@
 									</td>
 									<td>A. CERRON</td>
 									<td>Primera</td>
-									<td>ibservaciones lorem ipsun......</td>
+									<td>Observaciones lorem ipsun lorem ipsun lorem ipsun lorem ipsun lorem ipsun lorem ipsun lorem ipsun lorem ipsun lorem ipsun</td>
 								</tr>
 							</tbody>
 						</table>

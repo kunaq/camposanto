@@ -1,5 +1,5 @@
 $("#numDocRegPro").number(true);
-$("#tabRegConRegPro").Datatable();
+$("#tabRegConRegPro").DataTable();
 
 function DocLenghtBusq(tipo){
     if (tipo == "DI001") {
@@ -20,6 +20,20 @@ function DocLenghtBusq(tipo){
     }
 }
 
-$("#edoGesRegPro").on('change', function(){
-	alert(this.value);
+$("#edoGesRegPro").change(function(){
+	if (this.value == "CIE") {
+		$("#cttoRegPro").attr('hidden',false);
+	}
+	else if(this.value == "CAD"){
+		$("#cttoRegPro").attr('hidden',true);
+		swal({
+            type: "warning",
+            title: "El estado 'CADUCO' es automático, NO puede ser seleccionado manualmente. ",
+            showConfirmButton: true,
+        	confirmButtonText: "Cerrar"
+        });//swal
+	}
+	else{
+		$("#cttoRegPro").attr('hidden',true);
+	}
 });

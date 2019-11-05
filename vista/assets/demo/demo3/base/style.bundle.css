@@ -50917,7 +50917,7 @@ body {
     width: 8rem;
 }
 .ulListaKqPst{
-  background-color: #ffe4e8 !important;
+  /*background-color: #ffe4e8 !important;*/
   display: block;
   height: 14rem;
   overflow-y: scroll;

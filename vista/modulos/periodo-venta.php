@@ -16,7 +16,7 @@
 		<!--begin: Portlet Body-->	
 			<!-- <div class="col-xl-12"> -->
 				<div class="card card-transparent flex-row">
-					<div class="col-md-5">
+					<div class="col-md-4">
 						<div class="row">
 							<div class="input-group transparent px-0 col-md-12">
 								<div class="input-group-prepend">
@@ -30,39 +30,35 @@
 							<ul class="nav nav-tabs nav-tabs-simple nav-tabs-left bg-white ulListaKqPst ulListaConfigPeriodo col-sm-2 col-md-12" id="tab-2" style="border-radius: 3px;margin-bottom: 0;">
 								<li class="spanTextoActiveKq">
 									<div class="row">
-										<div class="text-center col-md-3">Año</div>
-										<div class="text-center col-md-3">Periodo</div>
-										<div class="text-center col-md-3">Fecha Inicio</div>
-										<div class="text-center col-md-3">Fecha Fin</div>
+										<div class="col-md-2" style="padding: 0 0 0 1.6rem;">Año</div>
+										<div class="col-md-5">Periodo</div>
+										<div class="col-md-5">Estado</div>
 									</div>
 								</li>
 								<li class="nav-item liListaKqPstImpar">
 									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
 										<div class="row">
-											<div class="col-md-3">2019</div>
-											<div class="col-md-3">Enero</div>
-											<div class="col-md-3">10/10/2000</div>
-											<div class="col-md-3">10/10/2000</div>
+											<div class="col-md-2">2019</div>
+											<div class="col-md-5">Enero</div>
+											<div class="col-md-5">ABIERTO</div>
 										</div>
 									</a>	
 								</li>
 								<li class="nav-item liListaKqPstPar">
 									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
 										<div class="row">
-											<div class="col-md-3">2019</div>
-											<div class="col-md-3">Febrero</div>
-											<div class="col-md-3">10/10/2000</div>
-											<div class="col-md-3">10/10/2000</div>
+											<div class="col-md-2">2019</div>
+											<div class="col-md-5">Febrero</div>
+											<div class="col-md-5">CERRADO</div>
 										</div>
 									</a>	
 								</li>
 								<li class="nav-item liListaKqPstImpar">
 									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
 										<div class="row">
-											<div class="col-md-3">2019</div>
-											<div class="col-md-3">Marzo</div>
-											<div class="col-md-3">10/10/2000</div>
-											<div class="col-md-3">10/10/2000</div>
+											<div class="col-md-2">2019</div>
+											<div class="col-md-5">Noviembre</div>
+											<div class="col-md-5">ABIERTO</div>
 										</div>
 									</a>	
 								</li>
