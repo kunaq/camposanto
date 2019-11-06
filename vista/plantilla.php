@@ -73,7 +73,9 @@ $_SESSION['captcha'] = simple_php_captcha();
 		        			$_GET["ruta"] == "periodo-venta" ||
 		        			$_GET["ruta"] == "arbol-vendedores" ||
 		        			$_GET["ruta"] == "listado-prospectos" ||
-		        			$_GET["ruta"] == "registro-prospecto"){
+		        			$_GET["ruta"] == "registro-prospecto" ||
+		        			$_GET["ruta"] == "comisiones" ||
+		        			$_GET["ruta"] == "registroReportes"){
 
 		           		   	include "modulos/".$_GET["ruta"].".php";
 
@@ -151,7 +153,9 @@ $_SESSION['captcha'] = simple_php_captcha();
         		$_GET["ruta"] == 'periodo-venta' ||
         		$_GET["ruta"] == 'arbol-vendedores' ||
         		$_GET["ruta"] == 'listado-prospectos' ||
-        		$_GET["ruta"] == 'registro-prospecto'){  
+        		$_GET["ruta"] == 'registro-prospecto' ||
+        		$_GET["ruta"] == 'comisiones' ||
+        		$_GET["ruta"] == 'registroReportes'){  
                 echo '<script type="text/javascript" src="vista/js/'.$_GET["ruta"].'.js"></script>';
             }
         }

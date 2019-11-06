@@ -23,15 +23,15 @@
 									<span class="input-group-text transparent"><i class="flaticon-search"></i>
 									</span>
 								</div>
-								<input placeholder="Buscar" class="search form-control">
+								<input placeholder="Buscar" class="search form-control form-control-sm">
 							</div>		
 						</div>
 						<div class="row">
 							<ul class="nav nav-tabs nav-tabs-simple nav-tabs-left bg-white ulListaKqPst ulListaConfigPeriodo  col-md-12" id="tab-2" style="border-radius: 3px;margin-bottom: 0; height: 28rem;">
-								<li class="spanTextoActiveKq">
+								<li class="spanTextoActiveKq liListaKqPstTitulo">
 									<div class="row">
-										<div class="text-center col-md-3">Código</div>
-										<div class="text-center col-md-9">Apellidos y nombre</div>
+										<div class="text-center col-md-3"><b>Código</b></div>
+										<div class="text-center col-md-9"><b>Apellidos y nombre</b></div>
 									</div>
 								</li>
 								<li class="nav-item liListaKqPstImpar">
@@ -89,16 +89,14 @@
 										<fieldset class="col-md-10 offset-md-1 fieldFormHorizontal">
 											<legend class="col-md-6">Historial de conformación</legend>
 											<ul class="nav nav-tabs nav-tabs-simple nav-tabs-left bg-white ulListaKqPst col-md-12" id="tab-2" style="border-radius: 3px;margin-bottom: 0; height: 15rem;">
-												<li class="nav-item liListaKqPstImpar">
-													<a href=<li class="spanTextoActiveKq">
-														<div class="row">
-															<div class="text-center col-md-2">N°</div>
-															<div class="text-center col-md-2">Año</div>
-															<div class="text-center col-md-2">Tipo</div>
-															<div class="text-center col-md-2">Período</div>
-															<div class="text-center col-md-4">Tipo de comisionista</div>
-														</div>
-													</a>
+												<li class="spanTextoActiveKq liListaKqPstTitulo">
+													<div class="row">
+														<div class="text-center col-md-2"><b>N°</b></div>
+														<div class="text-center col-md-2"><b>Año</b></div>
+														<div class="text-center col-md-2"><b>Tipo</b></div>
+														<div class="text-center col-md-2"><b>Período</b></div>
+														<div class="text-center col-md-4"><b>Tipo de comisionista</b></div>
+													</div>
 												</li>
 												<li class="nav-item liListaKqPstPar">
 													<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
@@ -111,7 +109,7 @@
 													</div>
 													</a>	
 												</li>
-												<li class="nav-item liListaKqPstPar">
+												<li class="nav-item liListaKqPstImpar">
 													<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
 														<div class="row">
 															<div class="text-center col-md-2">2</div>
@@ -122,7 +120,7 @@
 														</div>
 													</a>	
 												</li>
-												<li class="nav-item liListaKqPstImpar">
+												<li class="nav-item liListaKqPstPar">
 													<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
 														<div class="row">
 															<div class="text-center col-md-2">3</div>
@@ -147,19 +145,19 @@
 													<label>Año:</label>
 												</div>
 												<div class="col-lg-2">
-													<input type="text" disabled class="form-control m-input" name="" id="">
+													<input type="text" disabled class="form-control form-control-sm m-input" name="" id="">
 												</div>
 												<div class="col-lg-2" style="padding-right: 0">
 													<label>T. Período:</label>
 												</div>
 												<div class="col-lg-2">
-													<input type="text" disabled class="form-control m-input" name="" id="">
+													<input type="text" disabled class="form-control form-control-sm m-input" name="" id="">
 												</div>
 												<div class="col-lg-2">
 													<label>Período:</label>
 												</div>
 												<div class="col-lg-2">
-													<input type="text" disabled class="form-control m-input" name="" id="">
+													<input type="text" disabled class="form-control form-control-sm m-input" name="" id="">
 												</div>
 											</div>
 											<hr>
@@ -168,10 +166,10 @@
 													<label>Grupo:</label>
 												</div>
 												<div class="col-lg-2">
-													<input type="text" disabled class="form-control m-input" name="" id="">
+													<input type="text" disabled class="form-control form-control-sm m-input" name="" id="">
 												</div>
 												<div class="col-lg-8">
-													<input type="text" disabled class="form-control m-input" name="" id="">
+													<input type="text" disabled class="form-control form-control-sm m-input" name="" id="">
 												</div>
 											</div>
 											<div class="form-group row">
@@ -179,10 +177,10 @@
 													<label>Comisionista:</label>
 												</div>
 												<div class="col-lg-2">
-													<input type="text" disabled class="form-control m-input" name="" id="">
+													<input type="text" disabled class="form-control form-control-sm m-input" name="" id="">
 												</div>
 												<div class="col-lg-8">
-													<input type="text" disabled class="form-control m-input" name="" id="">
+													<input type="text" disabled class="form-control form-control-sm m-input" name="" id="">
 												</div>
 											</div>
 											<div class="form-group row">
@@ -190,10 +188,10 @@
 													<label>Supervisor:</label>
 												</div>
 												<div class="col-lg-2">
-													<input type="text" disabled class="form-control m-input" name="" id="">
+													<input type="text" disabled class="form-control form-control-sm m-input" name="" id="">
 												</div>
 												<div class="col-lg-8">
-													<input type="text" disabled class="form-control m-input" name="" id="">
+													<input type="text" disabled class="form-control form-control-sm m-input" name="" id="">
 												</div>
 											</div>
 											<div class="form-group row">
@@ -201,10 +199,10 @@
 													<label>Jefe Ventas:</label>
 												</div>
 												<div class="col-lg-2">
-													<input type="text" disabled class="form-control m-input" name="" id="">
+													<input type="text" disabled class="form-control form-control-sm m-input" name="" id="">
 												</div>
 												<div class="col-lg-8">
-													<input type="text" disabled class="form-control m-input" name="" id="">
+													<input type="text" disabled class="form-control form-control-sm m-input" name="" id="">
 												</div>
 											</div>
 										</fieldset>
@@ -217,7 +215,7 @@
 										<div class="row">
 											<div class="col-md-12">		
 												<p class="pull-right">
-													<select class="form-control m-select2 m-select2-general" width="100%" >
+													<select class="form-control form-control-sm m-select2 m-select2-general" width="100%" >
 														<option>
 															TODOS
 														</option>
@@ -235,16 +233,14 @@
 											</div>
 										</div>
 										<ul class="nav nav-tabs nav-tabs-simple nav-tabs-left bg-white ulListaKqPst col-md-12" id="tab-2" style="border-radius: 3px;margin-bottom: 0; height: 15rem;">
-											<li class="nav-item liListaKqPstImpar">
-												<a href=<li class="spanTextoActiveKq">
-													<div class="row">
-														<div class="text-center col-md-3">Localidad</div>
-														<div class="text-center col-md-3">Contrato</div>
-														<div class="text-center col-md-1" style="padding: 0">T. N.</div>
-														<div class="col-md-2">Estatus</div>
-														<div class="text-center col-md-3">Fecha<span id="tituloCttArbVen"></span></div>
-													</div>
-												</a>
+											<li class="liListaKqPstTitulo">
+												<div class="row">
+													<div class="text-center col-md-3"><b>Localidad</b></div>
+													<div class="text-center col-md-3"><b>Contrato</b></div>
+													<div class="text-center col-md-1" style="padding: 0"><b>T. N.</b></div>
+													<div class="col-md-2"><b>Estatus</b></div>
+													<div class="text-center col-md-3"><b>Fecha</b><span id="tituloCttArbVen"></span></div>
+												</div>
 											</li>
 											<li class="nav-item liListaKqPstPar">
 												<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
@@ -252,8 +248,8 @@
 														<div class="text-center col-md-3">SEDE SAN ANTONIO</div>
 														<div class="text-center col-md-3">0000000001-0</div>
 														<div class="text-center col-md-1" style="padding: 0">NF</div>
-														<div class="col-md-3">ACTIVO</div>
-														<div class="text-center col-md-2">12-10-2019</div>
+														<div class="col-md-2">ACTIVO</div>
+														<div class="text-center col-md-3">12-10-2019</div>
 												</div>
 												</a>	
 											</li>
@@ -263,8 +259,8 @@
 														<div class="text-center col-md-3">SEDE SAN ANTONIO</div>
 														<div class="text-center col-md-3">0000000001-0</div>
 														<div class="text-center col-md-1" style="padding: 0">NF</div>
-														<div class="col-md-3">EMITIDO</div>
-														<div class="text-center col-md-2">12-10-2019</div>
+														<div class="col-md-2">EMITIDO</div>
+														<div class="text-center col-md-3">12-10-2019</div>
 													</div>
 												</a>	
 											</li>
@@ -274,8 +270,8 @@
 														<div class="text-center col-md-3">SEDE SAN ANTONIO</div>
 														<div class="text-center col-md-3">0000000001-0</div>
 														<div class="text-center col-md-1" style="padding: 0">NF</div>
-														<div class="col-md-3">RESUELTO</div>
-														<div class="text-center col-md-2">12-10-2019</div>
+														<div class="col-md-2">RESUELTO</div>
+														<div class="text-center col-md-3">12-10-2019</div>
 													</div>
 												</a>	
 											</li>

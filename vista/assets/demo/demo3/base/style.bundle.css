@@ -129,8 +129,9 @@ a {
 }
 
 a:hover {
-    color: #2739c1;
-    text-decoration: underline
+    /*color: #2739c1;
+    text-decoration: underline*/
+    text-decoration: none;
 }
 
 a:not([href]):not([tabindex]) {
@@ -10640,7 +10641,7 @@ body,html {
     padding: 0;
     font-size: 13px;
     font-weight: 300;
-    font-family: Montserrat;
+    font-family: Roboto;
     -ms-text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale
@@ -50919,24 +50920,30 @@ body {
 .ulListaKqPst{
   /*background-color: #ffe4e8 !important;*/
   display: block;
-  height: 14rem;
+  height: 29rem;
   overflow-y: scroll;
   align-self: end;
 }
 .liListaKqPstPar{
     /*border-bottom:2px solid #f55753;*/
-    background-color: #ffe4e8 !important;
+    background-color: #ffffff !important;
 }
 .liListaKqPstPar:hover,.liListaKqPstImpar:hover{
-    background-color: #f39aa8 !important;
+    background-color: #d2d2d2 !important;
+    text-decoration: none !important;
 }
 .liListaKqPstImpar{
     /*border-bottom:2px solid #f55753;*/
-    background-color: #ffd1d8 !important;
+    background-color: #f9f9f9 !important;
 }
 .liListaKqPstActive{
     /*border-bottom:2px solid #f55753;*/
-    background-color: #f39aa8 !important;
+    background-color: #d2d2d2 !important;
+}
+.liListaKqPstTitulo{
+    background-color: #dddddd !important;
+    color: #575962 !important;
+    border-bottom: solid 1px black;
 }
 .btnAgregarKqPst{
     /*background-color: #dc2c32;

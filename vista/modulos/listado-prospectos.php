@@ -25,7 +25,7 @@
 								</div>
 								<div class="col-lg-2">
 									<div class="input-group date">
-										<input type="text" class="form-control m-input"  id="fchIniLisPro" name="fchIniLisPro" data-date-format="mm/dd/yyyy" value="<?php echo date('m/d/Y', strtotime(date('m/d/Y').'+ 1 month')); ?>"/>
+										<input type="text" class="form-control form-control-sm m-input"  id="fchIniLisPro" name="fchIniLisPro" data-date-format="mm/dd/yyyy" value="<?php echo date('m/d/Y', strtotime(date('m/d/Y').'+ 1 month')); ?>"/>
 										<div class="input-group-append">
 											<span class="input-group-text">
 												<i class="la la-calendar-check-o"></i>
@@ -38,7 +38,7 @@
 								</div>
 								<div class="col-lg-2">
 									<div class="input-group date">
-										<input type="text" class="form-control m-input"  id="fchFinLisPro" name="fchFinLisPro" data-date-format="mm/dd/yyyy" value="<?php echo date('m/d/Y', strtotime(date('m/d/Y').'+ 1 month')); ?>"/>
+										<input type="text" class="form-control form-control-sm m-input"  id="fchFinLisPro" name="fchFinLisPro" data-date-format="mm/dd/yyyy" value="<?php echo date('m/d/Y', strtotime(date('m/d/Y').'+ 1 month')); ?>"/>
 										<div class="input-group-append">
 											<span class="input-group-text">
 												<i class="la la-calendar-check-o"></i>
@@ -50,7 +50,7 @@
 									<label>Estado:</label>
 								</div>
 								<div class="col-lg-2">
-									<select class="form-control m-select2 m-select2-general" >
+									<select class="form-control form-control-sm m-select2 m-select2-general" >
 										<option>
 											TODOS
 										</option>
@@ -72,7 +72,7 @@
 									<label>Calificación:</label>
 								</div>
 								<div class="col-lg-2">
-									<select class="form-control m-select2 m-select2-general" >
+									<select class="form-control form-control-sm m-select2 m-select2-general" >
 										<option>
 											SIN CALIFICACIÓN
 										</option>
@@ -93,7 +93,7 @@
 									<label>Doc. de Identidad</label>
 								</div>
 								<div class="col-lg-2">
-									<select class="form-control m-select2 m-select2-general" id="tipoDocLisPro" name="tipoDocLisPro" onchange="DocLenghtBusq(this.value);" >
+									<select class="form-control form-control-sm m-select2 m-select2-general" id="tipoDocLisPro" name="tipoDocLisPro" onchange="DocLenghtBusq(this.value);" >
 										<option value="vacio">
 											Seleccione
 										</option>
@@ -103,13 +103,13 @@
 									</select>
 								</div>
 								<div class="col-lg-3">
-									<input type="text"  class="form-control m-input" name="numDocLisPro" id="numDocLisPro">
+									<input type="text"  class="form-control form-control-sm m-input" name="numDocLisPro" id="numDocLisPro">
 								</div>
 								<div class="col-lg-1">
 									<label>Supervisor:</label>
 								</div>
 								<div class="col-lg-2">
-									<select class="form-control m-select2 m-select2-general" >
+									<select class="form-control form-control-sm m-select2 m-select2-general" >
 										<option>
 											Seleccione 
 										</option>
@@ -128,7 +128,7 @@
 									<label>Consejero:</label>
 								</div>
 								<div class="col-lg-2">
-									<select class="form-control m-select2 m-select2-general" >
+									<select class="form-control form-control-sm m-select2 m-select2-general" >
 										<option>
 											Seleccione
 										</option>
