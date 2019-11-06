@@ -18,7 +18,7 @@
 							<div class="row">
 								<div class="col-lg-6">
 									<label>Sede</label>
-									<select class="form-control m-input custom-select custom-select-danger" name="sedeContrto" id="sedeContrato">
+									<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="sedeContrto" id="sedeContrato">
 											<?php
 												$tabla = "vtama_localidad";
 												$item1 = "cod_localidad";
@@ -30,11 +30,11 @@
 								</div>
 								<div class="col-lg-6">
 									<label>Contrato</label>
-									<input type="text" class="form-control m-input" name="codContrato" id="codContrato">
+									<input type="text" class="form-control form-control-sm m-input" name="codContrato" id="codContrato">
 								</div>
 								<div class="col-lg-6">
 									<label>Tipo</label>
-									<select class="form-control m-input custom-select custom-select-danger" name="tipoPrograma" id="tipoPrograma">
+									<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="tipoPrograma" id="tipoPrograma">
 										<option value="AAA">Seleccione</option>
 									</select>
 								</div>
@@ -51,15 +51,15 @@
 								</div>
 								<div class="col-lg-3">
 									<label>Mod. C:</label>
-									<input type="text" class="form-control m-input" name="modC" id="modC" disabled>		
+									<input type="text" class="form-control form-control-sm m-input" name="modC" id="modC" disabled>		
 								</div>
 								<div class="col-lg-12">
 									<label>Programa</label>
-									<input type="text" class="form-control m-input" name="progContrato" id="progContrato" disabled>
+									<input type="text" class="form-control form-control-sm m-input" name="progContrato" id="progContrato" disabled>
 								</div>
 								<div class="col-lg-12">
 									<label>Cliente</label>
-									<input type="text" class="form-control m-input" name="nomCliContrato" id="nomCliContrato" disabled>
+									<input type="text" class="form-control form-control-sm m-input" name="nomCliContrato" id="nomCliContrato" disabled>
 								</div>
 							</div>
 						</div>
@@ -97,40 +97,40 @@
 							<div class="row">
 								<div class="col-lg-4">
 									<label>Camposanto</label>
-									<input type="text" class="form-control m-input" name="campoContrato" id="campoContrato" disabled>
+									<input type="text" class="form-control form-control-sm m-input" name="campoContrato" id="campoContrato" disabled>
 								</div>
 								<div class="col-lg-4">
 									<label>Plataforma</label>
-									<input type="text" class="form-control m-input" name="platContrato" id="platContrato" disabled>
+									<input type="text" class="form-control form-control-sm m-input" name="platContrato" id="platContrato" disabled>
 								</div>
 								<div class="col-lg-4">
 									<label>Área plataforma</label>
-									<input type="text" class="form-control m-input" name="areaContrato" id="areaContrato" disabled>
+									<input type="text" class="form-control form-control-sm m-input" name="areaContrato" id="areaContrato" disabled>
 								</div>
 								<div class="col-lg-2">
 									<label>Eje Horiz.</label>
-									<input type="text" class="form-control m-input" name="ejeHCotrato" id="ejeHCotrato" disabled>
+									<input type="text" class="form-control form-control-sm m-input" name="ejeHCotrato" id="ejeHCotrato" disabled>
 								</div>
 								<div class="col-lg-2">
 									<label>Eje Vert.</label>
-									<input type="text" class="form-control m-input" name="ejeVContrato" id="ejeVContrato" disabled>
+									<input type="text" class="form-control form-control-sm m-input" name="ejeVContrato" id="ejeVContrato" disabled>
 								</div>
 								<div class="col-lg-2">
 									<label>Espacio</label>
 									<div class="input-group">
-	  									<input type="text" class="form-control m-input" name="espacioContrato" id="espacionContrato" disabled>
+	  									<input type="text" class="form-control form-control-sm m-input" name="espacioContrato" id="espacionContrato" disabled>
 	  									<div class="input-group-append">
-	   										 <button class="btn btn-success btn-outline-secondary" type="button"><i class="fa fa-th-list"></i></button>
+	   										 <button class="btn btn-sm btn-success btn-outline-secondary" type="button"><i class="fa fa-th-list"></i></button>
 	  									</div>
 									</div>
 								</div>
 								<div class="col-lg-2">
 									<label>Nivel</label>
-									<input type="text" class="form-control m-input" name="nivelContrato" id="nivelContrato" disabled>
+									<input type="text" class="form-control form-control-sm m-input" name="nivelContrato" id="nivelContrato" disabled>
 								</div>
 								<div class="col-lg-4">
 									<label>Tipo Espacio</label>
-									<input type="text" class="form-control m-input" name="tipoEspContrato" id="tipoEspContrato" disabled>
+									<input type="text" class="form-control form-control-sm m-input" name="tipoEspContrato" id="tipoEspContrato" disabled>
 								</div>
 							</div>
 						</div>
@@ -211,10 +211,10 @@
 													</label>
 												</div>
 												<div class="col-lg-3">
-													<input type="text" class="form-control m-input" name="idPropietario" id="idPropietario" disabled>
+													<input type="text" class="form-control form-control-sm m-input" name="idPropietario" id="idPropietario" disabled>
 												</div>
 												<div class="col-lg-7">
-													<input type="text" class="form-control m-input" name="dscPropietario" id="dscPropietario" disabled>
+													<input type="text" class="form-control form-control-sm m-input" name="dscPropietario" id="dscPropietario" disabled>
 												</div>
 											</div>
 										</div>
@@ -231,15 +231,15 @@
 											<div class="row">
 												<div class="col-lg-8">
 													<label>Tipo de Servicio</label>
-													<input type="text" class="form-control m-input" name="tipoServicio" id="tipoServicio" disabled>
+													<input type="text" class="form-control form-control-sm m-input" name="tipoServicio" id="tipoServicio" disabled>
 												</div>
 												<div class="col-lg-4">
 													<span data-toggle="modal" data-target="#m_modal_auditoria_contrato">
-														<button type="button" id="btn2Com" class="btn btn-success mt25">
+														<button type="button" id="btn2Com" class="btn btn-sm btn-success mt25">
 															<i class="flaticon-plus"></i>
 														</button>
 													</span>
-													<button type="button" id="btn2Com" class="btn btn-success mt25">
+													<button type="button" id="btn2Com" class="btn btn-sm btn-success mt25">
 														<i class="flaticon-plus"></i>
 													</button>
 												</div>
@@ -247,13 +247,13 @@
 											<div class="row">
 												<div class="col-lg-8">
 													<label>Convenio</label>
-													<input type="text" class="form-control m-input" name="convenio" id="convenio" disabled>
+													<input type="text" class="form-control form-control-sm m-input" name="convenio" id="convenio" disabled>
 												</div>
 											</div>
 											<div class="row">
 												<div class="col-lg-8">
 													<label>Forma de Cobro</label>
-													<input type="text" class="form-control m-input" name="formaCobro" id="formaCobro" disabled>
+													<input type="text" class="form-control form-control-sm m-input" name="formaCobro" id="formaCobro" disabled>
 												</div>
 											</div>
 										</div>
@@ -261,27 +261,27 @@
 											<div class="row">
 												<div class="col-lg-12">
 													<label>Tipo de Necesidad</label>
-													<input type="text" class="form-control m-input" name="tipoNecesidad" id="tipoNecesidad" disabled>
+													<input type="text" class="form-control form-control-sm m-input" name="tipoNecesidad" id="tipoNecesidad" disabled>
 												</div>
 											</div>
 											<div class="row">
 												<div class="col-lg-6">
 													<label>N° beneficiarios</label>
-													<input type="text" class="form-control m-input" name="numBeneficiarios" id="numBeneficiarios" disabled>
+													<input type="text" class="form-control form-control-sm m-input" name="numBeneficiarios" id="numBeneficiarios" disabled>
 												</div>
 												<div class="col-lg-6">
 													<label>Moneda</label>
-													<input type="text" class="form-control m-input" name="moneda" id="moneda" disabled>
+													<input type="text" class="form-control form-control-sm m-input" name="moneda" id="moneda" disabled>
 												</div>
 											</div>
 											<div class="row">
 												<div class="col-lg-6">
 													<label>F. Vencimiento</label>
-													<input type="text" class="form-control m-input" name="fechaVencimiento" id="fechaVencimiento" disabled>
+													<input type="text" class="form-control form-control-sm m-input" name="fechaVencimiento" id="fechaVencimiento" disabled>
 												</div>
 												<div class="col-lg-6">
 													<label>Cuota</label>
-													<input type="text" class="form-control m-input" name="cuota" id="cuota" disabled>
+													<input type="text" class="form-control form-control-sm m-input" name="cuota" id="cuota" disabled>
 												</div>
 											</div>
 										</div>
@@ -297,11 +297,11 @@
 											<div class="row">
 												<div class="col-lg-12">
 													<label>Interés</label>
-													<input type="text" class="form-control m-input" name="interes" id="interes" disabled>
+													<input type="text" class="form-control form-control-sm m-input" name="interes" id="interes" disabled>
 												</div>
 												<div class="col-lg-12">
 													<label>Saldo a Financiar</label>
-													<input type="text" class="form-control m-input" name="saldoFinanciar" id="saldoFinanciar" disabled>
+													<input type="text" class="form-control form-control-sm m-input" name="saldoFinanciar" id="saldoFinanciar" disabled>
 												</div>
 											</div>
 										</div>
@@ -309,11 +309,11 @@
 											<div class="row">
 												<div class="col-lg-12">
 													<label>Cuota Inicial</label>
-													<input type="text" class="form-control m-input" name="cuotaInicial" id="cuotaInicial" disabled>
+													<input type="text" class="form-control form-control-sm m-input" name="cuotaInicial" id="cuotaInicial" disabled>
 												</div>
 												<div class="col-lg-12">
 													<label>I.G.V.</label>
-													<input type="text" class="form-control m-input" name="igv" id="igv" disabled>
+													<input type="text" class="form-control form-control-sm m-input" name="igv" id="igv" disabled>
 												</div>
 											</div>
 										</div>
@@ -321,11 +321,11 @@
 											<div class="row">
 												<div class="col-lg-12">
 													<label>Subtotal</label>
-													<input type="text" class="form-control m-input" name="subtotal" id="subtotal" disabled>
+													<input type="text" class="form-control form-control-sm m-input" name="subtotal" id="subtotal" disabled>
 												</div>
 												<div class="col-lg-12">
 													<label>Total</label>
-													<input type="text" class="form-control m-input" name="total" id="total" disabled>
+													<input type="text" class="form-control form-control-sm m-input" name="total" id="total" disabled>
 												</div>
 											</div>
 										</div>
@@ -621,16 +621,16 @@
 												<div class="row">
 													<div class="col-lg-7">
 														<label>Codigo Cliente</label>
-														<input type="text" class="form-control m-input" name="codCliTitular" id="codCliTitular" disabled>
+														<input type="text" class="form-control form-control-sm m-input" name="codCliTitular" id="codCliTitular" disabled>
 													</div>
 													<div class="col-lg-5">
-														<button type="button" id="btn2Com" class="btn btn-danger mt25">
+														<button type="button" id="btn2Com" class="btn btn-sm btn-danger mt25">
 															<i class="fa fa-user-o"></i>
 														</button>
-														<button type="button" id="btn2Com" class="btn btn-danger mt25">
+														<button type="button" id="btn2Com" class="btn btn-sm btn-danger mt25">
 															<i class="fa fa-search"></i>
 														</button>
-														<button type="button" id="btn2Com" class="btn btn-danger mt25">
+														<button type="button" id="btn2Com" class="btn btn-sm btn-danger mt25">
 															<i class="fa fa-exchange"></i>
 														</button>
 													</div>
@@ -640,7 +640,7 @@
 												<div class="row">
 													<div class="col-lg-3">
 														<label>Doc. Identidad</label>
-														<select class="form-control m-input custom-select custom-select-danger" name="docIdeTitular" id="docIdeTitular" disabled>
+														<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="docIdeTitular" id="docIdeTitular" disabled>
 															<?php
 															$prueba = controladorEmpresa::ctrtipoDoc();
 															?>
@@ -648,12 +648,12 @@
 													</div>
 													<div class="col-lg-4">
 														<label>&nbsp;</label>
-														<input type="text" class="form-control m-input" name="numDocTitular" id="numDocTitular" disabled>
+														<input type="text" class="form-control form-control-sm m-input" name="numDocTitular" id="numDocTitular" disabled>
 													</div>
 													<div class="col-lg-5">
 														<label>Fch. Nacimiento</label>
 														<div class="input-group date">
-															<input type="text" class="form-control m-input"  id="m_datepicker_3" data-date-format="mm/dd/yyyy" disabled />
+															<input type="text" class="form-control form-control-sm m-input"  id="m_datepicker_3" data-date-format="mm/dd/yyyy" disabled />
 															<div class="input-group-append">
 																<span class="input-group-text">
 																	<i class="la la-calendar-check-o"></i>
@@ -667,23 +667,23 @@
 												<div class="row">
 													<div class="col-lg-4">
 														<label>Ape. Paterno</label>
-														<input type="text" class="form-control m-input" name="apePatTitular" id="apePatTitular" disabled>
+														<input type="text" class="form-control form-control-sm m-input" name="apePatTitular" id="apePatTitular" disabled>
 													</div>
 													<div class="col-lg-4">
 														<label>Ape. Materno</label>
-														<input type="text" class="form-control m-input" name="apeMatTitular" id="apeMatTitular" disabled>
+														<input type="text" class="form-control form-control-sm m-input" name="apeMatTitular" id="apeMatTitular" disabled>
 													</div>
 													<div class="col-lg-4">
 														<label>Nombre</label>
-														<input type="text" class="form-control m-input" name="nomTitular" id="nomTitular" disabled>
+														<input type="text" class="form-control form-control-sm m-input" name="nomTitular" id="nomTitular" disabled>
 													</div>
 													<div class="col-lg-12">
 														<label>Razon Social</label>
-														<input type="text" class="form-control m-input" name="razSocTitular" id="razSocTitular" disabled>
+														<input type="text" class="form-control form-control-sm m-input" name="razSocTitular" id="razSocTitular" disabled>
 													</div>
 													<div class="col-lg-3">
 														<label>Tel. Celular 1</label>
-														<input type="text" class="form-control m-input" name="cel1Titular" id="cel1Titular" disabled>
+														<input type="text" class="form-control form-control-sm m-input" name="cel1Titular" id="cel1Titular" disabled>
 													</div>
 													<div class="col-lg-3">
 														<label>Tel. Cel 2</label>
@@ -691,7 +691,7 @@
 													</div>
 													<div class="col-lg-3">
 														<label>Estado Civil</label>
-														<select class="form-control m-input custom-select custom-select-danger" name="edoCivilTitular" id="edoCivilTitular" disabled>
+														<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="edoCivilTitular" id="edoCivilTitular" disabled>
 															<option value="">
 																Seleccione
 															</option>
@@ -702,7 +702,7 @@
 													</div>
 													<div class="col-lg-3">
 														<label>Sexo</label>
-														<select class="form-control m-input custom-select custom-select-danger" name="sexoTitular" id="sexoTitular" disabled>
+														<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="sexoTitular" id="sexoTitular" disabled>
 															<option value="">
 																Seleccione
 															</option>
@@ -716,7 +716,7 @@
 													</div>
 													<div class="col-lg-12">
 														<label>E-mail</label>
-														<input type="text" class="form-control m-input" name="emailTitular" id="emailTitular" disabled>
+														<input type="text" class="form-control form-control-sm m-input" name="emailTitular" id="emailTitular" disabled>
 													</div>
 												</div>
 												<div class="row">
@@ -728,7 +728,7 @@
 												<div class="row">
 													<div class="col-lg-3">
 														<label>País</label>
-														<select class="form-control m-input custom-select custom-select-danger" id="paisTitular" name="paisTitular" disabled>
+														<select class="form-control form-control-sm m-input custom-select custom-select-danger" id="paisTitular" name="paisTitular" disabled>
 															<option value="0">
 																Seleccione el país
 															</option>
@@ -740,7 +740,7 @@
 													</div>
 													<div class="col-lg-3">
 														<label>Departamento</label>
-														<select class="form-control m-input custom-select custom-select-danger" name="departamentoTitular" id="departamentoTitular" disabled="">
+														<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="departamentoTitular" id="departamentoTitular" disabled="">
 															<option value="">
 																Seleccione
 															</option>
@@ -748,7 +748,7 @@
 													</div>
 													<div class="col-lg-3">
 														<label>Provincia</label>
-														<select class="form-control m-input custom-select custom-select-danger" name="provinciaTitular" id="provinciaTitular" disabled>
+														<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="provinciaTitular" id="provinciaTitular" disabled>
 															<option value="">
 																Seleccione
 															</option>
@@ -764,15 +764,15 @@
 													</div>
 													<div class="col-lg-12">
 														<label>Dirección</label>
-														<input type="text" class="form-control m-input" name="direccionTitular" id="direccionTitular" disabled>
+														<input type="text" class="form-control form-control-sm m-input" name="direccionTitular" id="direccionTitular" disabled>
 													</div>
 													<div class="col-lg-12">
 														<label>Referencia</label>
-														<textarea class="form-control m-input" rows="2" name="refDirTitular" id="refDirTitular" disabled></textarea>
+														<textarea class="form-control form-control-sm m-input" rows="2" name="refDirTitular" id="refDirTitular" disabled></textarea>
 													</div>
 													<div class="col-lg-12">
 														<label>Zona</label>
-														<textarea class="form-control m-input" rows="2" name="zonaDirTitular" id="zonaDirTitular" disabled></textarea>
+														<textarea class="form-control form-control-sm m-input" rows="2" name="zonaDirTitular" id="zonaDirTitular" disabled></textarea>
 													</div>
 												</div>
 											</div>
@@ -814,7 +814,7 @@
 												<div class="row">
 													<div class="col-lg-7">
 														<label>Codigo Cliente</label>
-														<input type="text" class="form-control m-input" name="codCliTitular2" id="codCliTitular2" disabled>
+														<input type="text" class="form-control form-control-sm m-input" name="codCliTitular2" id="codCliTitular2" disabled>
 													</div>
 													<div class="col-lg-5">
 													</div>
@@ -824,7 +824,7 @@
 												<div class="row">
 													<div class="col-lg-3">
 														<label>Doc. Identidad</label>
-														<select class="form-control m-input custom-select custom-select-danger" name="docIdeTitular2" id="docIdeTitular2" disabled>
+														<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="docIdeTitular2" id="docIdeTitular2" disabled>
 															<?php
 															$prueba = controladorEmpresa::ctrtipoDoc();
 															?>
@@ -832,12 +832,12 @@
 													</div>
 													<div class="col-lg-4">
 														<label>&nbsp;</label>
-														<input type="text" class="form-control m-input" name="numDocTitular2" id="numDocTitular2" disabled>
+														<input type="text" class="form-control form-control-sm m-input" name="numDocTitular2" id="numDocTitular2" disabled>
 													</div>
 													<div class="col-lg-5">
 														<label>Fch. Nacimiento</label>
 														<div class="input-group date">
-															<input type="text" class="form-control m-input"  id="m_datepicker_4" data-date-format="mm/dd/yyyy" disabled />
+															<input type="text" class="form-control form-control-sm m-input"  id="m_datepicker_4" data-date-format="mm/dd/yyyy" disabled />
 															<div class="input-group-append">
 																<span class="input-group-text">
 																	<i class="la la-calendar-check-o"></i>
@@ -851,31 +851,31 @@
 												<div class="row">
 													<div class="col-lg-4">
 														<label>Ape. Paterno</label>
-														<input type="text" class="form-control m-input" name="apePatTitular2" id="apePatTitular2" disabled>
+														<input type="text" class="form-control form-control-sm m-input" name="apePatTitular2" id="apePatTitular2" disabled>
 													</div>
 													<div class="col-lg-4">
 														<label>Ape. Materno</label>
-														<input type="text" class="form-control m-input" name="apeMatTitular2" id="apeMatTitular2" disabled>
+														<input type="text" class="form-control form-control-sm m-input" name="apeMatTitular2" id="apeMatTitular2" disabled>
 													</div>
 													<div class="col-lg-4">
 														<label>Nombre</label>
-														<input type="text" class="form-control m-input" name="nomTitular2" id="nomTitular2" disabled>
+														<input type="text" class="form-control form-control-sm m-input" name="nomTitular2" id="nomTitular2" disabled>
 													</div>
 													<div class="col-lg-12">
 														<label>Razon Social</label>
-														<input type="text" class="form-control m-input" name="razSocTitular2" id="razSocTitular2" disabled>
+														<input type="text" class="form-control form-control-sm m-input" name="razSocTitular2" id="razSocTitular2" disabled>
 													</div>
 													<div class="col-lg-3">
 														<label>Tel. Celular 1</label>
-														<input type="text" class="form-control m-input" name="cel1Titular2" id="cel1Titular2" disabled>
+														<input type="text" class="form-control form-control-sm m-input" name="cel1Titular2" id="cel1Titular2" disabled>
 													</div>
 													<div class="col-lg-3">
 														<label>Tel. Cel 2</label>
-														<input type="text" class="form-control m-input" name="cel2Titular2" id="cel2Titular2" disabled>
+														<input type="text" class="form-control form-control-sm m-input" name="cel2Titular2" id="cel2Titular2" disabled>
 													</div>
 													<div class="col-lg-3">
 														<label>Estado Civil</label>
-														<select class="form-control m-input custom-select custom-select-danger" name="edoCivilTitular2" id="edoCivilTitular2" disabled>
+														<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="edoCivilTitular2" id="edoCivilTitular2" disabled>
 															<option value="">
 																Seleccione
 															</option>
@@ -886,7 +886,7 @@
 													</div>
 													<div class="col-lg-3">
 														<label>Sexo</label>
-														<select class="form-control m-input custom-select custom-select-danger" name="sexoTitular2" id="sexoTitular2" disabled>
+														<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="sexoTitular2" id="sexoTitular2" disabled>
 															<option value="">
 																Seleccione
 															</option>
@@ -900,7 +900,7 @@
 													</div>
 													<div class="col-lg-12">
 														<label>E-mail</label>
-														<input type="text" class="form-control m-input" name="emailTitular2" id="emailTitular2" disabled>
+														<input type="text" class="form-control form-control-sm m-input" name="emailTitular2" id="emailTitular2" disabled>
 													</div>
 												</div>
 												<div class="row">
@@ -912,7 +912,7 @@
 												<div class="row">
 													<div class="col-lg-3">
 														<label>País</label>
-														<select class="form-control m-input custom-select custom-select-danger" id="paisTitular2" name="paisTitular2" disabled>
+														<select class="form-control form-control-sm m-input custom-select custom-select-danger" id="paisTitular2" name="paisTitular2" disabled>
 															<option value="0">
 																Seleccione el país
 															</option>
@@ -924,7 +924,7 @@
 													</div>
 													<div class="col-lg-3">
 														<label>Departamento</label>
-														<select class="form-control m-input custom-select custom-select-danger" name="departamentoTitular2" id="departamentoTitular2" disabled>
+														<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="departamentoTitular2" id="departamentoTitular2" disabled>
 															<option value="">
 																Seleccione
 															</option>
@@ -932,7 +932,7 @@
 													</div>
 													<div class="col-lg-3">
 														<label>Provincia</label>
-														<select class="form-control m-input custom-select custom-select-danger" name="provinciaTitular2" id="provinciaTitular2" disabled>
+														<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="provinciaTitular2" id="provinciaTitular2" disabled>
 															<option value="">
 																Seleccione
 															</option>
@@ -940,7 +940,7 @@
 													</div>
 													<div class="col-lg-3">
 														<label>Distrito</label>
-														<select class="form-control m-input custom-select custom-select-danger" name="distritoTitular2" id="distritoTitular2" disabled>
+														<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="distritoTitular2" id="distritoTitular2" disabled>
 															<option value="">
 																Seleccione
 															</option>
@@ -948,15 +948,15 @@
 													</div>
 													<div class="col-lg-12">
 														<label>Dirección</label>
-														<input type="text" class="form-control m-input" name="direccionTitular2" id="direccionTitular2" disabled>
+														<input type="text" class="form-control form-control-sm m-input" name="direccionTitular2" id="direccionTitular2" disabled>
 													</div>
 													<div class="col-lg-12">
 														<label>Referencia</label>
-														<textarea class="form-control m-input" rows="2" name="refDirTitular2" id="refDirTitular2" disabled></textarea>
+														<textarea class="form-control form-control-sm m-input" rows="2" name="refDirTitular2" id="refDirTitular2" disabled></textarea>
 													</div>
 													<div class="col-lg-12">
 														<label>Zona</label>
-														<textarea class="form-control m-input" rows="2" name="zonaDirTitular2" id="zonaDirTitular2" disabled></textarea>
+														<textarea class="form-control form-control-sm m-input" rows="2" name="zonaDirTitular2" id="zonaDirTitular2" disabled></textarea>
 													</div>
 												</div>
 											</div>
@@ -998,7 +998,7 @@
 												<div class="row">
 													<div class="col-lg-7">
 														<label>Codigo Cliente</label>
-														<input type="text" class="form-control m-input" name="codAval" id="codAval" disabled>
+														<input type="text" class="form-control form-control-sm m-input" name="codAval" id="codAval" disabled>
 													</div>
 													<div class="col-lg-5">
 													</div>
@@ -1008,7 +1008,7 @@
 												<div class="row">
 													<div class="col-lg-3">
 														<label>Doc. Identidad</label>
-														<select class="form-control m-input custom-select custom-select-danger" name="docIdeAval" id="docIdeAval" disabled>
+														<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="docIdeAval" id="docIdeAval" disabled>
 															<?php
 															$prueba = controladorEmpresa::ctrtipoDoc();
 															?>
@@ -1016,12 +1016,12 @@
 													</div>
 													<div class="col-lg-4">
 														<label>&nbsp;</label>
-														<input type="text" class="form-control m-input" name="numDocAval" id="numDocAval" disabled>
+														<input type="text" class="form-control form-control-sm m-input" name="numDocAval" id="numDocAval" disabled>
 													</div>
 													<div class="col-lg-5">
 														<label>Fch. Nacimiento</label>
 														<div class="input-group date">
-															<input type="text" class="form-control m-input"  id="m_datepicker_5" data-date-format="mm/dd/yyyy" disabled />
+															<input type="text" class="form-control form-control-sm m-input"  id="m_datepicker_5" data-date-format="mm/dd/yyyy" disabled />
 															<div class="input-group-append">
 																<span class="input-group-text">
 																	<i class="la la-calendar-check-o"></i>
@@ -1035,31 +1035,31 @@
 												<div class="row">
 													<div class="col-lg-4">
 														<label>Ape. Paterno</label>
-														<input type="text" class="form-control m-input" name="apePatAval" id="apePatAval" disabled>
+														<input type="text" class="form-control form-control-sm m-input" name="apePatAval" id="apePatAval" disabled>
 													</div>
 													<div class="col-lg-4">
 														<label>Ape. Materno</label>
-														<input type="text" class="form-control m-input" name="apeMatAval" id="apeMatAval" disabled>
+														<input type="text" class="form-control form-control-sm m-input" name="apeMatAval" id="apeMatAval" disabled>
 													</div>
 													<div class="col-lg-4">
 														<label>Nombre</label>
-														<input type="text" class="form-control m-input" name="nomAval" id="nomAval" disabled>
+														<input type="text" class="form-control form-control-sm m-input" name="nomAval" id="nomAval" disabled>
 													</div>
 													<div class="col-lg-12">
 														<label>Razon Social</label>
-														<input type="text" class="form-control m-input" name="razSocAval" id="razSocAval" disabled>
+														<input type="text" class="form-control form-control-sm m-input" name="razSocAval" id="razSocAval" disabled>
 													</div>
 													<div class="col-lg-3">
 														<label>Tel. Celular 1</label>
-														<input type="text" class="form-control m-input" name="cel1Aval" id="cel1Aval" disabled>
+														<input type="text" class="form-control form-control-sm m-input" name="cel1Aval" id="cel1Aval" disabled>
 													</div>
 													<div class="col-lg-3">
 														<label>Tel. Cel 2</label>
-														<input type="text" class="form-control m-input" name="cel2Aval" id="cel2Aval" disabled>
+														<input type="text" class="form-control form-control-sm m-input" name="cel2Aval" id="cel2Aval" disabled>
 													</div>
 													<div class="col-lg-3">
 														<label>Estado Civil</label>
-														<select class="form-control m-input custom-select custom-select-danger" name="edoCivilAval" id="edoCivilAval" disabled>
+														<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="edoCivilAval" id="edoCivilAval" disabled>
 															<option value="">
 																Seleccione
 															</option>
@@ -1070,7 +1070,7 @@
 													</div>
 													<div class="col-lg-3">
 														<label>Sexo</label>
-														<select class="form-control m-input custom-select custom-select-danger" name="sexoAval" id="sexoAval" disabled>
+														<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="sexoAval" id="sexoAval" disabled>
 															<option value="">
 																Seleccione
 															</option>
@@ -1084,7 +1084,7 @@
 													</div>
 													<div class="col-lg-12">
 														<label>E-mail</label>
-														<input type="text" class="form-control m-input" name="emailAval" id="emailAval" disabled>
+														<input type="text" class="form-control form-control-sm m-input" name="emailAval" id="emailAval" disabled>
 													</div>
 												</div>
 												<div class="row">
@@ -1096,7 +1096,7 @@
 												<div class="row">
 													<div class="col-lg-3">
 														<label>País</label>
-														<select class="form-control m-input custom-select custom-select-danger" id="paisAval" name="paisAval" disabled>
+														<select class="form-control form-control-sm m-input custom-select custom-select-danger" id="paisAval" name="paisAval" disabled>
 															<option value="0">
 																Seleccione el país
 															</option>
@@ -1108,7 +1108,7 @@
 													</div>
 													<div class="col-lg-3">
 														<label>Departamento</label>
-														<select class="form-control m-input custom-select custom-select-danger" name="departamentoAval" id="departamentoAval" disabled>
+														<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="departamentoAval" id="departamentoAval" disabled>
 															<option value="">
 																Seleccione
 															</option>
@@ -1116,7 +1116,7 @@
 													</div>
 													<div class="col-lg-3">
 														<label>Provincia</label>
-														<select class="form-control m-input custom-select custom-select-danger" name="provinciaAval" id="provinciaAval" disabled>
+														<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="provinciaAval" id="provinciaAval" disabled>
 															<option value="">
 																Seleccione
 															</option>
@@ -1124,7 +1124,7 @@
 													</div>
 													<div class="col-lg-3">
 														<label>Distrito</label>
-														<select class="form-control m-input custom-select custom-select-danger" name="distritoAval" id="distritoAval" disabled>
+														<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="distritoAval" id="distritoAval" disabled>
 															<option value="">
 																Seleccione
 															</option>
@@ -1132,7 +1132,7 @@
 													</div>
 													<div class="col-lg-12">
 														<label>Dirección</label>
-														<input type="text" class="form-control m-input" name="direccionAval" id="direccionAval" disabled>
+														<input type="text" class="form-control form-control-sm m-input" name="direccionAval" id="direccionAval" disabled>
 													</div>
 													<div class="col-lg-12">
 														<label>Referencia</label>
@@ -1140,7 +1140,7 @@
 													</div>
 													<div class="col-lg-12">
 														<label>Zona</label>
-														<textarea class="form-control m-input" rows="2" name="zonaDirAval" id="zonaDirAval" disabled></textarea>
+														<textarea class="form-control form-control-sm m-input" rows="2" name="zonaDirAval" id="zonaDirAval" disabled></textarea>
 													</div>
 												</div>
 											</div>
@@ -1342,7 +1342,7 @@
 														<label class="">
 															Tipo de documento: &nbsp;
 														</label>
-														<select class="form-control m-input custom-select custom-select-danger selectTipoDoc" id="tipoDocBenef" name="tipoDocBenef">
+														<select class="form-control form-control-sm m-input custom-select custom-select-danger selectTipoDoc" id="tipoDocBenef" name="tipoDocBenef">
 															<option value="vacio">
 																Seleccione
 															</option>
@@ -1358,7 +1358,7 @@
 														<label>
 															N° Documento:&nbsp;
 														</label>
-														<input type="text" class="form-control m-input">
+														<input type="text" class="form-control form-control-sm m-input">
 													</div>
 												</div>
 											</div>
@@ -1368,13 +1368,13 @@
 													<label class="">
 														Apellido paterno:
 													</label>
-													<input type="text" class="form-control m-input" id="apePatBenef">
+													<input type="text" class="form-control form-control-sm m-input" id="apePatBenef">
 												</div>
 												<div class="col-lg-6">
 													<label>
 														Apellido Materno:
 													</label>
-													<input type="text" class="form-control m-input" id="apeMatBenef">
+													<input type="text" class="form-control form-control-sm m-input" id="apeMatBenef">
 												</div>
 											</div>
 											<div class="row">
@@ -1382,7 +1382,7 @@
 													<label class="">
 														Nombres:
 													</label>
-													<input type="text" class="form-control m-input" id="nombreBenef">
+													<input type="text" class="form-control form-control-sm m-input" id="nombreBenef">
 												</div>
 											</div>
 											<div class="row">
@@ -1391,7 +1391,7 @@
 														Fecha de nacimiento:
 													</label>
 													<div class="input-group date">
-														<input type="text" class="form-control m-input" readonly="" placeholder="Seleccionar fecha" id="m_datepicker_4_1">
+														<input type="text" class="form-control form-control-sm m-input" readonly="" placeholder="Seleccionar fecha" id="m_datepicker_4_1">
 														<div class="input-group-append">
 															<span class="input-group-text">
 																<i class="la la-calendar-check-o"></i>
@@ -1404,7 +1404,7 @@
 															Fecha de deceso:
 														</label>
 													<div class="input-group date">
-														<input type="text" class="form-control m-input" readonly="" placeholder="Seleccionar fecha" id="m_datepicker_4_2">
+														<input type="text" class="form-control form-control-sm m-input" readonly="" placeholder="Seleccionar fecha" id="m_datepicker_4_2">
 														<div class="input-group-append">
 															<span class="input-group-text">
 																<i class="la la-calendar-check-o"></i>
@@ -1420,7 +1420,7 @@
 														<label class="">
 															Religión:
 														</label>
-														<select class="form-control m-input custom-select custom-select-danger" name="religionBenef" id="religionBenef">
+														<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="religionBenef" id="religionBenef">
 															<option value="">
 																Seleccione
 															</option>
@@ -1438,7 +1438,7 @@
 														<label class="">
 															Estado civil: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 														</label>
-														<select class="form-control m-input custom-select custom-select-danger" id="ecivilNvoCliWiz" name="option">
+														<select class="form-control form-control-sm m-input custom-select custom-select-danger" id="ecivilNvoCliWiz" name="option">
 															<option value="">
 																Seleccione
 															</option>
@@ -1456,7 +1456,7 @@
 														<label class="">
 															Sexo: &nbsp;
 														</label>
-														<select class="form-control m-input custom-select custom-select-danger" name="option">
+														<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="option">
 															<option value="M">
 																Masculino
 															</option>
@@ -1471,7 +1471,7 @@
 														<label class="">
 															Parentescos: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 														</label>
-														<select class="form-control m-input custom-select custom-select-danger" name="option">
+														<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="option">
 															<option value="">
 																Seleccione
 															</option>
@@ -1510,7 +1510,7 @@
 														<label class="">
 															Lugar deceso: &nbsp;
 														</label>
-														<select class="form-control m-input custom-select custom-select-danger" name="option">
+														<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="option">
 															<option value="">
 																Seleccione
 															</option>
@@ -1537,7 +1537,7 @@
 																		<label class="">
 																			Motivo deceso: &nbsp;
 																		</label>
-																		<select class="form-control m-input custom-select custom-select-danger" name="option">
+																		<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="option">
 															<option value="">
 																Seleccione
 															</option>
@@ -1567,7 +1567,7 @@
 														<label class="">
 															Peso: &nbsp;
 														</label>
-														<input type="text" class="form-control m-input" placeholder="">
+														<input type="text" class="form-control form-control-sm m-input" placeholder="">
 													</div>
 												</div>
 												<div class="col-lg-3">
@@ -1575,7 +1575,7 @@
 														<label class="">
 															Talla: &nbsp;
 														</label>
-														<input type="text" class="form-control m-input" placeholder="">
+														<input type="text" class="form-control form-control-sm m-input" placeholder="">
 													</div>
 												</div>
 												<div class="col-lg-6">
@@ -1608,11 +1608,11 @@
 												<div class="row">
 													<div class="col-lg-6">
 														<label>Saldo a financiar: </label>
-														<input type="text" class="form-control m-input" placeholder="00.00">
+														<input type="text" class="form-control form-control-sm m-input" placeholder="00.00">
 													</div>
 													<div class="col-lg-6">
 														<label> N° de cuotas:</label>
-														<input type="text" class="form-control m-input" placeholder="0">
+														<input type="text" class="form-control form-control-sm m-input" placeholder="0">
 													</div>
 												</div>
 												<br>
@@ -1620,7 +1620,7 @@
 													<div class="col-lg-6">
 														<label>1er vencimiento:</label>
 														<div class="input-group date">
-															<input type="text" class="form-control m-input" readonly="" id="m_datepicker_5">
+															<input type="text" class="form-control form-control-sm m-input" readonly="" id="m_datepicker_5">
 															<div class="input-group-append">
 																<span class="input-group-text">
 																	<i class="la la-calendar-check-o"></i>
@@ -1630,14 +1630,14 @@
 													</div>
 													<div class="col-lg-6">
 														<label>Interes:</label>
-														<input type="text" class="form-control m-input" placeholder="0">
+														<input type="text" class="form-control form-control-sm m-input" placeholder="0">
 													</div>
 												</div>
 												<br>
 												<div class="row">
 													<div class="col-lg-12">
 														<div class="input-group">
-														<button type="reset" class="btn btn-danger">
+														<button type="reset" class="btn btn-sm btn-danger">
 															Generar cronograma de pagos
 														</button>
 													</div>
@@ -1667,22 +1667,22 @@
 											<div class="row">
 												<div class="col-lg-4">
 													<label>Cuota inicial: </label>
-													<input type="text" id="cuoIni" class="form-control m-input" disabled="" placeholder="0">
+													<input type="text" id="cuoIni" class="form-control form-control-sm m-input" disabled="" placeholder="0">
 												</div>
 												<div class="col-lg-4">
 													<label>Cuota final: </label>
-													<input type="text" id="cuoFin" class="form-control m-input" disabled="" placeholder="0">			
+													<input type="text" id="cuoFin" class="form-control form-control-sm m-input" disabled="" placeholder="0">			
 												</div>
 												<div class="col-lg-4">
 													<label>Valor de cuota: </label>
-													<input type="text" id="valCuo" class="form-control m-input" disabled="" placeholder="0.00">			
+													<input type="text" id="valCuo" class="form-control form-control-sm m-input" disabled="" placeholder="0.00">			
 												</div>
 											</div>
 											<br>
 											<div class="row">
 													<div class="col-lg-12">
 														<div class="input-group">
-														<button type="reset" class="btn btn-danger">
+														<button type="reset" class="btn btn-sm btn-danger">
 															Generar CUD
 														</button>
 													</div>
@@ -1810,16 +1810,16 @@
 									<div class="row">
 										<div class="col-lg-3">
 											<label>Saldo</label>
-											<input type="text" class="form-control m-input" placeholder="0.00" name="saldo" id="saldo">
+											<input type="text" class="form-control form-control-sm m-input" placeholder="0.00" name="saldo" id="saldo">
 										</div>
 										<div class="col-lg-3">
 											<label>N° Cuotas</label>
-											<input type="text" class="form-control m-input" placeholder="0" name="nCuotas" id="nCuotas">
+											<input type="text" class="form-control form-control-sm m-input" placeholder="0" name="nCuotas" id="nCuotas">
 										</div>
 										<div class="col-lg-3">
 											<label>1er Vencimiento</label>
 											<div class="input-group date">
-												<input type="text" class="form-control m-input" readonly="" id="m_datepicker_6">
+												<input type="text" class="form-control form-control-sm m-input" readonly="" id="m_datepicker_6">
 												<div class="input-group-append">
 													<span class="input-group-text">
 														<i class="la la-calendar-check-o"></i>
@@ -1829,7 +1829,7 @@
 										</div>
 										<div class="col-lg-3">
 											<br>
-											<button class="btn btn-danger">Generar Cuotas</button>
+											<button class="btn btn-sm btn-danger">Generar Cuotas</button>
 										</div>
 										<div class="col-lg-8">
 											<br>
@@ -1895,19 +1895,19 @@
 												</div>
 												<div class="col-lg-6">
 													<label>Inicial</label>
-													<input type="text" class="form-control m-input" placeholder="0" name="inicialFOMA" id="inicialFOMA">
+													<input type="text" class="form-control form-control-sm m-input" placeholder="0" name="inicialFOMA" id="inicialFOMA">
 												</div>
 												<div class="col-lg-6">
 													<label>Valor</label>
-													<input type="text" class="form-control m-input" placeholder="0" name="valorFOMA" id="valorFOMA">
+													<input type="text" class="form-control form-control-sm m-input" placeholder="0" name="valorFOMA" id="valorFOMA">
 												</div>
 												<div class="col-lg-6">
 													<label>Final</label>
-													<input type="text" class="form-control m-input" placeholder="0" name="finalFOMA" id="finalFOMA">
+													<input type="text" class="form-control form-control-sm m-input" placeholder="0" name="finalFOMA" id="finalFOMA">
 												</div>
 												<div class="col-lg-6">
 													<br>
-													<button class="btn btn-danger"><i class="fa fa-refresh"></i></button>
+													<button class="btn btn-sm btn-danger"><i class="fa fa-refresh"></i></button>
 												</div>
 											</div>
 										</div>
@@ -1921,7 +1921,7 @@
 													<label class="">
 														Canal de Venta
 													</label>
-													<select class="form-control m-input custom-select custom-select-danger" name="sedeContrto" id="sedeContrato">
+													<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="sedeContrto" id="sedeContrato">
 														<option>Selecciona</option>
 														<?php
 																// $tabla = "vtama_localidad";
@@ -1958,19 +1958,19 @@
 												</div>
 												<div class="col-lg-3">
 													<label>Cobrador</label>
-													<input type="text" class="form-control m-input" name="codCobrador" id="codCobrador">
+													<input type="text" class="form-control form-control-sm m-input" name="codCobrador" id="codCobrador">
 												</div>
 												<div class="col-lg-1">
 													<label>&nbsp;</label>
-													<button class="btn btn-primary"><i class="fa fa-search"></i></button>
+													<button class="btn btn-sm btn-primary"><i class="fa fa-search"></i></button>
 												</div>
 												<div class="col-lg-8">
 													<label>&nbsp;&nbsp;</label>
-													<input type="text" class="form-control m-input" name="nombreCobrador" id="nombreCobrador">
+													<input type="text" class="form-control form-control-sm m-input" name="nombreCobrador" id="nombreCobrador">
 												</div>
 												<div class="col-lg-12">
 													<label class="">Zona</label>
-													<select class="form-control m-input custom-select custom-select-danger" name="zona" id="zona">
+													<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="zona" id="zona">
 														<option>Selecciona</option>
 														<?php
 																// $tabla = "vtama_localidad";
@@ -1987,31 +1987,31 @@
 												</div>
 												<div class="col-lg-3">
 													<label>Vendedor</label>
-													<input type="text" class="form-control m-input" name="codVendedor" id="codVendedor">
+													<input type="text" class="form-control form-control-sm m-input" name="codVendedor" id="codVendedor">
 												</div>
 												<div class="col-lg-1">
 													<label>&nbsp;</label>
-													<button class="btn btn-primary"><i class="fa fa-search"></i></button>
+													<button class="btn btn-sm btn-primary"><i class="fa fa-search"></i></button>
 												</div>
 												<div class="col-lg-8">
 													<label>&nbsp;&nbsp;</label>
-													<input type="text" class="form-control m-input" name="nombreVendedor" id="nombreVendedor">
+													<input type="text" class="form-control form-control-sm m-input" name="nombreVendedor" id="nombreVendedor">
 												</div>
 												<div class="col-lg-3">
 													<label>Grupo</label>
-													<input type="text" class="form-control m-input" name="codGrupo" id="codGrupo">
+													<input type="text" class="form-control form-control-sm m-input" name="codGrupo" id="codGrupo">
 												</div>
 												<div class="col-lg-9">
 													<label>&nbsp;&nbsp;</label>
-													<input type="text" class="form-control m-input" name="nombreGrupo" id="nombreGrupo">
+													<input type="text" class="form-control form-control-sm m-input" name="nombreGrupo" id="nombreGrupo">
 												</div>
 												<div class="col-lg-3">
 													<label>Tipo Comisionista</label>
-													<input type="text" class="form-control m-input" name="codTipoComisionista" id="codTipoComisionista">
+													<input type="text" class="form-control form-control-sm m-input" name="codTipoComisionista" id="codTipoComisionista">
 												</div>
 												<div class="col-lg-9">
 													<label>&nbsp;&nbsp;</label>
-													<input type="text" class="form-control m-input" name="nombreTipoComisionista" id="nombreTipoComisionista">
+													<input type="text" class="form-control form-control-sm m-input" name="nombreTipoComisionista" id="nombreTipoComisionista">
 												</div>
 												<div class="col-lg-12">
 													<br>
@@ -2019,19 +2019,19 @@
 												</div>
 												<div class="col-lg-3">
 													<label>Supervisor</label>
-													<input type="text" class="form-control m-input" name="codSupervisor" id="codSupervisor">
+													<input type="text" class="form-control form-control-sm m-input" name="codSupervisor" id="codSupervisor">
 												</div>
 												<div class="col-lg-9">
 													<label>&nbsp;&nbsp;</label>
-													<input type="text" class="form-control m-input" name="nombreSupervisor" id="nombreSupervisor">
+													<input type="text" class="form-control form-control-sm m-input" name="nombreSupervisor" id="nombreSupervisor">
 												</div>
 												<div class="col-lg-3">
 													<label>Jefe de Ventas</label>
-													<input type="text" class="form-control m-input" name="codJefeVentas" id="codJefeVentas">
+													<input type="text" class="form-control form-control-sm m-input" name="codJefeVentas" id="codJefeVentas">
 												</div>
 												<div class="col-lg-9">
 													<label>&nbsp;&nbsp;</label>
-													<input type="text" class="form-control m-input" name="nombreJefeVentas" id="nombreJefeVentas">
+													<input type="text" class="form-control form-control-sm m-input" name="nombreJefeVentas" id="nombreJefeVentas">
 												</div>
 												<div class="col-lg-12">
 													<br>
@@ -2039,15 +2039,15 @@
 												</div>
 												<div class="col-lg-3">
 													<label>Descripcion</label>
-													<input type="text" class="form-control m-input" name="codFuneraria" id="codFuneraria">
+													<input type="text" class="form-control form-control-sm m-input" name="codFuneraria" id="codFuneraria">
 												</div>
 												<div class="col-lg-1">
 													<label>&nbsp;</label>
-													<button class="btn btn-primary"><i class="fa fa-search"></i></button>
+													<button class="btn btn-sm btn-primary"><i class="fa fa-search"></i></button>
 												</div>
 												<div class="col-lg-8">
 													<label>&nbsp;&nbsp;</label>
-													<input type="text" class="form-control m-input" name="dscFuneraria" id="dscFuneraria">
+													<input type="text" class="form-control form-control-sm m-input" name="dscFuneraria" id="dscFuneraria">
 												</div>
 											</div>
 										</div>
@@ -2061,7 +2061,7 @@
 									<div class="row">
 										<div class="col-lg-4">
 											<label class=" ">Área</label>
-											<input type="text" class="form-control m-input" name="area" id="area">
+											<input type="text" class="form-control form-control-sm m-input" name="area" id="area">
 										</div>
 										<div class="col-lg-5"></div>
 										<div class="col-lg-3">

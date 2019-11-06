@@ -54,7 +54,7 @@ WHEN 'ACT' THEN CONVERT(DATE, vtade_contrato.fch_activacion) END ) <= '$fechaFin
 	$tabla.='<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="600">
                 <div class="table-responsive">
     <table id="mytableContrato" class="table table-responsive-m table-bordered mytableContrato" cellpadding="0" cellspacing="0" border="0" display="block" >
-	                    	<thead>
+	                    	<thead class="m-datatable__head">
 	                    		<th>Contrato</th>
                                 <th>Cod. Ser</th>
 	                    		<th class="tdlisCliCon">Cliente</th>
@@ -67,7 +67,6 @@ WHEN 'ACT' THEN CONVERT(DATE, vtade_contrato.fch_activacion) END ) <= '$fechaFin
 	                    		<th style="min-width: 80px;">Tipo Servicio</th>
 	                    		<th>N° Cuotas</th>
 	                    		<th>Total</th>
-                                <th>Acciones</th>
 	                    	</thead>
 	                    	<tbody>';
 
@@ -76,6 +75,7 @@ WHEN 'ACT' THEN CONVERT(DATE, vtade_contrato.fch_activacion) END ) <= '$fechaFin
         $ttipoNec = $key['cod_tipo_necesidad'];
         // $ttipoPro = $key['dsc_tipo_programa'];
         $tnumContrato = $key['cod_contrato'];
+        $auxNumCtt = "'".$tnumContrato."'";
         $tcodServicio= $key['num_servicio'];
         $tcliente = $key['dsc_cliente'];
         // -------- Condicional para campos NULL de fch_generacion -------- //
@@ -127,7 +127,11 @@ WHEN 'ACT' THEN CONVERT(DATE, vtade_contrato.fch_activacion) END ) <= '$fechaFin
         $tabla.= 
                    '<tr>
                         <td>
-                            '.$tnumContrato.'
+                        <div id="m_quick_sidebar-contrato_toggle" class="m-nav__item">
+                            <a href="#" class="m-nav__link m-dropdown__toggle" onclick="mostrarSidebar('.$auxNumCtt.','.$tcodServicio.');">
+                                <span class="m-nav__link-icon">'.$tnumContrato.'</span>
+                            </a>
+                        </div>
                         </td>
                         <td>
                             '.$tcodServicio.'
@@ -161,26 +165,6 @@ WHEN 'ACT' THEN CONVERT(DATE, vtade_contrato.fch_activacion) END ) <= '$fechaFin
                         </td>
                         <td>
                             '.number_format(round($ttotal, 2),2,',','.').'
-                        </td>
-                        <td style="display: inline-flex;">
-                            <span data-toggle="modal" data-target="#m_modal_contrato">
-                                <button type="button" class="m-btn btn btn-warning" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Editar" onclick="">
-                                    <i class="fa fa-edit"></i>
-                                </button>
-                            </span>
-                                <button type="button" class="m-btn btn btn-success" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Activación" onclick="">
-                                    <i class="fa fa-check"></i>
-                                </button>
-                            <span data-toggle="modal" data-target="#m_modal_resolucion">
-                                <button type="button" class="m-btn btn btn-danger" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Resolución" onclick="">
-                                    <i class="fa fa-file-excel-o"></i>
-                                </button>
-                            </span>
-                            <span data-toggle="modal" data-target="#m_modal_print_contrato">
-                                <button type="button" class="m-btn btn btn-info" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Imprimir" onclick="">
-                                    <i class="fa fa-print"></i>
-                                </button>
-                            </span>
                         </td>
                     </tr>';              
 	 }
