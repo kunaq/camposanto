@@ -15,7 +15,7 @@ class Conexion{
     if (!$this->link) {
         echo "Error: No se pudo conectar a Sql." . PHP_EOL;
         //echo "errno de depuración: " . mysqli_connect_errno() . PHP_EOL;
-        echo "error de depuración: " . sqlsrv_errors() . PHP_EOL;
+        echo ("error de depuración: " . sqlsrv_errors() . PHP_EOL);
         exit;
     }
 
