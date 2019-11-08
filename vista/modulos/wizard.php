@@ -158,8 +158,8 @@
 												<label class="">
 												T.C.:
 												</label>
-												<div class="input-group m-input-group p-bottom3">
-													<input type="text" class="form-control m-input" id="tc" name="tc" value=" <?php $prueba = controladorEmpresa::ctrtipoCambio(); ?>" placeholder="">
+												<div class="input-group m-input-group">
+													<input type="text" class="form-control m-input" id="tipoCamb" name="tipoCamb" value=" <?php $prueba = controladorEmpresa::ctrtipoCambio(); ?>" placeholder="">
 												</div>
 											</div>
 										</div>
@@ -544,7 +544,7 @@
                		 							<table class="table table-fixed" id="servAgregados">
 													<thead style="text-align: center;">
 														<tr>
-															<th style="width:16.4rem;">
+															<th style="width:14rem;">
 																Servicio
 															</th>
 															<th style="width:4rem;">
@@ -663,7 +663,7 @@
 																<th style="width: 8rem;">
 																	Código
 																</th>
-																<th style="width: 20.6rem;">
+																<th style="width: 17.8rem;">
 																	Descripción del descuento
 																</th>
 																<th style="width: 6rem;">
@@ -755,7 +755,7 @@
 												<table class="table table-fixed">
 													<thead style="text-align: center;">
 														<tr>
-															<th style="width:30rem;">
+															<th style="width:27.5rem;">
 																Entidad
 															</th>
 															<th style="width:18rem;">

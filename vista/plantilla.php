@@ -71,7 +71,12 @@ $_SESSION['captcha'] = simple_php_captcha();
 		        			$_GET["ruta"] == "wizard" ||
 		        			$_GET["ruta"] == "wizard--" ||
 		        			$_GET["ruta"] == "periodo-venta" ||
-		        			$_GET["ruta"] == "listadoContrato"){
+		        			$_GET["ruta"] == "listadoContrato" ||
+		        			$_GET["ruta"] == "arbol-vendedores" ||
+		        			$_GET["ruta"] == "listado-prospectos" ||
+		        			$_GET["ruta"] == "registro-prospecto" ||
+		        			$_GET["ruta"] == "comisiones" ||
+		        			$_GET["ruta"] == "registroReportes"){
 
 		           		   	include "modulos/".$_GET["ruta"].".php";
 
@@ -122,25 +127,12 @@ $_SESSION['captcha'] = simple_php_captcha();
 		<script src="vista/assets/vendors/custom/fullcalendar/fullcalendar.bundle.js" type="text/javascript"></script>
 		<script src="vista/assets/vendors/custom/fullcalendar/es.js" type="text/javascript"></script>
 		<script src="vista/assets/app/js/dashboard.js" type="text/javascript"></script>
-
-        <?php
-        if(isset($_GET["ruta"])){
-            if($_GET["ruta"] == 'wizard' ||
-        		$_GET["ruta"] == 'periodo-venta' ||
-        	   $_GET["ruta"] == 'listadoContrato'){  
-                echo '<script type="text/javascript" src="vista/js/'.$_GET["ruta"].'.js"></script>';
-            }
-        }
-        ?>
-		<!-- <script src="vista/js/wizard.js" type="text/javascript"></script> -->
 		<script src="vista/js/select2.js" type="text/javascript"></script>
 		<script src="vista/js/html-table.js" type="text/javascript"></script>
 		<script src="vista/js/data-local.js" type="text/javascript"></script>
 		<script src="vista/js/sweetalert2.js" type="text/javascript"></script>
         <script src="vista/js/extensiones.js" type="text/javascript"></script>
         <script src="vista/js/visorServicios.js" type="text/javascript"></script>
-
-
         <script src="vista/plugins/jqueryNumber/jquery.number.js" type="text/javascript"></script>
 		<!-- DataTables -->
     	<script src="vista/assets/vendors/custom/datatables.net/js/jquery.dataTables.min.js"></script>
@@ -149,8 +141,23 @@ $_SESSION['captcha'] = simple_php_captcha();
     	<script src="vista/assets/vendors/custom/datatables.net-bs/js/responsive.bootstrap.min.js"></script>
     	<!--datepicker-->
     	<script src="vista/assets/vendors/custom/bootstrap-datepicker.js" type="text/javascript"></script>
+    	<script src="vista/assets/vendors/custom/bootstrap-datetimepicker.js" type="text/javascript"></script>
     	<script src="vista/assets/demo/demo3/base/typeahead.js" type="text/javascript"></script>
     	<script src="vista/js/login.js" type="text/javascript"></script>
     	<script src="vista/js/lafuncion.js" type="text/javascript"></script>
+    	<?php
+        if(isset($_GET["ruta"])){
+            if($_GET["ruta"] == 'wizard' ||
+        		$_GET["ruta"] == 'periodo-venta' ||
+        		$_GET["ruta"] == 'arbol-vendedores' ||
+        		$_GET["ruta"] == 'listadoContrato'
+        		$_GET["ruta"] == 'listado-prospectos' ||
+        		$_GET["ruta"] == 'registro-prospecto' ||
+        		$_GET["ruta"] == 'comisiones' ||
+        		$_GET["ruta"] == 'registroReportes'){  
+                echo '<script type="text/javascript" src="vista/js/'.$_GET["ruta"].'.js"></script>';
+            }
+        }
+        ?>
     </body>
 </html>

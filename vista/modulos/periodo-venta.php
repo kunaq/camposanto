@@ -16,254 +16,355 @@
 		<!--begin: Portlet Body-->	
 			<!-- <div class="col-xl-12"> -->
 				<div class="card card-transparent flex-row">
-					<ul class="nav nav-tabs nav-tabs-simple nav-tabs-left bg-white ulListaKqPst ulListaConfigPeriodo col-sm-2 col-md-5" id="tab-2" style="border-radius: 3px;margin-bottom: 0;">
-						<li class="spanTextoActiveKq">
-							<div class="row">
-								<div class="text-center col-md-3">Año</div>
-								<div class="text-center col-md-3">Periodo</div>
-								<div class="text-center col-md-3">Fecha Inicio</div>
-								<div class="text-center col-md-3">Fecha Fin</div>
-							</div>
-						</li>
-						<li class="nav-item liListaKqPstImpar">
-							<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
-								<div class="row">
-									<div class="col-md-3">2019</div>
-									<div class="col-md-3">Enero</div>
-									<div class="col-md-3">10/10/2000</div>
-									<div class="col-md-3">10/10/2000</div>
+					<div class="col-md-5">
+						<div class="row">
+							<div class="input-group transparent px-0 col-md-12">
+								<div class="input-group-prepend">
+									<span class="input-group-text transparent"><i class="flaticon-search"></i>
+									</span>
 								</div>
-							</a>	
-						</li>
-						<li class="nav-item liListaKqPstPar">
-							<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
-								<div class="row">
-									<div class="col-md-3">2019</div>
-									<div class="col-md-3">Febrero</div>
-									<div class="col-md-3">10/10/2000</div>
-									<div class="col-md-3">10/10/2000</div>
-								</div>
-							</a>	
-						</li>
-						<li class="nav-item liListaKqPstImpar">
-							<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
-								<div class="row">
-									<div class="col-md-3">2019</div>
-									<div class="col-md-3">Marzo</div>
-									<div class="col-md-3">10/10/2000</div>
-									<div class="col-md-3">10/10/2000</div>
-								</div>
-							</a>	
-						</li>
-						<?php
-						// $respuesta = ControladorAnio::ctrMostrarAnioPeriodo();
-						// foreach ($respuesta as $key => $value) {
-						// 	if($key == 0){
-						// 		$classRespuesta = ' liListaKqPstImpar';
-						// 	}else if($key%2 == 0){
-						// 		$classRespuesta = 'liListaKqPstImpar';
-						// 	}else{
-						// 		$classRespuesta = 'liListaKqPstPar';
-						// 	}
-						// 	$periodo = nombrePeriodo($value['cod_periodo']);
-							// echo '<li class="nav-item '.$classRespuesta.'">
-							// 	<a href="#" id='.$value["cod_anno"].'|'.$value["cod_periodo"].'|'.$value["cod_estado"].' data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
-							// 		<div class="row">
-							// 			<div class="col-md-3">'.$value["cod_anno"].'</div>
-							// 			<div class="col-md-3">'.$periodo.'</div>
-							//			<div class="col-md-3">'.$value["fch_inicio"].'</div>
-							//			<div class="col-md-3">'.$value["fch_fin"].'</div>
-							// 		</div>
-							// 	</a>
-							// 	</li>';
-						// }//foreach
-						?>
-					</ul>							
+								<input placeholder="Buscar" class="search form-control">
+							</div>		
+						</div>
+						<div class="row">
+							<ul class="nav nav-tabs nav-tabs-simple nav-tabs-left bg-white ulListaKqPst ulListaConfigPeriodo col-sm-2 col-md-12" id="tab-2" style="border-radius: 3px;margin-bottom: 0;">
+								<li class="spanTextoActiveKq liListaKqPstTitulo">
+									<div class="row">
+										<div class="col-md-2" style="padding: 0 0 0 1.6rem;"><b>Año</b></div>
+										<div class="col-md-5"><b>Período</b></div>
+										<div class="col-md-5"><b>Estado</b></div>
+									</div>
+								</li>
+								<li class="nav-item liListaKqPstImpar">
+									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
+										<div class="row">
+											<div class="col-md-2">2019</div>
+											<div class="col-md-5">Enero</div>
+											<div class="col-md-5">ABIERTO</div>
+										</div>
+									</a>	
+								</li>
+								<li class="nav-item liListaKqPstPar">
+									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
+										<div class="row">
+											<div class="col-md-2">2019</div>
+											<div class="col-md-5">Febrero</div>
+											<div class="col-md-5">CERRADO</div>
+										</div>
+									</a>	
+								</li>
+								<li class="nav-item liListaKqPstImpar">
+									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
+										<div class="row">
+											<div class="col-md-2">2019</div>
+											<div class="col-md-5">Noviembre</div>
+											<div class="col-md-5">ABIERTO</div>
+										</div>
+									</a>	
+								</li>
+								<li class="nav-item liListaKqPstPar">
+									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
+										<div class="row">
+											<div class="col-md-2">2019</div>
+											<div class="col-md-5">Febrero</div>
+											<div class="col-md-5">CERRADO</div>
+										</div>
+									</a>	
+								</li>
+								<li class="nav-item liListaKqPstImpar">
+									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
+										<div class="row">
+											<div class="col-md-2">2019</div>
+											<div class="col-md-5">Noviembre</div>
+											<div class="col-md-5">ABIERTO</div>
+										</div>
+									</a>	
+								</li>
+								<li class="nav-item liListaKqPstPar">
+									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
+										<div class="row">
+											<div class="col-md-2">2019</div>
+											<div class="col-md-5">Febrero</div>
+											<div class="col-md-5">CERRADO</div>
+										</div>
+									</a>	
+								</li>
+								<li class="nav-item liListaKqPstImpar">
+									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
+										<div class="row">
+											<div class="col-md-2">2019</div>
+											<div class="col-md-5">Noviembre</div>
+											<div class="col-md-5">ABIERTO</div>
+										</div>
+									</a>	
+								</li>
+								<li class="nav-item liListaKqPstPar">
+									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
+										<div class="row">
+											<div class="col-md-2">2019</div>
+											<div class="col-md-5">Febrero</div>
+											<div class="col-md-5">CERRADO</div>
+										</div>
+									</a>	
+								</li>
+								<li class="nav-item liListaKqPstImpar">
+									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
+										<div class="row">
+											<div class="col-md-2">2019</div>
+											<div class="col-md-5">Noviembre</div>
+											<div class="col-md-5">ABIERTO</div>
+										</div>
+									</a>	
+								</li>
+								<li class="nav-item liListaKqPstPar">
+									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
+										<div class="row">
+											<div class="col-md-2">2019</div>
+											<div class="col-md-5">Febrero</div>
+											<div class="col-md-5">CERRADO</div>
+										</div>
+									</a>	
+								</li>
+								<li class="nav-item liListaKqPstImpar">
+									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
+										<div class="row">
+											<div class="col-md-2">2019</div>
+											<div class="col-md-5">Noviembre</div>
+											<div class="col-md-5">ABIERTO</div>
+										</div>
+									</a>	
+								</li>
+								<li class="nav-item liListaKqPstPar">
+									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
+										<div class="row">
+											<div class="col-md-2">2019</div>
+											<div class="col-md-5">Febrero</div>
+											<div class="col-md-5">CERRADO</div>
+										</div>
+									</a>	
+								</li>
+								<li class="nav-item liListaKqPstImpar">
+									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
+										<div class="row">
+											<div class="col-md-2">2019</div>
+											<div class="col-md-5">Noviembre</div>
+											<div class="col-md-5">ABIERTO</div>
+										</div>
+									</a>	
+								</li>
+								<li class="nav-item liListaKqPstPar">
+									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
+										<div class="row">
+											<div class="col-md-2">2019</div>
+											<div class="col-md-5">Febrero</div>
+											<div class="col-md-5">CERRADO</div>
+										</div>
+									</a>	
+								</li>
+								<li class="nav-item liListaKqPstImpar">
+									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
+										<div class="row">
+											<div class="col-md-2">2019</div>
+											<div class="col-md-5">Noviembre</div>
+											<div class="col-md-5">ABIERTO</div>
+										</div>
+									</a>	
+								</li>
+								<li class="nav-item liListaKqPstPar">
+									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
+										<div class="row">
+											<div class="col-md-2">2019</div>
+											<div class="col-md-5">Febrero</div>
+											<div class="col-md-5">CERRADO</div>
+										</div>
+									</a>	
+								</li>
+								<li class="nav-item liListaKqPstImpar">
+									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
+										<div class="row">
+											<div class="col-md-2">2019</div>
+											<div class="col-md-5">Noviembre</div>
+											<div class="col-md-5">ABIERTO</div>
+										</div>
+									</a>	
+								</li>
+								<li class="nav-item liListaKqPstPar">
+									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
+										<div class="row">
+											<div class="col-md-2">2019</div>
+											<div class="col-md-5">Febrero</div>
+											<div class="col-md-5">CERRADO</div>
+										</div>
+									</a>	
+								</li>
+								<li class="nav-item liListaKqPstImpar">
+									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
+										<div class="row">
+											<div class="col-md-2">2019</div>
+											<div class="col-md-5">Noviembre</div>
+											<div class="col-md-5">ABIERTO</div>
+										</div>
+									</a>	
+								</li>
+								<li class="nav-item liListaKqPstPar">
+									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
+										<div class="row">
+											<div class="col-md-2">2019</div>
+											<div class="col-md-5">Febrero</div>
+											<div class="col-md-5">CERRADO</div>
+										</div>
+									</a>	
+								</li>
+								<li class="nav-item liListaKqPstImpar">
+									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
+										<div class="row">
+											<div class="col-md-2">2019</div>
+											<div class="col-md-5">Noviembre</div>
+											<div class="col-md-5">ABIERTO</div>
+										</div>
+									</a>	
+								</li>
+								<li class="nav-item liListaKqPstPar">
+									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
+										<div class="row">
+											<div class="col-md-2">2019</div>
+											<div class="col-md-5">Febrero</div>
+											<div class="col-md-5">CERRADO</div>
+										</div>
+									</a>	
+								</li>
+								<li class="nav-item liListaKqPstImpar">
+									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
+										<div class="row">
+											<div class="col-md-2">2019</div>
+											<div class="col-md-5">Noviembre</div>
+											<div class="col-md-5">ABIERTO</div>
+										</div>
+									</a>	
+								</li>
+								<li class="nav-item liListaKqPstPar">
+									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
+										<div class="row">
+											<div class="col-md-2">2019</div>
+											<div class="col-md-5">Febrero</div>
+											<div class="col-md-5">CERRADO</div>
+										</div>
+									</a>	
+								</li>
+								<li class="nav-item liListaKqPstImpar">
+									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
+										<div class="row">
+											<div class="col-md-2">2019</div>
+											<div class="col-md-5">Noviembre</div>
+											<div class="col-md-5">ABIERTO</div>
+										</div>
+									</a>	
+								</li>
+							</ul>
+						</div>		
+					</div>					
 					<div class="tab-content-active bg-white divFormularioKqPst col-sm-10 col-md-7" style="align-self: auto;padding-top: 1rem;">
 						<div class="tab-pane slide-left" id="tabConfigPeriodo">
 							<form enctype="multipart/form-data" id="formConfigPeriodo" role="form" method="POST">
 								<div class="row">
 									<div class="col-md-12">
-										<span id="tituloPeriodoCerrado"></span>
 										<p class="pull-right">
-											<button type="button" class="btn btn-sm btn-primary btnAgregarKqPst2" title="Crear año" id="btnAgregarGestor"  style="margin-right:6px;"><i class="fa fa-plus"></i></button>	
-											<button type="button" class="btn btn-sm btn-primary btnGuardarKqPst" title="Copiar año siguiente" id="btnGuardarCambios"><i class="fa fa-copy"></i></button>
+											<button type="button" class="btn btn-sm btn-primary btnGuardarKqPst" title="Crear año" id="btnAgregarGestor"  style="margin-right:6px;"><i class="fa fa-plus"></i></button>	
+											<button type="button" class="btn btn-sm btn-primary btnEditarKqPst2" title="Copiar año siguiente" id="btnGuardarCambios"><i class="fa fa-copy"></i></button>
 										</p>										
 									</div>
 								</div>
-								<div class="row">
+								<div class="form-group row">
 									<div class="col-lg-2">
 										<label>Periodo:</label>
 									</div>
 									<div class="col-lg-4">
-										<input type="text" class="form-control m-input" name="" id="">
+										<input type="text" disabled class="form-control form-control-sm m-input" name="" id="">
 									</div>
 									<div class="col-lg-2">
 										<label>Mes:</label>
 									</div>
 									<div class="col-lg-4">
-										<input type="text" class="form-control m-input" name="" id="">
+										<input type="text" disabled class="form-control form-control-sm m-input" name="" id="">
 									</div>	
 								</div>
-								<br>
-								<div class="row">
+								<div class="row form-group">
 									<div class="col-lg-2">
 										<label>Descripción:</label>
 									</div>
 									<div class="col-lg-10">
-										<input type="text" class="form-control m-input" name="" id="">
+										<input type="text" disabled class="form-control form-control-sm m-input" name="" id="">
 									</div>
 								</div>
-								<br>
-								<div class="row">
+								<div class="row form-group">
 									<div class="col-lg-2">
 										<label>Fecha Inicio:</label>
 									</div>
 									<div class="col-lg-4">
-										<input type="text" class="form-control m-input" name="" id="">
+										<div class="input-group date">
+											<input type="text" class="form-control form-control-sm m-input"  id="fchIniPerVen" name="fchIniPerVen" data-date-format="mm/dd/yyyy" value="<?php echo date('m/d/Y', strtotime(date('m/d/Y').'+ 1 month')); ?>"/>
+											<div class="input-group-append">
+												<span class="input-group-text">
+													<i class="la la-calendar-check-o"></i>
+												</span>
+											</div>
+										</div>
 									</div>
 									<div class="col-lg-2">
 										<label>Fecha Fin:</label>
 									</div>
 									<div class="col-lg-4">
-										<input type="text" class="form-control m-input" name="" id="">
+										<div class="input-group date">
+											<input type="text" class="form-control form-control-sm m-input"  id="fchFinPerVen" name="fchFinPerVen" data-date-format="mm/dd/yyyy" value="<?php echo date('m/d/Y', strtotime(date('m/d/Y').'+ 1 month')); ?>"/>
+											<div class="input-group-append">
+												<span class="input-group-text">
+													<i class="la la-calendar-check-o"></i>
+												</span>
+											</div>
+										</div>
 									</div>	
 								</div>
-								<br>
-								<div class="row">
+								<div class="row form-group">
 									<div class="col-lg-2">
 										<label>Periodo anterior:</label>
 									</div>
 									<div class="col-lg-4">
-										<input type="text" class="form-control m-input" name="" id="">
+										<input type="text" disabled class="form-control form-control-sm m-input" name="" id="">
 									</div>
 									<div class="col-lg-2">
 										<label>Estado:</label>
 									</div>
 									<div class="col-lg-4">
-										<input type="text" class="form-control m-input" name="" id="">
+										<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="edoPerVen" id="edoPerVen">
+											<option value="ABI">ABIERTO</option>
+											<option value="CER">CERRADO</option>
+										</select>
 									</div>	
 								</div>
-								<br>
-								<div class="row">
-									<fieldset class="col-md-10 offset-md-1 fieldFormHorizontal">
-										<legend class="col-md-3">Cierre</legend>
-										<div class="form-group row">
-											<div class="col-lg-2">
-												<label>Fecha Cierre:</label>
-											</div>
-											<div class="col-lg-4">
-												<input type="text" class="form-control m-input" name="" id="">
-											</div>
-											<div class="col-lg-6">
-												<div class="row">
-													<div class="col-lg-6">
-														<label class="m-checkbox">
-															Cierre manual:
-														</label>
-													</div>
-													<div class="col-lg-6">
-														<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
-															<label>
-																<input type="checkbox" name="" id="">
-																<span></span>
-															</label>
-														</span>
-													</div>
-												</div>
-											</div>	
-										</div>
-										<div class="form-group row">
-											<div class="col-lg-2">
-												<label>Usuario:</label>
-											</div>
-											<div class="col-lg-4">
-												<input type="text" class="form-control m-input" name="" id="">
-											</div>
-										</div>
-									</fieldset>
+								<div class="row form-group">
+									<div class="col-lg-2">
+										<label>Procesos comisiones:</label>
+									</div>
+									<div class="col-lg-4">
+										<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
+											<label>
+												<input type="checkbox" name="chkProComPerVen" id="chkProComPerVen">
+												<span></span>
+											</label>
+										</span>
+									</div>
+									<div class="col-lg-2">
+										<label>Fecha:</label>
+									</div>
+									<div class="col-lg-4">
+										<input type="text" class="form-control form-control-sm m-input" name="fchProComPerVen" id="fchProComPerVen">
+									</div>
 								</div>
-								<br>
-								<div class="row">
-									<fieldset class="col-md-10 offset-md-1 fieldFormHorizontal">
-										<legend class="col-md-3">Procesos</legend>
-										<div class="form-group row">
-											<div class="col-lg-6">
-												<div class="row">
-													<div class="col-lg-6">
-														<label class="m-checkbox">
-															Árbol vendedor:
-														</label>
-													</div>
-													<div class="col-lg-6">
-														<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
-															<label>
-																<input type="checkbox" name="" id="">
-																<span></span>
-															</label>
-														</span>
-													</div>
-												</div>
-											</div>
-											<div class="col-lg-2">
-												<label>Fecha:</label>
-											</div>
-											<div class="col-lg-4">
-												<input type="text" class="form-control m-input" name="" id="">
-											</div>	
-										</div>
-										<div class="form-group row">
-											<div class="col-lg-6">
-												<div class="row">
-													<div class="col-lg-6">
-														<label class="m-checkbox">
-															Parámetros comisiones:
-														</label>
-													</div>
-													<div class="col-lg-6">
-														<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
-															<label>
-																<input type="checkbox" name="" id="">
-																<span></span>
-															</label>
-														</span>
-													</div>
-												</div>
-											</div>
-											<div class="col-lg-2">
-												<label>Fecha:</label>
-											</div>
-											<div class="col-lg-4">
-												<input type="text" class="form-control m-input" name="" id="">
-											</div>	
-										</div>
-										<div class="form-group row">
-											<div class="col-lg-6">
-												<div class="row">
-													<div class="col-lg-6">
-														<label class="m-checkbox">
-															Procesos comisiones:
-														</label>
-													</div>
-													<div class="col-lg-6">
-														<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
-															<label>
-																<input type="checkbox" name="" id="">
-																<span></span>
-															</label>
-														</span>
-													</div>
-												</div>
-											</div>
-											<div class="col-lg-2">
-												<label>Fecha:</label>
-											</div>
-											<div class="col-lg-4">
-												<input type="text" class="form-control m-input" name="" id="">
-											</div>	
-										</div>
-									</fieldset>
-								</div>
+								<div class="form-group row">
+									<div class="col-lg-12" style="text-align: center;">
+										<p>Fecha Cierre: <span>12/12/2019</span> Usuario: <span>ADMINISTRATOR</span></p>
+									</div>
+								</div>	
 							</form>
 						</div>
 					</div>

@@ -50,6 +50,7 @@ $(".btnIngresar2").click(function(){
         dataType: 'text',
         data: { 'usuario' : usuario, 'pass' : pass },
         success : function(respuesta){
+          console.log(respuesta);
            if(respuesta == 'true'){
                 swal({
                     type: "success",

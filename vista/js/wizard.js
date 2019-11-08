@@ -1,3 +1,4 @@
+// $("#tipoCamb").number(true,2);
 var WizardDemo = function() {
     $("#m_wizard");
     var i, e, n = $("#m_form");

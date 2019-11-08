@@ -129,8 +129,9 @@ a {
 }
 
 a:hover {
-    color: #2739c1;
-    text-decoration: underline
+    /*color: #2739c1;
+    text-decoration: underline*/
+    text-decoration: none;
 }
 
 a:not([href]):not([tabindex]) {
@@ -10640,7 +10641,7 @@ body,html {
     padding: 0;
     font-size: 13px;
     font-weight: 300;
-    font-family: Montserrat;
+    font-family: Roboto;
     -ms-text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale
@@ -50812,7 +50813,7 @@ body {
     color: red;
 }
 .tdDscServicioAdd{
-    width: 16.5rem;
+    width: 14rem;
 }
 .tdCtdServicioAdd{
     width: 4rem;
@@ -50871,7 +50872,7 @@ body {
     width: 8rem;
 }
 .tdDsctoDsc{
-    width: 20.6rem;
+    width: 17.8rem;
 }
 .tdDsctoMon{
     text-align: center;
@@ -50901,7 +50902,7 @@ body {
 }
 .tdEndDsc{
     padding-left:30px;
-    width: 30rem;
+    width: 27.5rem;
 }
 .tdEndFchVen{
     text-align: center;
@@ -50923,25 +50924,32 @@ body {
     width: 8rem;
 }
 .ulListaKqPst{
-  background-color: #ffe4e8 !important;
+  /*background-color: #ffe4e8 !important;*/
   display: block;
-  height: 53rem;
+  height: 29rem;
   overflow-y: scroll;
+  align-self: end;
 }
 .liListaKqPstPar{
     /*border-bottom:2px solid #f55753;*/
-    background-color: #ffe4e8 !important;
+    background-color: #ffffff !important;
 }
 .liListaKqPstPar:hover,.liListaKqPstImpar:hover{
-    background-color: #f39aa8 !important;
+    background-color: #d2d2d2 !important;
+    text-decoration: none !important;
 }
 .liListaKqPstImpar{
     /*border-bottom:2px solid #f55753;*/
-    background-color: #ffd1d8 !important;
+    background-color: #f9f9f9 !important;
 }
 .liListaKqPstActive{
     /*border-bottom:2px solid #f55753;*/
-    background-color: #f39aa8 !important;
+    background-color: #d2d2d2 !important;
+}
+.liListaKqPstTitulo{
+    background-color: #dddddd !important;
+    color: #575962 !important;
+    border-bottom: solid 1px black;
 }
 .btnAgregarKqPst{
     /*background-color: #dc2c32;
@@ -51005,7 +51013,6 @@ body {
 ul >li, ol > li{
     line-height: 24px;
 }
-
 .logo{
     width: 140px;
     height: 67px;
@@ -51077,4 +51084,15 @@ ul >li, ol > li{
 }
 .tbodyDeuda{
     min-height: 600px;
+}
+.spanTextoKq2{
+    text-decoration: none;
+     /*background-color: #e4e1e1;*/
+     font-size: 1.2rem;
+     color: black;
+}
+.user-pick{
+    outline: none;
+    border-color: #4244d9;
+    box-shadow: 0 0 20px #4244d9;
 }
