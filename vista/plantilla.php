@@ -150,7 +150,7 @@ $_SESSION['captcha'] = simple_php_captcha();
             if($_GET["ruta"] == 'wizard' ||
         		$_GET["ruta"] == 'periodo-venta' ||
         		$_GET["ruta"] == 'arbol-vendedores' ||
-        		$_GET["ruta"] == 'listadoContrato'
+        		$_GET["ruta"] == 'listadoContrato' ||
         		$_GET["ruta"] == 'listado-prospectos' ||
         		$_GET["ruta"] == 'registro-prospecto' ||
         		$_GET["ruta"] == 'comisiones' ||
