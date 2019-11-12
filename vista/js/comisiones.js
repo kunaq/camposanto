@@ -1,11 +1,13 @@
 // $("#numDocRegPro").number(true);
-$("#tabProcComis").DataTable();
+// $("#tabProcComis").DataTable();
 $("#tabDetCttoComis").DataTable();
-// $(document).ready(function() {
-//     $('#tabProcComis').DataTable( {
-//        // "scrollY":        "200px",
-//        //  "scrollCollapse": true,
-//        //  "paging":         false,
-//        //  "info":     false
-//     } );
-// } );
+$(document).ready(function() {
+    $('#tabProcComis').DataTable( {
+       "lengthMenu": [[5, 10, 15, -1], [5, 10, 15, "All"]]
+    } );
+} );
+
+function modalDetCtto() {
+  // alert('llego');
+   $("#DetCtoComisiones").modal("show");
+}
