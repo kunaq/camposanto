@@ -51,7 +51,7 @@ WHEN 'EMI' THEN CONVERT(DATE, vtade_contrato.fch_emision)
 WHEN 'ACT' THEN CONVERT(DATE, vtade_contrato.fch_activacion) END ) <= '$fechaFin'");
 
 
-	$tabla.='<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="600">
+	$tabla.='
                 <div class="table-responsive">
     <table id="mytableContrato" class="table table-responsive-m table-bordered mytableContrato" cellpadding="0" cellspacing="0" border="0" display="block" >
 	                    	<thead class="m-datatable__head">
@@ -171,8 +171,7 @@ WHEN 'ACT' THEN CONVERT(DATE, vtade_contrato.fch_activacion) END ) <= '$fechaFin
 
 		$tabla.= '</tbody>
             	</table>
-          	</div>
-       	</div>';
+          	</div>';
     	
     	$db->liberar($sql);
 		$db->cerrar();

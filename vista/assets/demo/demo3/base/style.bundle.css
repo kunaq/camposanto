@@ -250,13 +250,13 @@ fieldset {
 
 legend {
     display: block;
-    width: 100%;
-    max-width: 100%;
+    /*width: 100%;*/
+    /*max-width: 100%;*/
+    margin-left: 5px;
     padding: 0;
     margin-bottom: .5rem;
     font-size: 1.5rem;
     line-height: inherit;
-    color: inherit;
     white-space: normal
 }
 
@@ -16892,7 +16892,7 @@ b,strong {
 }
 
 .m-tabs-line .m-tabs__item {
-    margin-right: 30px;
+    margin-right: 20px;
     margin-bottom: -1px
 }
 
@@ -51040,3 +51040,63 @@ body {
   font-size: 1.2rem;
 }
 
+/* ---------------- Estilos Refinanciamiento ---------------- */
+
+.myTableSaldos{
+    width: 100%;
+    overflow-x: auto;
+}
+.myTableSaldos th, td{
+    background-color: #FFF;
+    text-align: center;
+}
+.myTableSaldos thead th{
+    background-color: #fff;
+}
+
+.myTableSaldos tbody th{
+    margin-top: 9px;
+}
+
+@media (max-width: 1025px){
+    .myTableSaldos{
+        width: 100%;
+        overflow-x: auto;
+        display: block;
+    }
+}
+
+.mt15{
+    margin-top: 15px;
+}
+
+/* ---------------- Estilos Espacios ---------------- */
+.tablaEspacios{
+    width: 100%;
+    border: 1px solid #FFF;
+}
+
+.tablaEspacios thead th{
+    width: 71px;
+    max-width: 71px;
+    background-color: #fff;
+    text-align: center;
+    /*border-right: 1px solid #000;
+    border-bottom: 1px solid #0050CC;*/
+    border: 1px solid #FFF;
+}
+
+.tablaEspacios tbody th{
+    min-height: 71px;
+    height: 71px;
+    max-height: 71px;
+    background-color: #fff;
+    text-align: center;
+    vertical-align: middle;
+/*    border-right: 1px solid #0050CC;*/
+    border: 1px solid #FFF;
+}
+
+.tablaEspacios tbody td{
+    border-color: #FFF;
+}

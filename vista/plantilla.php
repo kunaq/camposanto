@@ -71,6 +71,9 @@ $_SESSION['captcha'] = simple_php_captcha();
 		        			$_GET["ruta"] == "wizard" ||
 		        			$_GET["ruta"] == "listadoContrato" ||
 		        			$_GET["ruta"] == "seguimientoContrato" ||
+		        			$_GET["ruta"] == "cambioTitular" ||
+		        			$_GET["ruta"] == "refinanciamiento" ||
+		        			$_GET["ruta"] == 'mapaEspacios' ||
 		        			$_GET["ruta"] == "wizard--"){
 
 		           		   	include "modulos/".$_GET["ruta"].".php";
@@ -127,6 +130,9 @@ $_SESSION['captcha'] = simple_php_captcha();
         if(isset($_GET["ruta"])){
             if($_GET["ruta"] == 'wizard' || 
         	   $_GET["ruta"] == 'listadoContrato' ||
+        	   $_GET["ruta"] == 'cambioTitular' ||
+        	   $_GET["ruta"] == 'refinanciamiento' ||
+        	   $_GET["ruta"] == 'mapaEspacios' ||
         	   $_GET["ruta"] == 'seguimientoContrato'){  
                 echo '<script type="text/javascript" src="vista/js/'.$_GET["ruta"].'.js"></script>';
             }

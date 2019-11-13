@@ -68,7 +68,7 @@
 								<div class="col-lg-12">
 									<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="200">
 										<div class="table-responsive">
-											<table class="table m-table m-table--head-bg-success">
+											<table class="table m-table">
 												<thead>
 													<th>N°</th>
 													<th>T. Servicio</th>
@@ -120,7 +120,7 @@
 									<div class="input-group">
 	  									<input type="text" class="form-control form-control-sm m-input" name="espacioContrato" id="espacionContrato" disabled>
 	  									<div class="input-group-append">
-	   										 <button class="btn btn-sm btn-success btn-outline-secondary" type="button"><i class="fa fa-th-list"></i></button>
+	   										 <button class="btn btn-sm btn-danger btn-outline-secondary" type="button"><i class="fa fa-th-list"></i></button>
 	  									</div>
 									</div>
 								</div>
@@ -235,11 +235,11 @@
 												</div>
 												<div class="col-lg-4">
 													<span data-toggle="modal" data-target="#m_modal_auditoria_contrato">
-														<button type="button" id="btn2Com" class="btn btn-sm btn-success mt25">
+														<button type="button" id="btn2Com" class="btn btn-sm btn-danger mt25">
 															<i class="flaticon-plus"></i>
 														</button>
 													</span>
-													<button type="button" id="btn2Com" class="btn btn-sm btn-success mt25">
+													<button type="button" id="btn2Com" class="btn btn-sm btn-danger mt25">
 														<i class="flaticon-plus"></i>
 													</button>
 												</div>
@@ -346,169 +346,177 @@
 												<a class="nav-link m-tabs__link" data-toggle="tab" href="#m_tabs_6_4" role="tab">Contratos-Transferencias</a>
 												</li>
 											</ul>
-											<div class="tab-content">
-												<div id="m_tabs_6_1" class="tab-pane active" role="tabpanel">
-													<div class="col-lg-12">
-														<div class="row">
-															<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="200">
-																<div class="table-responsive">
-																	<table class="table m-table m-table--head-bg-success">
-																		<thead>
-																			<th>N°</th>
-																			<th>Codigo</th>
-																			<th>Descripción</th>
-																			<th>Ctd</th>
-																			<th>Precio Venta</th>
-																			<th>Mín. Inhuma</th>
-																			<th>Subtotal</th>
-																			<th>I.G.V.</th>
-																			<th>Total</th>
-																		</thead>
-																		<tbody>
-																			<tr>
-																				<td>1</td>
-																				<td>DU000035</td>
-																				<td>POR SERVICIO DE DERECHO DE USO</td>
-																				<td>1</td>
-																				<td>9.300,00</td>
-																				<td>3.815,00</td>
-																				<td>7.600,00</td>
-																				<td>0,00</td>
-																				<td>7.600,00</td>
-																			</tr>
-																			<tr>
+											<div class="col-lg-12">
+												<div class="tab-content">
+													<div id="m_tabs_6_1" class="tab-pane active" role="tabpanel">
+														<div class="col-lg-12">
+															<div class="row">
+																	<div class="table-responsive">
+																		<table class="table m-table">
+																			<thead>
+																				<th>N°</th>
+																				<th>Codigo</th>
+																				<th>Descripción</th>
+																				<th>Ctd</th>
+																				<th>Precio Venta</th>
+																				<th>Mín. Inhuma</th>
+																				<th>Subtotal</th>
+																				<th>I.G.V.</th>
+																				<th>Total</th>
+																			</thead>
+																			<tbody>
+																				<tr>
+																					<td>1</td>
+																					<td>DU000035</td>
+																					<td>POR SERVICIO DE DERECHO DE USO</td>
+																					<td>1</td>
+																					<td>9.300,00</td>
+																					<td>3.815,00</td>
+																					<td>7.600,00</td>
+																					<td>0,00</td>
+																					<td>7.600,00</td>
+																				</tr>
+																				<tr>
+																					<td></td>
+																				</tr>
+																			</tbody>
+																			<tfoot>
 																				<td></td>
-																			</tr>
-																		</tbody>
-																		<tfoot>
-																			<td></td>
-																			<td></td>
-																			<td></td>
-																			<td></td>
-																			<td></td>
-																			<td></td>
-																			<td></td>
-																			<td>Total:</td>
-																			<td>7.600,00</td>
-																		</tfoot>
-																	</table>
-																</div>
+																				<td></td>
+																				<td></td>
+																				<td></td>
+																				<td></td>
+																				<td></td>
+																				<td></td>
+																				<td>Total:</td>
+																				<td>7.600,00</td>
+																			</tfoot>
+																		</table>
+																	</div>
 															</div>
 														</div>
 													</div>
-												</div>
-												<div id="m_tabs_6_2" class="tab-pane" role="tabpanel">
-													<div class="col-lg-12">
-														<div class="row">
-															<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="200">
-																<div class="table-responsive">
-																	<table class="table m-table m-table--head-bg-success">
-																		<thead>
-																			<th>Usuario</th>
-																			<th>F. Registro</th>
-																			<th>Tipo de Descuento</th>
-																			<th>%</th>
-																			<th>Libre</th>
-																			<th>Valor</th>
-																			<th>Dscto.</th>
-																		</thead>
-																		<tbody>
-																			<tr>
-																				<td>TRAMOS</td>
-																				<td>25/04/2019 16:53</td>
-																				<td>DESCUENTO LIBRE</td>
-																				<td><input type="checkbox" name=""></td>
-																				<td><input type="checkbox" name=""></td>
+													<div id="m_tabs_6_2" class="tab-pane" role="tabpanel">
+														<div class="col-lg-12">
+															<div class="row">
+																	<div class="table-responsive">
+																		<table class="table m-table">
+																			<thead>
+																				<th>Usuario</th>
+																				<th>F. Registro</th>
+																				<th>Tipo de Descuento</th>
+																				<th>%</th>
+																				<th>Libre</th>
+																				<th>Valor</th>
+																				<th>Dscto.</th>
+																			</thead>
+																			<tbody>
+																				<tr>
+																					<td>TRAMOS</td>
+																					<td>25/04/2019 16:53</td>
+																					<td>DESCUENTO LIBRE</td>
+																					<td><input type="checkbox" name=""></td>
+																					<td><input type="checkbox" name=""></td>
+																					<td>1.700,00</td>
+																					<td>1.700,00</td>
+																				</tr>
+																				<tr>
+																					<td></td>
+																				</tr>
+																			</tbody>
+																			<tfoot>
+																				<td></td>
+																				<td></td>
+																				<td></td>
+																				<td></td>
+																				<td></td>
+																				<td>Total:</td>
 																				<td>1.700,00</td>
-																				<td>1.700,00</td>
-																			</tr>
-																			<tr>
-																				<td></td>
-																			</tr>
-																		</tbody>
-																		<tfoot>
-																			<td></td>
-																			<td></td>
-																			<td></td>
-																			<td></td>
-																			<td></td>
-																			<td>Total:</td>
-																			<td>1.700,00</td>
-																		</tfoot>
-																	</table>
+																			</tfoot>
+																		</table>
+																	</div>
 																</div>
-															</div>
 														</div>
 													</div>
-												</div>
-												<div id="m_tabs_6_3" class="tab-pane" role="tabpanel">
-													<div class="col-lg-12">
-														<div class="row">
-															<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="200">
-																<div class="table-responsive">
-																	<table class="table m-table m-table--head-bg-success">
-																		<thead>
-																			<th>Uuario</th>
-																			<th>F. Registro</th>
-																			<th>Estado</th>
-																			<th>F. Vencimiento</th>
-																			<th>F. Cancelación</th>
-																			<th>Entidad</th>
-																			<th>Total</th>
-																			<th>Saldo</th>
-																			<th>Emitido</th>
-																		</thead>
-																		<tbody>
-																			<tr>
-																				<td>1</td>
-																				<td>DU000035</td>
-																				<td>POR SERVICIO DE DERECHO DE USO</td>
-																				<td>1</td>
-																				<td>9.300,00</td>
-																				<td>3.815,00</td>
-																				<td>7.600,00</td>
+													<div id="m_tabs_6_3" class="tab-pane" role="tabpanel">
+														<div class="col-lg-12">
+															<div class="row">
+																	<div class="table-responsive">
+																		<table class="table m-table">
+																			<thead>
+																				<th>Uuario</th>
+																				<th>F. Registro</th>
+																				<th>Estado</th>
+																				<th>F. Vencimiento</th>
+																				<th>F. Cancelación</th>
+																				<th>Entidad</th>
+																				<th>Total</th>
+																				<th>Saldo</th>
+																				<th>Emitido</th>
+																			</thead>
+																			<tbody>
+																				<tr>
+																					<td>1</td>
+																					<td>DU000035</td>
+																					<td>POR SERVICIO DE DERECHO DE USO</td>
+																					<td>1</td>
+																					<td>9.300,00</td>
+																					<td>3.815,00</td>
+																					<td>7.600,00</td>
+																					<td>0,00</td>
+																					<td>7.600,00</td>
+																				</tr>
+																				<tr>
+																					<td></td>
+																				</tr>
+																			</tbody>
+																			<tfoot>
+																				<td></td>
+																				<td></td>
+																				<td></td>
+																				<td></td>
+																				<td></td>
+																				<td>Total:</td>
 																				<td>0,00</td>
-																				<td>7.600,00</td>
-																			</tr>
-																			<tr>
-																				<td></td>
-																			</tr>
-																		</tbody>
-																		<tfoot>
-																			<td></td>
-																			<td></td>
-																			<td></td>
-																			<td></td>
-																			<td></td>
-																			<td>Total:</td>
-																			<td>0,00</td>
-																			<td>0,00</td>
-																			<td>0,00</td>
-																		</tfoot>
-																	</table>
-																</div>
+																				<td>0,00</td>
+																				<td>0,00</td>
+																			</tfoot>
+																		</table>
+																	</div>
 															</div>
 														</div>
 													</div>
-												</div>
-												<div id="m_tabs_6_4" class="tab-pane" role="tabpanel">
-													<div class="col-lg-12">
-														<div class="row">
-															<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="200">
-																<div class="table-responsive">
-																	<table class="table m-table m-table--head-bg-success">
-																		<thead>
-																			<th>Localidad</th>
-																			<th>Tipo Nec.</th>
-																			<th>Tipo de Programa</th>
-																			<th>Contrat</th>
-																			<th>N° Servicio</th>
-																			<th>Servicio</th>
-																			<th>Fecha de Solicitud</th>
-																			<th>Total</th>
-																		</thead>
-																		<tbody>
-																			<tr>
+													<div id="m_tabs_6_4" class="tab-pane" role="tabpanel">
+														<div class="col-lg-12">
+															<div class="row">
+																	<div class="table-responsive">
+																		<table class="table m-table">
+																			<thead>
+																				<th>Localidad</th>
+																				<th>Tipo Nec.</th>
+																				<th>Tipo de Programa</th>
+																				<th>Contrat</th>
+																				<th>N° Servicio</th>
+																				<th>Servicio</th>
+																				<th>Fecha de Solicitud</th>
+																				<th>Total</th>
+																			</thead>
+																			<tbody>
+																				<tr>
+																					<td></td>
+																					<td></td>
+																					<td></td>
+																					<td></td>
+																					<td></td>
+																					<td></td>
+																					<td></td>
+																					<td></td>
+																				</tr>
+																				<tr>
+																					<td></td>
+																				</tr>
+																			</tbody>
+																			<tfoot>
 																				<td></td>
 																				<td></td>
 																				<td></td>
@@ -517,23 +525,9 @@
 																				<td></td>
 																				<td></td>
 																				<td></td>
-																			</tr>
-																			<tr>
-																				<td></td>
-																			</tr>
-																		</tbody>
-																		<tfoot>
-																			<td></td>
-																			<td></td>
-																			<td></td>
-																			<td></td>
-																			<td></td>
-																			<td></td>
-																			<td></td>
-																			<td></td>
-																		</tfoot>
-																	</table>
-																</div>
+																			</tfoot>
+																		</table>
+																	</div>
 															</div>
 														</div>
 													</div>
@@ -546,9 +540,8 @@
 									<div class="col-lg-12">
 										<div class="row">
 											<div class="col-lg-12">
-												<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="200">
 													<div class="table-responsive">
-														<table class="table m-table m-table--head-bg-danger">
+														<table class="table m-table">
 															<thead>
 																<th>N°</th>
 																<th>Servicio Secundario</th>
@@ -581,7 +574,6 @@
 															</tfoot>
 														</table>
 													</div>
-												</div>
 											</div>
 										</div>
 									</div>
@@ -1151,7 +1143,7 @@
 									<div class="form-group m-form__group row">
 										<div class="col-lg-6">
 											<div class="m-form__group row">
-												<table class="table m-table m-table--head-bg-danger">
+												<table class="table m-table">
 													<thead>
 														<tr>
 															<th>
@@ -1693,7 +1685,7 @@
 									</div>
 									<div class="form-group m-form__group row">
 										<div class="col-lg-12">
-											<table class="table m-table m-table--head-bg-danger">
+											<table class="table m-table">
 												<thead>
 													<tr>
 														<th>
@@ -1835,7 +1827,7 @@
 											<br>
 											<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="200">
 												<div class="table-responsive">
-													<table class="table m-table m-table--head-bg-danger">
+													<table class="table m-table">
 														<thead>
 															<th>Cuota</th>
 															<th>Estado</th>
@@ -1962,7 +1954,7 @@
 												</div>
 												<div class="col-lg-1">
 													<label>&nbsp;</label>
-													<button class="btn btn-sm btn-primary"><i class="fa fa-search"></i></button>
+													<button class="btn btn-sm btn-danger"><i class="fa fa-search"></i></button>
 												</div>
 												<div class="col-lg-8">
 													<label>&nbsp;&nbsp;</label>
@@ -1991,7 +1983,7 @@
 												</div>
 												<div class="col-lg-1">
 													<label>&nbsp;</label>
-													<button class="btn btn-sm btn-primary"><i class="fa fa-search"></i></button>
+													<button class="btn btn-sm btn-danger"><i class="fa fa-search"></i></button>
 												</div>
 												<div class="col-lg-8">
 													<label>&nbsp;&nbsp;</label>
@@ -2043,7 +2035,7 @@
 												</div>
 												<div class="col-lg-1">
 													<label>&nbsp;</label>
-													<button class="btn btn-sm btn-primary"><i class="fa fa-search"></i></button>
+													<button class="btn btn-sm btn-danger"><i class="fa fa-search"></i></button>
 												</div>
 												<div class="col-lg-8">
 													<label>&nbsp;&nbsp;</label>
@@ -2087,7 +2079,7 @@
 											<br>
 											<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="200">
 												<div class="table-responsive">
-													<table class="table m-table m-table--head-bg-danger">
+													<table class="table m-table">
 														<thead>
 															<th>N°</th>
 															<th>Observación</th>
@@ -2125,7 +2117,7 @@
 										<div class="col-lg-12">
 											<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="200">
 												<div class="table-responsive">
-													<table class="table m-table m-table--head-bg-danger">
+													<table class="table m-table">
 														<thead>
 															<th>N°</th>
 															<th>Condición</th>

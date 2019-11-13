@@ -161,7 +161,6 @@ function apagar(){
             document.getElementById("dirCom").value = dir;
             }
         });
-        console.log(sldvalue);
         var cui_total = document.getElementsByClassName("Total F")[0].innerHTML;
         document.getElementById("totCom").value = cui_total;
     }
