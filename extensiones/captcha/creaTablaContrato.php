@@ -88,25 +88,25 @@ WHEN 'ACT' THEN CONVERT(DATE, vtade_contrato.fch_activacion,105) END ) <= CONVER
         if ($key['fch_emision'] == NULL) {
             $tfechEmi = "-";
         }else{
-            $tfechEmi = date('d-m-Y', $key['fch_emision']->getTimestamp());
+            $tfechEmi = dateFormat($key['fch_emision']);
         }
         // -------- Condicional para campos NULL de fch_activacion -------- //
         if ($key['fch_activacion'] == NULL) {
             $tfechAct = "-";
         }else{
-            $tfechAct = date('d-m-Y', $key['fch_activacion']->getTimestamp());
+            $tfechAct = dateFormat($key['fch_activacion']);
         }
         // -------- Condicional para campos NULL de fch_resolución -------- //
         if ($key['fch_resolucion'] == NULL) {
             $tfechRes = "-";
         }else{
-            $tfechRes = date('d-m-Y', $key['fch_resolucion']->getTimestamp());
+            $tfechRes = dateFormat($key['fch_resolucion']);
         }
         // -------- Condicional para campos NULL de fch_anulacion -------- //
         if ($key['fch_anulacion'] == NULL) {
             $tfechAnu = "-";
         }else{
-            $tfechAnu = date('d-m-Y', $key['fch_anulacion']->getTimestamp());
+            $tfechAnu = dateFormat($key['fch_anulacion']);
         }
 
         $tvendedor = $key['dsc_vendedor'];
