@@ -1299,7 +1299,7 @@
 												  $tabla="vtama_parentesco";
 												  $item1="cod_parentesco";
 												  $item2="dsc_parentesco";
-				 						          $prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
+				 									$prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
 												?> 
 											</select>
 										</div>
