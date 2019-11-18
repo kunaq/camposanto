@@ -166,7 +166,7 @@
 									</div>
 								</div>
 								<div class="col-lg-6">
-									<label class="">
+									<label class="tittle-box">
 										<h5>Representante de ventas</h5>
 									</label>
 									<div class="row" style="margin-top: 12px;">
@@ -211,7 +211,7 @@
 								<div class="col-lg-6 p-bottom3">
 									<div class="row">
 										<div class="col-lg-5">
-											<label>
+											<label class="tittle-box">
 												<h5>Plan/Subtipo de servicio</h5>
 											</label>
 										</div>
@@ -231,7 +231,7 @@
 													  $tabla="vtama_tipo_servicio";
 													  $item1="cod_tipo_servicio";
 													  $item2="dsc_tipo_servicio";
-					  $prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
+					  									$prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
 													  ?> 
 												</select>
 											</div>
@@ -258,7 +258,7 @@
 								<div class="col-lg-6">
 									<div class="row">
 										<div class="col-lg-3 m-top3">
-											<label class="">
+											<label class="tittle-box">
 												<h5>Cliente *</h5>
 											</label>
 										</div>
@@ -291,8 +291,8 @@
 														Seleccione
 													</option>
 													<?php
-											$prueba = controladorEmpresa::ctrtipoDoc();
-													  ?> 
+														$prueba = controladorEmpresa::ctrtipoDoc();
+													 ?> 
 												</select>
 											</div>
 											<div class="col-lg-5">
@@ -348,7 +348,7 @@
 							<br>
 							<div class="row">
 								<div class="col-lg-5">
-									<label>
+									<label class="tittle-box">
 										<h5>Datos de espacio</h5>
 									</label>
 								</div>

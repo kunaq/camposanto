@@ -62,7 +62,7 @@
 						</div>
 					</div>
 					<div class="col-sm-10 col-md-7">
-						<ul class="nav nav-tabs m-tabs-line" role="tablist" data-init-reponsive-tabs="dropdownfx" id="ulTabsEmsCnt">
+						<ul class="nav nav-tabs nav-tabs-line m-tabs-line--danger" role="tablist" data-init-reponsive-tabs="dropdownfx" id="ulTabsEmsCnt">
 							<li class="nav-item m-tabs__item liTabHorizontalKq2 liFirstEmsCnt">
 								<a class="active" data-toggle="tab" role="tab" data-target="#tab1ArbVen" href="#"><span class="spanTextoKq2">Historial de conformación</span></a>
 							</li>
@@ -86,8 +86,7 @@
 										</div>
 									</div>
 									<div class="row">
-										<fieldset class="col-md-10 offset-md-1 fieldFormHorizontal">
-											<legend class="col-md-6">Historial de conformación</legend>
+										<div class="col-md-10 offset-md-1">
 											<ul class="nav nav-tabs nav-tabs-simple nav-tabs-left bg-white ulListaKqPst col-md-12" id="tab-2" style="border-radius: 3px;margin-bottom: 0; height: 15rem;">
 												<li class="spanTextoActiveKq liListaKqPstTitulo">
 													<div class="row">
@@ -133,13 +132,12 @@
 												</li>
 											</ul>
 											<br>
-										</fieldset>
+										</div>
 									</div>
 								</div>
 								<div class="tab-pane" id="tab2ArbVen">
 									<div class="row">
-										<fieldset class="col-md-10 offset-md-1 fieldFormHorizontal">
-											<legend class="col-md-3">General</legend>
+										<div class="col-md-10 offset-md-1">
 											<div class="form-group row">
 												<div class="col-lg-2">
 													<label>Año:</label>
@@ -205,13 +203,12 @@
 													<input type="text" disabled class="form-control form-control-sm m-input" name="" id="">
 												</div>
 											</div>
-										</fieldset>
+										</div>
 									</div>
 								</div>
 								<div class="tab-pane" id="tab3ArbVen">
 									<div class="row">
-									<fieldset class="col-md-10 offset-md-1 fieldFormHorizontal">
-										<legend class="col-md-4">Contratos</legend>
+									<div class="col-md-10 offset-md-1">
 										<div class="row">
 											<div class="col-md-12">		
 												<p class="pull-right">
@@ -277,7 +274,7 @@
 											</li>
 										</ul>
 										<br>
-									</fieldset>
+									</div>
 								</div>
 								</div>
 							</div>
