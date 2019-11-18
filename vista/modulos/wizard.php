@@ -154,7 +154,7 @@
 												</select>
 												<input type="hidden" name="flagIntegral" id="flagIntegral">
 											</div>
-										<div class="col-lg-3">
+											<div class="col-lg-3">
 												<label class="">
 												T.C.:
 												</label>
@@ -488,6 +488,7 @@
 										</div>
 									</div>
 								</div>
+							</div>
 						</div>
 					</div>
 						<!--end: Form Wizard Step 1-->
