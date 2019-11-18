@@ -1,6 +1,6 @@
 <div class="m-content"  style="width: calc(100%);">
 	<!--Begin::Main Portlet-->
-	<div class="m-portlet m-portlet--full-height">
+	<div class="m-portlet m-portlet--space">
 		<!--begin: Portlet Head-->
 		<div class="m-portlet__head">
 			<div class="m-portlet__head-caption">
@@ -18,247 +18,36 @@
 				<div class="card card-transparent flex-row">
 					<div class="col-md-5">
 						<div class="row">
-							<div class="input-group transparent px-0 col-md-12">
-								<div class="input-group-prepend">
-									<span class="input-group-text transparent"><i class="flaticon-search"></i>
-									</span>
-								</div>
-								<input placeholder="Buscar" class="search form-control">
-							</div>		
+							<div class="col-md-1">
+								<label>Año</label>
+							</div>
+							<div class="col-md-3">
+								<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="anioPerVen" id="anioPerVen" onchange="buscaPeriodo();">
+								</select>
+							</div>
+							<div class="col-md-3">
+								<button type="button" class="btn btn-sm btn-success" title="Crear año" id="btnAgregarGestor"  style="margin-right:6px;"><i class="fa fa-plus"></i></button>	
+								<button type="button" class="btn btn-sm btn-primary" title="Copiar año siguiente" id="btnGuardarCambios"><i class="fa fa-copy"></i></button>
+							</div>
+							<div class="col-md-2">
+								<label>Periodo:</label>
+							</div>
+							<div class="col-md-3">
+								<select class="form-control form-control-sm m-input m-select2 m-select2-general" style="width: 100%" name="periodoPerVen" id="periodoPerVen" onchange="buscaPeriodo();">
+									<option selected="selected" value="todos">TODOS</option>
+									<option value="15D">15D</option>
+									<option value="30D">30D</option>
+								</select>
+							</div>
 						</div>
 						<div class="row">
-							<ul class="nav nav-tabs nav-tabs-simple nav-tabs-left bg-white ulListaKqPst ulListaConfigPeriodo col-sm-2 col-md-12" id="tab-2" style="border-radius: 3px;margin-bottom: 0;">
+							<ul class="nav nav-tabs nav-tabs-simple nav-tabs-left bg-white ulListaKqPst ulListaConfigPeriodo col-sm-2 col-md-12" id="listaPeriodoVenta" style="border-radius: 3px;margin-bottom: 0; padding-right: 0; overflow-x:hidden; ">
 								<li class="spanTextoActiveKq liListaKqPstTitulo">
 									<div class="row">
-										<div class="col-md-2" style="padding: 0 0 0 1.6rem;"><b>Año</b></div>
-										<div class="col-md-5"><b>Período</b></div>
+										<div class="col-md-4" style="padding: 0 0 0 1.6rem;"><b>Período</b></div>
+										<div class="col-md-3"><b>Mes</b></div>
 										<div class="col-md-5"><b>Estado</b></div>
 									</div>
-								</li>
-								<li class="nav-item liListaKqPstImpar">
-									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
-										<div class="row">
-											<div class="col-md-2">2019</div>
-											<div class="col-md-5">Enero</div>
-											<div class="col-md-5">ABIERTO</div>
-										</div>
-									</a>	
-								</li>
-								<li class="nav-item liListaKqPstPar">
-									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
-										<div class="row">
-											<div class="col-md-2">2019</div>
-											<div class="col-md-5">Febrero</div>
-											<div class="col-md-5">CERRADO</div>
-										</div>
-									</a>	
-								</li>
-								<li class="nav-item liListaKqPstImpar">
-									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
-										<div class="row">
-											<div class="col-md-2">2019</div>
-											<div class="col-md-5">Noviembre</div>
-											<div class="col-md-5">ABIERTO</div>
-										</div>
-									</a>	
-								</li>
-								<li class="nav-item liListaKqPstPar">
-									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
-										<div class="row">
-											<div class="col-md-2">2019</div>
-											<div class="col-md-5">Febrero</div>
-											<div class="col-md-5">CERRADO</div>
-										</div>
-									</a>	
-								</li>
-								<li class="nav-item liListaKqPstImpar">
-									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
-										<div class="row">
-											<div class="col-md-2">2019</div>
-											<div class="col-md-5">Noviembre</div>
-											<div class="col-md-5">ABIERTO</div>
-										</div>
-									</a>	
-								</li>
-								<li class="nav-item liListaKqPstPar">
-									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
-										<div class="row">
-											<div class="col-md-2">2019</div>
-											<div class="col-md-5">Febrero</div>
-											<div class="col-md-5">CERRADO</div>
-										</div>
-									</a>	
-								</li>
-								<li class="nav-item liListaKqPstImpar">
-									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
-										<div class="row">
-											<div class="col-md-2">2019</div>
-											<div class="col-md-5">Noviembre</div>
-											<div class="col-md-5">ABIERTO</div>
-										</div>
-									</a>	
-								</li>
-								<li class="nav-item liListaKqPstPar">
-									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
-										<div class="row">
-											<div class="col-md-2">2019</div>
-											<div class="col-md-5">Febrero</div>
-											<div class="col-md-5">CERRADO</div>
-										</div>
-									</a>	
-								</li>
-								<li class="nav-item liListaKqPstImpar">
-									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
-										<div class="row">
-											<div class="col-md-2">2019</div>
-											<div class="col-md-5">Noviembre</div>
-											<div class="col-md-5">ABIERTO</div>
-										</div>
-									</a>	
-								</li>
-								<li class="nav-item liListaKqPstPar">
-									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
-										<div class="row">
-											<div class="col-md-2">2019</div>
-											<div class="col-md-5">Febrero</div>
-											<div class="col-md-5">CERRADO</div>
-										</div>
-									</a>	
-								</li>
-								<li class="nav-item liListaKqPstImpar">
-									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
-										<div class="row">
-											<div class="col-md-2">2019</div>
-											<div class="col-md-5">Noviembre</div>
-											<div class="col-md-5">ABIERTO</div>
-										</div>
-									</a>	
-								</li>
-								<li class="nav-item liListaKqPstPar">
-									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
-										<div class="row">
-											<div class="col-md-2">2019</div>
-											<div class="col-md-5">Febrero</div>
-											<div class="col-md-5">CERRADO</div>
-										</div>
-									</a>	
-								</li>
-								<li class="nav-item liListaKqPstImpar">
-									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
-										<div class="row">
-											<div class="col-md-2">2019</div>
-											<div class="col-md-5">Noviembre</div>
-											<div class="col-md-5">ABIERTO</div>
-										</div>
-									</a>	
-								</li>
-								<li class="nav-item liListaKqPstPar">
-									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
-										<div class="row">
-											<div class="col-md-2">2019</div>
-											<div class="col-md-5">Febrero</div>
-											<div class="col-md-5">CERRADO</div>
-										</div>
-									</a>	
-								</li>
-								<li class="nav-item liListaKqPstImpar">
-									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
-										<div class="row">
-											<div class="col-md-2">2019</div>
-											<div class="col-md-5">Noviembre</div>
-											<div class="col-md-5">ABIERTO</div>
-										</div>
-									</a>	
-								</li>
-								<li class="nav-item liListaKqPstPar">
-									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
-										<div class="row">
-											<div class="col-md-2">2019</div>
-											<div class="col-md-5">Febrero</div>
-											<div class="col-md-5">CERRADO</div>
-										</div>
-									</a>	
-								</li>
-								<li class="nav-item liListaKqPstImpar">
-									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
-										<div class="row">
-											<div class="col-md-2">2019</div>
-											<div class="col-md-5">Noviembre</div>
-											<div class="col-md-5">ABIERTO</div>
-										</div>
-									</a>	
-								</li>
-								<li class="nav-item liListaKqPstPar">
-									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
-										<div class="row">
-											<div class="col-md-2">2019</div>
-											<div class="col-md-5">Febrero</div>
-											<div class="col-md-5">CERRADO</div>
-										</div>
-									</a>	
-								</li>
-								<li class="nav-item liListaKqPstImpar">
-									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
-										<div class="row">
-											<div class="col-md-2">2019</div>
-											<div class="col-md-5">Noviembre</div>
-											<div class="col-md-5">ABIERTO</div>
-										</div>
-									</a>	
-								</li>
-								<li class="nav-item liListaKqPstPar">
-									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
-										<div class="row">
-											<div class="col-md-2">2019</div>
-											<div class="col-md-5">Febrero</div>
-											<div class="col-md-5">CERRADO</div>
-										</div>
-									</a>	
-								</li>
-								<li class="nav-item liListaKqPstImpar">
-									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
-										<div class="row">
-											<div class="col-md-2">2019</div>
-											<div class="col-md-5">Noviembre</div>
-											<div class="col-md-5">ABIERTO</div>
-										</div>
-									</a>	
-								</li>
-								<li class="nav-item liListaKqPstPar">
-									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
-										<div class="row">
-											<div class="col-md-2">2019</div>
-											<div class="col-md-5">Febrero</div>
-											<div class="col-md-5">CERRADO</div>
-										</div>
-									</a>	
-								</li>
-								<li class="nav-item liListaKqPstImpar">
-									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
-										<div class="row">
-											<div class="col-md-2">2019</div>
-											<div class="col-md-5">Noviembre</div>
-											<div class="col-md-5">ABIERTO</div>
-										</div>
-									</a>	
-								</li>
-								<li class="nav-item liListaKqPstPar">
-									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
-										<div class="row">
-											<div class="col-md-2">2019</div>
-											<div class="col-md-5">Febrero</div>
-											<div class="col-md-5">CERRADO</div>
-										</div>
-									</a>	
-								</li>
-								<li class="nav-item liListaKqPstImpar">
-									<a href="#" id= data-toggle="tab" data-target="#tabConfigPeriodo" class="spanTextoActiveKq">
-										<div class="row">
-											<div class="col-md-2">2019</div>
-											<div class="col-md-5">Noviembre</div>
-											<div class="col-md-5">ABIERTO</div>
-										</div>
-									</a>	
 								</li>
 							</ul>
 						</div>		
@@ -266,14 +55,6 @@
 					<div class="tab-content-active bg-white divFormularioKqPst col-sm-10 col-md-7" style="align-self: auto;padding-top: 1rem;">
 						<div class="tab-pane slide-left" id="tabConfigPeriodo">
 							<form enctype="multipart/form-data" id="formConfigPeriodo" role="form" method="POST">
-								<div class="row">
-									<div class="col-md-12">
-										<p class="pull-right">
-											<button type="button" class="btn btn-sm btn-primary btnGuardarKqPst" title="Crear año" id="btnAgregarGestor"  style="margin-right:6px;"><i class="fa fa-plus"></i></button>	
-											<button type="button" class="btn btn-sm btn-primary btnEditarKqPst2" title="Copiar año siguiente" id="btnGuardarCambios"><i class="fa fa-copy"></i></button>
-										</p>										
-									</div>
-								</div>
 								<div class="form-group row">
 									<div class="col-lg-2">
 										<label>Periodo:</label>
