@@ -2,8 +2,8 @@
 require_once "../../modelo/conexion.php";
 
 $tipoFecha = $_POST['tipoFecha'];
-$fechaInicio = date($_POST['fechaInicio']);
-$fechaFin =  date($_POST['fechaFin']);
+$fechaInicio = $_POST['fechaInicio'];
+$fechaFin =  $_POST['fechaFin'];
 $codCliente = $_POST['codCliente'];
 $localidad = $_POST['localidad'];
 $saldo = $_POST['saldo'];
