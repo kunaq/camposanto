@@ -22480,7 +22480,7 @@ button:active,button:focus {
 }
 
 .m-portlet.m-portlet--space {
-    padding: 0 2.2rem
+    padding: 0 1.3rem
 }
 
 .m-portlet.m-portlet--space .m-portlet__head {
@@ -22488,7 +22488,7 @@ button:active,button:focus {
 }
 
 .m-portlet.m-portlet--space .m-portlet__body {
-    padding: 2.2rem 0
+    padding: 1.3rem 0
 }
 
 .m-portlet.m-portlet--space .m-portlet__foot>.m-form__actions {
@@ -44371,7 +44371,7 @@ body.m-page--boxed {
 }
 
 .m-body .m-content {
-    padding: 20px 20px
+    padding: 20px 20px 50px;
 }
 
 .m-body .m-wrapper {
@@ -50825,6 +50825,9 @@ body {
 .tdTipNecCon{
     min-width: 0.5rem;
     text-align: center;
+}
+.tableSideBar{
+    width: 100%;
 }
 .static-last{
     display: inline-flex;

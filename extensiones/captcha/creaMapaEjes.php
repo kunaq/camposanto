@@ -23,7 +23,6 @@ $mapa.= '<div class="table-responsive">
 while($key = $db->recorrer($sql1)){
   $mapa .= '<th>'. $key['cod_eje_vertical'] .'</th>';
   $datos[] =  $key['cod_eje_vertical'];
-  $dat = array('eje_vertical' => $key['cod_eje_vertical']);
 }
 $mapa.= '</thead>
          <tbody>';

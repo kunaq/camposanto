@@ -1,6 +1,6 @@
 <div class="m-content" style="width: calc(100%);">
 	<!--Begin::Main Portlet-->
-	<div class="m-portlet m-portlet--full-height">
+	<div class="m-portlet m-portlet--space">
 		<!--begin: Portlet Head-->
 		<div class="m-portlet__head">
 			<div class="m-portlet__head-caption">
@@ -91,6 +91,7 @@
 								</div>
 							</div>
 						</div>
+						<div class="col-lg-12">&nbsp;</div>
 						<div class="col-lg-12">
 							<div class="row">
 								<div class="col-lg-12">
@@ -171,7 +172,7 @@
 			<div class="tab-pane active m-scrollable" id="m_quick_sidebar_tabs_contrato" role="tabpanel">
 				<div class="row">
 					<div class="col-lg-12">
-						<table class="table">
+						<table class="tableSideBar">
 							<tbody>
 								<tr>
 									<td class="leftText">Fecha Emisión</td>
@@ -192,13 +193,13 @@
 							</tbody>
 						</table>
 					</div>
-					<div class="col-lg-12 button-box" id="buttons-box">
-					</div>
+					<div class="col-lg-12">&nbsp;</div>
+					<div class="col-lg-12">&nbsp;</div>
 					<div class="col-lg-12">
 						<label>Detalles</label>
 					</div>
 					<div class="col-lg-12">
-						<table class="table">
+						<table class="tableSideBar">
 							<tbody>
 								<tr>
 									<td class="leftText">Cliente</td>
@@ -226,6 +227,18 @@
 								</tr>
 							</tbody>
 						</table>
+					</div>
+					<div class="col-lg-12">&nbsp;</div>
+					<div class="col-lg-12">&nbsp;</div>
+					<div class="col-lg-7 button-box" id="buttons-box">
+					</div>
+					<div class="col-lg-5 button-box">
+                            <a href="refinanciamiento" target="_blank" type="button" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="m-tooltip" data-container="body" data-placement="top" title="Refinanciamiento" onclick="">
+                                <i class="fa fa-balance-scale"></i>
+                            </a>
+                            <a href="cambioTitular" target="_blank" type="button" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-container="body" data-placement="top" title="Resolver" data-original-title="Cambio de Titular" onclick="">
+                                <i class="fa fa-users"></i>
+                            </a>
 					</div>
 				</div>
 			</div>

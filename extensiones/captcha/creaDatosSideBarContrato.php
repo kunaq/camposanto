@@ -86,17 +86,29 @@ while($key = $db->recorrer($sql)){
 
         $total = number_format(round($key['imp_totalneto'], 2),2,',','.');
 
-        $buttons .= '<span data-toggle="modal" data-target="#m_modal_contrato">
+        if ($key["flg_activado"] == "SI") {
+            $buttons .= '<span data-toggle="modal" data-target="#m_modal_contrato">
                             <button type="button" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="m-tooltip" data-container="body" data-placement="top" title="Editar" onclick="">
-                                <i class="la la-edit"></i>
+                                <i class="fa fa-eye"></i>
                             </button>
-                        </span>
-                        <span data-toggle="modal" data-target="#m_modal_resolucion">
-                            <button type="button" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-container="body" data-placement="top" title="Resolver" data-original-title="Resolver" onclick="">
-                                <i class="fa fa-file-excel-o"></i>
-                            </button>
-                        </span>
-                        <span data-toggle="modal" data-target="#m_modal_print_contrato">
+                        </span>';
+        }else{
+            $buttons .= '<a href="modificacionContrato" target="_blank" type="button" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="m-tooltip" data-container="body" data-placement="top" title="Editar" onclick="">
+                            <i class="la la-edit"></i>
+                        </a>';
+        }
+
+        if ($key["flg_resuelto"] == "SI") {
+            $buttons .= '<button type="button" data-toggle="m-tooltip" data-container="body" data-placement="top" title="Resuelto" data-original-title="Resuelto" style="border: 1px solid #FF0000;" disabled="" class="m-portlet__nav-link btn m-btn m-btn--icon m-btn--icon-only m-btn--pill">
+                            <i style="color: #FF0000;" class="fa fa-file-excel-o"></i>
+                        </button>';
+        }else{
+            $buttons .= '<a href="resolucionContrato" target="_blank" type="button" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-container="body" data-placement="top" title="Resolver" data-original-title="Resolver" onclick="">
+                            <i class="fa fa-file-excel-o"></i>
+                        </a>';
+        }
+
+        $buttons .= '<span data-toggle="modal" data-target="#m_modal_print_contrato">
                             <button type="button" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="m-tooltip" data-container="body" data-placement="top" title="Imprimir" onclick="">
                                 <i class="fa fa-print"></i>
                             </button>
