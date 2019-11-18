@@ -18,7 +18,7 @@ require_once "../../modelo/conexion.php";
     }        
 
     if ($sql) {
-       $rows = sqlsrv_has_rows( $sql );
+       $rows = rows( $sql );
        if($rows == true){
         echo 'true';
        }

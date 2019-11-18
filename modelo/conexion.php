@@ -8,15 +8,17 @@ class Conexion{
     define('DB_HOST','209.45.50.210');
     define('DB_USER','userclient');
     define('DB_PASS','asociados517');
-    define('DB_NAME','BDUS_CK000050_PRE00');
+    define('DB_NAME','BDUS_CK000050_CRE06');
 
-    $connection = array("Database"=>"BDUS_CK000050_PRE00","UID"=>"userclient","PWD"=>"asociados517",'CharacterSet' => 'UTF-8');
-    $this->link = mssql_connect("209.45.50.210",$connection);
+    //  $connection = array("Database"=>"BDUS_CK000050_PRE00","UID"=>"userclient","PWD"=>"asociados517",'CharacterSet' => 'UTF-8');
+    // $this->link = mssql_connect("209.45.50.210",$connection);
+
+    $this->link = mssql_connect(DB_HOST,DB_USER,DB_PASS);
     if(!$this->link){
           echo 'No se pudo conectar';
           exit;
       }
-      if(!mssql_select_db($nombreBD, $this->link)){
+      if(!mssql_select_db(DB_NAME, $this->link)){
           echo 'No se pudo conectar';
           exit;
       }
