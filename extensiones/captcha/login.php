@@ -12,19 +12,18 @@ require_once "../../modelo/conexion.php";
     $datos = array();
     // echo count($db->recorrer($sql)).'ww';
     $cont = 0;
-    while($key = $db->recorrer($sql)){
-      $cont++;
-    }
-    if($cont > 0){
-         echo $cont.'dd';
-      while($key2 = $db->recorrer($sql)){
-        echo 'llego';
-        $datos[] =  $key2;
+    while($key2 = $db->recorrer($sql)){
+      $cont++;  
+      $datos[] =  $key2;
         $_SESSION['user'] =  $key2['cod_usuario']; 
         $bar = $key2['dsc_usuario'];
         $_SESSION['nombre'] = ucwords(strtolower($bar));
-        echo 'true';
-      }          
+
+    }
+    if($cont > 0){
+         
+      
+        echo 'true';         
     }else{
       echo 'false';
     }
