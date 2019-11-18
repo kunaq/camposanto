@@ -1,6 +1,6 @@
 <?php 
 require_once "../../modelo/conexion.php";
-require_once "../../../funciones.php";
+require_once "../../funciones.php";
 
 $tipoFecha = $_POST['tipoFecha'];
 $fechaInicio = $_POST['fechaInicio'];
