@@ -106,7 +106,7 @@
 					<div class="m-portlet__body">
 						<!--begin: Form Wizard Step 1-->
 						<div class="m-wizard__form-step m-wizard__form-step--current" id="m_wizard_form_step_1">
-							<div class="row">
+							<div class="form-group m-form__group row">
 								<div class="col-lg-6">
 									<div class="row">
 										<div class="col-lg-5">
@@ -154,7 +154,7 @@
 												</select>
 												<input type="hidden" name="flagIntegral" id="flagIntegral">
 											</div>
-										<div class="col-lg-3">
+											<div class="col-lg-3">
 												<label class="">
 												T.C.:
 												</label>
@@ -207,7 +207,7 @@
 								</div>
 							</div>
 							<br>
-							<div class="row">
+							<div class="form-group m-form__group row">
 								<div class="col-lg-6 p-bottom3">
 									<div class="row">
 										<div class="col-lg-5">
@@ -308,7 +308,6 @@
 													  ?>
 												</select>
 											</div>
-											<div class="col-lg-3" style="padding-left: 0px;">
 											<div class="col-lg-3 non-p-left padding-left">
 												<br><br>	
 												<div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
@@ -346,7 +345,7 @@
 								</div>
 							</div>
 							<br>
-							<div class="row">
+							<div class="form-group m-form__group row">
 								<div class="col-lg-5">
 									<label class="tittle-box">
 										<h5>Datos de espacio</h5>
@@ -354,7 +353,7 @@
 								</div>
 							</div>
 							<br>
-							<div class="row">
+							<div class="form-group m-form__group row">
 								<div class="col-lg-3">
 									<label>Camposanto *</label>
 									<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="camposanto" required id="camposanto" disabled="disabled">
@@ -389,7 +388,7 @@
 								</div>
 							</div>
 							<br>
-							<div class="row">
+							<div class="form-group m-form__group row">
 								<label class="">
 									<h5>&nbsp;</h5>
 								</label>
@@ -430,7 +429,7 @@
 							</div>
 							<div class="form-group m-form__group row">
 								<div class="col-lg-6 m-top3">
-									<label>
+									<label class="tittle-box">
 										<h5>Contrato</h5>
 									</label>
 									<div class="m-input-icon m-input-icon--right">
@@ -488,10 +487,11 @@
 										</div>
 									</div>
 								</div>
+							</div>
 						</div>
 					</div>
 						<!--end: Form Wizard Step 1-->
-<!--begin: Form Wizard Step 2-->
+						<!--begin: Form Wizard Step 2-->
 						<div class="m-wizard__form-step" id="m_wizard_form_step_2">
 							<div class="row">
 								<div class="col-sm-2 offset-sm-10 col-md-1 offset-md-11">
@@ -796,9 +796,8 @@
 										</div>
 									</div>
 								</div>
-							</div>
-								
 						</div>
+					
 						<!--end: Form Wizard Step 2--> 
 						<div class="m-wizard__form-step" id="m_wizard_form_step_5">
 							<div class="row">
@@ -1246,9 +1245,8 @@
 												  $tabla="vtama_religion";
 												  $item1="cod_religion";
 												  $item2="dsc_religion";
-				 						 $prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
+				 						           $prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
 												?> 
-											</select>
 											</select>
 										</div>
 										<div class="col-lg-2">
@@ -1262,7 +1260,7 @@
 													Seleccione
 												</option>
 												<?php
-				  						$prueba=controladorEmpresa::ctrestadocivil();
+				  						         $prueba=controladorEmpresa::ctrestadocivil();
 												?> 
 											</select>
 										</div>
@@ -1301,7 +1299,7 @@
 												  $tabla="vtama_parentesco";
 												  $item1="cod_parentesco";
 												  $item2="dsc_parentesco";
-				 						 $prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
+				 						          $prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
 												?> 
 											</select>
 										</div>
@@ -1322,7 +1320,7 @@
 												  $tabla="vtama_lugar_deceso";
 												  $item1="cod_lugar_deceso";
 												  $item2="dsc_lugar_deceso";
-				 						 $prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
+				 						          $prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
 												?>
 											</select>
 										</div>
@@ -1340,7 +1338,7 @@
 												  $tabla="vtama_motivo_deceso";
 												  $item1="cod_motivo_deceso";
 												  $item2="dsc_motivo_deceso";
-				 						 $prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
+				 						          $prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
 												?>
 											</select>
 										</div>
