@@ -51,25 +51,25 @@ while($key = $db->recorrer($sql)){
         if ($key['fch_emision'] == NULL) {
             $fechEmi = "-";
         }else{
-            $fechEmi = date('d-m-Y', $key['fch_emision']->getTimestamp());
+            $fechEmi = dateFormat($key['fch_emision']);
         }
         // -------- Condicional para campos NULL de fch_activacion -------- //
         if ($key['fch_activacion'] == NULL) {
             $fechAct = "-";
         }else{
-            $fechAct = date('d-m-Y', $key['fch_activacion']->getTimestamp());
+            $fechAct = dateFormat($key['fch_activacion']);
         }
         // -------- Condicional para campos NULL de fch_resolución -------- //
         if ($key['fch_resolucion'] == NULL) {
             $fechRes = "-";
         }else{
-            $fechRes = date('d-m-Y', $key['fch_resolucion']->getTimestamp());
+            $fechRes = dateFormat($key['fch_resolucion']);
         }
         // -------- Condicional para campos NULL de fch_anulacion -------- //
         if ($key['fch_anulacion'] == NULL) {
             $fechAnu = "-";
         }else{
-            $fechAnu = date('d-m-Y', $key['fch_anulacion']->getTimestamp());
+            $fechAnu = dateFormat($key['fch_anulacion']);
         }
 
         $vendedor = $key['dsc_vendedor'];
@@ -81,7 +81,7 @@ while($key = $db->recorrer($sql)){
         if ($key['fch_primer_vencimiento'] == NULL) {
             $tprimerVen = "no tiene";
         }else{
-            $tprimerVen = date('d-m-Y', $key['fch_primer_vencimiento']->getTimestamp());
+            $tprimerVen = dateFormat($key['fch_primer_vencimiento']);
         }
 
         $total = number_format(round($key['imp_totalneto'], 2),2,',','.');
