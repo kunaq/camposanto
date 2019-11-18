@@ -15,6 +15,7 @@ require_once "../../modelo/conexion.php";
     while($key = $db->recorrer($sql)){
       $cont++;
     }
+    echo $cont.'dd';
     if($cont > 0){
       while($key = $db->recorrer($sql)){
         $datos[] =  $key;
