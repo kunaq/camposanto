@@ -300,3 +300,43 @@ function igual0Endoso(){
         }*/
     });
 }
+
+function nombreMes(val){
+   if(val == 1){
+    return 'ENERO';
+   }
+   else if (val == 2) {
+    return 'FEBRERO';
+   }
+    else if (val == 3) {
+    return 'MARZO';
+   }
+    else if (val == 4) {
+    return 'ABRIL';
+   }
+    else if (val == 5) {
+    return 'MAYO';
+   }
+    else if (val == 6) {
+    return 'JUNIO';
+   }
+    else if (val == 7) {
+    return 'JULIO';
+   }
+    else if (val == 8) {
+    return 'AGOSTO';
+   }
+    else if (val == 9) {
+    return 'SEPTIEMBRE';
+   }
+    else if (val == 10) {
+    return 'OCTUBRE';
+   }
+    else if (val == 11) {
+    return 'NOVIEMBRE';
+   }
+    else if (val == 12) {
+    return 'DICIEMBRE';
+   }
+
+}

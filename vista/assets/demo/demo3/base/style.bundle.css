@@ -251,14 +251,15 @@ fieldset {
 
 legend {
     display: block;
-    width: 100%;
-    max-width: 100%;
+    /*width: 100%;
+    max-width: 100%;*/
     padding: 0;
     margin-bottom: .5rem;
-    font-size: 1.5rem;
+    font-size: 15px;
     line-height: inherit;
-    color: inherit;
-    white-space: normal
+    white-space: normal;
+    color: #e60000 !important;
+    font-weight: 500;
 }
 
 progress {
@@ -22219,7 +22220,7 @@ button:active,button:focus {
 }
 
 .m-portlet.m-portlet--bottom-fit {
-    margin-bottom: 0
+    margin-bottom: 20rem;
 }
 
 .m-portlet .m-portlet__head {
@@ -22392,7 +22393,7 @@ button:active,button:focus {
 }
 
 .m-portlet .m-portlet__body {
-    padding: 2.2rem 2.2rem
+    padding: 1rem 2.2rem
 }
 
 .m-portlet .m-portlet__body.m-portlet__body--no-padding {
@@ -22485,11 +22486,11 @@ button:active,button:focus {
 }
 
 .m-portlet.m-portlet--space .m-portlet__head {
-    padding: 2.2rem 0
+    padding: 0rem 0
 }
 
 .m-portlet.m-portlet--space .m-portlet__body {
-    padding: 2.2rem 0
+    padding: 1rem 0
 }
 
 .m-portlet.m-portlet--space .m-portlet__foot>.m-form__actions {
@@ -44369,7 +44370,7 @@ body.m-page--boxed {
 }
 
 .m-body .m-content {
-    padding: 30px 30px
+    padding: 20px 20px
 }
 
 .m-body .m-wrapper {
@@ -50920,7 +50921,7 @@ body {
 .ulListaKqPst{
   /*background-color: #ffe4e8 !important;*/
   display: block;
-  height: 29rem;
+  height: 26rem;
   overflow-y: scroll;
   align-self: end;
 }
@@ -50995,10 +50996,10 @@ body {
 .fieldFormHorizontal{
   border: 1px solid #e4e1e1;
 }
-.fieldFormHorizontal legend{
+/*.fieldFormHorizontal legend{
   background-color: #fafafa;
   font-size: 1.2rem;
-}
+}*/
 .spanTextoActiveKq{
     /*font-weight: bold;*/
     color: #000;

@@ -1,6 +1,6 @@
 <div class="m-content" style="width: calc(100%);">
 	<!--Begin::Main Portlet-->
-	<div class="m-portlet m-portlet--full-height">
+	<div class="m-portlet m-portlet--space">
 		<!--begin: Portlet Head-->
 		<div class="m-portlet__head">
 			<div class="m-portlet__head-caption">
@@ -140,7 +140,7 @@
 												<label>
 													Tipo de programa *
 												</label>
-												<select class="form-control m-input m-select2 m-select2-general" required name="tipPro" id="tipPro" onchange="validaEspacio(this.value);">
+												<select class="form-control form-control-sm m-input m-select2 m-select2-general" required name="tipPro" id="tipPro" onchange="validaEspacio(this.value);">
 													<option value="">
 														Seleccione el tipo de programa
 													</option>
@@ -159,7 +159,7 @@
 												T.C.:
 												</label>
 												<div class="input-group m-input-group">
-													<input type="text" class="form-control m-input" id="tipoCamb" name="tipoCamb" value=" <?php $prueba = controladorEmpresa::ctrtipoCambio(); ?>" placeholder="">
+													<input type="text" class="form-control form-control-sm m-input" id="tipoCamb" name="tipoCamb" value=" <?php $prueba = controladorEmpresa::ctrtipoCambio(); ?>" placeholder="">
 												</div>
 											</div>
 										</div>
@@ -175,7 +175,7 @@
 											Vendedor *
 											</label>
 											<div class="input-group m-input-group">
-												<select class="form-control m-select2 m-select2-general" id="codVendedor" name="codVendedor">
+												<select class="form-control form-control-sm m-select2 m-select2-general" id="codVendedor" name="codVendedor">
 													<option>
 														Código
 													</option>
@@ -192,7 +192,7 @@
 											</label>
 											<br>
 											<div class="input-group m-input-group">
-												<input type="text" class="form-control m-input" name="nomVendedor" disabled id="nomVendedor" placeholder="">
+												<input type="text" class="form-control form-control-sm m-input" name="nomVendedor" disabled id="nomVendedor" placeholder="">
 												<div class="input-group-append">
 													<span data-toggle="modal" data-target="#m_modal_4">
 														<button class="btn btn-danger" type="button" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar vendedor" onclick="creaTablaVendedor();">
@@ -223,7 +223,7 @@
 												<label>
 													Tipo de Servicio *
 												</label>
-												<select class="form-control m-input m-select2 m-select2-general" name="planSS" id="planSS" onchange="buscaSubtipo(this.value);">
+												<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="planSS" id="planSS" onchange="buscaSubtipo(this.value);">
 													<option value="">
 														Seleccione el tipo de Servicio
 													</option>
@@ -237,7 +237,7 @@
 											</div>
 											<div class="col-lg-3">
 												<label> Tipo de Nec. *</label>
-												<select class="form-control m-input m-select2 m-select2-general" name="tiponec" id="tiponec">
+												<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="tiponec" id="tiponec">
 													<option value="NF">NF</option>
 													<option value="NI">NI</option>
 												</select>
@@ -246,7 +246,7 @@
 										<br>
 										<div>
 											<label>Subtipo *</label>
-											<select class="form-control m-input m-select2 m-select2-general" id="subServicio" required name="subServicio">
+											<select class="form-control form-control-sm m-input m-select2 m-select2-general" id="subServicio" required name="subServicio">
 												<option value="">
 													Seleccione el subtipo de Servicio
 												</option>
@@ -286,7 +286,7 @@
 										<div class="row" style="margin-top: 10px;">
 											<div class="col-lg-4">
 												<label>Tipo doc: </label>
-												<select disabled class="form-control m-input custom-select custom-select-danger" id="TipoDcoCliente" name="TipoDcoCliente">
+												<select disabled class="form-control form-control-sm m-input custom-select custom-select-danger" id="TipoDcoCliente" name="TipoDcoCliente">
 													<option value="">
 														Seleccione
 													</option>
@@ -299,7 +299,7 @@
 												<label class="">
 													&nbsp;
 												</label>
-												<select class="form-control m-select2 m-select2-general" id="numDocCliente" name="numDocCliente" >
+												<select class="form-control form-control-sm m-select2 m-select2-general" id="numDocCliente" name="numDocCliente" >
 													<option>
 														Número de documento *
 													</option>
@@ -338,7 +338,7 @@
 									<div class="m-input-icon m-input-icon--right" style="margin-top: 10px;">
 										<label>Apellido y Nombre: * </label>
 										<div class="input-group m-input-group">
-											<input type="text" class="form-control m-input" name="nombreCliente" disabled id="nombreCliente">
+											<input type="text" class="form-control form-control-sm m-input" name="nombreCliente" disabled id="nombreCliente">
 										</div>
 										<br>
 									</div>
@@ -356,7 +356,7 @@
 							<div class="row">
 								<div class="col-lg-3">
 									<label>Camposanto *</label>
-									<select class="form-control m-input m-select2 m-select2-general" name="camposanto" required id="camposanto" disabled="disabled">
+									<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="camposanto" required id="camposanto" disabled="disabled">
 										<option value="">Camposanto</option>
 										<?php
 										  $tabla = "vtama_camposanto";
@@ -368,7 +368,7 @@
 								</div>
 								<div class="col-lg-3">
 									<label> Tipo plataforma:</label>
-									<select class="form-control m-input m-select2 m-select2-general" name="tipoPlat" disabled="disabled" id="tipoPlat" onchange="buscaPlataforma(this.value);">
+									<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="tipoPlat" disabled="disabled" id="tipoPlat" onchange="buscaPlataforma(this.value);">
 										<option value="">Tipo de plataforma</option>
 										<option value="TP001">NICHO</option>
 										<option value="TP002">PLATAFORMAS</option>
@@ -376,13 +376,13 @@
 								</div>
 								<div class="col-lg-4">
 									<label>Plataforma: </label>
-									<select class="form-control m-input m-select2 m-select2-general" name="plataforma" id="plataforma" disabled="disabled" onchange="buscaArea(this.value);">
+									<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="plataforma" id="plataforma" disabled="disabled" onchange="buscaArea(this.value);">
 										<option disabled value="">Plataforma</option>
 									</select>
 								</div>
 								<div class="col-lg-2">
 									<label>Área: </label>
-									<select class="form-control m-input m-select2 m-select2-general" name="area" id="area" disabled="disabled" onchange="buscaEjex(this.value);">
+									<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="area" id="area" disabled="disabled" onchange="buscaEjex(this.value);">
 										<option value="">Área</option>
 									</select>			
 								</div>
@@ -396,13 +396,13 @@
 									<div class="row">
 										<div class="col-lg-6">
 											<label>Eje Horiz:</label>
-											<select class="form-control m-input m-select2 m-select2-general" name="ejex" id="ejex" disabled="disabled" onchange="buscaEjey(this.value);">
+											<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="ejex" id="ejex" disabled="disabled" onchange="buscaEjey(this.value);">
 												<option disabled value="">Eje Hor.</option>
 											</select>
 										</div>
 										<div class="col-lg-6">
 											<label>Eje Vert:</label>
-											<select class="form-control m-input m-select2 m-select2-general" name="ejey" id="ejey" disabled="disabled" onchange="buscaEspacio(this.value);">
+											<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="ejey" id="ejey" disabled="disabled" onchange="buscaEspacio(this.value);">
 												<option disabled value="">Eje Ver.</option>
 											</select>
 										</div>
@@ -410,14 +410,14 @@
 								</div>
 								<div class="col-lg-3">
 									<label>Espacio:</label>
-									<select class="form-control m-input m-select2 m-select2-general" name="espacio" id="espacio" disabled onchange="buscanomEspacio(this.value);">
+									<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="espacio" id="espacio" disabled onchange="buscanomEspacio(this.value);">
 									</select>
 								</div>
 
 								<div class="col-lg-3">
 									<div class="m-input-icon m-input-icon--right">
 										<label>Tipo: </label>
-										<input type="text" class="form-control m-input" name="tipo" id="tipo" disabled="disabled">
+										<input type="text" class="form-control form-control-sm m-input" name="tipo" id="tipo" disabled="disabled">
 									</div>
 								</div>
 								<div class="col-lg-2">
@@ -438,7 +438,7 @@
 												<label>
 												Localidad:
 												</label>
-												<select class="form-control m-input m-select2 m-select2-general" disabled name="localidad" id="localidad">
+												<select class="form-control form-control-sm m-input m-select2 m-select2-general" disabled name="localidad" id="localidad">
 													<option value="00001">Empresa 1</option>
 													<option value="00002">Empresa 2</option>
 												</select>
@@ -447,7 +447,7 @@
 												<label class="">
 												Contrato:
 												</label>
-												<input type="text" class="form-control m-input"  name="ctt" id="ctt" disabled="disabled">
+												<input type="text" class="form-control form-control-sm m-input"  name="ctt" id="ctt" disabled="disabled">
 											</div>
 										</div>
 									</div>
@@ -462,7 +462,7 @@
 												Programa:
 											</label>
 											<div class="input-group">
-												<input type="text" class="form-control m-input" placeholder="Programa" disabled>
+												<input type="text" class="form-control form-control-sm m-input" placeholder="Programa" disabled>
 											</div>
 										</div>
 										<div class="col-lg-4">
@@ -517,7 +517,7 @@
 										</div>
 										<div class="col-lg-6"> 
 											<div class="input-group">
-												<input type="text" class="form-control m-input" id="importeCUI" name="importeCUI" placeholder="0,00" onchange="cambiaCUI();" style="text-align: right;">
+												<input type="text" class="form-control form-control-sm m-input" id="importeCUI" name="importeCUI" placeholder="0,00" onchange="cambiaCUI();" style="text-align: right;">
 											</div>
 										</div>
 									</div>
@@ -733,7 +733,7 @@
 										</div>
 										<div class="col-md-6"> 
 											<div class="input-group">
-												<input type="text" disabled class="form-control m-input" id="endoso1" name="endoso1" placeholder="0,00" style="text-align: right;">
+												<input type="text" disabled class="form-control form-control-sm m-input" id="endoso1" name="endoso1" placeholder="0,00" style="text-align: right;">
 											</div>
 										</div>
 									</div>
@@ -807,13 +807,13 @@
 											<label>Saldo a financiar: </label>
 										</div>
 										<div class="col-lg-4">
-											<input type="text" disabled id="saldoFinanciar" name="saldoFinanciar" style="text-align: right;" class="form-control m-input" placeholder="0,00">
+											<input type="text" disabled id="saldoFinanciar" name="saldoFinanciar" style="text-align: right;" class="form-control form-control-sm m-input" placeholder="0,00">
 										</div>
 										<div class="col-lg-2">
 											<label> N° de cuotas:</label>
 										</div>
 										<div class="col-lg-4" style="padding-left: 0;">
-											<select class="form-control m-select2 m-select2-general" name="numCuotas" id="numCuotas" style="width: 100%">
+											<select class="form-control form-control-sm m-select2 m-select2-general" name="numCuotas" id="numCuotas" style="width: 100%">
 												<option>
 													Seleccione... 
 												</option>
@@ -833,7 +833,7 @@
 										</div>
 										<div class="col-lg-4">
 											<div class="input-group date">
-												<input type="text" class="form-control m-input"  id="m_datepicker_1" data-date-format="mm/dd/yyyy" value="<?php echo date('m/d/Y', strtotime(date('m/d/Y').'+ 1 month')); ?>"/>
+												<input type="text" class="form-control form-control-sm m-input"  id="m_datepicker_1" data-date-format="mm/dd/yyyy" value="<?php echo date('m/d/Y', strtotime(date('m/d/Y').'+ 1 month')); ?>"/>
 												<div class="input-group-append">
 													<span class="input-group-text">
 														<i class="la la-calendar-check-o"></i>
@@ -845,7 +845,7 @@
 											<label>Interes:</label>
 										</div>
 										<div class="col-lg-4" style="padding-left: 0;">
-											<select class="form-control m-select2 m-select2-general" id="interes" name="interes" style="width: 100%">
+											<select class="form-control form-control-sm m-select2 m-select2-general" id="interes" name="interes" style="width: 100%">
 												<option>
 													Seleccione...
 												</option>
@@ -894,15 +894,15 @@
 									<div class="row">
 										<div class="col-lg-4">
 											<label>Cuota inicial: </label>
-											<input type="text" id="cuoIni" class="form-control m-input" disabled placeholder="0">
+											<input type="text" id="cuoIni" class="form-control form-control-sm m-input" disabled placeholder="0">
 										</div>
 										<div class="col-lg-4">
 											<label>Cuota final: </label>
-											<input type="text" id="cuoFin" class="form-control m-input" disabled placeholder="0">			
+											<input type="text" id="cuoFin" class="form-control form-control-sm m-input" disabled placeholder="0">			
 										</div>
 										<div class="col-lg-4">
 											<label>Valor de cuota: </label>
-											<input type="text" id="valCuo" class="form-control m-input" disabled placeholder="0,00" style="text-align: right;">			
+											<input type="text" id="valCuo" class="form-control form-control-sm m-input" disabled placeholder="0,00" style="text-align: right;">			
 										</div>
 									</div>
 									<br>
@@ -977,7 +977,7 @@
 													</label>
 												</div>
 												<div class="col-lg-6">
-													<input type="text" id="imp_saldo_foma" name="imp_saldo_foma" class="form-control m-input" disabled placeholder="0,00" style="text-align: right;">
+													<input type="text" id="imp_saldo_foma" name="imp_saldo_foma" class="form-control form-control-sm m-input" disabled placeholder="0,00" style="text-align: right;">
 												</div>
 											</div>
 										</div>
@@ -992,7 +992,7 @@
 													</label>
 												</div>
 												<div class="col-lg-6">
-													<select class="form-control m-select2 m-select2-general" name="cuota_FOMA" id="cuota_FOMA" style="width: 100%">
+													<select class="form-control form-control-sm m-select2 m-select2-general" name="cuota_FOMA" id="cuota_FOMA" style="width: 100%">
 														<option>
 														Seleccione... 
 														</option>
@@ -1018,7 +1018,7 @@
 												</div>
 												<div class="col-lg-6">
 													<div class="input-group date">
-														<input type="text" class="form-control m-input" id="m_datepicker_2_validate" data-date-format="mm/dd/yyyy" value="<?php echo date('m/d/Y',strtotime(date('m/d/Y').'+ 1 month')); ?>" />
+														<input type="text" class="form-control form-control-sm m-input" id="m_datepicker_2_validate" data-date-format="mm/dd/yyyy" value="<?php echo date('m/d/Y',strtotime(date('m/d/Y').'+ 1 month')); ?>" />
 														<div class="input-group-append">
 															<span class="input-group-text">
 																<i class="la la-calendar-check-o"></i>
@@ -1146,7 +1146,7 @@
 													</label>
 												</div>
 												<div class="col-lg-3">
-													<select class="form-control m-input custom-select custom-select-danger" disabled name="tipoDocBenef" id="tipoDocBenef">
+													<select class="form-control form-control-sm m-input custom-select custom-select-danger" disabled name="tipoDocBenef" id="tipoDocBenef">
 														<option value="">
 														Seleccione
 														</option>
@@ -1162,7 +1162,7 @@
 													</label>
 												</div>
 												<div class="col-lg-3">
-													<input type="text" id="numDocBenef" disabled class="form-control m-input" >
+													<input type="text" id="numDocBenef" disabled class="form-control form-control-sm m-input" >
 												</div>
 											</div>
 										</div>
@@ -1175,7 +1175,7 @@
 											</label>
 										</div>
 										<div class="col-lg-9">
-											<input type="text" disabled id="apellPaternoBenef" class="form-control m-input">
+											<input type="text" disabled id="apellPaternoBenef" class="form-control form-control-sm m-input">
 										</div>
 									</div>
 									<br>
@@ -1186,7 +1186,7 @@
 											</label>
 										</div>
 										<div class="col-lg-9">
-											<input type="text" disabled id="apellMaternoBenef" class="form-control m-input">
+											<input type="text" disabled id="apellMaternoBenef" class="form-control form-control-sm m-input">
 										</div>
 									</div>
 									<br>
@@ -1197,7 +1197,7 @@
 											</label>
 										</div>
 										<div class="col-lg-9">
-											<input type="text" disabled id="nombreBenef" class="form-control m-input">
+											<input type="text" disabled id="nombreBenef" class="form-control form-control-sm m-input">
 										</div>
 									</div>
 									<br>
@@ -1207,7 +1207,7 @@
 										</div>
 										<div class="col-lg-4">
 											<div class="input-group date">
-												<input type="text" disabled class="form-control m-input" readonly  placeholder="Seleccionar fecha" id="m_datepicker_1_modal"/>
+												<input type="text" disabled class="form-control form-control-sm m-input" readonly  placeholder="Seleccionar fecha" id="m_datepicker_1_modal"/>
 												<div class="input-group-append">
 													<span class="input-group-text">
 														<i class="la la-calendar-check-o"></i>
@@ -1220,7 +1220,7 @@
 										</div>
 										<div class="col-lg-4">
 											<div class="input-group date">
-												<input type="text" disabled class="form-control m-input" readonly  placeholder="Seleccionar fecha" id="m_datepicker_2"/>
+												<input type="text" disabled class="form-control form-control-sm m-input" readonly  placeholder="Seleccionar fecha" id="m_datepicker_2"/>
 												<div class="input-group-append">
 													<span class="input-group-text">
 														<i class="la la-calendar-check-o"></i>
@@ -1237,7 +1237,7 @@
 											</label>
 										</div>
 										<div class="col-lg-4">
-											<select disabled class="form-control m-input custom-select custom-select-danger" name="religionBenef" id="religionBenef">
+											<select disabled class="form-control form-control-sm m-input custom-select custom-select-danger" name="religionBenef" id="religionBenef">
 												<option value="">
 													Seleccione
 												</option>
@@ -1256,7 +1256,7 @@
 											</label>
 										</div>
 										<div class="col-lg-4">
-											<select disabled class="form-control m-input custom-select custom-select-danger" name="edoCivilBenef" id="edoCivilBenef">
+											<select disabled class="form-control form-control-sm m-input custom-select custom-select-danger" name="edoCivilBenef" id="edoCivilBenef">
 												<option value="">
 													Seleccione
 												</option>
@@ -1274,7 +1274,7 @@
 											</label>
 										</div>
 										<div class="col-lg-4">
-											<select disabled class="form-control m-input custom-select custom-select-danger" name="sexoBenef" id="sexoBenef">
+											<select disabled class="form-control form-control-sm m-input custom-select custom-select-danger" name="sexoBenef" id="sexoBenef">
 												<option value="">
 													Seleccione
 												</option>
@@ -1292,7 +1292,7 @@
 											</label>
 										</div>
 										<div class="col-lg-4">
-											<select disabled class="form-control m-input custom-select custom-select-danger" name="parentescoBenef" id="parentescoBenef">
+											<select disabled class="form-control form-control-sm m-input custom-select custom-select-danger" name="parentescoBenef" id="parentescoBenef">
 												<option value="">
 													Seleccione
 												</option>
@@ -1313,7 +1313,7 @@
 											</label>
 										</div>
 										<div class="col-lg-4">
-											<select disabled class="form-control m-input custom-select custom-select-danger" name="lugarDecesoBenef" id="lugarDecesoBenef">
+											<select disabled class="form-control form-control-sm m-input custom-select custom-select-danger" name="lugarDecesoBenef" id="lugarDecesoBenef">
 												<option value="">
 													Seleccione
 												</option>
@@ -1331,7 +1331,7 @@
 											</label>
 										</div>
 										<div class="col-lg-4">
-											<select disabled class="form-control m-input custom-select custom-select-danger" name="motivoDecesoBenef" id="motivoDecesoBenef">
+											<select disabled class="form-control form-control-sm m-input custom-select custom-select-danger" name="motivoDecesoBenef" id="motivoDecesoBenef">
 												<option value="">
 													Seleccione
 												</option>
@@ -1352,7 +1352,7 @@
 											</label>
 										</div>
 										<div class="col-lg-2">
-											<input disabled type="text" id="pesoBenef" class="form-control m-input" placeholder="">
+											<input disabled type="text" id="pesoBenef" class="form-control form-control-sm m-input" placeholder="">
 										</div>
 										<div class="col-lg-2">
 											<label class="">
@@ -1360,7 +1360,7 @@
 											</label>
 										</div>
 										<div class="col-lg-2">
-											<input disabled type="text" id="tallaBenef" class="form-control m-input" placeholder="">
+											<input disabled type="text" id="tallaBenef" class="form-control form-control-sm m-input" placeholder="">
 										</div>
 										<div class="col-lg-4">
 											<table>
@@ -1414,7 +1414,7 @@
 									</label>
 								</div>
 								<div class="col-lg-3">
-									<select id="tipoCom" disabled class="form-control m-input custom-select custom-select-danger" name="option">
+									<select id="tipoCom" disabled class="form-control form-control-sm m-input custom-select custom-select-danger" name="option">
 										<option value="">
 											Seleccione
 										</option>
@@ -1441,7 +1441,7 @@
 											N°: &nbsp;
 										</label>
 										<div class="input-group-prepend">
-											<select class="form-control m-input" id="numCom" disabled name="option">
+											<select class="form-control form-control-sm m-input" id="numCom" disabled name="option">
 												<option value="">
 													1
 												</option>
@@ -1450,7 +1450,7 @@
 												</option>
 											</select>
 										</div>
-										<input type="text" class="form-control m-input" id="nnumCom" disabled placeholder="">
+										<input type="text" class="form-control form-control-sm m-input" id="nnumCom" disabled placeholder="">
 									</div>
 								</div>
 								<div class="col-lg-4">
@@ -1460,7 +1460,7 @@
 										</div>
 										<div class="col-lg-8">
 											<div class="input-group date">
-												<input type="text" class="form-control m-input" disabled readonly  placeholder="Seleccionar fecha" id="m_datepicker_3"/>
+												<input type="text" class="form-control form-control-sm m-input" disabled readonly  placeholder="Seleccionar fecha" id="m_datepicker_3"/>
 												<div class="input-group-append">
 													<span class="input-group-text">
 														<i class="la la-calendar-check-o"></i>
@@ -1480,7 +1480,7 @@
 								</div>
 								<div class="col-lg-5">
 									<div class="input-group">
-										<input type="text" disabled id="deuCom" class="form-control m-input" placeholder="">
+										<input type="text" disabled id="deuCom" class="form-control form-control-sm m-input" placeholder="">
 										<div class="input-group-append">
 											<button type="button" disabled id="btn1Com" class="btn btn-danger">
 												<i class="flaticon-search"></i>
@@ -1492,7 +1492,7 @@
 									</div>
 								</div>
 								<div class="col-lg-5">
-									<input type="text" disabled id="nomCom" class="form-control m-input" placeholder="">
+									<input type="text" disabled id="nomCom" class="form-control form-control-sm m-input" placeholder="">
 								</div>
 							</div>
 							<br>
@@ -1503,7 +1503,7 @@
 									</label>
 								</div>
 								<div class="col-lg-2">
-									<select class="form-control m-input custom-select custom-select-danger" disabled name="option" id="docCom">
+									<select class="form-control form-control-sm m-input custom-select custom-select-danger" disabled name="option" id="docCom">
 										<option value="">
 											Seleccione
 										</option>
@@ -1519,7 +1519,7 @@
 									</label>
 								</div>
 								<div class="col-lg-3">
-									<input type="text" id="ndocCom" class="form-control m-input" placeholder="" disabled>
+									<input type="text" id="ndocCom" class="form-control form-control-sm m-input" placeholder="" disabled>
 								</div>
 								<div class="col-lg-1">
 									<label class="">
@@ -1527,7 +1527,7 @@
 									</label>
 								</div>
 								<div class="col-lg-3">
-									<input type="text" id="tlfCom" class="form-control m-input" placeholder="" disabled>
+									<input type="text" id="tlfCom" class="form-control form-control-sm m-input" placeholder="" disabled>
 								</div>
 							</div>
 							<br>
@@ -1538,7 +1538,7 @@
 									</label>
 								</div>
 								<div class="col-lg-10">
-									<input type="text" id="dirCom" class="form-control m-input" placeholder="" disabled>
+									<input type="text" id="dirCom" class="form-control form-control-sm m-input" placeholder="" disabled>
 								</div>
 							</div>
 							<br>
@@ -1549,7 +1549,7 @@
 									</label>
 								</div>
 								<div class="col-lg-10">
-									<input type="text" id="gloCom" class="form-control m-input" placeholder="" disabled>
+									<input type="text" id="gloCom" class="form-control form-control-sm m-input" placeholder="" disabled>
 								</div>
 							</div>
 							<br>
@@ -1561,7 +1561,7 @@
 								</div>
 								<div class="col-lg-3">
 									<div class="input-group">
-										<select class="form-control m-input custom-select custom-select-danger" name="option" disabled id="monCom">
+										<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="option" disabled id="monCom">
 											<option value="">
 												S/.
 											</option>
@@ -1569,7 +1569,7 @@
 												$
 											</option>
 										</select>
-										<input type="text" disabled id="totCom" class="form-control m-input" placeholder="0.00">
+										<input type="text" disabled id="totCom" class="form-control form-control-sm m-input" placeholder="0.00">
 									</div>
 								</div>
 							</div>
@@ -1680,7 +1680,7 @@
 								</label>
 							</div>
 							<div class="col-lg-7">
-								<input type="text" size="3" maxlength="3" disabled class="form-control m-input" id="imp_cobertura" name="imp_cobertura" placeholder="0,00" style="text-align: right;">
+								<input type="text" size="3" maxlength="3" disabled class="form-control form-control-sm m-input" id="imp_cobertura" name="imp_cobertura" placeholder="0,00" style="text-align: right;">
 							</div>
 						</div>
 					</li>
@@ -1692,7 +1692,7 @@
 								</label>
 							</div>
 							<div class="col-lg-7">
-								<input type="text" size="3" maxlength="3" disabled class="form-control m-input" id="imp_dscto" name="imp_dscto" placeholder="0,00" style="text-align: right;">
+								<input type="text" size="3" maxlength="3" disabled class="form-control form-control-sm m-input" id="imp_dscto" name="imp_dscto" placeholder="0,00" style="text-align: right;">
 							</div>
 						</div>
 					</li>
@@ -1704,7 +1704,7 @@
 								</label>
 							</div>
 							<div class="col-lg-7">
-								<input type="text" disabled class="form-control m-input" id="cuitotal" name="cuitotal" placeholder="0,00" style="text-align: right;">
+								<input type="text" disabled class="form-control form-control-sm m-input" id="cuitotal" name="cuitotal" placeholder="0,00" style="text-align: right;">
 							</div>
 						</div>
 					</li>
@@ -1716,7 +1716,7 @@
 								</label>
 							</div>
 							<div class="col-lg-7">
-								<input type="text" size="3" maxlength="3" disabled class="form-control m-input" id="total1" name="total1" placeholder="0,00" style="text-align: right;">
+								<input type="text" size="3" maxlength="3" disabled class="form-control form-control-sm m-input" id="total1" name="total1" placeholder="0,00" style="text-align: right;">
 							</div>
 						</div>
 					</li>
@@ -1728,7 +1728,7 @@
 							</label>
 						</div>
 						<div class="col-lg-7">
-							<input type="text" size="3" maxlength="3" disabled class="form-control m-input" id="saldopagar" name="saldopagar" placeholder="0,00" style="text-align: right;">
+							<input type="text" size="3" maxlength="3" disabled class="form-control form-control-sm m-input" id="saldopagar" name="saldopagar" placeholder="0,00" style="text-align: right;">
 							<input type="hidden" id="imp_subtotal" name="imp_subtotal">
 							<input type="hidden" id="imp_igv" name="imp_igv">
 						</div>
@@ -1747,6 +1747,7 @@
 		<!--End::Portlet Body-->
 	</div> 
 	<!--End::Main Portlet-->
+</div>
 </div>
 <?php
 include "modals/modalRegCliente.php";
