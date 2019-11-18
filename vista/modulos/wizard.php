@@ -106,7 +106,7 @@
 					<div class="m-portlet__body">
 						<!--begin: Form Wizard Step 1-->
 						<div class="m-wizard__form-step m-wizard__form-step--current" id="m_wizard_form_step_1">
-							<div class="row">
+							<div class="form-group m-form__group row">
 								<div class="col-lg-6">
 									<div class="row">
 										<div class="col-lg-5">
@@ -207,7 +207,7 @@
 								</div>
 							</div>
 							<br>
-							<div class="row">
+							<div class="form-group m-form__group row">
 								<div class="col-lg-6 p-bottom3">
 									<div class="row">
 										<div class="col-lg-5">
@@ -308,7 +308,6 @@
 													  ?>
 												</select>
 											</div>
-											<div class="col-lg-3" style="padding-left: 0px;">
 											<div class="col-lg-3 non-p-left padding-left">
 												<br><br>	
 												<div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
@@ -346,7 +345,7 @@
 								</div>
 							</div>
 							<br>
-							<div class="row">
+							<div class="form-group m-form__group row">
 								<div class="col-lg-5">
 									<label class="tittle-box">
 										<h5>Datos de espacio</h5>
@@ -354,7 +353,7 @@
 								</div>
 							</div>
 							<br>
-							<div class="row">
+							<div class="form-group m-form__group row">
 								<div class="col-lg-3">
 									<label>Camposanto *</label>
 									<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="camposanto" required id="camposanto" disabled="disabled">
@@ -389,7 +388,7 @@
 								</div>
 							</div>
 							<br>
-							<div class="row">
+							<div class="form-group m-form__group row">
 								<label class="">
 									<h5>&nbsp;</h5>
 								</label>
@@ -430,7 +429,7 @@
 							</div>
 							<div class="form-group m-form__group row">
 								<div class="col-lg-6 m-top3">
-									<label>
+									<label class="tittle-box">
 										<h5>Contrato</h5>
 									</label>
 									<div class="m-input-icon m-input-icon--right">
