@@ -44373,7 +44373,7 @@ body.m-page--boxed {
 }
 
 .m-body .m-content {
-    padding: 20px 20px 50px;
+    padding: 20px 20px 20px;
 }
 
 .m-body .m-wrapper {
@@ -51034,8 +51034,8 @@ ul >li, ol > li{
         height: 50px;
     }
     .col-lg-12{
-        padding-left: 0px;
-        padding-right: 0px
+        padding-left: 10px;
+        padding-right: 10px
     }
     .m-portlet .m-portlet__body{
         padding: 2.2rem 0.3rem
