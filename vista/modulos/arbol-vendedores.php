@@ -1,6 +1,6 @@
 <div class="m-content"  style="width: calc(100%);">
 	<!--Begin::Main Portlet-->
-	<div class="m-portlet m-portlet--full-height">
+	<div class="m-portlet m-portlet--space">
 		<!--begin: Portlet Head-->
 		<div class="m-portlet__head">
 			<div class="m-portlet__head-caption">
@@ -27,7 +27,7 @@
 							</div>		
 						</div>
 						<div class="row">
-							<ul class="nav nav-tabs nav-tabs-simple nav-tabs-left bg-white ulListaKqPst ulListaConfigPeriodo  col-md-12" id="tab-2" style="border-radius: 3px;margin-bottom: 0; height: 28rem;">
+							<ul class="nav nav-tabs nav-tabs-simple nav-tabs-left bg-white ulListaKqPst  col-md-12" id="tab-2" style="border-radius: 3px;margin-bottom: 0; height: 28rem;">
 								<li class="spanTextoActiveKq liListaKqPstTitulo">
 									<div class="row">
 										<div class="text-center col-md-3"><b>Código</b></div>
@@ -79,9 +79,9 @@
 									<div class="row">
 										<div class="col-md-12">
 											<p class="pull-right">
-												<button type="button" class="btn btn-sm btn-primary btnGuardarKqPst" title="Nuevo" id=""  style="margin-right:6px;"><i class="fa fa-plus"></i></button>	
-												<button type="button" class="btn btn-sm btn-primary btnEditarKqPst2" title="Modificar" id="" style="margin-right:6px;"><i class="fa fa-pencil"></i></button>
-												<button type="button" class="btn btn-sm btn-primary btnEliminarKqPst" title="Eliminar" id=""><i class="fa fa-trash"></i></button>
+												<button type="button" class="btn btn-sm btn-success" title="Nuevo" id=""  style="margin-right:6px;"><i class="fa fa-plus"></i></button>	
+												<button type="button" class="btn btn-sm btn-primary" title="Modificar" id="" style="margin-right:6px;"><i class="fa fa-pencil"></i></button>
+												<button type="button" class="btn btn-sm btn-danger" title="Eliminar" id=""><i class="fa fa-trash"></i></button>
 											</p>										
 										</div>
 									</div>
