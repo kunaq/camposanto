@@ -491,7 +491,7 @@
 						</div>
 					</div>
 						<!--end: Form Wizard Step 1-->
-<!--begin: Form Wizard Step 2-->
+						<!--begin: Form Wizard Step 2-->
 						<div class="m-wizard__form-step" id="m_wizard_form_step_2">
 							<div class="row">
 								<div class="col-sm-2 offset-sm-10 col-md-1 offset-md-11">
@@ -796,9 +796,8 @@
 										</div>
 									</div>
 								</div>
-							</div>
-								
 						</div>
+					
 						<!--end: Form Wizard Step 2--> 
 						<div class="m-wizard__form-step" id="m_wizard_form_step_5">
 							<div class="row">
@@ -1246,9 +1245,8 @@
 												  $tabla="vtama_religion";
 												  $item1="cod_religion";
 												  $item2="dsc_religion";
-				 						 $prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
+				 						           $prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
 												?> 
-											</select>
 											</select>
 										</div>
 										<div class="col-lg-2">
@@ -1262,7 +1260,7 @@
 													Seleccione
 												</option>
 												<?php
-				  						$prueba=controladorEmpresa::ctrestadocivil();
+				  						         $prueba=controladorEmpresa::ctrestadocivil();
 												?> 
 											</select>
 										</div>
@@ -1301,7 +1299,7 @@
 												  $tabla="vtama_parentesco";
 												  $item1="cod_parentesco";
 												  $item2="dsc_parentesco";
-				 						 $prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
+				 						          $prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
 												?> 
 											</select>
 										</div>
@@ -1322,7 +1320,7 @@
 												  $tabla="vtama_lugar_deceso";
 												  $item1="cod_lugar_deceso";
 												  $item2="dsc_lugar_deceso";
-				 						 $prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
+				 						          $prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
 												?>
 											</select>
 										</div>
@@ -1340,7 +1338,7 @@
 												  $tabla="vtama_motivo_deceso";
 												  $item1="cod_motivo_deceso";
 												  $item2="dsc_motivo_deceso";
-				 						 $prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
+				 						          $prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
 												?>
 											</select>
 										</div>
