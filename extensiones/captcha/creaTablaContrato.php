@@ -43,12 +43,7 @@ AND EXISTS
                 AND     vtama_tipo_servicio.flg_cambio_titular= 'NO'
                 AND     vtama_tipo_servicio.flg_sadicional= 'NO'
             )
-AND ( CASE '$tipoFecha' WHEN 'GEN' THEN CONVERT(DATE, vtade_contrato.fch_generacion)
-WHEN 'EMI' THEN CONVERT(DATE, vtade_contrato.fch_emision)
-WHEN 'ACT' THEN CONVERT(DATE, vtade_contrato.fch_activacion) END ) >= '$fechaInicio'
-AND (CASE '$tipoFecha' WHEN 'GEN' THEN CONVERT(DATE, vtade_contrato.fch_generacion)
-WHEN 'EMI' THEN CONVERT(DATE, vtade_contrato.fch_emision)
-WHEN 'ACT' THEN CONVERT(DATE, vtade_contrato.fch_activacion) END ) <= '$fechaFin'");
+");
 
 echo "SELECT vtade_contrato.cod_tipo_necesidad,vtade_contrato.num_servicio, vtade_contrato.cod_contrato,(SELECT vtama_cliente.dsc_cliente FROM vtama_cliente WHERE vtama_cliente.cod_cliente = vtade_contrato.cod_cliente) AS dsc_cliente, vtade_contrato.fch_emision, vtade_contrato.fch_activacion, vtade_contrato.fch_resolucion, vtade_contrato.fch_anulacion,
 (SELECT SUBSTRING(rhuma_trabajador.dsc_nombres, 1, 1) + '. ' + rhuma_trabajador.dsc_apellido_paterno FROM rhuma_trabajador WHERE rhuma_trabajador.cod_trabajador = vtade_contrato.cod_vendedor) AS dsc_vendedor,
