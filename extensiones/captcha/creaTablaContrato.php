@@ -43,9 +43,9 @@ AND EXISTS
                 AND     vtama_tipo_servicio.flg_cambio_titular= 'NO'
                 AND     vtama_tipo_servicio.flg_sadicional= 'NO'
             )
-AND ( CASE '$tipoFecha' WHEN 'GEN' THEN CONVERT(DATE, vtade_contrato.fch_generacion)
-WHEN 'EMI' THEN CONVERT(DATE, vtade_contrato.fch_emision)
-WHEN 'ACT' THEN CONVERT(DATE, vtade_contrato.fch_activacion) END ) >= '$fechaInicio'
+AND ( CASE '$tipoFecha' WHEN 'GEN' THEN CONVERT(DATE, vtade_contrato.fch_generacion,105)
+WHEN 'EMI' THEN CONVERT(DATE, vtade_contrato.fch_emision,105)
+WHEN 'ACT' THEN CONVERT(DATE, vtade_contrato.fch_activacion,105) END ) >= CONVERT(DATE,'$fechaInicio',105)
 ");
 
 
