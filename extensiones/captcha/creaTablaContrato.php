@@ -46,7 +46,9 @@ AND EXISTS
 AND ( CASE '$tipoFecha' WHEN 'GEN' THEN CONVERT(DATE, vtade_contrato.fch_generacion,105)
 WHEN 'EMI' THEN CONVERT(DATE, vtade_contrato.fch_emision,105)
 WHEN 'ACT' THEN CONVERT(DATE, vtade_contrato.fch_activacion,105) END ) >= CONVERT(DATE,'$fechaInicio',105)
-");
+AND (CASE '$tipoFecha' WHEN 'GEN' THEN CONVERT(DATE, vtade_contrato.fch_generacion,105)
+WHEN 'EMI' THEN CONVERT(DATE, vtade_contrato.fch_emision,105)
+WHEN 'ACT' THEN CONVERT(DATE, vtade_contrato.fch_activacion,105) END ) <= CONVERT(DATE,'$fechaFin',105)");
 
 
 	$tabla.='
