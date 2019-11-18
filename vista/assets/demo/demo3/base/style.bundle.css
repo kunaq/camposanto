@@ -36,7 +36,7 @@ body {
     line-height: 1.5;
     color: #212529;
     text-align: left;
-    background-color: #fff
+    background-color: #fff;
 }
 
 [tabindex="-1"]:focus {
@@ -50596,6 +50596,12 @@ body {
     background-color: #f4516c !important;
     color: white !important;
 }
+.table tbody{
+    max-height: 260px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 100%;
+}
 
 .table-fixed tfoot{
     font-size: 11px;
@@ -51008,7 +51014,78 @@ body {
 ul >li, ol > li{
     line-height: 24px;
 }
+.logo{
+    width: 140px;
+    height: 67px;
+}
+.m-top1{
+    margin-top: 10px;
+}
+.m-top3{
+    margin-top: 27px;
+}
 
+@media (max-width: 1025px){
+    .logo{
+        width: 120px;
+        height: 50px;
+    }
+    .col-lg-12{
+        padding-left: 0px;
+        padding-right: 0px
+    }
+    .m-portlet .m-portlet__body{
+        padding: 2.2rem 0.3rem
+    }
+    .m-body .m-content {
+        padding: 10px 10px
+    }
+    .p-bottom3{
+    padding-bottom: 30px;
+    }
+    .p-bottom1{
+    padding-bottom: 10px;
+    }
+}
+
+.padding {
+        padding-left: 25px;
+        margin-top: -20px;
+    }
+    .mt-40{
+        margin-top: -40px;
+    }
+    .mt-25{
+        margin-top: -25px;
+    }
+    .p-left{
+        padding-left: 20px;
+    }
+}
+/* -------------- Estilo Modal Tabla Deuda -------------- */
+.text-red{
+    color: #b30000;
+}
+.text-blue{
+    color: #000080;
+}
+.exclamation{
+    color: #ff0000;
+    font-size: 20px;
+}
+.myTableDeuda{
+    width: 100%;
+}
+.myTableDeuda thead th{
+    background-color: #0050CC;
+    color: #fff;
+}
+.myTableDeuda thead th,.myTableDeuda tbody td,.myTableDeuda tfoot td{
+    text-align: center;
+}
+.tbodyDeuda{
+    min-height: 600px;
+}
 .spanTextoKq2{
     text-decoration: none;
      /*background-color: #e4e1e1;*/

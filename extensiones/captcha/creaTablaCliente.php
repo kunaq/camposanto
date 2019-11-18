@@ -1,5 +1,6 @@
 <?php
 require_once "../../modelo/conexion.php";
+        $tipobtn = $_GET['tipo'];
         $db = new Conexion();                                             
 
                 $sql = $db->consulta("SELECT cod_calificacion, cod_cliente, dsc_cliente, dsc_documento, dsc_telefono_1 FROM vtama_cliente");
@@ -32,7 +33,18 @@ require_once "../../modelo/conexion.php";
                     else{
                         $tipoCal = '<p style = "color:red;"><b>NEGATIVO</b></p>';
                     }
+
                     $cod = "'".$key['dsc_documento']."'";
+                    $codcliente = "'".$key['cod_cliente']."'";
+
+                    if ($tipobtn == "cliente") {
+                        $funcion = '"cambiaDocumento('.$cod.')"';
+                    }elseif ($tipobtn == "comprobante"){
+                        $funcion = '"cambiaDeudor('.$codcliente.')"';
+                    }elseif ($tipobtn == "contrato"){
+                        $funcion = '"cambiaCliCon('.$codcliente.')"';
+                    }
+                    
                    echo 
                    '<tr style="height: 60px;">
                         <td>
@@ -51,7 +63,7 @@ require_once "../../modelo/conexion.php";
                             '.$tipoCal.'
                         </td>
                         <td>
-                            <button type="button" onclick = "cambiaDocumento('.$cod.')" class="m-btn btn btn-danger" data-dismiss="modal">
+                            <button type="button" onclick = '.$funcion.' class="m-btn btn btn-danger" data-dismiss="modal">
                                 <i class="la la-plus"></i>
                             </button>
                         </td>

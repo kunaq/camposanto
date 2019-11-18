@@ -208,9 +208,9 @@
 							</div>
 							<br>
 							<div class="row">
-								<div class="col-lg-6">
+								<div class="col-lg-6 p-bottom3">
 									<div class="row">
-										<div class="col-lg-12">
+										<div class="col-lg-5">
 											<label>
 												<h5>Plan/Subtipo de servicio</h5>
 											</label>
@@ -257,7 +257,7 @@
 								<br><br>
 								<div class="col-lg-6">
 									<div class="row">
-										<div class="col-lg-3">
+										<div class="col-lg-3 m-top3">
 											<label class="">
 												<h5>Cliente *</h5>
 											</label>
@@ -284,7 +284,7 @@
 									</div>
 									<div class="m-input-icon m-input-icon--right">
 										<div class="row" style="margin-top: 10px;">
-											<div class="col-lg-4">
+											<div class="col-lg-4 m-top1">
 												<label>Tipo doc: </label>
 												<select disabled class="form-control form-control-sm m-input custom-select custom-select-danger" id="TipoDcoCliente" name="TipoDcoCliente">
 													<option value="">
@@ -309,11 +309,12 @@
 												</select>
 											</div>
 											<div class="col-lg-3" style="padding-left: 0px;">
+											<div class="col-lg-3 non-p-left padding-left">
 												<br><br>	
 												<div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
 													<div class="btn-group m-btn-group mr-2" role="group" aria-label="First group">
 														<span data-toggle="modal" data-target="#m_modal_2">
-														<button type="button" class="m-btn btn btn-danger" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar cliente" onclick="creaTablaCliente();">
+														<button type="button" class="m-btn btn btn-danger" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar cliente" onclick="creaTablaCliente('cliente');">
 															<i class="la la-search"></i>
 														</button>
 														</span>
@@ -335,7 +336,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="m-input-icon m-input-icon--right" style="margin-top: 10px;">
+									<div class="m-input-icon m-input-icon--right m-top1">
 										<label>Apellido y Nombre: * </label>
 										<div class="input-group m-input-group">
 											<input type="text" class="form-control form-control-sm m-input" name="nombreCliente" disabled id="nombreCliente">
@@ -346,7 +347,7 @@
 							</div>
 							<br>
 							<div class="row">
-								<div class="col-lg-12">
+								<div class="col-lg-5">
 									<label>
 										<h5>Datos de espacio</h5>
 									</label>
@@ -428,7 +429,7 @@
 								</div>
 							</div>
 							<div class="form-group m-form__group row">
-								<div class="col-lg-6">
+								<div class="col-lg-6 m-top3">
 									<label>
 										<h5>Contrato</h5>
 									</label>
@@ -749,7 +750,7 @@
 								<div class="col-lg-12">
 									<div class="m-input-icon m-input-icon--right">
 										<div class="m-section  m-demo m-demo__preview">
-											<div class="m-section__content table-responsive-m" data-scrollbar-shown="true" data-scrollable="true" data-max-height="320"">
+											<div class="m-section__content table-responsive-m" data-scrollbar-shown="true" data-scrollable="true" data-max-height="320">
 												<div class="table-responsive">
 												<table class="table table-fixed">
 													<thead style="text-align: center;">
@@ -1416,23 +1417,11 @@
 								<div class="col-lg-3">
 									<select id="tipoCom" disabled class="form-control form-control-sm m-input custom-select custom-select-danger" name="option">
 										<option value="">
-											Seleccione
-										</option>
-										<option>
-											1
-										</option>
-										<option>
-											2
-										</option>
-										<option>
-											3
-										</option>
-										<option>
-											4
-										</option>
-										<option>
-											5
-										</option>
+														Seleccione
+													</option>
+													<?php
+											$prueba = controladorEmpresa::ctrtipoCom();
+													  ?> 
 									</select>
 								</div>
 								<div class="col-lg-3">
@@ -1482,9 +1471,11 @@
 									<div class="input-group">
 										<input type="text" disabled id="deuCom" class="form-control form-control-sm m-input" placeholder="">
 										<div class="input-group-append">
-											<button type="button" disabled id="btn1Com" class="btn btn-danger">
-												<i class="flaticon-search"></i>
+											<span data-toggle="modal" data-target="#m_modal_2">
+											<button type="button" disabled="" id="btn1Com" class="m-btn btn btn-danger" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar cliente" onclick="creaTablaCliente('comprobante');">
+												<i class="la la-search"></i>
 											</button>
+											</span>
 											<button type="button" disabled id="btn2Com" class="btn btn-success">
 												<i class="flaticon-plus"></i>
 											</button>
@@ -1755,4 +1746,5 @@ include "modals/modalTablaClientes.php";
 include "modals/modalTablaDscto.php";
 include "modals/modalTablaEndosos.php";
 include "modals/modalTablaservicios.php";
+include "modals/modalTablaDeuda.php";
 ?>

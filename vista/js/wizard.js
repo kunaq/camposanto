@@ -100,7 +100,6 @@ function apagar(){
     $('#nnumCom').prop('disabled',true);
     $('#nnumCom').val('');
     $('#m_datepicker_3').attr('disabled','disabled');
-    $('#m_datepicker_3').val('');
     $('#deuCom').prop('disabled',true);
     $('#deuCom').val('');
     $('#btn1Com').prop('disabled',true);
@@ -140,8 +139,35 @@ function apagar(){
         $('#gloCom').prop('disabled',false);
         $('#monCom').prop('disabled',false);
         $('#totCom').prop('disabled',false);
+        var sldDoc = document.getElementById("numDocCliente");
+        sldvalue = sldDoc.value;
+        $.ajax({
+        type: 'GET',
+        url: 'extensiones/captcha/buscaCliente.php',
+        dataType: 'text',
+        data: { 'value' : sldvalue },
+        success : function(respuesta){
+            var nombre = respuesta.split("/")[0];
+            var tipodoc = respuesta.split("/")[1];
+            var numdoc = respuesta.split("/")[2];
+            var jur = respuesta.split("/")[3];
+            var tel = respuesta.split("/")[4];
+            var dir = respuesta.split("/")[5];
+            var cod = respuesta.split("/")[6];
+            document.getElementById("deuCom").value = cod;
+            document.getElementById("docCom").value = tipodoc;
+            document.getElementById("ndocCom").value = numdoc;
+            $('#nomCom').val(nombre);
+            document.getElementById("tlfCom").value = tel;
+            document.getElementById("dirCom").value = dir;
+            }
+        });
+        console.log(sldvalue);
+        var cui_total = document.getElementsByClassName("Total F")[0].innerHTML;
+        document.getElementById("totCom").value = cui_total;
     }
 }
+
 
 function desabilitar(){
     var checkbox = document.getElementById('cuoDefi');
@@ -186,7 +212,7 @@ function cargaFormBenef(){
   
   //---------------limpia--------//
 
-   document.getElementById("tipoDocBenef").value = '';
+  document.getElementById("tipoDocBenef").value = '';
   document.getElementById("numDocBenef").value = '';
   document.getElementById("apellPaternoBenef").value = '';
   document.getElementById("apellMaternoBenef").value = '';
@@ -510,6 +536,7 @@ $("#codVendedor").change(function () {
 
 $("#numDocCliente").change(function() {
     var valor = $(this).val();
+     
     $.ajax({
         type: 'GET',
         url: 'extensiones/captcha/buscaCliente.php',
@@ -521,6 +548,7 @@ $("#numDocCliente").change(function() {
             var tipodoc = respuesta.split("/")[1];
             var numdoc = respuesta.split("/")[2];
             var jur = respuesta.split("/")[3];
+            var cod = respuesta.split("/")[6];
             $('#nombreCliente').val(nombre);
             document.getElementById("TipoDcoCliente").value = tipodoc;
             document.getElementById("numDocCliente").value = numdoc;
@@ -530,9 +558,54 @@ $("#numDocCliente").change(function() {
             else{
                 $('#juridico').prop("checked", false);
             }
+            // -------------- Funcion de alerta deuda --------------
+            $('#tablaDeuda').html('<div class="loader"></div>');
+            $.ajax({
+              type: 'GET',
+                url: 'extensiones/captcha/tablaDeuda.php',
+                dataType: 'text',
+                data: { 'cod' : cod },
+                success : function(response){
+                  var info = JSON.parse(response);
+                  if (info.cod == 0) {
+                    return true;
+                  }else{
+                    $('#tablaDeuda').html('')
+                    $("#tablaDeuda").html(info.tabla);
+                    $('#m_modal_deuda').modal('show');
+                    document.getElementById('nombreCliDeu').innerHTML = nombre;
+                    document.getElementById('deudaTotal').innerHTML = info.deudaTotal;
+                  } 
+                }
+            });
+            
         }
     });
+    
+});
 
+$("#deuCom").change(function() {
+    var valor = $(this).val();
+    $.ajax({
+        type: 'GET',
+        url: 'extensiones/captcha/buscaCliente.php',
+        dataType: 'text',
+        data: { 'value' : valor },
+        success : function(respuesta){
+            //console.log(respuesta);
+            var nombre = respuesta.split("/")[0];
+            var tipodoc = respuesta.split("/")[1];
+            var numdoc = respuesta.split("/")[2];
+            var jur = respuesta.split("/")[3];
+            var tel = respuesta.split("/")[4];
+            var dir = respuesta.split("/")[5];
+            $('#nomCom').val(nombre);
+            document.getElementById("docCom").value = tipodoc;
+            document.getElementById("ndocCom").value = numdoc;
+            document.getElementById("tlfCom").value = tel;
+            document.getElementById("dirCom").value = dir;
+        }
+    });
 });
 
 function callProspecto(valor){
@@ -561,21 +634,23 @@ function callProspecto(valor){
     });
 }
 
-function creaTablaCliente(){
-    if ($('#myTableCliente').length) {
-        $('#myTableCliente').DataTable();
-    }
-    else{
+function creaTablaCliente(tipo){
+    //if ($('#myTableCliente').length) {
+    //    $('#myTableCliente').DataTable();
+    // }
+    // else{
         $('#tablaCliente').html('<div class="loader"></div>');
         $.ajax({
             url: 'extensiones/captcha/creaTablaCliente.php',
+            dataType: 'text',
+            data: { 'tipo' : tipo },
             success : function(respuesta){
                 $('#tablaCliente').html('')
                 $("#tablaCliente").html(respuesta);
                 $('#myTableCliente').DataTable();
             }
         });
-    }
+    // }
 }
 
 function creaTablaProspecto(){
@@ -674,6 +749,11 @@ function validaEspacio(valor){
     });
 }
 
+function pasaCorreo(){
+  var correo = document.getElementById("emailNvoCliWiz").value;
+  document.getElementById("emailfeNvoCliWiz").value = correo;
+}
+
 function cambiaCodigo($cod){
     document.getElementById("codVendedor").value = $cod;
     $('#codVendedor').change();
@@ -682,6 +762,11 @@ function cambiaCodigo($cod){
 function cambiaDocumento($cod){
     document.getElementById("numDocCliente").value = $cod;
     $('#numDocCliente').change();
+}
+
+function cambiaDeudor($cod){
+    document.getElementById("deuCom").value = $cod;
+    $('#deuCom').change();
 }
 
 function buscaSubtipo(valor){
@@ -715,7 +800,7 @@ function buscaDepartamento(valor){
         dataType: 'text',
         data: { 'value' : valor },
         success : function(respuesta){
-            $("#departamento").html(respuesta);
+            $("#depaNvoCliWiz").html(respuesta);
         }
     });
 }
@@ -727,7 +812,7 @@ function buscaProvincia(valor){
         dataType: 'text',
         data: { 'value' : valor },
         success : function(respuesta){
-            $("#provincia").html(respuesta);
+            $("#provNvoCliWiz").html(respuesta);
         }
     });
 }
@@ -739,7 +824,7 @@ function buscaDistrito(valor){
         dataType: 'text',
         data: { 'value' : valor },
         success : function(respuesta){
-            $("#distrito").html(respuesta);
+            $("#distNvoCliWiz").html(respuesta);
         }
     });
 }
@@ -796,7 +881,7 @@ function buscaEspacio(valor){
         dataType: 'json',
         data:{'value' : valor, 'plat' : plat, 'campo' : campo, 'area' : area, 'ejex' : ejex, 'edoEspacio' : 'mostrar'},
         success : function(respuesta){
-            console.log('respuesta',respuesta);
+            //console.log('respuesta',respuesta);
             var edo = '';
             var texto = '"<option value = 0>Espacio.  </option>"';
             $.each(respuesta, function(key,value){
@@ -839,6 +924,33 @@ function buscanomEspacio(valor){
         document.getElementById("estado").style.color = 'red';
     }
 }
+
+function buscaSerie(valor){
+    $.ajax({
+        type: 'GET',
+        url: 'extensiones/captcha/buscaSerie.php',
+        dataType: 'text',
+        data: { 'value' : valor },
+        success : function(respuesta){
+            $("#numCom").html(respuesta);
+        }
+    });
+}
+
+function DocLengthBenef(tipo){
+    if (tipo == "DI001") {
+      document.getElementById("numDocBenef").setAttribute('maxlength',8);
+    }else if(tipo == "DI002"){
+      document.getElementById("numDocBenef").setAttribute('maxlength',12);
+    }else if(tipo == "DI003"){
+      document.getElementById("numDocBenef").setAttribute('maxlength',12);
+    }else if(tipo == "DI004"){
+      document.getElementById("numDocBenef").setAttribute('maxlength',11)
+    }else if(tipo == "DI005"){
+      $("#numDocBenef").removeAttr("maxlength");
+    }
+}
+
  function pasaAnumero(string){
     if(string == parseFloat(string)){
         valor = parseFloat(string);
@@ -1103,6 +1215,70 @@ function anadeEndoso(cod, nombre){
                }
             });
         }
+}
+// -------------------- Funcion para ingresar solo numeros  -------------------- //
+function justNumbers(e){
+  var keynum = window.event ? window.event.keyCode : e.which;
+  if ((keynum == 8) || (keynum == 46))
+  return true;
+  return /\d/.test(String.fromCharCode(keynum));
+}
+
+// -------------------- Agregar Nuevo Cliente -------------------- //
+function esJuridica(){
+  var juridicocheck = document.getElementById('personaCheck');
+  if (juridicocheck.checked != true){
+    document.getElementById('tipoDocNvoCliWiz').value = "vacio";
+    $('#razonSocNvoCliWiz').prop('disabled', true);
+    $('#razonSocNvoCliWiz').val('');
+    $('#apelPatNvoCliWiz').prop('disabled', false);
+    $('#apelMatNvoCliWiz').prop('disabled', false);
+    $('#nombresNvoCliWiz').prop('disabled', false);
+    $('#sexoNvoCliWiz').prop('disabled', false);
+    $('#m_datepicker_2_modal').prop('disabled', false);
+    $('#ecivilNvoCliWiz').prop('disabled', false); 
+  }else{
+    document.getElementById('tipoDocNvoCliWiz').value = "DI004";
+    $('#tipoDocNvoCliWiz').change();
+    $('#razonSocNvoCliWiz').prop('disabled', false);
+    $('#razonSocNvoCliWiz').val('');
+    $('#apelPatNvoCliWiz').prop('disabled', true);
+    $('#apelPatNvoCliWiz').val('');
+    $('#apelMatNvoCliWiz').prop('disabled', true);
+    $('#apelMatNvoCliWiz').val('');
+    $('#nombresNvoCliWiz').prop('disabled', true);
+    $('#nombresNvoCliWiz').val('');
+    $('#sexoNvoCliWiz').prop('disabled', true);
+    $('#sexoNvoCliWiz').val('');
+    $('#m_datepicker_2_modal').prop('disabled', true);
+    $('#m_datepicker_2_modal').val('');
+    $('#ecivilNvoCliWiz').prop('disabled', true);
+    $('#ecivilNvoCliWiz').val('');
+  }
+}
+
+function DocLenghtCliente(tipo){
+    if (tipo == "DI001") {
+      $('#nvoClienteWiz').val('');
+      document.getElementById("nvoClienteWiz").setAttribute('maxlength',8);
+      document.getElementById("nvoClienteWiz").setAttribute('onkeypress',"return justNumbers(event);");
+    }else if(tipo == "DI002"){
+      $('#nvoClienteWiz').val('');
+      document.getElementById("nvoClienteWiz").setAttribute('maxlength',12);
+      $("#nvoClienteWiz").removeAttr("onkeypress");
+    }else if(tipo == "DI003"){
+      $('#nvoClienteWiz').val('');
+      document.getElementById("nvoClienteWiz").setAttribute('maxlength',12);
+      $("#nvoClienteWiz").removeAttr("onkeypress");
+    }else if(tipo == "DI004"){
+      $('#nvoClienteWiz').val('');
+      document.getElementById("nvoClienteWiz").setAttribute('maxlength',11)
+      document.getElementById("nvoClienteWiz").setAttribute('onkeypress',"return justNumbers(event);");
+    }else if(tipo == "DI005"){
+      $('#nvoClienteWiz').val('');
+      $("#nvoClienteWiz").removeAttr("maxlength");
+      $("#nvoClienteWiz").removeAttr("onkeypress");
+    }
 }
 
 function eliminaFila(id){
