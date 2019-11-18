@@ -76,7 +76,14 @@ $_SESSION['captcha'] = simple_php_captcha();
 		        			$_GET["ruta"] == "listado-prospectos" ||
 		        			$_GET["ruta"] == "registro-prospecto" ||
 		        			$_GET["ruta"] == "comisiones" ||
-		        			$_GET["ruta"] == "registroReportes"){
+		        			$_GET["ruta"] == "registroReportes" ||
+		        			$_GET["ruta"] == 'modificacionContrato' ||
+		        			$_GET["ruta"] == "seguimientoContrato" ||
+		        			$_GET["ruta"] == "cambioTitular" ||
+		        			$_GET["ruta"] == "refinanciamiento" ||
+		        			$_GET["ruta"] == 'mapaEspacios' ||
+		        			$_GET["ruta"] == 'resolucionContrato' ||
+		        			$_GET["ruta"] == 'usoServicios'){
 
 		           		   	include "modulos/".$_GET["ruta"].".php";
 
@@ -154,7 +161,14 @@ $_SESSION['captcha'] = simple_php_captcha();
         		$_GET["ruta"] == 'listado-prospectos' ||
         		$_GET["ruta"] == 'registro-prospecto' ||
         		$_GET["ruta"] == 'comisiones' ||
-        		$_GET["ruta"] == 'registroReportes'){  
+        		$_GET["ruta"] == 'registroReportes' ||
+        		$_GET["ruta"] == 'modificacionContrato' ||
+        	    $_GET["ruta"] == 'cambioTitular' ||
+        	    $_GET["ruta"] == 'refinanciamiento' ||
+         	    $_GET["ruta"] == 'mapaEspacios' ||
+        	    $_GET["ruta"] == 'resolucionContrato' ||
+        	    $_GET["ruta"] == 'seguimientoContrato' ||
+        	    $_GET["ruta"] == 'usoServicios'){  
                 echo '<script type="text/javascript" src="vista/js/'.$_GET["ruta"].'.js"></script>';
             }
         }

@@ -251,15 +251,14 @@ fieldset {
 
 legend {
     display: block;
-    /*width: 100%;
-    max-width: 100%;*/
+    /*width: 100%;*/
+    /*max-width: 100%;*/
+    margin-left: 5px;
     padding: 0;
     margin-bottom: .5rem;
-    font-size: 15px;
+    font-size: 1.5rem;
     line-height: inherit;
     white-space: normal;
-    color: #e60000 !important;
-    font-weight: 500;
 }
 
 progress {
@@ -10629,7 +10628,7 @@ a.text-dark:focus,a.text-dark:hover {
 
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
-    font-family: sans-serif;
+    font-family: Roboto;
     text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
@@ -16894,7 +16893,7 @@ b,strong {
 }
 
 .m-tabs-line .m-tabs__item {
-    margin-right: 30px;
+    margin-right: 20px;
     margin-bottom: -1px
 }
 
@@ -22482,7 +22481,7 @@ button:active,button:focus {
 }
 
 .m-portlet.m-portlet--space {
-    padding: 0 2.2rem
+    padding: 0 1.3rem
 }
 
 .m-portlet.m-portlet--space .m-portlet__head {
@@ -22490,7 +22489,7 @@ button:active,button:focus {
 }
 
 .m-portlet.m-portlet--space .m-portlet__body {
-    padding: 1rem 0
+    padding: 1.3rem 0
 }
 
 .m-portlet.m-portlet--space .m-portlet__foot>.m-form__actions {
@@ -24637,8 +24636,8 @@ body.m-portlet--fullscreen.m-aside-left--fixed .m-aside-left {
 }
 
 .m-widget2 .m-widget2__item {
-    disply: table;
-    margin-bottom: 1.4rem;
+    display: table;
+    margin-bottom: 0.5rem;
     position: relative
 }
 
@@ -24658,16 +24657,19 @@ body.m-portlet--fullscreen.m-aside-left--fixed .m-aside-left {
     display: table-cell;
     vertical-align: middle;
     padding-left: 2.2rem;
-    padding-top: 1rem;
-    vertical-align: top
+    /*padding-top: 1rem;*/
+    vertical-align: middle;
+}
+.m-widget2__checkbox label span{
+    margin-top: .5rem;
 }
 
 .m-widget2 .m-widget2__item .m-widget2__desc {
     display: table-cell;
     width: 100%;
-    vertical-align: top;
+    vertical-align: middle;
     padding-left: .3rem;
-    padding-top: .23rem;
+    /*padding-top: .23rem;*/
     font-size: 1rem
 }
 
@@ -44370,7 +44372,7 @@ body.m-page--boxed {
 }
 
 .m-body .m-content {
-    padding: 20px 20px
+    padding: 20px 20px 50px;
 }
 
 .m-body .m-wrapper {
@@ -51096,4 +51098,325 @@ ul >li, ol > li{
     outline: none;
     border-color: #4244d9;
     box-shadow: 0 0 20px #4244d9;
+}
+
+.border-left{
+    border-radius: 25px 0px 0px 0px;
+}
+.border-right{
+    border-radius: 0px 25px 0px 0px;
+}
+
+.table-fixed thead, .table-fixed tfoot {
+    width: 97%;
+}
+.table tbody{
+    max-height: 260px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* ------------  Listado de Contratos  ------------ */
+.tittle-box{
+    color: #e60000;
+    font-size: 15px;
+    font-weight: 500;
+}
+.mytableContrato{
+    font-size: 12px;
+}
+.mytableContrato thead th{
+    text-align: center;
+    font-size: 12px;
+    font-family: Roboto;
+}
+.mytableContrato tbody td{
+    text-align: center;
+    vertical-align: middle;
+}
+.tdlisCliCon{
+    min-width: 15rem;
+    text-align: center;
+}
+.tdTipNecCon{
+    min-width: 0.5rem;
+    text-align: center;
+}
+.tableSideBar{
+    width: 100%;
+}
+.static-last{
+    display: inline-flex;
+    position: absolute !important;
+    z-index: 2;
+    right:49px;
+}
+.last-column{
+  padding-right: 200px !important;
+  text-align: initial;
+}
+@media (max-width: 1025px){
+    .static-last{
+        display: inline-flex;
+        position: absolute !important;
+        z-index: 2;
+        right:10px;
+}
+}
+.m-quick-sidebar-contrato {
+    padding: 20px 30px 30px 30px
+}
+
+.m-quick-sidebar-contrato .m-quick-sidebar-contrato__close {
+    position: absolute;
+    font-size: 1.4rem;
+    cursor: pointer
+}
+
+.m-quick-sidebar-contrato .mCSB_scrollTools {
+    right: -13px!important
+}
+
+.m-quick-sidebar-contrato .m-quick-sidebar-contrato--tabbed .m-quick-sidebar-contrato__close {
+    top: 16px;
+    right: 30px
+}
+
+.m-quick-sidebar-contrato .m-quick-sidebar-contrato--tabbed .m-tabs.m-tabs-line {
+    margin: 0 0 30px 0
+}
+
+.m-quick-sidebar-contrato.m-quick-sidebar-contrato--tabbed .m-tabs.m-tabs-line>.m-tabs__item>.m-tabs__link {
+    padding: 15px 0
+}
+
+.m-quick-sidebar-contrato {
+    background-color: #fff;
+    -webkit-box-shadow: 0 0 15px 1px rgba(69,65,78,.2);
+    -moz-box-shadow: 0 0 15px 1px rgba(69,65,78,.2);
+    box-shadow: 0 0 15px 1px rgba(69,65,78,.2)
+}
+
+.m-quick-sidebar-contrato .m-quick-sidebar-contrato__close {
+    color: #cfcedb
+    top: 16px;
+    right: 30px;
+}
+
+.m-quick-sidebar-contrato .m-quick-sidebar-contrato__close:hover {
+    color: #716aca
+}
+
+.m-quick-sidebar-contrato .m-quick-sidebar-contrato--skin-dark {
+    background-color: #fff;
+    -webkit-box-shadow: 0 0 15px 1px rgba(69,65,78,.4);
+    -moz-box-shadow: 0 0 15px 1px rgba(69,65,78,.4);
+    box-shadow: 0 0 15px 1px rgba(69,65,78,.4)
+}
+
+.m-quick-sidebar-contrato .m-quick-sidebar-contrato--skin-dark .m-quick-sidebar-contrato__close {
+    color: #dfdff1
+}
+
+.m-quick-sidebar-contrato.m-quick-sidebar-contrato--skin-dark .m-quick-sidebar-contrato__close:hover {
+    color: #716aca
+}
+
+.m-quick-sidebar-contrato-close {
+    display: none
+}
+
+.m-quick-sidebar-contrato {
+    display: block!important;
+    z-index: 1001;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    overflow-y: auto;
+    -webkit-transform: translate3d(0,0,0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    width: 455px!important;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+    right: -465px
+}
+
+.m-quick-sidebar-contrato.m-quick-sidebar-contrato--on {
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+    right: 0
+}
+
+.m-quick-sidebar-contrato-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: hidden;
+    z-index: 1000;
+    background: rgba(0,0,0,.1);
+    -webkit-animation: m-offcanvas-overlay-fade-in .3s linear 1;
+    -moz-animation: m-offcanvas-overlay-fade-in .3s linear 1;
+    -ms-animation: m-offcanvas-overlay-fade-in .3s linear 1;
+    -o-animation: m-offcanvas-overlay-fade-in .3s linear 1;
+    animation: m-offcanvas-overlay-fade-in .3s linear 1
+}
+
+@media screen and (-ms-high-contrast:active),(-ms-high-contrast:none) {
+    .m-quick-sidebar-contrato-overlay {
+        animation: none!important
+    }
+}
+
+@media (max-width: 455px) {
+    .m-quick-sidebar-contrato {
+        width:90%!important
+    }
+}
+
+.leftText{
+    text-align: left;
+}
+
+.datosSideBar{
+    text-align: right;
+    vertical-align: middle;
+}
+
+.button-box{
+    min-height: 50px;
+    text-align: center;
+}
+
+/* ------------ Modal Editar Contrato ------------ */
+.mt25{
+    margin-top: 25px
+}
+@media (max-width: 1025px){
+    .mt25{
+        margin-top: 5px;
+    }
+    .jurid{
+        top: 17px;
+    }
+}
+
+/* ------------ Modal Resolución Contrato ------------ */
+.myTableConformacion{
+    font-size: 12px;
+}
+.myTableConformacion tbody{
+    height: 160px;
+    text-align: center;
+}
+.myTableConformacion thead{
+    text-align: center;
+}
+.myTableEstado{
+    width: 100%;
+    overflow-x: auto;
+}
+.myTableEstado th, td{
+    padding: 0.75rem;
+    background-color: #FFF;
+    text-align: center;
+}
+.myTableEstado thead th{
+    background-color: #fff;
+}
+.static{
+    position: absolute;
+    width: 74.5px;
+    text-align: initial !important;
+}
+.first-col{
+    padding-left: 80px !important;
+}
+.check-comisiones{
+    text-align: center;
+}
+@media (max-width: 1025px){
+    .myTableEstado{
+        width: 100%;
+        overflow-x: auto;
+        display: block;
+    }
+}
+
+.fieldFormHorizontal{
+  border: 1px solid #e4e1e1;
+}
+.fieldFormHorizontal legend{
+  background-color: #fafafa;
+  font-size: 1.2rem;
+}
+
+/* ---------------- Estilos Refinanciamiento ---------------- */
+
+.myTableSaldos{
+    width: 100%;
+    overflow-x: auto;
+}
+.myTableSaldos th, td{
+    background-color: #FFF;
+    text-align: center;
+}
+.myTableSaldos thead th{
+    background-color: #fff;
+}
+
+.myTableSaldos tbody th{
+    margin-top: 9px;
+}
+
+@media (max-width: 1025px){
+    .myTableSaldos{
+        width: 100%;
+        overflow-x: auto;
+        display: block;
+    }
+}
+
+.mt15{
+    margin-top: 15px;
+}
+
+/* ---------------- Estilos Espacios ---------------- */
+.tablaEspacios{
+    width: 100%;
+    border: 1px solid #FFF;
+}
+
+.tablaEspacios thead th{
+    width: 71px;
+    max-width: 71px;
+    background-color: #fff;
+    text-align: center;
+    /*border-right: 1px solid #000;
+    border-bottom: 1px solid #0050CC;*/
+    border: 1px solid #FFF;
+}
+
+.tablaEspacios tbody th{
+    min-height: 71px;
+    height: 71px;
+    max-height: 71px;
+    background-color: #fff;
+    text-align: center;
+    vertical-align: middle;
+/*    border-right: 1px solid #0050CC;*/
+    border: 1px solid #FFF;
+}
+
+.tablaEspacios tbody td{
+    border-color: #FFF;
 }

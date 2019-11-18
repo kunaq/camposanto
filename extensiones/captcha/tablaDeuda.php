@@ -44,7 +44,7 @@ $datos = array();
                     <table id="myTableDeuda" class="table-responsive-m myTableDeuda table-bordered" cellpadding="0" cellspacing="0" border="0" display="block" >
                       <thead>
                         <tr>
-                          <th width="80" align="left">Localidad</th>
+                          <th width="80" style="border-radius: 25px 0px 0px 0px;">Localidad</th>
                           <th width="90">Contrato</th>
                           <th width="30">N° Serv.</th>
                           <th width="200">Servicio</th>
@@ -52,7 +52,7 @@ $datos = array();
                           <th width="70">Deuda Total</th>
                           <th width="30">Ctd. Total Cuotas</th>
                           <th width="60">Deuda Vencida</th>
-                          <th width="30">Ctd. Cuota(s) Vencida(s)</th>
+                          <th width="30" style="border-radius: 0px 25px 0px 0px;"">Ctd. Cuota(s) Vencida(s)</th>
                         </tr>
                       </thead>
                       <tbody>';
@@ -70,7 +70,7 @@ $datos = array();
         $ctd_cuotas_vencidas = $key['ctd_cuota_vencida'];
         $deuda_total_final += $key['imp_deuda'];
         $deuda_vencida_final += $deuda_vencida;
-        
+
         $tabla.= 
                    '<tr>
                         <td style="text-align: center;">

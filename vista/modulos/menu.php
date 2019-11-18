@@ -138,42 +138,42 @@
 									</a>
 								</li>
 								<li class="m-menu__item " aria-haspopup="true" >
-									<a  href="" class="m-menu__link ">
+									<a  href="listadoContrato" class="m-menu__link ">
 										<i class="m-menu__link-bullet m-menu__link-bullet--dot">
 											<span></span>
 										</i>
 										<span class="m-menu__link-text">
-											Activación de contrato
+											Listado de Contratos
 										</span>
 									</a>
 								</li>
 								<li class="m-menu__item " aria-haspopup="true" >
-									<a  href="" class="m-menu__link ">
-										<i class="m-menu__link-bullet m-menu__link-bullet--dot">
-											<span></span>
-										</i>
-										<span class="m-menu__link-text">
-											Resolución de contrato
-										</span>
-									</a>
-								</li>
-								<li class="m-menu__item " aria-haspopup="true" >
-									<a  href="" class="m-menu__link ">
-										<i class="m-menu__link-bullet m-menu__link-bullet--dot">
-											<span></span>
-										</i>
-										<span class="m-menu__link-text">
-												Impresión de contrato
-										</span>
-									</a>
-								</li>
-								<li class="m-menu__item " aria-haspopup="true" >
-									<a  href="" class="m-menu__link ">
+									<a  href="seguimientoContrato" class="m-menu__link ">
 										<i class="m-menu__link-bullet m-menu__link-bullet--dot">
 											<span></span>
 										</i>
 										<span class="m-menu__link-text">
 											Seguimiento de contrato
+										</span>
+									</a>
+								</li>
+								<li class="m-menu__item " aria-haspopup="true" >
+									<a  href="modificacionContrato" class="m-menu__link ">
+										<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+											<span></span>
+										</i>
+										<span class="m-menu__link-text">
+											Modificación de Contrato
+										</span>
+									</a>
+								</li>
+								<li class="m-menu__item " aria-haspopup="true" >
+									<a  href="resolucionContrato" class="m-menu__link ">
+										<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+											<span></span>
+										</i>
+										<span class="m-menu__link-text">
+											Resolución de Contrato
 										</span>
 									</a>
 								</li>
@@ -201,7 +201,7 @@
 									</span>
 								</li>
 								<li class="m-menu__item " aria-haspopup="true" >
-									<a  href="" class="m-menu__link ">
+									<a  href="refinanciamiento" class="m-menu__link ">
 										<i class="m-menu__link-bullet m-menu__link-bullet--dot">
 											<span></span>
 										</i>
@@ -211,7 +211,7 @@
 									</a>
 								</li>
 								<li class="m-menu__item " aria-haspopup="true"  m-menu-link-redirect="1">
-									<a  href="" class="m-menu__link ">
+									<a  href="cambioTitular" class="m-menu__link ">
 										<i class="m-menu__link-bullet m-menu__link-bullet--dot">
 											<span></span>
 										</i>
@@ -280,7 +280,7 @@
 												</a>
 											</li>
 											<li class="m-menu__item " aria-haspopup="true"  m-menu-link-redirect="1">
-												<a  href="inner.html" class="m-menu__link ">
+												<a  href="mapaEspacios" class="m-menu__link ">
 													<span class="m-menu__link-title">
 														<span class="m-menu__link-wrap">
 															<span class="m-menu__link-text">
@@ -300,7 +300,7 @@
 											<span></span>
 										</i>
 										<span class="m-menu__link-text">
-											Control de prestación de servicio
+											Uso de servicio
 										</span>
 									</a>
 								</li>
@@ -310,7 +310,7 @@
 											<span></span>
 										</i>
 										<span class="m-menu__link-text">
-											Panel de control de servicios
+											LED
 										</span>
 									</a>
 								</li>
@@ -321,6 +321,7 @@
 										</i>
 										<span class="m-menu__link-text">
 											Visor de prestación de servicio
+											<!-- Visoe de usos de Servicio -->
 										</span>
 									</a>
 								</li>

@@ -109,4 +109,11 @@ class ControladorEmpresa{
 		return $respuesta;
 	}
 
+	static public function ctrAnnoPeriodo(){
+
+		$respuesta = ModeloEmpresa::mdlAnnoPeriodo();
+
+		return $respuesta;
+	}
+
 }//class ControladorPlantilla

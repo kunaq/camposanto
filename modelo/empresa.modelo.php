@@ -438,4 +438,23 @@ class ModeloEmpresa{
 
     }
 
+    static public function mdlAnnoPeriodo(){
+
+        $db = new Conexion();                                             
+
+        $sql = $db->consulta("SELECT DISTINCT TOP 10 num_anno FROM vtama_periodo ORDER BY num_anno DESC");
+
+        $datos = array();
+
+        while($key = $db->recorrer($sql)){
+             $datos[] =  $key;
+             echo '<option value="'.$key['num_anno'].'">'.$key['num_anno'].'</option>';
+         }
+
+        $db->liberar($sql);
+        $db->cerrar();
+
+        return $datos;
+    }
+
 }//class ModeloPaises
