@@ -110,7 +110,7 @@
 								<div class="col-lg-6">
 									<div class="row">
 										<div class="col-lg-5">
-											<label>
+											<label class="tittle-box">
 												<h5>Datos de programa</h5>
 											</label>
 										</div>
