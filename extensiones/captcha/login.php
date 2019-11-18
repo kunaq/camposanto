@@ -18,13 +18,14 @@ require_once "../../modelo/conexion.php";
     }        
 
     if ($sql) {
-       $rows = rows( $sql );
-       if($rows == true){
-        echo 'true';
-       }
-       else{
-        echo 'false';
-       }
+       // $rows = rows( $sql );
+       // if($rows == true){
+       //  echo 'true';
+       // }
+       // else{
+       //  echo 'false';
+       // }
+      echo 'true';
     }
 
     $db->liberar($sql);
