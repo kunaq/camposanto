@@ -8,7 +8,7 @@ require_once "../../modelo/conexion.php";
    $db = new Conexion();                                             
 
     $sql = $db->consulta("SELECT * FROM scfma_usuario where cod_usuario = '$usuario' AND dsc_clave = '$pass' AND flg_activo = 'SI'");
-
+    echo "SELECT * FROM scfma_usuario where cod_usuario = '$usuario' AND dsc_clave = '$pass' AND flg_activo = 'SI'";
     $datos = array();
     while($key = $db->recorrer($sql)){
             $datos[] =  $key;
