@@ -17,10 +17,10 @@ require_once "../../modelo/conexion.php";
     }
     echo $cont.'dd';
     if($cont > 0){
-      while($key = $db->recorrer($sql)){
-        $datos[] =  $key;
-        $_SESSION['user'] =  $key['cod_usuario']; 
-        $bar = $key['dsc_usuario'];
+      while($key2 = $db->recorrer($sql)){
+        $datos[] =  $key2;
+        $_SESSION['user'] =  $key2['cod_usuario']; 
+        $bar = $key2['dsc_usuario'];
         $_SESSION['nombre'] = ucwords(strtolower($bar));
         echo 'true';
       }          
