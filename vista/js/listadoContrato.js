@@ -104,7 +104,7 @@ function mostrarSidebar(numContrato,codServicio){
         data: {'numContrato':numContrato, 'codServicio':codServicio},
         success : function(response){
             var info = JSON.parse(response);
-            console.log(info);
+            console.log(info.num_contrato);
             document.getElementById('numCttSideBar').innerText = info.num_contrato;
             document.getElementById('codSerSideBar').innerText = info.cod_servicio;
             document.getElementById('fchEmiSideBar').innerText = info.fch_emision;
