@@ -1,5 +1,6 @@
 <?php 
 require_once "../../modelo/conexion.php";
+require_once "../../funciones.php";
 
 $numContrato = $_POST['numContrato'];
 $codServicio = $_POST['codServicio'];
@@ -90,14 +91,14 @@ while($key = $db->recorrer($sql)){
 
         if ($key["flg_activado"] == "SI") {
             $buttons .= '<span data-toggle="modal" data-target="#m_modal_contrato">
-                            <button type="button" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="m-tooltip" data-container="body" data-placement="top" title="Editar" onclick="">
+                            <button type="button" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="m-tooltip" data-container="body" data-placement="top" title="Ver" onclick="">
                                 <i class="fa fa-eye"></i>
                             </button>
                         </span>';
         }else{
-            $buttons .= '<a href="modificacionContrato" target="_blank" type="button" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="m-tooltip" data-container="body" data-placement="top" title="Editar" onclick="">
+            $buttons .= '<a href="modificacionContrato" target="_blank"><button type="button" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="m-tooltip" data-container="body" data-placement="top" title="Modificar" onclick="">
                             <i class="la la-edit"></i>
-                        </a>';
+                        </button></a>';
         }
 
         if ($key["flg_resuelto"] == "SI") {
@@ -105,9 +106,9 @@ while($key = $db->recorrer($sql)){
                             <i style="color: #FF0000;" class="fa fa-file-excel-o"></i>
                         </button>';
         }else{
-            $buttons .= '<a href="resolucionContrato" target="_blank" type="button" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-container="body" data-placement="top" title="Resolver" data-original-title="Resolver" onclick="">
+            $buttons .= '<a href="resolucionContrato" target="_blank"><button type="button" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-container="body" data-placement="top" title="Resolver" data-original-title="Resolver" onclick="">
                             <i class="fa fa-file-excel-o"></i>
-                        </a>';
+                        </button></a>';
         }
 
         $buttons .= '<span data-toggle="modal" data-target="#m_modal_print_contrato">

@@ -104,20 +104,20 @@ function mostrarSidebar(numContrato,codServicio){
         data: {'numContrato':numContrato, 'codServicio':codServicio},
         success : function(response){
             var info = JSON.parse(response);
-            console.log(info);
-            document.getElementById('numCttSideBar').innerHTML = info.num_contrato;
-            document.getElementById('codSerSideBar').innerHTML = info.cod_servicio;
-            document.getElementById('fchEmiSideBar').innerHTML = info.fch_emision;
-            document.getElementById('fchActSideBar').innerHTML = info.fch_activacion;
-            document.getElementById('fchResSideBar').innerHTML = info.fch_resolucion;
-            document.getElementById('fchAnuSideBar').innerHTML = info.fch_anulacion;
+            console.log(info.num_contrato);
+            document.getElementById('numCttSideBar').innerText = info.num_contrato;
+            document.getElementById('codSerSideBar').innerText = info.cod_servicio;
+            document.getElementById('fchEmiSideBar').innerText = info.fch_emision;
+            document.getElementById('fchActSideBar').innerText = info.fch_activacion;
+            document.getElementById('fchResSideBar').innerText = info.fch_resolucion;
+            document.getElementById('fchAnuSideBar').innerText = info.fch_anulacion;
             $("#buttons-box").html(info.buttons);
-            document.getElementById('clienteSideBar').innerHTML = info.dsc_cliente;
-            document.getElementById('tipoNecSideBar').innerHTML = info.tipo_necesidad;
-            document.getElementById('vendedorSideBar').innerHTML = info.dsc_vendedor;
-            document.getElementById('tipoServSideBar').innerHTML = info.tipo_servicio;
-            document.getElementById('numCuotasSideBar').innerHTML = info.num_cuotas;
-            document.getElementById('totalSideBar').innerHTML = info.total;
+            document.getElementById('clienteSideBar').innerText = info.dsc_cliente;
+            document.getElementById('tipoNecSideBar').innerText = info.tipo_necesidad;
+            document.getElementById('vendedorSideBar').innerText = info.dsc_vendedor;
+            document.getElementById('tipoServSideBar').innerText = info.tipo_servicio;
+            document.getElementById('numCuotasSideBar').innerText = info.num_cuotas;
+            document.getElementById('totalSideBar').innerText = info.total;
          }
     });
 }
