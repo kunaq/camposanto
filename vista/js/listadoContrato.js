@@ -98,7 +98,7 @@ function mostrarSidebar(numContrato,codServicio){
     hideSidebar();
     $("#m_quick_sidebar-contrato").addClass("m-quick-sidebar-contrato--on");
     $.ajax({
-        type:'GET',
+        type:'POST',
         url: 'extensiones/captcha/creaDatosSideBarContrato.php',
         dataType: 'text',
         data: {'numContrato':numContrato, 'codServicio':codServicio},

@@ -1,8 +1,10 @@
 <?php 
 require_once "../../modelo/conexion.php";
 
-$numContrato = $_GET['numContrato'];
-$codServicio = $_GET['codServicio'];
+$numContrato = $_POST['numContrato'];
+$codServicio = $_POST['codServicio'];
+
+$arrData = "";
 
 
 $db = new Conexion();
@@ -124,7 +126,7 @@ while($key = $db->recorrer($sql)){
                         </button>';
         }
 
-        $arrData = ['num_contrato'=> $numContrato, 'cod_servicio'=> $codServicio, 'dsc_cliente'=> $cliente, 'tipo_necesidad'=> $ttipoNec, 'fch_emision'=> $fechEmi, 'fch_activacion'=> $fechAct, 'fch_resolucion'=> $fechRes, 'fch_anulacion'=> $fechAnu, 'dsc_vendedor'=> $vendedor, 'tipo_servicio'=>$tipoServ, 'num_cuotas'=> $numCuotas, 'tasa_interes'=> $tasainteres, 'total'=>$total, 'buttons'=> $buttons];
+        $arrData = array('num_contrato'=> $numContrato, 'cod_servicio'=> $codServicio, 'dsc_cliente'=> $cliente, 'tipo_necesidad'=> $ttipoNec, 'fch_emision'=> $fechEmi, 'fch_activacion'=> $fechAct, 'fch_resolucion'=> $fechRes, 'fch_anulacion'=> $fechAnu, 'dsc_vendedor'=> $vendedor, 'tipo_servicio'=>$tipoServ, 'num_cuotas'=> $numCuotas, 'tasa_interes'=> $tasainteres, 'total'=>$total, 'buttons'=> $buttons);
     }
 
     echo json_encode($arrData);
