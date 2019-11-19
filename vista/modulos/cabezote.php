@@ -25,6 +25,10 @@ include "modals/modalConfiguraciones.php"; ?>
 								</div>
 							</div>
 						</div>
+						<!-- NOMBRE -->
+						<div id="m_header_menu" class="m-header-menu m-aside-header-menu-mobile m-aside-header-menu-mobile--offcanvas  m-header-menu--skin-light m-header-menu--submenu-skin-light m-aside-header-menu-mobile--skin-dark m-aside-header-menu-mobile--submenu-skin-dark ">
+							<h1>SISTEMA DE GESTIÓN DE CAMPOSANTO </h1>
+						</div>
 
 						<div class="m-stack__item m-stack__item--fluid m-header-head" id="m_header_nav">
 							<div id="m_header_topbar" class="m-topbar  m-stack m-stack--ver m-stack--general">
