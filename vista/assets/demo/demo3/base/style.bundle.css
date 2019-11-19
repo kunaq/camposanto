@@ -51421,3 +51421,14 @@ ul >li, ol > li{
 .tablaEspacios tbody td{
     border-color: #FFF;
 }
+
+
+/* ---------------- Estilos Uso Servicio ---------------- */
+.btn-nuevo{
+    width: 43px !important;
+    height: 43px !important;
+}
+
+.btn-nuevo:hover{
+    background-color: #e60000;
+}
