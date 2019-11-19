@@ -350,7 +350,7 @@
 								</div>
 							</div>
 							<br>
-							<div class="form-group m-form__group row">
+							<div class="form-group row">
 								<div class="col-lg-5">
 									<label class="tittle-box">
 										<h5>Datos de espacio</h5>
@@ -358,7 +358,7 @@
 								</div>
 							</div>
 							<br>
-							<div class="form-group m-form__group row">
+							<div class="form-group row">
 								<div class="col-lg-3">
 									<label>Camposanto *</label>
 									<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="camposanto" required id="camposanto" disabled="disabled">
@@ -393,7 +393,7 @@
 								</div>
 							</div>
 							<br>
-							<div class="form-group m-form__group row">
+							<div class="form-group row">
 								<label class="">
 									<h5>&nbsp;</h5>
 								</label>
@@ -432,7 +432,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="form-group m-form__group row">
+							<div class="form-group row">
 								<div class="col-lg-6 m-top3">
 									<label class="tittle-box">
 										<h5>Contrato</h5>
