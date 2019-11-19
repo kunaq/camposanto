@@ -36689,7 +36689,7 @@ select.m-bootstrap-select {
 
 .select2-container--default .select2-selection--single .select2-selection__rendered {
     position: relative;
-    padding: .35rem .75rem;
+    padding: .55rem .75rem;
     line-height: 1.25;
     font-size: .875rem;
 }

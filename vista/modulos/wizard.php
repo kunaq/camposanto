@@ -114,24 +114,18 @@
 												<h5>Datos de programa</h5>
 											</label>
 										</div>
-										<div class="col-lg-6 offset-lg-1">
-											<table>
-												<tr>
-													<td>
-														<label class="m-checkbox">
-															Venta por regularización&nbsp;&nbsp;
-														</label>
-													</td>
-													<td>
-														<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
-															<label>
-																<input type="checkbox"  name="">
-																<span></span>
-															</label>
-														</span>
-													</td>
-												</tr>
-											</table>
+										<div class="col-lg-5">
+											<label class="m-checkbox">
+												Venta por regularización
+											</label>
+										</div>
+										<div class="col-lg-2">
+											<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
+												<label>
+													<input type="checkbox"  name="">
+													<span></span>
+												</label>
+											</span>
 										</div>
 									</div>
 									<div class="m-input-icon m-input-icon--right">
@@ -174,7 +168,7 @@
 											<label class="">
 											Vendedor *
 											</label>
-											<div class="input-group m-input-group">
+											<div class="input-group m-input-group input-group-sm">
 												<select class="form-control form-control-sm m-select2 m-select2-general" id="codVendedor" name="codVendedor">
 													<option>
 														Código
@@ -195,7 +189,7 @@
 												<input type="text" class="form-control form-control-sm m-input" name="nomVendedor" disabled id="nomVendedor" placeholder="">
 												<div class="input-group-append">
 													<span data-toggle="modal" data-target="#m_modal_4">
-														<button class="btn btn-danger" type="button" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar vendedor" onclick="creaTablaVendedor();">
+														<button class="btn btn-danger btn-sm" type="button" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar vendedor" onclick="creaTablaVendedor();">
 															<i class="la la-search"></i>
 														</button>
 													</span>
@@ -206,9 +200,8 @@
 									</div>
 								</div>
 							</div>
-							<br>
-							<div class="form-group m-form__group row">
-								<div class="col-lg-6 p-bottom3">
+							<div class="form-group m-form__group row" style="padding-top: 0">
+								<div class="col-lg-6">
 									<div class="row">
 										<div class="col-lg-5">
 											<label class="tittle-box">
@@ -244,46 +237,41 @@
 											</div>
 										</div>
 										<br>
-										<div>
-											<label>Subtipo *</label>
-											<select class="form-control form-control-sm m-input m-select2 m-select2-general" id="subServicio" required name="subServicio">
-												<option value="">
-													Seleccione el subtipo de Servicio
-												</option>
-											</select>
+										<div class="row">
+											<div class="col-lg-12">
+												<label>Subtipo *</label>
+												<select class="form-control form-control-sm m-input m-select2 m-select2-general" id="subServicio" required name="subServicio">
+													<option value="">
+														Seleccione el subtipo de Servicio
+													</option>
+												</select>
+											</div>
 										</div>
 									</div>
 								</div>
-								<br><br>
 								<div class="col-lg-6">
 									<div class="row">
-										<div class="col-lg-3 m-top3">
+										<div class="col-lg-3">
 											<label class="tittle-box">
 												<h5>Cliente *</h5>
 											</label>
 										</div>
-										<div class="col-lg-3 offset-lg-5">
-											<table>
-												<tr>
-													<td>
-														<label class="m-checkbox">
-															Jurídico&nbsp;&nbsp;
-														</label>
-													</td>
-													<td>
-														<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
-															<label>
-																<input type="checkbox" id="juridico" disabled name="">
-																<span></span>
-															</label>
-														</span>
-													</td>
-												</tr>
-											</table>
+										<div class="col-lg-2 offset-lg-5">
+											<label class="m-checkbox">
+												Jurídico
+											</label>
+										</div>
+										<div class="col-lg-2">
+											<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
+												<label>
+													<input type="checkbox" id="juridico" disabled name="">
+													<span></span>
+												</label>
+											</span>
 										</div>
 									</div>
 									<div class="m-input-icon m-input-icon--right">
-										<div class="row" style="margin-top: 10px;">
+										<div class="row">
 											<div class="col-lg-4 m-top1">
 												<label>Tipo doc: </label>
 												<select disabled class="form-control form-control-sm m-input custom-select custom-select-danger" id="TipoDcoCliente" name="TipoDcoCliente">
@@ -313,19 +301,19 @@
 												<div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
 													<div class="btn-group m-btn-group mr-2" role="group" aria-label="First group">
 														<span data-toggle="modal" data-target="#m_modal_2">
-														<button type="button" class="m-btn btn btn-danger" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar cliente" onclick="creaTablaCliente('cliente');">
+														<button type="button" class="m-btn btn btn-danger btn-sm" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar cliente" onclick="creaTablaCliente('cliente');">
 															<i class="la la-search"></i>
 														</button>
 														</span>
 														&nbsp;
 														<span data-toggle="modal" data-target="#m_modal_1">
-														<button type="button" class="m-btn btn btn-success" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Registrar nuevo cliente">
+														<button type="button" class="m-btn btn btn-success btn-sm" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Registrar nuevo cliente">
 															<i class="la la-user-plus"></i>
 														</button>
 														</span>
 														&nbsp;
 														<span data-toggle="modal" data-target="#m_modal_3">
-														<button type="button" class="m-btn btn btn-metal" 
+														<button type="button" class="m-btn btn btn-metal btn-sm" 
 														data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar prospecto" onclick="creaTablaProspecto();">
 															<i class="la la-users"></i>
 														</button>
@@ -344,16 +332,14 @@
 									</div>
 								</div>
 							</div>
-							<br>
-							<div class="form-group m-form__group row">
+							<div class="form-group row">
 								<div class="col-lg-5">
 									<label class="tittle-box">
 										<h5>Datos de espacio</h5>
 									</label>
 								</div>
 							</div>
-							<br>
-							<div class="form-group m-form__group row">
+							<div class="form-group row">
 								<div class="col-lg-3">
 									<label>Camposanto *</label>
 									<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="camposanto" required id="camposanto" disabled="disabled">
@@ -362,7 +348,7 @@
 										  $tabla = "vtama_camposanto";
 										  $item1 = "cod_camposanto";
 										  $item2 = "dsc_camposanto";
-								$prueba = controladorEmpresa::ctrCamposanto();
+								           $prueba = controladorEmpresa::ctrCamposanto();
 										  ?>
 									</select>
 								</div>
@@ -388,7 +374,7 @@
 								</div>
 							</div>
 							<br>
-							<div class="form-group m-form__group row">
+							<div class="form-group row">
 								<label class="">
 									<h5>&nbsp;</h5>
 								</label>
@@ -427,65 +413,53 @@
 									</div>
 								</div>
 							</div>
-							<div class="form-group m-form__group row">
-								<div class="col-lg-6 m-top3">
+							<div class="form-group row">
+								<div class="col-lg-12">
 									<label class="tittle-box">
 										<h5>Contrato</h5>
 									</label>
-									<div class="m-input-icon m-input-icon--right">
-										<div class="row">
-											<div class="col-lg-6">
-												<label>
-												Localidad:
-												</label>
-												<select class="form-control form-control-sm m-input m-select2 m-select2-general" disabled name="localidad" id="localidad">
-													<option value="00001">Empresa 1</option>
-													<option value="00002">Empresa 2</option>
-												</select>
-											</div>
-											<div class="col-lg-6">
-												<label class="">
-												Contrato:
-												</label>
-												<input type="text" class="form-control form-control-sm m-input"  name="ctt" id="ctt" disabled="disabled">
-											</div>
-										</div>
+								</div>
+							</div>
+							<div class="form-group row">
+								<div class="col-lg-3">
+									<label>
+									Localidad:
+									</label>
+									<select class="form-control form-control-sm m-input m-select2 m-select2-general" disabled name="localidad" id="localidad">
+										<option value="00001">Empresa 1</option>
+										<option value="00002">Empresa 2</option>
+									</select>
+								</div>
+								<div class="col-lg-3">
+									<label class="">
+									Contrato:
+									</label>
+									<input type="text" class="form-control form-control-sm m-input"  name="ctt" id="ctt" disabled="disabled">
+								</div>
+								<div class="col-lg-3">
+									<label class="">
+										Programa:
+									</label>
+									<div class="input-group">
+										<input type="text" class="form-control form-control-sm m-input" placeholder="Programa" disabled>
 									</div>
 								</div>
-								<div class="col-lg-6">
-									<label class="">
-										<h5>&nbsp;</h5>
-									</label>
+								<div class="col-lg-3">
 									<div class="row">
-										<div class="col-lg-8">
-											<label class="">
-												Programa:
+										<div class="col-lg-6">
+											<label class="m-checkbox">
+												Modificación
 											</label>
-											<div class="input-group">
-												<input type="text" class="form-control form-control-sm m-input" placeholder="Programa" disabled>
-											</div>
 										</div>
-										<div class="col-lg-4">
-											<br>
-											<table>
-												<tr>
-													<td>
-														<label class="m-checkbox">
-															Modificación&nbsp;&nbsp;
-														</label>
-													</td>
-													<td>
-														<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
-															<label>
-																<input type="checkbox" name="modificaCtt" id="modificaCtt" onclick="modificarctt();">
-																<span></span>
-															</label>
-														</span>
-													</td>
-												</tr>
-											</table>			
+										<div class="col-lg-6">
+											<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
+												<label>
+													<input type="checkbox" name="modificaCtt" id="modificaCtt" onclick="modificarctt();">
+													<span></span>
+												</label>
+											</span>
 										</div>
-									</div>
+									</div>			
 								</div>
 							</div>
 						</div>
