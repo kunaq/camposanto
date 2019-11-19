@@ -26,8 +26,8 @@ include "modals/modalConfiguraciones.php"; ?>
 							</div>
 						</div>
 						<!-- NOMBRE -->
-						<div> 
-							<h1>SISTEMA DE GESTIÓN DE CAMPOSANTO </h1>
+						<div style="width: max-content; margin: 2rem;"> 
+							<h3>SISTEMA DE GESTIÓN DE CAMPOSANTO </h3>
 						</div>
 						
 						<div class="m-stack__item m-stack__item--fluid m-header-head" id="m_header_nav">
