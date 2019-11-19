@@ -1,5 +1,6 @@
 <?php 
 require_once "../../modelo/conexion.php";
+require_once "../../funciones.php";
 
 $numContrato = $_POST['numContrato'];
 $codServicio = $_POST['codServicio'];
