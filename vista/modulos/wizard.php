@@ -206,9 +206,14 @@
 									</div>
 								</div>
 							</div>
+<<<<<<< Updated upstream
 							<br>
 							<div class="form-group m-form__group row">
 								<div class="col-lg-6 p-bottom3">
+=======
+							<div class="form-group row" style="padding-top: 0">
+								<div class="col-lg-6">
+>>>>>>> Stashed changes
 									<div class="row">
 										<div class="col-lg-5">
 											<label class="tittle-box">
