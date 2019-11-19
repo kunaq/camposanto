@@ -15,7 +15,7 @@
 			</div>
 		</div>
 		<!--end: Portlet Head-->
-		<div class="m-portlet__body">
+		<div class="m-portlet__body" style="padding-top: 0">
 		<!--begin: Portlet Body-->	
 <!--begin: Form Wizard-->
 		<div class="m-wizard m-wizard--2 m-wizard--danger" id="m_wizard">
@@ -251,7 +251,7 @@
 								</div>
 								<div class="col-lg-6">
 									<div class="row">
-										<div class="col-lg-3">
+										<div class="col-lg-3" style="margin-top: 1.4rem;">
 											<label class="tittle-box">
 												<h5>Cliente *</h5>
 											</label>
@@ -444,7 +444,7 @@
 										<input type="text" class="form-control form-control-sm m-input" placeholder="Programa" disabled>
 									</div>
 								</div>
-								<div class="col-lg-3">
+								<div class="col-lg-3" style="margin-top: 2rem;">
 									<div class="row">
 										<div class="col-lg-6">
 											<label class="m-checkbox">
