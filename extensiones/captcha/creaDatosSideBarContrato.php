@@ -91,12 +91,12 @@ while($key = $db->recorrer($sql)){
 
         if ($key["flg_activado"] == "SI") {
             $buttons .= '<span data-toggle="modal" data-target="#m_modal_contrato">
-                            <button type="button" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="m-tooltip" data-container="body" data-placement="top" title="Editar" onclick="">
+                            <button type="button" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="m-tooltip" data-container="body" data-placement="top" title="Ver" onclick="">
                                 <i class="fa fa-eye"></i>
                             </button>
                         </span>';
         }else{
-            $buttons .= '<a href="modificacionContrato" target="_blank"><button type="button" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="m-tooltip" data-container="body" data-placement="top" title="Editar" onclick="">
+            $buttons .= '<a href="modificacionContrato" target="_blank"><button type="button" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="m-tooltip" data-container="body" data-placement="top" title="Modificar" onclick="">
                             <i class="la la-edit"></i>
                         </button></a>';
         }
