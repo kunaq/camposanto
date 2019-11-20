@@ -44373,7 +44373,7 @@ body.m-page--boxed {
 }
 
 .m-body .m-content {
-    padding: 20px 20px 20px;
+    padding: 10px 10px 10px;
 }
 
 .m-body .m-wrapper {
@@ -51434,6 +51434,7 @@ ul >li, ol > li{
 }
 
 .label-checkbox{
+
     margin-bottom: 13px;
     -webkit-transition: all .3s;
     -moz-transition: all .3s;
@@ -51446,6 +51447,7 @@ ul >li, ol > li{
 }
 
 .advise{
+
     text-align: center;
     color: #ebc934;
 }
