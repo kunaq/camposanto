@@ -233,7 +233,7 @@
 					<ul class="nav nav-tabs  m-tabs-line m-tabs-line--danger" role="tablist">
 						<li class="nav-item m-tabs__item">
 							<a class="nav-link m-tabs__link active" data-toggle="tab" href="#m_tabs_2_1" role="tab">
-								Refinaciamiento
+								Refinanciamiento
 							</a>
 						</li>
 						<li class="nav-item m-tabs__item">

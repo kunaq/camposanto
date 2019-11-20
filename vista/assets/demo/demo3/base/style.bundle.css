@@ -9579,7 +9579,7 @@ a.text-dark:focus,a.text-dark:hover {
 }
 
 .modal .modal-content .modal-header {
-    padding: 25px
+    padding: 15px
 }
 
 .modal .modal-content .modal-header .modal-title {
@@ -9613,11 +9613,11 @@ a.text-dark:focus,a.text-dark:hover {
 }
 
 .modal .modal-content .modal-body {
-    padding: 25px
+    padding: 15px
 }
 
 .modal .modal-content .modal-footer {
-    padding: 25px
+    padding: 15px
 }
 
 .modal-open {
@@ -27097,7 +27097,7 @@ body.m-portlet--fullscreen.m-aside-left--fixed .m-aside-left {
 .m-checkbox,.m-radio {
     display: inline-block;
     position: relative;
-    padding-left: 30px;
+    /*padding-left: 30px;*/
     margin-bottom: 10px;
     cursor: pointer;
     font-size: 1rem;
@@ -51326,7 +51326,7 @@ ul >li, ol > li{
     width: 100%;
     overflow-x: auto;
 }
-.myTableEstado th, td{
+.myTableEstado th td{
     padding: 0.75rem;
     background-color: #FFF;
     text-align: center;
@@ -51431,4 +51431,21 @@ ul >li, ol > li{
 
 .btn-nuevo:hover{
     background-color: #e60000;
+}
+
+.label-checkbox{
+    margin-bottom: 13px;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-right: 5px;
+}
+
+.advise{
+    text-align: center;
+    color: #ebc934;
 }
