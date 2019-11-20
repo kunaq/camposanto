@@ -346,7 +346,7 @@
 										<div class="col-lg-12">
 											<div class="row form-group">
 												<div class="col-lg-12">
-													<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="595">
+													<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="530">
 						                				<div class="table-responsive">
 															<table class="table">
 																<thead>

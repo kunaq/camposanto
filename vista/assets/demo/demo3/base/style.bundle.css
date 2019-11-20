@@ -51314,6 +51314,7 @@ ul >li, ol > li{
 /* ------------ Modal Resolución Contrato ------------ */
 .myTableConformacion{
     font-size: 12px;
+    height: 220px;
 }
 .myTableConformacion tbody{
     height: 160px;

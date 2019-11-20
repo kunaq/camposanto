@@ -201,7 +201,7 @@
 									<fieldset class="fieldFormHorizontal">
 										<legend>&nbsp;</legend>
 										<div class="col-lg-12">
-											<div class="row">
+											<div class="row form-group">
 												<div class="col-lg-4">
 													<label>J. Ventas</label>
 													<input type="text" class="form-control form-control-sm m-input" name="codJVenResolucion" id="codJVenResolucion" disabled>
@@ -398,7 +398,7 @@
 													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
 												</div>
 												<div class="col-lg-2 check-comisiones">
-													<label style="margin-top: 6px;">
+													<label class="m-checkbox">
 														Afecta Comisiones
 													</label>
 													<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
