@@ -51334,11 +51334,13 @@ ul >li, ol > li{
 }
 .myTableEstado thead th{
     background-color: #fff;
+    text-align: center;
 }
 .static{
     position: absolute;
     width: 74.5px;
     text-align: initial !important;
+    background-color: #FFF !important;
 }
 .first-col{
     padding-left: 80px !important;
