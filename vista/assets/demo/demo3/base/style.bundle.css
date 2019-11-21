@@ -51454,3 +51454,42 @@ ul >li, ol > li{
     text-align: center;
     color: #ebc934;
 }
+
+
+/* ---------------- Estilos LED ---------------- */
+.btn-esquina{
+    position: absolute;
+    top: 1px;
+    right: 16px;
+    width: 0;
+    height: 0;
+    border-right: 13px solid #0050CC;
+    border-top: 13px solid #0050CC;
+    border-left: 13px solid transparent;
+    border-bottom: 13px solid transparent;
+}
+
+.btn-esquina i {
+    color: #FFF;
+    text-align: right;
+    position: absolute;
+    top: -13px;
+    font-size: 10px;
+    font-weight: 500;
+}
+
+
+@media (max-width: 1025px){
+    .btn-esquina{
+        top: 1px;
+        right: 11px;
+    }
+}
+
+.btn-esquina:hover{
+    border-right: 15px solid #000;
+    border-top: 15px solid #000;
+    border-left: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    transition: 0.1s;
+}

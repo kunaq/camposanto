@@ -1486,7 +1486,7 @@
 												</div>
 												<div class="col-lg-1">
 													<label>&nbsp;</label>
-													<button class="btn btn-sm btn-primary"><i class="fa fa-search"></i></button>
+													<button class="btn btn-sm btn-danger mt25"><i class="fa fa-search"></i></button>
 												</div>
 												<div class="col-lg-8">
 													<label>&nbsp;&nbsp;</label>
