@@ -25,7 +25,7 @@ $_SESSION['captcha'] = simple_php_captcha();
           });
           window.onload=Loaded; 
           function Loaded(){
-			  $(".loader").fadeOut("slow");
+			 $(".loader").fadeOut("slow");
 			}
         </script>
     	<link href="vista/assets/vendors/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
@@ -60,7 +60,7 @@ $_SESSION['captcha'] = simple_php_captcha();
 
 					include("modulos/cabezote.php");
 					echo '<div class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-body" style="background-color:lightgray;">';
-					include("modulos/menu.php");
+					include("modulos/menu1.php");
 
 					if(isset($_GET["ruta"])){
 

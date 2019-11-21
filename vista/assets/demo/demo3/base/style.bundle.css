@@ -49689,12 +49689,12 @@ body {
     }
 
     .m-aside-left--minimize .m-aside-menu .m-menu__nav>.m-menu__item:not([m-menu-submenu-mode=accordion]).m-menu__item--hover>.m-menu__submenu,.m-aside-menu.m-aside-menu--dropdown .m-menu__nav>.m-menu__item:not([m-menu-submenu-mode=accordion]).m-menu__item--hover>.m-menu__submenu {
-        margin-left: 275px;
-        top: 10px
+        margin-left: 255px;
+        top: -5px
     }
 
     .m-aside-left--minimize .m-aside-menu .m-menu__nav>.m-menu__item:not([m-menu-submenu-mode=accordion]).m-menu__item--hover>.m-menu__submenu.m-menu__submenu--up,.m-aside-menu.m-aside-menu--dropdown .m-menu__nav>.m-menu__item:not([m-menu-submenu-mode=accordion]).m-menu__item--hover>.m-menu__submenu.m-menu__submenu--up {
-        bottom: 0
+        bottom: -10px
     }
 
     .m-aside-left--minimize .m-aside-menu .m-menu__nav.m-menu__nav--dropdown-submenu-arrow .m-menu__item.m-menu__item--hover>.m-menu__submenu .m-menu__subnav,.m-aside-menu.m-aside-menu--dropdown .m-menu__nav.m-menu__nav--dropdown-submenu-arrow .m-menu__item.m-menu__item--hover>.m-menu__submenu .m-menu__subnav {
