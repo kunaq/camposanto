@@ -11,36 +11,45 @@
 		</div>
 		<div class="m-portlet__body">
 			<div class="row">
-				<div class="col-lg-2">
-					<label>Filtrar por:</label>
-					<select class="form-control form-control-sm" onclick="filtro(this.value);">
-						<option value="cliente">Cliente</option>
-						<option value="contrato">Contrato(Afiliación)</option>
-					</select>
-				</div>
-				<div class="col-lg-2" id="divTipoDoc">
-					<label>Tipo Doc</label>
-					<select type="text" class="form-control form-control-sm m-input" id="tipoDocSegCon"></select>
-				</div>
-				<div class="col-lg-2" id="divNumDoc">
-					<label>Numero Doc</label>
-					<input type="text" class="form-control form-control-sm m-input" id="numDocSegCon">
-				</div>
-				<div class="col-lg-1" id="divBtnCli">
-					<label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-					<button class="btn btn-sm btn-danger" id="btnBuscarCliente"><i class="fa fa-search"></i></button>
-				</div>
-				<div class="col-lg-2" id="divLoc">
-					<label>Localidad</label>
-					<select type="text" class="form-control form-control-sm m-input" id="localidadSegCon"></select>
-				</div>
-				<div class="col-lg-2" id="divCtt">
-					<label>Contrato</label>
-					<input type="text" class="form-control form-control-sm m-input" id="cttSegCon">
-				</div>
-				<div class="col-lg-1" id="divBtnCtt">
-					<label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-					<button class="btn btn-sm btn-danger" id="btnBuscarContrato"><i class="fa fa-search"></i></button>
+				<div class="col-lg-12">
+					<fieldset class="fieldFormHorizontal">
+						<legend>&nbsp;</legend>
+						<div class="col-lg-12">
+							<div class="row form-group">
+								<div class="col-lg-2">
+									<label>Filtrar por:</label>
+									<select class="form-control form-control-sm" onclick="filtro(this.value);">
+										<option value="cliente">Cliente</option>
+										<option value="contrato">Contrato(Afiliación)</option>
+									</select>
+								</div>
+								<div class="col-lg-2" id="divTipoDoc">
+									<label>Tipo Doc</label>
+									<select type="text" class="form-control form-control-sm m-input" id="tipoDocSegCon"></select>
+								</div>
+								<div class="col-lg-2" id="divNumDoc">
+									<label>Numero Doc</label>
+									<input type="text" class="form-control form-control-sm m-input" id="numDocSegCon">
+								</div>
+								<div class="col-lg-1" id="divBtnCli">
+									<label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+									<button class="btn btn-sm btn-danger" id="btnBuscarCliente"><i class="fa fa-search"></i></button>
+								</div>
+								<div class="col-lg-2" id="divLoc">
+									<label>Localidad</label>
+									<select type="text" class="form-control form-control-sm m-input" id="localidadSegCon"></select>
+								</div>
+								<div class="col-lg-2" id="divCtt">
+									<label>Contrato</label>
+									<input type="text" class="form-control form-control-sm m-input" id="cttSegCon">
+								</div>
+								<div class="col-lg-1" id="divBtnCtt">
+									<label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+									<button class="btn btn-sm btn-danger" id="btnBuscarContrato"><i class="fa fa-search"></i></button>
+								</div>
+							</div>
+						</div>
+					</fieldset>
 				</div>
 			</div>
 			<div class="row">
@@ -380,6 +389,7 @@
 																	</tr>
 																</tbody>
 															</table>
+															<br>
 														</div>
 														<div class="col-lg-6">
 															<div class="row">
@@ -411,7 +421,7 @@
 									<fieldset class="fieldFormHorizontal">
 										<legend class="tittle-box">Detalle</legend>
 										<div class="col-lg-12">
-											<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="320">
+											<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="270">
 												<div class="table-responsive">
 													<table class="table">
 														<thead>
@@ -419,7 +429,7 @@
 															<th>Tipo Servicio</th>
 															<th>Saldo Financiar</th>
 														</thead>
-														<tbody style="height: 200px;">
+														<tbody style="height: 170px;">
 															<tr>
 																<td>0</td>
 																<td>DERECHO DE USO</td>
@@ -2007,7 +2017,7 @@
 									<fieldset class="fieldFormHorizontal">
 										<legend>&nbsp;</legend>
 										<div class="col-lg-12">
-											<div class="m-scrollable table-responsive" data-scrollbar-shown="true" data-scrollable="true" data-max-height="705">
+											<div class="m-scrollable table-responsive" data-scrollbar-shown="true" data-scrollable="true" data-max-height="675">
 												<table class="table">
 													<thead>
 														<th>Transferencia</th>
@@ -2182,8 +2192,8 @@
 											<label class=" ">Área</label>
 											<input type="text" class="form-control form-control-sm m-input" name="area" id="area">
 										</div>
-										<div class="col-lg-5"></div>
-										<div class="col-lg-3">
+										<div class="col-lg-6"></div>
+										<div class="col-lg-2">
 											<table>
 												<tbody>
 													<tr>
