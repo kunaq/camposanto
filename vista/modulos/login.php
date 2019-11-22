@@ -1,5 +1,5 @@
 <div class="m-grid m-grid--hor m-grid--root m-page">
-	<div class="m-grid__item m-grid__item--fluid m-grid m-grid--hor m-login m-login--signin m-login--2 m-login-2--skin-1" id="m_login" style="background-image: url('vista/img/fondo1.jpg'); background-position: center center; background-repeat: no-repeat; background-attachment: fixed;">
+	<div class="m-grid__item m-grid__item--fluid m-grid m-grid--hor m-login m-login--signin m-login--2 m-login-2--skin-1" id="m_login" style="background-image: url('vista/img/fondo1-min.jpg'); background-position: center center; background-repeat: no-repeat; background-attachment: fixed;">
 		<div class="col-lg-12">
 			<div class="m-grid__item m-grid__item--fluid m-login__wrapper">
 				<div class="m-login__container" >		
