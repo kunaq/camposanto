@@ -1,18 +1,27 @@
 <div class="m-grid m-grid--hor m-grid--root m-page">
-	<div class="m-grid__item m-grid__item--fluid m-grid m-grid--hor m-login m-login--signin m-login--2 m-login-2--skin-1" id="m_login" style="background-image: url('vista/img/fondo3.jpg'); background-position: center center; background-repeat: no-repeat; background-attachment: fixed;">
+	<div class="m-grid__item m-grid__item--fluid m-grid m-grid--hor m-login m-login--signin m-login--2 m-login-2--skin-1" id="m_login" style="background-image: url('vista/img/fondo3-min.jpg'); background-position: center center; background-repeat: no-repeat; background-attachment: fixed;">
 		<div class="col-lg-12">
 			<div class="m-grid__item m-grid__item--fluid m-login__wrapper">
-				<div class="m-login__container" >
-					<div class="m-login__logo" style="margin-bottom: 20px; ">
-						<img src="vista/img/logo_fe_gQ5_icon.ico" style="background-color: white; height: 100px; border-radius: 60px; margin-bottom: 10px;">
-					</div>			
+				<div class="m-login__container" >		
 					<div class="m-login__signin" style="background-color: #fff; padding: 20px;">
+						<div class="m-login__logo" style="margin-bottom: 20px; ">
+							<img src="vista/img/Logo_SG5.png" style="background-color: white; height: 100px; border-radius: 60px; margin-bottom: 10px;">
+						</div>	
 						<div class="m-login__head" style="padding: 0 20px 20px 20px;">
 							<h3 class="m-login__title" style="color: #666;">
 								Sistema  de Gestión<br> de Camposanto
 							</h3>
 						</div>
 						<form class="m-form">
+							<!-- SELECCIONAR EMPRESA -->
+							<div class="form-group m-form__group seleccioneEmpresa" style="padding-top: 0;">
+								<select class="form-control m-input" required id="empresa" placeholder="Seleccionar Empresa">
+									<option value="0">Seleccionar Empresa</option>
+									<option value="1">Empresa 1</option>
+									<option value="2">Empresa 2</option>
+									<option value="3">Empresa 3</option>
+								</select>
+							</div>	
 						<!-- ENTRADA PARA EL USUARIO -->
 							<div class="form-group m-input-icon m-input-icon--left">
 								<input class="form-control m-input" type="text" placeholder="Usuario" name="user" style="background-color: #fff; color: #000;" autofocus id="user" required>
@@ -40,16 +49,7 @@
 									</div>
 								</div>
 							</div>
-							<br>
-							<!-- SELECCIONAR EMPRESA -->
-							<div class="form-group m-form__group seleccioneEmpresa" style="padding-top: 0;">
-								<select class="form-control m-input" required id="empresa" placeholder="Seleccionar Empresa">
-									<option value="0">Seleccionar Empresa</option>
-									<option value="1">Empresa 1</option>
-									<option value="2">Empresa 2</option>
-									<option value="3">Empresa 3</option>
-								</select>
-							</div>					
+							<br>				
 							<!-- ENTRADA PARA EL CAPTCHA -->
 							<div class="form-group m-form__group" style="padding-top: 0;">
 								<?php

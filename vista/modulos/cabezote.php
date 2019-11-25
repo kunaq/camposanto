@@ -8,7 +8,7 @@ include "modals/modalConfiguraciones.php"; ?>
 							<div class="m-stack m-stack--ver m-stack--general">
 								<div class="m-stack__item m-stack__item--middle m-stack__item--center m-brand__logo">
 									<a href="inicio2" class="m-brand__logo-wrapper">
-										<img src="vista/img/tulogoaqui.png" style="width: 140px;">
+										<img src="vista/img/logo_muya_nombre.png" style="width: 140px;">
 									</a>
 								</div>
 								<div class="m-stack__item m-stack__item--middle m-brand__tools">
