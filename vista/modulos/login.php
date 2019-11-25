@@ -5,7 +5,7 @@
 				<div class="m-login__container" >		
 					<div class="m-login__signin" style="background-color: #fff; padding: 20px;">
 						<div class="m-login__logo" style="margin-bottom: 20px; ">
-							<img src="vista/img/logo_SG5.png" style="background-color: white; height: 100px; border-radius: 60px; margin-bottom: 10px;">
+							<img src="vista/img/Logo_SG5.png" style="background-color: white; height: 100px; border-radius: 60px; margin-bottom: 10px;">
 						</div>	
 						<div class="m-login__head" style="padding: 0 20px 20px 20px;">
 							<h3 class="m-login__title" style="color: #666;">
