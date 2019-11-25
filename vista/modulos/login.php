@@ -1,11 +1,11 @@
 <div class="m-grid m-grid--hor m-grid--root m-page">
-	<div class="m-grid__item m-grid__item--fluid m-grid m-grid--hor m-login m-login--signin m-login--2 m-login-2--skin-1" id="m_login" style="background-image: url('vista/img/fondo4-min.JPG'); background-position: center center; background-repeat: no-repeat; background-attachment: fixed;">
+	<div class="m-grid__item m-grid__item--fluid m-grid m-grid--hor m-login m-login--signin m-login--2 m-login-2--skin-1" id="m_login" style="background-image: url('vista/img/fondo3-min.jpg'); background-position: center center; background-repeat: no-repeat; background-attachment: fixed;">
 		<div class="col-lg-12">
 			<div class="m-grid__item m-grid__item--fluid m-login__wrapper">
 				<div class="m-login__container" >		
 					<div class="m-login__signin" style="background-color: #fff; padding: 20px;">
 						<div class="m-login__logo" style="margin-bottom: 20px; ">
-							<img src="vista/img/logo_fe_gQ5_icon.ico" style="background-color: white; height: 100px; border-radius: 60px; margin-bottom: 10px;">
+							<img src="vista/img/logo_SG5.png" style="background-color: white; height: 100px; border-radius: 60px; margin-bottom: 10px;">
 						</div>	
 						<div class="m-login__head" style="padding: 0 20px 20px 20px;">
 							<h3 class="m-login__title" style="color: #666;">
