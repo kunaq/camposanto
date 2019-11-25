@@ -11,9 +11,9 @@
 		</div>
 		<div class="m-portlet__body">
 			<div class="row">
-				<div class="col-lg-6">
+				<div class="col-lg-12">
 					<div class="row">
-						<div class="col-lg-6">
+						<div class="col-lg-3">
 							<fieldset class="fieldFormHorizontal">
 								<legend class="tittle-box">Fecha de Servicio</legend>
 								<div class="col-lg-12 form-group">
@@ -28,7 +28,7 @@
 								</div>
 							</fieldset>
 						</div>
-						<div class="col-lg-6">
+						<div class="col-lg-3">
 							<fieldset class="fieldFormHorizontal">
 								<legend class="tittle-box">Localidad</legend>
 								<div class="col-lg-12 form-group">
@@ -37,7 +37,7 @@
 							</fieldset>
 						</div>
 					</div>
-					<fieldset class="fieldFormHorizontal">
+					<!-- <fieldset class="fieldFormHorizontal">
 						<legend>&nbsp;</legend>
 						<div class="col-lg-12">
 							 <div class="table-responsive">
@@ -51,91 +51,12 @@
 								</table>
 							</div>
 						</div>
-					</fieldset>
-					<fieldset class="fieldFormHorizontal">
-						<legend>&nbsp;</legend>
-						<div class="col-lg-12">
-							<div class="row form-group">
-								<div class="col-lg-12">
-									<label>Tipo</label>
-									<input type="text" class="form-control form-control-sm m-input" id="" disabled>
-								</div>
-								<div class="col-lg-6">
-									<label>Autorización</label>
-									<input type="text" class="form-control form-control-sm m-input" id="" disabled>
-								</div>
-								<div class="col-lg-6">
-									<label>&nbsp;</label>
-									<input type="text" class="form-control form-control-sm m-input" id="" disabled>
-								</div>
-								<div class="col-lg-5">
-									<label>Contrato</label>
-									<input type="text" class="form-control form-control-sm m-input" id="" disabled>
-								</div>
-								<div class="col-lg-2">
-									<label>&nbsp;</label>
-									<input type="text" class="form-control form-control-sm m-input" id="" disabled>
-								</div>
-								<div class="col-lg-3">
-									<label>&nbsp;</label>
-									<input type="text" class="form-control form-control-sm m-input" id="" disabled>
-								</div>
-								<div class="col-lg-2">
-									<label>&nbsp;</label>
-									<input type="text" class="form-control form-control-sm m-input" id="" disabled>
-								</div>
-								<div class="col-lg-12">
-									<label>Titular</label>
-									<input type="text" class="form-control form-control-sm m-input" id="" disabled>
-								</div>
-								<div class="col-lg-12">
-									<label>Beneficiario (fallecido)</label>
-									<input type="text" class="form-control form-control-sm m-input" id="" disabled>
-								</div>
-								<div class="col-lg-12">
-									<label>Servicio</label>
-									<input type="text" class="form-control form-control-sm m-input" id="" disabled>
-								</div>
-								<div class="col-lg-12">
-									<label>Plataforma</label>
-									<input type="text" class="form-control form-control-sm m-input" id="" disabled>
-								</div>
-								<div class="col-lg-6">
-									<label>Espacio</label>
-									<input type="text" class="form-control form-control-sm m-input" id="" disabled>
-								</div>
-								<div class="col-lg-2">
-									<label>&nbsp;</label>
-									<input type="text" class="form-control form-control-sm m-input" id="" disabled>
-								</div>
-								<div class="col-lg-2">
-									<label>&nbsp;</label>
-									<input type="text" class="form-control form-control-sm m-input" id="" disabled>
-								</div>
-								<div class="col-lg-2">
-									<label>&nbsp;</label>
-									<input type="text" class="form-control form-control-sm m-input" id="" disabled>
-								</div>
-								<div class="col-lg-6">
-									<label>Fecha Deceso</label>
-									<input type="text" class="form-control form-control-sm m-input" id="" disabled>
-								</div>
-								<div class="col-lg-6">
-									<label>Fecha Servicio</label>
-									<input type="text" class="form-control form-control-sm m-input" id="" disabled>
-								</div>
-								<div class="col-lg-12">
-									<label>Sacerdote</label>
-									<input type="text" class="form-control form-control-sm m-input" id="" disabled>
-								</div>
-							</div>
-						</div>
-					</fieldset>
+					</fieldset> -->
 				</div>
-				<div class="col-lg-6">
+				<div class="col-lg-12">
 					<fieldset class="fieldFormHorizontal">
 						<legend>&nbsp;</legend>
-						<div class="col-lg-12" style="height: 710px;">
+						<div class="col-lg-12" style="height: 600px;">
 							<table class="table">
 								<thead>
 									<th>Hora</th>
@@ -143,7 +64,13 @@
 									<th>ME</th>
 									<th>MI</th>
 								</thead>
-								<tbody></tbody>
+								<tbody>
+									<tr>
+										<td>AA</td>
+										<td>AA</td>
+										<td onclick="mostrarModalServicio();">ss</td>
+									</tr>
+								</tbody>
 								<tfoot>
 									<tr>
 										<td>Total</td>
@@ -254,6 +181,8 @@
 </div>
 <?php
 
-include "modals/modalRegistroUsoServicio.php";
+include "modals/modalVisorServicio.php";
+
+
 
  ?>

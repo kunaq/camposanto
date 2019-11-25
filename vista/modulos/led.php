@@ -19,6 +19,7 @@
 								<table class="table table-responsive-m table-bordered" cellpadding="0" cellspacing="0" border="0">
 									<thead>
 										<th>Hora</th>
+										<th>Tipo Autorización</th>
 										<th>N° de Contrato</th>
 										<th>Beneficiario (fallecido)</th>
 										<th>Plataforma</th>

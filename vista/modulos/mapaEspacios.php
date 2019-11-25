@@ -5,7 +5,7 @@
 		<div class="m-portlet__head">
 			<div class="m-portlet__head-caption">
 				<div class="m-portlet__head-title">
-					<h3 class="m-portlet__head-text">Listado de Contratos</h3>
+					<h3 class="m-portlet__head-text">Mapa de Espacios</h3>
 				</div>
 			</div>
 		</div>
@@ -24,15 +24,15 @@
 										  	$item1 = "cod_camposanto";
 										 	$item2 = "dsc_camposanto";
 										 	$prueba = controladorEmpresa::ctrCamposanto();
-										  ?>
+										?>
 									</select>
 								</div>
 								<div class="col-lg-3">
 									<label> Tipo plataforma:</label>
 									<select class="form-control m-input m-select2 m-select2-general" name="tipoPlat" id="tipoPlat" onchange="buscaPlataforma(this.value);">
 										<option value="">Tipo de plataforma</option>
-										<option value="TP001">NICHO</option>
-										<option value="TP002">PLATAFORMAS</option>
+										<option value="TP002">NICHO</option>
+										<option value="TP001">PLATAFORMAS</option>
 									</select>
 								</div>
 								<div class="col-lg-3">

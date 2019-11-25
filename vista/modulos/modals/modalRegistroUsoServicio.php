@@ -25,11 +25,27 @@
 											<div class="row">
 												<div class="col-lg-4">
 													<label>Localidad</label>
-													<select type="text" class="form-control form-control-sm m-input" id=""></select>
+													<select type="text" class="form-control form-control-sm m-input" id="">
+														<?php
+															$tabla = "vtama_localidad";
+															$item1 = "cod_localidad";
+															$item2 = "dsc_localidad";
+															$prueba = controladorEmpresa::
+															ctrSelects($tabla,$item1,$item2);
+														  ?> 
+													</select>
 												</div>
 												<div class="col-lg-4">
 													<label>Tipo Autorización</label>
-													<select type="text" class="form-control form-control-sm m-input" id=""></select>
+													<select type="text" class="form-control form-control-sm m-input" id="">
+														<?php
+															$tabla = "vtama_tipo_autorizacion";
+															$item1 = "cod_tipo_autorizacion";
+															$item2 = "dsc_tipo_autorizacion";
+															$prueba = controladorEmpresa::
+															ctrSelects($tabla,$item1,$item2);
+														  ?> 
+													</select>
 												</div>
 												<div class="col-lg-4">
 													<label>N° Uso Servicio</label>
@@ -41,16 +57,24 @@
 											<div class="row">
 												<div class="col-lg-4">
 													<label>Estado</label>
-													<select class="form-control form-control-sm m-input" id=""></select>
+													<select class="form-control form-control-sm m-input" id="etdServicio">
+														<?php
+															$tabla = "vtama_estado_autorizacion";
+															$item1 = "cod_estado_autorizacion";
+															$item2 = "dsc_autorizacion";
+															$prueba = controladorEmpresa::
+															ctrSelects($tabla,$item1,$item2);
+														  ?>
+													</select>
 												</div>
 												<div class="col-lg-4">
 													<label>Usuario</label>
-													<input type="text" class="form-control form-control-sm m-input" id="">
+													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
 												</div>
 												<div class="col-lg-4">
 													<label>Fecha Registro</label>
 													<div class="input-group date">
-													<input type="text" class="form-control form-control-sm m-input"  id="m_datepicker_3" data-date-format="mm/dd/yyyy" value="<?php echo date('m/d/Y', strtotime(date('m/d/Y').'+ 1 month')); ?>"/>
+													<input type="text" class="form-control form-control-sm m-input"  id="m_datepicker_3" data-date-format="mm/dd/yyyy" value="<?php echo date('m/d/Y', strtotime(date('m/d/Y').'+ 1 month')); ?>" disabled/>
 													<div class="input-group-append">
 														<span class="input-group-text">
 															<i class="la la-calendar-check-o"></i>

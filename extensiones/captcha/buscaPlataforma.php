@@ -10,10 +10,10 @@ require_once "../../modelo/conexion.php";
         echo "<option value = 0>Seleccione la plataforma</option>";
 		while($key = $db->recorrer($sql)){
             if($key['cod_tipo_plataforma'] == 'TP001'){
-              $tipoPla = 'NICH';
+              $tipoPla = 'PLAT';
           }
           elseif ($key['cod_tipo_plataforma'] == 'TP002') {
-              $tipoPla = 'PLAT';
+              $tipoPla = 'NICH';
           }
 
             $datos[] =  $key;

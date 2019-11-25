@@ -109,357 +109,333 @@
 							<div class="form-group m-form__group row">
 								<div class="col-lg-6">
 									<div class="row">
-										<div class="col-lg-5">
-											<label class="tittle-box">
-												<h5>Datos de programa</h5>
-											</label>
-										</div>
-										<div class="col-lg-5">
-											<label class="m-checkbox">
-												Venta por regularización
-											</label>
-										</div>
-										<div class="col-lg-2">
-											<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
-												<label>
-													<input type="checkbox"  name="">
-													<span></span>
-												</label>
-											</span>
-										</div>
-									</div>
-									<div class="m-input-icon m-input-icon--right">
-										<div class="row">
-											<div class="col-lg-9">
-												<label>
-													Tipo de programa *
-												</label>
-												<select class="form-control form-control-sm m-input m-select2 m-select2-general" required name="tipPro" id="tipPro" onchange="validaEspacio(this.value);">
-													<option value="">
-														Seleccione el tipo de programa
-													</option>
-													<?php
-														$tabla = "vtama_tipo_recaudacion";
-														$item1 = "cod_tipo_recaudacion";
-														$item2 = "dsc_tipo_recaudacion";
-														$prueba = controladorEmpresa::
-														ctrSelects($tabla,$item1,$item2);
-													  ?> 
-												</select>
-												<input type="hidden" name="flagIntegral" id="flagIntegral">
-											</div>
-											<div class="col-lg-3">
-												<label class="">
-												T.C.:
-												</label>
-												<div class="input-group m-input-group">
-													<input type="text" class="form-control form-control-sm m-input" id="tipoCamb" name="tipoCamb" value=" <?php $prueba = controladorEmpresa::ctrtipoCambio(); ?>" placeholder="">
+										<div class="col-lg-12">
+											<fieldset class="fieldFormHorizontal">
+												<legend class="tittle-box">Datos de Programa</legend>
+												<legend class="sidecheck">
+													<table>
+														<tbody>
+															<tr>
+																<td><label style="margin-bottom: 30px">Venta por regularización</label></td>
+																<td>
+																	<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger" style="margin-bottom: 14px;">
+																		<label>
+																			<input type="checkbox" name="" id="cuoDefCheck" onchange="cuoDefinidas();">
+																			<span></span>
+																		</label>
+																	</span>
+																</td>
+															</tr>
+														</tbody>
+													</table>
+												</legend>
+												<div class="col-lg-12">
+													<div class="row form-group">
+														<div class="col-lg-9">
+															<label>
+																Tipo de programa *
+															</label>
+															<select class="form-control form-control-sm m-input m-select2 m-select2-general" required name="tipPro" id="tipPro" onchange="validaEspacio(this.value);">
+																<option value="">
+																	Seleccione el tipo de programa
+																</option>
+																<?php
+																	$tabla = "vtama_tipo_recaudacion";
+																	$item1 = "cod_tipo_recaudacion";
+																	$item2 = "dsc_tipo_recaudacion";
+																	$prueba = controladorEmpresa::
+																	ctrSelects($tabla,$item1,$item2);
+																  ?> 
+															</select>
+															<input type="hidden" name="flagIntegral" id="flagIntegral">
+														</div>
+														<div class="col-lg-3">
+															<label class="">
+															T.C.:
+															</label>
+															<div class="input-group m-input-group">
+																<input type="text" class="form-control form-control-sm m-input" id="tipoCamb" name="tipoCamb" value=" <?php $prueba = controladorEmpresa::ctrtipoCambio(); ?>" placeholder="">
+															</div>
+														</div>
+													</div>
 												</div>
-											</div>
+											</fieldset>
 										</div>
 									</div>
 								</div>
 								<div class="col-lg-6">
-									<label class="tittle-box">
-										<h5>Representante de ventas</h5>
-									</label>
-									<div class="row" style="margin-top: 12px;">
-										<div class="col-lg-4">
-											<label class="">
-											Vendedor *
-											</label>
-											<div class="input-group m-input-group input-group-sm">
-												<select class="form-control form-control-sm m-select2 m-select2-general" id="codVendedor" name="codVendedor">
-													<option>
-														Código
-													</option>
-													<?php
-														$prueba = controladorEmpresa::
-														ctrcodVendedor();
-													  ?>
-												</select>
-											</div>
-										</div>
-										<div class="col-lg-8">
-											<label class="">
-												&nbsp;
-											</label>
-											<br>
-											<div class="input-group m-input-group">
-												<input type="text" class="form-control form-control-sm m-input" name="nomVendedor" disabled id="nomVendedor" placeholder="">
-												<div class="input-group-append">
-													<span data-toggle="modal" data-target="#m_modal_4">
-														<button class="btn btn-danger btn-sm" type="button" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar vendedor" onclick="creaTablaVendedor();">
-															<i class="la la-search"></i>
-														</button>
-													</span>
+									<fieldset class="fieldFormHorizontal">
+										<legend class="tittle-box">Representante de ventas</legend>
+										<div class="col-lg-12">
+											<div class="row form-group">
+												<div class="col-lg-4">
+													<label class="">
+													Vendedor *
+													</label>
+													<div class="input-group m-input-group input-group-sm">
+														<select class="form-control form-control-sm m-select2 m-select2-general" id="codVendedor" name="codVendedor">
+															<option>
+																Código
+															</option>
+															<?php
+																$prueba = controladorEmpresa::
+																ctrcodVendedor();
+															  ?>
+														</select>
+													</div>
 												</div>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="form-group m-form__group row" style="padding-top: 0">
-								<div class="col-lg-6">
-									<div class="row">
-										<div class="col-lg-5">
-											<label class="tittle-box">
-												<h5>Plan/Subtipo de servicio</h5>
-											</label>
-										</div>
-									</div>
-									<br>
-									<div class="m-input-icon m-input-icon--right">
-										<div class="row">
-											<div class="col-lg-9">
-												<label>
-													Tipo de Servicio *
-												</label>
-												<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="planSS" id="planSS" onchange="buscaSubtipo(this.value);">
-													<option value="">
-														Seleccione el tipo de Servicio
-													</option>
-													<?php
-													  $tabla="vtama_tipo_servicio";
-													  $item1="cod_tipo_servicio";
-													  $item2="dsc_tipo_servicio";
-					  									$prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
-													  ?> 
-												</select>
-											</div>
-											<div class="col-lg-3">
-												<label> Tipo de Nec. *</label>
-												<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="tiponec" id="tiponec">
-													<option value="NF">NF</option>
-													<option value="NI">NI</option>
-												</select>
-											</div>
-										</div>
-										<br>
-										<div class="row">
-											<div class="col-lg-12">
-												<label>Subtipo *</label>
-												<select class="form-control form-control-sm m-input m-select2 m-select2-general" id="subServicio" required name="subServicio">
-													<option value="">
-														Seleccione el subtipo de Servicio
-													</option>
-												</select>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-6">
-									<div class="row">
-										<div class="col-lg-3" style="margin-top: 1.4rem;">
-											<label class="tittle-box">
-												<h5>Cliente *</h5>
-											</label>
-										</div>
-										<div class="col-lg-2 offset-lg-5">
-											<label class="m-checkbox">
-												Jurídico
-											</label>
-										</div>
-										<div class="col-lg-2">
-											<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
-												<label>
-													<input type="checkbox" id="juridico" disabled name="">
-													<span></span>
-												</label>
-											</span>
-										</div>
-									</div>
-									<div class="m-input-icon m-input-icon--right">
-										<div class="row">
-											<div class="col-lg-4 m-top1">
-												<label>Tipo doc: </label>
-												<select disabled class="form-control form-control-sm m-input custom-select custom-select-danger" id="TipoDcoCliente" name="TipoDcoCliente">
-													<option value="">
-														Seleccione
-													</option>
-													<?php
-														$prueba = controladorEmpresa::ctrtipoDoc();
-													 ?> 
-												</select>
-											</div>
-											<div class="col-lg-5">
-												<label class="">
-													&nbsp;
-												</label>
-												<select class="form-control form-control-sm m-select2 m-select2-general" id="numDocCliente" name="numDocCliente" >
-													<option>
-														Número de documento *
-													</option>
-													<?php
-														$prueba = controladorEmpresa::ctrdocCliente();
-													  ?>
-												</select>
-											</div>
-											<div class="col-lg-3 non-p-left padding-left">
-												<br><br>	
-												<div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
-													<div class="btn-group m-btn-group mr-2" role="group" aria-label="First group">
-														<span data-toggle="modal" data-target="#m_modal_2">
-														<button type="button" class="m-btn btn btn-danger btn-sm" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar cliente" onclick="creaTablaCliente('cliente');">
-															<i class="la la-search"></i>
-														</button>
-														</span>
+												<div class="col-lg-8">
+													<label class="">
 														&nbsp;
-														<span data-toggle="modal" data-target="#m_modal_1">
-														<button type="button" class="m-btn btn btn-success btn-sm" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Registrar nuevo cliente">
-															<i class="la la-user-plus"></i>
-														</button>
-														</span>
-														&nbsp;
-														<span data-toggle="modal" data-target="#m_modal_3">
-														<button type="button" class="m-btn btn btn-metal btn-sm" 
-														data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar prospecto" onclick="creaTablaProspecto();">
-															<i class="la la-users"></i>
-														</button>
-														</span>
+													</label>
+													<br>
+													<div class="input-group m-input-group">
+														<input type="text" class="form-control form-control-sm m-input" name="nomVendedor" disabled id="nomVendedor" placeholder="">
+														<div class="input-group-append">
+															<span data-toggle="modal" data-target="#m_modal_4">
+																<button class="btn btn-danger btn-sm" type="button" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar vendedor" onclick="creaTablaVendedor();">
+																	<i class="la la-search"></i>
+																</button>
+															</span>
+														</div>
 													</div>
 												</div>
 											</div>
 										</div>
-									</div>
-									<div class="m-input-icon m-input-icon--right m-top1">
-										<label>Apellido y Nombre: * </label>
-										<div class="input-group m-input-group">
-											<input type="text" class="form-control form-control-sm m-input" name="nombreCliente" disabled id="nombreCliente">
-										</div>
-										<br>
-									</div>
+									</fieldset>
 								</div>
 							</div>
-							<div class="form-group row">
-								<div class="col-lg-5">
-									<label class="tittle-box">
-										<h5>Datos de espacio</h5>
-									</label>
-								</div>
-							</div>
-							<div class="form-group row">
-								<div class="col-lg-3">
-									<label>Camposanto *</label>
-									<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="camposanto" required id="camposanto" disabled="disabled">
-										<option value="">Camposanto</option>
-										<?php
-										  $tabla = "vtama_camposanto";
-										  $item1 = "cod_camposanto";
-										  $item2 = "dsc_camposanto";
-								           $prueba = controladorEmpresa::ctrCamposanto();
-										  ?>
-									</select>
-								</div>
-								<div class="col-lg-3">
-									<label> Tipo plataforma:</label>
-									<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="tipoPlat" disabled="disabled" id="tipoPlat" onchange="buscaPlataforma(this.value);">
-										<option value="">Tipo de plataforma</option>
-										<option value="TP001">NICHO</option>
-										<option value="TP002">PLATAFORMAS</option>
-									</select>
-								</div>
-								<div class="col-lg-4">
-									<label>Plataforma: </label>
-									<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="plataforma" id="plataforma" disabled="disabled" onchange="buscaArea(this.value);">
-										<option disabled value="">Plataforma</option>
-									</select>
-								</div>
-								<div class="col-lg-2">
-									<label>Área: </label>
-									<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="area" id="area" disabled="disabled" onchange="buscaEjex(this.value);">
-										<option value="">Área</option>
-									</select>			
-								</div>
-							</div>
-							<br>
-							<div class="form-group row">
-								<label class="">
-									<h5>&nbsp;</h5>
-								</label>
-								<div class="col-lg-3">
-									<div class="row">
-										<div class="col-lg-6">
-											<label>Eje Horiz:</label>
-											<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="ejex" id="ejex" disabled="disabled" onchange="buscaEjey(this.value);">
-												<option disabled value="">Eje Hor.</option>
-											</select>
+							<div class="form-group m-form__group row" style="padding-top: 0">
+								<div class="col-lg-6">
+									<fieldset class="fieldFormHorizontal">
+										<legend class="tittle-box">Plan/Subtipo de servicio</legend>
+										<div class="col-lg-12">
+											<div class="row form-group">
+												<div class="col-lg-9">
+													<label>
+														Tipo de Servicio *
+													</label>
+													<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="planSS" id="planSS" onchange="buscaSubtipo(this.value);">
+														<option value="">
+															Seleccione el tipo de Servicio
+														</option>
+														<?php
+														  $tabla="vtama_tipo_servicio";
+														  $item1="cod_tipo_servicio";
+														  $item2="dsc_tipo_servicio";
+						  									$prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
+														  ?> 
+													</select>
+												</div>
+												<div class="col-lg-3">
+													<label> Tipo de Nec. *</label>
+													<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="tiponec" id="tiponec">
+														<option value="NF">NF</option>
+														<option value="NI">NI</option>
+													</select>
+												</div>
+												<div class="col-lg-12">
+													<label>Subtipo *</label>
+													<select class="form-control form-control-sm m-input m-select2 m-select2-general" id="subServicio" required name="subServicio">
+														<option value="">
+															Seleccione el subtipo de Servicio
+														</option>
+													</select>
+												</div>
+											</div>
 										</div>
-										<div class="col-lg-6">
-											<label>Eje Vert:</label>
-											<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="ejey" id="ejey" disabled="disabled" onchange="buscaEspacio(this.value);">
-												<option disabled value="">Eje Ver.</option>
-											</select>
+									</fieldset>
+								</div>
+								<div class="col-lg-6">
+									<fieldset class="fieldFormHorizontal">
+										<legend class="tittle-box">Cliente *</legend>
+										<legend class="sidecheck">
+											<table>
+												<tbody>
+													<tr>
+														<td><label style="margin-bottom: 30px">Juridico</label></td>
+														<td>
+															<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger" style="margin-bottom: 14px;">
+																<label>
+																	<input type="checkbox" name="" id="">
+																	<span></span>
+																</label>
+															</span>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</legend>
+										<div class="col-lg-12">
+											<div class="row form-group">
+												<div class="col-lg-4">
+													<label>Tipo doc: </label>
+													<select disabled class="form-control form-control-sm m-input custom-select custom-select-danger" id="TipoDcoCliente" name="TipoDcoCliente">
+														<option value="">
+															Seleccione
+														</option>
+														<?php
+															$prueba = controladorEmpresa::ctrtipoDoc();
+														 ?> 
+													</select>
+												</div>
+												<div class="col-lg-4">
+													<label class="">
+														&nbsp;
+													</label>
+													<select class="form-control form-control-sm m-select2 m-select2-general" id="numDocCliente" name="numDocCliente" >
+														<option>
+															Número de documento *
+														</option>
+														<?php
+															$prueba = controladorEmpresa::ctrdocCliente();
+														  ?>
+													</select>
+												</div>
+												<div class="col-lg-4">	
+													<span data-toggle="modal" data-target="#m_modal_2">
+													<button type="button" class="m-btn btn btn-danger btn-sm mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar cliente" onclick="creaTablaCliente('cliente');">
+														<i class="la la-search"></i>
+													</button>
+													</span>
+													<span data-toggle="modal" data-target="#m_modal_1">
+													<button type="button" class="m-btn btn btn-success btn-sm mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Registrar nuevo cliente">
+														<i class="la la-user-plus"></i>
+													</button>
+													</span>													
+													<span data-toggle="modal" data-target="#m_modal_3">
+													<button type="button" class="m-btn btn btn-metal btn-sm mt25" 
+															data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar prospecto" onclick="creaTablaProspecto();">
+														<i class="la la-users"></i>
+													</button>
+													</span>
+												</div>
+												<div class="col-lg-12">
+													<label>Apellido y Nombre: * </label>
+													<div class="input-group m-input-group">
+														<input type="text" class="form-control form-control-sm m-input" name="nombreCliente" disabled id="nombreCliente">
+													</div>
+												</div>
+											</div>
 										</div>
-									</div>
-								</div>
-								<div class="col-lg-3">
-									<label>Espacio:</label>
-									<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="espacio" id="espacio" disabled onchange="buscanomEspacio(this.value);">
-									</select>
-								</div>
-
-								<div class="col-lg-3">
-									<div class="m-input-icon m-input-icon--right">
-										<label>Tipo: </label>
-										<input type="text" class="form-control form-control-sm m-input" name="tipo" id="tipo" disabled="disabled">
-									</div>
-								</div>
-								<div class="col-lg-2">
-									<div class="m-input-icon m-input-icon--right">
-										<label>&nbsp; </label>
-										<h3><b><p name="estado" id="estado" style="text-align: center;"></p></b></h3>
-									</div>
+									</fieldset>
 								</div>
 							</div>
 							<div class="form-group row">
 								<div class="col-lg-12">
-									<label class="tittle-box">
-										<h5>Contrato</h5>
-									</label>
+									<fieldset class="fieldFormHorizontal">
+										<legend class="tittle-box">Datos de Espacio</legend>
+										<div class="col-lg-12">
+											<div class="row form-group">
+												<div class="col-lg-3">
+													<label>Camposanto *</label>
+													<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="camposanto" required id="camposanto" disabled="disabled">
+														<option value="">Camposanto</option>
+														<?php
+														  $tabla = "vtama_camposanto";
+														  $item1 = "cod_camposanto";
+														  $item2 = "dsc_camposanto";
+												           $prueba = controladorEmpresa::ctrCamposanto();
+														  ?>
+													</select>
+												</div>
+												<div class="col-lg-3">
+													<label> Tipo plataforma:</label>
+													<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="tipoPlat" disabled="disabled" id="tipoPlat" onchange="buscaPlataforma(this.value);">
+														<option value="">Tipo de plataforma</option>
+														<option value="TP001">PLATAFORMA</option>
+														<option value="TP002">NICHO</option>
+													</select>
+												</div>
+												<div class="col-lg-4">
+													<label>Plataforma: </label>
+													<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="plataforma" id="plataforma" disabled="disabled" onchange="buscaArea(this.value);">
+														<option disabled value="">Plataforma</option>
+													</select>
+												</div>
+												<div class="col-lg-2">
+													<label>Área: </label>
+													<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="area" id="area" disabled="disabled" onchange="buscaEjex(this.value);">
+														<option value="">Área</option>
+													</select>			
+												</div>
+												<div class="col-lg-2">
+													<label>Eje Horiz:</label>
+													<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="ejex" id="ejex" disabled="disabled" onchange="buscaEjey(this.value);">
+														<option disabled value="">Eje Hor.</option>
+													</select>
+												</div>
+												<div class="col-lg-2">
+													<label>Eje Vert:</label>
+													<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="ejey" id="ejey" disabled="disabled" onchange="buscaEspacio(this.value);">
+														<option disabled value="">Eje Ver.</option>
+													</select>
+												</div>
+												<div class="col-lg-3">
+													<label>Espacio:</label>
+													<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="espacio" id="espacio" disabled onchange="buscanomEspacio(this.value);">
+													</select>
+												</div>
+												<div class="col-lg-3">
+													<div class="m-input-icon m-input-icon--right">
+														<label>Tipo: </label>
+														<input type="text" class="form-control form-control-sm m-input" name="tipo" id="tipo" disabled="disabled">
+													</div>
+												</div>
+											</div>
+										</div>
+									</fieldset>									
 								</div>
 							</div>
 							<div class="form-group row">
-								<div class="col-lg-3">
-									<label>
-									Localidad:
-									</label>
-									<select class="form-control form-control-sm m-input m-select2 m-select2-general" disabled name="localidad" id="localidad">
-										<option value="00001">Empresa 1</option>
-										<option value="00002">Empresa 2</option>
-									</select>
-								</div>
-								<div class="col-lg-3">
-									<label class="">
-									Contrato:
-									</label>
-									<input type="text" class="form-control form-control-sm m-input"  name="ctt" id="ctt" disabled="disabled">
-								</div>
-								<div class="col-lg-3">
-									<label class="">
-										Programa:
-									</label>
-									<div class="input-group">
-										<input type="text" class="form-control form-control-sm m-input" placeholder="Programa" disabled>
-									</div>
-								</div>
-								<div class="col-lg-3" style="margin-top: 2rem;">
-									<div class="row">
-										<div class="col-lg-6">
-											<label class="m-checkbox">
-												Modificación
-											</label>
+								<div class="col-lg-12">
+									<fieldset class="fieldFormHorizontal">
+										<legend class="tittle-box">Contrato</legend>
+										<div class="col-lg-12">
+											<div class="row form-group">
+												<div class="col-lg-3">
+													<label>
+													Localidad:
+													</label>
+													<select class="form-control form-control-sm m-input m-select2 m-select2-general" disabled name="localidad" id="localidad">
+														<option value="00001">Empresa 1</option>
+														<option value="00002">Empresa 2</option>
+													</select>
+												</div>
+												<div class="col-lg-3">
+													<label class="">
+													Contrato:
+													</label>
+													<input type="text" class="form-control form-control-sm m-input"  name="ctt" id="ctt" disabled="disabled">
+												</div>
+												<div class="col-lg-3">
+													<label class="">
+														Programa:
+													</label>
+													<div class="input-group">
+														<input type="text" class="form-control form-control-sm m-input" placeholder="Programa" disabled>
+													</div>
+												</div>
+												<div class="col-lg-3" style="margin-top: 2rem;">
+													<div class="row">
+														<div class="col-lg-4">
+															<label class="m-checkbox">
+																Modificación
+															</label>
+														</div>
+														<div class="col-lg-2">
+															<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
+																<label>
+																	<input type="checkbox" name="modificaCtt" id="modificaCtt" onclick="modificarctt();">
+																	<span></span>
+																</label>
+															</span>
+														</div>
+													</div>			
+												</div>
+											</div>
 										</div>
-										<div class="col-lg-6">
-											<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
-												<label>
-													<input type="checkbox" name="modificaCtt" id="modificaCtt" onclick="modificarctt();">
-													<span></span>
-												</label>
-											</span>
-										</div>
-									</div>			
+									</fieldset>
 								</div>
 							</div>
 						</div>
@@ -513,92 +489,87 @@
 								<div class="col-lg-12">
 									<div class="m-input-icon m-input-icon--right">
 										<div class="m-section m-demo m-demo__preview">
-											<div class="m-section__content " data-max-height="380">
+											<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="400">
 												<div class="table-responsive">
-               		 							<table class="table table-fixed" id="servAgregados">
-													<thead style="text-align: center;">
-														<tr>
-															<th style="width:14rem;">
-																Servicio
-															</th>
-															<th style="width:4rem;">
-																Ctd
-															</th>
-															<th style="width:6.5rem;">
-																P. lista
-															</th>
-															<th style="width:6.5rem;">
-																P. venta
-															</th>
-															<th style="width:7.5rem;">
-																Imp. Dscto
-															</th>
-															<th style="width:6.5rem;">
-																Imp. total
-															</th>
-															<th style="width:6rem;">
-																FOMA
-															</th>
-															<th style="width:6.5rem;">
-																Carencia
-															</th>
-															<th style="width:6.5rem;">
-																Imp. CUI
-															</th>
-															<th style="width:6.5rem;">
-																Endoso
-															</th>
-															<th style="width:6rem;">
-																Saldo
-															</th>
-															<th style="width:4.7rem;">
-																Acción
-															</th>
-														</tr>
-													</thead>
-													<tbody  id="bodyServicio">
-													</tbody>
-													<tfoot >
-														<tr>
-															<td style="width:15rem;" >
-																&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-															</td>
-															<td style="width:6rem;">
-																&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-															</td>
-															<td style="text-align: center; width:6rem;" class="Total">
-																<b>Totales:</b>
-															</td>
-															<td style="text-align: right; width: 6rem;" class="Total A">
-																0.00
-															</td>
-															<td style="text-align: right; width:7rem; " class="Total B">
-																0.00
-															</td>
-															<td style="text-align: right;width:7.5rem;" class="Total C">
-																0.00
-															</td>
-															<td style="text-align: right;width:6rem;" class="Total D">
-																0.00
-															</td>
-															<td style="text-align: right;width:6.5rem;" class="Total E">
-																0.00
-															</td>
-															<td style="text-align: right;width:6rem;" class="Total F">
-																0.00
-															</td>
-															<td style="text-align: right;width: 6rem;" class="Total G" width="8%">
-																0.00
-															</td>
-															<td style="text-align: right;width: 7rem;" class="Total H" width="8%">
-																0.00
-															</td>
-															<td style="text-align: right;width: 3rem;" width="2%">
-																&nbsp;
-															</td>
-														</tr>
-													</tfoot>
-												</table>
+	               		 							<table class="table" id="servAgregados">
+														<thead style="text-align: center;">
+															<tr>
+																<th>
+																	Servicio
+																</th>
+																<th>
+																	Ctd
+																</th>
+																<th>
+																	P. lista
+																</th>
+																<th>
+																	P. venta
+																</th>
+																<th>
+																	Imp. Dscto
+																</th>
+																<th>
+																	Imp. total
+																</th>
+																<th>
+																	FOMA
+																</th>
+																<th>
+																	Carencia
+																</th>
+																<th>
+																	Imp. CUI
+																</th>
+																<th>
+																	Endoso
+																</th>
+																<th>
+																	Saldo
+																</th>
+																<th>
+																	Acción
+																</th>
+															</tr>
+														</thead>
+														<tbody  id="bodyServicio" style="height: 200px;">
+															<tr></tr>
+														</tbody>
+														<tfoot >
+															<tr>
+																<td></td>
+																<td></td>
+																<td class="Total">
+																	<b>Totales:</b>
+																</td>
+																<td class="Total A">
+																	0.00
+																</td>
+																<td class="Total B">
+																	0.00
+																</td>
+																<td class="Total C">
+																	0.00
+																</td>
+																<td class="Total D">
+																	0.00
+																</td>
+																<td class="Total E">
+																	0.00
+																</td>
+																<td class="Total F">
+																	0.00
+																</td>
+																<td class="Total G">
+																	0.00
+																</td>
+																<td class="Total H">
+																	0.00
+																</td>
+																<td></td>
+															</tr>
+														</tfoot>
+													</table>
 												</div>
 											</div>
 										</div>
@@ -629,59 +600,61 @@
 								<div class="col-lg-12">
 									<div class="m-input-icon m-input-icon--right">
 										<div class="m-section  m-demo m-demo__preview">
-											<div class="m-section__content" data-max-height="320">
+											<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="200">
 												<div class="table-responsive">
-													<table class="table table-fixed">
+													<table class="table">
 														<thead style="text-align: center;">
 															<tr>
-																<th style="width: 8rem;">
+																<th>
 																	Código
 																</th>
-																<th style="width: 17.8rem;">
+																<th>
 																	Descripción del descuento
 																</th>
-																<th style="width: 6rem;">
+																<th>
 																	M
 																</th>
-																<th style="width: 13rem;">
+																<th>
 																	Valor del dscto
 																</th>
-																<th style="width: 8rem;">
+																<th>
 																	Dscto libre
 																</th>
-																<th style="width: 8rem;">
+																<th>
 																	Dscto %
 																</th>
-																<th style="width: 15rem;">
+																<th>
 																	Descuento final 
 																</th>
-																<th style="width: 5.4rem;">
+																<th>
 																	Acción
 																</th>
 															</tr>
 														</thead>
-														<tbody id="bodyDscto"></tbody>
+														<tbody id="bodyDscto" style="height: 180px;">
+															<tr></tr>
+														</tbody>
 														<tfoot>
 															<tr>
-																<td style="width: 8rem;">
+																<td>
 																	&nbsp;
 																</td>
-																<td style="text-align: center;width: 20.6rem;">
+																<td>
 																	&nbsp;
 																</td>
-																<td style="text-align: center;width: 6rem;">
+																<td>
 																	&nbsp;
 																</td>
-																<td style="text-align: right;width: 13rem;">
+																<td>
 																	&nbsp;
 																</td>
-																<td style="text-align: right;width: 8rem;">
+																<td>
 																	<b>Total S/:</b>
 																</td>
-																<td style="text-align: right;width: 8rem;">
+																<td>
 																	&nbsp;
 																</td>
-																<td style="text-align: right;width: 15rem;" class="TotalD A">
+																<td class="TotalD A">
 																	0,00
 																</td>
 															</tr>	
@@ -724,44 +697,45 @@
 								<div class="col-lg-12">
 									<div class="m-input-icon m-input-icon--right">
 										<div class="m-section  m-demo m-demo__preview">
-											<div class="m-section__content table-responsive-m" data-scrollbar-shown="true" data-scrollable="true" data-max-height="320">
+											<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="320">
 												<div class="table-responsive">
-												<table class="table table-fixed">
+												<table class="table">
 													<thead style="text-align: center;">
 														<tr>
-															<th style="width:27.5rem;">
+															<th>
 																Entidad
 															</th>
-															<th style="width:18rem;">
+															<th>
 																Fecha de vencimiento
 															</th>
-															<th style="width:6rem;">
+															<th>
 																M
 															</th>
-															<th style="width:19rem">
+															<th>
 																Importe
 															</th>
-															<th style="width:8.3rem">
+															<th>
 																Acción
 															</th>
 														</tr>
 													</thead>
-													<tbody id="bodyCobertura">	
+													<tbody id="bodyCobertura" style="height: 300px;">	
 													</tbody>
 													<tfoot>
 														<tr>
-															<td style="text-align: right;width:30rem;">
+															<td>
 																&nbsp;
 															</td>
-															<td style="text-align: right;width:18rem;">
+															<td>
 																<b>Total S/:</b>
 															</td>
-															<td style="text-align: right;width:6rem;">
+															<td>
 																&nbsp;
 															</td>
-															<td style="text-align: right;width:19rem" class="totalEndoso">
+															<td class="totalEndoso">
 																0,00
 															</td>
+															<td></td>
 														</tr>
 													</tfoot>
 												</table>
@@ -775,130 +749,136 @@
 						<!--end: Form Wizard Step 2--> 
 						<div class="m-wizard__form-step" id="m_wizard_form_step_5">
 							<div class="row">
-								<div class="col-lg-6">
-									<div class="row">
-										<div class="col-lg-2">
-											<label>Saldo a financiar: </label>
-										</div>
-										<div class="col-lg-4">
-											<input type="text" disabled id="saldoFinanciar" name="saldoFinanciar" style="text-align: right;" class="form-control form-control-sm m-input" placeholder="0,00">
-										</div>
-										<div class="col-lg-2">
-											<label> N° de cuotas:</label>
-										</div>
-										<div class="col-lg-4" style="padding-left: 0;">
-											<select class="form-control form-control-sm m-select2 m-select2-general" name="numCuotas" id="numCuotas" style="width: 100%">
-												<option>
-													Seleccione... 
-												</option>
-												<?php
-												  $tabla="vtama_cuota";
-												  $item1="num_cuotas";
-												  $item2="dsc_cuota";
-				 						 $prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
-												  ?> 
-											</select>
-										</div>
-									</div>
-									<br>
-									<div class="row">
-										<div class="col-lg-2">
-											<label>1er vencimiento:</label>
-										</div>
-										<div class="col-lg-4">
-											<div class="input-group date">
-												<input type="text" class="form-control form-control-sm m-input"  id="m_datepicker_1" data-date-format="mm/dd/yyyy" value="<?php echo date('m/d/Y', strtotime(date('m/d/Y').'+ 1 month')); ?>"/>
-												<div class="input-group-append">
-													<span class="input-group-text">
-														<i class="la la-calendar-check-o"></i>
-													</span>
+								<div class="col-lg-5">
+									<fieldset class="fieldFormHorizontal">
+										<legend>&nbsp;</legend>
+										<div class="col-lg-12">
+											<div class="row form-group">
+												<div class="col-lg-6 form-group">
+													<label>Saldo a financiar</label>
+													<input type="text" disabled id="saldoFinanciar" name="saldoFinanciar" style="text-align: right;" class="form-control form-control-sm m-input" placeholder="0,00">
+												</div>
+												<div class="col-lg-6 form-group">
+													<label>N° de Cuotas</label>
+													<select class="form-control form-control-sm m-select2 m-select2-general" name="numCuotas" id="numCuotas" style="width: 100%">
+														<option>
+															Seleccione... 
+														</option>
+														<?php
+														  $tabla="vtama_cuota";
+														  $item1="num_cuotas";
+														  $item2="dsc_cuota";
+						 						 			$prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
+														  ?> 
+													</select>
+												</div>
+												<div class="col-lg-6">
+													<label>1er Vencimiento</label>
+													<div class="input-group date">
+														<input type="text" class="form-control form-control-sm m-input"  id="m_datepicker_1" data-date-format="mm/dd/yyyy" value="<?php echo date('m/d/Y', strtotime(date('m/d/Y').'+ 1 month')); ?>"/>
+														<div class="input-group-append">
+															<span class="input-group-text">
+																<i class="la la-calendar-check-o"></i>
+															</span>
+														</div>
+													</div>
+												</div>
+												<div class="col-lg-6">
+													<label>Interes</label>
+													<select class="form-control form-control-sm m-select2 m-select2-general" id="interes" name="interes" style="width: 100%">
+														<option>
+															Seleccione...
+														</option>
+														<?php
+															 $tabla="vtama_interes";
+														  $item1="num_valor";
+														  $item2="dsc_interes";
+						 								 $prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
+														  ?>
+													</select>
 												</div>
 											</div>
 										</div>
-										<div class="col-lg-2">
-											<label>Interes:</label>
-										</div>
-										<div class="col-lg-4" style="padding-left: 0;">
-											<select class="form-control form-control-sm m-select2 m-select2-general" id="interes" name="interes" style="width: 100%">
-												<option>
-													Seleccione...
-												</option>
-												<?php
-													 $tabla="vtama_interes";
-												  $item1="num_valor";
-												  $item2="dsc_interes";
-				 						 $prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
-												  ?>
-											</select>
-										</div>
-									</div>
+									</fieldset>
 								</div>
-								<div class="col-lg-6">
-									<div class="row">
-										<div class="col-lg-6">
+								<div class="col-lg-4">
+									<fieldset class="fieldFormHorizontal">
+										<legend class="tittle-box">
 											<table>
-												<tr>
-													<td>
-														<label class="m-checkbox">
-															Cuotas definidas&nbsp;&nbsp;
-														</label>
-													</td>
-													<td>
-														<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
-															<label>
-																<input type="checkbox" id="cuoDefi" onclick="desabilitar()"  name="">
-																<span></span>
-															</label>
-														</span>
-													</td>
-												</tr>
+												<tbody>
+													<tr>
+														<td><label style="margin-bottom: 10px">Cuotas Definidas</label></td>
+														<td>
+															<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
+																<label>
+																	<input type="checkbox" id="cuoDefi" onclick="desabilitar()">
+																	<span></span>
+																</label>
+															</span>
+														</td>
+													</tr>
+												</tbody>
 											</table>
+										</legend>
+										<div class="col-lg-12">
+											<div class="row form-group">
+												<div class="col-lg-6">
+													<label>Cuota inicial: </label>
+													<input type="text" id="cuoIni" class="form-control form-control-sm m-input" disabled placeholder="0">
+												</div>
+												<div class="col-lg-6">
+													<label>Cuota final: </label>
+													<input type="text" id="cuoFin" class="form-control form-control-sm m-input" disabled placeholder="0">		
+												</div>
+												<div class="col-lg-6">
+													<label>Valor de cuota: </label>
+													<input type="text" id="valCuo" class="form-control form-control-sm m-input" disabled placeholder="0,00" style="text-align: right;">
+												</div>
+												<div class="col-lg-6" style="text-align: center;">
+													<button type="button" onclick="CuoDefinidas();" class="btn btn-danger m-btn m-btn m-btn--icon m-btn--pill" disabled id="btnCuoDef">
+														<span>
+															<span>&nbsp;</span>
+															<i class="fa fa-file-text-o"></i>
+															<span>&nbsp;</span>
+														</span>
+													</button>
+												</div>
+											</div>
 										</div>
-										<div class="col-lg-2 offset-lg-4">
-											<button type="button" onclick="CuoDefinidas();" class="btn btn-danger m-btn m-btn m-btn--icon m-btn--pill" disabled id="btnCuoDef">
-												<span>
-													<span>&nbsp;</span>
-													<i class="fa fa-file-text-o"></i>
-													<span>&nbsp;</span>
-												</span>
-											</button>
-										</div>	
-									</div>	
-									<br>
+									</fieldset>
+								</div>
+								<div class="col-lg-3">
 									<div class="row">
-										<div class="col-lg-4">
-											<label>Cuota inicial: </label>
-											<input type="text" id="cuoIni" class="form-control form-control-sm m-input" disabled placeholder="0">
+										<div class="col-lg-12 form-group" style="text-align: center;">
+											<button type="button" onclick="cronograma();" class="btn m-btn--pill btn-danger" id="botonCrono">
+												&nbsp;&nbsp;&nbsp;&nbsp;Generar cronograma&nbsp;&nbsp;&nbsp;&nbsp;
+											</button>
 										</div>
-										<div class="col-lg-4">
-											<label>Cuota final: </label>
-											<input type="text" id="cuoFin" class="form-control form-control-sm m-input" disabled placeholder="0">			
-										</div>
-										<div class="col-lg-4">
-											<label>Valor de cuota: </label>
-											<input type="text" id="valCuo" class="form-control form-control-sm m-input" disabled placeholder="0,00" style="text-align: right;">			
+										<div class="col-lg-12 form-group" style="text-align: center;">
+											<button type="button" class="btn m-btn--pill btn-danger" id="botonCrono">
+												Generar cronograma CUI
+											</button>
 										</div>
 									</div>
-									<br>
 								</div>
 							</div>
 							<br>
 							<div class="row">
-								<div class="col-lg-8">
-									<div class="m-section__content">
+								<div class="col-lg-9">
+									<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="300">
 										<div class="table-responsive">
-										<table class="table table-fixed">
+										<table class="table">
 											<thead>
 												<tr>
-													<th style="background-color:#c4c5d6;width:7.2rem"># de Cuota</th>
-													<th style="background-color:#c4c5d6;width:9rem">Tipo de cuota</th>
-													<th style="background-color:#c4c5d6;width:6rem">Estado</th>
-													<th style="background-color:#c4c5d6;width:9.3rem">Fecha de Venc.</th>
-													<th style="background-color:#c4c5d6;width:6.5rem">Subtotal</th>
-													<th style="background-color:#c4c5d6;width:6.3rem">Interés</th>
-													<th style="background-color:#c4c5d6;width:6.3rem">I.G.V.</th>
-													<th style="background-color:#c4c5d6;width:6.5rem">Total</th>
-													<th style="background-color:#c4c5d6;width:5.2rem">Saldo</th>
+													<th>N°</th>
+													<th>Tipo de cuota</th>
+													<th>Estado</th>
+													<th>Fecha de Venc.</th>
+													<th>Subtotal</th>
+													<th>Interés</th>
+													<th>I.G.V.</th>
+													<th>Total</th>
+													<th>Saldo</th>
 												</tr>
 											</thead>
 											<tbody id="bodyCronograma">
@@ -906,66 +886,32 @@
 											</tbody>
 											<tfoot id="footCronograma">
 												<tr>
-													<td style="width:7.2rem"></td>
-													<td style="width:9rem"></td>
-													<td style="width:5rem"></td>
-													<td style="width:9.5rem;text-align:center;" class="Suma">Total</td>
-													<td style="width:6.5rem;text-align:right;" class="Suma A">0,00</td>
-													<td style="width:6rem;text-align:right;" class="Suma B">0,00</td>
-													<td style="width:6rem;text-align:right;" class="Suma C">0,00</td>
-													<td style="width:6.3rem;text-align:right;" class="Suma D">0,00</td>
-													<td style="width:5.2rem;text-align:right;" class="Suma E">0,00</td>
+													<td></td>
+													<td></td>
+													<td></td>
+													<td class="Suma">Total</td>
+													<td class="Suma A">0,00</td>
+													<td class="Suma B">0,00</td>
+													<td class="Suma C">0,00</td>
+													<td class="Suma D">0,00</td>
+													<td class="Suma E">0,00</td>
 												</tr>
 											</tfoot>
 										</table>
 										</div>
 									</div>
 								</div>
-								<div class="col-lg-4">
-									<div class="row">
-										<div class="col-lg-6">
-											<div class="input-group">
-												<button type="button" onclick="cronograma();" class="btn m-btn--pill btn-danger" id="botonCrono">
-													&nbsp;&nbsp;&nbsp;&nbsp;Generar cronograma&nbsp;&nbsp;&nbsp;&nbsp;
-												</button>
-											</div>
-										</div>
-										<div class="col-lg-6">
-											<div class="input-group">
-												<button type="button" class="btn m-btn--pill btn-danger" id="botonCrono">
-													Generar cronograma CUI
-												</button>
-											</div>
-										</div>
-									</div>
-									<br>
-									<label class="">
-										<h5>FOMA</h5>
-									</label>
-									<div class="row">
+								<div class="col-lg-3">
+									<fieldset class="fieldFormHorizontal">
+										<legend class="tittle-box">FOMA</legend>
 										<div class="col-lg-12">
-											<div class="row">
-												<div class="col-lg-6">
-													<label class="">
-														Saldo de FOMA:
-													</label>
-												</div>
-												<div class="col-lg-6">
+											<div class="row form-group">
+												<div class="col-lg-12">
+													<label>Saldo de FOMA</label>
 													<input type="text" id="imp_saldo_foma" name="imp_saldo_foma" class="form-control form-control-sm m-input" disabled placeholder="0,00" style="text-align: right;">
 												</div>
-											</div>
-										</div>
-									</div>
-									<br>
-									<div class="row">
-										<div class="col-lg-12">
-											<div class="row">
-												<div class="col-lg-6">
-													<label class="">
-														Numero de cuotas:
-													</label>
-												</div>
-												<div class="col-lg-6">
+												<div class="col-lg-12">
+													<label>Numero de cuotas</label>
 													<select class="form-control form-control-sm m-select2 m-select2-general" name="cuota_FOMA" id="cuota_FOMA" style="width: 100%">
 														<option>
 														Seleccione... 
@@ -974,23 +920,12 @@
 														  $tabla="vtama_cuota";
 														  $item1="num_cuotas";
 														  $item2="dsc_cuota";
-						 						 $prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
+						 						 		$prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
 														  ?> 
 													</select>
 												</div>
-											</div>
-										</div>
-									</div>
-									<br>
-									<div class="row">
-										<div class="col-lg-12">
-											<div class="row">
-												<div class="col-lg-6">
-													<label class="">
-														Fecha 1ra cuota: 
-													</label>
-												</div>
-												<div class="col-lg-6">
+												<div class="col-lg-12">
+													<label>Fecha 1ra Cuota</label>
 													<div class="input-group date">
 														<input type="text" class="form-control form-control-sm m-input" id="m_datepicker_2_validate" data-date-format="mm/dd/yyyy" value="<?php echo date('m/d/Y',strtotime(date('m/d/Y').'+ 1 month')); ?>" />
 														<div class="input-group-append">
@@ -1000,21 +935,15 @@
 														</div>
 													</div>
 												</div>
+												<div class="col-lg-12" style="text-align: center;">
+														<button type="button" class="btn m-btn--pill btn-danger mt25" id="cb_generar_foma" onclick="generaFOMA()">
+															Generar cuotas de FOMA
+														</button>
+												</div>
 											</div>
 										</div>
-									</div>
-									<br>
-									<div class="row">
-										<div class="col-lg-6 offset-lg-3">
-											<div class="input-group">
-												<button type="button" class="btn m-btn--pill btn-danger" id="cb_generar_foma" onclick="generaFOMA()">
-													Generar cuotas de FOMA
-												</button>
-											</div>
-										</div>
-									</div>
+									</fieldset>
 								</div>
-
 							</div>
 						</div>
 						<!--end: Form Wizard Step 5-->
@@ -1108,18 +1037,16 @@
 									</div>
 								</div>
 								<div class="col-lg-6">
-									<label class="">
-										<h5>Datos del beneficiario</h5>
-									</label>
-									<div class="row">
+									<fieldset class="fieldFormHorizontal">
+										<legend class="tittle-box">Datos del Beneficiario</legend>
 										<div class="col-lg-12">
-											<div class="row">
-												<div class="col-lg-3">
+											<div class="row form-group">
+												<div class="col-lg-3 form-group">
 													<label class="">
 														Tipo de documento:
 													</label>
 												</div>
-												<div class="col-lg-3">
+												<div class="col-lg-3 form-group">
 													<select class="form-control form-control-sm m-input custom-select custom-select-danger" disabled name="tipoDocBenef" id="tipoDocBenef">
 														<option value="">
 														Seleccione
@@ -1130,254 +1057,232 @@
 														  ?> 		
 													</select>
 												</div>
-												<div class="col-lg-3">
+												<div class="col-lg-3 form-group">
 													<label class="">
 														N° de documento:
 													</label>
 												</div>
-												<div class="col-lg-3">
+												<div class="col-lg-3 form-group">
 													<input type="text" id="numDocBenef" disabled class="form-control form-control-sm m-input" >
 												</div>
-											</div>
-										</div>
-									</div>
-									<br>
-									<div class="row">
-										<div class="col-lg-3">
-											<label class="">
-												Apellido paterno:
-											</label>
-										</div>
-										<div class="col-lg-9">
-											<input type="text" disabled id="apellPaternoBenef" class="form-control form-control-sm m-input">
-										</div>
-									</div>
-									<br>
-									<div class="row">
-										<div class="col-lg-3">
-											<label class="">
-												Apellido materno:
-											</label>
-										</div>
-										<div class="col-lg-9">
-											<input type="text" disabled id="apellMaternoBenef" class="form-control form-control-sm m-input">
-										</div>
-									</div>
-									<br>
-									<div class="row">
-										<div class="col-lg-3">
-											<label class="">
-												Nombres:
-											</label>
-										</div>
-										<div class="col-lg-9">
-											<input type="text" disabled id="nombreBenef" class="form-control form-control-sm m-input">
-										</div>
-									</div>
-									<br>
-									<div class="row">
-										<div class="col-lg-2">
-											<label>Fecha de nacimiento:</label>
-										</div>
-										<div class="col-lg-4">
-											<div class="input-group date">
-												<input type="text" disabled class="form-control form-control-sm m-input" readonly  placeholder="Seleccionar fecha" id="m_datepicker_1_modal"/>
-												<div class="input-group-append">
-													<span class="input-group-text">
-														<i class="la la-calendar-check-o"></i>
-													</span>
+												<div class="col-lg-3 form-group">
+													<label class="">
+														Apellido paterno:
+													</label>
+												</div>
+												<div class="col-lg-9 form-group">
+													<input type="text" disabled id="apellPaternoBenef" class="form-control form-control-sm m-input">
+												</div>
+												<div class="col-lg-3 form-group">
+													<label class="">
+														Apellido materno:
+													</label>
+												</div>
+												<div class="col-lg-9 form-group">
+													<input type="text" disabled id="apellMaternoBenef" class="form-control form-control-sm m-input">
+												</div>
+												<div class="col-lg-3 form-group">
+													<label class="">
+														Nombres:
+													</label>
+												</div>
+												<div class="col-lg-9 form-group">
+													<input type="text" disabled id="nombreBenef" class="form-control form-control-sm m-input">
+												</div>
+												<div class="col-lg-2 form-group">
+													<label>Fecha de nacimiento:</label>
+												</div>
+												<div class="col-lg-4 form-group">
+													<div class="input-group date">
+														<input type="text" disabled class="form-control form-control-sm m-input" readonly  placeholder="Seleccionar fecha" id="m_datepicker_1_modal"/>
+														<div class="input-group-append">
+															<span class="input-group-text">
+																<i class="la la-calendar-check-o"></i>
+															</span>
+														</div>
+													</div>
+												</div>
+												<div class="col-lg-2 form-group">
+													<label>Fecha de deceso:</label>
+												</div>
+												<div class="col-lg-4 form-group">
+													<div class="input-group date">
+														<input type="text" disabled class="form-control form-control-sm m-input" readonly  placeholder="Seleccionar fecha" id="m_datepicker_2"/>
+														<div class="input-group-append">
+															<span class="input-group-text">
+																<i class="la la-calendar-check-o"></i>
+															</span>
+														</div>
+													</div>
+												</div>
+												<div class="col-lg-2 form-group">
+													<label class="">
+														Religión:
+													</label>
+												</div>
+												<div class="col-lg-4 form-group">
+													<select disabled class="form-control form-control-sm m-input custom-select custom-select-danger" name="religionBenef" id="religionBenef">
+														<option value="">
+															Seleccione
+														</option>
+														<?php
+														  $tabla="vtama_religion";
+														  $item1="cod_religion";
+														  $item2="dsc_religion";
+						 						           $prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
+														?> 
+													</select>
+												</div>
+												<div class="col-lg-2 form-group">
+													<label class="">
+														Estado civil:
+													</label>
+												</div>
+												<div class="col-lg-4 form-group">
+													<select disabled class="form-control form-control-sm m-input custom-select custom-select-danger" name="edoCivilBenef" id="edoCivilBenef">
+														<option value="">
+															Seleccione
+														</option>
+														<?php
+						  						         $prueba=controladorEmpresa::ctrestadocivil();
+														?> 
+													</select>
+												</div>
+												<div class="col-lg-2 form-group">
+													<label class="">
+														Sexo:
+													</label>
+												</div>
+												<div class="col-lg-4 form-group">
+													<select disabled class="form-control form-control-sm m-input custom-select custom-select-danger" name="sexoBenef" id="sexoBenef">
+														<option value="">
+															Seleccione
+														</option>
+														<option value="M">
+															Masculino
+														</option>
+														<option value="F">
+															Femenino
+														</option>
+													</select>
+												</div>
+												<div class="col-lg-2 form-group">
+													<label class="">
+														Parentescos:
+													</label>
+												</div>
+												<div class="col-lg-4 form-group">
+													<select disabled class="form-control form-control-sm m-input custom-select custom-select-danger" name="parentescoBenef" id="parentescoBenef">
+														<option value="">
+															Seleccione
+														</option>
+														<?php
+														  $tabla="vtama_parentesco";
+														  $item1="cod_parentesco";
+														  $item2="dsc_parentesco";
+						 									$prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
+														?> 
+													</select>
+												</div>
+												<div class="col-lg-2 form-group">
+													<label class="">
+														Lugar deceso:
+													</label>
+												</div>
+												<div class="col-lg-4 form-group">
+													<select disabled class="form-control form-control-sm m-input custom-select custom-select-danger" name="lugarDecesoBenef" id="lugarDecesoBenef">
+														<option value="">
+															Seleccione
+														</option>
+														<?php
+														  $tabla="vtama_lugar_deceso";
+														  $item1="cod_lugar_deceso";
+														  $item2="dsc_lugar_deceso";
+						 						          $prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
+														?>
+													</select>
+												</div>
+												<div class="col-lg-2 form-group">
+													<label class="">
+														Motivo deceso:
+													</label>
+												</div>
+												<div class="col-lg-4 form-group">
+													<select disabled class="form-control form-control-sm m-input custom-select custom-select-danger" name="motivoDecesoBenef" id="motivoDecesoBenef">
+														<option value="">
+															Seleccione
+														</option>
+														<?php
+														  $tabla="vtama_motivo_deceso";
+														  $item1="cod_motivo_deceso";
+														  $item2="dsc_motivo_deceso";
+						 						          $prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
+														?>
+													</select>
+												</div>
+												<div class="col-lg-2 form-group">
+													<label class="">
+														Peso:
+													</label>
+												</div>
+												<div class="col-lg-2 form-group">
+													<input disabled type="text" id="pesoBenef" class="form-control form-control-sm m-input" placeholder="">
+												</div>
+												<div class="col-lg-2 form-group">
+													<label class="">
+														Talla:
+													</label>
+												</div>
+												<div class="col-lg-2 form-group">
+													<input disabled type="text" id="tallaBenef" class="form-control form-control-sm m-input" placeholder="">
+												</div>
+												<div class="col-lg-4 form-group">
+													<table>
+														<tr>
+															<td>
+																<label class="m-checkbox">
+																	¿Pasó autopsia?
+																</label>
+															</td>
+															<td>
+																<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
+																	<label>
+																		<input disabled type="checkbox" id="autopsiaBenef" name="autopsiaBenef">
+																		<span></span>
+																	</label>
+																</span>
+															</td>
+														</tr>
+													</table>
 												</div>
 											</div>
 										</div>
-										<div class="col-lg-2">
-											<label>Fecha de deceso:</label>
-										</div>
-										<div class="col-lg-4">
-											<div class="input-group date">
-												<input type="text" disabled class="form-control form-control-sm m-input" readonly  placeholder="Seleccionar fecha" id="m_datepicker_2"/>
-												<div class="input-group-append">
-													<span class="input-group-text">
-														<i class="la la-calendar-check-o"></i>
-													</span>
-												</div>
-											</div>
-										</div>
-									</div>
-									<br>
-									<div class="row">
-										<div class="col-lg-2">
-											<label class="">
-												Religión:
-											</label>
-										</div>
-										<div class="col-lg-4">
-											<select disabled class="form-control form-control-sm m-input custom-select custom-select-danger" name="religionBenef" id="religionBenef">
-												<option value="">
-													Seleccione
-												</option>
-												<?php
-												  $tabla="vtama_religion";
-												  $item1="cod_religion";
-												  $item2="dsc_religion";
-				 						           $prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
-												?> 
-											</select>
-										</div>
-										<div class="col-lg-2">
-											<label class="">
-												Estado civil:
-											</label>
-										</div>
-										<div class="col-lg-4">
-											<select disabled class="form-control form-control-sm m-input custom-select custom-select-danger" name="edoCivilBenef" id="edoCivilBenef">
-												<option value="">
-													Seleccione
-												</option>
-												<?php
-				  						         $prueba=controladorEmpresa::ctrestadocivil();
-												?> 
-											</select>
-										</div>
-									</div>
-									<br>
-									<div class="row">
-										<div class="col-lg-2">
-											<label class="">
-												Sexo:
-											</label>
-										</div>
-										<div class="col-lg-4">
-											<select disabled class="form-control form-control-sm m-input custom-select custom-select-danger" name="sexoBenef" id="sexoBenef">
-												<option value="">
-													Seleccione
-												</option>
-												<option value="M">
-													Masculino
-												</option>
-												<option value="F">
-													Femenino
-												</option>
-											</select>
-										</div>
-										<div class="col-lg-2">
-											<label class="">
-												Parentescos:
-											</label>
-										</div>
-										<div class="col-lg-4">
-											<select disabled class="form-control form-control-sm m-input custom-select custom-select-danger" name="parentescoBenef" id="parentescoBenef">
-												<option value="">
-													Seleccione
-												</option>
-												<?php
-												  $tabla="vtama_parentesco";
-												  $item1="cod_parentesco";
-												  $item2="dsc_parentesco";
-				 									$prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
-												?> 
-											</select>
-										</div>
-									</div>
-									<br>
-									<div class="row">
-										<div class="col-lg-2">
-											<label class="">
-												Lugar deceso:
-											</label>
-										</div>
-										<div class="col-lg-4">
-											<select disabled class="form-control form-control-sm m-input custom-select custom-select-danger" name="lugarDecesoBenef" id="lugarDecesoBenef">
-												<option value="">
-													Seleccione
-												</option>
-												<?php
-												  $tabla="vtama_lugar_deceso";
-												  $item1="cod_lugar_deceso";
-												  $item2="dsc_lugar_deceso";
-				 						          $prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
-												?>
-											</select>
-										</div>
-										<div class="col-lg-2">
-											<label class="">
-												Motivo deceso:
-											</label>
-										</div>
-										<div class="col-lg-4">
-											<select disabled class="form-control form-control-sm m-input custom-select custom-select-danger" name="motivoDecesoBenef" id="motivoDecesoBenef">
-												<option value="">
-													Seleccione
-												</option>
-												<?php
-												  $tabla="vtama_motivo_deceso";
-												  $item1="cod_motivo_deceso";
-												  $item2="dsc_motivo_deceso";
-				 						          $prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
-												?>
-											</select>
-										</div>
-									</div>
-									<br>
-									<div class="row">
-										<div class="col-lg-2">
-											<label class="">
-												Peso:
-											</label>
-										</div>
-										<div class="col-lg-2">
-											<input disabled type="text" id="pesoBenef" class="form-control form-control-sm m-input" placeholder="">
-										</div>
-										<div class="col-lg-2">
-											<label class="">
-												Talla:
-											</label>
-										</div>
-										<div class="col-lg-2">
-											<input disabled type="text" id="tallaBenef" class="form-control form-control-sm m-input" placeholder="">
-										</div>
-										<div class="col-lg-4">
-											<table>
-												<tr>
-													<td>
-														<label class="m-checkbox">
-															¿Pasó autopsia?
-														</label>
-													</td>
-													<td>
-														<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
-															<label>
-																<input disabled type="checkbox" id="autopsiaBenef" name="autopsiaBenef">
-																<span></span>
-															</label>
-														</span>
-													</td>
-												</tr>
-											</table>
-										</div>
-									</div>
+									</fieldset>
 								</div>
 							</div>
 						</div>
 						<!--end: Form Wizard Step 6-->
 						<div class="m-wizard__form-step" id="m_wizard_form_step_7">
 							<div class="row">
-								<table>
-									<tr>
-										<td>
-											<label class="m-checkbox">
-												<h5>Generar comprobante&nbsp;&nbsp;</h5>
-											</label>
-										</td>
-										<td>
-											<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
-												<label>
-													<input type="checkbox" id="genCom" onclick="apagar()"  name="">
-													<span></span>
+								<div class="col-lg-5">
+									<table>
+										<tr>
+											<td>
+												<label class="m-checkbox">
+													<h5>Generar comprobante&nbsp;&nbsp;</h5>
 												</label>
-											</span>
-										</td>
-									</tr>
-								</table>
+											</td>
+											<td>
+												<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
+													<label>
+														<input type="checkbox" id="genCom" onclick="apagar()"  name="">
+														<span></span>
+													</label>
+												</span>
+											</td>
+										</tr>
+									</table>
+								</div>
 							</div>
 							<br>
 							<div class="row">
@@ -1444,11 +1349,11 @@
 										<input type="text" disabled id="deuCom" class="form-control form-control-sm m-input" placeholder="">
 										<div class="input-group-append">
 											<span data-toggle="modal" data-target="#m_modal_2">
-											<button type="button" disabled="" id="btn1Com" class="m-btn btn btn-danger" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar cliente" onclick="creaTablaCliente('comprobante');">
+											<button type="button" disabled="" id="btn1Com" class="m-btn btn btn-danger btn-sm" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar cliente" onclick="creaTablaCliente('comprobante');">
 												<i class="la la-search"></i>
 											</button>
 											</span>
-											<button type="button" disabled id="btn2Com" class="btn btn-success">
+											<button type="button" disabled id="btn2Com" class="btn btn-success btn-sm">
 												<i class="flaticon-plus"></i>
 											</button>
 										</div>

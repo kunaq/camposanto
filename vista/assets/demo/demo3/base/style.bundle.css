@@ -51065,6 +51065,7 @@ ul >li, ol > li{
         padding-left: 20px;
     }
 }
+
 /* -------------- Estilo Modal Tabla Deuda -------------- */
 .text-red{
     color: #b30000;
@@ -51311,6 +51312,15 @@ ul >li, ol > li{
     }
 }
 
+.mt40{
+    margin-top: 40px
+}
+@media (max-width: 1025px){
+    .mt40{
+        margin-top: 5px;
+    }
+}
+
 /* ------------ Modal Resolución Contrato ------------ */
 .myTableConformacion{
     font-size: 12px;
@@ -51362,6 +51372,12 @@ ul >li, ol > li{
 .fieldFormHorizontal legend{
   background-color: #fafafa;
   font-size: 1.2rem;
+}
+
+.sidecheck{
+    position: absolute;
+    top: 0;
+    right: 20px;
 }
 
 /* ---------------- Estilos Refinanciamiento ---------------- */
