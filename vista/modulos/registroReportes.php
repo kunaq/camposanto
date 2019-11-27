@@ -15,66 +15,74 @@ include "modals/modalTelereporte.php" ?>
 		</div>
 		<!--End: Portlet Head-->
 		<div class="m-portlet__body">
-		<!--begin: Portlet Body-->	
-			<div class="card card-transparent flex-row">			
-				<div class="col-md-6" style="border-right: solid 1px #dfdfdf">
-					<div class="form-group row">
-						<p style="margin-left: 1rem; margin-top: 1rem;">Fecha de reporte</p>
-					</div>
-					<div class="form-group row">
-						<div class="col-lg-2">
-							<label>Desde:</label>
-						</div>
-						<div class="col-lg-4">
-							<div class="input-group date">
-								<input type="text" class="form-control form-control-sm m-input"  id="desdeTeleporte" name="desdeTeleporte" data-date-format="mm/dd/yyyy" value="<?php echo date('m/d/Y', strtotime(date('m/d/Y').'+ 1 month')); ?>"/>
-								<div class="input-group-append">
-									<span class="input-group-text">
-										<i class="la la-calendar-check-o"></i>
-									</span>
+			<div class="row">
+				<div class="col-lg-6">
+					<fieldset class="fieldFormHorizontal">
+						<legend class="tittle-box">Fecha de Reporte</legend>
+						<div class="col-lg-12">
+							<div class="row form-group">
+								<div class="col-md-12">
+									<div class="row">
+										<div class="col-lg-2">
+											<label>Desde:</label>
+										</div>
+										<div class="col-lg-4">
+											<div class="input-group date">
+												<input type="text" class="form-control form-control-sm m-input"  id="desdeTeleporte" name="desdeTeleporte" data-date-format="mm/dd/yyyy" value="<?php echo date('m/d/Y', strtotime(date('m/d/Y').'+ 1 month')); ?>"/>
+												<div class="input-group-append">
+													<span class="input-group-text">
+														<i class="la la-calendar-check-o"></i>
+													</span>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-2">
+											<label>Hasta:</label>
+										</div>
+										<div class="col-lg-4">
+											<div class="input-group date">
+												<input type="text" class="form-control form-control-sm m-input"  id="hastaTeleporte" name="hastaTeleporte" data-date-format="mm/dd/yyyy" value="<?php echo date('m/d/Y', strtotime(date('m/d/Y').'+ 1 month')); ?>"/>
+												<div class="input-group-append">
+													<span class="input-group-text">
+														<i class="la la-calendar-check-o"></i>
+													</span>
+												</div>
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
-						<div class="col-lg-2">
-							<label>Hasta:</label>
-						</div>
-						<div class="col-lg-4">
-							<div class="input-group date">
-								<input type="text" class="form-control form-control-sm m-input"  id="hastaTeleporte" name="hastaTeleporte" data-date-format="mm/dd/yyyy" value="<?php echo date('m/d/Y', strtotime(date('m/d/Y').'+ 1 month')); ?>"/>
-								<div class="input-group-append">
-									<span class="input-group-text">
-										<i class="la la-calendar-check-o"></i>
-									</span>
-								</div>
-							</div>
-						</div>
-					</div>
+					</fieldset>
 				</div>
-				<div class="col-md-6">
-					<div class="form-group row">
-						<p style="margin-left: 1rem; margin-top: 1rem;">Filtros</p>
-					</div>
-					<div class="form-group row">
-						<div class="col-lg-2">
-							<label>Beneficiario:</label>
+				<div class="col-lg-6">
+					<fieldset class="fieldFormHorizontal">
+						<legend class="tittle-box">Filtros</legend>
+						<div class="col-lg-12">
+							<div class="row form-group">
+								<div class="col-lg-2">
+									<label>Beneficiario:</label>
+								</div>
+								<div class="col-lg-4">
+									<input type="text" class="form-control form-control-sm m-input" name="" id="">
+								</div>
+								<div class="col-lg-2">
+									<label>Agencia:</label>
+								</div>
+								<div class="col-lg-4">
+									<input type="text" class="form-control form-control-sm m-input" name="" id="">
+								</div>
+							</div>
 						</div>
-						<div class="col-lg-4">
-							<input type="text" class="form-control form-control-sm m-input" name="" id="">
-						</div>
-						<div class="col-lg-2">
-							<label>Agencia:</label>
-						</div>
-						<div class="col-lg-4">
-							<input type="text" class="form-control form-control-sm m-input" name="" id="">
-						</div>
-					</div>
+					</fieldset>
 				</div>
 			</div>
+		<!--begin: Portlet Body-->	
 			<br>
 			<div class="form-group row">
 				<div class="col-md-12">
 					<p class="pull-right">
-						<button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#repBenef" title="Nuevo reporte" id=""  style="margin-right:6px;">Nuevo reporte beneficiario (fallecido)<!-- <i class="fa fa-plus"></i> --></button>	
+						<button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#repBenef" title="Nuevo reporte" id=""  style="margin-right:6px;"><i class="fa fa-plus"></i></button>	
 					</p>										
 				</div>
 			</div>

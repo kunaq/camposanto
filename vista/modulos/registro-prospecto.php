@@ -29,7 +29,7 @@
 					<div class="row">
 						<div class="col-md-8">
 							<fieldset class="fieldFormHorizontal" style="padding-left: 1rem;padding-right: 1rem">
-								<legend class="col-md-3">Prospecto</legend>							
+								<legend class="tittle-box">Prospecto</legend>							
 									<div class="form-group row">
 										<div class="col-lg-3">
 											<label>Codigo:</label>
@@ -202,35 +202,28 @@
 						</div>
 						<div class="col-md-4">
 							<fieldset class=" fieldFormHorizontal" style="margin-bottom: 0.53rem; padding: 1rem;">
-								<legend class="col-md-3">Registro</legend>
-								<div class="form-group row">
-									<div class="col-lg-12">
-										<label>Fecha / Días transcurridos:</label>
-									</div>
-								</div>
+								<legend class="tittle-box">Registro</legend>
 								<div class="row">
 									<div class="col-lg-9">
+										<label>Fecha / Días Transcurridos</label>
 										<input type="text" class="form-control form-control-sm m-input" disabled id="" name=""/>
 									</div>
 									<div class="col-lg-3">
+										<label>&nbsp;</label>
 										<input type="text" class="form-control form-control-sm m-input" disabled id="" name=""/>
 									</div>
 								</div>	
 								<br>
-								<div class="form-group row">
-									<div class="col-lg-12">
-										<label>Usuario:</label>
-									</div>
-								</div>
 								<div class="row">
 									<div class="col-lg-12">
+										<label>Usuario</label>
 										<input type="text" class="form-control form-control-sm m-input" disabled id="" name=""/>
 									</div>
 								</div>								
 							</fieldset>
 							<br>
 							<fieldset class="fieldFormHorizontal" style=" padding: 1rem;">
-								<legend class="col-md-3">Prospección</legend>
+								<legend class="tittle-box">Prospección</legend>
 								<div class="form-group row">
 									<div class="col-lg-12">
 										<label>Canal venta</label>
@@ -285,7 +278,7 @@
 					<div class="row">
 						<div class="col-md-6">
 							<fieldset class="fieldFormHorizontal" style=" padding: 1rem; margin: 0 2rem 0 .6rem;">
-							<legend class="col-md-3">Prospecto de</legend>
+							<legend class="tittle-box">Prospecto de</legend>
 								<div class="row">
 									<div class="col-lg-3">
 										<label>Vendedor</label>
@@ -345,10 +338,10 @@
 						</div>
 						<div class="col-md-6">
 							<fieldset class="fieldFormHorizontal" style=" padding: 1rem;s">
-							<legend class="col-md-3">Observaciones</legend>
+							<legend class="tittle-box">Observaciones</legend>
 								<div class="row">
 									<div class="col-lg-12">
-										<textarea class="form-control form-control-sm m-input" id="" rows="10"></textarea>
+										<textarea class="form-control form-control-sm m-input" id="" rows="7"></textarea>
 									</div>
 								</div>	
 								<br>									
@@ -359,7 +352,7 @@
 					<div class="row">
 						<div class="col-md-12">
 							<fieldset class=" fieldFormHorizontal" style=" padding: 1rem; margin-left: 0.6rem;">
-								<legend class="col-md-3">Estado de gestión</legend>
+								<legend class="tittle-box">Estado de gestión</legend>
 								<div class="row">
 									<div class="col-md-3">
 										<select class="form-control form-control-sm m-select2 m-select2-general" id="edoGesRegPro">

@@ -26,7 +26,7 @@ include "modals/modalConfiguraciones.php"; ?>
 							</div>
 						</div>
 						<!-- NOMBRE -->
-						<div style="width: max-content; margin: 2rem;"> 
+						<div class="text-header"> 
 							<h3>SISTEMA DE GESTIÓN DE CAMPOSANTO </h3>
 						</div>
 						
@@ -34,16 +34,15 @@ include "modals/modalConfiguraciones.php"; ?>
 							<div id="m_header_topbar" class="m-topbar  m-stack m-stack--ver m-stack--general">
 								<div class="m-stack__item m-topbar__nav-wrapper">
 									<ul class="m-topbar__nav m-nav m-nav--inline">
-										<li class="m-nav__item">
-											<div class="m-card-user__details" style="padding-top: 1rem">
-												<span class="m-card-user__name m--font-weight-500">
-													<?php echo $_SESSION['nombre']; ?>
-												</span>
-												<br>
-												<p class="m--font-weight-300">
-													Sede San Antonio
-												</p>
-											</div>
+										<li class="m-nav__item m-topbar__quick-actions m-topbar__quick-actions--img m-dropdown m-dropdown--large m-dropdown--header-bg-fill m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push m-dropdown--mobile-full-width m-dropdown--skin-light">
+											<!-- <div class="m-card-user__details"> -->
+													<span class="user_name">
+														<?php echo $_SESSION['nombre']; ?>
+													</span>
+													<p class="m--font-weight-300">
+														Sede San Antonio
+													</p>
+											<!-- </div> -->
 										</li>
 										<li class="m-nav__item m-topbar__user-profile m-topbar__user-profile--img m-dropdown m-dropdown--medium m-dropdown--arrow m-dropdown--header-bg-fill m-dropdown--align-right m-dropdown--mobile-full-width m-dropdown--skin-light" m-dropdown-toggle="click">
 											<a href="#" class="m-nav__link m-dropdown__toggle">

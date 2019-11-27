@@ -50610,6 +50610,16 @@ body {
     font-size: 11px;
 }
 
+.text-header{
+    width: max-content;
+    margin: 2rem;
+}
+@media (max-width: 1025px){
+    .text-header{
+        display: none;
+    }
+}
+
 @media (min-width: 576px) {
         
     .table-fixed thead, .table-fixed tfoot {
@@ -51494,11 +51504,18 @@ ul >li, ol > li{
     font-weight: 500;
 }
 
+.user_name{
+    vertical-align: middle;
+    padding-top: 20px
+}
 
 @media (max-width: 1025px){
     .btn-esquina{
         top: 1px;
         right: 11px;
+    }
+    .user_name{
+    padding-top: 0px
     }
 }
 
@@ -51508,4 +51525,31 @@ ul >li, ol > li{
     border-left: 15px solid transparent;
     border-bottom: 15px solid transparent;
     transition: 0.1s;
+}
+
+/* ---------------- Estilos Arbol Vendedores ---------------- */
+
+.tableVendedores{
+    width: 100%;
+}
+
+.tableVendedores thead th, .tableVendedores tbody td{
+    text-align: center;
+}
+
+.tableVendedores tbody td{
+    height: 20px;
+}
+
+.tableVendedores tbody{
+    /*height: 400px;*/
+}
+
+.tableVendedores tr {
+    border-bottom: 1px solid #f3f2f2;
+}
+
+.tableVendedores tbody tr:hover td{
+    background-color: #b6afaf !important;
+    cursor: pointer;
 }

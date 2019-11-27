@@ -108,16 +108,16 @@
 			</div>
 			<br>
 			<div class="form-group row">
-				<div class="col-md-10 offset-md-2 table-responsive" style="">
+				<div class="col-lg-10 table-responsive" style="">
 					<table class="table" style="width:100%" id="tabProcComis">
 						<thead>
 							<tr>
 								<th>#</th>
 								<th>Código</th>
-								<th style="width: 20rem; text-align: center;padding: 0">Nombre</th>
-								<th style="width: 8rem;text-align: center;padding: 0">Volumen</th>
-								<th style="width: 8rem; text-align: center;padding: 0">Meta</th>
-								<th style="width: 9rem; text-align: center;padding: 0">% Comisionable</th>
+								<th>Nombre</th>
+								<th>Volumen</th>
+								<th>Meta</th>
+								<th>% Comisionable</th>
 								<th>Comisión</th>
 							</tr>
 						</thead>

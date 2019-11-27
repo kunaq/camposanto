@@ -1,5 +1,10 @@
 $("#numDocRegPro").number(true);
-$("#tabRegConRegPro").DataTable();
+$("#tabRegConRegPro").DataTable({
+  "searching": false,
+  "info": false,
+  "paging":   false,
+  "ordering": false,
+ });
 
 function DocLenghtBusq(tipo){
     if (tipo == "DI001") {
