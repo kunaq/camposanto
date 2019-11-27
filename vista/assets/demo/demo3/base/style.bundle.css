@@ -51399,11 +51399,11 @@ ul >li, ol > li{
 .myTableSaldos th, td{
     background-color: #FFF;
     text-align: center;
+    padding-bottom: 15px
 }
 .myTableSaldos thead th{
     background-color: #fff;
 }
-
 
 @media (max-width: 1025px){
     .myTableSaldos{
