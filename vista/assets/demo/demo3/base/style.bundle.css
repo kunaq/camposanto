@@ -44410,11 +44410,11 @@ body {
 }
 
 .m-brand {
-    -webkit-transition: all .3s ease;
-    -moz-transition: all .3s ease;
-    -ms-transition: all .3s ease;
-    -o-transition: all .3s ease;
-    transition: all .3s ease;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -ms-transition: none;
+    -o-transition: none;
+    transition: none;
     height: 80px;
     width: 150px;
     padding: 0 30px
@@ -44725,7 +44725,7 @@ body {
     }
 
     .m-brand .m-brand__tools {
-        display: none!important
+        /*display: none!important*/
     }
 
     .m-brand--minimize .m-brand {
@@ -44744,7 +44744,10 @@ body {
     }
 
     .m-brand--minimize .m-brand .m-brand__tools {
-        text-align: center
+        text-align: center;
+        background: url("../../../../img/logo_muya.png") no-repeat;
+        background-size: 50px;
+        background-position: center;
     }
 
     .m-header--static.m-aside-left--fixed .m-brand {
@@ -50210,13 +50213,17 @@ body {
     }
 
     .m-aside-menu .m-menu__nav>.m-menu__item>.m-menu__link>.m-menu__link-icon {
-        display: inline-block;
+        display: table-cell;
         text-align: center;
-        font-size: 2.2rem
+        font-size: 1.4rem
+    }
+    
+    .m-aside-left--minimize .m-aside-menu .m-menu__nav>.m-menu__item>.m-menu__link .m-menu__link-text{
+         display: none;
     }
 
     .m-aside-menu .m-menu__nav>.m-menu__item>.m-menu__link>.m-menu__link-text,.m-aside-menu .m-menu__nav>.m-menu__item>.m-menu__link>.m-menu__link-title {
-        display: block;
+        display: table-cell;
         margin-top: .75rem;
         text-align: center;
         font-weight: 400
@@ -50304,7 +50311,7 @@ body {
     }
 
     .m-aside-menu .m-menu__nav>.m-menu__item>.m-menu__submenu {
-        margin-left: 150px!important
+        /*margin-left: 150px!important*/
     }
 }
 

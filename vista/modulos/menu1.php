@@ -1,495 +1,1000 @@
+<!-- <style type="text/css">
+  .m-aside-menu .m-aside-menu--skin-dark .m-menu__nav> .m-menu-item:not(.m-menu-item--parent):not(.m-menu-item--open):not(.m-menu-item--expanded):not(.m-menu-item--active):hover{ background: #DF0101 !important}
+</style> -->
+
 <!-- BEGIN: Left Aside -->
-	<button class="m-aside-left-close  m-aside-left-close--skin-dark " id="m_aside_left_close_btn">
-		<i class="la la-close"></i>
-	</button>
-	<div id="m_aside_left" class="m-grid__item	m-aside-left  m-aside-left--skin-dark ">
-		<!-- BEGIN: Aside Menu -->
-	<div id="m_ver_menu" class="m-aside-menu  m-aside-menu--skin-dark m-aside-menu--submenu-skin-dark " m-menu-vertical="1" m-menu-scrollable="0" menu-dropdown-timeout="500">
-		<!-- <ul class="m-menu__nav  m-menu__nav--dropdown-submenu-arrow ">
-			<li class="m-menu__item " aria-haspopup="true" >
-				<a  href="" class="m-menu__link ">
-					<i class="m-menu__link-icon la-home"></i>
-					<span class="m-menu__link-title">
-						<span class="m-menu__link-wrap">
+				<button class="m-aside-left-close  m-aside-left-close--skin-dark " id="m_aside_left_close_btn">
+					<i class="la la-close"></i>
+				</button>
+				<div id="m_aside_left" class="m-grid__item	m-aside-left  m-aside-left--skin-dark ">
+					<!-- BEGIN: Aside Menu -->
+					<div id="m_ver_menu" class="m-aside-menu  m-aside-menu--skin-dark m-aside-menu--submenu-skin-dark " m-menu-vertical="1" m-menu-scrollable="0" m-menu-dropdown-timeout="500">
+						<ul class="m-menu__nav  m-menu__nav--dropdown-submenu-arrow ">
+							<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  m-menu-submenu-toggle="hover">
+								<a  href="javascript:;" class="m-menu__link m-menu__toggle">
+									<i class="m-menu__link-icon flaticon-interface-7"></i>
+									<span class="m-menu__link-text" style="padding-left: .3rem;">
+										Gestión comercial
+									</span>
+									<i class="m-menu__ver-arrow la la-angle-right"></i>
+								</a>
+								<div class="m-menu__submenu ">
+									<span class="m-menu__arrow"></span>
+									<ul class="m-menu__subnav">
+										<li class="m-menu__item  m-menu__item--parent" aria-haspopup="true" >
+											<span class="m-menu__link">
+												<span class="m-menu__link-text">
+													Periodo de ventas
+												</span>
+											</span>
+										</li>
+										<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  m-menu-submenu-toggle="hover">
+											<a  href="javascript:;" class="m-menu__link m-menu__toggle">
+												<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+													<span></span>
+												</i>
+												<span class="m-menu__link-text">
+													Árbol de vendedores
+												</span>
+											</a>
+										</li>
+										<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  m-menu-submenu-toggle="hover">
+											<a  href="javascript:;" class="m-menu__link m-menu__toggle">
+												<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+													<span></span>
+												</i>
+												<span class="m-menu__link-text">
+													Form Widgets
+												</span>
+											</a>
+										</li>
+										<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  m-menu-submenu-toggle="hover">
+											<a  href="javascript:;" class="m-menu__link m-menu__toggle">
+												<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+													<span></span>
+												</i>
+												<span class="m-menu__link-text">
+													Form Layouts
+												</span>
+											</a>
+										</li>
+										<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  m-menu-submenu-toggle="hover">
+											<a  href="javascript:;" class="m-menu__link m-menu__toggle">
+												<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+													<span></span>
+												</i>
+												<span class="m-menu__link-text">
+													Form Validation
+												</span>
+												<i class="m-menu__ver-arrow la la-angle-right"></i>
+											</a>
+											<div class="m-menu__submenu ">
+												<span class="m-menu__arrow"></span>
+												<ul class="m-menu__subnav">
+													<li class="m-menu__item " aria-haspopup="true" >
+														<a  href="../../components/forms/validation/states.html" class="m-menu__link ">
+															<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+																<span></span>
+															</i>
+															<span class="m-menu__link-text">
+																Validation States
+															</span>
+														</a>
+													</li>
+													<li class="m-menu__item " aria-haspopup="true" >
+														<a  href="../../components/forms/validation/form-controls.html" class="m-menu__link ">
+															<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+																<span></span>
+															</i>
+															<span class="m-menu__link-text">
+																Form Controls
+															</span>
+														</a>
+													</li>
+													<li class="m-menu__item " aria-haspopup="true" >
+														<a  href="../../components/forms/validation/form-widgets.html" class="m-menu__link ">
+															<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+																<span></span>
+															</i>
+															<span class="m-menu__link-text">
+																Form Widgets
+															</span>
+														</a>
+													</li>
+												</ul>
+											</div>
+										</li>
+										<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  m-menu-submenu-toggle="hover">
+											<a  href="javascript:;" class="m-menu__link m-menu__toggle">
+												<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+													<span></span>
+												</i>
+												<span class="m-menu__link-text">
+													Form Wizard
+												</span>
+												<i class="m-menu__ver-arrow la la-angle-right"></i>
+											</a>
+											<div class="m-menu__submenu ">
+												<span class="m-menu__arrow"></span>
+												<ul class="m-menu__subnav">
+													<li class="m-menu__item " aria-haspopup="true" >
+														<a  href="../../components/forms/wizard/wizard-1.html" class="m-menu__link ">
+															<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+																<span></span>
+															</i>
+															<span class="m-menu__link-text">
+																Form Wizard 1
+															</span>
+														</a>
+													</li>
+													<li class="m-menu__item " aria-haspopup="true" >
+														<a  href="../../components/forms/wizard/wizard-2.html" class="m-menu__link ">
+															<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+																<span></span>
+															</i>
+															<span class="m-menu__link-text">
+																Form Wizard 2
+															</span>
+														</a>
+													</li>
+													<li class="m-menu__item " aria-haspopup="true" >
+														<a  href="../../components/forms/wizard/wizard-3.html" class="m-menu__link ">
+															<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+																<span></span>
+															</i>
+															<span class="m-menu__link-text">
+																Form Wizard 3
+															</span>
+														</a>
+													</li>
+													<li class="m-menu__item " aria-haspopup="true" >
+														<a  href="../../components/forms/wizard/wizard-4.html" class="m-menu__link ">
+															<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+																<span></span>
+															</i>
+															<span class="m-menu__link-text">
+																Form Wizard 4
+															</span>
+														</a>
+													</li>
+													<li class="m-menu__item " aria-haspopup="true" >
+														<a  href="../../components/forms/wizard/wizard-5.html" class="m-menu__link ">
+															<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+																<span></span>
+															</i>
+															<span class="m-menu__link-text">
+																Form Wizard 5
+															</span>
+														</a>
+													</li>
+												</ul>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  m-menu-submenu-toggle="hover">
+								<a  href="javascript:;" class="m-menu__link m-menu__toggle">
+									<i class="m-menu__link-icon flaticon-tabs"></i>
+									<span class="m-menu__link-text">
+										Datatables
+									</span>
+									<i class="m-menu__ver-arrow la la-angle-right"></i>
+								</a>
+								<div class="m-menu__submenu ">
+									<span class="m-menu__arrow"></span>
+									<ul class="m-menu__subnav">
+										<li class="m-menu__item  m-menu__item--parent" aria-haspopup="true" >
+											<span class="m-menu__link">
+												<span class="m-menu__link-text">
+													Datatables
+												</span>
+											</span>
+										</li>
+										<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  m-menu-submenu-toggle="hover">
+											<a  href="javascript:;" class="m-menu__link m-menu__toggle">
+												<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+													<span></span>
+												</i>
+												<span class="m-menu__link-text">
+													Base
+												</span>
+												<i class="m-menu__ver-arrow la la-angle-right"></i>
+											</a>
+											<div class="m-menu__submenu ">
+												<span class="m-menu__arrow"></span>
+												<ul class="m-menu__subnav">
+													<li class="m-menu__item " aria-haspopup="true" >
+														<a  href="../../components/datatables/base/data-local.html" class="m-menu__link ">
+															<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+																<span></span>
+															</i>
+															<span class="m-menu__link-text">
+																Local Data
+															</span>
+														</a>
+													</li>
+													<li class="m-menu__item " aria-haspopup="true" >
+														<a  href="../../components/datatables/base/data-json.html" class="m-menu__link ">
+															<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+																<span></span>
+															</i>
+															<span class="m-menu__link-text">
+																JSON Data
+															</span>
+														</a>
+													</li>
+													<li class="m-menu__item " aria-haspopup="true" >
+														<a  href="../../components/datatables/base/data-ajax.html" class="m-menu__link ">
+															<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+																<span></span>
+															</i>
+															<span class="m-menu__link-text">
+																Ajax Data
+															</span>
+														</a>
+													</li>
+													<li class="m-menu__item " aria-haspopup="true" >
+														<a  href="../../components/datatables/base/html-table.html" class="m-menu__link ">
+															<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+																<span></span>
+															</i>
+															<span class="m-menu__link-text">
+																HTML Table
+															</span>
+														</a>
+													</li>
+													<li class="m-menu__item " aria-haspopup="true" >
+														<a  href="../../components/datatables/base/record-selection.html" class="m-menu__link ">
+															<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+																<span></span>
+															</i>
+															<span class="m-menu__link-text">
+																Record Selection
+															</span>
+														</a>
+													</li>
+													<li class="m-menu__item " aria-haspopup="true" >
+														<a  href="../../components/datatables/base/local-sort.html" class="m-menu__link ">
+															<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+																<span></span>
+															</i>
+															<span class="m-menu__link-text">
+																Local Sort
+															</span>
+														</a>
+													</li>
+													<li class="m-menu__item " aria-haspopup="true" >
+														<a  href="../../components/datatables/base/row-details.html" class="m-menu__link ">
+															<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+																<span></span>
+															</i>
+															<span class="m-menu__link-text">
+																Row Details
+															</span>
+														</a>
+													</li>
+													<li class="m-menu__item " aria-haspopup="true" >
+														<a  href="../../components/datatables/base/column-rendering.html" class="m-menu__link ">
+															<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+																<span></span>
+															</i>
+															<span class="m-menu__link-text">
+																Column Rendering
+															</span>
+														</a>
+													</li>
+													<li class="m-menu__item " aria-haspopup="true" >
+														<a  href="../../components/datatables/base/column-width.html" class="m-menu__link ">
+															<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+																<span></span>
+															</i>
+															<span class="m-menu__link-text">
+																Column Width
+															</span>
+														</a>
+													</li>
+													<li class="m-menu__item " aria-haspopup="true" >
+														<a  href="../../components/datatables/base/responsive-columns.html" class="m-menu__link ">
+															<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+																<span></span>
+															</i>
+															<span class="m-menu__link-text">
+																Responsive Columns
+															</span>
+														</a>
+													</li>
+													<li class="m-menu__item " aria-haspopup="true" >
+														<a  href="../../components/datatables/base/translation.html" class="m-menu__link ">
+															<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+																<span></span>
+															</i>
+															<span class="m-menu__link-text">
+																Translation
+															</span>
+														</a>
+													</li>
+												</ul>
+											</div>
+										</li>
+										<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  m-menu-submenu-toggle="hover">
+											<a  href="javascript:;" class="m-menu__link m-menu__toggle">
+												<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+													<span></span>
+												</i>
+												<span class="m-menu__link-text">
+													Scrolling
+												</span>
+												<i class="m-menu__ver-arrow la la-angle-right"></i>
+											</a>
+											<div class="m-menu__submenu ">
+												<span class="m-menu__arrow"></span>
+												<ul class="m-menu__subnav">
+													<li class="m-menu__item " aria-haspopup="true" >
+														<a  href="../../components/datatables/scrolling/vertical.html" class="m-menu__link ">
+															<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+																<span></span>
+															</i>
+															<span class="m-menu__link-text">
+																Vertical Scrolling
+															</span>
+														</a>
+													</li>
+													<li class="m-menu__item " aria-haspopup="true" >
+														<a  href="../../components/datatables/scrolling/horizontal.html" class="m-menu__link ">
+															<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+																<span></span>
+															</i>
+															<span class="m-menu__link-text">
+																Horizontal Scrolling
+															</span>
+														</a>
+													</li>
+													<li class="m-menu__item " aria-haspopup="true" >
+														<a  href="../../components/datatables/scrolling/both.html" class="m-menu__link ">
+															<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+																<span></span>
+															</i>
+															<span class="m-menu__link-text">
+																Both Scrolling
+															</span>
+														</a>
+													</li>
+												</ul>
+											</div>
+										</li>
+										<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  m-menu-submenu-toggle="hover">
+											<a  href="javascript:;" class="m-menu__link m-menu__toggle">
+												<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+													<span></span>
+												</i>
+												<span class="m-menu__link-text">
+													Locked Columns
+												</span>
+												<i class="m-menu__ver-arrow la la-angle-right"></i>
+											</a>
+											<div class="m-menu__submenu ">
+												<span class="m-menu__arrow"></span>
+												<ul class="m-menu__subnav">
+													<li class="m-menu__item " aria-haspopup="true" >
+														<a  href="../../components/datatables/locked/left.html" class="m-menu__link ">
+															<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+																<span></span>
+															</i>
+															<span class="m-menu__link-text">
+																Left Locked Columns
+															</span>
+														</a>
+													</li>
+													<li class="m-menu__item " aria-haspopup="true" >
+														<a  href="../../components/datatables/locked/right.html" class="m-menu__link ">
+															<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+																<span></span>
+															</i>
+															<span class="m-menu__link-text">
+																Right Locked Columns
+															</span>
+														</a>
+													</li>
+													<li class="m-menu__item " aria-haspopup="true" >
+														<a  href="../../components/datatables/locked/both.html" class="m-menu__link ">
+															<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+																<span></span>
+															</i>
+															<span class="m-menu__link-text">
+																Both Locked Columns
+															</span>
+														</a>
+													</li>
+													<li class="m-menu__item " aria-haspopup="true" >
+														<a  href="../../components/datatables/locked/html-table.html" class="m-menu__link ">
+															<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+																<span></span>
+															</i>
+															<span class="m-menu__link-text">
+																HTML Table
+															</span>
+														</a>
+													</li>
+												</ul>
+											</div>
+										</li>
+										<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  m-menu-submenu-toggle="hover">
+											<a  href="javascript:;" class="m-menu__link m-menu__toggle">
+												<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+													<span></span>
+												</i>
+												<span class="m-menu__link-text">
+													Child Datatables
+												</span>
+												<i class="m-menu__ver-arrow la la-angle-right"></i>
+											</a>
+											<div class="m-menu__submenu ">
+												<span class="m-menu__arrow"></span>
+												<ul class="m-menu__subnav">
+													<li class="m-menu__item " aria-haspopup="true" >
+														<a  href="../../components/datatables/child/data-local.html" class="m-menu__link ">
+															<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+																<span></span>
+															</i>
+															<span class="m-menu__link-text">
+																Local Data
+															</span>
+														</a>
+													</li>
+													<li class="m-menu__item " aria-haspopup="true" >
+														<a  href="../../components/datatables/child/data-ajax.html" class="m-menu__link ">
+															<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+																<span></span>
+															</i>
+															<span class="m-menu__link-text">
+																Remote Data
+															</span>
+														</a>
+													</li>
+												</ul>
+											</div>
+										</li>
+										<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  m-menu-submenu-toggle="hover">
+											<a  href="javascript:;" class="m-menu__link m-menu__toggle">
+												<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+													<span></span>
+												</i>
+												<span class="m-menu__link-text">
+													API
+												</span>
+												<i class="m-menu__ver-arrow la la-angle-right"></i>
+											</a>
+											<div class="m-menu__submenu ">
+												<span class="m-menu__arrow"></span>
+												<ul class="m-menu__subnav">
+													<li class="m-menu__item " aria-haspopup="true" >
+														<a  href="../../components/datatables/api/methods.html" class="m-menu__link ">
+															<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+																<span></span>
+															</i>
+															<span class="m-menu__link-text">
+																API Methods
+															</span>
+														</a>
+													</li>
+													<li class="m-menu__item " aria-haspopup="true" >
+														<a  href="../../components/datatables/api/events.html" class="m-menu__link ">
+															<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+																<span></span>
+															</i>
+															<span class="m-menu__link-text">
+																Events
+															</span>
+														</a>
+													</li>
+												</ul>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  m-menu-submenu-toggle="hover">
+								<a  href="javascript:;" class="m-menu__link m-menu__toggle">
+									<i class="m-menu__link-icon flaticon-interface-1"></i>
+									<span class="m-menu__link-text">
+										Portlets
+									</span>
+									<i class="m-menu__ver-arrow la la-angle-right"></i>
+								</a>
+								<div class="m-menu__submenu ">
+									<span class="m-menu__arrow"></span>
+									<ul class="m-menu__subnav">
+										<li class="m-menu__item  m-menu__item--parent" aria-haspopup="true" >
+											<span class="m-menu__link">
+												<span class="m-menu__link-text">
+													Portlets
+												</span>
+											</span>
+										</li>
+										<li class="m-menu__item " aria-haspopup="true" >
+											<a  href="../../components/portlets/base.html" class="m-menu__link ">
+												<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+													<span></span>
+												</i>
+												<span class="m-menu__link-text">
+													Base Portlets
+												</span>
+											</a>
+										</li>
+										<li class="m-menu__item " aria-haspopup="true" >
+											<a  href="../../components/portlets/advanced.html" class="m-menu__link ">
+												<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+													<span></span>
+												</i>
+												<span class="m-menu__link-text">
+													Advanced Portlets
+												</span>
+											</a>
+										</li>
+										<li class="m-menu__item " aria-haspopup="true" >
+											<a  href="../../components/portlets/creative.html" class="m-menu__link ">
+												<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+													<span></span>
+												</i>
+												<span class="m-menu__link-text">
+													Creative Portlets
+												</span>
+											</a>
+										</li>
+										<li class="m-menu__item " aria-haspopup="true" >
+											<a  href="../../components/portlets/tabbed.html" class="m-menu__link ">
+												<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+													<span></span>
+												</i>
+												<span class="m-menu__link-text">
+													Tabbed Portlets
+												</span>
+											</a>
+										</li>
+										<li class="m-menu__item " aria-haspopup="true" >
+											<a  href="../../components/portlets/draggable.html" class="m-menu__link ">
+												<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+													<span></span>
+												</i>
+												<span class="m-menu__link-text">
+													Draggable Portlets
+												</span>
+											</a>
+										</li>
+										<li class="m-menu__item " aria-haspopup="true" >
+											<a  href="../../components/portlets/tools.html" class="m-menu__link ">
+												<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+													<span></span>
+												</i>
+												<span class="m-menu__link-text">
+													Portlet Tools
+												</span>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  m-menu-submenu-toggle="hover">
+								<a  href="javascript:;" class="m-menu__link m-menu__toggle">
+									<i class="m-menu__link-icon flaticon-interface-6"></i>
+									<span class="m-menu__link-text">
+										Timeline
+									</span>
+									<i class="m-menu__ver-arrow la la-angle-right"></i>
+								</a>
+								<div class="m-menu__submenu ">
+									<span class="m-menu__arrow"></span>
+									<ul class="m-menu__subnav">
+										<li class="m-menu__item  m-menu__item--parent" aria-haspopup="true" >
+											<span class="m-menu__link">
+												<span class="m-menu__link-text">
+													Timeline
+												</span>
+											</span>
+										</li>
+										<li class="m-menu__item " aria-haspopup="true" >
+											<a  href="../../components/timeline/timeline-1.html" class="m-menu__link ">
+												<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+													<span></span>
+												</i>
+												<span class="m-menu__link-text">
+													Timeline 1
+												</span>
+											</a>
+										</li>
+										<li class="m-menu__item " aria-haspopup="true" >
+											<a  href="../../components/timeline/timeline-2.html" class="m-menu__link ">
+												<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+													<span></span>
+												</i>
+												<span class="m-menu__link-text">
+													Timeline 2
+												</span>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  m-menu-submenu-toggle="hover">
+								<a  href="javascript:;" class="m-menu__link m-menu__toggle">
+									<i class="m-menu__link-icon flaticon-network"></i>
+									<span class="m-menu__link-text">
+										Widgets
+									</span>
+									<i class="m-menu__ver-arrow la la-angle-right"></i>
+								</a>
+								<div class="m-menu__submenu ">
+									<span class="m-menu__arrow"></span>
+									<ul class="m-menu__subnav">
+										<li class="m-menu__item  m-menu__item--parent" aria-haspopup="true" >
+											<span class="m-menu__link">
+												<span class="m-menu__link-text">
+													Widgets
+												</span>
+											</span>
+										</li>
+										<li class="m-menu__item " aria-haspopup="true" >
+											<a  href="../../components/widgets/general.html" class="m-menu__link ">
+												<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+													<span></span>
+												</i>
+												<span class="m-menu__link-text">
+													General Widgets
+												</span>
+											</a>
+										</li>
+										<li class="m-menu__item " aria-haspopup="true" >
+											<a  href="../../components/widgets/chart.html" class="m-menu__link ">
+												<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+													<span></span>
+												</i>
+												<span class="m-menu__link-text">
+													Chart Widgets
+												</span>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<!-- END: Aside Menu -->
+				</div>
+				<!-- END: Left Aside -->
+
+
+<!--  -->
+
+
+<!-- BEGIN: Left Aside -->
+		<!-- <button class="m-aside-left-close m-aside-left-close--skin-dark" id="m_aside_left_close_btn">
+			<i class="la la-close"></i>
+		</button>
+		<div id="m_aside_left" class="m-grid__item	m-aside-left  m-aside-left--skin-dark "> -->
+					<!-- BEGIN: Aside Menu -->
+			<!-- <div id="m_ver_menu" class="m-aside-menu  m-aside-menu--skin-dark m-aside-menu--submenu-skin-dark m-aside-menu--dropdown" 
+		data-menu-vertical="true" m-menu-dropdown="1" m-menu-scrollable="1" m-menu-dropdown-timeout="500"  style=" background-color: #DF0101;" 
+		>
+
+				<ul class="m-menu__nav  m-menu__nav--dropdown-submenu-arrow ">
+					<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  m-menu-submenu-toggle="hover">
+						<a  href="javascript:;" class="m-menu__link m-menu__toggle">
+							<span class="m-menu__item-here"></span>
+							<i class="m-menu__link-icon flaticon-user-settings"></i>
 							<span class="m-menu__link-text">
-								Inicio
+								Gestión comercial
 							</span>
-						</span>
-					</span>
-				</a>
-			</li>
-			<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  m-menu-submenu-toggle="hover">
-				<a  href="javascript:;" class="m-menu__link m-menu__toggle">
-					<i class="m-menu__link-icon flaticon-coins"></i>
-					<span class="m-menu__link-text">
-						Gestion comercial
-					</span>
-					<i class="m-menu__ver-arrow la la-angle-right"></i>
-				</a>
-				<div class="m-menu__submenu ">
-					<span class="m-menu__arrow"></span>
-					<ul class="m-menu__subnav">
-						<li class="m-menu__item  m-menu__item--parent" aria-haspopup="true" >
-							<span class="m-menu__link">
-								<span class="m-menu__link-text">
-									Gestion comercial
-								</span>
+							<i class="m-menu__ver-arrow la la-angle-right"></i>
+						</a>
+						<div class="m-menu__submenu ">
+							<span class="m-menu__arrow" style="color:#DF0101;"></span>
+							<ul class="m-menu__subnav" style="background:#DF0101;">
+								<li class="m-menu__item  m-menu__item--parent" aria-haspopup="true" >
+									<span class="m-menu__link">
+										<span class="m-menu__item-here"></span>
+										<span class="m-menu__link-text">
+											Gestión comercial
+										</span>
+									</span>
+								</li>
+								<li class="m-menu__item " aria-haspopup="true" >
+									<a  href="periodo-venta" class="m-menu__link ">
+										<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+											<span></span>
+										</i>
+										<span class="m-menu__link-text">
+											Periodo de venta
+										</span>
+									</a>
+								</li>
+								<li class="m-menu__item " aria-haspopup="true"  m-menu-link-redirect="1">
+									<a  href="arbol-vendedores" class="m-menu__link ">
+										<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+											<span></span>
+										</i>
+										<span class="m-menu__link-text">
+											Árbol de vendedores
+										</span>
+									</a>
+								</li>
+								<hr>
+								<li class="m-menu__item " aria-haspopup="true" >
+									<a  href="listado-prospectos" class="m-menu__link ">
+										<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+											<span></span>
+										</i>
+										<span class="m-menu__link-text">
+											Listado de prospectos
+										</span>
+									</a>
+								</li>
+								<li class="m-menu__item " aria-haspopup="true" >
+									<a  href="registro-prospecto" class="m-menu__link ">
+										<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+											<span></span>
+										</i>
+										<span class="m-menu__link-text">
+											Registro de prospectos
+										</span>
+									</a>
+								</li>
+								<hr>
+								<li class="m-menu__item " aria-haspopup="true" >
+									<a  href="comisiones" class="m-menu__link ">
+										<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+											<span></span>
+										</i>
+										<span class="m-menu__link-text">
+											Comisiones
+										</span>
+									</a>
+								</li>
+								<hr>
+								<li class="m-menu__item " aria-haspopup="true" >
+									<a  href="registroReportes" class="m-menu__link ">
+										<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+											<span></span>
+										</i>
+										<span class="m-menu__link-text">
+											Registro de reportes
+										</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  m-menu-submenu-toggle="hover">
+						<a  href="javascript:;" class="m-menu__link m-menu__toggle">
+							<span class="m-menu__item-here"></span>
+							<i class="m-menu__link-icon flaticon-folder-1"></i>
+							<span class="m-menu__link-text">
+								Gestión de contratos
 							</span>
-						</li>
-						<li class="m-menu__item " aria-haspopup="true" >
-							<a  href="periodo-venta" class="m-menu__link ">
-								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
-									<span></span>
-								</i>
-								<span class="m-menu__link-text">
-									Periodo de venta
-								</span>
-							</a>
-						</li>
-						<li class="m-menu__item " aria-haspopup="true" >
-							<a  href="arbol-vendedores" class="m-menu__link ">
-								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
-									<span></span>
-								</i>
-								<span class="m-menu__link-text">
-									Árbol de vendedores
-								</span>
-							</a>
-						</li>
-						<hr>
-						<li class="m-menu__item " aria-haspopup="true" >
-							<a  href="" class="m-menu__link ">
-								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
-									<span></span>
-								</i>
-								<span class="m-menu__link-text">
-									Listado de prospectos
-								</span>
-							</a>
-						</li>
-						<li class="m-menu__item " aria-haspopup="true" >
-							<a  href="" class="m-menu__link ">
-								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
-									<span></span>
-								</i>
-								<span class="m-menu__link-text">
-									Registro de prospectos
-								</span>
-							</a>
-						</li>
-						<hr>
-						<li class="m-menu__item " aria-haspopup="true" >
-							<a  href="" class="m-menu__link ">
-								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
-									<span></span>
-								</i>
-								<span class="m-menu__link-text">
-									Comisiones
-								</span>
-							</a>
-						</li>
-						<hr>
-						<li class="m-menu__item " aria-haspopup="true" >
-							<a  href="" class="m-menu__link ">
-								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
-									<span></span>
-								</i>
-								<span class="m-menu__link-text">
-									Registro de reportes
-								</span>
-							</a>
-						</li>
-					</ul>
-				</div>
-			</li>
-			<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  m-menu-submenu-toggle="hover">
-				<a  href="javascript:;" class="m-menu__link m-menu__toggle">
-					<i class="m-menu__link-icon flaticon-folder-1"></i>
-					<span class="m-menu__link-text">
-						Gestión de contratos
-					</span>
-					<i class="m-menu__ver-arrow la la-angle-right"></i>
-				</a>
-				<div class="m-menu__submenu ">
-					<span class="m-menu__arrow"></span>
-					<ul class="m-menu__subnav">
-						<li class="m-menu__item  m-menu__item--parent" aria-haspopup="true" >
-							<span class="m-menu__link">
-								<span class="m-menu__link-text">
-									Gestión de contratos
-								</span>
-							</span>
-						</li>
-						<li class="m-menu__item " aria-haspopup="true" >
-							<a  href="wizard" class="m-menu__link ">
-								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
-									<span></span>
-								</i>
-								<span class="m-menu__link-text">
-									Generación de contrato
-								</span>
-							</a>
-						</li>
-						<li class="m-menu__item " aria-haspopup="true" >
-							<a  href="" class="m-menu__link ">
-								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
-									<span></span>
-								</i>
-								<span class="m-menu__link-text">
-									Listado de contratos
-								</span>
-							</a>
-						</li>
-						<li class="m-menu__item " aria-haspopup="true" >
-							<a  href="" class="m-menu__link ">
-								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
-									<span></span>
-								</i>
-								<span class="m-menu__link-text">
-									Seguimiento de contrato
-								</span>
-							</a>
-						</li>
-					</ul>
-				</div>
-			</li>
-			<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  m-menu-submenu-toggle="hover">
-				<a  href="javascript:;" class="m-menu__link m-menu__toggle">
-					<i class="m-menu__link-icon flaticon-folder-1"></i>
-					<span class="m-menu__link-text">
-						Operaciones con contratos
-					</span>
-					<i class="m-menu__ver-arrow la la-angle-right"></i>
-				</a>
-				<div class="m-menu__submenu ">
-					<span class="m-menu__arrow"></span>
-					<ul class="m-menu__subnav">
-						<li class="m-menu__item  m-menu__item--parent" aria-haspopup="true" >
-							<span class="m-menu__link">
+							<i class="m-menu__ver-arrow la la-angle-right"></i>
+						</a>
+						<div class="m-menu__submenu ">
+							<span class="m-menu__arrow" style="color:#DF0101;"></span>
+							<ul class="m-menu__subnav" style="background:#DF0101;">
+								<li class="m-menu__item  m-menu__item--parent" aria-haspopup="true" >
+									<span class="m-menu__link">
+										<span class="m-menu__item-here"></span>
+										<span class="m-menu__link-text">
+											Gestión de contratos
+										</span>
+									</span>
+								</li>
+								<li class="m-menu__item " aria-haspopup="true" >
+									<a  href="wizard" class="m-menu__link ">
+										<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+											<span></span>
+										</i>
+										<span class="m-menu__link-text">
+											Generación de contrato
+										</span>
+									</a>
+								</li>
+								<li class="m-menu__item " aria-haspopup="true"  m-menu-link-redirect="1">
+									<a  href="" class="m-menu__link ">
+										<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+											<span></span>
+										</i>
+										<span class="m-menu__link-text">
+											Emisión de contrato
+										</span>
+									</a>
+								</li>
+								<li class="m-menu__item " aria-haspopup="true" >
+									<a  href="listadoContrato" class="m-menu__link ">
+										<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+											<span></span>
+										</i>
+										<span class="m-menu__link-text">
+											Listado de Contratos
+										</span>
+									</a>
+								</li>
+								<li class="m-menu__item " aria-haspopup="true" >
+									<a  href="seguimientoContrato" class="m-menu__link ">
+										<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+											<span></span>
+										</i>
+										<span class="m-menu__link-text">
+											Seguimiento de contrato
+										</span>
+									</a>
+								</li>
+								<li class="m-menu__item " aria-haspopup="true" >
+									<a  href="modificacionContrato" class="m-menu__link ">
+										<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+											<span></span>
+										</i>
+										<span class="m-menu__link-text">
+											Modificación de Contrato
+										</span>
+									</a>
+								</li>
+								<li class="m-menu__item " aria-haspopup="true" >
+									<a  href="resolucionContrato" class="m-menu__link ">
+										<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+											<span></span>
+										</i>
+										<span class="m-menu__link-text">
+											Resolución de Contrato
+										</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  m-menu-submenu-toggle="hover">
+						<a  href="javascript:;" class="m-menu__link m-menu__toggle">
+							<span class="m-menu__item-here"></span>
+							<i class="m-menu__link-icon flaticon-file"></i>
 								<span class="m-menu__link-text">
 									Operaciones con contratos
 								</span>
+							<i class="m-menu__ver-arrow la la-angle-right"></i>
+						</a>
+						<div class="m-menu__submenu ">
+							<span class="m-menu__arrow" style="color:#DF0101;"></span>
+							<ul class="m-menu__subnav" style="background:#DF0101;">
+								<li class="m-menu__item  m-menu__item--parent" aria-haspopup="true" >
+									<span class="m-menu__link">
+										<span class="m-menu__item-here"></span>
+										<span class="m-menu__link-text">
+											Operaciones con contratos
+										</span>
+									</span>
+								</li>
+								<li class="m-menu__item " aria-haspopup="true" >
+									<a  href="refinanciamiento" class="m-menu__link ">
+										<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+											<span></span>
+										</i>
+										<span class="m-menu__link-text">
+											Refinanciamiento
+										</span>
+									</a>
+								</li>
+								<li class="m-menu__item " aria-haspopup="true"  m-menu-link-redirect="1">
+									<a  href="cambioTitular" class="m-menu__link ">
+										<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+											<span></span>
+										</i>
+										<span class="m-menu__link-text">
+											Cambio de titularidad
+										</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  m-menu-submenu-toggle="hover">
+						<a  href="javascript:;" class="m-menu__link m-menu__toggle">
+							<span class="m-menu__item-here"></span>
+							<i class="m-menu__link-icon flaticon-plus"></i>
+							<span class="m-menu__link-text">
+								Gestión de camposanto
 							</span>
-						</li>
-						<li class="m-menu__item " aria-haspopup="true" >
-							<a  href="" class="m-menu__link ">
-								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
-									<span></span>
-								</i>
-								<span class="m-menu__link-text">
-									Refinanciamiento
-								</span>
-							</a>
-						</li>
-						<li class="m-menu__item " aria-haspopup="true" >
-							<a  href="" class="m-menu__link ">
-								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
-									<span></span>
-								</i>
-								<span class="m-menu__link-text">
-									Cambio de titularidad
-								</span>
-							</a>
-						</li>
-					</ul>
-				</div>
-			</li>
-			<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  m-menu-submenu-toggle="hover">
-				<a  href="javascript:;" class="m-menu__link m-menu__toggle">
-					<i class="m-menu__link-icon flaticon-folder-1"></i>
-					<span class="m-menu__link-text">
-						Gestión de camposanto
-					</span>
-					<i class="m-menu__ver-arrow la la-angle-right"></i>
-				</a>
-				<div class="m-menu__submenu ">
-					<span class="m-menu__arrow"></span>
-					<ul class="m-menu__subnav">
-						<li class="m-menu__item  m-menu__item--parent" aria-haspopup="true" >
-							<span class="m-menu__link">
-								<span class="m-menu__link-text">
-									Gestión de camposanto
-								</span>
-							</span>
-						</li>
-						<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  m-menu-submenu-toggle="hover" m-menu-link-redirect="1">
-							<a  href="javascript:;" class="m-menu__link m-menu__toggle">
-								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
-									<span></span>
-								</i>
-								<span class="m-menu__link-text">
-									Espacios
-								</span>
-								<i class="m-menu__ver-arrow la la-angle-right"></i>
-							</a>
-							<div class="m-menu__submenu ">
-								<ul class="m-menu__subnav">
-									<li class="m-menu__item " aria-haspopup="true"  m-menu-link-redirect="1">
-										<a  href="inner.html" class="m-menu__link ">
-											<span class="m-menu__link-title">
-												<span class="m-menu__link-wrap">
-													<span class="m-menu__link-text">
-														Creación de espacio
+							<i class="m-menu__ver-arrow la la-angle-right"></i>
+						</a>
+						<div class="m-menu__submenu ">
+							<span class="m-menu__arrow" style="color:#DF0101;"></span>
+							<ul class="m-menu__subnav" style="background:#DF0101;">
+								<li class="m-menu__item  m-menu__item--parent" aria-haspopup="true" >
+									<span class="m-menu__link">
+										<span class="m-menu__item-here"></span>
+										<span class="m-menu__link-text">
+											Gestión de camposanto
+										</span>
+									</span>
+								</li>
+								<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  m-menu-submenu-toggle="hover" m-menu-link-redirect="1">
+									<a  href="javascript:;" class="m-menu__link m-menu__toggle">
+										<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+											<span></span>
+										</i>
+										<span class="m-menu__link-text">
+											Espacios
+										</span>
+										<i class="m-menu__ver-arrow la la-angle-right"></i>
+									</a>
+									<div class="m-menu__submenu ">
+										<span class="m-menu__arrow" style="color:#DF0101;"></span>
+										<ul class="m-menu__subnav" style="background:#DF0101;">
+											<li class="m-menu__item " aria-haspopup="true"  m-menu-link-redirect="1">
+												<a  href="inner.html" class="m-menu__link ">
+													<span class="m-menu__link-title">
+														<span class="m-menu__link-wrap">
+															<span class="m-menu__link-text">
+																Creación de espacio
+															</span>
+														</span>
 													</span>
-												</span>
-											</span>
-										</a>
-									</li>
-									<li class="m-menu__item " aria-haspopup="true"  m-menu-link-redirect="1">
-										<a  href="inner.html" class="m-menu__link ">
-											<span class="m-menu__link-title">
-												<span class="m-menu__link-wrap">
-													<span class="m-menu__link-text">
-														Bloqueo y desbloqueo de espacio
+												</a>
+											</li>
+											<li class="m-menu__item " aria-haspopup="true"  m-menu-link-redirect="1">
+												<a  href="inner.html" class="m-menu__link ">
+													<span class="m-menu__link-title">
+														<span class="m-menu__link-wrap">
+															<span class="m-menu__link-text">
+																Bloqueo y desbloqueo de espacio
+															</span>
+															<span class="m-menu__link-badge"></span>
+														</span>
 													</span>
-													<span class="m-menu__link-badge"></span>
-												</span>
-											</span>
-										</a>
-									</li>
-									<li class="m-menu__item " aria-haspopup="true"  m-menu-link-redirect="1">
-										<a  href="inner.html" class="m-menu__link ">
-											<span class="m-menu__link-title">
-												<span class="m-menu__link-wrap">
-													<span class="m-menu__link-text">
-														Mapa
+												</a>
+											</li>
+											<li class="m-menu__item " aria-haspopup="true"  m-menu-link-redirect="1">
+												<a  href="mapaEspacios" class="m-menu__link ">
+													<span class="m-menu__link-title">
+														<span class="m-menu__link-wrap">
+															<span class="m-menu__link-text">
+																Mapa
+															</span>
+															<span class="m-menu__link-badge"></span>
+														</span>
 													</span>
-													<span class="m-menu__link-badge"></span>
-												</span>
-											</span>
-										</a>
-									</li>
-								</ul>
-							</div>
-						</li>
-						<li class="m-menu__item " aria-haspopup="true" >
-							<a  href="" class="m-menu__link ">
-								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
-									<span></span>
-								</i>
-								<span class="m-menu__link-text">
-									Control de prestación de servicio
-								</span>
-							</a>
-						</li>
-						<li class="m-menu__item " aria-haspopup="true" >
-							<a  href="" class="m-menu__link ">
-								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
-									<span></span>
-								</i>
-								<span class="m-menu__link-text">
-									Panel de control de servicios
-								</span>
-							</a>
-						</li>
-												<li class="m-menu__item " aria-haspopup="true" >
-							<a  href="" class="m-menu__link ">
-								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
-									<span></span>
-								</i>
-								<span class="m-menu__link-text">
-									Visor de prestación de servicio
-								</span>
-							</a>
-						</li>
-					</ul>
-				</div>
-			</li>							
-		</ul> -->
-
-		 
-		 <!-- Sidebar -->
-    <div id="sidebar-container" class="sidebar-expanded d-none d-md-block"><!-- d-* hiddens the Sidebar in smaller devices. Its itens can be kept on the Navbar 'Menu' -->
-        <!-- Bootstrap List Group -->
-        <ul class="list-group">
-            <!-- Separator with title -->
-            <li class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
-                <small>MAIN MENU</small>
-            </li>
-            <!-- /END Separator -->
-            <!-- Menu with submenu -->
-            <a href="#submenu1" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
-                <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="fa fa-dashboard fa-fw mr-3"></span> 
-                    <span class="menu-collapsed">Dashboard</span>
-                    <span class="submenu-icon ml-auto"></span>
-                </div>
-            </a>
-            <!-- Submenu content -->
-            <div id='submenu1' class="collapse sidebar-submenu">
-                <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
-                    <span class="menu-collapsed">Charts</span>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
-                    <span class="menu-collapsed">Reports</span>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
-                    <span class="menu-collapsed">Tables</span>
-                </a>
-            </div>
-            <a href="#submenu2" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
-                <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="fa fa-user fa-fw mr-3"></span>
-                    <span class="menu-collapsed">Profile</span>
-                    <span class="submenu-icon ml-auto"></span>
-                </div>
-            </a>
-            <!-- Submenu content -->
-            <div id='submenu2' class="collapse sidebar-submenu">
-                <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
-                    <span class="menu-collapsed">Settings</span>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
-                    <span class="menu-collapsed">Password</span>
-                </a>
-            </div>            
-            <a href="#" class="bg-dark list-group-item list-group-item-action">
-                <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="fa fa-tasks fa-fw mr-3"></span>
-                    <span class="menu-collapsed">Tasks</span>    
-                </div>
-            </a>
-            <!-- Separator with title -->
-            <li class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
-                <small>OPTIONS</small>
-            </li>
-            <!-- /END Separator -->
-            <a href="#" class="bg-dark list-group-item list-group-item-action">
-                <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="fa fa-calendar fa-fw mr-3"></span>
-                    <span class="menu-collapsed">Calendar</span>
-                </div>
-            </a>
-            <a href="#" class="bg-dark list-group-item list-group-item-action">
-                <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="fa fa-envelope-o fa-fw mr-3"></span>
-                    <span class="menu-collapsed">Messages <span class="badge badge-pill badge-primary ml-2">5</span></span>
-                </div>
-            </a>
-            <!-- Separator without title -->
-            <li class="list-group-item sidebar-separator menu-collapsed"></li>            
-            <!-- /END Separator -->
-            <a href="#" class="bg-dark list-group-item list-group-item-action">
-                <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="fa fa-question fa-fw mr-3"></span>
-                    <span class="menu-collapsed">Help</span>
-                </div>
-            </a>
-            <a href="#" data-toggle="sidebar-colapse" class="bg-dark list-group-item list-group-item-action d-flex align-items-center">
-                <div class="d-flex w-100 justify-content-start align-items-center">
-                    <!-- <span id="collapse-icon" class="fa fa-2x mr-3"></span> -->
-                    <i id="collapse-icon" class="m-menu__link-icon fa-angle-double-left"></i>
-                    <span id="collapse-text" class="menu-collapsed">Collapse</span>
-                </div>
-            </a>
-            <!-- Logo -->
-            <li class="list-group-item logo-separator d-flex justify-content-center">
-                <img src='vista/img/logo_SG5.png' width="30" height="30" />    
-            </li>   
-        </ul><!-- List Group END-->
-    </div><!-- sidebar-container END -->
-
-
-
-
-
-
-
-		<!-- <div class="m-stack__item m-stack__item--middle m-stack__item--center m-brand__logo">
-			<img src="vista/img/logo_fe_gQ5_icon.png" style="height: 67px; width: 140px;">	
-		</div> -->
-	</div>
-	<!-- END: Aside Menu -->
-</div>
-<!-- END: Left Aside -->
-
-
-<style type="text/css">
-	   #sidebar-container {
-        min-height: 100vh;
-        background-color: #212529;
-        padding: 0;
-        /* flex: unset; */
-    }
-    
-    .sidebar-expanded {
-        width: 150px;
-    }
-    
-    .sidebar-collapsed {
-        /*width: 60px;*/
-        width: 100px;
-    }
-
-    /* ----------| Menu item*/    
-    #sidebar-container .list-group a {
-        height: 50px;
-        color: white;
-    }
-
-    /* ----------| Submenu item*/    
-    #sidebar-container .list-group li.list-group-item {
-        background-color: #212529;
-    }
-    
-    #sidebar-container .list-group .sidebar-submenu a {
-        height: 45px;
-        padding-left: 30px;
-    }
-    
-    .sidebar-submenu {
-        font-size: 0.9rem;
-    }
-
-    /* ----------| Separators */    
-    .sidebar-separator-title {
-        background-color: #212529;
-        height: 35px;
-    }
-    
-    .sidebar-separator {
-        background-color: #212529;
-        height: 25px;
-    }
-    
-    .logo-separator {
-        background-color: #212529;
-        height: 60px;
-    }
-    
-    a.bg-dark {
-        background-color: #212529 !important;
-    }
-</style>
-
-<script type="text/javascript">
-	HTML CSS JSResult
-// Hide submenus
-$('#body-row .collapse').collapse('hide'); 
-
-// Collapse/Expand icon
-$('#collapse-icon').addClass('fa-angle-double-left'); 
-
-// Collapse click
-$('[data-toggle=sidebar-colapse]').click(function() {
-    SidebarCollapse();
-});
-
-function SidebarCollapse () {
-    $('.menu-collapsed').toggleClass('d-none');
-    $('.sidebar-submenu').toggleClass('d-none');
-    $('.submenu-icon').toggleClass('d-none');
-    $('#sidebar-container').toggleClass('sidebar-expanded sidebar-collapsed');
-    
-    // Treating d-flex/d-none on separators with title
-    var SeparatorTitle = $('.sidebar-separator-title');
-    if ( SeparatorTitle.hasClass('d-flex') ) {
-        SeparatorTitle.removeClass('d-flex');
-    } else {
-        SeparatorTitle.addClass('d-flex');
-    }
-    
-    // Collapse/Expand icon
-    $('#collapse-icon').toggleClass('fa-angle-double-left fa-angle-double-right');
-}
-</script>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</li>
+								<li class="m-menu__item " aria-haspopup="true"  m-menu-link-redirect="1">
+									<a  href="" class="m-menu__link ">
+										<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+											<span></span>
+										</i>
+										<span class="m-menu__link-text">
+											Uso de servicio
+										</span>
+									</a>
+								</li>
+								<li class="m-menu__item " aria-haspopup="true"  m-menu-link-redirect="1">
+									<a  href="" class="m-menu__link ">
+										<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+											<span></span>
+										</i>
+										<span class="m-menu__link-text">
+											LED
+										</span>
+									</a>
+								</li>
+								<li class="m-menu__item " aria-haspopup="true"  m-menu-link-redirect="1">
+									<a  href="" class="m-menu__link ">
+										<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+											<span></span>
+										</i>
+										<span class="m-menu__link-text">
+											Visor de prestación de servicio
+										</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</div> -->
+<!-- END: Aside Menu -->
+		<!-- </div> -->
