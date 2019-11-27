@@ -51404,9 +51404,6 @@ ul >li, ol > li{
     background-color: #fff;
 }
 
-.myTableSaldos tbody th{
-    margin-top: 9px;
-}
 
 @media (max-width: 1025px){
     .myTableSaldos{
