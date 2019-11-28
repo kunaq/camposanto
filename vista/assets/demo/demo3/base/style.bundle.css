@@ -44562,7 +44562,8 @@ body {
     transition: all .4s ease;
     left: 0;
     right: auto;
-    width: 75%
+    width: 75%;
+    display: none;
 }
 
 .m-brand .m-brand__tools .m-brand__toggler.m-brand__toggler--right span:before {
@@ -44749,8 +44750,18 @@ body {
         background-size: 50px;
         background-position: center;
     }
-    .m--visible-desktop-inline-block .m-brand__icon .m-brand__toggler .m-brand__toggler--active .m-brand__toggler--left span::before{
+   /* .m--visible-desktop-inline-block .m-brand__icon .m-brand__toggler .m-brand__toggler--active {
         display: none !important;
+    }*/
+
+    .m-brand--minimize .m-brand .m-brand__tools .m-brand__icon>.la-angle-double-left{
+        display: none;
+    }
+    .m-brand--minimize .m-brand .m-brand__tools .m-brand__icon>.la-angle-double-right{
+        display: block;
+    }
+    .m-brand .m-brand__tools .m-brand__icon>.la-angle-double-right{
+        display: none;
     }
 
     .m-header--static.m-aside-left--fixed .m-brand {

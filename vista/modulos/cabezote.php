@@ -13,8 +13,9 @@ include "modals/modalConfiguraciones.php"; ?>
 					</div>
 					<div class="m-stack__item m-stack__item--middle m-brand__tools">
 						<!-- BEGIN: Left Aside Minimize Toggle -->
-						<a href="javascript:;" id="m_aside_left_minimize_toggle" class="m-brand__icon m-brand__toggler m-brand__toggler--left m--visible-desktop-inline-block" style="margin-top: -30px;color:#c99231; margin-left: 35px;">
-							<i id="cierraMenu" class="m-menu__ver-arrow la la-angle-double-left"></i>
+						<a href="javascript:;" id="m_aside_left_minimize_toggle" class="m-brand__icon m-brand__toggler m-brand__toggler--left m--visible-desktop-inline-block" style="margin-bottom: 45px;color:#c99231; margin-left: 40px;">
+							<i class="m-menu__ver-arrow la la-angle-double-left"></i>
+							<i class="m-menu__ver-arrow la la-angle-double-right"></i>
 						</a>
 						<!-- END -->
 						<!-- BEGIN: Responsive Aside Left Menu Toggler -->
