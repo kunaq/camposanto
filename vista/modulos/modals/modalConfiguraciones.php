@@ -59,8 +59,11 @@
 						</div>
 						<div class="col-md-3">
 							<span class="m-topbar__userpic">
-								<img src="vista/img/user_h_4.png"style="width: 5rem;" id="user_h_4" class="rounded-circle" alt=""/>
+								<a href="#" class="btn btn-metal m-btn m-btn--icon btn-lg m-btn--icon-only m-btn--pill m-btn--air">
+									<i class="fa fa-plus"></i>
+								</a>
 							</span>
+							<title>Añadir imagen</title>
 						</div>
 					</div>
 					<hr>
