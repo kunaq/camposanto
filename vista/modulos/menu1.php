@@ -1,20 +1,16 @@
 <!-- BEGIN: Left Aside -->
-	<button class="m-aside-left-close  m-aside-left-close--skin-dark " id="m_aside_left_close_btn">
-		<i class="la la-close"></i>
-	</button>
-	<div id="m_aside_left" class="m-grid__item	m-aside-left  m-aside-left--skin-dark ">
-		<!-- BEGIN: Aside Menu -->
-	<div id="m_ver_menu" class="m-aside-menu  m-aside-menu--skin-dark m-aside-menu--submenu-skin-dark " m-menu-vertical="1" m-menu-scrollable="0" menu-dropdown-timeout="500">
+<button class="m-aside-left-close  m-aside-left-close--skin-dark " id="m_aside_left_close_btn">
+	<i class="la la-close"></i>
+</button>
+<div id="m_aside_left" class="m-grid__item	m-aside-left  m-aside-left--skin-dark ">
+	<!-- BEGIN: Aside Menu -->
+	<div id="m_ver_menu" class="m-aside-menu  m-aside-menu--skin-dark m-aside-menu--submenu-skin-dark " m-menu-vertical="1" m-menu-scrollable="0" m-menu-dropdown-timeout="500">
 		<ul class="m-menu__nav  m-menu__nav--dropdown-submenu-arrow ">
-			<li class="m-menu__item " aria-haspopup="true" >
-				<a  href="" class="m-menu__link ">
-					<i class="m-menu__link-icon la-home"></i>
-					<span class="m-menu__link-title">
-						<span class="m-menu__link-wrap">
-							<span class="m-menu__link-text">
-								Inicio
-							</span>
-						</span>
+			<li class="m-menu__item">
+				<a  href="inicio2" class="m-menu__link m-menu__toggle">
+					<i class="m-menu__link-icon la la-home"></i>
+					<span class="m-menu__link-text">
+						Inicio
 					</span>
 				</a>
 			</li>
@@ -22,32 +18,25 @@
 				<a  href="javascript:;" class="m-menu__link m-menu__toggle">
 					<i class="m-menu__link-icon flaticon-coins"></i>
 					<span class="m-menu__link-text">
-						Gestion comercial
+						Gestión comercial
 					</span>
 					<i class="m-menu__ver-arrow la la-angle-right"></i>
 				</a>
 				<div class="m-menu__submenu ">
 					<span class="m-menu__arrow"></span>
 					<ul class="m-menu__subnav">
-						<li class="m-menu__item  m-menu__item--parent" aria-haspopup="true" >
-							<span class="m-menu__link">
-								<span class="m-menu__link-text">
-									Gestion comercial
-								</span>
-							</span>
-						</li>
-						<li class="m-menu__item " aria-haspopup="true" >
-							<a  href="periodo-venta" class="m-menu__link ">
+						<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  m-menu-submenu-toggle="hover">
+							<a  href="periodo-venta" class="m-menu__link m-menu__toggle">
 								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
 									<span></span>
 								</i>
 								<span class="m-menu__link-text">
-									Periodo de venta
+									Periodo de ventas
 								</span>
 							</a>
 						</li>
-						<li class="m-menu__item " aria-haspopup="true" >
-							<a  href="arbol-vendedores" class="m-menu__link ">
+						<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  m-menu-submenu-toggle="hover">
+							<a  href="arbol-vendedores" class="m-menu__link m-menu__toggle">
 								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
 									<span></span>
 								</i>
@@ -56,9 +45,8 @@
 								</span>
 							</a>
 						</li>
-						<hr>
-						<li class="m-menu__item " aria-haspopup="true" >
-							<a  href="" class="m-menu__link ">
+						<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  m-menu-submenu-toggle="hover">
+							<a  href="listado-prospectos" class="m-menu__link m-menu__toggle">
 								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
 									<span></span>
 								</i>
@@ -67,8 +55,8 @@
 								</span>
 							</a>
 						</li>
-						<li class="m-menu__item " aria-haspopup="true" >
-							<a  href="" class="m-menu__link ">
+						<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  m-menu-submenu-toggle="hover">
+							<a  href="registro-prospecto" class="m-menu__link m-menu__toggle">
 								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
 									<span></span>
 								</i>
@@ -77,9 +65,8 @@
 								</span>
 							</a>
 						</li>
-						<hr>
-						<li class="m-menu__item " aria-haspopup="true" >
-							<a  href="" class="m-menu__link ">
+						<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  m-menu-submenu-toggle="hover">
+							<a  href="comisiones" class="m-menu__link m-menu__toggle">
 								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
 									<span></span>
 								</i>
@@ -88,9 +75,8 @@
 								</span>
 							</a>
 						</li>
-						<hr>
-						<li class="m-menu__item " aria-haspopup="true" >
-							<a  href="" class="m-menu__link ">
+						<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  m-menu-submenu-toggle="hover">
+							<a  href="registroReportes" class="m-menu__link m-menu__toggle">
 								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
 									<span></span>
 								</i>
@@ -104,7 +90,7 @@
 			</li>
 			<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  m-menu-submenu-toggle="hover">
 				<a  href="javascript:;" class="m-menu__link m-menu__toggle">
-					<i class="m-menu__link-icon flaticon-folder-1"></i>
+					<i class="m-menu__link-icon flaticon-interface-7"></i>
 					<span class="m-menu__link-text">
 						Gestión de contratos
 					</span>
@@ -113,13 +99,6 @@
 				<div class="m-menu__submenu ">
 					<span class="m-menu__arrow"></span>
 					<ul class="m-menu__subnav">
-						<li class="m-menu__item  m-menu__item--parent" aria-haspopup="true" >
-							<span class="m-menu__link">
-								<span class="m-menu__link-text">
-									Gestión de contratos
-								</span>
-							</span>
-						</li>
 						<li class="m-menu__item " aria-haspopup="true" >
 							<a  href="wizard" class="m-menu__link ">
 								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
@@ -131,17 +110,17 @@
 							</a>
 						</li>
 						<li class="m-menu__item " aria-haspopup="true" >
-							<a  href="" class="m-menu__link ">
+							<a  href="listadoContrato" class="m-menu__link ">
 								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
 									<span></span>
 								</i>
 								<span class="m-menu__link-text">
-									Listado de contratos
+									Listado de Contratos
 								</span>
 							</a>
 						</li>
 						<li class="m-menu__item " aria-haspopup="true" >
-							<a  href="" class="m-menu__link ">
+							<a  href="seguimientoContrato" class="m-menu__link ">
 								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
 									<span></span>
 								</i>
@@ -150,29 +129,28 @@
 								</span>
 							</a>
 						</li>
-					</ul>
-				</div>
-			</li>
-			<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  m-menu-submenu-toggle="hover">
-				<a  href="javascript:;" class="m-menu__link m-menu__toggle">
-					<i class="m-menu__link-icon flaticon-folder-1"></i>
-					<span class="m-menu__link-text">
-						Operaciones con contratos
-					</span>
-					<i class="m-menu__ver-arrow la la-angle-right"></i>
-				</a>
-				<div class="m-menu__submenu ">
-					<span class="m-menu__arrow"></span>
-					<ul class="m-menu__subnav">
-						<li class="m-menu__item  m-menu__item--parent" aria-haspopup="true" >
-							<span class="m-menu__link">
+						<li class="m-menu__item " aria-haspopup="true" >
+							<a  href="modificacionContrato" class="m-menu__link ">
+								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+									<span></span>
+								</i>
 								<span class="m-menu__link-text">
-									Operaciones con contratos
+									Modificación de Contrato
 								</span>
-							</span>
+							</a>
 						</li>
 						<li class="m-menu__item " aria-haspopup="true" >
-							<a  href="" class="m-menu__link ">
+							<a  href="resolucionContrato" class="m-menu__link ">
+								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+									<span></span>
+								</i>
+								<span class="m-menu__link-text">
+									Resolución de Contrato
+								</span>
+							</a>
+						</li>
+						<li class="m-menu__item " aria-haspopup="true" >
+							<a  href="refinanciamiento" class="m-menu__link ">
 								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
 									<span></span>
 								</i>
@@ -182,7 +160,7 @@
 							</a>
 						</li>
 						<li class="m-menu__item " aria-haspopup="true" >
-							<a  href="" class="m-menu__link ">
+							<a  href="cambioTitular" class="m-menu__link ">
 								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
 									<span></span>
 								</i>
@@ -196,9 +174,9 @@
 			</li>
 			<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  m-menu-submenu-toggle="hover">
 				<a  href="javascript:;" class="m-menu__link m-menu__toggle">
-					<i class="m-menu__link-icon flaticon-folder-1"></i>
+					<i class="m-menu__link-icon flaticon-tabs"></i>
 					<span class="m-menu__link-text">
-						Gestión de camposanto
+						Gestion de camposanto
 					</span>
 					<i class="m-menu__ver-arrow la la-angle-right"></i>
 				</a>
@@ -208,12 +186,12 @@
 						<li class="m-menu__item  m-menu__item--parent" aria-haspopup="true" >
 							<span class="m-menu__link">
 								<span class="m-menu__link-text">
-									Gestión de camposanto
+									Gestion de camposanto
 								</span>
 							</span>
 						</li>
-						<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  m-menu-submenu-toggle="hover" m-menu-link-redirect="1">
-							<a  href="javascript:;" class="m-menu__link m-menu__toggle">
+						<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  m-menu-submenu-toggle="hover">
+							<a  href="#" class="m-menu__link m-menu__toggle">
 								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
 									<span></span>
 								</i>
@@ -223,67 +201,63 @@
 								<i class="m-menu__ver-arrow la la-angle-right"></i>
 							</a>
 							<div class="m-menu__submenu ">
-								<ul class="m-menu__subnav">
-									<li class="m-menu__item " aria-haspopup="true"  m-menu-link-redirect="1">
-										<a  href="inner.html" class="m-menu__link ">
-											<span class="m-menu__link-title">
-												<span class="m-menu__link-wrap">
-													<span class="m-menu__link-text">
-														Creación de espacio
-													</span>
-												</span>
+								<span class="m-menu__arrow"></span>
+								<ul class="m-menu__subnav m-menu__subnav">
+									<li class="m-menu__item " aria-haspopup="true" >
+										<a  href="#" class="m-menu__link ">
+											<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+												<span></span>
+											</i>
+											<span class="m-menu__link-text">
+												Creación de espacio
 											</span>
 										</a>
 									</li>
-									<li class="m-menu__item " aria-haspopup="true"  m-menu-link-redirect="1">
-										<a  href="inner.html" class="m-menu__link ">
-											<span class="m-menu__link-title">
-												<span class="m-menu__link-wrap">
-													<span class="m-menu__link-text">
-														Bloqueo y desbloqueo de espacio
-													</span>
-													<span class="m-menu__link-badge"></span>
-												</span>
+									<li class="m-menu__item " aria-haspopup="true" >
+										<a  href="#" class="m-menu__link ">
+											<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+												<span></span>
+											</i>
+											<span class="m-menu__link-text">
+												Bloqueo y desbloqueo de espacio
 											</span>
 										</a>
 									</li>
-									<li class="m-menu__item " aria-haspopup="true"  m-menu-link-redirect="1">
-										<a  href="inner.html" class="m-menu__link ">
-											<span class="m-menu__link-title">
-												<span class="m-menu__link-wrap">
-													<span class="m-menu__link-text">
-														Mapa
-													</span>
-													<span class="m-menu__link-badge"></span>
-												</span>
+									<li class="m-menu__item " aria-haspopup="true" >
+										<a  href="mapaEspacios" class="m-menu__link ">
+											<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+												<span></span>
+											</i>
+											<span class="m-menu__link-text">
+												Mapa
 											</span>
 										</a>
 									</li>
 								</ul>
 							</div>
 						</li>
-						<li class="m-menu__item " aria-haspopup="true" >
-							<a  href="" class="m-menu__link ">
+						<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  m-menu-submenu-toggle="hover">
+							<a  href="" class="m-menu__link m-menu__toggle">
 								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
 									<span></span>
 								</i>
 								<span class="m-menu__link-text">
-									Control de prestación de servicio
+									Uso de servicio
 								</span>
 							</a>
 						</li>
-						<li class="m-menu__item " aria-haspopup="true" >
-							<a  href="" class="m-menu__link ">
+						<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  m-menu-submenu-toggle="hover">
+							<a  href="" class="m-menu__link m-menu__toggle">
 								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
 									<span></span>
 								</i>
 								<span class="m-menu__link-text">
-									Panel de control de servicios
+									LED
 								</span>
 							</a>
 						</li>
-												<li class="m-menu__item " aria-haspopup="true" >
-							<a  href="" class="m-menu__link ">
+						<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  m-menu-submenu-toggle="hover">
+							<a  href="" class="m-menu__link m-menu__toggle">
 								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
 									<span></span>
 								</i>
@@ -294,11 +268,8 @@
 						</li>
 					</ul>
 				</div>
-			</li>							
+			</li>
 		</ul>
-		<div class="m-stack__item m-stack__item--middle m-stack__item--center m-brand__logo">
-			<img src="vista/img/logo_fe_gQ5_icon.png" style="height: 67px; width: 140px;">	
-		</div>
 	</div>
 	<!-- END: Aside Menu -->
 </div>

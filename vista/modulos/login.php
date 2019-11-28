@@ -8,6 +8,9 @@
 							<img src="vista/img/Logo_SG5.png" style="background-color: white; height: 100px; border-radius: 60px; margin-bottom: 10px;">
 						</div>	
 						<div class="m-login__head" style="padding: 0 20px 20px 20px;">
+							<div class="m-login__logo" style="margin-bottom: 20px; ">
+								<img src="vista/img/logo_SG5.png" style="background-color: white; height: 100px; border-radius: 60px; margin-bottom: 10px;">
+							</div>	
 							<h3 class="m-login__title" style="color: #666;">
 								Sistema  de Gestión<br> de Camposanto
 							</h3>
@@ -22,7 +25,7 @@
 									<option value="3">Empresa 3</option>
 								</select>
 							</div>	
-						<!-- ENTRADA PARA EL USUARIO -->
+							<!-- ENTRADA PARA EL USUARIO -->
 							<div class="form-group m-input-icon m-input-icon--left">
 								<input class="form-control m-input" type="text" placeholder="Usuario" name="user" style="background-color: #fff; color: #000;" autofocus id="user" required>
 								<span class="m-input-icon__icon m-input-icon__icon--left">

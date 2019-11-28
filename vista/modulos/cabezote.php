@@ -8,16 +8,27 @@ include "modals/modalConfiguraciones.php"; ?>
 							<div class="m-stack m-stack--ver m-stack--general">
 								<div class="m-stack__item m-stack__item--middle m-stack__item--center m-brand__logo">
 									<a href="inicio2" class="m-brand__logo-wrapper">
-										<img src="vista/img/logo_muya_nombre.png" style="width: 140px;">
+										<img src="vista/img/logo_muya_nombre-sf.png" style="width: 140px;">
 									</a>
 								</div>
 								<div class="m-stack__item m-stack__item--middle m-brand__tools">
+									<!-- BEGIN: Left Aside Minimize Toggle -->
+									<a href="javascript:;" id="m_aside_left_minimize_toggle" class="m-brand__icon m-brand__toggler m-brand__toggler--left m--visible-desktop-inline-block" style="margin-bottom: 45px;color:#c99231; margin-left: 40px;">
+										<i class="m-menu__ver-arrow la la-angle-double-left"></i>
+										<i class="m-menu__ver-arrow la la-angle-double-right"></i>
+									</a>
+									<!-- END -->
 									<!-- BEGIN: Responsive Aside Left Menu Toggler -->
 									<a href="javascript:;" id="m_aside_left_offcanvas_toggle" class="m-brand__icon m-brand__toggler m-brand__toggler--left m--visible-tablet-and-mobile-inline-block">
 										<span></span>
 									</a>
 									<!-- END -->
-			<!-- BEGIN: Topbar Toggler -->
+									<!-- BEGIN: Responsive Header Menu Toggler -->
+									<a id="m_aside_header_menu_mobile_toggle" href="javascript:;" class="m-brand__icon m-brand__toggler m--visible-tablet-and-mobile-inline-block">
+										<span></span>
+									</a>
+									<!-- END -->
+									<!-- BEGIN: Topbar Toggler -->
 									<a id="m_aside_header_topbar_mobile_toggle" href="javascript:;" class="m-brand__icon m--visible-tablet-and-mobile-inline-block">
 										<i class="flaticon-more"></i>
 									</a>
@@ -74,24 +85,27 @@ include "modals/modalConfiguraciones.php"; ?>
 																			</span>
 																		</a>
 																	</span>
-																</li>
-																<li class="m-nav__separator m-nav__separator--fit"></li>
-																<li class="m-nav__item">
-																	<a class="btn m-btn--pill    btn-secondary m-btn m-btn--custom m-btn--label-danger m-btn--bolder" onclick="cierraSesion();">
-																		Salir
-																	</a>
-																</li>
-															</ul>
-														</div>
-													</div>
-												</div>
+																</span>
+															</a>
+														</span>
+													</li>
+													<li class="m-nav__separator m-nav__separator--fit"></li>
+													<li class="m-nav__item">
+														<a class="btn m-btn--pill    btn-secondary m-btn m-btn--custom m-btn--label-danger m-btn--bolder" onclick="cierraSesion();">
+															Salir
+														</a>
+													</li>
+												</ul>
 											</div>
-										</li>
-									</ul>
+										</div>
+									</div>
 								</div>
-							</div>
-							<!-- END: Topbar -->
-						</div>
+							</li>
+						</ul>
 					</div>
 				</div>
-			</header>
+				<!-- END: Topbar -->
+			</div>
+		</div>
+	</div>
+</header>

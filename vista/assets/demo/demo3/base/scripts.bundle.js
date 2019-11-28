@@ -1,293 +1,8 @@
-var mApp = function() {
-    var e = {
-        brand: "#716aca",
-        metal: "#c4c5d6",
-        light: "#ffffff",
-        accent: "#00c5dc",
-        primary: "#5867dd",
-        success: "#34bfa3",
-        info: "#36a3f7",
-        warning: "#ffb822",
-        danger: "#f4516c",
-        focus: "#9816f4"
-    }
-      , a = function(t) {
-        var e = t.data("skin") ? "m-tooltip--skin-" + t.data("skin") : ""
-          , a = "auto" == t.data("width") ? "m-tooltop--auto-width" : ""
-          , n = t.data("trigger") ? t.data("trigger") : "hover";
-        t.tooltip({
-            trigger: n,
-            template: '<div class="m-tooltip ' + e + " " + a + ' tooltip" role="tooltip">                <div class="arrow"></div>                <div class="tooltip-inner"></div>            </div>'
-        })
-    }
-      , t = function() {
-        $('[data-toggle="m-tooltip"]').each(function() {
-            a($(this))
-        })
-    }
-      , n = function(t) {
-        var e = t.data("skin") ? "m-popover--skin-" + t.data("skin") : ""
-          , a = t.data("trigger") ? t.data("trigger") : "hover";
-        t.popover({
-            trigger: a,
-            template: '            <div class="m-popover ' + e + ' popover" role="tooltip">                <div class="arrow"></div>                <h3 class="popover-header"></h3>                <div class="popover-body"></div>            </div>'
-        })
-    }
-      , o = function() {
-        $('[data-toggle="m-popover"]').each(function() {
-            n($(this))
-        })
-    }
-      , i = function(t, e) {
-        t = $(t),
-        new mPortlet(t[0],e)
-    }
-      , l = function() {
-        $('[m-portlet="true"]').each(function() {
-            var t = $(this);
-            !0 !== t.data("portlet-initialized") && (i(t, {}),
-            t.data("portlet-initialized", !0))
-        })
-    }
-      , r = function() {
-        $("[data-tab-target]").each(function() {
-            1 != $(this).data("tabs-initialized") && ($(this).click(function(t) {
-                t.preventDefault();
-                var e = $(this)
-                  , a = e.closest('[data-tabs="true"]')
-                  , n = $(a.data("tabs-contents"))
-                  , o = $(e.data("tab-target"));
-                a.find(".m-tabs__item.m-tabs__item--active").removeClass("m-tabs__item--active"),
-                e.addClass("m-tabs__item--active"),
-                n.find(".m-tabs-content__item.m-tabs-content__item--active").removeClass("m-tabs-content__item--active"),
-                o.addClass("m-tabs-content__item--active")
-            }),
-            $(this).data("tabs-initialized", !0))
-        })
-    };
-    return {
-        init: function(t) {
-            t && t.colors && (e = t.colors),
-            mApp.initComponents()
-        },
-        initComponents: function() {
-            jQuery.event.special.touchstart = {
-                setup: function(t, e, a) {
-                    "function" == typeof this && (e.includes("noPreventDefault") ? this.addEventListener("touchstart", a, {
-                        passive: !1
-                    }) : this.addEventListener("touchstart", a, {
-                        passive: !0
-                    }))
-                }
-            },
-            jQuery.event.special.touchmove = {
-                setup: function(t, e, a) {
-                    "function" == typeof this && (e.includes("noPreventDefault") ? this.addEventListener("touchmove", a, {
-                        passive: !1
-                    }) : this.addEventListener("touchmove", a, {
-                        passive: !0
-                    }))
-                }
-            },
-            jQuery.event.special.wheel = {
-                setup: function(t, e, a) {
-                    "function" == typeof this && (e.includes("noPreventDefault") ? this.addEventListener("wheel", a, {
-                        passive: !1
-                    }) : this.addEventListener("wheel", a, {
-                        passive: !0
-                    }))
-                }
-            },
-            $('[data-scrollable="true"]').each(function() {
-                var t, e, a = $(this);
-                mUtil.isInResponsiveRange("tablet-and-mobile") ? (t = a.data("mobile-max-height") ? a.data("mobile-max-height") : a.data("max-height"),
-                e = a.data("mobile-height") ? a.data("mobile-height") : a.data("height")) : (t = a.data("max-height"),
-                e = a.data("max-height")),
-                t && a.css("max-height", t),
-                e && a.css("height", e),
-                mApp.initScroller(a, {})
-            }),
-            t(),
-            o(),
-            $("body").on("click", "[data-close=alert]", function() {
-                $(this).closest(".alert").hide()
-            }),
-            l(),
-            $(".custom-file-input").on("change", function() {
-                var t = $(this).val();
-                $(this).next(".custom-file-label").addClass("selected").html(t)
-            }),
-            r()
-        },
-        initCustomTabs: function() {
-            r()
-        },
-        initTooltips: function() {
-            t()
-        },
-        initTooltip: function(t) {
-            a(t)
-        },
-        initPopovers: function() {
-            o()
-        },
-        initPopover: function(t) {
-            n(t)
-        },
-        initPortlet: function(t, e) {
-            i(t, e)
-        },
-        initPortlets: function() {
-            l()
-        },
-        scrollTo: function(t, e) {
-            el = $(t);
-            var a = el && 0 < el.length ? el.offset().top : 0;
-            a += e || 0,
-            jQuery("html,body").animate({
-                scrollTop: a
-            }, "slow")
-        },
-        scrollToViewport: function(t) {
-            var e = $(t).offset().top
-              , a = t.height()
-              , n = e - (mUtil.getViewPort().height / 2 - a / 2);
-            jQuery("html,body").animate({
-                scrollTop: n
-            }, "slow")
-        },
-        scrollTop: function() {
-            mApp.scrollTo()
-        },
-        initScroller: function(t, e, a) {
-            mUtil.isMobileDevice() ? t.css("overflow", "auto") : (!0 !== a && mApp.destroyScroller(t),
-            t.mCustomScrollbar({
-                scrollInertia: 0,
-                autoDraggerLength: !0,
-                autoHideScrollbar: !0,
-                autoExpandScrollbar: !1,
-                alwaysShowScrollbar: 0,
-                axis: t.data("axis") ? t.data("axis") : "y",
-                mouseWheel: {
-                    scrollAmount: 120,
-                    preventDefault: !0
-                },
-                setHeight: e.height ? e.height : "",
-                theme: "minimal-dark"
-            }))
-        },
-        destroyScroller: function(t) {
-            t.mCustomScrollbar("destroy"),
-            t.removeClass("mCS_destroyed")
-        },
-        alert: function(t) {
-            t = $.extend(!0, {
-                container: "",
-                place: "append",
-                type: "success",
-                message: "",
-                close: !0,
-                reset: !0,
-                focus: !0,
-                closeInSeconds: 0,
-                icon: ""
-            }, t);
-            var e = mUtil.getUniqueID("App_alert")
-              , a = '<div id="' + e + '" class="custom-alerts alert alert-' + t.type + ' fade in">' + (t.close ? '<button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>' : "") + ("" !== t.icon ? '<i class="fa-lg fa fa-' + t.icon + '"></i>  ' : "") + t.message + "</div>";
-            return t.reset && $(".custom-alerts").remove(),
-            t.container ? "append" == t.place ? $(t.container).append(a) : $(t.container).prepend(a) : 1 === $(".page-fixed-main-content").size() ? $(".page-fixed-main-content").prepend(a) : ($("body").hasClass("page-container-bg-solid") || $("body").hasClass("page-content-white")) && 0 === $(".page-head").size() ? $(".page-title").after(a) : 0 < $(".page-bar").size() ? $(".page-bar").after(a) : $(".page-breadcrumb, .breadcrumbs").after(a),
-            t.focus && mApp.scrollTo($("#" + e)),
-            0 < t.closeInSeconds && setTimeout(function() {
-                $("#" + e).remove()
-            }, 1e3 * t.closeInSeconds),
-            e
-        },
-        block: function(t, e) {
-            var a, n, o, i = $(t);
-            if ("spinner" == (e = $.extend(!0, {
-                opacity: .03,
-                overlayColor: "#000000",
-                state: "brand",
-                type: "loader",
-                size: "lg",
-                centerX: !0,
-                centerY: !0,
-                message: "",
-                shadow: !0,
-                width: "auto"
-            }, e)).type ? o = '<div class="m-spinner ' + (a = e.skin ? "m-spinner--skin-" + e.skin : "") + " " + (n = e.state ? "m-spinner--" + e.state : "") + '"></div' : (a = e.skin ? "m-loader--skin-" + e.skin : "",
-            n = e.state ? "m-loader--" + e.state : "",
-            size = e.size ? "m-loader--" + e.size : "",
-            o = '<div class="m-loader ' + a + " " + n + " " + size + '"></div'),
-            e.message && 0 < e.message.length) {
-                var l = "m-blockui " + (!1 === e.shadow ? "m-blockui-no-shadow" : "");
-                html = '<div class="' + l + '"><span>' + e.message + "</span><span>" + o + "</span></div>";
-                i = document.createElement("div");
-                mUtil.get("body").prepend(i),
-                mUtil.addClass(i, l),
-                i.innerHTML = "<span>" + e.message + "</span><span>" + o + "</span>",
-                e.width = mUtil.actualWidth(i) + 10,
-                mUtil.remove(i),
-                "body" == t && (html = '<div class="' + l + '" style="margin-left:-' + e.width / 2 + 'px;"><span>' + e.message + "</span><span>" + o + "</span></div>")
-            } else
-                html = o;
-            var r = {
-                message: html,
-                centerY: e.centerY,
-                centerX: e.centerX,
-                css: {
-                    top: "30%",
-                    left: "50%",
-                    border: "0",
-                    padding: "0",
-                    backgroundColor: "none",
-                    width: e.width
-                },
-                overlayCSS: {
-                    backgroundColor: e.overlayColor,
-                    opacity: e.opacity,
-                    cursor: "wait",
-                    zIndex: "10"
-                },
-                onUnblock: function() {
-                    i && (i.css("position", ""),
-                    i.css("zoom", ""))
-                }
-            };
-            "body" == t ? (r.css.top = "50%",
-            $.blockUI(r)) : (i = $(t)).block(r)
-        },
-        unblock: function(t) {
-            t && "body" != t ? $(t).unblock() : $.unblockUI()
-        },
-        blockPage: function(t) {
-            return mApp.block("body", t)
-        },
-        unblockPage: function() {
-            return mApp.unblock("body")
-        },
-        progress: function(t, e) {
-            var a = "m-loader m-loader--" + (e && e.skin ? e.skin : "light") + " m-loader--" + (e && e.alignment ? e.alignment : "right") + " m-loader--" + (e && e.size ? "m-spinner--" + e.size : "");
-            mApp.unprogress(t),
-            $(t).addClass(a),
-            $(t).data("progress-classes", a)
-        },
-        unprogress: function(t) {
-            $(t).removeClass($(t).data("progress-classes"))
-        },
-        getColor: function(t) {
-            return e[t]
-        }
-    }
-}();
-$(document).ready(function() {
-    mApp.init({})
-}),
 this.Element && function(t) {
     t.matches = t.matches || t.matchesSelector || t.webkitMatchesSelector || t.msMatchesSelector || function(t) {
-        for (var e = (this.parentNode || this.document).querySelectorAll(t), a = -1; e[++a] && e[a] != this; )
+        for (var e = this, a = (e.parentNode || e.document).querySelectorAll(t), n = -1; a[++n] && a[n] != e; )
             ;
-        return !!e[a]
+        return !!a[n]
     }
 }(Element.prototype),
 this.Element && function(t) {
@@ -299,9 +14,9 @@ this.Element && function(t) {
 }(Element.prototype),
 this.Element && function(t) {
     t.matches = t.matches || t.matchesSelector || t.webkitMatchesSelector || t.msMatchesSelector || function(t) {
-        for (var e = (this.parentNode || this.document).querySelectorAll(t), a = -1; e[++a] && e[a] != this; )
+        for (var e = this, a = (e.parentNode || e.document).querySelectorAll(t), n = -1; a[++n] && a[n] != e; )
             ;
-        return !!e[a]
+        return !!a[n]
     }
 }(Element.prototype),
 function() {
@@ -829,6 +544,291 @@ var mUtil = function() {
 }();
 mUtil.ready(function() {
     mUtil.init()
+});
+var mApp = function() {
+    var e = {
+        brand: "#716aca",
+        metal: "#c4c5d6",
+        light: "#ffffff",
+        accent: "#00c5dc",
+        primary: "#5867dd",
+        success: "#34bfa3",
+        info: "#36a3f7",
+        warning: "#ffb822",
+        danger: "#f4516c",
+        focus: "#9816f4"
+    }
+      , a = function(t) {
+        var e = t.data("skin") ? "m-tooltip--skin-" + t.data("skin") : ""
+          , a = "auto" == t.data("width") ? "m-tooltop--auto-width" : ""
+          , n = t.data("trigger") ? t.data("trigger") : "hover";
+        t.tooltip({
+            trigger: n,
+            template: '<div class="m-tooltip ' + e + " " + a + ' tooltip" role="tooltip">                <div class="arrow"></div>                <div class="tooltip-inner"></div>            </div>'
+        })
+    }
+      , t = function() {
+        $('[data-toggle="m-tooltip"]').each(function() {
+            a($(this))
+        })
+    }
+      , n = function(t) {
+        var e = t.data("skin") ? "m-popover--skin-" + t.data("skin") : ""
+          , a = t.data("trigger") ? t.data("trigger") : "hover";
+        t.popover({
+            trigger: a,
+            template: '            <div class="m-popover ' + e + ' popover" role="tooltip">                <div class="arrow"></div>                <h3 class="popover-header"></h3>                <div class="popover-body"></div>            </div>'
+        })
+    }
+      , o = function() {
+        $('[data-toggle="m-popover"]').each(function() {
+            n($(this))
+        })
+    }
+      , i = function(t, e) {
+        t = $(t),
+        new mPortlet(t[0],e)
+    }
+      , l = function() {
+        $('[m-portlet="true"]').each(function() {
+            var t = $(this);
+            !0 !== t.data("portlet-initialized") && (i(t, {}),
+            t.data("portlet-initialized", !0))
+        })
+    }
+      , r = function() {
+        $("[data-tab-target]").each(function() {
+            1 != $(this).data("tabs-initialized") && ($(this).click(function(t) {
+                t.preventDefault();
+                var e = $(this)
+                  , a = e.closest('[data-tabs="true"]')
+                  , n = $(a.data("tabs-contents"))
+                  , o = $(e.data("tab-target"));
+                a.find(".m-tabs__item.m-tabs__item--active").removeClass("m-tabs__item--active"),
+                e.addClass("m-tabs__item--active"),
+                n.find(".m-tabs-content__item.m-tabs-content__item--active").removeClass("m-tabs-content__item--active"),
+                o.addClass("m-tabs-content__item--active")
+            }),
+            $(this).data("tabs-initialized", !0))
+        })
+    };
+    return {
+        init: function(t) {
+            t && t.colors && (e = t.colors),
+            mApp.initComponents()
+        },
+        initComponents: function() {
+            jQuery.event.special.touchstart = {
+                setup: function(t, e, a) {
+                    "function" == typeof this && (e.includes("noPreventDefault") ? this.addEventListener("touchstart", a, {
+                        passive: !1
+                    }) : this.addEventListener("touchstart", a, {
+                        passive: !0
+                    }))
+                }
+            },
+            jQuery.event.special.touchmove = {
+                setup: function(t, e, a) {
+                    "function" == typeof this && (e.includes("noPreventDefault") ? this.addEventListener("touchmove", a, {
+                        passive: !1
+                    }) : this.addEventListener("touchmove", a, {
+                        passive: !0
+                    }))
+                }
+            },
+            jQuery.event.special.wheel = {
+                setup: function(t, e, a) {
+                    "function" == typeof this && (e.includes("noPreventDefault") ? this.addEventListener("wheel", a, {
+                        passive: !1
+                    }) : this.addEventListener("wheel", a, {
+                        passive: !0
+                    }))
+                }
+            },
+            $('[data-scrollable="true"]').each(function() {
+                var t, e, a = $(this);
+                mUtil.isInResponsiveRange("tablet-and-mobile") ? (t = a.data("mobile-max-height") ? a.data("mobile-max-height") : a.data("max-height"),
+                e = a.data("mobile-height") ? a.data("mobile-height") : a.data("height")) : (t = a.data("max-height"),
+                e = a.data("max-height")),
+                t && a.css("max-height", t),
+                e && a.css("height", e),
+                mApp.initScroller(a, {})
+            }),
+            t(),
+            o(),
+            $("body").on("click", "[data-close=alert]", function() {
+                $(this).closest(".alert").hide()
+            }),
+            l(),
+            $(".custom-file-input").on("change", function() {
+                var t = $(this).val();
+                $(this).next(".custom-file-label").addClass("selected").html(t)
+            }),
+            r()
+        },
+        initCustomTabs: function() {
+            r()
+        },
+        initTooltips: function() {
+            t()
+        },
+        initTooltip: function(t) {
+            a(t)
+        },
+        initPopovers: function() {
+            o()
+        },
+        initPopover: function(t) {
+            n(t)
+        },
+        initPortlet: function(t, e) {
+            i(t, e)
+        },
+        initPortlets: function() {
+            l()
+        },
+        scrollTo: function(t, e) {
+            el = $(t);
+            var a = el && 0 < el.length ? el.offset().top : 0;
+            a += e || 0,
+            jQuery("html,body").animate({
+                scrollTop: a
+            }, "slow")
+        },
+        scrollToViewport: function(t) {
+            var e = $(t).offset().top
+              , a = t.height()
+              , n = e - (mUtil.getViewPort().height / 2 - a / 2);
+            jQuery("html,body").animate({
+                scrollTop: n
+            }, "slow")
+        },
+        scrollTop: function() {
+            mApp.scrollTo()
+        },
+        initScroller: function(t, e, a) {
+            mUtil.isMobileDevice() ? t.css("overflow", "auto") : (!0 !== a && mApp.destroyScroller(t),
+            t.mCustomScrollbar({
+                scrollInertia: 0,
+                autoDraggerLength: !0,
+                autoHideScrollbar: !0,
+                autoExpandScrollbar: !1,
+                alwaysShowScrollbar: 0,
+                axis: t.data("axis") ? t.data("axis") : "y",
+                mouseWheel: {
+                    scrollAmount: 120,
+                    preventDefault: !0
+                },
+                setHeight: e.height ? e.height : "",
+                theme: "minimal-dark"
+            }))
+        },
+        destroyScroller: function(t) {
+            t.mCustomScrollbar("destroy"),
+            t.removeClass("mCS_destroyed")
+        },
+        alert: function(t) {
+            t = $.extend(!0, {
+                container: "",
+                place: "append",
+                type: "success",
+                message: "",
+                close: !0,
+                reset: !0,
+                focus: !0,
+                closeInSeconds: 0,
+                icon: ""
+            }, t);
+            var e = mUtil.getUniqueID("App_alert")
+              , a = '<div id="' + e + '" class="custom-alerts alert alert-' + t.type + ' fade in">' + (t.close ? '<button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>' : "") + ("" !== t.icon ? '<i class="fa-lg fa fa-' + t.icon + '"></i>  ' : "") + t.message + "</div>";
+            return t.reset && $(".custom-alerts").remove(),
+            t.container ? "append" == t.place ? $(t.container).append(a) : $(t.container).prepend(a) : 1 === $(".page-fixed-main-content").size() ? $(".page-fixed-main-content").prepend(a) : ($("body").hasClass("page-container-bg-solid") || $("body").hasClass("page-content-white")) && 0 === $(".page-head").size() ? $(".page-title").after(a) : 0 < $(".page-bar").size() ? $(".page-bar").after(a) : $(".page-breadcrumb, .breadcrumbs").after(a),
+            t.focus && mApp.scrollTo($("#" + e)),
+            0 < t.closeInSeconds && setTimeout(function() {
+                $("#" + e).remove()
+            }, 1e3 * t.closeInSeconds),
+            e
+        },
+        block: function(t, e) {
+            var a, n, o, i = $(t);
+            if ("spinner" == (e = $.extend(!0, {
+                opacity: .03,
+                overlayColor: "#000000",
+                state: "brand",
+                type: "loader",
+                size: "lg",
+                centerX: !0,
+                centerY: !0,
+                message: "",
+                shadow: !0,
+                width: "auto"
+            }, e)).type ? o = '<div class="m-spinner ' + (a = e.skin ? "m-spinner--skin-" + e.skin : "") + " " + (n = e.state ? "m-spinner--" + e.state : "") + '"></div' : (a = e.skin ? "m-loader--skin-" + e.skin : "",
+            n = e.state ? "m-loader--" + e.state : "",
+            size = e.size ? "m-loader--" + e.size : "",
+            o = '<div class="m-loader ' + a + " " + n + " " + size + '"></div'),
+            e.message && 0 < e.message.length) {
+                var l = "m-blockui " + (!1 === e.shadow ? "m-blockui-no-shadow" : "");
+                html = '<div class="' + l + '"><span>' + e.message + "</span><span>" + o + "</span></div>";
+                i = document.createElement("div");
+                mUtil.get("body").prepend(i),
+                mUtil.addClass(i, l),
+                i.innerHTML = "<span>" + e.message + "</span><span>" + o + "</span>",
+                e.width = mUtil.actualWidth(i) + 10,
+                mUtil.remove(i),
+                "body" == t && (html = '<div class="' + l + '" style="margin-left:-' + e.width / 2 + 'px;"><span>' + e.message + "</span><span>" + o + "</span></div>")
+            } else
+                html = o;
+            var r = {
+                message: html,
+                centerY: e.centerY,
+                centerX: e.centerX,
+                css: {
+                    top: "30%",
+                    left: "50%",
+                    border: "0",
+                    padding: "0",
+                    backgroundColor: "none",
+                    width: e.width
+                },
+                overlayCSS: {
+                    backgroundColor: e.overlayColor,
+                    opacity: e.opacity,
+                    cursor: "wait",
+                    zIndex: "10"
+                },
+                onUnblock: function() {
+                    i && (i.css("position", ""),
+                    i.css("zoom", ""))
+                }
+            };
+            "body" == t ? (r.css.top = "50%",
+            $.blockUI(r)) : (i = $(t)).block(r)
+        },
+        unblock: function(t) {
+            t && "body" != t ? $(t).unblock() : $.unblockUI()
+        },
+        blockPage: function(t) {
+            return mApp.block("body", t)
+        },
+        unblockPage: function() {
+            return mApp.unblock("body")
+        },
+        progress: function(t, e) {
+            var a = "m-loader m-loader--" + (e && e.skin ? e.skin : "light") + " m-loader--" + (e && e.alignment ? e.alignment : "right") + " m-loader--" + (e && e.size ? "m-spinner--" + e.size : "");
+            mApp.unprogress(t),
+            $(t).addClass(a),
+            $(t).data("progress-classes", a)
+        },
+        unprogress: function(t) {
+            $(t).removeClass($(t).data("progress-classes"))
+        },
+        getColor: function(t) {
+            return e[t]
+        }
+    }
+}();
+$(document).ready(function() {
+    mApp.init({})
 }),
 function(g) {
     if (void 0 === mUtil)
@@ -4258,7 +4258,7 @@ jQuery.validator.setDefaults({
 }),
 jQuery.validator.addMethod("email", function(t, e) {
     return !!/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(t)
-}, "Por favor ingrese un correo valido."),
+}, "Please enter a valid Email."),
 function(l) {
     l.fn.mDatatable = l.fn.mDatatable || {},
     l.fn.mDatatable.checkbox = function(n, o) {
@@ -4362,7 +4362,17 @@ function(l) {
     }
 }(jQuery);
 var mLayout = function() {
-    var n, o, a, i, l;
+    var n, o, a, i, l, r = function() {
+        0 !== $("#m_aside_left_hide_toggle").length && (r = new mToggle("m_aside_left_hide_toggle",{
+            target: "body",
+            targetState: "m-aside-left--hide",
+            togglerState: "m-brand__toggler--active"
+        })).on("toggle", function(t) {
+            n.pauseDropdownHover(800),
+            o.pauseDropdownHover(800),
+            Cookies.set("sidebar_hide_state", t.getState())
+        })
+    };
     return {
         init: function() {
             this.initHeader(),
@@ -4457,7 +4467,7 @@ var mLayout = function() {
             }),
             function() {
                 var t = $("#m_ver_menu")
-                  , e = "1" === t.attr("m-menu-dropdown") ? "dropdown" : "accordion";
+                  , e = "1" === t.data("m-menu-dropdown") ? "dropdown" : "accordion";
                 if (o = new mMenu("m_ver_menu",{
                     submenu: {
                         desktop: {
@@ -4480,7 +4490,7 @@ var mLayout = function() {
                         if (mUtil.isInResponsiveRange("tablet-and-mobile"))
                             mApp.destroyScroller(t);
                         else {
-                            var e = mUtil.getViewPort().height - $(".m-header").outerHeight();
+                            var e = mUtil.getViewPort().height - parseInt(mUtil.css("m_header", "height"));
                             mApp.initScroller(t, {
                                 height: e
                             })
@@ -4501,6 +4511,7 @@ var mLayout = function() {
                 o.pauseDropdownHover(800),
                 Cookies.set("sidebar_toggle_state", t.getState())
             }),
+            r(),
             this.onLeftSidebarToggle(function(t) {
                 var e = $(".m-datatable");
                 $(e).each(function() {
