@@ -53,14 +53,14 @@ $_SESSION['captcha'] = simple_php_captcha();
 
 				if($_GET["ruta"] == "login"){
 
-					echo '<body  class="m--skin- m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-dark m-aside-left--offcanvas m-footer--push m-aside--offcanvas-default"  >';
+					echo '<body  class="m--skin-dark m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-dark m-aside-left--offcanvas m-footer--push m-aside--offcanvas-default"  >';
 					include("modulos/".$_GET["ruta"].".php");
 
 				}else{
 
 					include("modulos/cabezote.php");
-					echo '<div class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-body" style="background-color:lightgray;">';
 					include("modulos/menu1.php");
+					echo '<div class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-body" style="background-color:lightgray;">';
 
 					if(isset($_GET["ruta"])){
 
@@ -105,11 +105,11 @@ $_SESSION['captcha'] = simple_php_captcha();
 			}
 			else{
 				if($_GET["ruta"] == "login" || $_GET["ruta"] == ""){
-					echo '<body  class="m--skin- m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-dark m-aside-left--offcanvas m-footer--push m-aside--offcanvas-default"  >';
+					echo '<body  class="m--skin-dark m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-dark m-aside-left--offcanvas m-footer--push m-aside--offcanvas-default"  >';
 					include("modulos/login.php");
 				}
 				else{
-					echo '<body  class="m--skin- m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-dark m-aside-left--offcanvas m-footer--push m-aside--offcanvas-default"  >';
+					echo '<body  class="m--skin-dark m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-dark m-aside-left--offcanvas m-footer--push m-aside--offcanvas-default"  >';
 					include("modulos/notFound.php");
 				}
 			}
@@ -127,6 +127,8 @@ $_SESSION['captcha'] = simple_php_captcha();
 		</div>
 		<!-- begin::Quick Nav -->	
     	<!--begin::Base Scripts -->
+    	<script  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 		<script src="vista/assets/vendors/base/vendors.bundle.js" type="text/javascript"></script>
 		<script src="vista/assets/demo/demo3/base/scripts.bundle.js" type="text/javascript"></script>
 		<!--end::Base Scripts -->   
@@ -173,5 +175,6 @@ $_SESSION['captcha'] = simple_php_captcha();
             }
         }
         ?>
+
     </body>
 </html>

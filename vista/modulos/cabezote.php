@@ -8,13 +8,13 @@ include "modals/modalConfiguraciones.php"; ?>
 				<div class="m-stack m-stack--ver m-stack--general">
 					<div class="m-stack__item m-stack__item--middle m-brand__logo">
 						<a href="#" class="m-brand__logo-wrapper">
-							<img src="vista/img/tulogoaqui.png" style="width: 80px;">
+							<img src="vista/img/logo_muya_nombre-sf.png" style="width: 140px;">
 						</a>
 					</div>
 					<div class="m-stack__item m-stack__item--middle m-brand__tools">
 						<!-- BEGIN: Left Aside Minimize Toggle -->
-						<a href="javascript:;" id="m_aside_left_minimize_toggle" class="m-brand__icon m-brand__toggler m-brand__toggler--left m--visible-desktop-inline-block">
-							<span></span>
+						<a href="javascript:;" id="m_aside_left_minimize_toggle" class="m-brand__icon m-brand__toggler m-brand__toggler--left m--visible-desktop-inline-block" style="margin-top: -30px;color:#c99231; margin-left: 35px;">
+							<i id="cierraMenu" class="m-menu__ver-arrow la la-angle-double-left"></i>
 						</a>
 						<!-- END -->
 						<!-- BEGIN: Responsive Aside Left Menu Toggler -->
