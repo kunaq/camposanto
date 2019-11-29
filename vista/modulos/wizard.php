@@ -1532,7 +1532,7 @@
 			<!-- ----------------Resumen------------------------ -->
 			<div class="sidebar-wrapper stickResumen" id="container-button"> 
 				<a href="#container" class="btn btn-danger m-btn m-btn--icon btn-lg m-btn--icon-only toggle-collapse-resumen" onclick="toggleResumen(this)" id="toggle-button">
-					<i class="la la-cart-arrow-down"></i>
+					<i class="flaticon-diagram"></i>
 				</a>
 				<ul class="m-nav-sticky side-nav" id="resumen2" style="margin-top: 30px;">
 					<li class="m-nav-sticky__item nav-item">

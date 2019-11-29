@@ -28,3 +28,35 @@ function DocLenghtBusq(tipo){
       $("#numDocLisPro").removeAttr("maxlength");
     }
 }
+
+function mostrarSidebar(numContrato,codServicio){
+    hideSidebar();
+    $("#m_quick_sidebar-contrato").addClass("m-quick-sidebar-contrato--on");
+    // $.ajax({
+    //     type:'POST',
+    //     url: 'extensiones/captcha/creaDatosSideBarContrato.php',
+    //     dataType: 'text',
+    //     data: {'numContrato':numContrato, 'codServicio':codServicio},
+    //     success : function(response){
+    //         var info = JSON.parse(response);
+    //         console.log(info.num_contrato);
+    //         document.getElementById('numCttSideBar').innerText = info.num_contrato;
+    //         document.getElementById('codSerSideBar').innerText = info.cod_servicio;
+    //         document.getElementById('fchEmiSideBar').innerText = info.fch_emision;
+    //         document.getElementById('fchActSideBar').innerText = info.fch_activacion;
+    //         document.getElementById('fchResSideBar').innerText = info.fch_resolucion;
+    //         document.getElementById('fchAnuSideBar').innerText = info.fch_anulacion;
+    //         $("#buttons-box").html(info.buttons);
+    //         document.getElementById('clienteSideBar').innerText = info.dsc_cliente;
+    //         document.getElementById('tipoNecSideBar').innerText = info.tipo_necesidad;
+    //         document.getElementById('vendedorSideBar').innerText = info.dsc_vendedor;
+    //         document.getElementById('tipoServSideBar').innerText = info.tipo_servicio;
+    //         document.getElementById('numCuotasSideBar').innerText = info.num_cuotas;
+    //         document.getElementById('totalSideBar').innerText = info.total;
+    //      }
+    // });
+}
+
+function hideSidebar(){
+    $("#m_quick_sidebar-contrato").removeClass("m-quick-sidebar-contrato--on");
+}
