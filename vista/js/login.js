@@ -50,9 +50,9 @@ $(".btnIngresar2").click(function(){
   }
   else{
    $.ajax({
-        type: 'GET',
+        dataType:"json",
         url: 'extensiones/captcha/login.php',
-        dataType: 'text',
+        method: "POST",
         data: $("#formIngresarSistema").serialize(),
         success : function(respuesta){
           console.log(respuesta);
