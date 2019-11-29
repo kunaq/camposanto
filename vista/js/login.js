@@ -8,6 +8,11 @@ function mostrarPassword(){
     $('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
   }
 } 
+$("#ingEmpresa").change(function(){
+  var nombreBD =  $(this).val().split('||');
+  $("#dscEmpresaKqPst").val($("#ingEmpresa option:selected").text());
+  $("#rYCvKq").val(nombreBD[1]);
+});//change ingEmpresa
   
 $(document).ready(function () {
   //CheckBox mostrar contraseña
@@ -48,7 +53,7 @@ $(".btnIngresar2").click(function(){
         type: 'GET',
         url: 'extensiones/captcha/login.php',
         dataType: 'text',
-        data: { 'usuario' : usuario, 'pass' : pass },
+        data: $("#formIngresarSistema").serialize(),
         success : function(respuesta){
           console.log(respuesta);
            if(respuesta == 'true'){

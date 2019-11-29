@@ -12,7 +12,7 @@
 								Sistema  de Gestión<br> de Camposanto
 							</h3>
 						</div>
-						<form class="m-form">
+						<form class="m-form" id="formIngresarSistema">
 							<!-- SELECCIONAR EMPRESA -->
 							<div class="form-group m-form__group seleccioneEmpresa" style="padding-top: 0;">
 								<select class="form-control m-input" data-init-plugin="select2" id="ingEmpresa" required>
@@ -83,6 +83,9 @@
 									</div>
 								</div>
 							</div>
+							<input type="hidden" id="rYCvKq" name="rYCvKq" />
+							<input type="hidden" name="accionUsuario" value="ingreso" />
+							<input type="hidden" id="dscEmpresaKqPst" name="dscEmpresaKqPst" />
 						</form>
 					</div>
 				</div>
