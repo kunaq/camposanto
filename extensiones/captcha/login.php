@@ -18,14 +18,11 @@ require_once "../../modelo/conexion.php";
         $_SESSION['user'] =  $key2['cod_usuario']; 
         $bar = $key2['dsc_usuario'];
         $_SESSION['nombre'] = ucwords(strtolower($bar));
-
     }
     if($cont > 0){
-         
-      
-        echo 'true';         
+        return 'true';         
     }else{
-      echo 'false';
+      return 'false';
     }
     
 

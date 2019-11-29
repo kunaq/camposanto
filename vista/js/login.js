@@ -56,7 +56,7 @@ $(".btnIngresar2").click(function(){
         data: $("#formIngresarSistema").serialize(),
         success : function(respuesta){
           console.log(respuesta);
-           if(respuesta == 'true'){
+           if(respuesta=='true'){
                 swal({
                     type: "success",
                     title: "Bienvenido",
