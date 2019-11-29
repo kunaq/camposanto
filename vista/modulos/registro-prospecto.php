@@ -17,7 +17,7 @@
 			<!-- <div class="col-xl-12"> -->
 			<div class="row">
 				<form enctype="multipart/form-data" id="formConfigPeriodo" role="form" method="POST">
-					<div class="row">
+					<!-- <div class="row">
 						<div class="col-md-12">
 							<p class="pull-right">
 								<button type="button" class="btn btn-sm btn-primary btnGuardarKqPst" title="Nuevo" id=""  style="margin-right:6px;"><i class="fa fa-plus"></i></button>	
@@ -25,7 +25,7 @@
 								<button type="button" class="btn btn-sm btn-primary btnEliminarKqPst" title="Eliminar" id=""><i class="fa fa-trash"></i></button>
 							</p>										
 						</div>
-					</div>
+					</div> -->
 					<div class="row">
 						<div class="col-md-8">
 							<fieldset class="fieldFormHorizontal" style="padding-left: 1rem;padding-right: 1rem">
@@ -344,7 +344,7 @@
 										<textarea class="form-control form-control-sm m-input" id="" rows="7"></textarea>
 									</div>
 								</div>	
-								<br>									
+								<br>
 							</fieldset>
 						</div>
 					</div>
