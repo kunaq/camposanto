@@ -20,9 +20,9 @@ require_once "../../modelo/conexion.php";
         $_SESSION['nombre'] = ucwords(strtolower($bar));
     }
     if($cont > 0){
-        return 'true';         
+        return true;         
     }else{
-      return 'false';
+      return false;
     }
     
 
