@@ -22,7 +22,7 @@ $(document).ready(function () {
 });
 
 $(".btnIngresar2").click(function(){
-  var empresa = document.getElementById("empresa").value;
+  var empresa = document.getElementById("ingEmpresa").value;
   var captcha = document.getElementById("txtcaptcha").value;
   var usuario = document.getElementById("user").value;
   var pass = document.getElementById("password").value;
@@ -33,7 +33,7 @@ $(".btnIngresar2").click(function(){
       text: "Debe completar todos los campos.",
       type: "error",
       confirmButtonText: "Aceptar",
-      onBeforeOpen:document.getElementById("empresa").focus()
+      onBeforeOpen:document.getElementById("ingEmpresa").focus()
   })
   return;
   }
