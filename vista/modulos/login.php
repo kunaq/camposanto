@@ -15,11 +15,14 @@
 						<form class="m-form">
 							<!-- SELECCIONAR EMPRESA -->
 							<div class="form-group m-form__group seleccioneEmpresa" style="padding-top: 0;">
-								<select class="form-control m-input" required id="empresa" placeholder="Seleccionar Empresa">
-									<option value="0">Seleccionar Empresa</option>
-									<option value="1">Empresa 1</option>
-									<option value="2">Empresa 2</option>
-									<option value="3">Empresa 3</option>
+								<select class="form-control m-input" data-init-plugin="select2" id="ingEmpresa" required>
+									<option value="" selected disabled>SELECCIONAR</option>
+									<?php
+									$empresa = ControladorControlEmpresa::ctrMostrarControlEmpresa();
+									foreach ($empresa as $key => $value) {
+										echo '<option value="'.$value["cod_ctr_empresa"].'||'.$value["nom_tabla"].'">'.$value["dsc_razon_social"].'</option>';
+									}
+									?>
 								</select>
 							</div>	
 							<!-- ENTRADA PARA EL USUARIO -->
