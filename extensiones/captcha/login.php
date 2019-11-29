@@ -1,9 +1,9 @@
 <?php
 @session_start();
 require_once "../../modelo/conexion.php";
-   $usuario = $_GET['usuario'];
+   $usuario = $_POST['usuario'];
    $usuario = strtoupper($usuario);
-   $pass = $_GET['pass'];
+   $pass = $_POST['pass'];
    $pass = strtoupper($pass);
    $db = new Conexion();                                             
 
