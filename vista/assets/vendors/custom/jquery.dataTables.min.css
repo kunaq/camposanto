@@ -279,7 +279,7 @@ table.dataTable td {
   zoom: 1;
 }
 .dataTables_wrapper .dataTables_length {
-  float: right;
+  float: left;
 }
 .dataTables_wrapper .dataTables_filter {
   float: right;

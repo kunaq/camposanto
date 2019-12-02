@@ -1467,7 +1467,6 @@ pre code {
 
 .table td,.table th {
     padding: .75rem;
-    vertical-align: top;
     border-top: 1px solid #f4f5f8
 }
 
@@ -51181,6 +51180,11 @@ ul >li, ol > li{
 .tableSideBar{
     width: 100%;
 }
+
+.tableSideBar tbody td{
+    padding-bottom: 15px; 
+}
+
 .static-last{
     display: inline-flex;
     position: absolute !important;
@@ -51370,9 +51374,14 @@ ul >li, ol > li{
     width: 100%;
     overflow-x: auto;
 }
-.myTableEstado th td{
-    padding: 0.75rem;
+.myTableEstado th{
     background-color: #FFF;
+    text-align: center;
+}
+.myTableEstado tbody td {
+    text-align: center;
+}
+td{
     text-align: center;
 }
 .myTableEstado thead th{
