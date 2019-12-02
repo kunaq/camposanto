@@ -1,7 +1,10 @@
 // $("#").DataTable();
 $(document).ready(function() {
     $('#tabTelerepote').DataTable( {
-       "lengthMenu": [[5, 10, 15, -1], [5, 10, 15, "All"]]
+    	"searching": false,
+		"info": false,
+		"paging":   false,
+		"ordering": false,
     } );
 } );
 $("#desdeTeleporte").datepicker({

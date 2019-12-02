@@ -806,17 +806,15 @@
 										<legend class="tittle-box">
 											<table>
 												<tbody>
-													<tr>
-														<td><label style="margin-bottom: 10px">Cuotas Definidas</label></td>
+														<td>Cuotas Definidas</td>
 														<td>
 															<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
-																<label>
-																	<input type="checkbox" id="cuoDefi" onclick="desabilitar()">
+																<label class="cb">
+																	<input type="checkbox" name="" id="cuoDefCheck" onchange="desabilitar();">
 																	<span></span>
 																</label>
 															</span>
 														</td>
-													</tr>
 												</tbody>
 											</table>
 										</legend>
@@ -910,6 +908,7 @@
 													<label>Saldo de FOMA</label>
 													<input type="text" id="imp_saldo_foma" name="imp_saldo_foma" class="form-control form-control-sm m-input" disabled placeholder="0,00" style="text-align: right;">
 												</div>
+												<div class="col-lg-12">&nbsp;</div>
 												<div class="col-lg-12">
 													<label>Numero de cuotas</label>
 													<select class="form-control form-control-sm m-select2 m-select2-general" name="cuota_FOMA" id="cuota_FOMA" style="width: 100%">
@@ -924,6 +923,7 @@
 														  ?> 
 													</select>
 												</div>
+												<div class="col-lg-12">&nbsp;</div>
 												<div class="col-lg-12">
 													<label>Fecha 1ra Cuota</label>
 													<div class="input-group date">

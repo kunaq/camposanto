@@ -36,7 +36,7 @@
 							</div>
 							<div class="form-group row">
 								<fieldset class="col-md-5 fieldFormHorizontal" style="margin-left: 1.2rem;">
-									<legend class="col-md-3">Beneficiario</legend>
+									<legend class="tittle-box">Beneficiario</legend>
 									<div class="form-group row">
 										<div class="col-md-4">
 											<label>Apellido paterno</label>
@@ -80,7 +80,7 @@
 									</div>
 								</fieldset>
 								<fieldset class="col-md-5 offset-md-1 fieldFormHorizontal">
-									<legend class="col-md-3">Contacto</legend>
+									<legend class="tittle-box">Contacto</legend>
 									<div class="form-group row">
 										<div class="col-md-4">
 											<label>Apellido paterno</label>
@@ -142,7 +142,7 @@
 							</div>
 							<div class="form-group row">
 								<fieldset class="col-md-5 fieldFormHorizontal" style="margin-left: 1.2rem;">
-									<legend class="col-md-6">Datos generales</legend>
+									<legend class="tittle-box">Datos generales</legend>
 									<div class="form-group row">
 										<div class="col-md-4">
 											<label>Origen de reporte</label>

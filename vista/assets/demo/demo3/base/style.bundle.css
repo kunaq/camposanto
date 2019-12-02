@@ -17093,8 +17093,8 @@ b,strong {
 }
 
 .m-tabs-line.m-tabs-line--danger a.m-tabs__link.active,.m-tabs-line.m-tabs-line--danger a.m-tabs__link:hover,.m-tabs-line.m-tabs-line--danger.nav.nav-tabs .nav-link.active,.m-tabs-line.m-tabs-line--danger.nav.nav-tabs .nav-link:hover {
-    color: #f4516c;
-    border-bottom: 1px solid #f4516c
+    color: #C99231;
+    border-bottom: 1px solid #C99231
 }
 
 .m-tabs-line.m-tabs-line--danger a.m-tabs__link.active>i,.m-tabs-line.m-tabs-line--danger a.m-tabs__link:hover>i,.m-tabs-line.m-tabs-line--danger.nav.nav-tabs .nav-link.active>i,.m-tabs-line.m-tabs-line--danger.nav.nav-tabs .nav-link:hover>i {
@@ -51419,10 +51419,15 @@ ul >li, ol > li{
     width: 100%;
     overflow-x: auto;
 }
-.myTableSaldos th, td{
+.myTableSaldos th{
     background-color: #FFF;
     text-align: center;
     padding-bottom: 15px
+}
+
+.myTableSaldos tbody td{
+    padding-bottom: 13px;
+    text-align: center;
 }
 .myTableSaldos thead th{
     background-color: #fff;
@@ -51436,8 +51441,8 @@ ul >li, ol > li{
     }
 }
 
-.mt15{
-    margin-top: 15px;
+.mt10{
+    margin-top: 10px;
 }
 
 /* ---------------- Estilos Espacios ---------------- */
@@ -51545,6 +51550,11 @@ ul >li, ol > li{
     border-left: 15px solid transparent;
     border-bottom: 15px solid transparent;
     transition: 0.1s;
+}
+
+
+.cb{
+    margin-bottom: 0px !important;
 }
 
 /* ---------------- Estilos Arbol Vendedores ---------------- */

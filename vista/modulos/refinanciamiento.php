@@ -278,8 +278,8 @@
 															<tr>
 																<td>Cuotas Definidas</td>
 																<td>
-																	<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger mt15">
-																		<label>
+																	<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger mt10">
+																		<label class="cb">
 																			<input type="checkbox" name="" id="cuoDefCheck" onchange="cuoDefinidas();">
 																			<span></span>
 																		</label>
@@ -291,24 +291,27 @@
 												</legend>
 												<div class="col-lg-12">
 													<div class="row form-group">
-														<div class="col-lg-2"></div>
-														<div class="col-lg-8">
+														<div class="col-lg-1"></div>
+														<div class="col-lg-4 form-group">
 															<label>Cuota Inicial</label>
+														</div>
+														<div class="col-lg-6 form-group">	
 															<input type="text" class="form-control form-control-sm m-input" id="cuoInicial" disabled>
 														</div>
-														<div class="col-lg-2"></div>
-														<div class="col-lg-2"></div>
-														<div class="col-lg-8">
+														<div class="col-lg-1"></div>
+														<div class="col-lg-4 form-group">
 															<label>Cuota Final</label>
+														</div>
+														<div class="col-lg-6 form-group">
 															<input type="text" class="form-control form-control-sm m-input" id="cuoFinal" disabled>
 														</div>
-														<div class="col-lg-2"></div>
-														<div class="col-lg-2"></div>
-														<div class="col-lg-8">
+														<div class="col-lg-1"></div>
+														<div class="col-lg-4 form-group">
 															<label>Valor de Cuota</label>
+														</div>
+														<div class="col-lg-6 form-group">
 															<input type="text" class="form-control form-control-sm m-input" id="valCuota" disabled>
 														</div>
-														<div class="col-lg-2"></div>
 														<div class="col-lg-2"></div>
 														<div class="col-lg-8" style="text-align: center;">
 															<button class="btn btn-sm btn-danger mt25" id="btnGenCuoDef" disabled>Generar >>></button>
