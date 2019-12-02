@@ -1284,7 +1284,6 @@
 									</table>
 								</div>
 							</div>
-							<br>
 							<div class="row">
 								<div class="col-lg-1">
 									<label class="">
