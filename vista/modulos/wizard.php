@@ -810,7 +810,7 @@
 														<td>
 															<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
 																<label class="cb">
-																	<input type="checkbox" name="" id="cuoDefCheck" onchange="desabilitar();">
+																	<input type="checkbox" name="" id="cuoDefi" onchange="desabilitar();">
 																	<span></span>
 																</label>
 															</span>
@@ -1344,7 +1344,7 @@
 										Deudor:
 									</label>
 								</div>
-								<div class="col-lg-5">
+								<div class="col-lg-2">
 									<div class="input-group">
 										<input type="text" disabled id="deuCom" class="form-control form-control-sm m-input" placeholder="">
 										<div class="input-group-append">
@@ -1359,12 +1359,9 @@
 										</div>
 									</div>
 								</div>
-								<div class="col-lg-5">
+								<div class="col-lg-3">
 									<input type="text" disabled id="nomCom" class="form-control form-control-sm m-input" placeholder="">
 								</div>
-							</div>
-							<br>
-							<div class="row">
 								<div class="col-lg-1">
 									<label class="">
 										Tipo de documento:
@@ -1383,29 +1380,29 @@
 								</div>
 								<div class="col-lg-1">
 									<label class="">
-										Número
+										Número Documento
 									</label>
 								</div>
-								<div class="col-lg-3">
+								<div class="col-lg-2">
 									<input type="text" id="ndocCom" class="form-control form-control-sm m-input" placeholder="" disabled>
-								</div>
-								<div class="col-lg-1">
-									<label class="">
-										Teléfono
-									</label>
-								</div>
-								<div class="col-lg-3">
-									<input type="text" id="tlfCom" class="form-control form-control-sm m-input" placeholder="" disabled>
 								</div>
 							</div>
 							<br>
 							<div class="row">
 								<div class="col-lg-1">
 									<label class="">
+										Teléfono
+									</label>
+								</div>
+								<div class="col-lg-2">
+									<input type="text" id="tlfCom" class="form-control form-control-sm m-input" placeholder="" disabled>
+								</div>
+								<div class="col-lg-1">
+									<label class="">
 										Dirección:
 									</label>
 								</div>
-								<div class="col-lg-10">
+								<div class="col-lg-7">
 									<input type="text" id="dirCom" class="form-control form-control-sm m-input" placeholder="" disabled>
 								</div>
 							</div>
