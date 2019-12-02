@@ -51381,6 +51381,9 @@ ul >li, ol > li{
 .myTableEstado tbody td {
     text-align: center;
 }
+td{
+    text-align: center;
+}
 .myTableEstado thead th{
     background-color: #fff;
     text-align: center;
