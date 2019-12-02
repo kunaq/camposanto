@@ -75,13 +75,13 @@
 							<span class="m-badge m-badge--success"></span>
 						</div>
 						<div class="col-md-1">
-							<span class="m-badge m-badge--danger user-pick"></span>
+							<span class="m-badge m-badge--danger"></span>
 						</div>
 						<div class="col-md-1">
 							<span class="m-badge m-badge--info"></span>
 						</div>
 						<div class="col-md-1">
-							<span class="m-badge m-badge--warning"></span>
+							<span class="m-badge m-badge--warning user-pick"></span>
 						</div>
 						<div class="col-md-1">
 							<span class="m-badge m-badge--metal"></span>

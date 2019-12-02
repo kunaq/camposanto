@@ -18,7 +18,7 @@
 				<a  href="javascript:;" class="m-menu__link m-menu__toggle">
 					<i class="m-menu__link-icon flaticon-coins"></i>
 					<span class="m-menu__link-text">
-						Gestión comercial
+						Comercial
 					</span>
 					<i class="m-menu__ver-arrow la la-angle-right"></i>
 				</a>
@@ -92,7 +92,7 @@
 				<a  href="javascript:;" class="m-menu__link m-menu__toggle">
 					<i class="m-menu__link-icon flaticon-interface-7"></i>
 					<span class="m-menu__link-text">
-						Gestión de contratos
+						Contratos
 					</span>
 					<i class="m-menu__ver-arrow la la-angle-right"></i>
 				</a>
@@ -176,7 +176,7 @@
 				<a  href="javascript:;" class="m-menu__link m-menu__toggle">
 					<i class="m-menu__link-icon flaticon-tabs"></i>
 					<span class="m-menu__link-text">
-						Gestion de camposanto
+						Camposanto
 					</span>
 					<i class="m-menu__ver-arrow la la-angle-right"></i>
 				</a>
