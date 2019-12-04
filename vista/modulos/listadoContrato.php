@@ -74,7 +74,7 @@
 												<div class="col-lg-1">
 													<label>&nbsp;</label>
 													<span data-toggle="modal" data-target="#m_modal_2">
-														<button type="button" class="m-btn btn btn-sm btn-danger" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar cliente" onclick="creaTablaCliente('contrato');">
+														<button type="button" class="m-btn btn btn-sm btnGuardarKqPst" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar cliente" onclick="creaTablaCliente('contrato');">
 															<i class="la la-search"></i>
 														</button>
 													</span>
