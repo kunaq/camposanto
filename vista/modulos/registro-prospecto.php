@@ -413,7 +413,7 @@
 							<p class="pull-right">
 								<button type="button" class="btn btn-sm btn-primary btnGuardarKqPst" title="Nuevo" id=""  style="margin-right:6px;"><i class="fa fa-plus"></i></button>	
 								<button type="button" class="btn btn-sm btn-primary btnEditarKqPst2" title="Modificar" id="" style="margin-right:6px;"><i class="fa fa-pencil"></i></button>
-								<button type="button" class="btn btn-sm btn-primary btnEliminarKqPst" title="Eliminar" id=""><i class="fa fa-trash"></i></button>
+								<button type="button" class="btn btn-sm btn-primary btn-danger" title="Eliminar" id=""><i class="fa fa-trash"></i></button>
 							</p>										
 						</div>
 					</div>

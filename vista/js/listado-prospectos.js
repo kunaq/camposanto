@@ -60,3 +60,11 @@ function mostrarSidebar(numContrato,codServicio){
 function hideSidebar(){
     $("#m_quick_sidebar-contrato").removeClass("m-quick-sidebar-contrato--on");
 }
+
+window.addEventListener("keyup",function(e){
+
+    if(e.keyCode==27) {
+      hideSidebar();
+    }
+
+});

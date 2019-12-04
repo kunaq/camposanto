@@ -422,7 +422,7 @@
 													<div class="input-group">
 		  												<input type="text" class="form-control form-control-sm m-input" id="codVenComResolucion" disabled>
 		  												<div class="input-group-append">
-		   										 			<button class="btn btn-danger btn-sm btn-outline-secondary" type="button"><i class="fa fa-plus"></i></button>
+		   										 			<button class="btn btnGuardarKqPst btn-sm btn-outline-secondary" type="button"><i class="fa fa-plus"></i></button>
 		  												</div>
 													</div>
 												</div>
@@ -435,7 +435,7 @@
 													<div class="input-group">
 		  												<input type="text" class="form-control form-control-sm m-input" id="codSupComResolucion" disabled>
 		  												<div class="input-group-append">
-		   										 			<button class="btn btn-danger btn-sm btn-outline-secondary" type="button"><i class="fa fa-plus"></i></button>
+		   										 			<button class="btn btnGuardarKqPst btn-sm btn-outline-secondary" type="button"><i class="fa fa-plus"></i></button>
 		  												</div>
 													</div>
 												</div>
@@ -448,7 +448,7 @@
 													<div class="input-group">
 		  												<input type="text" class="form-control form-control-sm m-input" id="codGruComResolucion" disabled>
 		  												<div class="input-group-append">
-		   										 			<button class="btn btn-danger btn-sm btn-outline-secondary" type="button"><i class="fa fa-plus"></i></button>
+		   										 			<button class="btn btnGuardarKqPst btn-sm btn-outline-secondary" type="button"><i class="fa fa-plus"></i></button>
 		  												</div>
 													</div>
 												</div>
@@ -461,7 +461,7 @@
 													<div class="input-group">
 		  												<input type="text" class="form-control form-control-sm m-input" id="codJVenComResolucion" disabled>
 		  												<div class="input-group-append">
-		   										 			<button class="btn btn-danger btn-sm btn-outline-secondary" type="button"><i class="fa fa-plus"></i></button>
+		   										 			<button class="btn btnGuardarKqPst btn-sm btn-outline-secondary" type="button"><i class="fa fa-plus"></i></button>
 		  												</div>
 													</div>
 												</div>

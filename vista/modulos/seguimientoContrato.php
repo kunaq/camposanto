@@ -33,7 +33,7 @@
 								</div>
 								<div class="col-lg-1" id="divBtnCli">
 									<label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<button class="btn btn-sm btn-danger" id="btnBuscarCliente"><i class="fa fa-search"></i></button>
+									<button class="btn btn-sm btnGuardarKqPst" id="btnBuscarCliente"><i class="fa fa-search"></i></button>
 								</div>
 								<div class="col-lg-2" id="divLoc">
 									<label>Localidad</label>

@@ -101,7 +101,7 @@
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-danger" onclick="">
+				<button type="button" class="btn btnGuardarKqPst" onclick="">
 					Guardar
 				</button>
 			</div>

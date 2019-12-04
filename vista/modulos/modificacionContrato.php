@@ -124,7 +124,7 @@
 										<div class="input-group">
 		  									<input type="text" class="form-control form-control-sm m-input" name="espacioContrato" id="espacionContrato" disabled>
 		  									<div class="input-group-append">
-		   										 <button class="btn btn-sm btn-danger btn-outline-secondary" type="button"><i class="fa fa-th-list"></i></button>
+		   										 <button class="btn btn-sm btnGuardarKqPst btn-outline-secondary" type="button"><i class="fa fa-th-list"></i></button>
 		  									</div>
 										</div>
 									</div>
@@ -242,11 +242,11 @@
 														</div>
 														<div class="col-lg-4">
 															<span data-toggle="modal" data-target="#m_modal_auditoria_contrato">
-																<button type="button" id="btn2Com" class="btn btn-sm btn-danger mt25">
+																<button type="button" id="btn2Com" class="btn btn-sm btnGuardarKqPst mt25">
 																	<i class="flaticon-plus"></i>
 																</button>
 															</span>
-															<button type="button" id="btn2Com" class="btn btn-sm btn-danger mt25">
+															<button type="button" id="btn2Com" class="btn btn-sm btnEditarKqPst2 mt25">
 																<i class="flaticon-plus"></i>
 															</button>
 														</div>
@@ -627,13 +627,13 @@
 																<input type="text" class="form-control form-control-sm m-input" name="codCliTitular" id="codCliTitular" disabled>
 															</div>
 															<div class="col-lg-5">
-																<button type="button" id="btn2Com" class="btn btn-sm btn-danger mt25">
+																<button type="button" id="btn2Com" class="btn btn-sm btnEditarKqPst2 mt25">
 																	<i class="fa fa-user-o"></i>
 																</button>
-																<button type="button" id="btn2Com" class="btn btn-sm btn-danger mt25">
+																<button type="button" id="btn2Com" class="btn btn-sm btnGuardarKqPst mt25">
 																	<i class="fa fa-search"></i>
 																</button>
-																<button type="button" id="btn2Com" class="btn btn-sm btn-danger mt25">
+																<button type="button" id="btn2Com" class="btn btn-sm btnThird mt25">
 																	<i class="fa fa-exchange"></i>
 																</button>
 															</div>
@@ -1315,7 +1315,7 @@
 									<div class="m-form__group row">
 										<div class="col-lg-12" style="display: inherit;">
 											<div class="input-group">
-												<button type="reset" class="btn btn-success">
+												<button type="reset" class="btn btnGuardarKqPst">
 													Nuevo <br> beneficiario
 												</button>
 											</div>
@@ -1663,7 +1663,7 @@
 													<input type="text" class="form-control form-control-sm m-input" placeholder="0">
 												</div>
 												<div class="col-lg-12">
-													<button type="reset" class="btn btn-sm btn-danger mt25">
+													<button type="reset" class="btn btn-sm btnGuardarKqPst mt25">
 														Generar cronograma de pagos
 													</button>
 												</div>
@@ -1712,7 +1712,7 @@
 												</div>
 											<br>
 												<div class="col-lg-12">
-													<button type="reset" class="btn btn-sm btn-danger mt25">
+													<button type="reset" class="btn btn-sm btnEditarKqPst2 mt25">
 														Generar CUD
 													</button>
 												</div>
@@ -2024,7 +2024,7 @@
 												</div>
 												<div class="col-lg-1">
 													<label>&nbsp;</label>
-													<button class="btn btn-sm btn-danger"><i class="fa fa-search"></i></button>
+													<button class="btn btn-sm btnGuardarKqPst"><i class="fa fa-search"></i></button>
 												</div>
 												<div class="col-lg-8">
 													<label>&nbsp;&nbsp;</label>
@@ -2056,7 +2056,7 @@
 												</div>
 												<div class="col-lg-1">
 													<label>&nbsp;</label>
-													<button class="btn btn-sm btn-danger"><i class="fa fa-search"></i></button>
+													<button class="btn btn-sm btnGuardarKqPst"><i class="fa fa-search"></i></button>
 												</div>
 												<div class="col-lg-8">
 													<label>&nbsp;&nbsp;</label>
@@ -2114,7 +2114,7 @@
 												</div>
 												<div class="col-lg-1">
 													<label>&nbsp;</label>
-													<button class="btn btn-sm btn-danger"><i class="fa fa-search"></i></button>
+													<button class="btn btn-sm btnGuardarKqPst"><i class="fa fa-search"></i></button>
 												</div>
 												<div class="col-lg-8">
 													<label>&nbsp;&nbsp;</label>

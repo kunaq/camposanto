@@ -126,6 +126,14 @@ function hideSidebar(){
     $("#m_quick_sidebar-contrato").removeClass("m-quick-sidebar-contrato--on");
 }
 
+window.addEventListener("keyup",function(e){
+
+    if(e.keyCode==27) {
+      hideSidebar();
+    }
+
+});
+
 function limpiarCliente(){
     document.getElementById("codCliCon").value = "";
     document.getElementById("nombreCliCon").value = "";

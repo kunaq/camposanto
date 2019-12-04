@@ -119,7 +119,7 @@
 											</div>
 										</div>
 										<div class="col-lg-12" style="text-align: center; vertical-align: middle; margin-top: 10px">
-											<button class="btn btn-sm btn-danger">Generar Cronograma</button>
+											<button class="btn btn-sm btnGuardarKqPst">Generar Cronograma</button>
 										</div>
 									</div>
 								</div>
@@ -299,6 +299,7 @@
 															<input type="text" class="form-control form-control-sm m-input" id="cuoInicial" disabled>
 														</div>
 														<div class="col-lg-1"></div>
+														<div class="col-lg-1"></div>
 														<div class="col-lg-4 form-group">
 															<label>Cuota Final</label>
 														</div>
@@ -306,15 +307,17 @@
 															<input type="text" class="form-control form-control-sm m-input" id="cuoFinal" disabled>
 														</div>
 														<div class="col-lg-1"></div>
+														<div class="col-lg-1"></div>
 														<div class="col-lg-4 form-group">
 															<label>Valor de Cuota</label>
 														</div>
 														<div class="col-lg-6 form-group">
 															<input type="text" class="form-control form-control-sm m-input" id="valCuota" disabled>
 														</div>
+
 														<div class="col-lg-2"></div>
 														<div class="col-lg-8" style="text-align: center;">
-															<button class="btn btn-sm btn-danger mt25" id="btnGenCuoDef" disabled>Generar >>></button>
+															<button class="btn btn-sm btnGuardarKqPst mt25" id="btnGenCuoDef" disabled>Generar >>></button>
 														</div>
 														<div class="col-lg-2"></div>
 													</div>
@@ -334,7 +337,7 @@
 														<div class="col-lg-2"></div>
 														<div class="col-lg-2"></div>
 														<div class="col-lg-8" style="text-align: center;">
-															<button class="btn btn-sm btn-danger mt25">Generar >>></button>
+															<button class="btn btn-sm btnGuardarKqPst mt25">Generar >>></button>
 														</div>
 														<div class="col-lg-2"></div>
 													</div>

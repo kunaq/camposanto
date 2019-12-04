@@ -191,7 +191,7 @@
 																	<input type="text" class="form-control form-control-sm m-input" id="">
 																</div>
 																<div class="col-lg-2">
-																	<button class="btn btn-sm btn-danger mt25">
+																	<button class="btn btn-sm btnEditarKqPst2 mt25">
 																		<i class="fa fa-search"></i>
 																	</button>
 																</div>
@@ -275,7 +275,7 @@
 																	<input type="text" class="form-control form-control-sm m-input" id="">
 																</div>
 																<div class="col-lg-1" style="text-align: center;">
-																	<button class="btn btn-sm btn-danger mt25">
+																	<button class="btn btn-sm btnEditarKqPst2 mt25">
 																		<i class="fa fa-search"></i>
 																	</button>
 																</div>
@@ -327,10 +327,10 @@
 										<div class="col-lg-2">
 											<div class="row">
 												<div class="col-lg-12 advise">
-													<button class="btn btn-danger btn-sm"><i class="fa fa-play"></i></button>
+													<button class="btn btnEditarKqPst2 btn-sm"><i class="fa fa-play"></i></button>
 												</div>
 												<div class="col-lg-12 advise">
-													<button class="btn btn-danger btn-sm mt25"><i class="fa fa-forward"></i></button>
+													<button class="btn btnEditarKqPst2 btn-sm mt25"><i class="fa fa-forward"></i></button>
 												</div>
 											</div>
 										</div>
@@ -391,7 +391,7 @@
 															<select class="form-control form-control-sm m-input" id=""></select>
 														</div>
 														<div class="col-lg-1">
-															<button class="btn btn-sm btn-danger mt25"><i class="fa fa-list"></i></button>
+															<button class="btn btn-sm btnEditarKqPst2 mt25"><i class="fa fa-list"></i></button>
 														</div>
 														<div class="col-lg-3">
 															<label>Tipo</label>
@@ -565,7 +565,7 @@
 																	<input type="text" class="form-control form-control-sm m-input" id="">
 																</div>
 																<div class="col-lg-2">
-																	<button class="btn btn-sm btn-danger mt25">
+																	<button class="btn btn-sm btnEditarKqPst2 mt25">
 																		<i class="fa fa-search"></i>
 																	</button>
 																</div>
@@ -683,10 +683,10 @@
 										<div class="col-lg-2">
 											<div class="row">
 												<div class="col-lg-12 advise">
-													<button class="btn btn-danger btn-sm"><i class="fa fa-play"></i></button>
+													<button class="btn btnEditarKqPst2 btn-sm"><i class="fa fa-play"></i></button>
 												</div>
 												<div class="col-lg-12 advise">
-													<button class="btn btn-danger btn-sm mt25"><i class="fa fa-forward"></i></button>
+													<button class="btn btnEditarKqPst2 btn-sm mt25"><i class="fa fa-forward"></i></button>
 												</div>
 											</div>
 										</div>
@@ -786,7 +786,7 @@
 																	<input type="text" class="form-control form-control-sm m-input" id="">
 																</div>
 																<div class="col-lg-2">
-																	<button class="btn btn-sm btn-danger mt25">
+																	<button class="btn btn-sm btnEditarKqPst2 mt25">
 																		<i class="fa fa-search"></i>
 																	</button>
 																</div>
@@ -904,10 +904,10 @@
 										<div class="col-lg-2">
 											<div class="row">
 												<div class="col-lg-12 advise">
-													<button class="btn btn-danger btn-sm"><i class="fa fa-play"></i></button>
+													<button class="btn btnEditarKqPst2 btn-sm"><i class="fa fa-play"></i></button>
 												</div>
 												<div class="col-lg-12 advise">
-													<button class="btn btn-danger btn-sm mt25"><i class="fa fa-forward"></i></button>
+													<button class="btn btnEditarKqPst2 btn-sm mt25"><i class="fa fa-forward"></i></button>
 												</div>
 											</div>
 										</div>
@@ -1046,7 +1046,7 @@
 																	<input type="text" class="form-control form-control-sm m-input" id="">
 																</div>
 																<div class="col-lg-2">
-																	<button class="btn btn-sm btn-danger mt25">
+																	<button class="btn btn-sm btnEditarKqPst2 mt25">
 																		<i class="fa fa-search"></i>
 																	</button>
 																</div>
@@ -1130,7 +1130,7 @@
 																	<input type="text" class="form-control form-control-sm m-input" id="">
 																</div>
 																<div class="col-lg-1" style="text-align: center;">
-																	<button class="btn btn-sm btn-danger mt25">
+																	<button class="btn btn-sm btnEditarKqPst2 mt25">
 																		<i class="fa fa-search"></i>
 																	</button>
 																</div>
@@ -1182,10 +1182,10 @@
 										<div class="col-lg-2">
 											<div class="row">
 												<div class="col-lg-12 advise">
-													<button class="btn btn-danger btn-sm"><i class="fa fa-play"></i></button>
+													<button class="btn btnEditarKqPst2 btn-sm"><i class="fa fa-play"></i></button>
 												</div>
 												<div class="col-lg-12 advise">
-													<button class="btn btn-danger btn-sm mt25"><i class="fa fa-forward"></i></button>
+													<button class="btn btnEditarKqPst2 btn-sm mt25"><i class="fa fa-forward"></i></button>
 												</div>
 											</div>
 										</div>
@@ -1246,7 +1246,7 @@
 															<select class="form-control form-control-sm m-input" id=""></select>
 														</div>
 														<div class="col-lg-1">
-															<button class="btn btn-sm btn-danger mt25"><i class="fa fa-list"></i></button>
+															<button class="btn btn-sm btnEditarKqPst2 mt25"><i class="fa fa-list"></i></button>
 														</div>
 														<div class="col-lg-3">
 															<label>Tipo</label>
@@ -1508,7 +1508,7 @@
 																	<input type="text" class="form-control form-control-sm m-input" id="">
 																</div>
 																<div class="col-lg-2">
-																	<button class="btn btn-sm btn-danger mt25">
+																	<button class="btn btn-sm btnEditarKqPst2 mt25">
 																		<i class="fa fa-search"></i>
 																	</button>
 																</div>
@@ -1592,7 +1592,7 @@
 																	<input type="text" class="form-control form-control-sm m-input" id="">
 																</div>
 																<div class="col-lg-1" style="text-align: center;">
-																	<button class="btn btn-sm btn-danger mt25">
+																	<button class="btn btn-sm btnEditarKqPst2 mt25">
 																		<i class="fa fa-search"></i>
 																	</button>
 																</div>
@@ -1644,10 +1644,10 @@
 										<div class="col-lg-2">
 											<div class="row">
 												<div class="col-lg-12 advise">
-													<button class="btn btn-danger btn-sm"><i class="fa fa-play"></i></button>
+													<button class="btn btnEditarKqPst2 btn-sm"><i class="fa fa-play"></i></button>
 												</div>
 												<div class="col-lg-12 advise">
-													<button class="btn btn-danger btn-sm mt25"><i class="fa fa-forward"></i></button>
+													<button class="btn btnEditarKqPst2 btn-sm mt25"><i class="fa fa-forward"></i></button>
 												</div>
 											</div>
 										</div>
@@ -1708,7 +1708,7 @@
 															<select class="form-control form-control-sm m-input" id=""></select>
 														</div>
 														<div class="col-lg-1">
-															<button class="btn btn-sm btn-danger mt25"><i class="fa fa-list"></i></button>
+															<button class="btn btn-sm btnEditarKqPst2 mt25"><i class="fa fa-list"></i></button>
 														</div>
 														<div class="col-lg-3">
 															<label>Tipo</label>
@@ -1760,7 +1760,7 @@
 															<select class="form-control form-control-sm m-input" id=""></select>
 														</div>
 														<div class="col-lg-1">
-															<button class="btn btn-sm btn-danger mt25"><i class="fa fa-list"></i></button>
+															<button class="btn btn-sm btnEditarKqPst2 mt25"><i class="fa fa-list"></i></button>
 														</div>
 														<div class="col-lg-2">
 															<label>Tipo</label>
@@ -1963,7 +1963,7 @@
 																	<input type="text" class="form-control form-control-sm m-input" id="">
 																</div>
 																<div class="col-lg-2">
-																	<button class="btn btn-sm btn-danger mt25">
+																	<button class="btn btn-sm btnEditarKqPst2 mt25">
 																		<i class="fa fa-search"></i>
 																	</button>
 																</div>
@@ -2117,10 +2117,10 @@
 										<div class="col-lg-2">
 											<div class="row">
 												<div class="col-lg-12 advise">
-													<button class="btn btn-danger btn-sm"><i class="fa fa-play"></i></button>
+													<button class="btn btnEditarKqPst2 btn-sm"><i class="fa fa-play"></i></button>
 												</div>
 												<div class="col-lg-12 advise">
-													<button class="btn btn-danger btn-sm mt25"><i class="fa fa-forward"></i></button>
+													<button class="btn btnEditarKqPst2 btn-sm mt25"><i class="fa fa-forward"></i></button>
 												</div>
 											</div>
 										</div>
@@ -2181,7 +2181,7 @@
 															<select class="form-control form-control-sm m-input" id=""></select>
 														</div>
 														<div class="col-lg-1">
-															<button class="btn btn-sm btn-danger mt25"><i class="fa fa-list"></i></button>
+															<button class="btn btn-sm btnEditarKqPst2 mt25"><i class="fa fa-list"></i></button>
 														</div>
 														<div class="col-lg-3">
 															<label>Tipo</label>
@@ -2256,7 +2256,7 @@
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-danger" onclick="">
+				<button type="button" class="btn btnGuardarKqPst" onclick="">
 					Guardar
 				</button>
 			</div>

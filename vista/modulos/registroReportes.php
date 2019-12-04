@@ -80,14 +80,7 @@ include "modals/modalTelereporte.php" ?>
 		<!--begin: Portlet Body-->	
 			<br>
 			<div class="form-group row">
-				<div class="col-md-12">
-					<p class="pull-right">
-						<button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#repBenef" title="Nuevo reporte" id=""  style="margin-right:6px;"><i class="fa fa-plus"></i></button>	
-					</p>										
-				</div>
-			</div>
-			<div class="form-group row">
-				<div class="col-md-10 offset-md-2 table-responsive">
+				<div class="col-md-10 table-responsive">
 					<table class="table" style="width:100%" id="tabTelerepote">
 						<thead>
 							<tr>
@@ -157,6 +150,11 @@ include "modals/modalTelereporte.php" ?>
 							</tr>
 						</tbody>
 					</table>
+				</div>
+				<div class="col-md-1">
+					<!-- <p class="pull-right"> -->
+						<button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#repBenef" title="Nuevo reporte" id=""  style="margin-right:6px;"><i class="fa fa-plus"></i></button>	
+					<!-- </p>										 -->
 				</div>				
 			</div>
 		</div>

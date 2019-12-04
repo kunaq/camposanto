@@ -96,8 +96,8 @@
 											<div class="col-lg-4"></div>
 											<div class="col-lg-3">
 												<p class="pull-right">
-													<button type="button" class="btn btn-sm btn-success" title="Nuevo" id=""  style="margin-right:6px;"><i class="fa fa-plus"></i></button>	
-													<button type="button" class="btn btn-sm btn-primary" title="Modificar" id="" style="margin-right:6px;"><i class="fa fa-pencil"></i></button>
+													<button type="button" class="btn btn-sm btnGuardarKqPst" title="Nuevo" id=""  style="margin-right:6px;"><i class="fa fa-plus"></i></button>	
+													<button type="button" class="btn btn-sm btnEditarKqPst2" title="Modificar" id="" style="margin-right:6px;"><i class="fa fa-pencil"></i></button>
 													<button type="button" class="btn btn-sm btn-danger" title="Eliminar" id=""><i class="fa fa-trash"></i></button>
 												</p>
 											</div>

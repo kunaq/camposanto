@@ -9,7 +9,7 @@
 				</div>
 				<div style="display: inline; float: right;">
 					<span data-toggle="modal" data-target="#m_modal_registro_uso_servicio">
-						<button class=" m-portlet__nav-link btn-danger btn m-btn m-btn--icon m-btn--icon-only btn-nuevo m-btn--pill" data-toggle="m-tooltip" data-container="body">
+						<button class=" m-portlet__nav-link btnGuardarKqPst btn m-btn m-btn--icon m-btn--icon-only btn-nuevo m-btn--pill" data-toggle="m-tooltip" data-container="body">
 							<i class="fa fa-plus"></i>
 						</button>
 					</span>
@@ -30,7 +30,7 @@
 												<div class="col-lg-12">
 													<label>Fecha Inicio</label>
 													<div class="input-group date">
-														<input type="text" class="form-control form-control-sm m-input" id="m_datepicker_1" data-date-format="dd/mm/yyyy" value="<?php echo date('d/m/Y',strtotime(date('m/d/Y'))); ?>" onchange="creaTablaContrato();" />
+														<input type="text" class="form-control form-control-sm m-input" id="m_datepicker_1" data-date-format="dd/mm/yyyy" value="<?php echo date('d/m/Y',strtotime(date('m/d/Y'))); ?>" onchange="" />
 														<div class="input-group-append">
 															<span class="input-group-text">
 																<i class="la la-calendar-check-o"></i>
@@ -41,7 +41,7 @@
 												<div class="col-lg-12">
 													<label>Fecha Fin</label>
 													<div class="input-group date">
-														<input type="text" class="form-control form-control-sm m-input" id="m_datepicker_2" data-date-format="dd/mm/yyyy" value="<?php echo date('d/m/Y',strtotime(date('m/d/Y'))); ?>" onchange="creaTablaContrato();"/>
+														<input type="text" class="form-control form-control-sm m-input" id="m_datepicker_2" data-date-format="dd/mm/yyyy" value="<?php echo date('d/m/Y',strtotime(date('m/d/Y'))); ?>" onchange=""/>
 														<div class="input-group-append">
 															<span class="input-group-text">
 																<i class="la la-calendar-check-o"></i>

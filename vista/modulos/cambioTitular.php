@@ -43,11 +43,11 @@
 						<legend>&nbsp;</legend>
 						<div class="col-lg-12">
 							<div class="row form-group">
-								<div class="col-lg-12">
+								<div class="col-lg-12" style="text-align: center;">
 									<label>Auditoria de Contrato</label>
 								</div>
 								<div class="col-lg-12" style="text-align: center;">
-									<button class="m-btn btn btn-danger btn-sm">
+									<button class="m-btn btn btnGuardarKqPst btn-sm">
 										<i class="fa fa-search"></i>
 									</button>
 								</div>
@@ -335,10 +335,10 @@
 															<input type="text" class="form-control form-control-sm m-input" id="cidCliente" disabled>
 														</div>
 														<div class="col-lg-5">
-															<button type="button" id="btn2Com" class="btn btn-sm btn-danger mt25">
+															<button type="button" id="btn2Com" class="btn btn-sm btnGuardarKqPst mt25">
 																<i class="fa fa-search"></i>
 															</button>
-															<button type="button" id="btn2Com" class="btn btn-sm btn-danger mt25">
+															<button type="button" id="btn2Com" class="btn btn-sm btnEditarKqPst2 mt25">
 															<i class="fa fa-user-o"></i>
 															</button>
 														</div>

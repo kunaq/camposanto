@@ -26,8 +26,8 @@
 								</select>
 							</div>
 							<div class="col-md-3">
-								<button type="button" class="btn btn-sm btn-success" title="Crear año" id="btnAgregarGestor"  style="margin-right:6px;"><i class="fa fa-plus"></i></button>	
-								<button type="button" class="btn btn-sm btn-primary" title="Copiar año siguiente" id="btnGuardarCambios"><i class="fa fa-copy"></i></button>
+								<button type="button" class="btn btn-sm btnGuardarKqPst" title="Crear año" id="btnAgregarGestor"  style="margin-right:6px;"><i class="fa fa-plus"></i></button>	
+								<button type="button" class="btn btn-sm btnEditarKqPst2" title="Copiar año siguiente" id="btnGuardarCambios"><i class="fa fa-copy"></i></button>
 							</div>
 							<div class="col-md-2">
 								<label>Periodo:</label>
