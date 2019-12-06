@@ -33,27 +33,26 @@
 						</div>
 					</fieldset>
 					<?php 
-$ruc="20113301181";
-try {
-  $soapclient = new SoapClient('http://licenciacontasiscorp.com/20_App-Licencia_19/aDW_P40ducT04grUp413oS_WD.aspx?wsdl');
-  $param = array('T1'=>$ruc);
-  $rspt = $soapclient->Execute($param);
+// $ruc="20113301181";
 
-  $array = json_decode(json_encode($rspt),true);
+$soapclient = new SoapClient('http://erp.integrens.com:100/muyanew.ws_integrens_ext/cmr/ext/ws_integrens_ext.asmx?wsdl');
 
-  $array2=implode($array);
+$valor1 = "200";
+$valor2 = "001";
+$valor3 = "<NewDataSet> <Precio> <codpro>00600038</codpro> <codmnd>S/.</codmnd> <fecvig>2019-01-01</fecvig> <fecven>2300-12-31</fecven> <codter>*</codter> <valbas>122.0000</valbas> <estreg>AC</estreg> </Precio> </NewDataSet> ";
 
-  $erase = array('[{','}]');
+$parametros = array('as_param1'=>$valor1,'as_param2'=>$valor2,'as_param3'=>$valor3);
+// $respuesta  = print_r($cliente->call("ws_cmrext_externo_precios_productos_xml",$parametros));
 
-  $array3=str_replace($erase, "", $array2);
-
-  $array4=str_replace('.00"', '',$array3);
-
-  $arrayList=explode("},{", $array4);
+  // $param = array('T1'=>$ruc);
+ $rsp = $soapclient->__soapCall('ws_cmrext_externo_precios_productos_xml', array($parametros));
      
-     print_r($rspt);
-}catch (Exception $e) {
-}
+  print_r($rsp);
+
+
+
+// $client = new SoapClient('http://erp.integrens.com:100/muyanew.ws_integrens_ext/cmr/ext/ws_integrens_ext.asmx?wsdl');
+// var_dump($client->__getFunctions());
 ?>
 				</div>
 			</div>
