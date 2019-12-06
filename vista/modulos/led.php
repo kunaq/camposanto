@@ -34,7 +34,8 @@
 					</fieldset>
 					<?php 
 // $ruc="20113301181";
-
+try {
+	
 $soapclient = new SoapClient('http://erp.integrens.com:100/muyanew.ws_integrens_ext/cmr/ext/ws_integrens_ext.asmx?wsdl');
 
 $valor1 = "200";
@@ -48,7 +49,9 @@ $parametros = array('as_param1'=>$valor1,'as_param2'=>$valor2,'as_param3'=>$valo
  $rsp = $soapclient->__soapCall('ws_cmrext_externo_precios_productos_xml', array($parametros));
      
   print_r($rsp);
-
+} catch (Exception $e) {
+	
+}
 
 
 // $client = new SoapClient('http://erp.integrens.com:100/muyanew.ws_integrens_ext/cmr/ext/ws_integrens_ext.asmx?wsdl');
