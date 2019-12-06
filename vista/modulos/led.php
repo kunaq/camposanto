@@ -53,9 +53,6 @@ $parametros = array('as_param1'=>$valor1,'as_param2'=>$valor2,'as_param3'=>$valo
 	echo $e;
 }
 
-
-$client = new SoapClient('http://erp.integrens.com:100/muyanew.ws_integrens_ext/cmr/ext/ws_integrens_ext.asmx?wsdl');
-var_dump($client->__getFunctions());
 ?>
 				</div>
 			</div>
