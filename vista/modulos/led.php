@@ -1,3 +1,6 @@
+<?php 
+echo phpinfo();
+exit; ?>
 <div class="m-content" style="width: calc(100%);">
 	<!--Begin::Main Portlet-->
 	<div class="m-portlet m-portlet--space">
@@ -34,6 +37,8 @@
 					</fieldset>
 					<?php 
 // $ruc="20113301181";
+
+
 
 $soapclient = new SoapClient('http://erp.integrens.com:100/muyanew.ws_integrens_ext/cmr/ext/ws_integrens_ext.asmx?wsdl');
 
