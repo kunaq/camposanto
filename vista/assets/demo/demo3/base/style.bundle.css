@@ -31275,6 +31275,43 @@ td>.m-checkbox.m-checkbox--single,th>.m-checkbox.m-checkbox--single {
     opacity: 1
 }
 
+
+.m-switch.m-switch--yellow:not(.m-switch--outline) input:empty~span:before {
+    background-color: #f4516c
+}
+
+.m-switch.m-switch--yellow:not(.m-switch--outline) input:empty~span:after {
+    color: #f4516c;
+    background-color: #fff;
+    opacity: .4
+}
+
+.m-switch.m-switch--yellow:not(.m-switch--outline) input:checked~span:before {
+    background-color: #f4516c
+}
+
+.m-switch.m-switch--yellow:not(.m-switch--outline) input:checked~span:after {
+    opacity: 1
+}
+
+.m-switch.m-switch--outline.m-switch--yellow input:empty~span:before {
+    border: 2px solid #ebedf2;
+    background-color: #fff
+}
+
+.m-switch.m-switch--outline.m-switch--yellow input:empty~span:after {
+    color: #fff
+}
+
+.m-switch.m-switch--outline.m-switch--yellow input:checked~span:before {
+    background-color: #fff
+}
+
+.m-switch.m-switch--outline.m-switch--yellow input:checked~span:after {
+    background-color: #c99231;
+    opacity: 1
+}
+
 .m-form .m-form__group {
     margin-bottom: 0;
     padding-top: 15px;
@@ -33148,6 +33185,43 @@ td>.m-checkbox.m-checkbox--single,th>.m-checkbox.m-checkbox--single {
     color: #fff
 }
 
+/* ------------------- Wizard Yellow -----------------------*/
+.m-wizard.m-wizard--2.m-wizard--yellow .m-wizard__head .m-wizard__progress .progress .progress-bar {
+    background-color: #d7aa5b
+}
+
+.m-wizard.m-wizard--2.m-wizard--yellow .m-wizard__head .m-wizard__steps .m-wizard__step.m-wizard__step--done .m-wizard__step-number>span {
+    background-color: #d7aa5b
+}
+
+.m-wizard.m-wizard--2.m-wizard--yellow .m-wizard__head .m-wizard__steps .m-wizard__step.m-wizard__step--done .m-wizard__step-number>span>span {
+    color: #fff
+}
+
+.m-wizard.m-wizard--2.m-wizard--yellow .m-wizard__head .m-wizard__steps .m-wizard__step.m-wizard__step--done a.m-wizard__step-number:hover>span {
+    background-color: #c99231
+}
+
+.m-wizard.m-wizard--2.m-wizard--yellow .m-wizard__head .m-wizard__steps .m-wizard__step.m-wizard__step--done a.m-wizard__step-number:hover>span>span {
+    color: #fff
+}
+
+.m-wizard.m-wizard--2.m-wizard--yellow .m-wizard__head .m-wizard__steps .m-wizard__step.m-wizard__step--current .m-wizard__step-number>span {
+    background-color: #d29f46
+}
+
+.m-wizard.m-wizard--2.m-wizard--yellow .m-wizard__head .m-wizard__steps .m-wizard__step.m-wizard__step--current .m-wizard__step-number>span>span {
+    color: #fff
+}
+
+.m-wizard.m-wizard--2.m-wizard--yellow .m-wizard__head .m-wizard__steps .m-wizard__step.m-wizard__step--current a.m-wizard__step-number:hover>span {
+    background-color: #c99231
+}
+
+.m-wizard.m-wizard--2.m-wizard--yellow .m-wizard__head .m-wizard__steps .m-wizard__step.m-wizard__step--current a.m-wizard__step-number:hover>span>span {
+    color: #fff
+}
+/* ----------------- Fin Wizard Yellow ---------------------*/
 .m-wizard.m-wizard--3 {
     padding: 0
 }
@@ -51396,6 +51470,9 @@ ul >li, ol > li{
 td{
     text-align: center;
 }
+th{
+    text-align: center;
+}
 .myTableEstado thead th{
     background-color: #fff;
     text-align: center;
@@ -51603,4 +51680,9 @@ td{
 .tableVendedores tbody tr:hover td{
     background-color: #b6afaf !important;
     cursor: pointer;
+}
+
+.selected-tr{
+    background-color: #b6afaf !important;
+    font-weight: 500;
 }

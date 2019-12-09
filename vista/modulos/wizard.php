@@ -18,7 +18,7 @@
 		<div class="m-portlet__body" style="padding-top: 0">
 		<!--begin: Portlet Body-->	
 <!--begin: Form Wizard-->
-		<div class="m-wizard m-wizard--2 m-wizard--danger" id="m_wizard">
+		<div class="m-wizard m-wizard--2 m-wizard--yellow" id="m_wizard">
 			<!--begin: Message container -->
 			<div class="m-portlet__padding-x">
 				<!-- Here you can put a message or alert -->
@@ -118,7 +118,7 @@
 															<tr>
 																<td><label style="margin-bottom: 30px">Venta por regularización</label></td>
 																<td>
-																	<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger" style="margin-bottom: 14px;">
+																	<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--yellow" style="margin-bottom: 14px;">
 																		<label>
 																			<input type="checkbox" name="" id="cuoDefCheck" onchange="cuoDefinidas();">
 																			<span></span>
@@ -193,7 +193,7 @@
 														<input type="text" class="form-control form-control-sm m-input" name="nomVendedor" disabled id="nomVendedor" placeholder="">
 														<div class="input-group-append">
 															<span data-toggle="modal" data-target="#m_modal_4">
-																<button class="btn btn-danger btn-sm" type="button" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar vendedor" onclick="creaTablaVendedor();">
+																<button class="btn btnGuardarKqPst btn-sm" type="button" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar vendedor" onclick="creaTablaVendedor();">
 																	<i class="la la-search"></i>
 																</button>
 															</span>
@@ -255,7 +255,7 @@
 													<tr>
 														<td><label style="margin-bottom: 30px">Juridico</label></td>
 														<td>
-															<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger" style="margin-bottom: 14px;">
+															<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--yellow" style="margin-bottom: 14px;">
 																<label>
 																	<input type="checkbox" name="" id="">
 																	<span></span>
@@ -294,12 +294,12 @@
 												</div>
 												<div class="col-lg-4">	
 													<span data-toggle="modal" data-target="#m_modal_2">
-													<button type="button" class="m-btn btn btn-danger btn-sm mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar cliente" onclick="creaTablaCliente('cliente');">
+													<button type="button" class="m-btn btn btnGuardarKqPst btn-sm mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar cliente" onclick="creaTablaCliente('cliente');">
 														<i class="la la-search"></i>
 													</button>
 													</span>
 													<span data-toggle="modal" data-target="#m_modal_1">
-													<button type="button" class="m-btn btn btn-success btn-sm mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Registrar nuevo cliente">
+													<button type="button" class="m-btn btn btnEditarKqPst2 btn-sm mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Registrar nuevo cliente">
 														<i class="la la-user-plus"></i>
 													</button>
 													</span>													
@@ -424,7 +424,7 @@
 															</label>
 														</div>
 														<div class="col-lg-2">
-															<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
+															<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--yellow">
 																<label>
 																	<input type="checkbox" name="modificaCtt" id="modificaCtt" onclick="modificarctt();">
 																	<span></span>
@@ -477,7 +477,7 @@
 									<div class="row">
 										<div class="col-lg-12" style="text-align: right;">
 											<span data-toggle="modal" data-target="#m_modal_6">
-												<button class="btn btn-success m-btn" type="button" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Añadir servicio" onclick="callTablaServiciosAdic();">
+												<button class="btn btnGuardarKqPst m-btn" type="button" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Añadir servicio" onclick="callTablaServiciosAdic();">
 													<i class="fa fa-plus"></i>
 												</button>
 											</span>
@@ -590,7 +590,7 @@
 								</div>
 								<div class="col-sm-6 col-md-1 offset-md-5">
 									<span data-toggle="modal" >
-										<button class="btn btn-success m-btn" type="button" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Añadir descuento" onclick="callTablaDscto();">
+										<button class="btn btnGuardarKqPst m-btn" type="button" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Añadir descuento" onclick="callTablaDscto();">
 											<i class="fa fa-plus"></i>
 										</button>
 									</span>		
@@ -688,7 +688,7 @@
 								</div>
 								<div class="col-sm-6 col-md-1" style="text-align: center;">
 									<span data-toggle="modal" >
-										<button class="btn btn-success m-btn" type="button" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Añadir descuento" onclick="callTablaEndoso();">
+										<button class="btn btnGuardarKqPst m-btn" type="button" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Añadir descuento" onclick="callTablaEndoso();">
 											<i class="fa fa-plus"></i>
 										</button>
 									</span>
@@ -808,7 +808,7 @@
 												<tbody>
 														<td>Cuotas Definidas</td>
 														<td>
-															<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
+															<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--yellow">
 																<label class="cb">
 																	<input type="checkbox" name="" id="cuoDefi" onchange="desabilitar();">
 																	<span></span>
@@ -833,7 +833,7 @@
 													<input type="text" id="valCuo" class="form-control form-control-sm m-input" disabled placeholder="0,00" style="text-align: right;">
 												</div>
 												<div class="col-lg-6" style="text-align: center;">
-													<button type="button" onclick="CuoDefinidas();" class="btn btn-danger m-btn m-btn m-btn--icon m-btn--pill" disabled id="btnCuoDef">
+													<button type="button" onclick="CuoDefinidas();" class="btn btnGuardarKqPst m-btn m-btn m-btn--icon m-btn--pill" disabled id="btnCuoDef">
 														<span>
 															<span>&nbsp;</span>
 															<i class="fa fa-file-text-o"></i>
@@ -848,12 +848,12 @@
 								<div class="col-lg-3">
 									<div class="row">
 										<div class="col-lg-12 form-group" style="text-align: center;">
-											<button type="button" onclick="cronograma();" class="btn m-btn--pill btn-danger" id="botonCrono">
+											<button type="button" onclick="cronograma();" class="btn m-btn--pill btnGuardarKqPst" id="botonCrono">
 												&nbsp;&nbsp;&nbsp;&nbsp;Generar cronograma&nbsp;&nbsp;&nbsp;&nbsp;
 											</button>
 										</div>
 										<div class="col-lg-12 form-group" style="text-align: center;">
-											<button type="button" class="btn m-btn--pill btn-danger" id="botonCrono">
+											<button type="button" class="btn m-btn--pill btnEditarKqPst2" id="botonCrono">
 												Generar cronograma CUI
 											</button>
 										</div>
@@ -936,7 +936,7 @@
 													</div>
 												</div>
 												<div class="col-lg-12" style="text-align: center;">
-														<button type="button" class="btn m-btn--pill btn-danger mt25" id="cb_generar_foma" onclick="generaFOMA()">
+														<button type="button" class="btn m-btn--pill btnEditarKqPst2 mt25" id="cb_generar_foma" onclick="generaFOMA()">
 															Generar cuotas de FOMA
 														</button>
 												</div>
@@ -980,7 +980,7 @@
 									</div>
 									<div class="m-form__group row">
 										<div class="col-lg-2 offset-lg-2">
-											<button data-toggle="m-tooltip" data-container="body" data-placement="top" id="botonAgregarB" title="" data-original-title="Agregar beneficiario" onclick="cargaFormBenef();" class="btn btn-success btn-lg m-btn m-btn m-btn--icon">
+											<button data-toggle="m-tooltip" data-container="body" data-placement="top" id="botonAgregarB" title="" data-original-title="Agregar beneficiario" onclick="cargaFormBenef();" class="btn btnGuardarKqPst btn-lg m-btn m-btn m-btn--icon">
 												<span>
 													<span>&nbsp;</span>
 													<i class="la la-user-plus"></i>
@@ -994,7 +994,7 @@
 													<span>&nbsp;</span>
 												</span>
 											</button>
-											<button data-toggle="m-tooltip" hidden="hidden" data-container="body" data-placement="top" id="botonGuardarB" title="" data-original-title="Guardar beneficiario" onclick="guardaBenef();" class="btn btn-success btn-lg m-btn m-btn m-btn--icon">
+											<button data-toggle="m-tooltip" hidden="hidden" data-container="body" data-placement="top" id="botonGuardarB" title="" data-original-title="Guardar beneficiario" onclick="guardaBenef();" class="btn btnGuardarKqPst btn-lg m-btn m-btn m-btn--icon">
 												<span>
 													<span>&nbsp;</span>
 													<i class="la la-check"></i>
@@ -1003,7 +1003,7 @@
 											</button>	
 										</div>
 										<div class="col-lg-2 offset-lg-1">
-											<button data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Editar beneficiario" id="botonEditaB" class="btn btn-metal btn-lg m-btn m-btn m-btn--icon">
+											<button data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Editar beneficiario" id="botonEditaB" class="btn btnEditarKqPst2 btn-lg m-btn m-btn m-btn--icon">
 												<span>
 													<span>&nbsp;</span>
 													<i class="flaticon-edit-1"></i>
@@ -1245,7 +1245,7 @@
 																</label>
 															</td>
 															<td>
-																<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
+																<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--yellow">
 																	<label>
 																		<input disabled type="checkbox" id="autopsiaBenef" name="autopsiaBenef">
 																		<span></span>
@@ -1273,7 +1273,7 @@
 												</label>
 											</td>
 											<td>
-												<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
+												<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--yellow">
 													<label>
 														<input type="checkbox" id="genCom" onclick="apagar()"  name="">
 														<span></span>
@@ -1348,11 +1348,11 @@
 										<input type="text" disabled id="deuCom" class="form-control form-control-sm m-input" placeholder="">
 										<div class="input-group-append">
 											<span data-toggle="modal" data-target="#m_modal_2">
-											<button type="button" disabled="" id="btn1Com" class="m-btn btn btn-danger btn-sm" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar cliente" onclick="creaTablaCliente('comprobante');">
+											<button type="button" disabled="" id="btn1Com" class="m-btn btn btnGuardarKqPst btn-sm" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar cliente" onclick="creaTablaCliente('comprobante');">
 												<i class="la la-search"></i>
 											</button>
 											</span>
-											<button type="button" disabled id="btn2Com" class="btn btn-success btn-sm">
+											<button type="button" disabled id="btn2Com" class="btn btnEditarKqPst2 btn-sm">
 												<i class="flaticon-plus"></i>
 											</button>
 										</div>
@@ -1458,7 +1458,7 @@
 									</a>
 								</div>
 								<div class="col-lg-4 m--align-right">
-									<a href="#" class="btn btn-danger m-btn m-btn--custom m-btn--icon" data-wizard-action="submit">
+									<a href="#" class="btn btnGuardarKqPst m-btn m-btn--custom m-btn--icon" data-wizard-action="submit">
 										<span>
 											<i class="la la-check"></i>
 											&nbsp;&nbsp;
@@ -1467,7 +1467,7 @@
 											</span>
 										</span>
 									</a>
-									<a href="#" class="btn btn-danger m-btn m-btn--custom m-btn--icon" data-wizard-action="next">
+									<a href="#" class="btn btnGuardarKqPst m-btn m-btn--custom m-btn--icon" data-wizard-action="next">
 										<span>
 											<span>
 												Continuar
@@ -1527,7 +1527,7 @@
 
 			<!-- ----------------Resumen------------------------ -->
 			<div class="sidebar-wrapper stickResumen" id="container-button"> 
-				<a href="#container" class="btn btn-danger m-btn m-btn--icon btn-lg m-btn--icon-only toggle-collapse-resumen" onclick="toggleResumen(this)" id="toggle-button">
+				<a href="#container" class="btn btnGuardarKqPst m-btn m-btn--icon btn-lg m-btn--icon-only toggle-collapse-resumen" onclick="toggleResumen(this)" id="toggle-button">
 					<i class="flaticon-diagram"></i>
 				</a>
 				<ul class="m-nav-sticky side-nav" id="resumen2" style="margin-top: 30px;">
