@@ -32,26 +32,24 @@
 							</div>
 						</div>
 					</fieldset>
-					<?php 
-// $ruc="20113301181";
-try {
+<?php 
+
+// try {
 	
-$soapclient = new SoapClient('http://erp.integrens.com:100/muyanew.ws_integrens_ext/cmr/ext/ws_integrens_ext.asmx?wsdl');
+// $soapclient = new SoapClient('http://erp.integrens.com:100/muyanew.ws_integrens_ext/cmr/ext/ws_integrens_ext.asmx?wsdl');
 
-$valor1 = "200";
-$valor2 = "001";
-$valor3 = "<NewDataSet> <Precio> <codpro>00600038</codpro> <codmnd>S/.</codmnd> <fecvig>2019-01-01</fecvig> <fecven>2300-12-31</fecven> <codter>*</codter> <valbas>122.0000</valbas> <estreg>AC</estreg> </Precio> </NewDataSet> ";
+// $valor1 = "200";
+// $valor2 = "001";
+// $valor3 = "<NewDataSet> <Precio> <codpro>00600038</codpro> <codmnd>S/.</codmnd> <fecvig>2019-01-01</fecvig> <fecven>2300-12-31</fecven> <codter>*</codter> <valbas>122.0000</valbas> <estreg>AC</estreg> </Precio> </NewDataSet>";
 
-$parametros = array('as_param1'=>$valor1,'as_param2'=>$valor2,'as_param3'=>$valor3);
-// $respuesta  = print_r($cliente->call("ws_cmrext_externo_precios_productos_xml",$parametros));
+// $parametros = array('as_param1'=>$valor1,'as_param2'=>$valor2,'as_param3'=>$valor3);
 
-  // $param = array('T1'=>$ruc);
- $rsp = $soapclient->__soapCall('ws_cmrext_externo_precios_productos_xml', array($parametros));
+//  $rsp = $soapclient->__soapCall('ws_cmrext_externo_precios_productos_xml', array($parametros));
      
-  print_r($rsp);
-} catch (Exception $e) {
-	echo $e;
-}
+//   print_r($rsp);
+// } catch (Exception $e) {
+// 	echo $e;
+// }
 
 ?>
 				</div>
