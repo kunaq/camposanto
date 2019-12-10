@@ -10,7 +10,7 @@ $(document).ready( function () {
     		cache: true
     	},
     	 eventClick: function(calEvent, jsEvent, view) {
-
+            console.log(calEvent);
 		    $('#exampleModalLabel').html(calEvent.titulo2);
 		    $('#eventoDescripcion').html(calEvent.description);
 		    $('#m_modal_2').modal('show');
