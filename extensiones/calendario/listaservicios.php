@@ -68,8 +68,10 @@ $db = new Conexion();
             $ctto = $key['cod_contrato'];
 
             $titulo1 = $key['dsc_prefijo'].'-'.$key['dsc_nombres'].' '.$key['dsc_apellido_paterno'];
+            $titulo1 = utf8_encode($titulo1);
 
             $titulo2 = '<b>'.$key['dsc_prefijo']." - ".$key['dsc_tipo_autorizacion'].'</b>';
+            $titulo2 = utf8_encode($titulo2);
 
             if($key['dsc_prefijo'] == 'MI' || $key['dsc_prefijo'] == 'ME'){
 
@@ -153,12 +155,13 @@ $db = new Conexion();
                                   </table>';
               
             }
+            $description = utf8_encode($description);
             //---------------------------arreglo para event fullcalendar-----------------//
 
              $eventos[] = array('id' => '', 'title' => $titulo1, 'titulo2' => $titulo2, 'description' => $description , 'start' => $date, 'allDay' => false, 'color' => $key['num_color'], 'textColor' => '#f8f9fa');
         }
 
-       $arrayJson = json_encode($eventos);
+       $arrayJson = json_encode($eventos, JSON_UNESCAPED_UNICODE);
        var_dump($arrayJson);
        print_r($arrayJson);
 
