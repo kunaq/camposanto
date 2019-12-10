@@ -162,7 +162,7 @@ $db = new Conexion();
         }
 
        $arrayJson = json_encode($eventos, JSON_UNESCAPED_UNICODE);
-       var_dump($arrayJson);
+       //var_dump($arrayJson);
        print_r($arrayJson);
 
 ?>
