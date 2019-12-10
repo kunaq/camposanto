@@ -11,9 +11,9 @@ $(document).ready( function () {
     	},
     	 eventClick: function(calEvent, jsEvent, view) {
             //console.log(calEvent);
-		    $('#titulo2ModalInicio').html(calEvent.titulo2);
+		    $('#exampleModalLabel').html(calEvent.titulo2);
 		    $('#eventoDescripcion').html(calEvent.description);
-		    $('#m_modal_inicio').modal('show');
+		    $('#m_modal_2').modal('show');
 
 		  }
     });
