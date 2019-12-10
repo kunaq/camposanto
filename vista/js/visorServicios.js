@@ -23,6 +23,7 @@ function eventos(){
 	$.ajax({
         url: 'extensiones/captcha/listaservicios.php',
         success : function(respuesta){
+            console.log(respuesta);
         	return respuesta;
         }
     });
