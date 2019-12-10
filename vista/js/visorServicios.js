@@ -21,6 +21,7 @@ $(document).ready( function () {
 
 function eventos(){
 	$.ajax({
+        dataType:"json",
         url: 'extensiones/captcha/listaservicios.php',
         success : function(respuesta){
             console.log(respuesta);

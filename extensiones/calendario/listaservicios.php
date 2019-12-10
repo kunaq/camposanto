@@ -155,7 +155,7 @@ $db = new Conexion();
             }
             //---------------------------arreglo para event fullcalendar-----------------//
 
-             $eventos[] = array('id' => '', 'title' => $titulo1, 'titulo2' => $titulo2, 'description' => $description , 'start' => $date, 'allDay' => false, 'color' => $key['num_color'], 'textColor' => '#f8f9fa');
+             $eventos[] = array('id' => '', 'title' => $titulo1, 'titulo2' => $titulo2, 'description' => $description , 'start' => $key['fch_servicio'], 'allDay' => false, 'color' => $key['num_color'], 'textColor' => '#f8f9fa');
         }
        var_dump($eventos);
        $arrayJson = json_encode($eventos, JSON_UNESCAPED_UNICODE);
