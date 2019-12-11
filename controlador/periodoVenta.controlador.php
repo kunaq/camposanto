@@ -17,5 +17,13 @@ class ControladorPeriodoVenta{
 		return $respuesta;
 	}//function ctrMostrarAnio
 
+	static public function ctrVerDetPeriodo(){
+		$tipoPeriodo = $_POST['tipoPeriodo'];
+		$anio = $_POST['anio'];
+		$tabla = "vtama_periodo";
+		$respuesta = ModeloPeriodoVenta::mdlVerDetPeriodo($tabla,$tipoPeriodo,$anio);
+		return $respuesta;
+	}
+
 }//class ControladorPeriodoVenta
 ?>

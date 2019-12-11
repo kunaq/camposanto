@@ -88,7 +88,7 @@ $("#listaPeriodoVenta").on("click","a.btnVerPeriodo",function(){
         url:"ajax/periodoVenta.ajax.php",
         method: "POST",
         dataType: 'json',
-        data: {'anio':anio,'tipoPeriodo':periodo,'accion':'verDetPeriodo'},
+        data: {'anio':codAnio,'tipoPeriodo':codPeriodo,'accion':'verDetPeriodo'},
         success: function(respuesta){
             console.log('respuesta',respuesta);
         }//success
