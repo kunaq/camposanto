@@ -102,6 +102,13 @@ $("#listaPeriodoVenta").on("click","a.btnVerPeriodo",function(){
             $("#edoPerVen").val(respuesta["flg_estado"]).trigger("change");
             if(respuesta['flg_estado'] == 'CE'){
                 $("#detCierre").removeAttr('hidden');
+                if(respuesta['fch_cierre'] != null){
+                    $("#fechCierre").innerText = respuesta['fch_cierre'];
+                    $("#motivoCierre").innerText = 'Usuario: '+respuesta['cod_usuario'];
+                }else{
+                    $("#fechCierre").innerText = respuesta['fch_fin'];
+                    $("#motivoCierre").innerText = 'Caduco';
+                }
             }else{
                 $("#detCierre").attr('hidden',true);
             }
