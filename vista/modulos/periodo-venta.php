@@ -149,7 +149,7 @@
 								</div>
 								<div class="form-group row">
 									<div class="col-lg-12" id="detCierre" hidden style="text-align: center;">
-										<p>Fecha Cierre: <span id="fechCierre"></span><span id="motivoCierre"></span></p>
+										<p>Fecha Cierre: <span id="fechCierre"></span>&nbsp;<span id="motivoCierre"></span></p>
 									</div>
 								</div>	
 							</form>

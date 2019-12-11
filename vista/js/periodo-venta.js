@@ -107,7 +107,7 @@ $("#listaPeriodoVenta").on("click","a.btnVerPeriodo",function(){
                     document.getElementById("motivoCierre").innerHTML = 'Usuario: '+respuesta['cod_usuario'];
                 }else{
                     document.getElementById("fechCierre").innerHTML = respuesta['fch_fin'];
-                    document.getElementById("motivoCierre").innerHTML = 'Caduco';
+                    document.getElementById("motivoCierre").innerHTML = 'Caducó';
                 }
             }else{
                 $("#detCierre").attr('hidden',true);
