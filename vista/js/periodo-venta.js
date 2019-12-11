@@ -100,7 +100,7 @@ $("#listaPeriodoVenta").on("click","a.btnVerPeriodo",function(){
             $('#fchFinPerVen').datepicker('setDate', respuesta["fch_fin"]);
             $("#nombrePeriodoAnt").val(respuesta["num_anno_ant"]+' - '+respuesta["cod_tipo_periodo_ant"]+' - '+respuesta["cod_periodo_ant"]);
             $("#edoPerVen").val(respuesta["flg_estado"]).trigger("change");
-            if(respuesta['fch_cierre'] != 'NULL'){
+            if(respuesta['fch_cierre'] != null){
                 $("#detCierre").removeAttr('hidden');
             }else{
                 $("#detCierre").addAttr('hidden');
