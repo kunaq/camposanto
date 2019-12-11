@@ -103,11 +103,11 @@ $("#listaPeriodoVenta").on("click","a.btnVerPeriodo",function(){
             if(respuesta['flg_estado'] == 'CE'){
                 $("#detCierre").removeAttr('hidden');
                 if(respuesta['fch_cierre'] != null){
-                    $("#fechCierre").innerHTML = respuesta['fch_cierre'];
-                    $("#motivoCierre").innerHTML = 'Usuario: '+respuesta['cod_usuario'];
+                    document.getElementById("fechCierre").innerHTML = respuesta['fch_cierre'];
+                    document.getElementById("motivoCierre").innerHTML = 'Usuario: '+respuesta['cod_usuario'];
                 }else{
-                    $("#fechCierre").innerHTML = respuesta['fch_fin'];
-                    $("#motivoCierre").innerHTML = 'Caduco';
+                    document.getElementById("fechCierre").innerHTML = respuesta['fch_fin'];
+                    document.getElementById("motivoCierre").innerHTML = 'Caduco';
                 }
             }else{
                 $("#detCierre").attr('hidden',true);
