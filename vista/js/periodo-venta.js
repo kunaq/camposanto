@@ -101,9 +101,9 @@ $("#listaPeriodoVenta").on("click","a.btnVerPeriodo",function(){
             $("#nombrePeriodoAnt").val(respuesta["num_anno_ant"]+' - '+respuesta["cod_tipo_periodo_ant"]+' - '+respuesta["cod_periodo_ant"]);
             $("#edoPerVen").val(respuesta["flg_estado"]).trigger("change");
             if(respuesta['fch_cierre'] != null){
-                $("#detCierre").removeAttr('hidden');
+                $("#detCierre").removeClass('hidden');
             }else{
-                $("#detCierre").addAttr('hidden');
+                $("#detCierre").addClass('hidden');
             }
 
 

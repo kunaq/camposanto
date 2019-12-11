@@ -148,7 +148,7 @@
 									</div>
 								</div>
 								<div class="form-group row">
-									<div class="col-lg-12" id="detCierre" hidden style="text-align: center;">
+									<div class="col-lg-12 hidden" id="detCierre"  style="text-align: center;">
 										<p>Fecha Cierre: <span>12/12/2019</span> Usuario: <span>ADMINISTRATOR</span></p>
 									</div>
 								</div>	
