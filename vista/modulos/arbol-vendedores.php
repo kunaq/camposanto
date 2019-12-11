@@ -20,7 +20,6 @@
 						<div class="row">
 							<div class="col-lg-12">
 								<fieldset class="fieldFormHorizontal">
-									<legend>&nbsp;</legend>
 									<div class="col-lg-12">
 										<div class="row form-group">
 											<div class="col-lg-8">
