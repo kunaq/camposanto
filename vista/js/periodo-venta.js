@@ -117,3 +117,25 @@ $("#listaPeriodoVenta").on("click","a.btnVerPeriodo",function(){
         }//success
     });//ajax
 });
+
+$("#edoPerVen").on("change",function(){
+    swal({
+        title: '¿Está seguro de cerrar el período?',
+        text: "¡Si no lo está puede cancelar la acción!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        cancelButtonText: 'Cancelar',
+        confirmButtonText: 'Si, guardar el trabajador!'
+        }).then(function(result){
+            if (result.value) {
+               swal({
+                    type: "success",
+                    title: "Período cerrado con éxito.",
+                    showConfirmButton: !1,
+                    timer: 3000
+                })
+            }//if
+        });//then
+}
