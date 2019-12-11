@@ -95,13 +95,15 @@ $("#listaPeriodoVenta").on("click","a.btnVerPeriodo",function(){
             $("#tipoPeriodo").val(respuesta["cod_tipo_periodo"]);
             $("#codPeriodo").val(respuesta["cod_periodo"]);
             $("#numMes").val(respuesta["num_mes"]);
-            $("#dscPeriodo").val(respuesta["dsc_periodos"]);
-            $("#fchIniPerVen").val(respuesta["fch_inicio"]);
-            $("#fchFinPerVen").val(respuesta["fch_fin"]);
+            $("#dscPeriodo").val(respuesta["dsc_periodo"]);
+            $('#fchIniPerVen').datepicker('setDate', respuesta["fch_inicio"]);
+            $('#fchFinPerVen').datepicker('setDate', respuesta["fch_fin"]);
             $("#nombrePeriodoAnt").val(respuesta["num_anno_ant"]+' - '+respuesta["cod_tipo_periodo_ant"]+' - '+respuesta["cod_periodo_ant"]);
             $("#edoPerVen").val(respuesta["flg_estado"]).trigger("change");
             if(respuesta['fch_cierre'] != 'NULL'){
-                $("#detCierre").attr('hidden',false);
+                $("#detCierre").removeAttr('hidden');
+            }else{
+                $("#detCierre").addAttr('hidden');
             }
 
 
