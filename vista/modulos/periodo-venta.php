@@ -59,14 +59,20 @@
 									<div class="col-lg-2">
 										<label>Periodo:</label>
 									</div>
-									<div class="col-lg-4">
-										<input type="text" disabled class="form-control form-control-sm m-input" name="" id="">
+									<div class="col-lg-2">
+										<input type="text" disabled class="form-control form-control-sm m-input" name="nombrePeriodo" id="nombrePeriodo">
+									</div>
+									<div class="col-lg-2">
+										<input type="text" disabled class="form-control form-control-sm m-input" name="tipoPeriodo" id="tipoPeriodo">
+									</div>
+									<div class="col-lg-2">
+										<input type="text" disabled class="form-control form-control-sm m-input" name="codPeriodo" id="codPeriodo">
 									</div>
 									<div class="col-lg-2">
 										<label>Mes:</label>
 									</div>
-									<div class="col-lg-4">
-										<input type="text" disabled class="form-control form-control-sm m-input" name="" id="">
+									<div class="col-lg-2">
+										<input type="text" disabled class="form-control form-control-sm m-input" name="numMes" id="numMes">
 									</div>	
 								</div>
 								<div class="row form-group">
@@ -74,7 +80,7 @@
 										<label>Descripción:</label>
 									</div>
 									<div class="col-lg-10">
-										<input type="text" disabled class="form-control form-control-sm m-input" name="" id="">
+										<input type="text" disabled class="form-control form-control-sm m-input" name="dscPeriodo" id="dscPeriodo">
 									</div>
 								</div>
 								<div class="row form-group">
@@ -110,15 +116,15 @@
 										<label>Periodo anterior:</label>
 									</div>
 									<div class="col-lg-4">
-										<input type="text" disabled class="form-control form-control-sm m-input" name="" id="">
+										<input type="text" disabled class="form-control form-control-sm m-input" name="nombrePeriodoAnt" id="nombrePeriodoAnt">
 									</div>
 									<div class="col-lg-2">
 										<label>Estado:</label>
 									</div>
 									<div class="col-lg-4">
 										<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="edoPerVen" id="edoPerVen">
-											<option value="ABI">ABIERTO</option>
-											<option value="CER">CERRADO</option>
+											<option value="AB">ABIERTO</option>
+											<option value="CE">CERRADO</option>
 										</select>
 									</div>	
 								</div>
@@ -142,7 +148,7 @@
 									</div>
 								</div>
 								<div class="form-group row">
-									<div class="col-lg-12" style="text-align: center;">
+									<div class="col-lg-12" id="detCierre" hidden style="text-align: center;">
 										<p>Fecha Cierre: <span>12/12/2019</span> Usuario: <span>ADMINISTRATOR</span></p>
 									</div>
 								</div>	
