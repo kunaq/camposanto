@@ -23,7 +23,7 @@
 							</div>
 							<div class="col-lg-2">
 								<div class="input-group date">
-									<input type="text" class="form-control form-control-sm m-input"  id="fchIniLisPro" name="fchIniLisPro" data-date-format="mm/dd/yyyy" value="<?php echo date('m/d/Y', strtotime(date('m/d/Y').'+ 1 month')); ?>"/>
+									<input type="text" class="form-control form-control-sm m-input"  id="fchIniLisPro" name="fchIniLisPro" data-date-format="dd/mm/yyyy" value="<?php echo date('d/m/Y',strtotime(date('m/01/Y'))); ?>" onchange="creaTablaProspectos();"/>
 									<div class="input-group-append">
 										<span class="input-group-text">
 											<i class="la la-calendar-check-o"></i>
@@ -36,7 +36,7 @@
 							</div>
 							<div class="col-lg-2">
 								<div class="input-group date">
-									<input type="text" class="form-control form-control-sm m-input"  id="fchFinLisPro" name="fchFinLisPro" data-date-format="mm/dd/yyyy" value="<?php echo date('m/d/Y', strtotime(date('m/d/Y').'+ 1 month')); ?>"/>
+									<input type="text" class="form-control form-control-sm m-input"  id="fchFinLisPro" name="fchFinLisPro" data-date-format="dd/mm/yyyy" value="<?php echo date('d/m/Y',strtotime(date('m/31/Y'))); ?>" onchange="creaTablaProspectos();"/>
 									<div class="input-group-append">
 										<span class="input-group-text">
 											<i class="la la-calendar-check-o"></i>
@@ -48,20 +48,20 @@
 								<label>Estado:</label>
 							</div>
 							<div class="col-lg-2">
-								<select class="form-control form-control-sm m-select2 m-select2-general" >
-									<option>
+								<select class="form-control form-control-sm m-select2 m-select2-general" id="estadoPct" onchange="creaTablaProspectos();">
+									<option value="">
 										TODOS
 									</option>
-									<option>
+									<option value="ACT">
 										ACTIVO
 									</option>
-									<option>
+									<option value="VTA">
 										CIERRE
 									</option>
-									<option>
+									<option value="CAD">
 										CADUCO
 									</option>
-									<option>
+									<option value="TRU">
 										TRUNCO
 									</option>
 								</select>
@@ -70,19 +70,15 @@
 								<label>Calificación:</label>
 							</div>
 							<div class="col-lg-2">
-								<select class="form-control form-control-sm m-select2 m-select2-general" >
-									<option>
-										SIN CALIFICACIÓN
-									</option>
-									<option>
-										A
-									</option>
-									<option>
-										B
-									</option>
-									<option>
-										C
-									</option>
+								<select class="form-control form-control-sm m-select2 m-select2-general" id="califPct" onchange="creaTablaProspectos();">
+									<option value=""></option>
+									<?php
+										$tabla = "vtama_calificacion_prospecto";
+										$item1 = "cod_calificacion";
+										$item2 = "dsc_calificacion";
+										$prueba = controladorEmpresa::
+										ctrSelects($tabla,$item1,$item2);
+									?>
 								</select>
 							</div>
 						</div>
@@ -91,8 +87,8 @@
 								<label>Doc. de Identidad</label>
 							</div>
 							<div class="col-lg-2">
-								<select class="form-control form-control-sm m-select2 m-select2-general" id="tipoDocLisPro" name="tipoDocLisPro" onchange="DocLenghtBusq(this.value);" >
-									<option value="vacio">
+								<select class="form-control form-control-sm m-select2 m-select2-general" id="tipoDocPct" onchange="creaTablaProspectos();">
+									<option value="">
 										Seleccione
 									</option>
 									<?php
@@ -101,44 +97,32 @@
 								</select>
 							</div>
 							<div class="col-lg-3">
-								<input type="text"  class="form-control form-control-sm m-input" name="numDocLisPro" id="numDocLisPro">
+								<input type="text"  class="form-control form-control-sm m-input" id="numDocPct" onchange="creaTablaProspectos();">
 							</div>
 							<div class="col-lg-1">
 								<label>Supervisor:</label>
 							</div>
 							<div class="col-lg-2">
-								<select class="form-control form-control-sm m-select2 m-select2-general" >
-									<option>
+								<select class="form-control form-control-sm m-select2 m-select2-general" id="supervPct" onchange="creaTablaProspectos();">
+									<option value="">
 										Seleccione 
 									</option>
-									<option>
-										A
-									</option>
-									<option>
-										B
-									</option>
-									<option>
-										C
-									</option>
+									<?php
+										$prueba = controladorEmpresa::ctrTrabajador();
+									?>
 								</select>
 							</div>
 							<div class="col-lg-1">
 								<label>Consejero:</label>
 							</div>
 							<div class="col-lg-2">
-								<select class="form-control form-control-sm m-select2 m-select2-general" >
-									<option>
+								<select class="form-control form-control-sm m-select2 m-select2-general" id="consejPct" onchange="creaTablaProspectos();">
+									<option value="">
 										Seleccione
 									</option>
-									<option>
-										A
-									</option>
-									<option>
-										B
-									</option>
-									<option>
-										C
-									</option>
+									<?php
+										$prueba = controladorEmpresa::ctrTrabajador();
+									?>
 								</select>
 							</div>
 						</div>
@@ -147,115 +131,7 @@
 			</div>
 			<br>
 			<div class="row">
-				<div class="table-responsive">
-					<table class="table" id="tablListPros">
-						<thead>
-							<tr>
-								<th>Fecha registro</th>
-								<th>Días</th>
-								<th>Código</th>
-								<th>Prospecto</th>
-								<th>Tipo Doc.</th>
-								<th>Núm. Doc.</th>
-								<th>Télefono</th>
-								<th>Canal Venta</th>
-								<th>Calif.</th>
-								<th>Consejero</th>
-								<th>Estado</th>
-								<th>Ultimo contacto</th>
-								<th>Observación</th>
-								<th>Importe venta</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>20/10/2019</td>
-								<td style="text-align: center;">33</td>
-								<td>
-									<div id="m_quick_sidebar-contrato_toggle" class="m-nav__item">
-			                            <a href="#" class="m-nav__link m-dropdown__toggle" onclick="mostrarSidebar('.$auxNumCtt.','.$tcodServicio.');">
-			                                <span class="m-nav__link-icon">PVT0028014</span>
-			                            </a>
-			                        </div>
-                    			</td>
-								<td>HUANCO, KATHERIN</td>
-								<td>DNI</td>
-								<td>12345678</td>
-								<td>912123123</td>
-								<td>TURNO CAMPO</td>
-								<td style="text-align: center;">C</td>
-								<td>A. CERRON</td>
-								<td>TRUNCO</td>
-								<td>20/10/2019</td>
-								<td>LLAMAR 20/10/2019</td>
-								<td style="text-align: right;">1,234.44</td>
-							</tr>
-							<tr>
-								<td>20/10/2019</td>
-								<td style="text-align: center;">33</td>
-								<td>PVT0028014</td>
-								<td>HUANCO, KATHERIN</td>
-								<td>DNI</td>
-								<td>12345678</td>
-								<td>912123123</td>
-								<td>TURNO CAMPO</td>
-								<td style="text-align: center;">C</td>
-								<td>A. CERRON</td>
-								<td>TRUNCO</td>
-								<td>20/10/2019</td>
-								<td>LLAMAR 20/10/2019</td>
-								<td style="text-align: right;">1,234.44</td>
-							</tr>
-							<tr>
-								<td>20/10/2019</td>
-								<td style="text-align: center;">33</td>
-								<td>PVT0028014</td>
-								<td>HUANCO, KATHERIN</td>
-								<td>DNI</td>
-								<td>12345678</td>
-								<td>912123123</td>
-								<td>TURNO CAMPO</td>
-								<td style="text-align: center;">C</td>
-								<td>A. CERRON</td>
-								<td>TRUNCO</td>
-								<td>20/10/2019</td>
-								<td>LLAMAR 20/10/2019</td>
-								<td style="text-align: right;">1,234.44</td>
-							</tr>
-							<tr>
-								<td>20/10/2019</td>
-								<td style="text-align: center;">33</td>
-								<td>PVT0028014</td>
-								<td>HUANCO, KATHERIN</td>
-								<td>DNI</td>
-								<td>12345678</td>
-								<td>912123123</td>
-								<td>TURNO CAMPO</td>
-								<td style="text-align: center;">C</td>
-								<td>A. CERRON</td>
-								<td>TRUNCO</td>
-								<td>20/10/2019</td>
-								<td>LLAMAR 20/10/2019</td>
-								<td style="text-align: right;">1,234.44</td>
-							</tr>
-							<tr>
-								<td>20/10/2019</td>
-								<td style="text-align: center;">33</td>
-								<td>PVT0028014</td>
-								<td>HUANCO, KATHERIN</td>
-								<td>DNI</td>
-								<td>12345678</td>
-								<td>912123123</td>
-								<td>TURNO CAMPO</td>
-								<td style="text-align: center;">C</td>
-								<td>A. CERRON</td>
-								<td>TRUNCO</td>
-								<td>20/10/2019</td>
-								<td>LLAMAR 20/10/2019</td>
-								<td style="text-align: right;">1,234.44</td>
-							</tr>
-						</tbody>
-					</table>
+				<div class="table-responsive" id="divTablaProspectos">
 				</div>		
 			</div>
 		<!--End: Portlet Body-->

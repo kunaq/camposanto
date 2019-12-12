@@ -81,4 +81,9 @@ class ControladorEmpresa{
 		return $respuesta;
 	}
 
+	static public function ctrTrabajador(){
+		$respuesta = ModeloEmpresa::mdlTrabajador();
+		return $respuesta;
+	}
+
 }//class ControladorPlantilla

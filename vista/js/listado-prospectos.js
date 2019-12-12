@@ -61,6 +61,34 @@ function hideSidebar(){
     $("#m_quick_sidebar-contrato").removeClass("m-quick-sidebar-contrato--on");
 }
 
+function creaTablaProspectos(){
+    var fechaInicio = ($('#fchIniLisPro').datepicker("getDate")).toLocaleDateString();
+    var fechaFin = ($('#fchFinLisPro').datepicker("getDate")).toLocaleDateString();
+    var estado = document.getElementById("estadoPct").value;
+    var calificacion = document.getElementById("califPct").value;
+    var tipoDoc = document.getElementById("tipoDocPct").value;
+    var numDoc = document.getElementById("numDocPct").value;
+    var supervisor = document.getElementById("supervPct").value;
+    var consejero = document.getElementById("consejPct").value;
+
+        $('#tablaContrato').html('<div class="loader"></div>');
+        $.ajax({
+            type:'POST',
+            url: 'extensiones/funciones/creaTablaProspectos.php',
+            dataType: 'text',
+            data: {'fechaInicio':fechaInicio, 'fechaFin':fechaFin, 'estado':estado, 'calificacion':calificacion, 'tipoDoc':tipoDoc, 'numDoc':numDoc, 'supervisor':supervisor, 'consejero':consejero},
+            success : function(respuesta){
+                $("#divTablaProspectos").html(respuesta);
+                $('#tablaProspectos').DataTable({
+                    "searching": false,
+                    "info": false
+                });
+            }
+        });
+}
+
+creaTablaProspectos();
+
 window.addEventListener("keyup",function(e){
 
     if(e.keyCode==27) {
