@@ -56,7 +56,7 @@
 				<ul class="m-nav-sticky side-nav" id="leyendaIni" style="margin-top: -50px;">
 					<li class="m-nav-sticky__item nav-item">
 						<div class="row">
-							<div class="col-lg-4 offset-lg-4"><b>Leyenda</b></div>
+							<div class="col-lg-4 offset-lg-4"><b>LEYENDA</b></div>
 						</div>
 					</li>
 					<li class="m-nav-sticky__item nav-item">
@@ -64,8 +64,8 @@
 							<div class="col-md-1">
 							<span class="m-badge" style="background-color: #f4516c"></span>
 						</div>
-							<div class="col-lg-10">
-								<p>SERVICIO DE INHUMACIÓN</p>
+							<div class="col-lg-10" style="text-align: left;">
+								<p style="margin-bottom: 0;">SERVICIO DE INHUMACIÓN</p>
 							</div>
 						</div>
 					</li>
@@ -74,8 +74,8 @@
 							<div class="col-md-1">
 								<span class="m-badge" style="background-color: #34bfa3"></span>
 							</div>
-							<div class="col-lg-10">
-								<p>SERVICIO DE MISA / MISA EN ESPACIO</p>
+							<div class="col-lg-10" style="text-align: left;">
+								<p style="margin-bottom: 0;">MISA / MISA EN ESPACIO</p>
 							</div>
 						</div>
 					</li>
@@ -84,8 +84,8 @@
 							<div class="col-md-1">
 								<span class="m-badge" style="background-color: #36a3f7"></span>
 							</div>
-							<div class="col-lg-10">
-								<p>SERVICIO DE TRASLADO INTERNO /EXTERNO</p>
+							<div class="col-lg-10" style="text-align: left;">
+								<p style="margin-bottom: 0;">TRASLADO INTERNO /EXTERNO</p>
 							</div>
 						</div>
 					</li>
@@ -94,8 +94,8 @@
 							<div class="col-md-1">
 								<span class="m-badge" style="background-color: #ffb822"></span>
 							</div>
-							<div class="col-lg-10">
-								<p>SERVICIO FUNERARIO</p>
+							<div class="col-lg-10" style="text-align: left;">
+								<p style="margin-bottom: 0;">SERVICIO FUNERARIO</p>
 							</div>
 						</div>
 					</li>
@@ -104,8 +104,8 @@
 							<div class="col-md-1">
 								<span class="m-badge" style="background-color: #f5a9d0"></span>
 							</div>
-							<div class="col-lg-10">
-								<p>SERVICIO DE FLORERIA</p>
+							<div class="col-lg-10" style="text-align: left;">
+								<p style="margin-bottom: 0;">SERVICIO DE FLORERIA</p>
 							</div>
 						</div>
 					</li>
