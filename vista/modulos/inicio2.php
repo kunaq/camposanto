@@ -26,7 +26,7 @@
 		<div class="modal fade" id="m_modal_2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
-					<div class="modal-header" style="background: #f4516c">
+					<div class="modal-header" id="headerModalVerSerInicio" style="background: #f4516c">
 						<h5 class="modal-title" id="exampleModalLabel" style="color: white">
 							
 						</h5>
@@ -36,7 +36,7 @@
 							</span>
 						</button>
 					</div>
-					<div class="modal-body" id="eventoDescripcion" style="height: 400px;">
+					<div class="modal-body" id="eventoDescripcion" style="height: 420px;">
 
 					</div>
 					<div class="modal-footer">

@@ -24,7 +24,7 @@ function eventos(){
         dataType:"json",
         url: 'extensiones/captcha/listaservicios.php',
         success : function(respuesta){
-            //console.log(respuesta);
+            console.log(respuesta);
         	return respuesta;
         }
     });

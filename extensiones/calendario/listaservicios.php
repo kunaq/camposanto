@@ -80,7 +80,7 @@ $db = new Conexion();
                                     <td style="text-align: left;"><b>Fecha:</b></td>
                                     <td style="text-align: left;">'.$fecha.'</td>
                                     <td><b>Hora:</b></td>
-                                    <td>'.$hora.'</td>
+                                    <td style="text-align: left;">'.$hora.'</td>
                                   </tr>
                                   <tr>
                                     <td style="text-align: left;"><b>Nombre:</b></td>
@@ -114,7 +114,7 @@ $db = new Conexion();
                                     <td style="text-align: left;"><b>Fecha:</b></td>
                                     <td style="text-align: left;">'.$fecha.'</td>
                                     <td><b>Hora:</b></td>
-                                    <td>'.$hora.'</td>
+                                    <td style="text-align: left;">'.$hora.'</td>
                                   </tr>
                                   <tr>
                                     <td style="text-align: left;"><b>Nombre:</b></td>
