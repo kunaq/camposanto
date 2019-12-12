@@ -16,7 +16,12 @@ $(document).ready( function () {
             document.getElementById("headerModalVerSerInicio").style.background = calEvent['color'];
 		    $('#m_modal_2').modal('show');
 
-		  }
+		  },
+          columnFormat: {
+            month: "ddd",
+            week: "ddd d/M",
+            day: "dddd d/M"
+        },
     });
 } );
 
