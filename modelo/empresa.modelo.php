@@ -457,4 +457,24 @@ class ModeloEmpresa{
         return $datos;
     }
 
+    static public function mdlTrabajador(){
+
+        $db = new Conexion();                                             
+
+                $sql = $db->consulta("SELECT cod_trabajador, LEFT(rhuma_trabajador.dsc_nombres, 1) + '.  ' + rhuma_trabajador.dsc_apellido_paterno AS dsc_trabajador FROM rhuma_trabajador ORDER BY dsc_nombres ASC");
+ 
+                $datos = array();
+
+                while($key = $db->recorrer($sql)){
+                    $datos[] =  $key;
+                    echo '<option value="'.$key['cod_trabajador'].'">'.$key['dsc_trabajador'].'</option>';
+                }
+
+        $db->liberar($sql);
+        $db->cerrar();
+
+        return $datos;
+
+    }
+
 }//class ModeloPaises
