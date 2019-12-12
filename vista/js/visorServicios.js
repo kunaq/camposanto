@@ -5,8 +5,10 @@ $(document).ready( function () {
     		center: '',
     		right: 'prev,next today agendaWeek month'
     	},
-          columnFormat: {
-            week: "ddd d/M"
+        views: {
+            month: {columnFormat: 'ddd'}, 
+            week: {columnFormat: 'ddd d MMM'}, 
+            day: {columnFormat: 'ddd d MMM' }
         },
     	events:{
     		url: 'extensiones/calendario/listaservicios.php',
