@@ -8,33 +8,15 @@ class TablaGesCob{
 	MOSTRAR CONTRATOS POR COBRADOR
 	=============================================*/
 	public function mostrarTablaGesCob(){
-        $contratos = ControladorArbolVen::ctrMostrarTrabajadores($anno,$periodo,$cobrador);
+        $contratos = ControladorArbolVen::ctrMostrarTrabajadores();
         if(count($contratos) > 0){
         	$datosJson = '{
 			 	"data": [';
 				 	for ($i=0; $i < count($contratos) ; $i++) {
-						$fchGeneracion = ($contratos[$i]["fch_generacion"] != '') ? dateFormat($contratos[$i]["fch_generacion"]) : '';
-						$fchVencimiento = ($contratos[$i]["fch_vencimiento"] != '') ? dateFormat($contratos[$i]["fch_vencimiento"]) : '';
-						if($contratos[$i]['cod_estado'] == 'EMI'){
-							$edo = 'EMITIDO';
-						}else if($contratos[$i]['cod_estado'] == 'DES'){
-							$edo = 'DESEMBOLSADO';
-						}else if($contratos[$i]['cod_estado'] == 'APR'){
-							$edo = 'APROBADO';
-						}else if($contratos[$i]['cod_estado'] == 'ANU'){
-							$edo = "<p style='color:red'>ANULADO</p>";
-						}
+						// $fchGeneracion = ($contratos[$i]["fch_generacion"] != '') ? dateFormat($contratos[$i]["fch_generacion"]) : '';
 				 		$datosJson .= '[
 							"'.escapeComillasJson($contratos[$i]["cod_contrato"]).'",
 							"'.escapeComillasJson($contratos[$i]["dsc_cliente"]).'",
-							"'.$fchGeneracion.'",
-							"'.escapeComillasJson($contratos[$i]["dsc_producto"]).'",
-							"'.number_format($contratos[$i]["imp_prestamo"],2).'",
-							"'.escapeComillasJson($contratos[$i]["num_cuota"]).'",
-							"'.$fchVencimiento.'",
-							"'.$edo.'",
-							"'.escapeComillasJson($contratos[$i]["num_dias_atraso"]).'", 
-							"'.number_format($contratos[$i]["imp_cobrado_total"],2).'",
 							"'.$contratos[$i]["num_refinanciamiento"].'|'.$contratos[$i]['cod_contrato'].'|'.$contratos[$i]['cod_trabajador'].'|'.$contratos[$i]['cod_periodo'].'|'.$contratos[$i]['cod_tipo_cartera'].'|'.$contratos[$i]['cod_anno'].'"
 						],';
 					}			 	

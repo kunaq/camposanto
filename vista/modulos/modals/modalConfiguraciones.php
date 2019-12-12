@@ -14,6 +14,7 @@
 			</div>
 			<div class="modal-body" >
 				<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="490">
+					<form id="configuraciones">
 					<div class="form-group row">
 						<div class="col-lg-4">
 							<label>Elija un avatar:</label>
@@ -59,11 +60,10 @@
 						</div>
 						<div class="col-md-3" style="padding-left: 0;text-align: center;">
 							<span class="m-topbar__userpic">
-								<a href="#" class="btn btn-metal m-btn m-btn--icon btn-lg m-btn--icon-only m-btn--pill m-btn--air">
+								<a href="#" class="btn btn-metal m-btn m-btn--icon btn-lg m-btn--icon-only m-btn--pill m-btn--air" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Añadir imagen">
 									<i class="fa fa-plus"></i>
 								</a>
 							</span>
-							<span>Añadir imagen</span>
 						</div>
 					</div>
 					<hr>
@@ -96,6 +96,12 @@
 					<div class="form-group row">
 						<div class="col-lg-12 form-group m-form__group">
 							<div class="input-group m-input-icon m-input-icon--left">
+								<input class="form-control m-input" type="password" placeholder="Contraseña actual" id="password_actual" name="password_actual" style="background-color: #fff; color: #000;" required autofocus>
+								<span class="m-input-icon__icon m-input-icon__icon--left">
+									<span>
+										<i class="fa fa-lock"></i>
+									</span>
+								</span>
 								<input class="form-control m-input" type="password" placeholder="Nueva contraseña" id="cambia_password" name="cambia_password" style="background-color: #fff; color: #000;" required autofocus>
 								<span class="m-input-icon__icon m-input-icon__icon--left">
 									<span>
@@ -136,6 +142,7 @@
 							</p>
 						</div>
 					</div>
+				</form>
 				</div>
 			</div>
 			<div class="modal-footer">
