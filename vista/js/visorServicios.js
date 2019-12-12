@@ -7,7 +7,7 @@ $(document).ready( function () {
     	},
         views: {
             month: {columnFormat: 'ddd'}, 
-            week: {columnFormat: 'ddd d MMM'}, 
+            week: {columnFormat: 'ddd d/M'}, 
             day: {columnFormat: 'ddd d MMM' }
         },
     	events:{
