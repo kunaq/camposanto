@@ -50904,6 +50904,18 @@ body {
     z-index: 110;
 }
 
+.stickLeyendaIni{
+    right: 0;
+    height: 285px;
+    transition: 0.800s ease;
+    position: fixed;
+    top: 9%;
+    list-style: none;
+    padding: 0 10px;
+    margin: 0;
+    z-index: 110;
+}
+
 .toggle-collapse-resumen{
     float: left;
     margin-left: -2.9em;  

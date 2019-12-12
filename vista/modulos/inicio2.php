@@ -49,11 +49,11 @@
 		</div>	
 
 		<!-- leyenda -->
-		<div class="sidebar-wrapper stickResumen" id="container-button"> 
+		<div class="sidebar-wrapper stickLeyendaIni" id="container-button"> 
 				<a href="#container" class="btn btn-metal m-btn m-btn--icon btn-lg m-btn--icon-only m-btn--pill m-btn--air toggle-collapse-resumen" onclick="toggleLeyendaIni(this)" id="toggle-button">
 					<i class="flaticon-info"></i>
 				</a>
-				<ul class="m-nav-sticky side-nav" id="leyendaIni" style="margin-top: 30px;">
+				<ul class="m-nav-sticky side-nav" id="leyendaIni" style="margin-top: -50px;">
 					<li class="m-nav-sticky__item nav-item">
 						<div class="row">
 							<div class="col-lg-4 offset-lg-4"><b>Leyenda</b></div>
