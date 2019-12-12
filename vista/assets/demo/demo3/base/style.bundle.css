@@ -51698,3 +51698,9 @@ th{
     background-color: #b6afaf !important;
     font-weight: 500;
 }
+.fc-today {
+    background: #FFF !important;
+    border: none !important;
+    border-top: 1px solid #ddd !important;
+    font-weight: bold;
+} 
