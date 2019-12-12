@@ -62,52 +62,50 @@
 					<li class="m-nav-sticky__item nav-item">
 						<div class="row">
 							<div class="col-md-1">
-							<span class="m-badge m-badge--success"></span>
+							<span class="m-badge" style="background-color: #34bfa3"></span>
 						</div>
-							<div class="col-lg-7">
-								<input type="text" size="3" maxlength="3" disabled class="form-control form-control-sm m-input" id="imp_cobertura" name="imp_cobertura" placeholder="0,00" style="text-align: right;">
+							<div class="col-lg-10">
+								<p>SERVICIO DE INHUMACIÓN</p>
 							</div>
 						</div>
 					</li>
 					<li class="m-nav-sticky__item nav-item">
 						<div class="row">
 							<div class="col-md-1">
-							<span class="m-badge" style="color: #f4516c"></span>
-						</div>
-							<div class="col-lg-7">
-								<p>AUT. DE SERVICIO DE INHUMACIÓN</p>
+								<span class="m-badge" style="background-color: #34bfa3"></span>
+							</div>
+							<div class="col-lg-10">
+								<p>SERVICIO DE MISA / MISA EN ESPACIO</p>
 							</div>
 						</div>
 					</li>
 					<li class="m-nav-sticky__item nav-item">
 						<div class="row">
 							<div class="col-md-1">
-							<span class="m-badge m-badge--success"></span>
-						</div>
-							<div class="col-lg-7">
-								<input type="text" disabled class="form-control form-control-sm m-input" id="cuitotal" name="cuitotal" placeholder="0,00" style="text-align: right;">
+								<span class="m-badge" style="background-color: #34bfa3"></span>
 							</div>
-						</div>
-					</li>
-					<li class="m-nav-sticky__item nav-item">
-						<div class="row">
-							<div class="col-md-1">
-							<span class="m-badge m-badge--success"></span>
-						</div>
-							<div class="col-lg-7">
-								<input type="text" size="3" maxlength="3" disabled class="form-control form-control-sm m-input" id="total1" name="total1" placeholder="0,00" style="text-align: right;">
+							<div class="col-lg-10">
+								<p>SERVICIO DE TRASLADO INTERNO /EXTERNO</p>
 							</div>
 						</div>
 					</li>
 					<li class="m-nav-sticky__item nav-item" >
 						<div class="row">
 							<div class="col-md-1">
-								<span class="m-badge m-badge--success"></span>
+								<span class="m-badge" style="background-color: #ffb822"></span>
 							</div>
-							<div class="col-lg-7">
-								<input type="text" size="3" maxlength="3" disabled class="form-control form-control-sm m-input" id="saldopagar" name="saldopagar" placeholder="0,00" style="text-align: right;">
-								<input type="hidden" id="imp_subtotal" name="imp_subtotal">
-								<input type="hidden" id="imp_igv" name="imp_igv">
+							<div class="col-lg-10">
+								<p>SERVICIO FUNERARIO</p>
+							</div>
+						</div>
+					</li>
+					<li class="m-nav-sticky__item nav-item" >
+						<div class="row">
+							<div class="col-md-1">
+								<span class="m-badge" style="background-color: #f5a9d0"></span>
+							</div>
+							<div class="col-lg-10">
+								<p>SERVICIO DE FLORERIA</p>
 							</div>
 						</div>
 					</li>
