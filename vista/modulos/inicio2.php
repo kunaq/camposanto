@@ -40,7 +40,7 @@
 
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-warning" data-dismiss="modal">
+						<button type="button" class="btn btn-warning btnGuardarKqPst" data-dismiss="modal">
 							Aceptar
 						</button>
 					</div>
