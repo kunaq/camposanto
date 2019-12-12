@@ -10,9 +10,10 @@ $(document).ready( function () {
     		cache: true
     	},
     	 eventClick: function(calEvent, jsEvent, view) {
-            //console.log(calEvent);
+            console.log(calEvent);
 		    $('#exampleModalLabel').html(calEvent.titulo2);
 		    $('#eventoDescripcion').html(calEvent.description);
+            $("#headerModalVerSerInicio").style.backgroundColor = 'black';
 		    $('#m_modal_2').modal('show');
 
 		  }
@@ -24,7 +25,7 @@ function eventos(){
         dataType:"json",
         url: 'extensiones/captcha/listaservicios.php',
         success : function(respuesta){
-            console.log(respuesta);
+            //console.log(respuesta);
         	return respuesta;
         }
     });
