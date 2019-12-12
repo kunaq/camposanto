@@ -47,6 +47,84 @@
 				</div>
 			</div> 
 		</div>	
+
+		<!-- leyenda -->
+		<div class="sidebar-wrapper stickResumen" id="container-button"> 
+				<a href="#container" class="btn btn-outline-metal m-btn m-btn--icon m-btn--icon-only m-btn--outline-2x m-btn--pill m-btn--air btnGuardarKqPst toggle-collapse-resumen" onclick="toggleLeyendaIni(this)" id="toggle-button">
+					<i class="flaticon-info"></i>
+				</a>
+				<ul class="m-nav-sticky side-nav" id="leyendaIni" style="margin-top: 30px;">
+					<li class="m-nav-sticky__item nav-item">
+						<div class="row">
+							<div class="col-lg-4 offset-lg-4"><b>Leyenda</b></div>
+						</div>
+					</li>
+					<li class="m-nav-sticky__item nav-item">
+						<div class="row">
+							<div class="col-lg-4">
+								<label class="res-label">
+									Cobertura:
+								</label>
+							</div>
+							<div class="col-lg-7">
+								<input type="text" size="3" maxlength="3" disabled class="form-control form-control-sm m-input" id="imp_cobertura" name="imp_cobertura" placeholder="0,00" style="text-align: right;">
+							</div>
+						</div>
+					</li>
+					<li class="m-nav-sticky__item nav-item">
+						<div class="row">
+							<div class="col-lg-4">
+								<label class="res-label">
+									Dscto:
+								</label>
+							</div>
+							<div class="col-lg-7">
+								<input type="text" size="3" maxlength="3" disabled class="form-control form-control-sm m-input" id="imp_dscto" name="imp_dscto" placeholder="0,00" style="text-align: right;">
+							</div>
+						</div>
+					</li>
+					<li class="m-nav-sticky__item nav-item">
+						<div class="row">
+							<div class="col-lg-4">
+								<label class="res-label">
+									CUI total:
+								</label>
+							</div>
+							<div class="col-lg-7">
+								<input type="text" disabled class="form-control form-control-sm m-input" id="cuitotal" name="cuitotal" placeholder="0,00" style="text-align: right;">
+							</div>
+						</div>
+					</li>
+					<li class="m-nav-sticky__item nav-item">
+						<div class="row">
+							<div class="col-lg-4">
+								<label class="res-label">
+									Total:
+								</label>
+							</div>
+							<div class="col-lg-7">
+								<input type="text" size="3" maxlength="3" disabled class="form-control form-control-sm m-input" id="total1" name="total1" placeholder="0,00" style="text-align: right;">
+							</div>
+						</div>
+					</li>
+					<li class="m-nav-sticky__item nav-item" >
+						<div class="row">
+						<div class="col-lg-4">
+							<label class="res-label">
+								Saldo a pagar:
+							</label>
+						</div>
+						<div class="col-lg-7">
+							<input type="text" size="3" maxlength="3" disabled class="form-control form-control-sm m-input" id="saldopagar" name="saldopagar" placeholder="0,00" style="text-align: right;">
+							<input type="hidden" id="imp_subtotal" name="imp_subtotal">
+							<input type="hidden" id="imp_igv" name="imp_igv">
+						</div>
+					</div>
+					</li>
+				</ul>
+			</div>
+		<!-- fin leyenda -->
+
 		<!-- END: Subheader -->
 	</div>
 </div>

@@ -30,3 +30,16 @@ function eventos(){
         }
     });
 }
+
+function toggleLeyendaIni(e){
+    var elem = document.getElementById("leyendaIni"),
+    style = window.getComputedStyle(elem),
+    right = style.getPropertyValue("right");
+
+    if(right == "0px"){
+        elem.style.right = "-240px";
+    }
+    else{
+        elem.style.right = "0px";
+    }
+}
