@@ -7877,7 +7877,7 @@
             t.prototype.dayHeaderHtml = function(t) {
                 var e = this.opt("listDayFormat")
                   , n = this.opt("listDayAltFormat");
-                return '<tr class="fc-list-heading" data-date="' + t.format("YYYY-MM-DD") + '"><td class="' + (this.calendar.theme.getClass("tableListHeading") || this.calendar.theme.getClass("widgetHeader")) + '" colspan="3">' + (e ? this.buildGotoAnchorHtml(t, {
+                return '<tr class="fc-list-heading" data-date="' + t.format("DD-MM-YYYY") + '"><td class="' + (this.calendar.theme.getClass("tableListHeading") || this.calendar.theme.getClass("widgetHeader")) + '" colspan="3">' + (e ? this.buildGotoAnchorHtml(t, {
                     class: "fc-list-heading-main"
                 }, o.htmlEscape(t.format(e))) : "") + (n ? this.buildGotoAnchorHtml(t, {
                     class: "fc-list-heading-alt"
