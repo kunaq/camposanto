@@ -13,7 +13,7 @@ $(document).ready( function () {
             console.log(calEvent);
 		    $('#exampleModalLabel').html(calEvent.titulo2);
 		    $('#eventoDescripcion').html(calEvent.description);
-            $("#headerModalVerSerInicio").style.backgroundColor = 'black';
+            $("#headerModalVerSerInicio").style.background = calEvent['color'];
 		    $('#m_modal_2').modal('show');
 
 		  }
