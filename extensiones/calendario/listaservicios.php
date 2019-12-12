@@ -77,80 +77,80 @@ $db = new Conexion();
 
               $description = '<table class="table">
                                   <tr>
-                                    <td><b>Fecha:</b></td>
-                                    <td>'.$fecha.'</td>
+                                    <td style="text-align: left;"><b>Fecha:</b></td>
+                                    <td style="text-align: left;">'.$fecha.'</td>
                                     <td><b>Hora:</b></td>
                                     <td>'.$hora.'</td>
                                   </tr>
                                   <tr>
-                                    <td><b>Nombre:</b></td>
-                                    <td colspan = "3">'.$nombres.'</td>
+                                    <td style="text-align: left;"><b>Nombre:</b></td>
+                                    <td style="text-align: left;" colspan = "3">'.$nombres.'</td>
                                   </tr>
                                   <tr>
-                                    <td><b>DNI:</b></td>
-                                    <td colspan = "3">'.$tipoDoc."-".$key['dsc_documento'].'</td>
+                                    <td style="text-align: left;"><b>DNI:</b></td>
+                                    <td style="text-align: left;" colspan = "3">'.$tipoDoc."-".$key['dsc_documento'].'</td>
                                   </tr>
                                   <tr>
-                                    <td><b>Sacerdote:</b></td>
-                                    <td colspan = "3">'.$key['dsc_sacerdote'].'</td>
+                                    <td style="text-align: left;"><b>Sacerdote:</b></td>
+                                    <td style="text-align: left;" colspan = "3">'.$key['dsc_sacerdote'].'</td>
                                   </tr>
                                   <tr>
-                                    <td><b>Cantante:</b></td>
-                                    <td colspan = "3">'.$key['dsc_cantante'].'</td>
+                                    <td style="text-align: left;"><b>Cantante:</b></td>
+                                    <td style="text-align: left;" colspan = "3">'.$key['dsc_cantante'].'</td>
                                   </tr>
                                   <tr>
-                                    <td><b>Motivo:</b></td>
-                                    <td colspan = "3">'.$key['dsc_motivo_conmemoracion'].'</td>
+                                    <td style="text-align: left;"><b>Motivo:</b></td>
+                                    <td style="text-align: left;" colspan = "3">'.$key['dsc_motivo_conmemoracion'].'</td>
                                   </tr>
                                   <tr>
-                                    <td><b>Contrato:</b></td>
-                                    <td colspan = "3">'.$ctto.'</td>
+                                    <td style="text-align: left;"><b>Contrato:</b></td>
+                                    <td style="text-align: left;" colspan = "3">'.$ctto.'</td>
                                   </tr>
                                   </table>';
             }
             else{
                 $description = '<table class="table">
                                   <tr>
-                                    <td><b>Fecha:</b></td>
-                                    <td>'.$fecha.'</td>
+                                    <td style="text-align: left;"><b>Fecha:</b></td>
+                                    <td style="text-align: left;">'.$fecha.'</td>
                                     <td><b>Hora:</b></td>
                                     <td>'.$hora.'</td>
                                   </tr>
                                   <tr>
-                                    <td><b>Nombre:</b></td>
-                                    <td colspan = "3">'.$nombres.'</td>
+                                    <td style="text-align: left;"><b>Nombre:</b></td>
+                                    <td style="text-align: left;" colspan = "3">'.$nombres.'</td>
                                   </tr>
                                   <tr>
-                                    <td><b>DNI:</b></td>
-                                    <td colspan = "3">'.$tipoDoc."-".$key['dsc_documento'].'</td>
+                                    <td style="text-align: left;"><b>DNI:</b></td>
+                                    <td style="text-align: left;" colspan = "3">'.$tipoDoc."-".$key['dsc_documento'].'</td>
                                   </tr>
                                   <tr>
-                                    <td><b>Plataforma:</b></td>
-                                    <td colspan = "3">'.$plat.'</td>
+                                    <td style="text-align: left;"><b>Plataforma:</b></td>
+                                    <td style="text-align: left;" colspan = "3">'.$plat.'</td>
                                   </tr>
                                   <tr>
-                                    <td><b>Área de plataforma:</b></td>
-                                    <td colspan = "3">'.$area.'</td>
+                                    <td style="text-align: left;"><b>Área de plataforma:</b></td>
+                                    <td style="text-align: left;" colspan = "3">'.$area.'</td>
                                   </tr>
                                   <tr>
-                                    <td><b>Eje horizontal:</b></td>
-                                    <td colspan = "3">'.$ejex.'</td>
+                                    <td style="text-align: left;"><b>Eje horizontal:</b></td>
+                                    <td style="text-align: left;" colspan = "3">'.$ejex.'</td>
                                   </tr>
                                   <tr>
-                                    <td><b>Eje vertical:</b></td>
-                                    <td colspan = "3">'.$ejey.'</td>
+                                    <td style="text-align: left;"><b>Eje vertical:</b></td>
+                                    <td style="text-align: left;" colspan = "3">'.$ejey.'</td>
                                   </tr>
                                   <tr>
-                                    <td><b>Espacio:</b></td>
-                                    <td colspan = "3">'.$espc.'</td>
+                                    <td style="text-align: left;"><b>Espacio:</b></td>
+                                    <td style="text-align: left;" colspan = "3">'.$espc.'</td>
                                   </tr>
                                   <tr>
-                                    <td><b>Nivel:</b></td>
-                                    <td colspan = "3">'.$nivel.'</td>
+                                    <td style="text-align: left;"><b>Nivel:</b></td>
+                                    <td style="text-align: left;" colspan = "3">'.$nivel.'</td>
                                   </tr>
                                   <tr>
-                                    <td><b>Contrato:</b></td>
-                                    <td colspan = "3">'.$ctto.'</td>
+                                    <td style="text-align: left;"><b>Contrato:</b></td>
+                                    <td style="text-align: left;" colspan = "3">'.$ctto.'</td>
                                   </tr>
                                   </table>';
               
