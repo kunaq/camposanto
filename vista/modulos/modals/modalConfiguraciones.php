@@ -96,18 +96,22 @@
 					<div class="form-group row">
 						<div class="col-lg-12 form-group m-form__group">
 							<div class="input-group m-input-icon m-input-icon--left">
-								<input class="form-control m-input" type="password" placeholder="Contraseña actual" id="password_actual" name="password_actual" style="background-color: #fff; color: #000;" required autofocus>
-								<span class="m-input-icon__icon m-input-icon__icon--left">
-									<span>
-										<i class="fa fa-lock"></i>
+								<div class=" input-group-append">
+									<input class="form-control m-input" type="password" placeholder="Contraseña actual" id="password_actual" name="password_actual" style="background-color: #fff; color: #000;" required autofocus>
+									<span class="m-input-icon__icon m-input-icon__icon--left">
+										<span>
+											<i class="fa fa-lock"></i>
+										</span>
 									</span>
-								</span>
-								<input class="form-control m-input" type="password" placeholder="Nueva contraseña" id="cambia_password" name="cambia_password" style="background-color: #fff; color: #000;" required autofocus>
-								<span class="m-input-icon__icon m-input-icon__icon--left">
-									<span>
-										<i class="fa fa-lock"></i>
+								</div>
+								<div class=" input-group-append">
+									<input class="form-control m-input" type="password" placeholder="Nueva contraseña" id="cambia_password" name="cambia_password" style="background-color: #fff; color: #000;" required autofocus>
+									<span class="m-input-icon__icon m-input-icon__icon--left">
+										<span>
+											<i class="fa fa-lock"></i>
+										</span>
 									</span>
-								</span>
+								</div>
 								<div class=" input-group-append">
 									<button id="show_password" class="btn btn-secondary m-btn m-btn--custom m-btn--label-metal btn-sm input-group-text" type="button" onclick="mostrarPassword()">
 										<span class="fa fa-eye-slash icon"></span>
