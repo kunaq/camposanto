@@ -50,7 +50,7 @@
 
 		<!-- leyenda -->
 		<div class="sidebar-wrapper stickResumen" id="container-button"> 
-				<a href="#container" class="btn btn-outline-metal m-btn m-btn--icon m-btn--icon-only m-btn--outline-2x m-btn--pill m-btn--air toggle-collapse-resumen" onclick="toggleLeyendaIni(this)" id="toggle-button">
+				<a href="#container" class="btn btn-metal m-btn m-btn--icon btn-lg m-btn--icon-only m-btn--pill m-btn--air toggle-collapse-resumen" onclick="toggleLeyendaIni(this)" id="toggle-button">
 					<i class="flaticon-info"></i>
 				</a>
 				<ul class="m-nav-sticky side-nav" id="leyendaIni" style="margin-top: 30px;">
@@ -62,7 +62,7 @@
 					<li class="m-nav-sticky__item nav-item">
 						<div class="row">
 							<div class="col-md-1">
-							<span class="m-badge" style="background-color: #34bfa3"></span>
+							<span class="m-badge" style="background-color: #f4516c"></span>
 						</div>
 							<div class="col-lg-10">
 								<p>SERVICIO DE INHUMACIÓN</p>
@@ -82,7 +82,7 @@
 					<li class="m-nav-sticky__item nav-item">
 						<div class="row">
 							<div class="col-md-1">
-								<span class="m-badge" style="background-color: #34bfa3"></span>
+								<span class="m-badge" style="background-color: #36a3f7"></span>
 							</div>
 							<div class="col-lg-10">
 								<p>SERVICIO DE TRASLADO INTERNO /EXTERNO</p>
