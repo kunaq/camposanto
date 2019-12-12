@@ -21,7 +21,7 @@ $(document).ready( function () {
             month: "ddd",
             week: "ddd d/M",
             day: "dddd d/M"
-        },
+        }
     });
 } );
 
