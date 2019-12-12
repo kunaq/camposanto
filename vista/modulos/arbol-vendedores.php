@@ -46,24 +46,13 @@
 							<div class="col-lg-12">
 								<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="490" style="border: 1px solid #e4e1e1;">
 									<div class="table-responsive">
-										<table class="tableVendedores table-striped">
+										<table class="tableVendedores table-striped" id="tablaTarbajadorArbVen">
 											<thead>
 												<th>Codigo</th>
 												<th>Apellidos y Nombres</th>
+												<th class="hidden"></th>
 											</thead>
 											<tbody>
-												<tr>
-													<td>TRA00012</td>
-													<td>RAMOS ARAUCO, NATALI GUADALUPE</td>
-												</tr>
-												<tr>
-													<td>TRA00012</td>
-													<td>RAMOS ARAUCO, NATALI GUADALUPE</td>
-												</tr>
-												<tr>
-													<td>TRA00012</td>
-													<td>RAMOS ARAUCO, NATALI GUADALUPE</td>
-												</tr>
 											</tbody>
 										</table>
 									</div>
@@ -105,7 +94,7 @@
 									<div class="col-lg-12">
 										<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="200">
 											<div class="table-responsive">
-												<table class="tableVendedores">
+												<table class="tableVendedores" id="">
 													<thead>
 														<th>N°</th>
 														<th>Año</th>
