@@ -10,10 +10,10 @@ $(document).ready( function () {
     		cache: true
     	},
     	 eventClick: function(calEvent, jsEvent, view) {
-            console.log(calEvent);
+            console.log(calEvent['color']);
 		    $('#exampleModalLabel').html(calEvent.titulo2);
 		    $('#eventoDescripcion').html(calEvent.description);
-            $("#headerModalVerSerInicio").style.background = calEvent['color'];
+            document.getElementById("headerModalVerSerInicio").style.background = calEvent['color'];
 		    $('#m_modal_2').modal('show');
 
 		  }
