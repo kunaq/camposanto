@@ -149,7 +149,7 @@
 		<ul id="m_quick_sidebar-contrato_tabs" class="nav nav-tabs m-tabs m-tabs-line m-tabs-line--danger" role="tablist">
 			<li class="nav-item m-tabs__item">
 				<a class="nav-link m-tabs__link active" data-toggle="tab" href="#m_quick_sidebar_tabs_contrato" role="tab">
-					<h4 id="codProspecto" style="display: inline;">PVT0028014</h4>
+					<h4 id="codProspecto" style="display: inline;"></h4>
 				</a>
 			</li>
 		</ul>

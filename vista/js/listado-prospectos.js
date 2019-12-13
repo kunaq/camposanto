@@ -9,11 +9,7 @@ $("#fchFinLisPro").datepicker({
 });//datepicker
 
 $("#numDocLisPro").number(true);
-$("#tablListPros").DataTable({
-  "searching": false,
-  "info": false,
-  "lengthChange": false
-  });
+
 
 function DocLenghtBusq(tipo){
     if (tipo == "DI001") {
