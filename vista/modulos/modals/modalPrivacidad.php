@@ -2,7 +2,6 @@
 <div class="modal fade" id="m_modal_PolPrivacidad" tabindex="-1" role="dialog" aria-labelledby="configuracionesModalLabel" aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
-		<form id="configuraciones">
 			<div class="modal-header">
 				<h5 class="modal-title" id="configuracionesModalLabel">
 					POLÍTICA DE PRIVACIDAD
@@ -61,7 +60,6 @@
 					</div>
 				</div>
 			</div>
-		</form>
 		</div>
 	</div>
 </div>
