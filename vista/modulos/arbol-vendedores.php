@@ -1,4 +1,4 @@
-<div class="m-content"  style="width: calc(100%);">
+<div class="m-content" id="bodyArbVend"  style="width: calc(100%);">
 	<!--Begin::Main Portlet-->
 	<div class="m-portlet m-portlet--space">
 		<!--begin: Portlet Head-->

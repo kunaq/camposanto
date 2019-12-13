@@ -8,22 +8,24 @@ $("#cttoResArbVen").on('click', function(){
 	document.getElementById("tituloCttArbVen").innerHTML = 'Resolución';
 });
 
-$("#tableTarbajadorArbVen").DataTable({
-	"ajax": "ajax/datatable-trabajadorArbVen.ajax.php?entrada=verTrabajadores",
-    "deferRender": true,
-	"retrieve": true,
-	"processing": true,
-	"language" : {
-      "url": "spanish.json"
-  	},
-  	'columnDefs': [
-		{
-			targets: [0],
-			className: "text-center codTrabajador"
-		},
-		{
-			targets: [1],
-			className: ""
-		}
-	]	
+document.getElementById("bodyArbVend").onLoad(function(){
+	$("#tableTarbajadorArbVen").DataTable({
+		"ajax": "ajax/datatable-trabajadorArbVen.ajax.php?entrada=verTrabajadores",
+	    "deferRender": true,
+		"retrieve": true,
+		"processing": true,
+		"language" : {
+	      "url": "spanish.json"
+	  	},
+	  	'columnDefs': [
+			{
+				targets: [0],
+				className: "text-center codTrabajador"
+			},
+			{
+				targets: [1],
+				className: ""
+			}
+		]	
+	});
 });
