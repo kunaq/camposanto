@@ -18,10 +18,10 @@ function creaTablaTrabajadoresArbVend(){
             success : function(respuesta){
             	console.log(respuesta);
                 // $("#divTablaProspectos").html(respuesta);
-                $('#tableTarbajadorArbVen').DataTable({
-                    "searching": false,
-                    "info": false
-                });
+                // $('#tableTarbajadorArbVen').DataTable({
+                //     "searching": false,
+                //     "info": false
+                // });
             }
         });
 	// $("#tableTarbajadorArbVen").DataTable({
