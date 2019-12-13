@@ -129,7 +129,7 @@ $db = new Conexion();
                                     <td style="text-align: left;" colspan = "3">'.$plat.'</td>
                                   </tr>
                                   <tr>
-                                    <td style="text-align: left;"><b>Área de plataforma:</b></td>
+                                    <td style="text-align: left;"><b>Area de plataforma:</b></td>
                                     <td style="text-align: left;" colspan = "3">'.$area.'</td>
                                   </tr>
                                   <tr>
