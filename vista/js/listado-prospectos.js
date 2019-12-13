@@ -32,6 +32,7 @@ function DocLenghtBusq(tipo){
 function mostrarSidebar(codPro, dscPro, tDoc, nDoc, tel, cven, cal, cons, etd, ultCon, imp, fchReg, dias, obsr){
     hideSidebar();
     $("#m_quick_sidebar-contrato").addClass("m-quick-sidebar-contrato--on");
+    console.log(dscPro);
 
     document.getElementById('codProspecto').innerText = codPro;
     document.getElementById('dscProspecto').innerText = dscPro;
