@@ -3,23 +3,29 @@ require_once "../core.php";
 require_once "../funciones.php";
 require_once "../controlador/cobranzas.controlador.php";
 require_once "../modelo/cobranzas.modelo.php";
-class TablaGesCob{
+class TablaArbVen{
 	/*=============================================
-	MOSTRAR CONTRATOS POR COBRADOR
+	MOSTRAR CLIENTE DE LA VENTANA DE DESEMBOLSO
 	=============================================*/
-	public function mostrarTablaGesCob(){
-        $contratos = ControladorArbolVen::ctrMostrarTrabajadores();
-        if(count($contratos) > 0){
+	public function mostrarTablaArbVen(){
+		$item1 = 'dsc_documento';
+		$valor1 = $_GET["datos"];
+		$item2 = 'dsc_cliente';
+		$valor2 = $_GET["datos"];
+        $entrada = $_GET["entrada"];
+        $cliente = ControladorArbVen::ctrMostrarArbVen($item1,$valor1,$item2,$valor2,$entrada);
+        if(count($cliente) > 0){
         	$datosJson = '{
 			 	"data": [';
-				 	for ($i=0; $i < count($contratos) ; $i++) {
-						// $fchGeneracion = ($contratos[$i]["fch_generacion"] != '') ? dateFormat($contratos[$i]["fch_generacion"]) : '';
-				 		$datosJson .= '[
-							"'.escapeComillasJson($contratos[$i]["cod_contrato"]).'",
-							"'.escapeComillasJson($contratos[$i]["dsc_cliente"]).'",
-							"'.$contratos[$i]["num_refinanciamiento"].'|'.$contratos[$i]['cod_contrato'].'|'.$contratos[$i]['cod_trabajador'].'|'.$contratos[$i]['cod_periodo'].'|'.$contratos[$i]['cod_tipo_cartera'].'|'.$contratos[$i]['cod_anno'].'"
+				 	for ($i=0; $i < count($cliente) ; $i++) {
+						$datosJson .= '[
+							"'.($i+1).'",
+							"'.escapeComillasJson($cliente[$i]["dsc_cliente"]).'",
+							"'.escapeComillasJson($cliente[$i]["dsc_tipo_documento"]).'",
+							"'.escapeComillasJson($cliente[$i]["dsc_documento"]).'",
+							"'.$cliente[$i]["cod_cliente"].'|'.$cliente[$i]["contCntPst"].'"
 						],';
-					}			 	
+					}//for
 					$datosJson = substr($datosJson, 0, -1);
 				$datosJson .= ']
 			}';
@@ -29,10 +35,148 @@ class TablaGesCob{
 			}';
         }
         echo $datosJson;
-	}//function mostrarTablaGesCob
-}//class TablaGesCob
+	}//function mostrarTablaCliente
+	/*=============================================
+	MOSTRAR CLIENTE DE LA VENTANA DE EMISION DE
+	CONTRATO, OPCION AVAL
+	=============================================*/
+	public function mostrarTablaCteAvalEmsCnt(){
+		$item1 = ($_GET["flgAval"] == 'SI') ? "dsc_documento" : "dsc_cliente";
+		$valor1 = $_GET["datos"];
+		$item2 = $valor2 = null;
+        $entrada = 'datatableClienteEmsCnt';;
+        $cliente = ControladorArbVen::ctrMostrarArbVen($item1,$valor1,$item2,$valor2,$entrada);
+        if(count($cliente) > 0){
+        	$datosJson = '{
+			 	"data": [';
+				 	for ($i=0; $i < count($cliente) ; $i++) {
+				 		$datosJson .= '[
+				 			"'.($i+1).'",
+							"'.escapeComillasJson($cliente[$i]["dsc_cliente"]).'",
+							"'.escapeComillasJson($cliente[$i]["dsc_tipo_documento"]).'",
+							"'.escapeComillasJson($cliente[$i]["dsc_documento"]).'",
+							"'.$cliente[$i]["cod_cliente"].'|'.$cliente[$i]["contCntSpl"].'"
+						],';
+				 	}//for
+				 	$datosJson = substr($datosJson, 0, -1);
+				$datosJson .= ']
+			}';
+        }else{
+        	$datosJson = '{
+				"data": []
+			}';
+        }
+        echo $datosJson;
+	}//function mostrarTablaCteAvalEmsCnt
+	/*=============================================
+	MOSTRAR CLIENTE DE LA VENTANA DE EMISION DE
+	CONTRATO, OPCION AVAL
+	=============================================*/
+	public function mostrarTablaAvalEmsCnt(){
+		$item1 = "dsc_documento";
+		$valor1 = $_GET["datos"];
+		$item2 = $valor2 = null;
+        $entrada = 'datatableAvalEmsCnt';;
+        $cliente = ControladorArbVen::ctrMostrarArbVen($item1,$valor1,$item2,$valor2,$entrada);
+        if(count($cliente) > 0){
+        	$datosJson = '{
+			 	"data": [';
+				 	for ($i=0; $i < count($cliente) ; $i++) {
+				 		$datosJson .= '[
+				 			"'.($i+1).'",
+							"'.escapeComillasJson($cliente[$i]["dsc_cliente"]).'",
+							"'.escapeComillasJson($cliente[$i]["dsc_tipo_documento"]).'",
+							"'.escapeComillasJson($cliente[$i]["dsc_documento"]).'",
+							"'.$cliente[$i]["cod_cliente"].'"
+						],';
+				 	}//for
+				 	$datosJson = substr($datosJson, 0, -1);
+				$datosJson .= ']
+			}';
+        }else{
+        	$datosJson = '{
+				"data": []
+			}';
+        }
+        echo $datosJson;
+	}//function mostrarTablaAvalEmsCnt
+	/*=============================================
+	MOSTRAR CLIENTE DE LA VENTANA DE MODIFICACIÓN
+	DE CONTRATO
+	=============================================*/
+	public function mostrarTablaCteMdfCto(){
+		$item1 = 'dsc_documento';
+		$valor1 = $_GET["datos"];
+		$item2 = 'dsc_cliente';
+		$valor2 = $_GET["datos"];
+        $entrada = 'datatableMdfCto';
+        $cliente = ControladorArbVen::ctrMostrarArbVen($item1,$valor1,$item2,$valor2,$entrada);
+        if(count($cliente) > 0){
+        	$datosJson = '{
+			 	"data": [';
+				 	for ($i=0; $i < count($cliente) ; $i++) {				 		
+				 		$datosJson .= '[
+							"'.($i+1).'",
+							"'.escapeComillasJson($cliente[$i]["dsc_cliente"]).'",
+							"'.escapeComillasJson($cliente[$i]["dsc_tipo_documento"]).'",
+							"'.escapeComillasJson($cliente[$i]["dsc_documento"]).'",
+							"'.$cliente[$i]["cod_cliente"].'|'.$cliente[$i]["contCntPst"].'"
+						],';
+					}//for
+					$datosJson = substr($datosJson, 0, -1);
+				$datosJson .= ']
+			}';
+        }else{
+        	$datosJson = '{
+				"data": []
+			}';
+        }
+        echo $datosJson;
+	}//function mostrarTablaCliente
+	/*=============================================
+	MOSTRAR CLIENTE DE LA VENTANA DE PROVEEDOR
+	=============================================*/
+	public function mostrarTablaCteProv(){
+		$item1 = 'dsc_cliente';
+		$valor1 = $_GET["datos"];
+		$item2 = $valor2 = null;
+        $entrada = 'datatableProv';
+        $cliente = ControladorArbVen::ctrMostrarArbVen($item1,$valor1,$item2,$valor2,$entrada);
+        if(count($cliente) > 0){
+        	$datosJson = '{
+			 	"data": [';
+				 	for ($i=0; $i < count($cliente) ; $i++) {				 		
+				 		$datosJson .= '[
+							"'.($i+1).'",
+							"'.escapeComillasJson($cliente[$i]["dsc_cliente"]).'",
+							"'.escapeComillasJson($cliente[$i]["dsc_tipo_documento"]).'",
+							"'.escapeComillasJson($cliente[$i]["dsc_documento"]).'",
+							"'.$cliente[$i]["cod_cliente"].'"
+						],';
+					}//for
+					$datosJson = substr($datosJson, 0, -1);
+				$datosJson .= ']
+			}';
+        }else{
+        	$datosJson = '{
+				"data": []
+			}';
+        }
+        echo $datosJson;
+	}
+}//class TablaArbVen
 /*=============================================
-ACTIVAR TABLA CONTRATOS
+ACTIVAR TABLA CLIENTE
 =============================================*/
-$activarTablaGesCob = new TablaGesCob();
-$activarTablaGesCob -> mostrarTablaGesCob();
+$activarTablaCliente = new TablaArbVen();
+if(isset($_GET["entrada"]) && ($_GET["entrada"] == 'vntDesembolso' || $_GET["entrada"] == 'vntImpContrato' || $_GET["entrada"] == 'vntAnlContrato' || $_GET["entrada"] == 'vntSgmContrato' || $_GET["entrada"] == 'vntRefinanciamiento')){	
+	$activarTablaCliente -> mostrarTablaArbVen();
+}else if(isset($_GET["entrada"]) && $_GET["entrada"] == 'vntClienteEmsCnt'){	
+	$activarTablaCliente -> mostrarTablaCteAvalEmsCnt();
+}else if(isset($_GET["entrada"]) && $_GET["entrada"] == 'vntAvalEmsCnt'){	
+	$activarTablaCliente -> mostrarTablaAvalEmsCnt();
+}else if(isset($_GET["entrada"]) && $_GET["entrada"] == 'vntProveedor'){	
+	$activarTablaCliente -> mostrarTablaCteProv();
+}/*else if(isset($_GET["entrada"]) && $_GET["entrada"] == 'vntClienteMdfCto'){	
+	$activarTablaCliente -> mostrarTablaCteMdfCto();
+}*/
