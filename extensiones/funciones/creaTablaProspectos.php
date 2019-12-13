@@ -171,13 +171,13 @@ AND     ( CASE WHEN '$flg_jf_ventas' = 'SI' THEN
         if ($key['fch_registro'] == NULL) {
             $fchRegistro = "-";
         }else{
-            $fchRegistro = dateFormat($key['fch_registro']);;
+            $fchRegistro = dateFormat($key['fch_registro']);
         }
         // -------- Condicional para campos NULL de fch_ultimo_contacto -------- //
         if ($key['fch_ultimo_contacto'] == NULL) {
             $fchUltimoContacto = "-";
         }else{
-            $fchUltimoContacto = dateFormat($key['fch_ultimo_contacto']);;
+            $fchUltimoContacto = dateFormat($key['fch_ultimo_contacto']);
         }
 
         if ($key['imp_monto'] == NULL) {
@@ -195,11 +195,11 @@ AND     ( CASE WHEN '$flg_jf_ventas' = 'SI' THEN
                             '.$key['num_dias'].'
                         </td>
                         <td>
-                        <div id="m_quick_sidebar-contrato_toggle" class="m-nav__item">
-                            <a href="#" class="m-nav__link m-dropdown__toggle" onclick="mostrarSidebar('.$key['cod_prospecto'].');">
-                                <span class="m-nav__link-icon">'.$key['cod_prospecto'].'</span>
-                            </a>
-                        </div>
+                            <div id="m_quick_sidebar-contrato_toggle" class="m-nav__item">
+                                <a href="#" class="m-nav__link m-dropdown__toggle" onclick="mostrarSidebar();">
+                                   <span class="m-nav__link-icon">'.$key['cod_prospecto'].'</span>
+                                </a>
+                            </div>
                         </td>
                         <td>
                             '.$key['dsc_prospecto'].'
