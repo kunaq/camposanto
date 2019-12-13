@@ -19,15 +19,11 @@ $("#tableTarbajadorArbVen").DataTable({
   	'columnDefs': [
 		{
 			targets: [0],
-			className: "text-center "
+			className: "text-center codTrabajador"
 		},
 		{
 			targets: [1],
 			className: ""
-		},
-		{
-			targets: [2],
-			className: " hidden"
 		}
 	]	
 });
