@@ -202,7 +202,7 @@ AND     ( CASE WHEN '$flg_jf_ventas' = 'SI' THEN
                             </div>
                         </td>
                         <td>
-                            '.$key['dsc_prospecto'].'
+                            '.utf8_encode($key['dsc_prospecto']).'
                         </td>
                         <td>
                             '.$key['dsc_tipo_documento'].'
@@ -220,7 +220,7 @@ AND     ( CASE WHEN '$flg_jf_ventas' = 'SI' THEN
                             '.$key['dsc_calificacion'].'
                         </td>
                         <td>
-                            '.$key['dsc_trabajador'].'
+                            '.utf8_encode($key['dsc_trabajador']).'
                         </td>
                         <td>
                             '.$key['dsc_estado'].'
