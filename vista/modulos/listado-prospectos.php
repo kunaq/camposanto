@@ -149,7 +149,7 @@
 		<ul id="m_quick_sidebar-contrato_tabs" class="nav nav-tabs m-tabs m-tabs-line m-tabs-line--danger" role="tablist">
 			<li class="nav-item m-tabs__item">
 				<a class="nav-link m-tabs__link active" data-toggle="tab" href="#m_quick_sidebar_tabs_contrato" role="tab">
-					<h4 id="numCttSideBar" style="display: inline;">PVT0028014</h4>
+					<h4 id="codProspecto" style="display: inline;">PVT0028014</h4>
 				</a>
 			</li>
 		</ul>
@@ -161,51 +161,51 @@
 							<tbody>
 								<tr>
 									<td class="leftText">Prospecto</td>
-									<td class="datosSideBar" id="fchEmiSideBar">HUANCO, KATHERINE</td>
+									<td class="datosSideBar" id="dscProspecto"></td>
 								</tr>
 								<tr>
-									<td class="leftText">DNI</td>
-									<td class="datosSideBar" id="fchActSideBar">12345678</td>
+									<td class="leftText" id="tipoDoc"></td>
+									<td class="datosSideBar" id="numDoc"></td>
 								</tr>
 								<tr>
 									<td class="leftText">Telefono</td>
-									<td class="datosSideBar" id="fchResSideBar">976433032</td>
+									<td class="datosSideBar" id="telefono"></td>
 								</tr>
 								<tr>
 									<td class="leftText">Canal de Venta</td>
-									<td class="datosSideBar" id="fchAnuSideBar">TURNO CAMPO</td>
+									<td class="datosSideBar" id="canalVenta"></td>
 								</tr>
 								<tr>
 									<td class="leftText">Calificación</td>
-									<td class="datosSideBar" id="fchResSideBar">C</td>
+									<td class="datosSideBar" id="calificacion"></td>
 								</tr>
 								<tr>
 									<td class="leftText">Consejero</td>
-									<td class="datosSideBar" id="fchAnuSideBar">A. CERRON</td>
+									<td class="datosSideBar" id="consejero"></td>
 								</tr>
 								<tr>
 									<td class="leftText">Estado</td>
-									<td class="datosSideBar" id="fchResSideBar">TRUNCO</td>
+									<td class="datosSideBar" id="estado"></td>
 								</tr>
 								<tr>
 									<td class="leftText">Ultimo Contacto</td>
-									<td class="datosSideBar" id="fchAnuSideBar">20/10/2019</td>
+									<td class="datosSideBar" id="ultimoContacto"></td>
 								</tr>
 								<tr>
 									<td class="leftText">Importe</td>
-									<td class="datosSideBar" id="fchResSideBar">1,234.44</td>
+									<td class="datosSideBar" id="importe"></td>
 								</tr>
 								<tr>
 									<td>
 										<div class="row">
 											<div class="col-lg-6" style="text-align: left;">F. Registro</div>
-											<div class="col-lg-6" style="text-align: left;">20/10/2019</div>
+											<div class="col-lg-6" style="text-align: left;" id="fchRegistro"></div>
 										</div>
 									</td>
 									<td>
 										<div class="row">
 											<div class="col-lg-6" style="text-align: right;">Días</div>
-											<div class="col-lg-6" style="text-align: right;">33</div>
+											<div class="col-lg-6" style="text-align: right;" id="dias"></div>
 										</div>
 									</td>
 								</tr>
@@ -215,7 +215,7 @@
 					<div class="col-lg-12">&nbsp;</div>
 					<div class="col-lg-12">
 						<label>Observación</label>
-						<textarea class="form-control form-control-sm m-input" rows="2" disabled>LLAMAR 20/10/2019</textarea>
+						<textarea class="form-control form-control-sm m-input" rows="2" disabled id="observacion"></textarea>
 					</div>
 					<!-- <div class="col-lg-12">
 						<table class="tableSideBar">

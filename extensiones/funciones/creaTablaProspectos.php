@@ -192,6 +192,7 @@ AND     ( CASE WHEN '$flg_jf_ventas' = 'SI' THEN
         $nDoc = "'".$key['dsc_documento']."'";
         $tel = "'".$key['dsc_telefono_1']."'";
         $cven = "'".$key['dsc_canal_venta']."'";
+        $cal = "'".$key['dsc_calificacion']."'";
         $cons = "'".utf8_encode($key['dsc_trabajador'])."'";
         $etd = "'".$key['dsc_estado']."'";
         $ultCon = "'".$fchUltimoContacto."'";
@@ -210,7 +211,7 @@ AND     ( CASE WHEN '$flg_jf_ventas' = 'SI' THEN
                         </td>
                         <td>
                             <div id="m_quick_sidebar-contrato_toggle" class="m-nav__item">
-                                <a href="#" class="m-nav__link m-dropdown__toggle" onclick="mostrarSidebar('.$codPro.','.$dscPro.','.$tDoc.','.$nDoc.','.$tel.','.$cven.','.$cons.','.$etd.','.$ultCon.','.$imp.','.$fchReg.','.$dias.','.$obsr.');">
+                                <a href="#" class="m-nav__link m-dropdown__toggle" onclick="mostrarSidebar('.$codPro.','.$dscPro.','.$tDoc.','.$nDoc.','.$tel.','.$cven.','.$cal.','.$cons.','.$etd.','.$ultCon.','.$imp.','.$fchReg.','.$dias.','.$obsr.');">
                                    <span class="m-nav__link-icon">'.$key['cod_prospecto'].'</span>
                                 </a>
                             </div>
