@@ -243,6 +243,6 @@ AND     ( CASE WHEN '$flg_jf_ventas' = 'SI' THEN
     	
     	$db->liberar($sql);
 		$db->cerrar();
-		echo $tabla;
+		echo utf8_encode($tabla);
 
  ?>
