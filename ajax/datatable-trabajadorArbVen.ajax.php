@@ -163,6 +163,7 @@ ACTIVAR TABLA CLIENTE
 $activarTablaCliente = new TablaArbVen();
 if(isset($_GET["entrada"]) && $_GET["entrada"] == 'verTrabajadores'){	
 	$activarTablaCliente -> mostrarTablaTrabArbVen();
-// }else if(isset($_GET["entrada"]) && $_GET["entrada"] == 'vntAvalEmsCnt'){	
+}
+// else if(isset($_GET["entrada"]) && $_GET["entrada"] == 'vntAvalEmsCnt'){	
 // 	$activarTablaCliente -> mostrarTablaAvalEmsCnt();
 // }
