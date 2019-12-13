@@ -14,7 +14,7 @@
 				</button>
 			</div>
 			<div class="modal-body" >
-				<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="490">
+				<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="400">
 					<span>
 						<p style="text-align: justify;">El presente Política de Privacidad establece los términos en que Kunaq & Asociados S.A.C usa y protege la información que es proporcionada por sus usuarios al momento de utilizar su sitio web. Esta compañía está comprometida con la seguridad de los datos de sus usuarios. Cuando le pedimos llenar los campos de información personal con la cual usted pueda ser identificado, lo hacemos asegurando que sólo se empleará de acuerdo con los términos de este documento. Sin embargo esta Política de Privacidad puede cambiar con el tiempo o ser actualizada por lo que le recomendamos y enfatizamos revisar continuamente esta página para asegurarse que está de acuerdo con dichos cambios.</p>
 					</span>
@@ -53,7 +53,7 @@
 				</div>
 			</div>
 			<div class="modal-footer">
-				<div class="form-group row">
+				<div class="row">
 					<div class="col-md-12">
 						<p class="pull-right">
 							<button type="button" class="btn btn-metal">
