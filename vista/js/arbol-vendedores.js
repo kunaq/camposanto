@@ -8,7 +8,7 @@ $("#cttoResArbVen").on('click', function(){
 	document.getElementById("tituloCttArbVen").innerHTML = 'Resolución';
 });
 
-document.getElementById("bodyArbVend").onLoad(function(){
+function creaTablaTrabajadoresArbVend(){
 	$("#tableTarbajadorArbVen").DataTable({
 		"ajax": "ajax/datatable-trabajadorArbVen.ajax.php?entrada=verTrabajadores",
 	    "deferRender": true,
@@ -28,4 +28,6 @@ document.getElementById("bodyArbVend").onLoad(function(){
 			}
 		]	
 	});
-});
+}
+
+creaTablaTrabajadoresArbVend();
