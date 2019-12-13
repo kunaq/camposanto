@@ -197,7 +197,7 @@ AND     ( CASE WHEN '$flg_jf_ventas' = 'SI' THEN
         $ultCon = "'".$fchUltimoContacto."'";
         $imp = "'".$imp_venta."'";
         $fchReg = "'".$fchRegistro."'";
-        $dias = "'".$key['num_dias']."'"
+        $dias = "'".$key['num_dias']."'";
         $obsr = "'".$key['dsc_ultima_observacion']."'";
         
         $tabla.= 
