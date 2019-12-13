@@ -9,6 +9,7 @@ $("#cttoResArbVen").on('click', function(){
 });
 
 function creaTablaTrabajadoresArbVend(){
+	console.log('llego');
 	$("#tableTarbajadorArbVen").DataTable({
 		"ajax": "ajax/datatable-trabajadorArbVen.ajax.php?entrada=verTrabajadores",
 	    "deferRender": true,

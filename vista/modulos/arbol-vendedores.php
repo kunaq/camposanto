@@ -46,7 +46,7 @@
 							<div class="col-lg-12">
 								<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="490" style="border: 1px solid #e4e1e1;">
 									<div class="table-responsive">
-										<table class="tableVendedores table-striped" id="tablaTarbajadorArbVen">
+										<table class="tableVendedores table-striped" id="tableTarbajadorArbVen">
 											<thead>
 												<th>Codigo</th>
 												<th>Apellidos y Nombres</th>
