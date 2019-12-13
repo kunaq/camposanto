@@ -185,6 +185,20 @@ AND     ( CASE WHEN '$flg_jf_ventas' = 'SI' THEN
         }else{
             $imp_venta = "S/ ".number_format(round($key['imp_monto'], 2),2,',','.');
         }
+
+        $codPro = "'".$key['cod_prospecto']."'";
+        $dscPro = "'".utf8_encode($key['dsc_prospecto'])."'";
+        $tDoc = "'".$key['dsc_tipo_documento']."'";
+        $nDoc = "'".$key['dsc_documento']."'";
+        $tel = "'".$key['dsc_telefono_1']."'";
+        $cven = "'".$key['dsc_canal_venta']."'";
+        $cons = "'".utf8_encode($key['dsc_trabajador'])."'";
+        $etd = "'".$key['dsc_estado']."'";
+        $ultCon = "'".$fchUltimoContacto."'";
+        $imp = "'".$imp_venta."'";
+        $fchReg = "'".$fchRegistro."'";
+        $dias = "'".$key['num_dias']."'"
+        $obsr = "'".$key['dsc_ultima_observacion']."'";
         
         $tabla.= 
                    '<tr>
@@ -196,7 +210,7 @@ AND     ( CASE WHEN '$flg_jf_ventas' = 'SI' THEN
                         </td>
                         <td>
                             <div id="m_quick_sidebar-contrato_toggle" class="m-nav__item">
-                                <a href="#" class="m-nav__link m-dropdown__toggle" onclick="mostrarSidebar();">
+                                <a href="#" class="m-nav__link m-dropdown__toggle" onclick="mostrarSidebar('.$codPro.','.$dscPro.','.$tDoc.','.$nDoc.','.$tel.','.$cven.','.$cons.','.$etd.','.$ultCon.','.$imp.','.$fchReg.','.$dias.','.$obsr.');">
                                    <span class="m-nav__link-icon">'.$key['cod_prospecto'].'</span>
                                 </a>
                             </div>
