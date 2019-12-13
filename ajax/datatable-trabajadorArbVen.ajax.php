@@ -154,7 +154,8 @@ class TablaArbVen{
 				"data": []
 			}';
         }
-        echo $datosJson;
+        echo 'ajax';
+        //echo $datosJson;
 	}
 }//class TablaArbVen
 /*=============================================
