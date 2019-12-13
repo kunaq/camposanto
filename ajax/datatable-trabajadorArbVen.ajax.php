@@ -1,29 +1,21 @@
 <?php
 require_once "../core.php";
 require_once "../funciones.php";
-require_once "../controlador/cobranzas.controlador.php";
-require_once "../modelo/cobranzas.modelo.php";
+require_once "../controlador/arbolVen.controlador.php";
+require_once "../modelo/arbolVen.modelo.php";
 class TablaArbVen{
 	/*=============================================
 	MOSTRAR CLIENTE DE LA VENTANA DE DESEMBOLSO
 	=============================================*/
-	public function mostrarTablaArbVen(){
-		$item1 = 'dsc_documento';
-		$valor1 = $_GET["datos"];
-		$item2 = 'dsc_cliente';
-		$valor2 = $_GET["datos"];
-        $entrada = $_GET["entrada"];
-        $cliente = ControladorArbVen::ctrMostrarArbVen($item1,$valor1,$item2,$valor2,$entrada);
-        if(count($cliente) > 0){
+	public function mostrarTablaTrabArbVen(){
+        $trabajador = ControladorArbolVen::ctrMostrarTraArbolVen();
+        if(count($trabajador) > 0){
         	$datosJson = '{
 			 	"data": [';
-				 	for ($i=0; $i < count($cliente) ; $i++) {
+				 	for ($i=0; $i < count($trabajador) ; $i++) {
 						$datosJson .= '[
-							"'.($i+1).'",
-							"'.escapeComillasJson($cliente[$i]["dsc_cliente"]).'",
-							"'.escapeComillasJson($cliente[$i]["dsc_tipo_documento"]).'",
-							"'.escapeComillasJson($cliente[$i]["dsc_documento"]).'",
-							"'.$cliente[$i]["cod_cliente"].'|'.$cliente[$i]["contCntPst"].'"
+							"'.escapeComillasJson($trabajador[$i]["cod_trabajador"]).'",
+							"'.escapeComillasJson($trabajador[$i]["dsc_apellido_paterno"]).' '.escapeComillasJson($trabajador[$i]["dsc_apellido_materno"]).','.escapeComillasJson($trabajador[$i]["dsc_nombres"]).'"
 						],';
 					}//for
 					$datosJson = substr($datosJson, 0, -1);
@@ -169,14 +161,8 @@ class TablaArbVen{
 ACTIVAR TABLA CLIENTE
 =============================================*/
 $activarTablaCliente = new TablaArbVen();
-if(isset($_GET["entrada"]) && ($_GET["entrada"] == 'vntDesembolso' || $_GET["entrada"] == 'vntImpContrato' || $_GET["entrada"] == 'vntAnlContrato' || $_GET["entrada"] == 'vntSgmContrato' || $_GET["entrada"] == 'vntRefinanciamiento')){	
-	$activarTablaCliente -> mostrarTablaArbVen();
-}else if(isset($_GET["entrada"]) && $_GET["entrada"] == 'vntClienteEmsCnt'){	
-	$activarTablaCliente -> mostrarTablaCteAvalEmsCnt();
-}else if(isset($_GET["entrada"]) && $_GET["entrada"] == 'vntAvalEmsCnt'){	
-	$activarTablaCliente -> mostrarTablaAvalEmsCnt();
-}else if(isset($_GET["entrada"]) && $_GET["entrada"] == 'vntProveedor'){	
-	$activarTablaCliente -> mostrarTablaCteProv();
-}/*else if(isset($_GET["entrada"]) && $_GET["entrada"] == 'vntClienteMdfCto'){	
-	$activarTablaCliente -> mostrarTablaCteMdfCto();
-}*/
+if(isset($_GET["entrada"]) && $_GET["entrada"] == 'verTrabajadores'){	
+	$activarTablaCliente -> mostrarTablaTrabArbVen();
+// }else if(isset($_GET["entrada"]) && $_GET["entrada"] == 'vntAvalEmsCnt'){	
+// 	$activarTablaCliente -> mostrarTablaAvalEmsCnt();
+// }

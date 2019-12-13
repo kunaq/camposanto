@@ -50,7 +50,6 @@
 											<thead>
 												<th>Codigo</th>
 												<th>Apellidos y Nombres</th>
-												<th class="hidden"></th>
 											</thead>
 											<tbody>
 											</tbody>
