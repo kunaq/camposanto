@@ -78,6 +78,7 @@ $("#listaTrabArbVen").on("click","a.btnVerTrabArbVen",function(){
 							'</div>'+
                         '</a>'+
                     '</li>'
+                 );//append
 
             	// $("#bodyHistConf").append(
             	// 	'<tr>'+
