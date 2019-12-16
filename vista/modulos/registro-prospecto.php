@@ -1,3 +1,12 @@
+<?php 
+
+if (isset($_POST['variable1'])) {
+	$codPro = $_POST['variable1'];
+}else{
+	$codPro = "";
+}
+
+ ?>
 <div class="m-content"  style="width: calc(100%);">
 	<!--Begin::Main Portlet-->
 	<div class="m-portlet m-portlet--full-height">
@@ -31,13 +40,13 @@
 							<fieldset class="fieldFormHorizontal" style="padding-left: 1rem;padding-right: 1rem">
 								<legend class="tittle-box">Prospecto</legend>							
 									<div class="form-group row">
-										<div class="col-lg-3">
+										<div class="col-lg-2">
 											<label>Codigo:</label>
 										</div>
 										<div class="col-lg-3">
-											<input type="text" class="form-control form-control-sm m-input" disabled id="" name=""/>
+											<input type="text" class="form-control form-control-sm m-input" disabled id="codProspecto" value="<?php echo $codPro; ?>"/>
 										</div>
-										<div class="col-lg-3" style="text-align: center;">
+										<div class="col-lg-2" style="text-align: center;">
 											<label>Importe:</label>
 										</div>
 										<div class="col-lg-3">
@@ -51,7 +60,7 @@
 											</label>
 										</div>
 										<div class="col-lg-2">
-											<select class="form-control form-control-sm m-input custom-select custom-select-danger " onchange="DocLenghtBusq(this.value);" id="" name="">
+											<select class="form-control form-control-sm m-input custom-select custom-select-danger " onchange="DocLenghtBusq(this.value);" id="tipoDocRegPro">
 												<option value="vacio">
 													Seleccione
 												</option>
@@ -61,7 +70,7 @@
 												  ?> 		
 											</select>
 										</div>
-										<div class="col-lg-2">
+										<div class="col-lg-2" style="text-align: center;">
 											<label class="">
 												N° de doc.:
 											</label>
@@ -79,7 +88,7 @@
 												<div class="col-md-6">
 													<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
 														<label>
-															<input type="checkbox"  name="">
+															<input type="checkbox"  id="juridico">
 															<span></span>
 														</label>
 													</span>
@@ -93,22 +102,22 @@
 											<label>Apellido Paterno</label>
 										</div>
 										<div class="col-md-4">
-											<input type="text" class="form-control form-control-sm m-input" id="" name=""/>
+											<input type="text" class="form-control form-control-sm m-input" id="apePaterno" name=""/>
 										</div>
 										<div class="col-md-2">
 											<label>Apellido Materno</label>
 										</div>
 										<div class="col-md-4">
-											<input type="text" class="form-control form-control-sm m-input" id="" name=""/>
+											<input type="text" class="form-control form-control-sm m-input" id="apeMaterno" name=""/>
 										</div>
 									</div>
 									<br>
 									<div class="row">
 										<div class="col-md-2">
-											<label id="dscCliRegPro">Nombres</label>
+											<label>Nombres</label>
 										</div>
 										<div class="col-md-10">
-											<input type="text" class="form-control form-control-sm m-input" id="" name=""/>
+											<input type="text" class="form-control form-control-sm m-input" id="nombre"/>
 										</div>
 									</div>
 									<br>
@@ -117,7 +126,7 @@
 											<label>Dirección</label>
 										</div>
 										<div class="col-md-10">
-											<input type="text" class="form-control form-control-sm m-input" id="" name=""/>
+											<input type="text" class="form-control form-control-sm m-input" id="direccion" name=""/>
 										</div>
 									</div>
 									<br>
@@ -186,7 +195,7 @@
 											</label>
 										</div>
 										<div class="col-lg-4">
-											<input type="text" class="form-control form-control-sm m-input" placeholder="">
+											<input type="text" class="form-control form-control-sm m-input" placeholder="" id="telefono1">
 										</div>
 										<div class="col-lg-2">
 											<label class="">
@@ -194,7 +203,7 @@
 											</label>
 										</div>
 										<div class="col-lg-4">
-											<input type="text" class="form-control form-control-sm m-input" placeholder="">
+											<input type="text" class="form-control form-control-sm m-input" placeholder="" id="telefono2">
 										</div>
 									</div>
 									<br>
@@ -206,18 +215,18 @@
 								<div class="row">
 									<div class="col-lg-9">
 										<label>Fecha / Días Transcurridos</label>
-										<input type="text" class="form-control form-control-sm m-input" disabled id="" name=""/>
+										<input type="text" class="form-control form-control-sm m-input" disabled id="fechaReg" />
 									</div>
 									<div class="col-lg-3">
 										<label>&nbsp;</label>
-										<input type="text" class="form-control form-control-sm m-input" disabled id="" name=""/>
+										<input type="text" class="form-control form-control-sm m-input" disabled id=""/>
 									</div>
 								</div>	
 								<br>
 								<div class="row">
 									<div class="col-lg-12">
 										<label>Usuario</label>
-										<input type="text" class="form-control form-control-sm m-input" disabled id="" name=""/>
+										<input type="text" class="form-control form-control-sm m-input" disabled id="usuario"/>
 									</div>
 								</div>								
 							</fieldset>

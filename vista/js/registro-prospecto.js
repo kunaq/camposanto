@@ -42,3 +42,37 @@ $("#edoGesRegPro").change(function(){
 		$("#cttoRegPro").attr('hidden',true);
 	}
 });
+
+function obtenerDatosProspecto(){
+
+  var codPro = document.getElementById("codProspecto").value;
+
+  $.ajax({
+        type:'POST',
+        url: 'extensiones/captcha/ObtieneDatosProspecto.php',
+        dataType: 'text',
+        data: {'codPro':codPro},
+        success : function(response){
+            var info = JSON.parse(response);
+            document.getElementById('tipoDocRegPro').value = info.tipoDoc;
+            document.getElementById('numDocRegPro').value = info.numDoc;
+            document.getElementById('apePaterno').value = info.apePaterno;
+            document.getElementById('apeMaterno').value = info.apeMaterno;
+            document.getElementById('nombre').value = info.nombre;
+            document.getElementById('direccion').value = info.direccion;
+            document.getElementById('pais').value = info.pais;
+            document.getElementById('departamento').value = info.departamento;
+            document.getElementById('provincia').value = info.provincia;
+            document.getElementById('distrito').value = info.distrito;
+            document.getElementById('telefono1').value = info.telefono1;
+            document.getElementById('telefono2').value = info.telefono2;
+            document.getElementById('fechaReg').value = info.fechReg;
+            document.getElementById('usuario').value = info.usuario;
+            if (info.juridico == "SI") {
+              $('#juridico').prop("checked", true);
+            }
+         }
+    });
+}
+
+obtenerDatosProspecto();

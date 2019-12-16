@@ -211,8 +211,7 @@
 								</tr>
 							</tbody>
 						</table>
-					</div>
-					<div class="col-lg-12">&nbsp;</div>
+					</div>	
 					<div class="col-lg-12">
 						<label>Observación</label>
 						<textarea class="form-control form-control-sm m-input" rows="2" disabled id="observacion"></textarea>
@@ -249,13 +248,7 @@
 					</div> -->
 					<div class="col-lg-12">&nbsp;</div>
 					<div class="col-lg-12">&nbsp;</div>
-					<div class="col-lg-12 button-box">
-                            <a href="registro-prospecto" target="_blank" type="button" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="m-tooltip" data-container="body" data-placement="top" title="Modificar" onclick="">
-                                <i class="fa fa-edit"></i>
-                            </a>
-                            <button target="_blank" type="button" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="m-tooltip" data-container="body" data-placement="top" title="Eliminar" onclick="">
-                                <i class="fa fa-trash"></i>
-                            </button>
+					<div class="col-lg-12 button-box" id="buttons-box">
 					</div>
 				</div>
 			</div>
