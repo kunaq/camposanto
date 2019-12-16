@@ -120,7 +120,7 @@
 									</span>
 								</span>
 								<div class=" input-group-append">
-									<button id="show_password" class="btn btn-secondary m-btn m-btn--custom m-btn--label-metal btn-sm input-group-text" type="button" onclick="mostrarPassword()">
+									<button id="show_password2" class="btn btn-secondary m-btn m-btn--custom m-btn--label-metal btn-sm input-group-text" type="button" onclick="mostrarPassword()">
 										<span class="fa fa-eye-slash icon"></span>
 									</button>
 								</div>
@@ -137,7 +137,7 @@
 									</span>
 								</span>
 								<div class=" input-group-append">
-									<button id="show_password" class="btn btn-secondary m-btn m-btn--custom m-btn--label-metal btn-sm input-group-text" type="button" onclick="mostrarPassword()">
+									<button id="show_password3" class="btn btn-secondary m-btn m-btn--custom m-btn--label-metal btn-sm input-group-text" type="button" onclick="mostrarPassword()">
 										<span class="fa fa-eye-slash icon"></span>
 									</button>
 								</div>
