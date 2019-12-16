@@ -53,17 +53,6 @@
 											</div>
 										</li>
 									</ul>
-
-									<!-- <div class="table-responsive">
-										<table class="tableVendedores table-striped" id="tableTarbajadorArbVen">
-											<thead>
-												<th>Codigo</th>
-												<th>Apellidos y Nombres</th>
-											</thead>
-											<tbody id="divBodyTrabajadorArbVen">
-											</tbody>
-										</table>
-									</div> -->
 								</div>
 							</div>
 						</div>
