@@ -1,5 +1,4 @@
 <?php
-require_once "../core.php";
 require_once "../funciones.php";
 require_once "../controlador/arbolVen.controlador.php";
 require_once "../modelo/arbolVen.modelo.php";
