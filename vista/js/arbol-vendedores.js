@@ -13,7 +13,7 @@ function creaTablaTrabajadoresArbVend(){
 	// $('#tableTarbajadorArbVen').html('<div class="loader"></div>');
         $.ajax({
             type:'POST',
-            url: 'periodoVenta.ajax.php',
+            url: 'datatable-trabajadorArbVen.ajax.php',
             dataType: 'json',
             data: {'entrada':'verTrabajadores'},
             success : function(respuesta){
