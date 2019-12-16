@@ -8,21 +8,7 @@ class TablaArbVen{
 	=============================================*/
 	public function mostrarTablaTrabArbVen(){
         $trabajador = ControladorArbolVen::ctrMostrarTraArbolVen();
-        if(count($trabajador) > 0){
-        	for ($i=0; $i < count($trabajador) ; $i++) {
-        		echo 
-                   '<tr style="height: 60px;">
-                        <td style="text-align: center;">
-                            '.$trabajador[$i]["cod_trabajador"].'
-                        </td>
-                        <td>
-                            '.escapeComillasJson($trabajador[$i]["dsc_apellido_paterno"]).' '.escapeComillasJson($trabajador[$i]["dsc_apellido_materno"]).','.escapeComillasJson($trabajador[$i]["dsc_nombres"]).'
-                        </td>                       
-                    </tr>';
-            }
-        }else{
-        	echo '';
-        }
+        return $trabajador;
 	}//function mostrarTablaCliente
 	
 }//class TablaArbVen
