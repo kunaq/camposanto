@@ -16,7 +16,7 @@ class ModeloArbolVen{
 
 	static public function mdlVerDetTrabajador($tabla,$codTrabajador){
 		$db = new Conexion();
-		$sql = $db->consulta("SELECT * FROM $tabla WHERE cod_trabajador = '$codTrabajador'");
+		$sql = $db->consulta("SELECT $tabla.num_anno, $tabla.cod_periodo, $tabla.cod_tipo_periodo, $tabla.cod_tipo_comisionista, $tabla2.dsc_tipo_comisionista FROM $tabla INNER JOIN $tabla2 ON $tabla.cod_tipo_comisionista = $tabla2.cod_tipo_comisionista WHERE cod_trabajador = '$codTrabajador'");
 		$datos = array();
     	while($key = $db->recorrer($sql)){
 	    		$datos[] = arrayMapUtf8Encode($key);

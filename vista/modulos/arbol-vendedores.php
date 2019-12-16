@@ -91,7 +91,7 @@
 									<div class="col-lg-12">
 										<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="200">
 											<div class="table-responsive">
-												<table class="tableVendedores" id="">
+												<table class="tableVendedores" id="tableHistConf">
 													<thead>
 														<th>N°</th>
 														<th>Año</th>
@@ -99,28 +99,7 @@
 														<th>Periodo</th>
 														<th>Tipo de Comisionista</th>
 													</thead>
-													<tbody>
-														<tr>
-															<td>1</td>
-															<td>2019</td>
-															<td>15D</td>
-															<td>Q11</td>
-															<td>JUNIOR</td>
-														</tr>
-														<tr>
-															<td>2</td>
-															<td>2019</td>
-															<td>15D</td>
-															<td>Q11</td>
-															<td>JUNIOR</td>
-														</tr>
-														<tr>
-															<td>3</td>
-															<td>2019</td>
-															<td>15D</td>
-															<td>Q11</td>
-															<td>JUNIOR</td>
-														</tr>
+													<tbody id="bodyHistConf">
 													</tbody>
 												</table>
 											</div>

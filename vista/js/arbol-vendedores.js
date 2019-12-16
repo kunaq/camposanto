@@ -52,7 +52,9 @@ $("#listaTrabArbVen").on("click","a.btnVerTrabArbVen",function(){
         data: {'codTrabajador':codTrabajador,'accion':'verDetTrabajador'},
         success: function(respuesta){
             console.log('respuesta',respuesta);
+            $.each(respuesta,function(index,value){
 
+            }//each
         }//success
     });//ajax
 });
