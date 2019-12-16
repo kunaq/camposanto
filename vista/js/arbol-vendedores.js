@@ -53,7 +53,15 @@ $("#listaTrabArbVen").on("click","a.btnVerTrabArbVen",function(){
         success: function(respuesta){
             console.log('respuesta',respuesta);
             $.each(respuesta,function(index,value){
-
+            	$("#body").append(
+            		'<tr>'+
+            			'<td>'+index+'</td>'+
+            			'<td>'+value['num_anno']+'</td>'+
+            			'<td>'+value['cod_tipo_periodo']+'</td>'+
+            			'<td>'+value['cod_periodo']+'</td>'+
+            			'<td>'+value['dsc_tipo_comisionista']+'</td>'+
+            		'</tr>'
+            		);
             });//each
         }//success
     });//ajax
