@@ -9,41 +9,50 @@ $("#cttoResArbVen").on('click', function(){
 });
 
 function creaTablaTrabajadoresArbVend(){
-	// alert('llego');
-	// $('#tableTarbajadorArbVen').html('<div class="loader"></div>');
         $.ajax({
-            type:'POST',
-            url: 'ajax/datatable-trabajadorArbVen.ajax.php',
+            method:'POST',
+            url: 'ajax/ArbolVenedores.ajax.php',
             dataType: 'json',
             data: {'entrada':'verTrabajadores'},
             success : function(respuesta){
-            	console.log(respuesta);
-                // $("#divTablaProspectos").html(respuesta);
-                // $('#tableTarbajadorArbVen').DataTable({
-                //     "searching": false,
-                //     "info": false
-                // });
+            	// console.log(respuesta);
+            	var classPeriodo = '';
+                $.each(respuesta,function(index,value){
+	                if(index == 0){
+	                    classPeriodo = 'liListaKqPstImpar';
+	                }else if(index%2 == 0){
+	                    classPeriodo = 'liListaKqPstImpar';
+	                }else{
+	                    classPeriodo = 'liListaKqPstPar';
+	                }
+	                $("#listaTrabArbVen").append(
+	                    '<li class="nav-item '+classPeriodo+' itemLista">'+
+	                        '<a href="#" class="btnVerTrabArbVen" codTrabajador="'+value['cod_trabajador']+'">'+
+	                        	'<div class="row">'+
+									'<div class="col-md-4">'+value['cod_trabajador']+'</div>'+
+									'<div class="col-md-8">'+value['dsc_apellido_paterno']+' '+value['dsc_apellido_materno']+', '+value['dsc_nombres']+'</div>'+
+								'</div>'+
+	                        '</a>'+
+	                    '</li>'
+	                );//append
+	            });//each
             }
         });
-	// $("#tableTarbajadorArbVen").DataTable({
-	// 	"ajax": "ajax/datatable-trabajadorArbVen.ajax.php?entrada=verTrabajadores",
-	//     "deferRender": true,
-	// 	"retrieve": true,
-	// 	"processing": true,
-	// 	"language" : {
-	//       "url": "spanish.json"
-	//   	},
-	//   	'columnDefs': [
-	// 		{
-	// 			targets: [0],
-	// 			className: "text-center codTrabajador"
-	// 		},
-	// 		{
-	// 			targets: [1],
-	// 			className: ""
-	// 		}
-	// 	]	
-	// });
 }
-
 creaTablaTrabajadoresArbVend();
+
+$("#listaTrabArbVen").on("click","a.btnVerTrabArbVen",function(){
+	$(".ulListaVerTrabArbVen li").removeClass('liListaKqPstActive');
+	$(this).parent('li').addClass('liListaKqPstActive');
+	var codTrabajador = $(this).attr("codTrabajador");
+	$.ajax({
+        url:"ajax/ArbolVenedores.ajax.php",
+        method: "POST",
+        dataType: 'json',
+        data: {'codTrabajador':codTrabajador,'accion':'verDetTrabajador'},
+        success: function(respuesta){
+            console.log('respuesta',respuesta);
+
+        }//success
+    });//ajax
+});
