@@ -4,7 +4,7 @@ require_once "../funciones.php";
 class ModeloArbolVen{
 	static public function mdlMostrarTraArbolVen($tabla){
 		$db = new Conexion();
-		$sql = $db->consulta("SELECT cod_trabajador, dsc_apellido_paterno, dsc_apellido_materno, dsc_nombres FROM $tabla");
+		$sql = $db->consulta("SELECT cod_trabajador, dsc_apellido_paterno, dsc_apellido_materno, dsc_nombres, flg_activo FROM $tabla");
 		$datos = array();
     	while($key = $db->recorrer($sql)){
 	    		$datos[] = arrayMapUtf8Encode($key);
