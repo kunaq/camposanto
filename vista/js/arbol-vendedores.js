@@ -54,7 +54,7 @@ $("#listaTrabArbVen").on("click","a.btnVerTrabArbVen",function(){
             console.log('respuesta',respuesta);
             $.each(respuesta,function(index,value){
 
-            }//each
+            });//each
         }//success
     });//ajax
 });
