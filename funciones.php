@@ -9,3 +9,7 @@ function arrayMapUtf8Encode($data){
 function dateFormat($data){
 	return date_format(new DateTime($data), 'd-m-Y');
 }//function dateFormat
+function escapeComillasJson($data){
+	$data = str_replace('"', '\\"', $data);
+	return $data;
+}//function escapeComillasJson
