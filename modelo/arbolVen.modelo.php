@@ -28,9 +28,9 @@ class ModeloArbolVen{
 	}//function mdlVerDetTrabajador
 
 }//class ModeloArbolVen
-?>
 
-<!-- $datos = arrayMapUtf8Encode($db->recorrer($sql));
-		return $datos;
-		$db->liberar($sql);
-        $db->cerrar(); -->
+// $datos = arrayMapUtf8Encode($db->recorrer($sql));
+// 		return $datos;
+// 		$db->liberar($sql);
+//         $db->cerrar();
+?>
