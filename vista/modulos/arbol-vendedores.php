@@ -89,8 +89,22 @@
 										</div>
 									</div>
 									<div class="col-lg-12">
-										<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="200">
+										<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="490" style="border: 1px solid #e4e1e1;">
+											<ul class="nav nav-tabs nav-tabs-simple nav-tabs-left bg-white ulListaKqPst ulListaVerTrabArbVen col-sm-2 col-md-12" id="listaTrabArbVen" style="border-radius: 3px;margin-bottom: 0; padding-right: 0; overflow-x:hidden; height: auto;">
+												<li class="spanTextoActiveKq liListaKqPstTitulo">
+													<div class="row">
+														<div class="col-md-2"><b>N°</b></div>
+														<div class="col-md-2"><b>Año</b></div>
+														<div class="col-md-2"><b>Tipo</b></div>
+														<div class="col-md-2"><b>Periodo</b></div>
+														<div class="col-md-4"><b>Tipo de Comisionista</b></div>
+													</div>
+												</li>
+											</ul>
+										</div>
+										<!-- <div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="200">
 											<div class="table-responsive">
+
 												<table class="tableVendedores" id="tableHistConf">
 													<thead>
 														<th>N°</th>
@@ -103,7 +117,7 @@
 													</tbody>
 												</table>
 											</div>
-										</div>
+										</div> -->
 									</div>
 								</fieldset>
 							</div>

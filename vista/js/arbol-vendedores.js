@@ -59,15 +59,35 @@ $("#listaTrabArbVen").on("click","a.btnVerTrabArbVen",function(){
         success: function(respuesta){
             console.log('respuesta',respuesta);
             $.each(respuesta,function(index,value){
-            	$("#bodyHistConf").append(
-            		'<tr>'+
-            			'<td>'+(index+1)+'</td>'+
-            			'<td>'+value['num_anno']+'</td>'+
-            			'<td>'+value['cod_tipo_periodo']+'</td>'+
-            			'<td>'+value['cod_periodo']+'</td>'+
-            			'<td>'+value['dsc_tipo_comisionista']+'</td>'+
-            		'</tr>'
-            		);
+            	if(index == 0){
+                    classPeriodo = 'liListaKqPstImpar';
+                }else if(index%2 == 0){
+                    classPeriodo = 'liListaKqPstImpar';
+                }else{
+                    classPeriodo = 'liListaKqPstPar';
+                }
+            	$("#listaHistConf").append(
+                    '<li class="nav-item '+classPeriodo+' itemLista">'+
+                        '<a href="#" class="btnVerHistConf" codTrabajador="'+value['cod_trabajador']+'">'+
+                        	'<div class="row">'+
+								'<div class="col-md-2">'+(index+1)+'</div>'+
+								'<div class="col-md-2">'+value['num_anno']+'</div>'+
+								'<div class="col-md-2">'+value['cod_tipo_periodo']+'</div>'+
+								'<div class="col-md-2">'+value['cod_periodo']+'</div>'+
+								'<div class="col-md-4">'+value['dsc_tipo_comisionista']+'</div>'+
+							'</div>'+
+                        '</a>'+
+                    '</li>'
+
+            	// $("#bodyHistConf").append(
+            	// 	'<tr>'+
+            	// 		'<td>'+(index+1)+'</td>'+
+            	// 		'<td>'+value['num_anno']+'</td>'+
+            	// 		'<td>'+value['cod_tipo_periodo']+'</td>'+
+            	// 		'<td>'+value['cod_periodo']+'</td>'+
+            	// 		'<td>'+value['dsc_tipo_comisionista']+'</td>'+
+            	// 	'</tr>'
+            	// 	);
             });//each
         }//success
     });//ajax
