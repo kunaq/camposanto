@@ -9,21 +9,22 @@ $("#cttoResArbVen").on('click', function(){
 });
 
 function creaTablaTrabajadoresArbVend(){
-	$('#tableTarbajadorArbVen').html('<div class="loader"></div>');
-        $.ajax({
-            type:'POST',
-            url: 'datatable-trabajadorArbVen.ajax.php',
-            dataType: 'text',
-            data: {'entrada':'verTrabajadores'},
-            success : function(respuesta){
-            	console.log(respuesta);
-                // $("#divTablaProspectos").html(respuesta);
-                // $('#tableTarbajadorArbVen').DataTable({
-                //     "searching": false,
-                //     "info": false
-                // });
-            }
-        });
+	alert('llego');
+	// $('#tableTarbajadorArbVen').html('<div class="loader"></div>');
+ //        $.ajax({
+ //            type:'POST',
+ //            url: 'datatable-trabajadorArbVen.ajax.php',
+ //            dataType: 'text',
+ //            data: {'entrada':'verTrabajadores'},
+ //            success : function(respuesta){
+ //            	console.log(respuesta);
+ //                // $("#divTablaProspectos").html(respuesta);
+ //                // $('#tableTarbajadorArbVen').DataTable({
+ //                //     "searching": false,
+ //                //     "info": false
+ //                // });
+ //            }
+ //        });
 	// $("#tableTarbajadorArbVen").DataTable({
 	// 	"ajax": "ajax/datatable-trabajadorArbVen.ajax.php?entrada=verTrabajadores",
 	//     "deferRender": true,
