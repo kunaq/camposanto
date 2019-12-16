@@ -8,7 +8,7 @@ class TablaArbVen{
 	=============================================*/
 	public function mostrarTablaTrabArbVen(){
         $trabajador = ControladorArbolVen::ctrMostrarTraArbolVen();
-        return $trabajador;
+        print_r($trabajador);
 	}//function mostrarTablaCliente
 	
 }//class TablaArbVen
