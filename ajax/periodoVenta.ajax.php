@@ -23,3 +23,7 @@ else if(isset($_POST["accion"]) && $_POST["accion"] == 'verDetPeriodo'){
 	$cliente = new AjaxPeriodoVenta();
 	$cliente -> ajaxVerDetPeriodo();
 }
+else if(isset($_POST["entrada"]) && $_POST["entrada"] == 'verTrabajadores'){
+	$cliente = new AjaxPeriodoVenta();
+	$cliente -> ajaxVerDetPeriodo();
+}
