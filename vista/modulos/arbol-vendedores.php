@@ -89,8 +89,8 @@
 										</div>
 									</div>
 									<div class="col-lg-12">
-										<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="490" style="border: 1px solid #e4e1e1;">
-											<ul class="nav nav-tabs nav-tabs-simple nav-tabs-left bg-white ulListaKqPst ulListaVerTrabArbVen col-sm-2 col-md-12" id="listaTrabArbVen" style="border-radius: 3px;margin-bottom: 0; padding-right: 0; overflow-x:hidden; height: auto;">
+										<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="30" style="border: 1px solid #e4e1e1;">
+											<ul class="nav nav-tabs nav-tabs-simple nav-tabs-left bg-white ulListaKqPst ulListaVerTrabArbVen col-sm-2 col-md-12" id="listaHistConf" style="border-radius: 3px;margin-bottom: 0; padding-right: 0; overflow-x:hidden; height: auto;">
 												<li class="spanTextoActiveKq liListaKqPstTitulo">
 													<div class="row">
 														<div class="col-md-2"><b>N°</b></div>
