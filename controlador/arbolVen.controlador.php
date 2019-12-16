@@ -6,7 +6,7 @@ class ControladorArbolVen{
 		return $respuesta;
 	}//function ctrMostrarAnio
 
-	static public function ajaxVerDetTrabajador(){
+	static public function ctrVerDetTrabajador(){
 		$codTrabajador = $_POST['codTrabajador'];
 		$tabla = "vtama_historico_vendedor";
 		$respuesta = ModeloArbolVen::mdlVerDetTrabajador($tabla,$codTrabajador);
