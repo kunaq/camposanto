@@ -12,7 +12,7 @@ function creaTablaTrabajadoresArbVend(){
         $.ajax({
             type:'POST',
             url: 'ajax/ArbolVenedores.ajax.php',
-            dataType: 'text',
+            dataType: 'json',
             data: {'entrada':'verTrabajadores'},
             success : function(respuesta){
                 $.each(respuesta,function(index,value){
