@@ -25,7 +25,13 @@
 								</div>
 								<div class="col-lg-2" id="divTipoDoc">
 									<label>Tipo Doc</label>
-									<select type="text" class="form-control form-control-sm m-input" id="tipoDocSegCon"></select>
+									<select type="text" class="form-control form-control-sm m-input" id="tipoDocSegCon">
+										<option>Seleccione</option>
+										<?php
+											$prueba = controladorEmpresa::
+											ctrtipoDoc();
+										?> 
+									</select>
 								</div>
 								<div class="col-lg-2" id="divNumDoc">
 									<label>Numero Doc</label>
@@ -37,7 +43,15 @@
 								</div>
 								<div class="col-lg-2" id="divLoc">
 									<label>Localidad</label>
-									<select type="text" class="form-control form-control-sm m-input" id="localidadSegCon"></select>
+									<select type="text" class="form-control form-control-sm m-input" id="localidadSegCon">
+										<?php
+											$tabla = "vtama_localidad";
+											$item1 = "cod_localidad";
+											$item2 = "dsc_localidad";
+											$prueba = controladorEmpresa::
+											ctrSelects($tabla,$item1,$item2);
+										?> 
+									</select>
 								</div>
 								<div class="col-lg-2" id="divCtt">
 									<label>Contrato</label>
@@ -45,7 +59,7 @@
 								</div>
 								<div class="col-lg-1" id="divBtnCtt">
 									<label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<button class="btn btn-sm btn-danger" id="btnBuscarContrato"><i class="fa fa-search"></i></button>
+									<button class="btn btn-sm btnGuardarKqPst" id="btnBuscarContrato" onclick="buscaCtt();"><i class="fa fa-search"></i></button>
 								</div>
 							</div>
 						</div>
@@ -84,7 +98,7 @@
 									</label>
 									<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
 										<label>
-											<input type="checkbox" id="juridico" disabled="" name="">
+											<input type="checkbox" id="modificadoSegCtt" disabled="" name="">
 											<span class="jurid"></span>
 										</label>
 									</span>
@@ -100,7 +114,7 @@
 						<legend class="tittle-box">Servicios</legend>
 						<div class="col-lg-12">
 							<div class="row form-group">
-								<div class="col-lg-10">
+								<div class="col-lg-10" id="divTableServicios">
 									<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="200">
 		                				<div class="table-responsive">
 											<table class="table">
@@ -125,9 +139,9 @@
 												<thead>
 													<th>Refinanciamiento</th>
 												</thead>
-												<tbody>
+												<tbody id="tbodyRef">
 													<tr>
-														<td>2</td>
+														<td></td>
 													</tr>
 												</tbody>
 											</table>
@@ -213,7 +227,7 @@
 											<div class="row">
 												<div class="col-lg-10">
 													<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="200">
-						                				<div class="table-responsive">
+						                				<div class="table-responsive" id="cuotasPendientes">
 															<table class="table">
 																<thead>
 																	<th>Tipo</th>
@@ -509,10 +523,10 @@
 													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
 												</div>
 												<div class="col-lg-2">
-													<button type="button" id="btn2Com" class="btn btn-sm btn-danger mt25">
+													<button type="button" id="btn2Com" class="btn btn-sm btnGuardarKqPst mt25">
 														<i class="fa fa-list"></i>
 													</button>
-													<button type="button" id="btn2Com" class="btn btn-sm btn-danger mt25">
+													<button type="button" id="btn2Com" class="btn btn-sm btnGuardarKqPst mt25">
 														<i class="fa fa-search"></i>
 													</button>
 												</div>
@@ -1259,12 +1273,12 @@
 												<div class="col-lg-2"></div>
 												<div class="col-lg-2" style="text-align: right;">
 													<span data-toggle="modal" data-target="#m_modal_deuda">
-														<button type="button" class="m-btn btn btn-sm btn-danger mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Deuda Titular" onclick="">
+														<button type="button" class="m-btn btn btn-sm btnGuardarKqPst mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Deuda Titular" onclick="">
 															<i class="fa fa-list"></i>
 														</button>
 													</span>
 													<span data-toggle="modal" data-target="#m_modal_observacion_cliente">
-														<button type="button" class="m-btn btn btn-sm btn-danger mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Observaciones Cliente" onclick="">
+														<button type="button" class="m-btn btn btn-sm btnGuardarKqPst mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Observaciones Cliente" onclick="">
 															<i class="fa fa-user-o"></i>
 														</button>
 													</span>
@@ -1324,12 +1338,12 @@
 												<div class="col-lg-2"></div>
 												<div class="col-lg-2" style="text-align: right;">
 													<span data-toggle="modal" data-target="#m_modal_deuda">
-														<button type="button" class="m-btn btn btn-sm btn-danger mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Deuda Titular" onclick="">
+														<button type="button" class="m-btn btn btn-sm btnGuardarKqPst mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Deuda Titular" onclick="">
 															<i class="fa fa-list"></i>
 														</button>
 													</span>
 													<span data-toggle="modal" data-target="#m_modal_observacion_cliente">
-														<button type="button" class="m-btn btn btn-sm btn-danger mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Observaciones Cliente" onclick="">
+														<button type="button" class="m-btn btn btn-sm btnGuardarKqPst mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Observaciones Cliente" onclick="">
 															<i class="fa fa-user-o"></i>
 														</button>
 													</span>
@@ -1389,12 +1403,12 @@
 												<div class="col-lg-2"></div>
 												<div class="col-lg-2" style="text-align: right;">
 													<span data-toggle="modal" data-target="#m_modal_deuda">
-														<button type="button" class="m-btn btn btn-sm btn-danger mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Deuda Titular" onclick="">
+														<button type="button" class="m-btn btn btn-sm btnGuardarKqPst mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Deuda Titular" onclick="">
 															<i class="fa fa-list"></i>
 														</button>
 													</span>
 													<span data-toggle="modal" data-target="#m_modal_observacion_cliente">
-														<button type="button" class="m-btn btn btn-sm btn-danger mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Observaciones Cliente" onclick="">
+														<button type="button" class="m-btn btn btn-sm btnGuardarKqPst mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Observaciones Cliente" onclick="">
 															<i class="fa fa-user-o"></i>
 														</button>
 													</span>
@@ -1486,7 +1500,7 @@
 												</div>
 												<div class="col-lg-1">
 													<label>&nbsp;</label>
-													<button class="btn btn-sm btn-danger mt25"><i class="fa fa-search"></i></button>
+													<button class="btn btn-sm btnGuardarKqPst mt25"><i class="fa fa-search"></i></button>
 												</div>
 												<div class="col-lg-8">
 													<label>&nbsp;&nbsp;</label>
