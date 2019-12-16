@@ -28,9 +28,6 @@ function DocLenghtBusq(tipo){
 function mostrarSidebar(codPro, dscPro, tDoc, nDoc, tel, cven, cal, cons, etd, ultCon, imp, fchReg, dias, obsr){
     hideSidebar();
     $("#m_quick_sidebar-contrato").addClass("m-quick-sidebar-contrato--on");
-    console.log(codPro);
-    console.log("dscPro");
-    console.log(cal);
 
     document.getElementById('codProspecto').innerText = codPro;
     document.getElementById('dscProspecto').innerText = dscPro;
@@ -46,6 +43,18 @@ function mostrarSidebar(codPro, dscPro, tDoc, nDoc, tel, cven, cal, cons, etd, u
     document.getElementById('fchRegistro').innerText = fchReg;
     document.getElementById('dias').innerText = dias;
     document.getElementById('observacion').value = obsr;
+
+    $.ajax({
+        type:'POST',
+        url: 'extensiones/captcha/creaBotonesSideBarProspecto.php',
+        dataType: 'text',
+        data: {'codPro':codPro},
+        success : function(response){
+            var info = JSON.parse(response);
+            console.log(info.buttons);
+            $("#buttons-box").html(info.buttons);
+         }
+    });
 }
 
 function hideSidebar(){
