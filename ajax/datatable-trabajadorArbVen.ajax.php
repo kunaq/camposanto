@@ -8,6 +8,7 @@ class TablaArbVen{
 	=============================================*/
 	public function mostrarTablaTrabArbVen(){
         $trabajador = ControladorArbolVen::ctrMostrarTraArbolVen();
+        var_dump($trabajador);
         if(count($trabajador) > 0){
         	$datosJson = '{
 			 	"data": [';
