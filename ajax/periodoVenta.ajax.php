@@ -5,7 +5,6 @@ require_once "../modelo/periodoVenta.modelo.php";
 class AjaxPeriodoVenta{
 	public function ajaxListaPeriodo(){
 		$respuesta = ControladorPeriodoVenta::ctrListaPeriodo();
-		var_dump($respuestas);
 		echo json_encode($respuesta);
 	}//function ajaxListaPeriodo
 	public function ajaxVerDetPeriodo(){
