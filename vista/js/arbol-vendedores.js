@@ -17,6 +17,7 @@ function creaTablaTrabajadoresArbVend(){
             success : function(respuesta){
             	// console.log(respuesta);
             	var classPeriodo = '';
+            	var color = '';
                 $.each(respuesta,function(index,value){
 	                if(index == 0){
 	                    classPeriodo = 'liListaKqPstImpar';
@@ -25,10 +26,15 @@ function creaTablaTrabajadoresArbVend(){
 	                }else{
 	                    classPeriodo = 'liListaKqPstPar';
 	                }
+	                if(value['flg_activo'] == 'SI'){
+	                	color = 'black';
+	                }else{
+	                	color = 'red';
+	                }
 	                $("#listaTrabArbVen").append(
 	                    '<li class="nav-item '+classPeriodo+' itemLista">'+
 	                        '<a href="#" class="btnVerTrabArbVen" codTrabajador="'+value['cod_trabajador']+'">'+
-	                        	'<div class="row">'+
+	                        	'<div class="row" style = "'+color+'">'+
 									'<div class="col-md-4">'+value['cod_trabajador']+'</div>'+
 									'<div class="col-md-8">'+value['dsc_apellido_paterno']+' '+value['dsc_apellido_materno']+', '+value['dsc_nombres']+'</div>'+
 								'</div>'+
