@@ -6,11 +6,10 @@ class ControladorArbolVen{
 		return $respuesta;
 	}//function ctrMostrarAnio
 
-	static public function ctrVerDetPeriodo(){
-		$tipoPeriodo = $_POST['tipoPeriodo'];
-		$anio = $_POST['anio'];
-		$tabla = "vtama_periodo";
-		$respuesta = ModeloArbolVen::mdlVerDetPeriodo($tabla,$tipoPeriodo,$anio);
+	static public function ajaxVerDetTrabajador(){
+		$codTrabajador = $_POST['codTrabajador'];
+		$tabla = "vtama_historico_vendedor";
+		$respuesta = ModeloArbolVen::mdlVerDetTrabajador($tabla,$codTrabajador);
 		return $respuesta;
 	}
 }//class ControladorArbolVen

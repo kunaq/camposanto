@@ -18,7 +18,6 @@ function creaTablaTrabajadoresArbVend(){
             	console.log(respuesta);
             	var classPeriodo = '';
                 $.each(respuesta,function(index,value){
-                	console.log(index);
 	                if(index == 0){
 	                    classPeriodo = 'liListaKqPstImpar';
 	                }else if(index%2 == 0){
@@ -46,15 +45,14 @@ $("#listaTrabArbVen").on("click","a.btnVerTrabArbVen",function(){
 	$(".ulListaVerTrabArbVen li").removeClass('liListaKqPstActive');
 	$(this).parent('li').addClass('liListaKqPstActive');
 	var codTrabajador = $(this).attr("codTrabajador");
-	console.log(codTrabajador);
-	// $.ajax({
- //        url:"ajax/periodoVenta.ajax.php",
- //        method: "POST",
- //        dataType: 'json',
- //        data: {'anio':codAnio,'tipoPeriodo':codPeriodo,'accion':'verDetPeriodo'},
- //        success: function(respuesta){
- //            console.log('respuesta',respuesta);
+	$.ajax({
+        url:"ajax/ArbolVenedores.ajax.php",
+        method: "POST",
+        dataType: 'json',
+        data: {'codTrabajador':codTrabajador,'accion':'verDetTrabajador'},
+        success: function(respuesta){
+            console.log('respuesta',respuesta);
 
- //        }//success
- //    });//ajax
+        }//success
+    });//ajax
 });
