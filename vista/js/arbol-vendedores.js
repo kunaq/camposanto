@@ -9,7 +9,7 @@ $("#cttoResArbVen").on('click', function(){
 });
 
 function creaTablaTrabajadoresArbVend(){
-	 alert('llego');
+	 // alert('llego');
 	// $('#tableTarbajadorArbVen').html('<div class="loader"></div>');
         $.ajax({
             type:'POST',
