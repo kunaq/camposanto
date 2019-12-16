@@ -10,11 +10,12 @@ $("#cttoResArbVen").on('click', function(){
 
 function creaTablaTrabajadoresArbVend(){
         $.ajax({
-            type:'POST',
+            method:'POST',
             url: 'ajax/ArbolVenedores.ajax.php',
             dataType: 'json',
             data: {'entrada':'verTrabajadores'},
             success : function(respuesta){
+            	var classPeriodo = '';
                 $.each(respuesta,function(index,value){
                 	console.log(index);
 	                if(index == 0){
@@ -27,7 +28,7 @@ function creaTablaTrabajadoresArbVend(){
 	                $("#listaTrabArbVen").append(
 	                    '<li class="nav-item '+classPeriodo+' itemLista">'+
 	                        '<a href="#" class="btnVerPeriodo">'+
-	                        	'<div class="row" style="color:'+color+'">'+
+	                        	'<div class="row">'+
 									'<div class="col-md-4">'+value['cod_trabajador']+'</div>'+
 									'<div class="col-md-8">'+value['dsc_apellido_paterno']+' '+value['dsc_apellido_materno']+', '+value['dsc_nombres']+'</div>'+
 								'</div>'+
