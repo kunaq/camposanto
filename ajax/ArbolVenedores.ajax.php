@@ -6,7 +6,6 @@ class AjaxArbolVen{
 	public function ajaxListaTrabajadores(){
 		$respuesta = ControladorArbolVen::ctrMostrarTraArbolVen();
 		$respuesta = utf8_converter($respuesta);
-		var_dump($respuesta);
 		echo json_encode($respuesta);
 	}//function ajaxListaTrabajadores
 	// public function ajaxVerDetPeriodo(){
