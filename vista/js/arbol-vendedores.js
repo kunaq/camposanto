@@ -40,5 +40,20 @@ function creaTablaTrabajadoresArbVend(){
             }
         });
 }
-
 creaTablaTrabajadoresArbVend();
+
+$("#listaTrabArbVen").on("click","a.btnVerTrabArbVen",function(){
+	$(".ulListaVerTrabArbVen li").removeClass('liListaKqPstActive');
+	$(this).parent('li').addClass('liListaKqPstActive');
+	var codTrabajador = $(this).attr("codTrabajador");
+	// $.ajax({
+ //        url:"ajax/periodoVenta.ajax.php",
+ //        method: "POST",
+ //        dataType: 'json',
+ //        data: {'anio':codAnio,'tipoPeriodo':codPeriodo,'accion':'verDetPeriodo'},
+ //        success: function(respuesta){
+ //            console.log('respuesta',respuesta);
+
+ //        }//success
+ //    });//ajax
+});
