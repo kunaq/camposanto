@@ -5,7 +5,7 @@ require_once "../modelo/arbolVen.modelo.php";
 class AjaxArbolVen{
 	public function ajaxListaTrabajadores(){
 		$respuesta = ControladorArbolVen::ctrMostrarTraArbolVen();
-		var_dump(json_encode($respuesta));
+		$respuesta = utf8_encode($respuesta);
 		echo json_encode($respuesta);
 	}//function ajaxListaTrabajadores
 	// public function ajaxVerDetPeriodo(){
