@@ -1,7 +1,7 @@
 <?php
 require_once "../funciones.php";
-require_once "../controlador/ArbolVen.controlador.php";
-require_once "../modelo/ArbolVen.modelo.php";
+require_once "../controlador/arbolVen.controlador.php";
+require_once "../modelo/arbolVen.modelo.php";
 class AjaxArbolVen{
 	public function ajaxListaTrabajadores(){
 		$respuesta = ControladorArbolVen::ctrMostrarTraArbolVen();
