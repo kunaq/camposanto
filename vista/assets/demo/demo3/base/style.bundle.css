@@ -51698,7 +51698,7 @@ th{
     background-color: #b6afaf !important;
     font-weight: 500;
 }
-.btnVerTrabArbVen{
+.btnVerTrabArbVen, .btnVerHistConf{
     color: black;
     background-color: transparent;
     text-decoration: none;
