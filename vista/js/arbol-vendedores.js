@@ -9,12 +9,12 @@ $("#cttoResArbVen").on('click', function(){
 });
 
 function creaTablaTrabajadoresArbVend(){
-	// alert('llego');
-	$('#tableTarbajadorArbVen').html('<div class="loader"></div>');
+	 alert('llego');
+	// $('#tableTarbajadorArbVen').html('<div class="loader"></div>');
         $.ajax({
             type:'POST',
             url: 'ajax/datatable-trabajadorArbVen.ajax.php',
-            dataType: 'json',
+            dataType: 'text',
             data: {'entrada':'verTrabajadores'},
             success : function(respuesta){
             	console.log(respuesta);
