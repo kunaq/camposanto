@@ -61,7 +61,7 @@ $("#listaTrabArbVen").on("click","a.btnVerTrabArbVen",function(){
             $.each(respuesta,function(index,value){
             	$("#bodyHistConf").append(
             		'<tr>'+
-            			'<td>'+index+'</td>'+
+            			'<td>'+(index+1)+'</td>'+
             			'<td>'+value['num_anno']+'</td>'+
             			'<td>'+value['cod_tipo_periodo']+'</td>'+
             			'<td>'+value['cod_periodo']+'</td>'+
