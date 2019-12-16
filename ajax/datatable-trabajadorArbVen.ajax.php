@@ -8,24 +8,25 @@ class TablaArbVen{
 	=============================================*/
 	public function mostrarTablaTrabArbVen(){
         $trabajador = ControladorArbolVen::ctrMostrarTraArbolVen();
-        if(count($trabajador) > 0){
-        	$datosJson = '{
-			 	"data": [';
-				 	for ($i=0; $i < count($trabajador) ; $i++) {
-						$datosJson .= '[
-							"'.escapeComillasJson($trabajador[$i]["cod_trabajador"]).'",
-							"'.escapeComillasJson($trabajador[$i]["dsc_apellido_paterno"]).' '.escapeComillasJson($trabajador[$i]["dsc_apellido_materno"]).','.escapeComillasJson($trabajador[$i]["dsc_nombres"]).'"
-						],';
-					}//for
-					$datosJson = substr($datosJson, 0, -1);
-				$datosJson .= ']
-			}';
-        }else{
-        	$datosJson = '{
-				"data": []
-			}';
-        }
-        echo $datosJson;
+        print_r($trabajador);
+   //      if(count($trabajador) > 0){
+   //      	$datosJson = '{
+			//  	"data": [';
+			// 	 	for ($i=0; $i < count($trabajador) ; $i++) {
+			// 			$datosJson .= '[
+			// 				"'.escapeComillasJson($trabajador[$i]["cod_trabajador"]).'",
+			// 				"'.escapeComillasJson($trabajador[$i]["dsc_apellido_paterno"]).' '.escapeComillasJson($trabajador[$i]["dsc_apellido_materno"]).','.escapeComillasJson($trabajador[$i]["dsc_nombres"]).'"
+			// 			],';
+			// 		}//for
+			// 		$datosJson = substr($datosJson, 0, -1);
+			// 	$datosJson .= ']
+			// }';
+   //      }else{
+   //      	$datosJson = '{
+			// 	"data": []
+			// }';
+   //      }
+   //      echo $datosJson;
 	}//function mostrarTablaCliente
 	
 }//class TablaArbVen
