@@ -15,7 +15,7 @@ function creaTablaTrabajadoresArbVend(){
             dataType: 'json',
             data: {'entrada':'verTrabajadores'},
             success : function(respuesta){
-            	console.log(respuesta);
+            	// console.log(respuesta);
             	var classPeriodo = '';
                 $.each(respuesta,function(index,value){
 	                if(index == 0){
