@@ -51,7 +51,7 @@
 												<th>Codigo</th>
 												<th>Apellidos y Nombres</th>
 											</thead>
-											<tbody>
+											<tbody id="divBodyTrabajadorArbVen">
 											</tbody>
 										</table>
 									</div>
