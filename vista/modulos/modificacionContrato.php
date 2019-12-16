@@ -76,13 +76,13 @@
 											<table class="table m-table">
 												<thead>
 													<th>N°</th>
-													<th>T. Servicio</th>
-													<th>Fch. Genereación</th>
-													<th>Fch. Emisión</th>
-													<th>Fch. Activación</th>
-													<th>Fch. Anulación</th>
-													<th>Fch. Resolución</th>
-													<th>Fch. Transferencia</th>
+													<th>Tipo de Servicio</th>
+													<th>Fecha Genereación</th>
+													<th>Fecha Emisión</th>
+													<th>Fecha Activación</th>
+													<th>Fecha Anulación</th>
+													<th>Fecha Resolución</th>
+													<th>Fecha Transferencia</th>
 												</thead>
 											</table>
 										</div>
@@ -243,18 +243,20 @@
 														<div class="col-lg-4">
 															<span data-toggle="modal" data-target="#m_modal_auditoria_contrato">
 																<button type="button" id="btn2Com" class="btn btn-sm btnGuardarKqPst mt25">
-																	<i class="flaticon-plus"></i>
+																	<i class="fa fa-search"></i>
 																</button>
 															</span>
-															<button type="button" id="btn2Com" class="btn btn-sm btnEditarKqPst2 mt25">
-																<i class="flaticon-plus"></i>
-															</button>
 														</div>
 													</div>
 													<div class="row">
 														<div class="col-lg-8">
 															<label>Convenio</label>
 															<input type="text" class="form-control form-control-sm m-input" name="convenio" id="convenio" disabled>
+														</div>
+														<div class="col-lg-4">
+															<button type="button" id="btn2Com" class="btn btn-sm btnEditarKqPst2 mt25">
+																<i class="fa fa-exchange"></i>
+															</button>
 														</div>
 													</div>
 													<div class="row">
