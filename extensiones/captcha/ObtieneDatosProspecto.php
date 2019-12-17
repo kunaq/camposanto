@@ -16,16 +16,14 @@ while($key = $db->recorrer($sql)){
         $apeMaterno = $key['dsc_apellido_materno'];
         $nombre = $key['dsc_nombre'];
         $direccion = $key['dsc_direccion'];
-        echo $direccion;
         $pais = $key['cod_pais'];
-        echo $pais;
         $departamento = $key['cod_departamento'];
-        echo $departamento;
         $provincia = $key['cod_provincia'];
-        echo $provincia;
         $distrito = $key['cod_distrito'];
         $telefono1 = $key['dsc_telefono_1'];
+        echo $telefono1
         $telefono2 = $key['dsc_telefono_2'];
+        echo $telefono2
 
         if ($key['fch_registro'] == NULL) {
             $fechReg = "-";
@@ -35,7 +33,7 @@ while($key = $db->recorrer($sql)){
         }
 
         $usuario = $key['cod_usuario'];
-        
+        echo $usuario;
 
         $arrData = array('tipoDoc'=> $tipoDoc, 'numDoc'=> $numDoc, 'juridico'=> $juridico, 'apePaterno'=> utf8_encode($apePaterno), 'apeMaterno'=> utf8_encode($apeMaterno), 'nombre'=> utf8_encode($nombre), 'direccion'=> utf8_encode($direccion), 'pais'=> $pais, 'departamento'=> $departamento, 'provincia'=>$provincia, 'distrito'=> $distrito, 'telefono1'=> $telefono1, 'telefono2'=>$telefono2, 'fechReg'=> $fechReg, 'usuario'=>$usuario);
     }
