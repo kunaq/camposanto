@@ -62,7 +62,7 @@
 					<li class="m-nav-sticky__item nav-item">
 						<div class="row">
 							<div class="col-md-1">
-							<span class="m-badge" style="background-color: #f4516c"></span>
+							<span class="m-badge" style="background-color: #8c9492"></span>
 						</div>
 							<div class="col-lg-10" style="text-align: left;">
 								<p style="margin-bottom: 0;">SERVICIO DE INHUMACIÓN</p>
@@ -92,7 +92,7 @@
 					<li class="m-nav-sticky__item nav-item" >
 						<div class="row">
 							<div class="col-md-1">
-								<span class="m-badge" style="background-color: #ffb822"></span>
+								<span class="m-badge" style="background-color: #444"></span>
 							</div>
 							<div class="col-lg-10" style="text-align: left;">
 								<p style="margin-bottom: 0;">SERVICIO FUNERARIO</p>
@@ -102,7 +102,7 @@
 					<li class="m-nav-sticky__item nav-item" >
 						<div class="row">
 							<div class="col-md-1">
-								<span class="m-badge" style="background-color: #f5a9d0"></span>
+								<span class="m-badge" style="background-color: #ffb822"></span>
 							</div>
 							<div class="col-lg-10" style="text-align: left;">
 								<p style="margin-bottom: 0;">SERVICIO DE FLORERIA</p>
