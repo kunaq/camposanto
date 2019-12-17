@@ -10,20 +10,19 @@ $sql = $db->consulta("SELECT * FROM vtaca_prospecto_venta WHERE cod_prospecto = 
 
 while($key = $db->recorrer($sql)){
         $tipoDoc = $key['cod_tipo_documento'];
-        echo $tipoDoc;
         $numDoc = $key['dsc_documento'];
-        echo $numDoc;
         $juridico = $key['flg_juridico'];
         $apePaterno = $key['dsc_apellido_paterno'];
-        echo $apePaterno;
         $apeMaterno = $key['dsc_apellido_materno'];
-        echo $apeMaterno;
         $nombre = $key['dsc_nombre'];
-        echo $nombre;
         $direccion = $key['dsc_direccion'];
+        echo $direccion;
         $pais = $key['cod_pais'];
+        echo $pais;
         $departamento = $key['cod_departamento'];
+        echo $departamento;
         $provincia = $key['cod_provincia'];
+        echo $provincia;
         $distrito = $key['cod_distrito'];
         $telefono1 = $key['dsc_telefono_1'];
         $telefono2 = $key['dsc_telefono_2'];
