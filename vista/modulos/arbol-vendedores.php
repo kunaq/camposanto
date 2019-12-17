@@ -128,7 +128,7 @@
 															<label>Año:</label>
 														</div>
 														<div class="col-lg-2">
-															<input type="text" disabled class="form-control form-control-sm m-input" name="" id="">
+															<input type="text" disabled class="form-control form-control-sm m-input" name="numAnioArbVen" id="numAnioArbVen">
 														</div>
 														<div class="col-lg-2" style="padding-right: 0">
 															<label>T. Período:</label>

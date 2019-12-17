@@ -87,8 +87,8 @@ $("#listaTrabArbVen").on("click","a.btnVerTrabArbVen",function(){
 $("#listaHistConf").on("click","a.btnVerHistConf",function(){
 	$(".ulListaHistConf li").removeClass('liListaKqPstActive');
 	$(this).parent('li').addClass('liListaKqPstActive');
-	var codTrabajador = $(this).attr("codTrabajador");
-	console.log(codTrabajador);
+	$("#numAnioArbVen").val($(this).attr("numAnio"));
+
 
 });
 
