@@ -4,6 +4,7 @@ require_once "../../funciones.php";
 
 $codPro = $_POST['codPro'];
 
+echo $codPro;
 
 $db = new Conexion();
 
