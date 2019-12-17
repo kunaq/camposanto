@@ -48,7 +48,7 @@ function creaTablaTrabajadoresArbVend(){
 creaTablaTrabajadoresArbVend();
 
 $("#listaTrabArbVen").on("click","a.btnVerTrabArbVen",function(){
-	$("#listaHistConf").remove('.itemLista');
+	document.getElementById("listaHistConf").remove('.itemLista');
 	$(".ulListaVerTrabArbVen li").removeClass('liListaKqPstActive');
 	$(this).parent('li').addClass('liListaKqPstActive');
 	var codTrabajador = $(this).attr("codTrabajador");
