@@ -50681,14 +50681,23 @@ body {
 }
 
 .loader {
-    position: fixed;
-    left: 0px;
-    top: 0px;
+    position: absolute;
     width: 100%;
     height: 100%;
     z-index: 9999;
-    background: url('../media/img/pageLoader.gif') 50% 50% no-repeat rgb(249,249,249);
+    background: url('../../../../img/loader_logo.png') 50% 50% no-repeat;
     opacity: .8;
+    animation: loaderLogo 1.5s linear infinite;
+
+}
+
+@keyframes loaderLogo{
+    0%{
+        transform: rotateY(0deg);
+    }
+    100%{
+        transform: rotateY(360deg);
+    }
 }
 
 .table-fixed th {
