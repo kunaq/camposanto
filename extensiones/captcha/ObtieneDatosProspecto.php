@@ -4,8 +4,6 @@ require_once "../../funciones.php";
 
 $codPro = $_POST['codPro'];
 
-$arrData = "";
-
 
 $db = new Conexion();
 

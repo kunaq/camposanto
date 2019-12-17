@@ -49,7 +49,7 @@ function obtenerDatosProspecto(){
 
   $.ajax({
         type:'POST',
-        url: 'extensiones/captcha/obtieneDatosProspecto.php',
+        url: 'extensiones/captcha/ObtieneDatosProspecto.php',
         dataType: 'text',
         data: {'codPro':codPro},
         success : function(response){
