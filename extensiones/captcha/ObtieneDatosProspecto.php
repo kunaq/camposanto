@@ -4,12 +4,12 @@ require_once "../../funciones.php";
 
 $codPro = $_POST['codPro'];
 
+
 $db = new Conexion();
 
 $sql = $db->consulta("SELECT * FROM vtaca_prospecto_venta WHERE cod_prospecto = '$codPro'");
 
 while($key = $db->recorrer($sql)){
-    
         $tipoDoc = $key['cod_tipo_documento'];
         $numDoc = $key['dsc_documento'];
         $juridico = $key['flg_juridico'];
@@ -37,6 +37,6 @@ while($key = $db->recorrer($sql)){
         $arrData = array('tipoDoc'=> $tipoDoc, 'numDoc'=> $numDoc, 'juridico'=> $juridico, 'apePaterno'=> $apePaterno, 'apeMaterno'=> $apeMaterno, 'nombre'=> $nombre, 'direccion'=> $direccion, 'pais'=> $pais, 'departamento'=> $departamento, 'provincia'=>$provincia, 'distrito'=> $distrito, 'telefono1'=> $telefono1, 'telefono2'=>$telefono2, 'fechReg'=> $fechReg, 'usuario'=>$usuario);
     }
 
-    echo json_encode($arrData);
+    echo json_encode($arrData,JSON_UNESCAPED_UNICODE);
     $db->liberar($sql);
     $db->cerrar(); 
