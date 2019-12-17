@@ -14,10 +14,12 @@ while($key = $db->recorrer($sql)){
         $numDoc = $key['dsc_documento'];
         echo $numDoc;
         $juridico = $key['flg_juridico'];
-        echo $juridico;
         $apePaterno = $key['dsc_apellido_paterno'];
+        echo $apePaterno;
         $apeMaterno = $key['dsc_apellido_materno'];
+        echo $apeMaterno;
         $nombre = $key['dsc_nombre'];
+        echo $nombre;
         $direccion = $key['dsc_direccion'];
         $pais = $key['cod_pais'];
         $departamento = $key['cod_departamento'];
