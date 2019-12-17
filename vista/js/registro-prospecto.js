@@ -46,7 +46,7 @@ $("#edoGesRegPro").change(function(){
 function obtenerDatosProspecto(){
 
   var codPro = document.getElementById("codProspecto").value;
-
+  console.log(codPro);
   $.ajax({
         type:'POST',
         url: 'extensiones/captcha/ObtieneDatosProspecto.php',
@@ -54,6 +54,7 @@ function obtenerDatosProspecto(){
         data: {'codPro':codPro},
         success : function(response){
             var info = JSON.parse(response);
+            console.log("success");
             console.log(info);
             document.getElementById('tipoDocRegPro').value = info.tipoDoc;
             document.getElementById('numDocRegPro').value = info.numDoc;
