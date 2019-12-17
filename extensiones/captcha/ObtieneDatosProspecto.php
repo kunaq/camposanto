@@ -37,7 +37,7 @@ while($key = $db->recorrer($sql)){
         $usuario = $key['cod_usuario'];
         
 
-        $arrData = array('tipoDoc'=> $tipoDoc, 'numDoc'=> $numDoc, 'juridico'=> $juridico, 'apePaterno'=> $apePaterno, 'apeMaterno'=> $apeMaterno, 'nombre'=> $nombre, 'direccion'=> $direccion, 'pais'=> $pais, 'departamento'=> $departamento, 'provincia'=>$provincia, 'distrito'=> $distrito, 'telefono1'=> $telefono1, 'telefono2'=>$telefono2, 'fechReg'=> $fechReg, 'usuario'=>$usuario);
+        $arrData = array('tipoDoc'=> $tipoDoc, 'numDoc'=> $numDoc, 'juridico'=> $juridico, 'apePaterno'=> utf8_encode($apePaterno), 'apeMaterno'=> utf8_encode($apeMaterno), 'nombre'=> utf8_encode($nombre), 'direccion'=> utf8_encode($direccion), 'pais'=> $pais, 'departamento'=> $departamento, 'provincia'=>$provincia, 'distrito'=> $distrito, 'telefono1'=> $telefono1, 'telefono2'=>$telefono2, 'fechReg'=> $fechReg, 'usuario'=>$usuario);
     }
 
     echo json_encode($arrData,JSON_UNESCAPED_UNICODE);
