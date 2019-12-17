@@ -21,9 +21,9 @@ while($key = $db->recorrer($sql)){
         $provincia = $key['cod_provincia'];
         $distrito = $key['cod_distrito'];
         $telefono1 = $key['dsc_telefono_1'];
-        echo $telefono1
+        echo $telefono1;
         $telefono2 = $key['dsc_telefono_2'];
-        echo $telefono2
+        echo $telefono2;
 
         if ($key['fch_registro'] == NULL) {
             $fechReg = "-";
