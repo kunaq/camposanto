@@ -27,8 +27,8 @@ while($key = $db->recorrer($sql)){
         if ($key['fch_registro'] == NULL) {
             $fechReg = "-";
         }else{
-            $fechEmi = dateFormat($key['fch_registro']);
-            // $fechReg = "-";
+            // $fechEmi = dateFormat($key['fch_registro']);
+            $fechReg = "-";
         }
 
         $usuario = $key['cod_usuario'];
