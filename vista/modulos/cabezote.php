@@ -33,7 +33,7 @@ include "modals/modalConfiguraciones.php"; ?>
 						</div>
 						<!-- NOMBRE -->
 						<div class="text-header"> 
-							<h3>SISTEMA DE GESTIÓN DE CAMPOSANTO </h3>
+							<h3>SG5 - GESTIÓN DE CAMPOSANTO </h3>
 						</div>
 						
 						<div class="m-stack__item m-stack__item--fluid m-header-head" id="m_header_nav">
