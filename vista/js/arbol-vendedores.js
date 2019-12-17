@@ -51,7 +51,8 @@ $("#listaTrabArbVen").on("click","a.btnVerTrabArbVen",function(){
 	$(".ulListaVerTrabArbVen li").removeClass('liListaKqPstActive');
 	$(this).parent('li').addClass('liListaKqPstActive');
 	var codTrabajador = $(this).attr("codTrabajador");
-	$("#listaHistConf").remove(".itemLista");
+	var lista = $("#listaHistConf");
+	lista.remove(".itemLista");
 	$.ajax({
         url:"ajax/ArbolVenedores.ajax.php",
         method: "POST",
