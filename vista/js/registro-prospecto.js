@@ -44,7 +44,7 @@ $("#edoGesRegPro").change(function(){
 });
 
 function obtenerDatosProspecto(){
-
+  console.log("asd");
   var codPro = document.getElementById("codProspecto").value;
   console.log(codPro);
   $.ajax({
