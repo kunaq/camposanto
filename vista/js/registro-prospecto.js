@@ -54,6 +54,7 @@ function obtenerDatosProspecto(){
         data: {'codPro':codPro},
         success : function(response){
             var info = JSON.parse(response);
+            console.log(info);
             document.getElementById('tipoDocRegPro').value = info.tipoDoc;
             document.getElementById('numDocRegPro').value = info.numDoc;
             document.getElementById('apePaterno').value = info.apePaterno;
