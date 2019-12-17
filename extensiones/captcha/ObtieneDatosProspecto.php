@@ -4,14 +4,12 @@ require_once "../../funciones.php";
 
 $codPro = $_POST['codPro'];
 
-
 $db = new Conexion();
 
 $sql = $db->consulta("SELECT * FROM vtaca_prospecto_venta WHERE cod_prospecto = '$codPro'");
 
-$buttons = "";
-
 while($key = $db->recorrer($sql)){
+    
         $tipoDoc = $key['cod_tipo_documento'];
         $numDoc = $key['dsc_documento'];
         $juridico = $key['flg_juridico'];
