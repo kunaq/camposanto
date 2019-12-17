@@ -57,7 +57,7 @@ $("#listaTrabArbVen").on("click","a.btnVerTrabArbVen",function(){
         dataType: 'json',
         data: {'codTrabajador':codTrabajador,'accion':'verDetTrabajador'},
         success: function(respuesta){
-            console.log('respuesta',respuesta);
+            //console.log('respuesta',respuesta);
             $.each(respuesta,function(index,value){
             	if(index == 0){
                     classPeriodo = 'liListaKqPstImpar';
@@ -79,17 +79,16 @@ $("#listaTrabArbVen").on("click","a.btnVerTrabArbVen",function(){
                         '</a>'+
                     '</li>'
                  );//append
-
-            	// $("#bodyHistConf").append(
-            	// 	'<tr>'+
-            	// 		'<td>'+(index+1)+'</td>'+
-            	// 		'<td>'+value['num_anno']+'</td>'+
-            	// 		'<td>'+value['cod_tipo_periodo']+'</td>'+
-            	// 		'<td>'+value['cod_periodo']+'</td>'+
-            	// 		'<td>'+value['dsc_tipo_comisionista']+'</td>'+
-            	// 	'</tr>'
-            	// 	);
             });//each
         }//success
     });//ajax
 });
+
+$("#listaHistConf").on("click","a.btnVerHistConf",function(){
+	$(".ulListaHistConf li").removeClass('liListaKqPstActive');
+	$(this).parent('li').addClass('liListaKqPstActive');
+	var codTrabajador = $(this).attr("codTrabajador");
+	console.log(codTrabajador);
+
+});
+
