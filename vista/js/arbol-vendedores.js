@@ -48,10 +48,10 @@ function creaTablaTrabajadoresArbVend(){
 creaTablaTrabajadoresArbVend();
 
 $("#listaTrabArbVen").on("click","a.btnVerTrabArbVen",function(){
-	document.getElementById("listaHistConf").remove('.itemLista');
 	$(".ulListaVerTrabArbVen li").removeClass('liListaKqPstActive');
 	$(this).parent('li').addClass('liListaKqPstActive');
 	var codTrabajador = $(this).attr("codTrabajador");
+	$("#listaHistConf").remove(".itemLista");
 	$.ajax({
         url:"ajax/ArbolVenedores.ajax.php",
         method: "POST",
