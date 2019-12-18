@@ -74,6 +74,7 @@
 															<?php
 															$prueba = controladorEmpresa::ctrAnnoPeriodo();
 														  ?>
+														 </select>
 													</div>
 												</div>
 											</div>
