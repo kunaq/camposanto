@@ -48,10 +48,6 @@ function creaTablaTrabajadoresArbVend(){
 creaTablaTrabajadoresArbVend();
 
 $("#listaTrabArbVen").on("click","a.btnVerTrabArbVen",function(){
-	muestraHistorico();
-});
-
-function muestraHistorico(){
 	$(".ulListaVerTrabArbVen li").removeClass('liListaKqPstActive');
 	$(this).parent('li').addClass('liListaKqPstActive');
 	var codTrabajador = $(this).attr("codTrabajador");
@@ -88,7 +84,7 @@ function muestraHistorico(){
             });//each
         }//success
     });//ajax
-}
+});
 
 $("#listaHistConf").on("click","a.btnVerHistConf",function(){
 	$(".ulListaHistConf li").removeClass('liListaKqPstActive');
