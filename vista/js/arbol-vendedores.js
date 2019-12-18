@@ -92,7 +92,7 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
 	$("#tipoPeriodoArbVen").val($(this).attr("tipoperiodo"));
 
 	var jefeVentas = buscaNombreTrabajador($(this).attr("jefeventas"));
-	console.log(jefeventas);
+	console.log(jefeVentas);
 
 
 });
@@ -104,7 +104,7 @@ function buscaNombreTrabajador(codigo){
         dataType: 'json',
         data: {'codTrabajador':codigo,'accion':'nombreTrabajador'},
         success: function(respuesta){
-        	var nombre = respuesta['dsc_apellido_paterno']+' '+respuesta['dsc_apellido_materno']+', '+respuesta[dsc_nombres];
+        	var nombre = respuesta['dsc_apellido_paterno']+' '+respuesta['dsc_apellido_materno']+', '+respuesta['dsc_nombres'];
         	return nombre;
         }//succes
     });//ajaax
