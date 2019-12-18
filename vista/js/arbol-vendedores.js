@@ -69,7 +69,7 @@ $("#listaTrabArbVen").on("click","a.btnVerTrabArbVen",function(){
                 }
             	$("#listaHistConf").append(
                     '<li class="nav-item '+classPeriodo+' itemLista">'+
-                        '<a href="#" class="btnVerHistConf" codTrabajador="'+codTrabajador+'" numAnio="'+value['num_anno']+'" tipoPeriodo="'+value['cod_tipo_periodo']+'" periodo="'+value['cod_periodo']+'" >'+
+                        '<a href="#" class="btnVerHistConf" codTrabajador="'+codTrabajador+'" numAnio="'+value['num_anno']+'" tipoperiodo="'+value['cod_tipo_periodo']+'" periodo="'+value['cod_periodo']+'" jefeventas="'+value['cod_jefeventas']+'">'+
                         	'<div class="row">'+
 								'<div class="col-md-2">'+(index+1)+'</div>'+
 								'<div class="col-md-2">'+value['num_anno']+'</div>'+
@@ -89,8 +89,23 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
 	$(".ulListaHistConf li").removeClass('liListaKqPstActive');
 	$(this).parent('li').addClass('liListaKqPstActive');
 	$("#numAnioArbVen").val($(this).attr("numAnio"));
-	$("#tipoPeriodoArbVen").val($(this).attr("tipoPeriodo"));
+	$("#tipoPeriodoArbVen").val($(this).attr("tipoperiodo"));
+
+	var jefeVentas = buscaNombreTrabajador($(this).attr("jefeventas"));
+	console.log(jefeventas);
 
 
 });
 
+function buscaNombreTrabajador(codigo){
+	$.ajax({
+        url:"ajax/ArbolVenedores.ajax.php",
+        method: "POST",
+        dataType: 'json',
+        data: {'codTrabajador':codigo,'accion':'nombreTrabajador'},
+        success: function(respuesta){
+        	var nombre = respuesta['dsc_apellido_paterno']+' '+respuesta['dsc_apellido_materno']+', '+respuesta[dsc_nombres];
+        	return nombre;
+        }//succes
+    });//ajaax
+}//buscaNombreTrabajador

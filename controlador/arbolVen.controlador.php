@@ -4,7 +4,7 @@ class ControladorArbolVen{
 		$tabla = "rhuma_trabajador";
 		$respuesta = ModeloArbolVen::mdlMostrarTraArbolVen($tabla);
 		return $respuesta;
-	}//function ctrMostrarAnio
+	}//function ctrMostrarTraArbolVen
 
 	static public function ctrVerDetTrabajador(){
 		$codTrabajador = $_POST['codTrabajador'];
@@ -13,6 +13,13 @@ class ControladorArbolVen{
 		$tabla3 = 'vtama_grupo';
 		$respuesta = ModeloArbolVen::mdlVerDetTrabajador($tabla,$tabla2,$tabla3,$codTrabajador);
 		return $respuesta;
-	}
+	}//function ctrVerDetTrabajador(
+
+	static public function ctrNombreTrabajador(){
+		$tabla = "rhuma_trabajador";
+		$codigo = $_POST['codTrabajador'];
+		$respuesta = ModeloArbolVen::mdlNombreTrabajador($tabla,$codigo);
+		return $respuesta;
+	}//function ctrNombreTrabajador
 }//class ControladorArbolVen
 ?>
