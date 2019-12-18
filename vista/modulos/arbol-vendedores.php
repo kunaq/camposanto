@@ -70,7 +70,7 @@
 														<label>Año</label>
 													</div>
 													<div class="col-lg-8">
-														<select class="form-control form-control-sm m-input">
+														<select class="form-control form-control-sm m-input" id="anioBuscaTraArbVen" class="anioBuscaTraArbVen">
 															<option>2019</option>
 															<option>2018</option>
 															<option>2017</option>
