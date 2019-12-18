@@ -160,10 +160,10 @@
 															<label>Comisionista:</label>
 														</div>
 														<div class="col-lg-2">
-															<input type="text" disabled class="form-control form-control-sm m-input" name="" id="">
+															<input type="text" disabled class="form-control form-control-sm m-input" name="codComiArbVen" id="codComiArbVen">
 														</div>
 														<div class="col-lg-8">
-															<input type="text" disabled class="form-control form-control-sm m-input" name="" id="">
+															<input type="text" disabled class="form-control form-control-sm m-input" name="dscComiArbVen" id="dscComiArbVen">
 														</div>
 													</div>
 													<div class="form-group row">
@@ -171,10 +171,10 @@
 															<label>Supervisor:</label>
 														</div>
 														<div class="col-lg-2">
-															<input type="text" disabled class="form-control form-control-sm m-input" name="" id="">
+															<input type="text" disabled class="form-control form-control-sm m-input" name="codSupVenArbVen" id="codSupVenArbVen">
 														</div>
 														<div class="col-lg-8">
-															<input type="text" disabled class="form-control form-control-sm m-input" name="dscJefeVentaArbVen" id="dscJefeVentaArbVen">
+															<input type="text" disabled class="form-control form-control-sm m-input" name="dscSupArbVen" id="dscSupArbVen">
 														</div>
 													</div>
 													<div class="form-group row">
@@ -182,10 +182,10 @@
 															<label>Jefe Ventas:</label>
 														</div>
 														<div class="col-lg-2">
-															<input type="text" disabled class="form-control form-control-sm m-input" name="" id="">
+															<input type="text" disabled class="form-control form-control-sm m-input" name="codJefeVenArbVen" id="codJefeVenArbVen">
 														</div>
 														<div class="col-lg-8">
-															<input type="text" disabled class="form-control form-control-sm m-input" name="" id="">
+															<input type="text" disabled class="form-control form-control-sm m-input" name="dscJefeVentaArbVen" id="dscJefeVentaArbVen">
 														</div>
 													</div>
 												</div>
