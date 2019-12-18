@@ -58,7 +58,7 @@ $("#listaTrabArbVen").on("click","a.btnVerTrabArbVen",function(){
         dataType: 'json',
         data: {'codTrabajador':codTrabajador,'accion':'verDetTrabajador'},
         success: function(respuesta){
-            //console.log('respuesta',respuesta);
+            console.log('respuesta',respuesta);
             $.each(respuesta,function(index,value){
             	if(index == 0){
                     classPeriodo = 'liListaKqPstImpar';
@@ -69,7 +69,7 @@ $("#listaTrabArbVen").on("click","a.btnVerTrabArbVen",function(){
                 }
             	$("#listaHistConf").append(
                     '<li class="nav-item '+classPeriodo+' itemLista">'+
-                        '<a href="#" class="btnVerHistConf" codTrabajador="'+codTrabajador+'" numAnio="'+value['num_anno']+'">'+
+                        '<a href="#" class="btnVerHistConf" codTrabajador="'+codTrabajador+'" numAnio="'+value['num_anno']+'" tipoPeriodo="'+value['cod_tipo_periodo']+'" periodo="'+value['cod_periodo']+'" >'+
                         	'<div class="row">'+
 								'<div class="col-md-2">'+(index+1)+'</div>'+
 								'<div class="col-md-2">'+value['num_anno']+'</div>'+
@@ -89,6 +89,7 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
 	$(".ulListaHistConf li").removeClass('liListaKqPstActive');
 	$(this).parent('li').addClass('liListaKqPstActive');
 	$("#numAnioArbVen").val($(this).attr("numAnio"));
+	$("#tipoPeriodoArbVen").val($(this).attr("tipoPeriodo"));
 
 
 });

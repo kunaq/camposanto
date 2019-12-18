@@ -134,7 +134,7 @@
 															<label>T. Período:</label>
 														</div>
 														<div class="col-lg-2">
-															<input type="text" disabled class="form-control form-control-sm m-input" name="" id="">
+															<input type="text" disabled class="form-control form-control-sm m-input" name="tipoPeriodoArbVen" id="tipoPeriodoArbVen">
 														</div>
 														<div class="col-lg-2">
 															<label>Período:</label>

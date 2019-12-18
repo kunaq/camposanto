@@ -10,7 +10,8 @@ class ControladorArbolVen{
 		$codTrabajador = $_POST['codTrabajador'];
 		$tabla = "vtama_historico_vendedor";
 		$tabla2 = 'vtama_tipo_comisionista';
-		$respuesta = ModeloArbolVen::mdlVerDetTrabajador($tabla,$tabla2,$codTrabajador);
+		$tabla3 = 'vtama_grupo';
+		$respuesta = ModeloArbolVen::mdlVerDetTrabajador($tabla,$tabla2,$tabla3,$codTrabajador);
 		return $respuesta;
 	}
 }//class ControladorArbolVen
