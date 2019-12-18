@@ -97,13 +97,14 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
 });
 
 function buscaNombreTrabajador(codigo){
+	var nombre = '';
 	$.ajax({
         url:"ajax/ArbolVenedores.ajax.php",
         method: "POST",
         dataType: 'json',
         data: {'codTrabajador':codigo,'accion':'nombreTrabajador'},
         success: function(respuesta){
-        	var nombre = respuesta['dsc_apellido_paterno']+' '+respuesta['dsc_apellido_materno']+', '+respuesta['dsc_nombres'];
+        	nombre = respuesta['dsc_apellido_paterno']+' '+respuesta['dsc_apellido_materno']+', '+respuesta['dsc_nombres'];
         }//succes
     });//ajax
     return nombre;
