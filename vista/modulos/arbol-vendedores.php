@@ -140,7 +140,7 @@
 															<label>Período:</label>
 														</div>
 														<div class="col-lg-2">
-															<input type="text" disabled class="form-control form-control-sm m-input" name="" id="">
+															<input type="text" disabled class="form-control form-control-sm m-input" name="periodoArbVen" id="periodoArbVen">
 														</div>
 													</div>
 													<hr>
@@ -149,7 +149,7 @@
 															<label>Grupo:</label>
 														</div>
 														<div class="col-lg-2">
-															<input type="text" disabled class="form-control form-control-sm m-input" name="" id="">
+															<input type="text" disabled class="form-control form-control-sm m-input" name="codGrupoArbVen" id="codGrupoArbVen">
 														</div>
 														<div class="col-lg-8">
 															<input type="text" disabled class="form-control form-control-sm m-input" name="" id="">
@@ -174,7 +174,7 @@
 															<input type="text" disabled class="form-control form-control-sm m-input" name="" id="">
 														</div>
 														<div class="col-lg-8">
-															<input type="text" disabled class="form-control form-control-sm m-input" name="" id="">
+															<input type="text" disabled class="form-control form-control-sm m-input" name="dscJefeVentaArbVen" id="dscJefeVentaArbVen">
 														</div>
 													</div>
 													<div class="form-group row">

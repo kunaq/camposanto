@@ -69,7 +69,7 @@ $("#listaTrabArbVen").on("click","a.btnVerTrabArbVen",function(){
                 }
             	$("#listaHistConf").append(
                     '<li class="nav-item '+classPeriodo+' itemLista">'+
-                        '<a href="#" class="btnVerHistConf" codTrabajador="'+codTrabajador+'" numAnio="'+value['num_anno']+'" tipoperiodo="'+value['cod_tipo_periodo']+'" periodo="'+value['cod_periodo']+'" jefeventas="'+value['cod_jefeventas']+'">'+
+                        '<a href="#" class="btnVerHistConf" codTrabajador="'+codTrabajador+'" numAnio="'+value['num_anno']+'" tipoperiodo="'+value['cod_tipo_periodo']+'" periodo="'+value['cod_periodo']+'" jefeventas="'+value['cod_jefeventas']+'" codGrupo="'+value['cod_gurpo']+'" dscGrupo="'+value['dsc_grupo']+'">'+
                         	'<div class="row">'+
 								'<div class="col-md-2">'+(index+1)+'</div>'+
 								'<div class="col-md-2">'+value['num_anno']+'</div>'+
@@ -90,22 +90,28 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
 	$(this).parent('li').addClass('liListaKqPstActive');
 	$("#numAnioArbVen").val($(this).attr("numAnio"));
 	$("#tipoPeriodoArbVen").val($(this).attr("tipoperiodo"));
-	var jefeVentas = buscaNombreTrabajador($(this).attr("jefeventas"));
-	console.log(jefeVentas);
+	$("#codGrupoArbVen").val($(this).attr("codGrupo"));
+	// $("#periodoArbVen").val($(this).attr("periodo"));
+	// $("#periodoArbVen").val($(this).attr("periodo"));
+	// $("#periodoArbVen").val($(this).attr("periodo"));
+
+	var jefeVentas = $(this).attr("jefeventas");
+	$.ajax({
+        url:"ajax/ArbolVenedores.ajax.php",
+        method: "POST",
+        dataType: 'json',
+        data: {'codTrabajador':jefeVentas,'accion':'nombreTrabajador'},
+        success: function(respuesta){
+        	nombre = respuesta['dsc_apellido_paterno']+' '+respuesta['dsc_apellido_materno']+', '+respuesta['dsc_nombres'];
+        	$("#dscJefeVentaArbVen").val(nombre);
+        }//succes
+    });//ajax
 
 
 });
 
 function buscaNombreTrabajador(codigo){
 	var nombre = '';
-	$.ajax({
-        url:"ajax/ArbolVenedores.ajax.php",
-        method: "POST",
-        dataType: 'json',
-        data: {'codTrabajador':codigo,'accion':'nombreTrabajador'},
-        success: function(respuesta){
-        	nombre = respuesta['dsc_apellido_paterno']+' '+respuesta['dsc_apellido_materno']+', '+respuesta['dsc_nombres'];
-        }//succes
-    });//ajax
+	
     return nombre;
 }//buscaNombreTrabajador
