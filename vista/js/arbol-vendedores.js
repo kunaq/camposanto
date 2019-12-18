@@ -69,7 +69,7 @@ $("#listaTrabArbVen").on("click","a.btnVerTrabArbVen",function(){
                 }
             	$("#listaHistConf").append(
                     '<li class="nav-item '+classPeriodo+' itemLista">'+
-                        '<a href="#" class="btnVerHistConf" codTrabajador="'+codTrabajador+'" numAnio="'+value['num_anno']+'" tipoperiodo="'+value['cod_tipo_periodo']+'" periodo="'+value['cod_periodo']+'" jefeventas="'+value['cod_jefeventas']+'" codGrupo="'+value['cod_gurpo']+'" dscGrupo="'+value['dsc_grupo']+'">'+
+                        '<a href="#" class="btnVerHistConf" codTrabajador="'+codTrabajador+'" numAnio="'+value['num_anno']+'" tipoperiodo="'+value['cod_tipo_periodo']+'" periodo="'+value['cod_periodo']+'" jefeventas="'+value['cod_jefeventas']+'" codgrupo="'+value['cod_grupo']+'" dscgrupo="'+value['dsc_grupo']+'">'+
                         	'<div class="row">'+
 								'<div class="col-md-2">'+(index+1)+'</div>'+
 								'<div class="col-md-2">'+value['num_anno']+'</div>'+
@@ -90,8 +90,8 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
 	$(this).parent('li').addClass('liListaKqPstActive');
 	$("#numAnioArbVen").val($(this).attr("numAnio"));
 	$("#tipoPeriodoArbVen").val($(this).attr("tipoperiodo"));
-	$("#codGrupoArbVen").val($(this).attr("codGrupo"));
-	// $("#periodoArbVen").val($(this).attr("periodo"));
+	$("#codGrupoArbVen").val($(this).attr("codgrupo"));
+	$("#dscGrupoArbVen").val($(this).attr("dscgrupo"));
 	// $("#periodoArbVen").val($(this).attr("periodo"));
 	// $("#periodoArbVen").val($(this).attr("periodo"));
 

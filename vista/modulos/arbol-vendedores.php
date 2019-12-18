@@ -152,7 +152,7 @@
 															<input type="text" disabled class="form-control form-control-sm m-input" name="codGrupoArbVen" id="codGrupoArbVen">
 														</div>
 														<div class="col-lg-8">
-															<input type="text" disabled class="form-control form-control-sm m-input" name="" id="">
+															<input type="text" disabled class="form-control form-control-sm m-input" name="dscGrupoArbVen" id="dscGrupoArbVen">
 														</div>
 													</div>
 													<div class="form-group row">
