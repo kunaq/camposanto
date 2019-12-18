@@ -32,3 +32,7 @@ else if(isset($_POST["accion"]) && $_POST["accion"] == 'nombreTrabajador'){
 	$cliente = new AjaxArbolVen();
 	$cliente -> ajaxNombreTrabajador();
 }
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'nombreTrabajador'){
+	$cliente = new AjaxArbolVen();
+	$cliente -> ajaxNombreTrabajador();
+}
