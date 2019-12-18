@@ -58,7 +58,7 @@ $("#listaTrabArbVen").on("click","a.btnVerTrabArbVen",function(){
         dataType: 'json',
         data: {'codTrabajador':codTrabajador,'accion':'verDetTrabajador'},
         success: function(respuesta){
-            console.log('respuesta',respuesta);
+            //console.log('respuesta',respuesta);
             $.each(respuesta,function(index,value){
             	if(index == 0){
                     classPeriodo = 'liListaKqPstImpar';
@@ -90,7 +90,6 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
 	$(this).parent('li').addClass('liListaKqPstActive');
 	$("#numAnioArbVen").val($(this).attr("numAnio"));
 	$("#tipoPeriodoArbVen").val($(this).attr("tipoperiodo"));
-
 	var jefeVentas = buscaNombreTrabajador($(this).attr("jefeventas"));
 	console.log(jefeVentas);
 
@@ -105,7 +104,7 @@ function buscaNombreTrabajador(codigo){
         data: {'codTrabajador':codigo,'accion':'nombreTrabajador'},
         success: function(respuesta){
         	var nombre = respuesta['dsc_apellido_paterno']+' '+respuesta['dsc_apellido_materno']+', '+respuesta['dsc_nombres'];
-        	return nombre;
         }//succes
-    });//ajaax
+    });//ajax
+    return nombre;
 }//buscaNombreTrabajador
