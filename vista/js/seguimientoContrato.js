@@ -31,4 +31,7 @@ function getParameterByName(name) {
     return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
 
-document.getElementById("bodySegCtto").onload = function() {getParameterByName('codCtto')};
+document.getElementById("bodySegCtto").onload = function() {
+	var cod = getParameterByName('codCtto');
+	alert(cod);
+};
