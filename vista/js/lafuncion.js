@@ -1223,7 +1223,7 @@ function cronograma(){
                   aux_mes = '12';
                   aux_anio = ldt_fch_ven.getFullYear()-1;
                 }               
-               var lda_vencimiento = aux_mes+'/'+aux_dia+'/'+aux_anio;
+               var lda_vencimiento = aux_dia+'/'+aux_mes+'/'+aux_anio;
                
                // -- Saldos -- //
                
@@ -1314,7 +1314,7 @@ function cronograma(){
             aux_mes = '12';
             aux_anio = ldt_fch_ven.getFullYear()-1;
           }               
-          lda_vencimiento = aux_mes+'/'+aux_dia+'/'+aux_anio;
+          lda_vencimiento = aux_dia+'/'+aux_mes+'/'+aux_anio;
             
            // -- Datos -- //
            
@@ -1571,7 +1571,7 @@ function cronograma(){
         aux_mes = '12';
         aux_anio = ldt_fch_ven.getFullYear()-1;
       }               
-      lda_vencimiento = aux_mes+'/'+aux_dia+'/'+aux_anio;
+      lda_vencimiento = aux_dia+'/'+aux_mes+'/'+aux_anio;
      //lde_saldo_foma = tab_1.tp_6.dw_foma.SetItem(1, "fch_primera_cuota", lda_vencimiento)
 
      $("#m_datepicker_2_validate").datepicker({ dateFormat: 'dd/mm/yy' }).datepicker("setDate", lda_vencimiento);
@@ -1733,7 +1733,7 @@ function generaFOMA(){
       aux_mes = '12';
       aux_anio = ldt_fch_ven.getFullYear()-1;
     }               
-    lda_vencimiento = aux_mes+'/'+aux_dia+'/'+aux_anio;
+    lda_vencimiento = aux_dia+'/'+aux_mes+'/'+aux_anio;
     var aux_lde_amortizacion = Number(lde_amortizacion).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
     
     // // -- Seteo -- //
@@ -1784,7 +1784,7 @@ function generaFOMA(){
     aux_mes = '12';
     aux_anio = ldt_fch_ven.getFullYear()-1;
   }               
-  lda_vencimiento = aux_mes+'/'+aux_dia+'/'+aux_anio;
+  lda_vencimiento = aux_dia+'/'+aux_mes+'/'+aux_anio;
   var aux_lde_amortizacion = Number(lde_amortizacion).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
 
   // // -- Insertar -- //
