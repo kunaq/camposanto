@@ -151,7 +151,7 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
 	                  aux_mes = '12';
 	                  aux_anio = fecha.getFullYear()-1;
 	                }               
-	                fecha_fin = aux_mes+'/'+aux_dia+'/'+aux_anio;
+	                fecha_fin = aux_dia+'/'+aux_mes+'/'+aux_anio;
                 }
                 if(value['flg_emitido'] == 'SI'){
                 	estatus = 'Emitido'
@@ -164,7 +164,7 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
 	                   aux_mes = '12';
 	                   aux_anio = fecha.getFullYear()-1;
 	                }               
-	                fecha_fin = aux_mes+'/'+aux_dia+'/'+aux_anio;
+	                fecha_fin = aux_dia+'/'+aux_mes+'/'+aux_anio;
                 }
                 if(value['flg_resuelto'] == 'SI'){
                 	estatus = 'Resuelto'
@@ -177,7 +177,7 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
 	                   aux_mes = '12';
 	                   aux_anio = fecha.getFullYear()-1;
 	                }               
-	                fecha_fin = aux_mes+'/'+aux_dia+'/'+aux_anio;
+	                fecha_fin = aux_dia+'/'+aux_mes+'/'+aux_anio;
                 }
             	$("#listaCttos").append(
                     '<li class="nav-item '+classCtto+' itemLista">'+
