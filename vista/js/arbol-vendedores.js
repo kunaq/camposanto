@@ -123,6 +123,7 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
         	$("#dscSupArbVen").val(nombre);
         }//succes
     });//ajax
+    $("#listaCttos .itemLista").remove();
     $.ajax({
         url:"ajax/ArbolVendedores.ajax.php",
         method: "POST",
