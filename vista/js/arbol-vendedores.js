@@ -142,7 +142,7 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
                 }
                 if(value['flg_activado'] == 'SI'){
                 	estatus = 'Activado'              
-               		fecha = toLocaleDateString(value['fch_activacion']);
+               		fecha = new Date(value['fch_activacion']);
                 }
                 if(value['flg_emitido'] == 'SI'){
                 	estatus = 'Emitido'
