@@ -91,7 +91,7 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
 	var annio = $(this).attr("numAnio");
 	$("#numAnioArbVen").val(annio);
 	var tipoPeriodo = $(this).attr("tipoperiodo");
-	$("#tipoPeriodoArbVen").val(tipoPeriodoo);
+	$("#tipoPeriodoArbVen").val(tipoPeriodo);
 	$("#codGrupoArbVen").val($(this).attr("codgrupo"));
 	$("#dscGrupoArbVen").val($(this).attr("dscgrupo"));
 	var periodo = $(this).attr("periodo");
