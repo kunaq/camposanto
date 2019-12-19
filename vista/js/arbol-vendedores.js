@@ -141,15 +141,7 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
                     classCtto = 'liListaKqPstPar';
                 }
                 if(value['flg_activado'] == 'SI'){
-                	estatus = 'Activado'
-                	var aux_dia = value['fch_activacion'].getDate();
-	               var aux_mes1 = value['fch_activacion'].setMonth(value['fch_activacion'].getMonth() + 1);
-	               var aux_mes = value['fch_activacion'].getMonth();
-	               var  aux_anio = value['fch_activacion'].getFullYear();
-	               if(aux_mes == '0'){
-	                  aux_mes = '12';
-	                  aux_anio = value['fch_activacion'].getFullYear()-1;
-	                }               
+                	estatus = 'Activado'              
                		fecha = aux_mes+'/'+aux_dia+'/'+aux_anio;
                 }
                 if(value['flg_emitido'] == 'SI'){
