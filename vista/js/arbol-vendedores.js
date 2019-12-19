@@ -88,11 +88,14 @@ $("#listaTrabArbVen").on("click","a.btnVerTrabArbVen",function(){
 $("#listaHistConf").on("click","a.btnVerHistConf",function(){
 	$(".ulListaHistConf li").removeClass('liListaKqPstActive');
 	$(this).parent('li').addClass('liListaKqPstActive');
-	$("#numAnioArbVen").val($(this).attr("numAnio"));
-	$("#tipoPeriodoArbVen").val($(this).attr("tipoperiodo"));
+	var annio = $(this).attr("numAnio");
+	$("#numAnioArbVen").val(annio);
+	var tipoPeriodo = $(this).attr("tipoperiodo");
+	$("#tipoPeriodoArbVen").val(tipoPeriodoo);
 	$("#codGrupoArbVen").val($(this).attr("codgrupo"));
 	$("#dscGrupoArbVen").val($(this).attr("dscgrupo"));
-	$("#periodoArbVen").val($(this).attr("periodo"));
+	var periodo = $(this).attr("periodo");
+	$("#periodoArbVen").val(periodo);
 	$("#codComiArbVen").val($(this).attr("codcomisionista"));
 	$("#dscComiArbVen").val($(this).attr("dsccomisionista"));
 	var vendedor = $(this).attr("codTrabajador");
@@ -124,7 +127,7 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
         url:"ajax/ArbolVenedores.ajax.php",
         method: "POST",
         dataType: 'json',
-        data: {'codTrabajador':vendedor,'accion':'buscaCtto'},
+        data: {'codTrabajador':vendedor,'accion':'buscaCtto','periodo':periodo,'tipoPeriodo':tipoPeriodo,'annio':annio},
         success: function(respuesta){
         	console.log(respuesta);
         	var estatus = '';
