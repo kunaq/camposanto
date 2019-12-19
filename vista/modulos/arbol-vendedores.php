@@ -214,7 +214,7 @@
 														<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="180">
 															<ul class="nav nav-tabs nav-tabs-simple nav-tabs-left bg-white ulListaKqPst ulListaHistConf col-sm-2 col-md-12" id="listaCttos" style="border-radius: 3px;margin-bottom: 0; padding-right: 0; overflow-x:hidden; height: auto;">
 																<li class="spanTextoActiveKq liListaKqPstTitulo">
-																	<div class="row">
+																	<div class="row" style="color: black">
 																		<div class="col-md-3"><b>Localidad</b></div>
 																		<div class="col-md-3"><b>contrato</b></div>
 																		<div class="col-md-2"><b>T. N.</b></div>
@@ -223,40 +223,6 @@
 																	</div>
 																</li>
 															</ul>
-															<!-- <div class="table-responsive">
-																<table class="tableVendedores table-striped">
-																	<thead>
-																		<th>Localidad</th>
-																		<th>Contrato</th>
-																		<th>T.N.</th>
-																		<th>Estatus</th>
-																		<th>Fecha</th>
-																	</thead>
-																	<tbody>
-																		<tr>
-																			<td>SEDE SAN ANTONIO</td>
-																			<td>0000000001-0</td>
-																			<td>NF</td>
-																			<td>ACTIVADO</td>
-																			<td>12-10-2019</td>
-																		</tr>
-																		<tr>
-																			<td>SEDE SAN ANTONIO</td>
-																			<td>0000000001-0</td>
-																			<td>NF</td>
-																			<td>EMITIDO</td>
-																			<td>12-10-2019</td>
-																		</tr>
-																		<tr>
-																			<td>SEDE SAN ANTONIO</td>
-																			<td>0000000001-0</td>
-																			<td>NF</td>
-																			<td>ACTIVADO</td>
-																			<td>12-10-2019</td>
-																		</tr>
-																	</tbody>
-																</table>
-															</div> -->
 														</div>
 													</div>
 												</div>
