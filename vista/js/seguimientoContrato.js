@@ -25,9 +25,7 @@ function init(){
 init();
 
 function getParameterByName(name) {
-    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-    results = regex.exec(location.search);
-    console.log(results);
-    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    var query = window.location.search.substring(1);
+    var pair = query.split("=");
+    console.log(pair);
 }
