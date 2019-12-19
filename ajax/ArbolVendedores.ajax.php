@@ -18,14 +18,11 @@ class AjaxArbolVen{
 	}//function ajaxNombreTrabajador
 	public function ajaxBuscarCtto(){
 		$respuesta = ControladorArbolVen::ctrBuscarCtto();
-		var_dump($respuesta["fch_activacion"]);
-		if($respuesta["fch_activacion"] != ''){
-				$respuesta["fch_activacion"] = date_format(new DateTime($respuesta["fch_activacion"]), 'd-m-Y');
-				
-		    }
-		// $respuesta["fch_activacion"] = ($respuesta["fch_activacion"] != '') ? dateFormat($respuesta["fch_activacion"]) : '';
-		// $respuesta["fch_emision"]=($respuesta["fch_emision"] != '') ? dateFormat($respuesta["fch_emision"]) : '';
-		// $respuesta["fch_resolucion"] = ($respuesta["fch_resolucion"] != '') ? dateFormat($respuesta["fch_resolucion"]) : '';
+		foreach ($respuesta as $key => $value) {
+			$respuesta[$key]["fch_activacion"] = ($respuesta[$key]["fch_activacion"] != null) ? dateFormat($respuesta[$key]["fch_activacion"]) : $respuesta[$key]["fch_activacion"];
+			$respuesta[$key]["fch_emision"] = ($respuesta[$key]["fch_emision"] != null) ? dateFormat($respuesta[$key]["fch_emision"]) : $respuesta[$key]["fch_emision"];
+			$respuesta[$key]["fch_resolucion"] = ($respuesta[$key]["fch_resolucion"] != null) ? dateFormat($respuesta[$key]["fch_resolucion"]) : $respuesta[$key]["fch_resolucion"];
+		}
 		echo json_encode($respuesta);
 	}//function ajaxBuscarCtto
 }//class AjaxArbolVen
