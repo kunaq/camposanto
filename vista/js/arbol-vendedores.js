@@ -131,7 +131,7 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
         success: function(respuesta){
         	console.log(respuesta);
         	var estatus = '';
-        	var fecha = '';
+        	var fecha_fin = '';
         	$.each(respuesta,function(index,value){
             	if(index == 0){
                     classCtto = 'liListaKqPstImpar';
@@ -144,22 +144,40 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
                 	estatus = 'Activado'              
                		fecha = new Date(value['fch_activacion']);
                		var aux_dia = fecha.getDate();
-	               var aux_mes1 = fecha.setMonth(fecha.getMonth() + 1);
-	               var aux_mes = fecha.getMonth();
-	               var  aux_anio = fecha.getFullYear();
-	               if(aux_mes == '0'){
+	                var aux_mes1 = fecha.setMonth(fecha.getMonth() + 1);
+	                var aux_mes = fecha.getMonth();
+	                var  aux_anio = fecha.getFullYear();
+	                if(aux_mes == '0'){
 	                  aux_mes = '12';
 	                  aux_anio = fecha.getFullYear()-1;
 	                }               
-	               fecha = aux_mes+'/'+aux_dia+'/'+aux_anio;
+	                fecha_fin = aux_mes+'/'+aux_dia+'/'+aux_anio;
                 }
                 if(value['flg_emitido'] == 'SI'){
                 	estatus = 'Emitido'
-                	fecha = value['fch_emision'];
+                	fecha = new Date(value['fch_emision']);
+               		var aux_dia = fecha.getDate();
+	                var aux_mes1 = fecha.setMonth(fecha.getMonth() + 1);
+	                var aux_mes = fecha.getMonth();
+	                var  aux_anio = fecha.getFullYear();
+	                if(aux_mes == '0'){
+	                   aux_mes = '12';
+	                   aux_anio = fecha.getFullYear()-1;
+	                }               
+	                fecha_fin = aux_mes+'/'+aux_dia+'/'+aux_anio;
                 }
                 if(value['flg_resuelto'] == 'SI'){
                 	estatus = 'Resuelto'
-                	fecha = value['fch_resolucion'];
+                	fecha = new Date(value['fch_resolucion']);
+                	var aux_dia = fecha.getDate();
+	                var aux_mes1 = fecha.setMonth(fecha.getMonth() + 1);
+	                var aux_mes = fecha.getMonth();
+	                var  aux_anio = fecha.getFullYear();
+	                if(aux_mes == '0'){
+	                   aux_mes = '12';
+	                   aux_anio = fecha.getFullYear()-1;
+	                }               
+	                fecha_fin = aux_mes+'/'+aux_dia+'/'+aux_anio;
                 }
             	$("#listaCttos").append(
                     '<li class="nav-item '+classCtto+' itemLista">'+
@@ -169,7 +187,7 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
 								'<div class="col-md-3" style="color:blue">'+value['cod_contrato']+'</div>'+
 								'<div class="col-md-2">'+value['cod_tipo_necesidad']+'</div>'+
 								'<div class="col-md-2">'+estatus+'</div>'+
-								'<div class="col-md-2">'+fecha+'</div>'+
+								'<div class="col-md-2">'+fecha_fin+'</div>'+
 							'</div>'+
                         '</a>'+
                     '</li>'
