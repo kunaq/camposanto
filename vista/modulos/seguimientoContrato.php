@@ -9,7 +9,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="m-portlet__body">
+		<div class="m-portlet__body" id="bodySegCtto">
 			<div class="row">
 				<div class="col-lg-12">
 					<fieldset class="fieldFormHorizontal">
