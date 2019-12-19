@@ -11,7 +11,7 @@ $("#cttoResArbVen").on('click', function(){
 function creaTablaTrabajadoresArbVend(){
         $.ajax({
             method:'POST',
-            url: 'ajax/ArbolVenedores.ajax.php',
+            url: 'ajax/ArbolVendedores.ajax.php',
             dataType: 'json',
             data: {'entrada':'verTrabajadores'},
             success : function(respuesta){
@@ -53,7 +53,7 @@ $("#listaTrabArbVen").on("click","a.btnVerTrabArbVen",function(){
 	var codTrabajador = $(this).attr("codTrabajador");
 	$("#listaHistConf .itemLista").remove();
 	$.ajax({
-        url:"ajax/ArbolVenedores.ajax.php",
+        url:"ajax/ArbolVendedores.ajax.php",
         method: "POST",
         dataType: 'json',
         data: {'codTrabajador':codTrabajador,'accion':'verDetTrabajador'},
@@ -104,7 +104,7 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
 	var jefeVentas = $(this).attr("jefeventas");
 	$("#codJefeVenArbVen").val(jefeVentas);
 	$.ajax({
-        url:"ajax/ArbolVenedores.ajax.php",
+        url:"ajax/ArbolVendedores.ajax.php",
         method: "POST",
         dataType: 'json',
         data: {'codTrabajador':jefeVentas,'accion':'nombreTrabajador'},
@@ -114,7 +114,7 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
         }//succes
     });//ajax
     $.ajax({
-        url:"ajax/ArbolVenedores.ajax.php",
+        url:"ajax/ArbolVendedores.ajax.php",
         method: "POST",
         dataType: 'json',
         data: {'codTrabajador':supervisor,'accion':'nombreTrabajador'},
@@ -124,7 +124,7 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
         }//succes
     });//ajax
     $.ajax({
-        url:"ajax/ArbolVenedores.ajax.php",
+        url:"ajax/ArbolVendedores.ajax.php",
         method: "POST",
         dataType: 'json',
         data: {'codTrabajador':vendedor,'accion':'buscaCtto','periodo':periodo,'tipoPeriodo':tipoPeriodo,'annio':annio},
