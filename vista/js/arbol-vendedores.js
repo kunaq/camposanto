@@ -143,53 +143,26 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
                 }
                 if(value['flg_activado'] == 'SI'){
                 	estatus = 'Activado'              
-               		fecha = new Date(value['fch_activacion']);
-               		if(fecha == null){
-               			fecha_fin = '';
+               		if(value['fch_activacion'] == null){
+               			fecha = '';
                		}else{
-	               		var aux_dia = fecha.getDate();
-		                var aux_mes1 = fecha.setMonth(fecha.getMonth() + 1);
-		                var aux_mes = fecha.getMonth();
-		                var  aux_anio = fecha.getFullYear();
-		                if(aux_mes == '0'){
-		                  aux_mes = '12';
-		                  aux_anio = fecha.getFullYear()-1;
-		                }               
-		                fecha_fin = aux_dia+'/'+aux_mes+'/'+aux_anio;
+		                fecha = value['fch_activacion'];
 		            }
                 }
                 if(value['flg_emitido'] == 'SI'){
                 	estatus = 'Emitido'
-                	fecha = new Date(value['fch_emision']);
-                	if(fecha == null){
-               			fecha_fin = '';
+                	if(value['fch_emision'] == null){
+               			fecha = '';
                		}else{
-	               		var aux_dia = fecha.getDate();
-		                var aux_mes1 = fecha.setMonth(fecha.getMonth() + 1);
-		                var aux_mes = fecha.getMonth();
-		                var  aux_anio = fecha.getFullYear();
-		                if(aux_mes == '0'){
-		                   aux_mes = '12';
-		                   aux_anio = fecha.getFullYear()-1;
-		                }               
-		                fecha_fin = aux_dia+'/'+aux_mes+'/'+aux_anio;
+		                fecha = value['fch_emision'];
 		            }
                 }
                 if(value['flg_resuelto'] == 'SI'){
                 	estatus = 'Resuelto'
-                	fecha = new Date(value['fch_resolucion']);
-                	if(fecha == null){
-               			fecha_fin = '';
+                	if(value['fch_resolucion'] == null){
+               			fecha = '';
                		}else{
-	                	var aux_dia = fecha.getDate();
-		                var aux_mes1 = fecha.setMonth(fecha.getMonth() + 1);
-		                var aux_mes = fecha.getMonth();
-		                var  aux_anio = fecha.getFullYear();
-		                if(aux_mes == '0'){
-		                   aux_mes = '12';
-		                   aux_anio = fecha.getFullYear()-1;
-		                }               
-		                fecha_fin = aux_dia+'/'+aux_mes+'/'+aux_anio;
+		                fecha = value['fch_resolucion'];
 		            }
                 }
             	$("#listaCttos").append(

@@ -18,6 +18,9 @@ class AjaxArbolVen{
 	}//function ajaxNombreTrabajador
 	public function ajaxBuscarCtto(){
 		$respuesta = ControladorArbolVen::ctrBuscarCtto();
+		$respuesta["fch_activacion"] = ($respuesta["fch_activacion"] != '') ? dateFormat($respuesta["fch_activacion"]) : '';
+		$respuesta["fch_emision"] = ($respuesta["fch_emision"] != '') ? dateFormat($respuesta["fch_emision"]) : '';
+		$respuesta["fch_resolucion"] = ($respuesta["fch_resolucion"] != '') ? dateFormat($respuesta["fch_resolucion"]) : '';
 		echo json_encode($respuesta);
 	}//function ajaxBuscarCtto
 }//class AjaxArbolVen
