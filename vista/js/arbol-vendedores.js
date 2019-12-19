@@ -173,7 +173,7 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
 								'<div class="col-md-3" style="color:blue">'+value['cod_contrato']+'</div>'+
 								'<div class="col-md-1">'+value['cod_tipo_necesidad']+'</div>'+
 								'<div class="col-md-2">'+estatus+'</div>'+
-								'<div class="col-md-2">'+fecha_fin+'</div>'+
+								'<div class="col-md-2">'+fecha+'</div>'+
 							'</div>'+
                         '</a>'+
                     '</li>'
