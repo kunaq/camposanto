@@ -132,6 +132,7 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
         	console.log(respuesta);
         	var estatus = '';
         	var fecha_fin = '';
+        	var fecha = '';
         	$.each(respuesta,function(index,value){
             	if(index == 0){
                     classCtto = 'liListaKqPstImpar';
@@ -143,41 +144,53 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
                 if(value['flg_activado'] == 'SI'){
                 	estatus = 'Activado'              
                		fecha = new Date(value['fch_activacion']);
-               		var aux_dia = fecha.getDate();
-	                var aux_mes1 = fecha.setMonth(fecha.getMonth() + 1);
-	                var aux_mes = fecha.getMonth();
-	                var  aux_anio = fecha.getFullYear();
-	                if(aux_mes == '0'){
-	                  aux_mes = '12';
-	                  aux_anio = fecha.getFullYear()-1;
-	                }               
-	                fecha_fin = aux_dia+'/'+aux_mes+'/'+aux_anio;
+               		if(fecha == null){
+               			fecha_fin = '';
+               		}else{
+	               		var aux_dia = fecha.getDate();
+		                var aux_mes1 = fecha.setMonth(fecha.getMonth() + 1);
+		                var aux_mes = fecha.getMonth();
+		                var  aux_anio = fecha.getFullYear();
+		                if(aux_mes == '0'){
+		                  aux_mes = '12';
+		                  aux_anio = fecha.getFullYear()-1;
+		                }               
+		                fecha_fin = aux_dia+'/'+aux_mes+'/'+aux_anio;
+		            }
                 }
                 if(value['flg_emitido'] == 'SI'){
                 	estatus = 'Emitido'
                 	fecha = new Date(value['fch_emision']);
-               		var aux_dia = fecha.getDate();
-	                var aux_mes1 = fecha.setMonth(fecha.getMonth() + 1);
-	                var aux_mes = fecha.getMonth();
-	                var  aux_anio = fecha.getFullYear();
-	                if(aux_mes == '0'){
-	                   aux_mes = '12';
-	                   aux_anio = fecha.getFullYear()-1;
-	                }               
-	                fecha_fin = aux_dia+'/'+aux_mes+'/'+aux_anio;
+                	if(fecha == null){
+               			fecha_fin = '';
+               		}else{
+	               		var aux_dia = fecha.getDate();
+		                var aux_mes1 = fecha.setMonth(fecha.getMonth() + 1);
+		                var aux_mes = fecha.getMonth();
+		                var  aux_anio = fecha.getFullYear();
+		                if(aux_mes == '0'){
+		                   aux_mes = '12';
+		                   aux_anio = fecha.getFullYear()-1;
+		                }               
+		                fecha_fin = aux_dia+'/'+aux_mes+'/'+aux_anio;
+		            }
                 }
                 if(value['flg_resuelto'] == 'SI'){
                 	estatus = 'Resuelto'
                 	fecha = new Date(value['fch_resolucion']);
-                	var aux_dia = fecha.getDate();
-	                var aux_mes1 = fecha.setMonth(fecha.getMonth() + 1);
-	                var aux_mes = fecha.getMonth();
-	                var  aux_anio = fecha.getFullYear();
-	                if(aux_mes == '0'){
-	                   aux_mes = '12';
-	                   aux_anio = fecha.getFullYear()-1;
-	                }               
-	                fecha_fin = aux_dia+'/'+aux_mes+'/'+aux_anio;
+                	if(fecha == null){
+               			fecha_fin = '';
+               		}else{
+	                	var aux_dia = fecha.getDate();
+		                var aux_mes1 = fecha.setMonth(fecha.getMonth() + 1);
+		                var aux_mes = fecha.getMonth();
+		                var  aux_anio = fecha.getFullYear();
+		                if(aux_mes == '0'){
+		                   aux_mes = '12';
+		                   aux_anio = fecha.getFullYear()-1;
+		                }               
+		                fecha_fin = aux_dia+'/'+aux_mes+'/'+aux_anio;
+		            }
                 }
             	$("#listaCttos").append(
                     '<li class="nav-item '+classCtto+' itemLista">'+
