@@ -143,6 +143,15 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
                 if(value['flg_activado'] == 'SI'){
                 	estatus = 'Activado'              
                		fecha = new Date(value['fch_activacion']);
+               		var aux_dia = fecha.getDate();
+	               var aux_mes1 = fecha.setMonth(fecha.getMonth() + 1);
+	               var aux_mes = fecha.getMonth();
+	               var  aux_anio = fecha.getFullYear();
+	               if(aux_mes == '0'){
+	                  aux_mes = '12';
+	                  aux_anio = fecha.getFullYear()-1;
+	                }               
+	               var lda_vencimiento = aux_mes+'/'+aux_dia+'/'+aux_anio;
                 }
                 if(value['flg_emitido'] == 'SI'){
                 	estatus = 'Emitido'
