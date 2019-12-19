@@ -157,6 +157,7 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
                         '</a>'+
                     '</li>'
                  );//append
+            });//each
         }//succes
     });//ajax
 
