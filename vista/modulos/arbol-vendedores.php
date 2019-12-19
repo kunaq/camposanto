@@ -212,7 +212,18 @@
 													</div>
 													<div class="col-lg-12">
 														<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="180">
-															<div class="table-responsive">
+															<ul class="nav nav-tabs nav-tabs-simple nav-tabs-left bg-white ulListaKqPst ulListaHistConf col-sm-2 col-md-12" id="listaCttos" style="border-radius: 3px;margin-bottom: 0; padding-right: 0; overflow-x:hidden; height: auto;">
+																<li class="spanTextoActiveKq liListaKqPstTitulo">
+																	<div class="row">
+																		<div class="col-md-3"><b>Localidad</b></div>
+																		<div class="col-md-3"><b>contrato</b></div>
+																		<div class="col-md-2"><b>T. N.</b></div>
+																		<div class="col-md-2"><b>Estado</b></div>
+																		<div class="col-md-2"><b>Fecha</b></div>
+																	</div>
+																</li>
+															</ul>
+															<!-- <div class="table-responsive">
 																<table class="tableVendedores table-striped">
 																	<thead>
 																		<th>Localidad</th>
@@ -245,7 +256,7 @@
 																		</tr>
 																	</tbody>
 																</table>
-															</div>
+															</div> -->
 														</div>
 													</div>
 												</div>

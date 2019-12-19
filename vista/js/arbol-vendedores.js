@@ -95,6 +95,7 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
 	$("#periodoArbVen").val($(this).attr("periodo"));
 	$("#codComiArbVen").val($(this).attr("codcomisionista"));
 	$("#dscComiArbVen").val($(this).attr("dsccomisionista"));
+	var vendedor = $(this).attr("codTrabajador");
 	var supervisor = $(this).attr("codsup");
 	$("#codSupVenArbVen").val(supervisor);
 	var jefeVentas = $(this).attr("jefeventas");
@@ -123,9 +124,36 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
         url:"ajax/ArbolVenedores.ajax.php",
         method: "POST",
         dataType: 'json',
-        data: {'codTrabajador':supervisor,'accion':'buscaCtto'},
+        data: {'codTrabajador':vendedor,'accion':'buscaCtto'},
         success: function(respuesta){
         	console.log(respuesta);
+        	var estatus = '';
+        	var fecha = '';
+        	$.each(respuesta,function(index,value){
+            	if(index == 0){
+                    classCtto = 'liListaKqPstImpar';
+                }else if(index%2 == 0){
+                    classCtto = 'liListaKqPstImpar';
+                }else{
+                    classCtto = 'liListaKqPstPar';
+                }
+                if(value['flg_activo'] == 'SI'){
+                	estatus = 'Activado'
+                	fecha = value['fch_activacion'];
+                }
+            	$("#listaCttos").append(
+                    '<li class="nav-item '+classCtto+' itemLista">'+
+                        '<a href="#" class="btnVerCtto"  codCtto="'+value['cod_contrato']+'">'+
+                        	'<div class="row">'+
+								'<div class="col-md-3">'+value['dsc_localidad']+'</div>'+
+								'<div class="col-md-3" style="color:blue">'+value['cod_contrato']+'</div>'+
+								'<div class="col-md-2">'+value['cod_tipo_necesidad']+'</div>'+
+								'<div class="col-md-2">'+estatus+'</div>'+
+								'<div class="col-md-2">'+fecha+'</div>'+
+							'</div>'+
+                        '</a>'+
+                    '</li>'
+                 );//append
         }//succes
     });//ajax
 

@@ -16,6 +16,10 @@ class AjaxArbolVen{
 		$respuesta = ControladorArbolVen::ctrNombreTrabajador();
 		echo json_encode($respuesta);
 	}//function ajaxNombreTrabajador
+	public function ajaxBuscarCtto(){
+		$respuesta = ControladorArbolVen::ctrBuscarCtto();
+		echo json_encode($respuesta);
+	}//function ajaxBuscarCtto
 }//class AjaxArbolVen
 /*=============================================
 ACCIONES
@@ -32,7 +36,7 @@ else if(isset($_POST["accion"]) && $_POST["accion"] == 'nombreTrabajador'){
 	$cliente = new AjaxArbolVen();
 	$cliente -> ajaxNombreTrabajador();
 }
-else if(isset($_POST["accion"]) && $_POST["accion"] == 'nombreTrabajador'){
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'buscaCtto'){
 	$cliente = new AjaxArbolVen();
-	$cliente -> ajaxNombreTrabajador();
+	$cliente -> ajaxBuscarCtto();
 }
