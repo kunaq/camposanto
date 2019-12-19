@@ -169,7 +169,7 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
             	$("#listaCttos").append(
                     '<li class="nav-item '+classCtto+' itemLista">'+
                         '<a href="seguimientoContrato?codCtto='+value['cod_contrato']+'" class="btnVerCtto" codCtto="'+value['cod_contrato']+'">'+
-                        	'<div class="row">'+
+                        	'<div class="row" style="color:black">'+
 								'<div class="col-md-3">'+value['dsc_localidad']+'</div>'+
 								'<div class="col-md-3" style="color:blue">'+value['cod_contrato']+'</div>'+
 								'<div class="col-md-1">'+value['cod_tipo_necesidad']+'</div>'+
