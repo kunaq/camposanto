@@ -168,7 +168,7 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
                 }
             	$("#listaCttos").append(
                     '<li class="nav-item '+classCtto+' itemLista">'+
-                        '<a href="#" class="btnVerCtto"  codCtto="'+value['cod_contrato']+'">'+
+                        '<a href="seguimientoContrato?'+value['cod_contrato']+'" class="btnVerCtto" codCtto="'+value['cod_contrato']+'">'+
                         	'<div class="row">'+
 								'<div class="col-md-3">'+value['dsc_localidad']+'</div>'+
 								'<div class="col-md-3" style="color:blue">'+value['cod_contrato']+'</div>'+
@@ -184,3 +184,4 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
     });//ajax
 
 });
+
