@@ -217,7 +217,7 @@
 																	<div class="row" style="color: black">
 																		<div class="col-md-3"><b>Localidad</b></div>
 																		<div class="col-md-3"><b>contrato</b></div>
-																		<div class="col-md-2"><b>T. N.</b></div>
+																		<div class="col-md-1"><b>T. N.</b></div>
 																		<div class="col-md-2"><b>Estado</b></div>
 																		<div class="col-md-2"><b>Fecha</b></div>
 																	</div>
