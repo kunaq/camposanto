@@ -143,7 +143,7 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
                 }
                 if(value['flg_activado'] == 'SI'){
                 	estatus = 'Activado'              
-               		if(value['fch_activacion'] == null){
+               		if(value['fch_activacion'] == null || ''){
                			fecha = '';
                		}else{
 		                fecha = value['fch_activacion'];
@@ -151,7 +151,7 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
                 }
                 if(value['flg_emitido'] == 'SI'){
                 	estatus = 'Emitido'
-                	if(value['fch_emision'] == null){
+                	if(value['fch_emision'] == null || ''){
                			fecha = '';
                		}else{
 		                fecha = value['fch_emision'];
@@ -159,7 +159,7 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
                 }
                 if(value['flg_resuelto'] == 'SI'){
                 	estatus = 'Resuelto'
-                	if(value['fch_resolucion'] == null){
+                	if(value['fch_resolucion'] == null || ''){
                			fecha = '';
                		}else{
 		                fecha = value['fch_resolucion'];
