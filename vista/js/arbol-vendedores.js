@@ -151,7 +151,7 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
 	                  aux_mes = '12';
 	                  aux_anio = fecha.getFullYear()-1;
 	                }               
-	               var lda_vencimiento = aux_mes+'/'+aux_dia+'/'+aux_anio;
+	               fecha = aux_mes+'/'+aux_dia+'/'+aux_anio;
                 }
                 if(value['flg_emitido'] == 'SI'){
                 	estatus = 'Emitido'
