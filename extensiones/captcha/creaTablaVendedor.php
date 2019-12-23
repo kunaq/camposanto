@@ -66,7 +66,7 @@ require_once "../../modelo/conexion.php";
                 '.$key['cod_trabajador'].'
             </td>
             <td>
-                '.$key['dsc_nombres'].' '.$key['dsc_apellido_paterno'].' '.$key['dsc_apellido_materno'].'
+                '.utf8_encode($key['dsc_nombres']).' '.utf8_encode($key['dsc_apellido_paterno']).' '.utf8_encode($key['dsc_apellido_materno']).'
             </td>
             <td>
                 '.$tipoDoc.'
