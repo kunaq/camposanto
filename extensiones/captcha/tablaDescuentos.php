@@ -4,7 +4,14 @@ require_once "../../modelo/conexion.php";
 
  $db = new Conexion();                                             
 
-            $sql = $db->consulta("SELECT vtama_tipo_descuento.cod_tipo_descuento, vtama_tipo_descuento.dsc_tipo_descuento, vtama_tipo_descuento.flg_precio_libre, vtama_tipo_descuento.flg_periodo_carencia FROM vtama_tipo_descuento INNER JOIN vtade_tipo_descuento ON vtama_tipo_descuento.cod_tipo_descuento = vtade_tipo_descuento.cod_tipo_descuento WHERE flg_activo = 'SI' AND vtade_tipo_descuento.fch_inicio <= CONVERT(DATE,'13/10/2019 00:00:00.000',21) AND  vtade_tipo_descuento.fch_fin >= CONVERT(DATE,'13/06/2019 00:00:00.000',21)");
+            $sql = $db->consulta("SELECT vtama_tipo_descuento.cod_tipo_descuento, vtama_tipo_descuento.dsc_tipo_descuento, vtama_tipo_descuento.flg_precio_libre, vtama_tipo_descuento.flg_periodo_carencia
+              FROM vtama_tipo_descuento 
+              inner join vtade_tipo_descuento
+              ON vtama_tipo_descuento.cod_tipo_descuento = vtade_tipo_descuento.cod_tipo_descuento 
+              WHERE flg_activo = 'SI' 
+              AND vtade_tipo_descuento.fch_inicio <= CONVERT(DATE, '13/10/2019',21)
+              AND  vtade_tipo_descuento.fch_fin >= CONVERT(DATE, '13/06/2019',21)");
+
                 $datos = array();
                 //$datos = '';
                 echo'
@@ -20,9 +27,9 @@ require_once "../../modelo/conexion.php";
                         </tr>
                       </thead>
                       <tbody>';
+
                 while($key = $db->recorrer($sql))
                 {
-                   $datos[] =  $key;
                    $cod = "'".$key['cod_tipo_descuento']."'";
                    $carencia = "'".$key['flg_periodo_carencia']."'";
                    $nombre = "'".$key['dsc_tipo_descuento']."'";
@@ -50,7 +57,8 @@ require_once "../../modelo/conexion.php";
                             </button>
                         </td>
                     </tr>';
-                }      
+                }        
+
                 echo "
                       </tbody>
                 </table>
