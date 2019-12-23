@@ -1324,8 +1324,8 @@ function eliminaServicio(id){
     });
     document.getElementsByClassName("totalEndoso")[0].innerHTML = tot;
     var container1 = document.querySelector('#bodyCobertura');
-    cdocument.getElementById("endoso1").value = tot;
-    ontainer1.querySelectorAll('tr').forEach(function (chek) {
+    document.getElementById("endoso1").value = tot;
+    container1.querySelectorAll('tr').forEach(function (chek) {
         $(chek).remove();
     });
     $("#numCuotas").val('').trigger('change');
