@@ -27,7 +27,7 @@ require_once "../../modelo/conexion.php";
         echo "SELECT  vtade_tipo_descuento.imp_valor, vtade_tipo_descuento.flg_tasa
          FROM vtade_tipo_descuento WHERE vtade_tipo_descuento.cod_tipo_descuento = '$cod' 
          AND  vtade_tipo_descuento.fch_inicio <= GETDATE()
-         AND  vtade_tipo_descuento.fch_fin >= GETDATE()"
+         AND  vtade_tipo_descuento.fch_fin >= GETDATE()";
        // var_dump($db->recorrer($sql));
         $datos = array();
         if(($key = $db->recorrer($sql)) != NULL){ 
