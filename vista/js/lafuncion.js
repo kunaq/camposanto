@@ -22,7 +22,7 @@ function cambiaTodo()
   var lde_cuoi_m = 0.00; 
   var lde_afecto_dscto = 0.00; 
   var lde_afecto = 0.00;
-  var ide_tc = document.getElementById('tc').value;                    
+  var ide_tc = document.getElementById('tipoCamb').value;                    
   var is_flg_generacion_ee = 'SI';   
   var is_endoso_cuoi = 'NO';         
   var gde_igv = 0.18;    
@@ -656,7 +656,7 @@ function cambiaTodo()
 
 function cambiaCUI(){
 
-var ide_tc = document.getElementById('tc').value; 
+var ide_tc = document.getElementById('tipoCamb').value; 
 var lde_cuoi = document.getElementById('importeCUI').value;
 lde_cuoi = pasaAnumero(lde_cuoi);
 var lde_cuoi_m = 0.00;
