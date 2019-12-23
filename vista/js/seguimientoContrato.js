@@ -27,5 +27,5 @@ init();
 function getParameterByName(name) {
     var query = window.location.search.substring(1);
     var pair = query.split("=");
-    alert(pair[1];
+    console.log(pair[1]);
 }

@@ -925,7 +925,7 @@
 													</label>
 												</div>
 												<div class="col-lg-4">
-													<input type="text" class="form-control form-control-sm m-input" name="dscPropietario" id="dscPropietario">
+													<input type="text" class="form-control form-control-sm m-input" name="" id="">
 												</div>
 											</div>
 										</div>
