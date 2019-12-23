@@ -16,7 +16,7 @@ require_once "../../modelo/conexion.php";
 
 		$sql2 = $db->consulta("SELECT cod_trabajador, cod_grupo, cod_supervisor, cod_jefeventas FROM vtama_historico_vendedor WHERE cod_trabajador = '$codTrabajador' AND num_anno='$num_anno' AND cod_tipo_periodo = '$tipoPeriodo' AND cod_periodo='$periodo';");
 
-		if ($rows = $db->row($sql2)){
+		if ($rows = $db->rows($sql2)){
 
 			$code = "1";
 
