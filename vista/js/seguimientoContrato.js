@@ -25,11 +25,11 @@ function init(){
 init();
 
 function getParameterByName(name) {
-	alert('llego');
+	alert(name);
     var query = window.location.search.substring(1);
     var pair = query.split("=");
     console.log(pair[1]);
-    document.getElementById("dscLocSegCtt").value(pair[1]);
+    $("#numCttSegCtt").val(pair[1]);
 }
 
 getParameterByName('codCtto');
