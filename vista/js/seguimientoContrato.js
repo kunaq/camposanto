@@ -24,12 +24,20 @@ function init(){
 
 init();
 
-function getParameterByName(name) {
-	alert(name);
+function getParameterByName() {
     var query = window.location.search.substring(1);
     var pair = query.split("=");
     console.log(pair[1]);
     $("#numCttSegCtt").val(pair[1]);
+    $.ajax({
+        url:"ajax/segCtto.ajax.php",
+        method: "POST",
+        dataType: 'json',
+        data: {'codCtto':pair[1],'accion':'cargaDatosCtto'},
+        success: function(respuesta){
+        	console.log('respuesta',respuesta);
+        }//succes
+    });//ajax
 }
 
-getParameterByName('codCtto');
+getParameterByName();
