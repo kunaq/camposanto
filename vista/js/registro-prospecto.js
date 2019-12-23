@@ -1,32 +1,23 @@
-$("#numDocRegPro").number(true);
-$("#tabRegConRegPro").DataTable({
-  "searching": false,
-  "info": false,
-  "paging":   false,
-  "ordering": false,
- });
+// $("#importe").number(true);
 
-function DocLenghtBusq(tipo){
-    if (tipo == "DI001") {
-      document.getElementById("numDocRegPro").setAttribute('maxlength',8);
-      document.getElementById("dscCliRegPro").innerHTML = 'Nombres';
-    }else if(tipo == "DI002"){
-      document.getElementById("numDocRegPro").setAttribute('maxlength',12);
-      document.getElementById("dscCliRegPro").innerHTML = 'Nombres';
-    }else if(tipo == "DI003"){
-      document.getElementById("numDocRegPro").setAttribute('maxlength',12);
-      document.getElementById("dscCliRegPro").innerHTML = 'Nombres';
-    }else if(tipo == "DI004"){
-      document.getElementById("numDocRegPro").setAttribute('maxlength',11);
-      document.getElementById("dscCliRegPro").innerHTML = 'Razón social';
-    }else if(tipo == "DI005"){
-      $("#numDocRegPro").removeAttr("maxlength");
-      document.getElementById("dscCliRegPro").innerHTML = 'Nombres';
+$("#importe").on({
+    "focus": function (event) {
+        $(event.target).select();
+    },
+    "keyup": function (event) {
+        $(event.target).val(function (index, value ) {
+            return value.replace(/\D/g, "")
+                        .replace(/([0-9])([0-9]{2})$/, '$1,$2')
+                        .replace(/\B(?=(\d{3})+(?!\d)\.?)/g, ".");
+        });
     }
-}
+});
 
-$("#edoGesRegPro").change(function(){
-	if (this.value == "CIE") {
+$('#divRazonSocial').hide();
+
+
+$("#estado").change(function(){
+	if (this.value == "VTA") {
 		$("#cttoRegPro").attr('hidden',false);
 	}
 	else if(this.value == "CAD"){
@@ -43,10 +34,22 @@ $("#edoGesRegPro").change(function(){
 	}
 });
 
-function obtenerDatosProspecto(){
-  console.log("asd");
+function verificarRegistro(){
   var codPro = document.getElementById("codProspecto").value;
-  console.log(codPro);
+  if (codPro == "") {
+    document.getElementById('importe').value = "0,00";
+    document.getElementById('numDias').value = 0;
+    $('#btnEditar').hide();
+  }else{
+    obtenerDatosProspecto();
+    tablaContactos();
+    $('#btnNuevo').hide();
+  }
+}
+
+function obtenerDatosProspecto(){
+  var codPro = document.getElementById("codProspecto").value;
+  
   $.ajax({
         type:'POST',
         url: 'extensiones/captcha/ObtieneDatosProspecto.php',
@@ -54,27 +57,399 @@ function obtenerDatosProspecto(){
         data: {'codPro':codPro},
         success : function(response){
             var info = JSON.parse(response);
-            console.log("success");
-            console.log(info);
+            buscaDepartamento(info.pais);
+            buscaProvincia(info.departamento);
+            buscaDistrito(info.provincia);
+            document.getElementById('importe').value = info.importe;
             document.getElementById('tipoDocRegPro').value = info.tipoDoc;
+            DocLenghtProspecto(info.tipoDoc);
             document.getElementById('numDocRegPro').value = info.numDoc;
             document.getElementById('apePaterno').value = info.apePaterno;
             document.getElementById('apeMaterno').value = info.apeMaterno;
             document.getElementById('nombre').value = info.nombre;
             document.getElementById('direccion').value = info.direccion;
             document.getElementById('pais').value = info.pais;
-            document.getElementById('departamento').value = info.departamento;
-            document.getElementById('provincia').value = info.provincia;
-            document.getElementById('distrito').value = info.distrito;
+            document.getElementById('canalVenta').value = info.canalVenta;
+            $('#canalVenta').change();
             document.getElementById('telefono1').value = info.telefono1;
             document.getElementById('telefono2').value = info.telefono2;
             document.getElementById('fechaReg').value = info.fechReg;
             document.getElementById('usuario').value = info.usuario;
+            document.getElementById('codVendedor').value = info.codVendedor;
+            $('#codVendedor').change();
+            document.getElementById('codGrupo').value = info.codGrupo;
+            $('#codGrupo').change();
+            document.getElementById('codSupervisor').value = info.codSuper;
+            $('#codSupervisor').change();
+            document.getElementById('codJefeVentas').value = info.codjefe;
+            $('#codJefeVentas').change();
+            document.getElementById('numDias').value = info.numDias;
+            document.getElementById('calificacion').value = info.calificacion;
+            $('#calificacion').change();
+            document.getElementById('observacion').value = info.observacion;
+            document.getElementById('estado').value = info.estado;
+            if (info.estado == 'VTA') {
+              $('#estado').change();
+              document.getElementById('localidadRegPro').value = info.localidad;
+              document.getElementById('codCttRegPro').value = info.contrato;
+              document.getElementById('numServRegPro').value = info.servicio;
+              document.getElementById('tipoCttRegPro').value = info.tipoCtt;
+            }
             if (info.juridico == "SI") {
               $('#juridico').prop("checked", true);
             }
+            setTimeout(function(){ document.getElementById('departamento').value = info.departamento; }, 3000);
+            setTimeout(function(){ document.getElementById('provincia').value = info.provincia; }, 4000);
+            setTimeout(function(){ document.getElementById('distrito').value = info.distrito; }, 5000);
          }
     });
 }
 
-obtenerDatosProspecto();
+function buscaDepartamento(valor){
+    $.ajax({
+        type: 'GET',
+        url: 'extensiones/captcha/buscaDepartamento.php',
+        dataType: 'text',
+        data: { 'value' : valor },
+        success : function(respuesta){
+            $("#departamento").html(respuesta);
+        }
+    });
+}
+
+function buscaProvincia(valor){
+    $.ajax({
+        type: 'GET',
+        url: 'extensiones/captcha/buscaProvincia.php',
+        dataType: 'text',
+        data: { 'value' : valor },
+        success : function(respuesta){
+            $("#provincia").html(respuesta);
+        }
+    });
+}
+
+function buscaDistrito(valor){
+    $.ajax({
+        type: 'GET',
+        url: 'extensiones/captcha/buscaDistrito.php',
+        dataType: 'text',
+        data: { 'value' : valor },
+        success : function(respuesta){
+            $("#distrito").html(respuesta);
+        }
+    });
+}
+
+function esJuridica(){
+  var juridicocheck = document.getElementById('juridico');
+  if (juridicocheck.checked != true){
+    document.getElementById('tipoDocRegPro').value = "vacio";
+    $('#divRazonSocial').hide();
+    $('#divNombre').show();
+    $('#apePaterno').prop('disabled', false);
+    $('#apePaterno').val('');
+    $('#apeMaterno').prop('disabled', false);
+    $('#apeMaterno').val('');
+    $('#nombre').prop('disabled', false);
+    $('#nombre').val('');
+  }else{
+    $('#tipoDocRegPro').prop('disabled', true);
+    $('#apePaterno').val('');
+    $('#apeMaterno').val('');
+    $('#divNombre').hide();
+    $('#divRazonSocial').show();
+    $('#razonSocial').prop('disabled', false);
+    $('#razonSocial').val('');
+    $('#apePaterno').prop('disabled', true);
+    $('#apeMaterno').prop('disabled', true);
+    $('#nombre').prop('disabled', true);
+    document.getElementById('tipoDocRegPro').value = "DI004";
+    $('#tipoDocRegPro').change();
+  }
+}
+
+// -------------------- Funcion para ingresar solo numeros  -------------------- //
+function justNumbers(e){
+  var keynum = window.event ? window.event.keyCode : e.which;
+  if ((keynum == 8) || (keynum == 46))
+  return true;
+  return /\d/.test(String.fromCharCode(keynum));
+}
+
+function buscarVendedor(cod){
+  if (cod == "") {
+    document.getElementById('dscVendedor').value = "";
+  }else{
+    $.ajax({
+        type: 'POST',
+        url: 'extensiones/captcha/buscarNombreTrabajador.php',
+        dataType: 'text',
+        data: { 'cod' : cod },
+        success : function(respuesta){
+            document.getElementById('dscVendedor').value = respuesta;
+        }
+    });
+  }
+}
+
+function buscarGrupo(cod){
+  $.ajax({
+        type: 'POST',
+        url: 'extensiones/captcha/buscarNombreGrupo.php',
+        dataType: 'text',
+        data: { 'cod' : cod },
+        success : function(respuesta){
+            document.getElementById('dscGrupo').value = respuesta;
+        }
+    });
+}
+
+function buscarSupervisor(cod){
+  $.ajax({
+        type: 'POST',
+        url: 'extensiones/captcha/buscarNombreTrabajador.php',
+        dataType: 'text',
+        data: { 'cod' : cod },
+        success : function(respuesta){
+            document.getElementById('dscSupervisor').value = respuesta;
+        }
+    });
+}
+
+function buscarJefeVentas(cod){
+  $.ajax({
+        type: 'POST',
+        url: 'extensiones/captcha/buscarNombreTrabajador.php',
+        dataType: 'text',
+        data: { 'cod' : cod },
+        success : function(respuesta){
+            document.getElementById('dscJefeVentas').value = respuesta;
+        }
+    });
+}
+
+function DocLenghtProspecto(tipo){
+    if (tipo == "DI001") {
+      $('#numDocRegPro').val('');
+      document.getElementById("numDocRegPro").setAttribute('maxlength',8);
+      document.getElementById("numDocRegPro").setAttribute('onkeypress',"return justNumbers(event);");
+    }else if(tipo == "DI002"){
+      $('#numDocRegPro').val('');
+      document.getElementById("numDocRegPro").setAttribute('maxlength',12);
+      $("#numDocRegPro").removeAttr("onkeypress");
+    }else if(tipo == "DI003"){
+      $('#numDocRegPro').val('');
+      document.getElementById("numDocRegPro").setAttribute('maxlength',12);
+      $("#numDocRegPro").removeAttr("onkeypress");
+    }else if(tipo == "DI004"){
+      $('#numDocRegPro').val('');
+      document.getElementById("numDocRegPro").setAttribute('maxlength',11)
+      document.getElementById("numDocRegPro").setAttribute('onkeypress',"return justNumbers(event);");
+    }else if(tipo == "DI005"){
+      $('#numDocRegPro').val('');
+      $("#numDocRegPro").removeAttr("maxlength");
+      $("#numDocRegPro").removeAttr("onkeypress");
+    }
+}
+
+function creaTablaVendedor(){
+    if ($('#myTableVendedor').length) {
+        $('#myTableVendedor').DataTable();
+    }
+    else{
+        $('#tablaVendedor').html('<div class="loader"></div>');
+        $.ajax({
+            url: 'extensiones/captcha/creaTablaVendedor.php',
+            success : function(respuesta){
+                $('#tablaVendedor').html('')
+                $("#tablaVendedor").html(respuesta);
+                $('#myTableVendedor').DataTable();
+            }
+        });
+    }
+}
+
+function cambiaCodigo(cod){
+    $.ajax({
+        type:'POST',
+        url: 'extensiones/captcha/buscaHistoricoActual.php',
+        dataType: 'text',
+        data: {'cod':cod},
+        success : function(response){
+            var info = JSON.parse(response);
+            
+            if (info.code == '0') {
+              swal({
+                  type: "warning",
+                  title: info.msg,
+                  showConfirmButton: true,
+                confirmButtonText: "Cerrar"
+              })
+            }
+
+            if (info.code == '1') {
+              document.getElementById('codVendedor').value = cod;
+              $('#codVendedor').change();
+              document.getElementById('codGrupo').value = info.codGrupo;
+              $('#codGrupo').change();
+              document.getElementById('codSupervisor').value = info.codSupervisor;
+              $('#codSupervisor').change();
+              document.getElementById('codJefeVentas').value = info.codJefeVentas;
+              $('#codJefeVentas').change();
+            }
+
+         }
+    });
+}
+
+function tablaContactos(){
+  var codPro = document.getElementById("codProspecto").value;
+  $.ajax({
+        type:'POST',
+        url: 'extensiones/funciones/creaTablaContactosProspecto.php',
+        dataType: 'text',
+        data: {'cod':codPro},
+        success : function(response){
+          $("#tabBodyRegPro").html(response);
+            // var info = JSON.parse(response);
+            // $("#tabRegConRegPro").DataTable({
+            //   "searching": false,
+            //   "info": false,
+            //   "paging":   false,
+            //   "ordering": false,
+            //  });
+         }
+    });
+}
+
+function obtenerValores(){
+  //gets table
+  var oTable = document.getElementById('tabBodyRegPro');
+  var vendedor = document.getElementById("codVendedor").value;
+
+  //gets rows of table
+  var rowLength = oTable.rows.length;
+  if (rowLength == 0) {
+
+      var filaNueva = 1;
+
+      $.ajax({
+            type:'POST',
+            url: 'extensiones/funciones/creaFilaContacto.php',
+            dataType: 'text',
+            data: {'fila':filaNueva, 'vendedor':vendedor},
+            success : function(response){
+              document.getElementById("tabBodyRegPro").insertAdjacentHTML("beforeEnd" ,response);
+             }
+        });
+  }else{
+    for (i = 0; i < rowLength; i++){
+       //gets cells of current row
+       var oCells = oTable.rows.item(i).cells;
+
+       //gets amount of cells of current row
+       var cellLength = oCells.length;
+
+       //loops through each cell in current row
+       for(var j = 0; j < cellLength; j++){
+          /* get your cell info here */
+           var cellVal = oCells.item(0).innerHTML;
+       }
+    }
+      //loops through rows    
+      var cellValL = cellVal.trim();
+      var filaNueva = parseInt(cellValL) + parseInt(1);
+
+      $.ajax({
+            type:'POST',
+            url: 'extensiones/funciones/creaFilaContacto.php',
+            dataType: 'text',
+            data: {'fila':filaNueva, 'vendedor':vendedor},
+            success : function(response){
+              document.getElementById("tabBodyRegPro").insertAdjacentHTML("beforeEnd" ,response);
+             }
+        });
+  }
+  
+}
+
+function verDetalles(evt) {
+  var target = evt.srcElement ? evt.srcElement : evt.target;
+  var x = target.className;
+  // var respuesta = document.getElementById("registro_"+x).value;
+  boton = document.getElementById("btnEliminarFila");
+  boton.addEventListener("click", function(){borrarFila(x)}, false);
+}
+
+function borrarFila(id){
+  document.getElementById(id).remove();
+}
+
+
+function registrarProspecto(){
+  //Datos vtaca_prospecto_venta
+  var importe = document.getElementById("importe").value;
+  var tipoDoc = document.getElementById("tipoDocRegPro").value;
+  var numDoc = document.getElementById("numDocRegPro").value;
+  var juridico = document.getElementById('juridico');
+  if (juridico.checked != true){
+    var jur = "NO";
+  }else{
+    var jur = "SI";
+  }
+  var apePaterno = document.getElementById("apePaterno").value;
+  var apeMaterno = document.getElementById("apeMaterno").value;
+  var razonSocial = document.getElementById("razonSocial").value;
+  var direccion = document.getElementById("direccion").value;
+  var pais = document.getElementById("pais").value;
+  var departamento = document.getElementById("departamento").value;
+  var provincia = document.getElementById("provincia").value;
+  var distrito = document.getElementById("distrito").value;
+  var telefono1 = document.getElementById("telefono1").value;
+  var telefono2 = document.getElementById("telefono2").value;
+  var fchRegistro = document.getElementById("fechaReg").value;
+  var usuario = document.getElementById("usuario").value;
+  var origen = document.getElementById("canalVenta").value;
+  var calificacion = document.getElementById("calificacion").value;
+  var vendedor = document.getElementById("codVendedor").value;
+  var grupo = document.getElementById("codGrupo").value;
+  var supervisor = document.getElementById("codSupervisor").value;
+  var jefeVentas = document.getElementById("codJefeVentas").value;
+  var observacion = document.getElementById("observacion").value;
+  var estado = document.getElementById("estado").value;
+
+
+//-------------------------- Datos vtade_prospecto_venta-----------------------------//
+
+  var oTable = document.getElementById('tabBodyRegPro');
+  var vendedor = document.getElementById("codVendedor").value;
+
+  //gets rows of table
+  var rowLength = oTable.rows.length;
+  if (rowLength == 0) {
+  }else{
+    for (i = 0; i < rowLength; i++){
+       //gets cells of current row
+      var oCells = oTable.rows.item(i).cells;
+       //gets amount of cells of current row
+      var cellLength = oCells.length;
+      var fila = oCells.item(0).innerHTML.trim();
+      var fchCon = oCells.item(1).innerHTML.trim();
+      var cal = document.getElementById("calificacion-"+fila).value;
+      var cierre = document.getElementById("cierre-"+fila);
+      if (cierre.checked != true){
+        var cie = "NO";
+      }else{
+        var cie = "SI";
+      }
+      var consejero = document.getElementById("consejero-"+fila).value;
+      var indicador = document.getElementById("indicador-"+fila).value;
+      var observacion = document.getElementById("observacion-"+fila).value;
+      var jsonContacto = "{'num_linea':"+fila+", 'fchContacto':"+fchCon+", 'calificacion':"+cal+",'presentacion':"+cie+", 'consejero':"+consejero+", 'observacion':"+observacion+", 'indicador'="+indicador+", 'usuario':"+usuario+"}";
+      console.log(jsonContacto);
+    }
+  }
+}
+
+verificarRegistro();

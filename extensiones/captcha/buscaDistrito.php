@@ -4,7 +4,7 @@ require_once "../../modelo/conexion.php";
    //var_dump($cod);
     $db = new Conexion();                                             
 
-       	$sql = $db->consulta("SELECT cod_provincia, dsc_distrito  FROM vtama_distrito where cod_provincia = '$cod'");
+       	$sql = $db->consulta("SELECT cod_distrito, dsc_distrito  FROM vtama_distrito where cod_provincia = '$cod'");
 
         $datos = array();
          echo "<option value = 0>Seleccione</option>";
