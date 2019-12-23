@@ -12,7 +12,7 @@
 					</span>
 				</button>
 			</div>
-			<div class="modal-body" id="tablaServiciosadic">			
+			<div class="modal-body" id="tablaServiciosadic" style="min-height: 50px;">			
 			</div>
 			<div class="modal-footer">
 			</div>
