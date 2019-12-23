@@ -235,7 +235,7 @@ if (isset($_POST['variable1'])) {
 								<div class="row">
 									<div class="col-lg-12">
 										<label>Usuario</label>
-										<input type="text" class="form-control form-control-sm m-input" disabled id="usuario" value="<?php echo $_SESSION['nombre'] ?>" />
+										<input type="text" class="form-control form-control-sm m-input" disabled id="usuario" value="<?php echo $_SESSION['user'] ?>" />
 									</div>
 								</div>								
 							</fieldset>

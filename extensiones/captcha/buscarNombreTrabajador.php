@@ -7,7 +7,7 @@ require_once "../../modelo/conexion.php";
 
        	$sql = $db->consulta("SELECT (rhuma_trabajador.dsc_apellido_paterno  + ' ' + rhuma_trabajador.dsc_apellido_materno + ', ' + rhuma_trabajador.dsc_nombres) AS dsc_trabajador FROM rhuma_trabajador WHERE rhuma_trabajador.cod_trabajador = '$codTrabajador';");
 
-       	if ($rows = $db->row($sql)){
+       	if ($rows = $db->rows($sql)){
        		while($key = $db->recorrer($sql)){
 				$dsc_trabajador = $key['dsc_trabajador'];
 			} 
