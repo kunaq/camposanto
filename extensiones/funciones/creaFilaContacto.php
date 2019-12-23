@@ -43,9 +43,10 @@ function listarTrabajadores($cod){
                         '.$numfila.'
                     </td>
                     <td class="'.$numfila.'">
-                        '.date('d-m-Y',strtotime(date('m/d/Y'))).'
+                        '.date('d/m/Y h:i:s',strtotime(date('m/d/Y h:i:s'))).'
                     </td>
                     <td class="'.$numfila.'">
+                        <input type="hidden" value="insert" id="tipo-'.$numfila.'"/>
                         <select class="form-control form-control-sm" id="calificacion-'.$numfila.'">
                         '.listarCalificacion().'
                         </select>

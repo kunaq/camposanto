@@ -66,7 +66,8 @@ $sql = $db->consulta("SELECT cod_prospecto, num_linea, fch_contacto, cod_calific
                         '.$fchContacto.'
                     </td>
                     <td class="'.$linea.'">
-                        <select class="form-control form-control-sm">
+                        <input type="hidden" value="update" id="tipo-'.$linea.'"/>
+                        <select class="form-control form-control-sm" id="calificacion-'.$linea.'">
                         '.listarCalificacion($calificacion).'
                         </select>
                     </td>
@@ -75,14 +76,14 @@ $sql = $db->consulta("SELECT cod_prospecto, num_linea, fch_contacto, cod_calific
                     if ($presentacion == "SI") {
                         $tabla .= '<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
                             <label>
-                                <input type="checkbox" checked="checked" name="">
+                                <input type="checkbox" checked="checked" id="cierre-'.$linea.'">
                                 <span></span>
                             </label>
                         </span>';
                     }elseif ($presentacion == "NO") {
                         $tabla .= '<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
                             <label>
-                                <input type="checkbox" name="">
+                                <input type="checkbox" id="cierre-'.$linea.'">
                                 <span></span>
                             </label>
                         </span>';
@@ -90,19 +91,19 @@ $sql = $db->consulta("SELECT cod_prospecto, num_linea, fch_contacto, cod_calific
 
         $tabla .=  '</td>
                     <td class="'.$linea.'">
-                        <select class="form-control form-control-sm">
+                        <select class="form-control form-control-sm" id="consejero-'.$linea.'">
                         '.listarTrabajadores($consejero).'
                         </select>
                     </td>
                     <td class="'.$linea.'">';
 
                     if ($indicador == "1") {
-                        $tabla .= '<select class="form-control form-control-sm" style="width: 200px;">
+                        $tabla .= '<select class="form-control form-control-sm" style="width: 200px;" id="indicador-'.$linea.'">
                             <option value="1" selected>Primera</option>
                             <option value="2">Segunda</option>
                         </select>';
                     }elseif ($indicador == "2") {
-                        $tabla .= '<select class="form-control form-control-sm" style="width: 200px;">
+                        $tabla .= '<select class="form-control form-control-sm" style="width: 200px;" id="indicador-'.$linea.'">
                             <option value="1">Primera</option>
                             <option value="2" selected>Segunda</option>
                         </select>';
@@ -110,7 +111,7 @@ $sql = $db->consulta("SELECT cod_prospecto, num_linea, fch_contacto, cod_calific
                         
         $tabla .='</td>
                     <td class="'.$linea.'">
-                        <textarea class="form-control form-control-sm m-input" rows="1" style="width: 400px;">'.$observaciones.'</textarea>
+                        <textarea class="form-control form-control-sm m-input" rows="1" style="width: 400px;" id="observacion-'.$linea.'">'.$observaciones.'</textarea>
                     </td>
                 </tr>';              
 	 }
