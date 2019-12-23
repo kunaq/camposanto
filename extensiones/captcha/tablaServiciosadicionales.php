@@ -119,7 +119,7 @@ require_once "../../modelo/conexion.php";
                       <thead>
                         <tr>
                           <th class="tdCodigoAddServic" align="left">Codigo</th>
-                          <th class="tdDscAddServic" align="left" width="520">Descripción del servicio</th>
+                          <th class="tdDscAddServic" align="left" style="width:520px;">Descripción del servicio</th>
                           <th class="tdMonAddServic" style="text-align: center;">Moneda</th>
                           <th class="tdPrcAddServic" style="text-align: center;">Precio de venta</th>
                           <th class="tdAccAddServic">Acción</th>
