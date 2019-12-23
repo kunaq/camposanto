@@ -853,7 +853,7 @@
 											</button>
 										</div>
 										<div class="col-lg-12 form-group" style="text-align: center;">
-											<button type="button" class="btn m-btn--pill btnEditarKqPst2" id="botonCrono">
+											<button type="button" class="btn m-btn--pill btnEditarKqPst2" id="botonCronoCui">
 												Generar cronograma CUI
 											</button>
 										</div>
