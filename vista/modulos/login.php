@@ -64,7 +64,7 @@
 							<div class="row">
 								<div class="col-lg-10 offset-lg-1">
 									<div class="form-group m-form__group"  style="padding-top: 0;">
-										<input class="form-control m-input" required type="text" placeholder="Digite el texto de la imagen" name="txtcaptcha" id="txtcaptcha" data-toggle="tooltip" data-placement="right" title="Sensible a mayúsculas y minúsculas." oninput="verificacaptcha(this.value,'<?php echo $_SESSION['captcha']['code'];?>');" style="background-color: #fff; color: #000;" autofocus>
+										<input class="form-control m-input" required type="text" placeholder="Digite el texto de la imagen" name="txtcaptcha" id="txtcaptcha" data-toggle="tooltip" data-placement="right" title="Sensible a mayúsculas y minúsculas." oninput="verificacaptcha(this.value,'<?php echo $_SESSION['captcha']['code'];?>');" style="background-color: #fff; color: #000;" autofocus autocomplete="off">
 									</div>
 								</div>
 								<div class="col-lg-1" id="vercaptcha">
