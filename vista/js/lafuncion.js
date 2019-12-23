@@ -34,6 +34,7 @@ function cambiaTodo()
   container.querySelectorAll('tr').forEach(function (li_i) 
   {            
       var ls_servicio_main = $(li_i).attr("name"); //codigo de servicio
+      console,log(ls_servicio_main);
       lde_derecho = 0;
       /*var container2 = document.querySelector('#bodyIncluidos');    //----servicios incluidos (eliminado)
       if(!container2.querySelectorAll('tr'))
@@ -93,9 +94,7 @@ function cambiaTodo()
       }
 
       var suma = lde_precio_venta_aux + lde_derecho;
-      var precio_venta_1tabla = "numA_"+ls_servicio_main;
-      console.log(precio_venta_1tabla);
-      document.getElementById(precio_venta_1tabla).value = suma; //precio de venta 1era tabla 
+      document.getElementById("numA_"+ls_servicio_main).value = suma; //precio de venta 1era tabla 
       suma1 = Number(suma).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
       document.getElementById("numA1_"+ls_servicio_main).innerHTML = suma1+"<input type='hidden' value="+suma+" class='form-control form-control-sm m-input numA' id='numA_"+ls_servicio_main+"'>";           
   });
