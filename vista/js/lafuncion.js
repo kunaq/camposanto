@@ -93,7 +93,7 @@ function cambiaTodo()
       }
 
       var suma = lde_precio_venta_aux + lde_derecho;
-      var cprecio_venta_1tabla = "numA_"+ls_servicio_main;
+      var precio_venta_1tabla = "numA_"+ls_servicio_main;
       document.getElementById(precio_venta_1tabla).value = suma; //precio de venta 1era tabla 
       suma1 = Number(suma).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
       document.getElementById("numA1_"+ls_servicio_main).innerHTML = suma1+"<input type='hidden' value="+suma+" class='form-control form-control-sm m-input numA' id='numA_"+ls_servicio_main+"'>";           
