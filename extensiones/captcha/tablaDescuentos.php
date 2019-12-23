@@ -9,8 +9,8 @@ require_once "../../modelo/conexion.php";
               inner join vtade_tipo_descuento
               ON vtama_tipo_descuento.cod_tipo_descuento = vtade_tipo_descuento.cod_tipo_descuento 
               WHERE flg_activo = 'SI' 
-              AND vtade_tipo_descuento.fch_inicio <= CONVERT(DATE, '13/10/2019')
-              AND  vtade_tipo_descuento.fch_fin >= CONVERT(DATE, '13/06/2019')");
+              AND vtade_tipo_descuento.fch_inicio <= CONVERT(DATE, '13/10/2019',21)
+              AND  vtade_tipo_descuento.fch_fin >= CONVERT(DATE, '13/06/2019',21)");
 
                 $datos = array();
                 //$datos = '';
