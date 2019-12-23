@@ -50,7 +50,7 @@ $sql = $db->consulta("SELECT cod_prospecto, num_linea, fch_contacto, cod_calific
         if ($key['fch_contacto'] == NULL) {
             $fchContacto = "-";
         }else{
-            $fchContacto = "-";
+            $fchContacto = dateFormat($key['fch_contacto']);
         }
         $calificacion = $key['cod_calificacion'];
         $presentacion = $key['flg_presentacion'];

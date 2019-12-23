@@ -46,7 +46,7 @@ while($key = $db->recorrer($sql)){
             $fechReg = "-";
         }else{
             // $fechReg = dateFormat($key['fch_registro']);
-            $fechReg = "-";
+            $fechReg = dateFormat($key['fch_registro']);
         }
 
         $usuario = $key['cod_usuario'];
