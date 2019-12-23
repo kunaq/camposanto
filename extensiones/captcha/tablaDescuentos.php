@@ -22,7 +22,6 @@ require_once "../../modelo/conexion.php";
                       <tbody>';
                 while($key = $db->recorrer($sql))
                 {
-                  var_dump($key);
                    $datos[] =  $key;
                    $cod = "'".$key['cod_tipo_descuento']."'";
                    $carencia = "'".$key['flg_periodo_carencia']."'";
