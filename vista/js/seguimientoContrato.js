@@ -31,3 +31,5 @@ function getParameterByName(name) {
     console.log(pair[1]);
     document.getElementById("dscLocSegCtt").value(pair[1]);
 }
+
+getParameterByName('codCtto');
