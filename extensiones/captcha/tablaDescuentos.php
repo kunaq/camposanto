@@ -22,6 +22,7 @@ require_once "../../modelo/conexion.php";
                       <tbody>';
                 while($key = $db->recorrer($sql))
                 {
+                   $datos[] =  $key;
                    $cod = "'".$key['cod_tipo_descuento']."'";
                    $carencia = "'".$key['flg_periodo_carencia']."'";
                    $nombre = "'".$key['dsc_tipo_descuento']."'";
@@ -50,8 +51,6 @@ require_once "../../modelo/conexion.php";
                         </td>
                     </tr>';
                 }      
-                var_dump($key);  
-
                 echo "
                       </tbody>
                 </table>
