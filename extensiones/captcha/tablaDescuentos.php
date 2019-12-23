@@ -50,7 +50,7 @@ require_once "../../modelo/conexion.php";
                         </td>
                     </tr>';
                 }      
-                var_dump($datos);  
+                var_dump($key);  
 
                 echo "
                       </tbody>
