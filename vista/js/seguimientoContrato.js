@@ -28,4 +28,5 @@ function getParameterByName(name) {
     var query = window.location.search.substring(1);
     var pair = query.split("=");
     console.log(pair[1]);
+    document.getElementById("dscLocSegCtt").value(pair[1]);
 }
