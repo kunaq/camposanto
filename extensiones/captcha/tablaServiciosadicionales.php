@@ -113,7 +113,7 @@ require_once "../../modelo/conexion.php";
                 $datos = array();
                 //$datos = '';
                 echo'
-                <div class="m-scrollable table-responsive" data-scrollbar-shown="true" data-scrollable="true" data-max-height="480">
+                <div class="m-scrollable table-responsive" data-scrollbar-shown="true" data-scrollable="true" data-max-height="480" data-min-height="50">
                   <div class="table-responsive">
                     <table id="myTableServicios" cellpadding="0" cellspacing="0" border="0" display="block" >
                       <thead>
