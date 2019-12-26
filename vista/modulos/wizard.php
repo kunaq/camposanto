@@ -631,7 +631,6 @@
 															</tr>
 														</thead>
 														<tbody id="bodyDscto" style="height: 180px;">
-															<tr></tr>
 														</tbody>
 														<tfoot>
 															<tr>

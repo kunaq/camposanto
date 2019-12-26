@@ -34,7 +34,7 @@ function cambiaTodo()
   container.querySelectorAll('tr').forEach(function (li_i) 
   {            
       var ls_servicio_main = $(li_i).attr("name"); //codigo de servicio
-      console.log(container);
+      //console.log(container);
       lde_derecho = 0;
       /*var container2 = document.querySelector('#bodyIncluidos');    //----servicios incluidos (eliminado)
       if(!container2.querySelectorAll('tr'))
