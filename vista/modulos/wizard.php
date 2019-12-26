@@ -533,7 +533,6 @@
 															</tr>
 														</thead>
 														<tbody  id="bodyServicio" style="height: 200px;">
-															<tr></tr>
 														</tbody>
 														<tfoot >
 															<tr>
