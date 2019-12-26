@@ -45,7 +45,6 @@ while($key = $db->recorrer($sql)){
         if ($key['fch_registro'] == NULL) {
             $fechReg = "-";
         }else{
-            // $fechReg = "-";
             $fechReg = dateFormat($key['fch_registro']);
         }
 
