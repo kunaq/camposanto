@@ -96,7 +96,7 @@
 					<div class="form-group row">
 						<div class="col-lg-12 form-group m-form__group">
 							<div class="input-group m-input-icon m-input-icon--left">
-								<input class="form-control m-input" type="password" placeholder="Contraseña actual" id="password_actual" name="password_actual" style="background-color: #fff; color: #000;" required autofocus>
+								<input class="form-control m-input" type="password" placeholder="Contraseña actual" id="password_actual" name="password_actual" style="background-color: #fff; color: #000;" required autofocus autocomplete="off">
 								<span class="m-input-icon__icon m-input-icon__icon--left">
 									<span>
 										<i class="fa fa-lock"></i>
@@ -113,7 +113,7 @@
 					<div class="form-group row">
 						<div class="col-lg-12 form-group m-form__group">
 							<div class="input-group m-input-icon m-input-icon--left">
-								<input class="form-control m-input" type="password" placeholder="Nueva contraseña" id="cambia_password" name="cambia_password" style="background-color: #fff; color: #000;" required autofocus>
+								<input class="form-control m-input" type="password" placeholder="Nueva contraseña" id="cambia_password" name="cambia_password" style="background-color: #fff; color: #000;" required autofocus autocomplete="off">
 								<span class="m-input-icon__icon m-input-icon__icon--left">
 									<span>
 										<i class="fa fa-lock"></i>
@@ -130,7 +130,7 @@
 					<div class="form-group row">
 						<div class="col-lg-12 form-group m-form__group">
 							<div class="input-group m-input-icon m-input-icon--left">
-								<input class="form-control m-input" type="password" placeholder="Repita la contraseña" id="repetir_password" name="repetir_password" style="background-color: #fff; color: #000;" required autofocus>
+								<input class="form-control m-input" type="password" placeholder="Repita la contraseña" id="repetir_password" name="repetir_password" style="background-color: #fff; color: #000;" required autofocus autocomplete="off">
 								<span class="m-input-icon__icon m-input-icon__icon--left">
 									<span>
 										<i class="fa fa-lock"></i>
