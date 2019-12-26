@@ -1332,6 +1332,7 @@ function eliminaServicio(id){
     $("#interes").val('').trigger('change');
     document.getElementById("imp_saldo_foma").value = tot;
     $("#cuota_FOMA").val('').trigger('change');
+    var ldt_fch_ven = $('#m_datepicker_1').datepicker("getDate"); 
     aux_dia = ldt_fch_ven.getDate();
     aux_mes1 = ldt_fch_ven.setMonth(ldt_fch_ven.getMonth() + 1);
     var aux_mes = ldt_fch_ven.getMonth();
