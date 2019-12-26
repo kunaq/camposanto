@@ -1009,7 +1009,7 @@ function callTablaDscto(){
                 type: 'GET',
                 url: 'extensiones/captcha/tablaDescuentos.php',
                 success : function(respuesta){
-                    console.log(respuesta);
+                    //console.log(respuesta);
                     $("#tablaDescuentos").html(respuesta);
                     $('#myTableDscto').DataTable();
                 }
