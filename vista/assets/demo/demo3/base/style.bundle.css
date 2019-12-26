@@ -50691,6 +50691,16 @@ body {
 
 }
 
+.loaderKQ {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: url('../media/img/pageLoadergif');
+    opacity: .8;
+
+}
+
 @keyframes loaderLogo{
     0%{
         transform: rotateY(0deg);
