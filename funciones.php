@@ -7,7 +7,7 @@ function arrayMapUtf8Encode($data){
 	return $data;
 }//function arrayMapUtf8
 function dateFormat($data){
-	return date_format(new DateTime($data), 'd-m-Y');
+	return date_format(new DateTime($data), 'd/m/Y');
 }//function dateFormat
 function escapeComillasJson($data){
 	$data = str_replace('"', '\\"', $data);
