@@ -87,7 +87,7 @@ require_once "../../modelo/conexion.php";
                         ".$checkPor."
                       </td>
                       <td class='tdDsctoFin'>
-                        <input type='text'  id='imp_monto_".$cod."' name='imp_monto_".$cod."' class='form-control m-input numDsctoA' value='".$dscto_final."' disabled style='text-align: right;'>
+                        <input type='text'  id='imp_monto_".$cod."' name='imp_monto_".$cod."' class='form-control m-input numDsctoA' value='".$dscto_final."' disabled style='text-align: right; padding-right:0'>
                       </td>
                       <td class='tdDsctoAcc'>
                         <button class='btn btn-danger m-btn m_sweetalert_elimina_servicio' type='button' data-toggle='m-tooltip' data-container='body' data-placement='top' title='' data-original-title='Eliminar servicio' onclick='eliminaFilaDscto(this.id);' id='eliminaDscto_".$cod."'>

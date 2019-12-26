@@ -652,7 +652,7 @@
 																<td>
 																	&nbsp;
 																</td>
-																<td class="TotalD A">
+																<td class="TotalD A" style="text-align: right;">
 																	0,00
 																</td>
 															</tr>	
