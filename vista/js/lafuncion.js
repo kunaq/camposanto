@@ -533,7 +533,7 @@ function cambiaTodo()
          // -- Carencia -- //
          
          var lde_valor_neto = lde_precio_venta - lde_valor_descuento;
-        console.log('valor neto',lde_valor_neto);
+        console.log('precio venta',lde_precio_venta);
          var lde_carencia = lde_precio_lista - lde_valor_neto;
          console.log('carencia',lde_carencia);
          var valor3 = Number(lde_carencia).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
