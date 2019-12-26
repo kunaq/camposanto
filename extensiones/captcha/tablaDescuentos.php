@@ -26,8 +26,6 @@ require_once "../../modelo/conexion.php";
                         </tr>
                       </thead>
                       <tbody>';
-                      $key = $db->recorrer($sql);
-                      var_dump($key);
                 while($key = $db->recorrer($sql))
                 {
                    $cod = "'".$key['cod_tipo_descuento']."'";
