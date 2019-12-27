@@ -18,7 +18,7 @@ require_once "../../modelo/conexion.php";
 		while($key = $db->recorrer($sql)){
             $datos[] =  $key;
             $impTot = $key['imp_precio_venta']-$key['imp_precio_cuoi'];
-            echo $key['imp_precio_venta'];
+            $pVenta =  $key['imp_precio_venta'];
             /*$ls_flg_libre = $key['flg_sin_precio'];
             $ls_flg_ds = $key['flg_dsepultura'];
             $ls_flg_sf = $key['flg_sfunerario'];
@@ -47,7 +47,7 @@ require_once "../../modelo/conexion.php";
                     <td class='tdCtdServicioAdd ColumnaLetra'>
                     <div class='row'>
                       <div class='col-lg-12'>
-                        <input class='form-control form-control-sm m-input' style='text-align: center; padding-right: 5px;' id='ctd_".$cod."' type='text' name='ctd_".$cod."' placeholder='1' value='1' onchange='multiplica(this.value,".$key['imp_precio_venta'].",this.id);'>
+                        <input class='form-control form-control-sm m-input' style='text-align: center; padding-right: 5px;' id='ctd_".$cod."' type='text' name='ctd_".$cod."' placeholder='1' value='1' onchange='multiplica(this.value,".$pVenta.",this.id);'>
                       </div>
                     </div>
                     </td>
@@ -55,14 +55,14 @@ require_once "../../modelo/conexion.php";
                       ".number_format($key['imp_precio_lista'],2)."<input type='hidden' value=".$key['imp_precio_lista']." class='form-control form-control-sm m-input'  id='lista_".$cod."'>
                     </td>
                     <td class='tdPrecioVentaServicioAdd ColumnaA' id='numA1_".$cod."'>
-                      ".number_format($key['imp_precio_venta'],2)."<input type='hidden' value=".$key['imp_precio_venta']." class='form-control form-control-sm m-input numA' id='numA_".$cod."'>
+                      ".number_format($pVenta,2)."<input type='hidden' value=".$pVenta." class='form-control form-control-sm m-input numA' id='numA_".$cod."'>
                     </td>
                     <td class='tdImpDsctoServicioAdd ColumnaB'>
                       <input class='form-control form-control-sm m-input numB' style='text-align: center; padding-right: 0px;' type='text' id='numB_".$cod."' value='0.00' onchange='totalizar(".$cod1.");'>
                     </td>
                     <td class='tdImpTotalServicioAdd ColumnaC' id='numC_".$cod."'>
-                        ".number_format($key['imp_precio_venta'],2)."
-                        <input type='hidden' value='".$key['imp_precio_venta']."' class='numC' id='numC1_".$cod."'>
+                        ".number_format($pVenta,2)."
+                        <input type='hidden' value='".$pVenta."' class='numC' id='numC1_".$cod."'>
                     </td>
                     <td class='tdFomaServicioAdd ColumnaD'>
                       <input type='text' style=' padding-right: 0px;' value=".number_format($key['imp_precio_foma'],2,'.',',')." class='form-control form-control-sm m-input numD' id='numD_".$cod."'>
