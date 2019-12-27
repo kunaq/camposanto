@@ -202,7 +202,7 @@ function cambiaTodo()
       });             
   }
 
-
+console.log('lde_afecto_dscto1',lde_afecto_dscto);
 
   if(lde_afecto_dscto == null)
   {
@@ -293,13 +293,11 @@ function cambiaTodo()
       var lde_valor = document.getElementById("imp_valor_"+cod).value;
       lde_valor = lde_valor;
       console.log('lde_afecto_dscto',lde_afecto_dscto);
-       console.log('ls_flg_porcentaje',ls_flg_porcentaje);
       if(ls_flg_porcentaje == 'SI')
       {
         //console.log(lde_afecto_dscto);
         lde_valor = (( parseFloat(lde_afecto_dscto) * parseFloat(lde_valor) ) / 100);   //-------Aqui lde_afecto_dscto es 0 siempre!!
       }    
-     console.log('lde_valor',lde_valor);
       // -- Seteo -- //
       
       //tab_1.tp_7.dw_dscto.SetItem(li_i, "imp_monto", lde_valor);
