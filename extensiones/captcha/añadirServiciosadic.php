@@ -56,7 +56,7 @@ require_once "../../modelo/conexion.php";
                       ".number_format($key['imp_precio_lista'],2)."<input type='hidden' value=".$key['imp_precio_lista']." class='form-control form-control-sm m-input'  id='lista_".$cod."'>
                     </td>
                     <td class='tdPrecioVentaServicioAdd ColumnaA' id='numA1_".$cod."'>
-                      ".number_format($pVenta,2)."<input type='hidden' value=".$pVenta." class='form-control form-control-sm m-input numA' id='numA_".$cod."'>
+                      ".$pVenta."<input type='hidden' value=".$pVenta." class='form-control form-control-sm m-input numA' id='numA_".$cod."'>
                     </td>
                     <td class='tdImpDsctoServicioAdd ColumnaB'>
                       <input class='form-control form-control-sm m-input numB' style='text-align: center; padding-right: 0px;' type='text' id='numB_".$cod."' value='0.00' onchange='totalizar(".$cod1.");'>
