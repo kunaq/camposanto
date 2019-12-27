@@ -52,7 +52,7 @@ require_once "../../modelo/conexion.php";
                     </div>
                     </td>
                     <td class='tdPrecioListaServicioAdd'>
-                      ".number_format($key['imp_precio_lista'],2,'.',',')."<input type='hidden' value=".$key['imp_precio_lista']." class='form-control form-control-sm m-input'  id='lista_".$cod."'>
+                      ".number_format($key['imp_precio_lista'],2)."<input type='hidden' value=".$key['imp_precio_lista']." class='form-control form-control-sm m-input'  id='lista_".$cod."'>
                     </td>
                     <td class='tdPrecioVentaServicioAdd ColumnaA' id='numA1_".$cod."'>
                       ".number_format($key['imp_precio_venta'],2,'.',',')."<input type='hidden' value=".$key['imp_precio_venta']." class='form-control form-control-sm m-input numA' id='numA_".$cod."'>
