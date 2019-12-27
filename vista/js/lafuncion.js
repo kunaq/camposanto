@@ -292,7 +292,7 @@ function cambiaTodo()
       //lde_valor = tab_1.tp_7.dw_dscto.GetItemDecimal(li_i, "imp_valor");
       var lde_valor = document.getElementById("imp_valor_"+cod).value;
       lde_valor = lde_valor;
-      console.log('lde_valor',lde_valor);
+      console.log('lde_afecto_dscto',lde_afecto_dscto);
        console.log('ls_flg_porcentaje',ls_flg_porcentaje);
       if(ls_flg_porcentaje == 'SI')
       {
