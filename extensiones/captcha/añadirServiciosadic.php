@@ -18,7 +18,7 @@ require_once "../../modelo/conexion.php";
 		while($key = $db->recorrer($sql)){
             $datos[] =  $key;
             $impTot = $key['imp_precio_venta']-$key['imp_precio_cuoi'];
-            var_dump($key);
+            echo $key['imp_precio_venta'];
             /*$ls_flg_libre = $key['flg_sin_precio'];
             $ls_flg_ds = $key['flg_dsepultura'];
             $ls_flg_sf = $key['flg_sfunerario'];
@@ -78,7 +78,7 @@ require_once "../../modelo/conexion.php";
                       <input class='form-control form-control-sm m-input numG' style='text-align: center; padding-right: 0px;' type='text' id='numG_".$cod."' value='0.00' onchange='totalizar(".$cod1.");'>
                     </td>
                     <td class='tdImpSaldoServicioAdd ColumnaH' id='numH_".$cod."'>
-                      ".number_format($impTot,2,'.',',')." 
+                      ".number_format($impTot,2)." 
                       <input type='hidden' value=".$impTot." class='form-control form-control-sm m-input numH' id='numH1_".$cod."'>
                     </td>
                     <td class='tdAccionServicioAdd'>
