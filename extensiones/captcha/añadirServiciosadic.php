@@ -19,7 +19,7 @@ require_once "../../modelo/conexion.php";
             $datos[] =  $key;
             $impTot = $key['imp_precio_venta']-$key['imp_precio_cuoi'];
             $pVenta =  $key['imp_precio_venta'];
-            echo $pVenta;
+            //echo $pVenta;
             /*$ls_flg_libre = $key['flg_sin_precio'];
             $ls_flg_ds = $key['flg_dsepultura'];
             $ls_flg_sf = $key['flg_sfunerario'];
