@@ -94,7 +94,7 @@ function cambiaTodo()
       }
 
       var suma = parseFloat(lde_precio_venta_aux) + lde_derecho;
-      console.log(suma);
+      //console.log(suma);
       document.getElementById("numA_"+ls_servicio_main).value = suma; //precio de venta 1era tabla 
       suma1 = Number(suma).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
       document.getElementById("numA1_"+ls_servicio_main).innerHTML = suma1+"<input type='hidden' value="+suma+" class='form-control form-control-sm m-input numA' id='numA_"+ls_servicio_main+"'>";           
@@ -536,9 +536,9 @@ function cambiaTodo()
          // -- Carencia -- //
          
          var lde_valor_neto = lde_precio_venta - lde_valor_descuento;
-        console.log('precio venta',lde_precio_venta);
+        //console.log('precio venta',lde_precio_venta);
          var lde_carencia = lde_precio_lista - lde_valor_neto;
-         console.log('carencia',lde_carencia);
+        // console.log('carencia',lde_carencia);
          var valor3 = Number(lde_carencia).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
          
          // -- Seteo -- //
