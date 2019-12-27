@@ -299,7 +299,7 @@ function cambiaTodo()
         //console.log(lde_afecto_dscto);
         lde_valor = (( lde_afecto_dscto * lde_valor ) / 100);   //-------Aqui lde_afecto_dscto es 0 siempre!!
       }    
-
+     console.log('lde_valor',lde_valor);
       // -- Seteo -- //
       
       //tab_1.tp_7.dw_dscto.SetItem(li_i, "imp_monto", lde_valor);
