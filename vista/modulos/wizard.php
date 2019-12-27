@@ -925,7 +925,7 @@
 												<div class="col-lg-12">
 													<label>Fecha 1ra Cuota</label>
 													<div class="input-group date">
-														<input type="text" class="form-control form-control-sm m-input" id="m_datepicker_2_validate" data-date-format="dd/mm/yyyy" value="<?php echo date('d/m/Y',strtotime(date('d/m/Y').'+ 1 month')); ?>" />
+														<input type="text" class="form-control form-control-sm m-input" id="m_datepicker_2_validate" data-date-format="dd/mm/yyyy" value="<?php echo date('m/d/Y',strtotime(date('m/d/Y').'+ 1 month')); ?>" />
 														<div class="input-group-append">
 															<span class="input-group-text">
 																<i class="la la-calendar-check-o"></i>
