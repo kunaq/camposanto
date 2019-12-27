@@ -192,7 +192,7 @@ function cambiaTodo()
          {    
            if(ls_flg_ds == 'SI' || ls_flg_ssff == 'SI')
            {
-              lde_afecto_dscto = lde_afecto_dscto + parseFloat(document.getElementById("numA_"+ls_servicio_main).value - document.getElementById("numF_"+ls_servicio_main).value);
+              lde_afecto_dscto = lde_afecto_dscto + (parseFloat(document.getElementById("numA_"+ls_servicio_main).value) - parseFloat(document.getElementById("numF_"+ls_servicio_main).value));
            }
          }                
          else
