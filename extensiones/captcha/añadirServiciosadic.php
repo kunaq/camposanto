@@ -18,7 +18,7 @@ require_once "../../modelo/conexion.php";
 		while($key = $db->recorrer($sql)){
             $datos[] =  $key;
             $impTot = $key['imp_precio_venta']-$key['imp_precio_cuoi'];
-            
+            var_dump($key);
             /*$ls_flg_libre = $key['flg_sin_precio'];
             $ls_flg_ds = $key['flg_dsepultura'];
             $ls_flg_sf = $key['flg_sfunerario'];
