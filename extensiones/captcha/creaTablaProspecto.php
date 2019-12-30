@@ -53,7 +53,7 @@ require_once "../../funciones.php";
                             '.$key['cod_prospecto'].'
                         </td>
                         <td>
-                            '.$key['dsc_prospecto'].'
+                            '.utf8_encode($key['dsc_prospecto']).'
                         </td>
                         <td style="text-align: center;">
                             '.$key['dsc_documento'].'
