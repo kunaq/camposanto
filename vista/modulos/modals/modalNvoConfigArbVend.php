@@ -1,5 +1,5 @@
 <div class="modal fade" id="m_modal_nvoConfigArbVen" tabindex="-1" role="dialog" aria-labelledby="configuracionesModalLabel" aria-hidden="true">
-	<div class="modal-dialog" role="document">
+	<div class="modal-dialog  modal-lg" role="document">
 		<div class="modal-content">
 		<form id="configuraciones">
 			<div class="modal-header">
@@ -20,7 +20,7 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-lg-1">
+						<div class="col-lg-2">
 							<label>Año</label>
 						</div>
 						<div class="col-lg-2">
