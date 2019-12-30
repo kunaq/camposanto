@@ -30,21 +30,22 @@
 							  ?>
 							 </select>
 						</div>
-						<div class="col-lg-3">
+						<div class="col-lg-2">
 							<label>Tipo Periodo</label>
 						</div>
-						<div class="col-lg-2">
+						<div class="col-lg-3">
 							<select class="form-control form-control-sm m-input m-select2 m-select2-general" style="width: 100%" name="tipoPerConfTraArbVen" id="tipoPerConfTraArbVen">
-								<option selected="selected" disabled value="todos">Sel..</option>
+								<option selected="selected" disabled value="todos">Seleccione</option>
 								<option value="15D">15D</option>
 								<option value="30D">30D</option>
 							</select>
 						</div>
-						<div class="col-lg-2">
+						<div class="col-lg-1">
 							<label>Periodo</label>
 						</div>
-						<div class="col-lg-2">
+						<div class="col-lg-3">
 							<select class="form-control form-control-sm m-input m-select2 m-select2-general" style="width: 100%" name="periodoConfTraArbVen" id="periodoConfTraArbVen">
+								<option selected="selected" disabled value="todos">Seleccione</option>
 							</select>
 						</div>
 					</div>
