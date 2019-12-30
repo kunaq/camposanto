@@ -129,7 +129,7 @@
 															</div>
 															<div class="col-lg-4">
 																<div class="input-group date">
-																	<input type="text" class="form-control m-input validaDNI" placeholder="Seleccionar fecha" id="m_datepicker_2_modal"/>
+																	<input type="text" class="form-control m-input validaDNI" placeholder="Seleccionar fecha" id="m_datepicker_2_modal" data-date-format="dd/mm/yyyy"/>
 																	<div class="input-group-append">
 																		<span class="input-group-text">
 																			<i class="la la-calendar-check-o"></i>
