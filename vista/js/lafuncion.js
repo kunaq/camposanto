@@ -190,9 +190,9 @@ function cambiaTodo()
                     
          if(is_flg_generacion_ee == 'SI')               
          {    
-           if(ls_flg_ds == 'SI' && ls_flg_ssff == 'SI')
+           if(ls_flg_ds == 'SI' || ls_flg_ssff == 'SI')
            {
-              lde_afecto_dscto = lde_afecto_dscto + (pasaAnumero(document.getElementById("numA_"+ls_servicio_main).value) - pasaAnumero(document.getElementById("numF_"+ls_servicio_main).value));
+              lde_afecto_dscto = lde_afecto_dscto + (pasaAnumero(document.getElementById("numA_"+ls_servicio_main).value) );
            }
          }                
          else
