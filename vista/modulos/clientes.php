@@ -363,7 +363,7 @@
 						</div>
 					</div>
 					<br>
-					<div class="row">
+					<div class="form-group row">
 						<div class="col-lg-2">
 							<label class="">
 								Referencia:
@@ -374,7 +374,7 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-lg-4 m--align-right">
+						<div class="col-lg-9 m--align-right">
 							<button  class="btn btnGuardarKqPst m-btn m-btn--custom m-btn--icon" data-wizard-action="submit" id="guardaClienteRegCli">
 								<span>
 									<i class="fa fa-save"></i>
@@ -385,7 +385,7 @@
 								</span>
 							</button>
 						</div>
-						<div class="col-lg-4 m--align-right">
+						<div class="col-lg-2 m--align-right">
 							<button  class="btn btnGuardarKqPst m-btn m-btn--custom m-btn--icon" data-wizard-action="submit" id="guardaCliGenCttoRegCli">
 								<span>
 									<i class="fa fa-star"></i>
