@@ -373,6 +373,30 @@
 							<textarea class="form-control m-input" id="refNvoCliRegCli" name="refNvoCliRegCli" rows="3"></textarea>
 						</div>
 					</div>
+					<div class="row">
+						<div class="col-lg-4 m--align-right">
+							<button  class="btn btnGuardarKqPst m-btn m-btn--custom m-btn--icon" data-wizard-action="submit" id="guardaClienteRegCli">
+								<span>
+									<i class="fa fa-save"></i>
+									&nbsp;&nbsp;
+									<span>
+										Guardar
+									</span>
+								</span>
+							</button>
+						</div>
+						<div class="col-lg-4 m--align-right">
+							<button  class="btn btnGuardarKqPst m-btn m-btn--custom m-btn--icon" data-wizard-action="submit" id="guardaCliGenCttoRegCli">
+								<span>
+									<i class="fa fa-star"></i>
+									&nbsp;&nbsp;
+									<span>
+										Guardar y generar contrato
+									</span>
+								</span>
+							</button>
+						</div>
+					</div>
 				</form>
 		</div>
 		<!--End: Portlet Body-->
