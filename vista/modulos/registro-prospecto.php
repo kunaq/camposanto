@@ -77,7 +77,7 @@ if (isset($_POST['variable1'])) {
 											</label>
 										</div>
 										<div class="col-lg-3">
-											<input type="text" class="form-control form-control-sm m-input" id="numDocRegPro" name="numDocRegPro" onchange="verificarDocumento(this.value)">
+											<input type="text" class="form-control form-control-sm m-input" id="numDocRegPro" name="numDocRegPro" onchange="verificarDocumento(this.value)" onkeyup="mayus(this);">
 										</div>
 										<div class="col-lg-3">
 											<div class="row">
@@ -103,13 +103,13 @@ if (isset($_POST['variable1'])) {
 											<label>Apellido Paterno</label>
 										</div>
 										<div class="col-md-4">
-											<input type="text" class="form-control form-control-sm m-input" id="apePaterno"/>
+											<input type="text" class="form-control form-control-sm m-input" id="apePaterno" onkeyup="mayus(this);"/>
 										</div>
 										<div class="col-md-2">
 											<label>Apellido Materno</label>
 										</div>
 										<div class="col-md-4">
-											<input type="text" class="form-control form-control-sm m-input" id="apeMaterno"/>
+											<input type="text" class="form-control form-control-sm m-input" id="apeMaterno" onkeyup="mayus(this);"/>
 										</div>
 									</div>
 									<br>
@@ -118,7 +118,7 @@ if (isset($_POST['variable1'])) {
 											<label>Nombres</label>
 										</div>
 										<div class="col-md-10">
-											<input type="text" class="form-control form-control-sm m-input" id="nombre"/>
+											<input type="text" class="form-control form-control-sm m-input" id="nombre" onkeyup="mayus(this);"/>
 										</div>
 									</div>
 									<div class="row" id="divRazonSocial">
@@ -126,7 +126,7 @@ if (isset($_POST['variable1'])) {
 											<label>Razon Social</label>
 										</div>
 										<div class="col-md-10">
-											<input type="text" class="form-control form-control-sm m-input" id="razonSocial"/>
+											<input type="text" class="form-control form-control-sm m-input" id="razonSocial" onkeyup="mayus(this);"/>
 										</div>
 									</div>
 									<br>
@@ -135,7 +135,7 @@ if (isset($_POST['variable1'])) {
 											<label>Dirección</label>
 										</div>
 										<div class="col-md-10">
-											<input type="text" class="form-control form-control-sm m-input" id="direccion" name=""/>
+											<input type="text" class="form-control form-control-sm m-input" id="direccion" onkeyup="mayus(this);"/>
 										</div>
 									</div>
 									<br>
@@ -350,7 +350,7 @@ if (isset($_POST['variable1'])) {
 							<legend class="tittle-box">Observaciones</legend>
 								<div class="row">
 									<div class="col-lg-12">
-										<textarea class="form-control form-control-sm m-input" id="observacion" rows="7"></textarea>
+										<textarea class="form-control form-control-sm m-input" id="observacion" rows="7" onkeyup="mayus(this);"></textarea>
 									</div>
 								</div>	
 								<br>
