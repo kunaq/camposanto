@@ -1591,7 +1591,7 @@ function cronograma(){
 function generaFOMA(){
 
   var lde_sumtotal = 0;
-  var is_tipo_redondeo = 'CERO';
+  var is_tipo_redondeo = '';
 
   //ls_cuota = dw_foma.GetItemString(1, "cod_cuota")
   var ls_cuota = pasaAnumero(document.getElementById("cuota_FOMA").value);
