@@ -148,14 +148,14 @@ function cambiaTodo()
        
        if(is_flg_generacion_ee == 'SI')          
        {  
-          if(ls_flg_ds == 'SI' || ls_flg_ssff == 'SI')
+          if(ls_flg_ds == 'SI' && ls_flg_ssff == 'SI')
           {
-            lde_afecto_dscto = lde_afecto_dscto + parseFloat(document.getElementById("numA_"+ls_servicio_main).value);
+            lde_afecto_dscto = lde_afecto_dscto + pasaAnumero(document.getElementById("numA_"+ls_servicio_main).value);
           }
         }              
        else
        {               
-          lde_afecto_dscto = lde_afecto_dscto + parseFloat(document.getElementById("numA_"+ls_servicio_main).value);
+          lde_afecto_dscto = lde_afecto_dscto + pasaAnumero(document.getElementById("numA_"+ls_servicio_main).value);
        }
     });                               
   }
@@ -190,14 +190,14 @@ function cambiaTodo()
                     
          if(is_flg_generacion_ee == 'SI')               
          {    
-           if(ls_flg_ds == 'SI' || ls_flg_ssff == 'SI')
+           if(ls_flg_ds == 'SI' && ls_flg_ssff == 'SI')
            {
-              lde_afecto_dscto = lde_afecto_dscto + (parseFloat(document.getElementById("numA_"+ls_servicio_main).value) - parseFloat(document.getElementById("numF_"+ls_servicio_main).value));
+              lde_afecto_dscto = lde_afecto_dscto + (pasaAnumero(document.getElementById("numA_"+ls_servicio_main).value) - pasaAnumero(document.getElementById("numF_"+ls_servicio_main).value));
            }
          }                
          else
          {              
-           lde_afecto_dscto = lde_afecto_dscto + parseFloat(document.getElementById("numA_"+ls_servicio_main).value);
+           lde_afecto_dscto = lde_afecto_dscto + pasaAnumero(document.getElementById("numA_"+ls_servicio_main).value);
          }            
       });             
   }
@@ -464,7 +464,7 @@ console.log('lde_afecto_dscto1',lde_afecto_dscto);
   {      
       //lde_valor_saldo = tab_1.tp_1.dw_detalle.GetItemDecimal(li_i, "compute_7");     // importe saldo cada uno
       ls_servicio = $(li_i).attr("name"); //codigo de servicio
-      lde_valor_saldo = document.getElementById("numH1_"+ls_servicio).value;
+      lde_valor_saldo = pasaAnumero(document.getElementById("numH1_"+ls_servicio).value);
       lde_saldo_foma = document.getElementById("numD_"+ls_servicio).value;  //imp foma 
       lde_saldo_foma = pasaAnumero(lde_saldo_foma);
       //ls_flg_afecto_igv = 'NO';
@@ -1594,7 +1594,7 @@ function generaFOMA(){
   var is_tipo_redondeo = 'CERO';
 
   //ls_cuota = dw_foma.GetItemString(1, "cod_cuota")
-  var ls_cuota = document.getElementById("cuota_FOMA").value;
+  var ls_cuota = pasaAnumero(document.getElementById("cuota_FOMA").value);
   //lde_saldo = dw_foma.GetItemDecimal(1, "imp_saldo_foma")
   var lde_saldo = document.getElementById("imp_saldo_foma").value;
   lde_saldo = pasaAnumero(lde_saldo);
