@@ -2,7 +2,7 @@
 require_once "../../modelo/conexion.php";
 	$db = new Conexion();                                             
 
-                $sql = $db->consulta("SELECT cod_prospecto, fch_registro, dsc_prospecto, dsc_documento, cod_consejero, dsc_telefono_1 FROM vtaca_prospecto_venta WHERE flg_cambio_activo = 'SI'");
+                $sql = $db->consulta("SELECT cod_prospecto, fch_registro, dsc_prospecto, dsc_documento, cod_consejero, dsc_telefono_1 FROM vtaca_prospecto_venta WHERE cod_estado = 'ACT'");
 
                 $datos = array();
 
@@ -41,7 +41,7 @@ require_once "../../modelo/conexion.php";
                 while($key = $db->recorrer($sql)){
                     $datos[] =  $key;
                     $cod = "'".$key['dsc_documento']."'";
-                    $fecha = date_format($key['fch_registro'], 'Y-m-d');
+                    $fecha = dateFormat($key['fch_registro']);
                    echo 
                    '<tr style="height: 60px;">
                         <td style="text-align: center;">
