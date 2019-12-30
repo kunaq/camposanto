@@ -57,8 +57,8 @@
 						<div class="col-lg-2">
 							<select class="form-control form-control-sm m-input" id="grupoConfTraArbVen" class="grupoConfTraArbVen">
 								<?php
-								$prueba = controladorArbolVen::ctrNombreTrabajador();
-							  ?>
+									$prueba = controladorArbolVen::ctrNombreTrabajador();
+								  ?>
 							 </select>
 						</div>
 						<div class="col-lg-9">

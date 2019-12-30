@@ -8,6 +8,8 @@ require_once "controlador/empresa.controlador.php";
 require_once "controlador/controlEmpresa.controlador.php";
 require_once "modelo/empresa.modelo.php";
 require_once "modelo/controlEmpresa.modelo.php";
+require_once "controlador/arbolVen.controlador.php";
+require_once "modelo/arbolVen.modelo.php";
 
 $plantilla = new ControladorPlantilla();
 $plantilla -> ctrPlantilla();
