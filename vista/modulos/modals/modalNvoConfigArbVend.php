@@ -1,5 +1,5 @@
 <div class="modal fade" id="m_modal_nvoConfigArbVen" tabindex="-1" role="dialog" aria-labelledby="configuracionesModalLabel" aria-hidden="true">
-	<div class="modal-dialog  modal-lg" role="document">
+	<div class="modal-dialog" style="width: 50rem;" role="document">
 		<div class="modal-content">
 		<form id="configuraciones">
 			<div class="modal-header">
@@ -20,7 +20,7 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-lg-2">
+						<div class="col-lg-1">
 							<label>Año</label>
 						</div>
 						<div class="col-lg-2">
@@ -30,8 +30,8 @@
 							  ?>
 							 </select>
 						</div>
-						<div class="col-lg-2">
-							<label>T. Periodo</label>
+						<div class="col-lg-3">
+							<label>Tipo Periodo</label>
 						</div>
 						<div class="col-lg-2">
 							<select class="form-control form-control-sm m-input m-select2 m-select2-general" style="width: 100%" name="tipoPerConfTraArbVen" id="tipoPerConfTraArbVen">
