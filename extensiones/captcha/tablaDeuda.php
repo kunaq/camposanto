@@ -37,7 +37,7 @@ $tabla="";
 $deuda_total_final = 0;
 $deuda_vencida_final = 0;
 
- // if ($rows = $db->rows($sql)) {
+ if ($rows = $db->rows($sql)) {
 	$tabla.='
                 <div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="600">
                 <div class="table-responsive">
@@ -130,12 +130,12 @@ $deuda_vencida_final = 0;
 	$db->cerrar();
 	$arrData = array('cod'=> $code, 'tabla'=>$tabla, 'deudaTotal'=>$deuda_total_soles);
 	echo json_encode($arrData,JSON_UNESCAPED_UNICODE);
-// }else{
-// 	$code = "0";
-// 	$msg = "";
-// 	$arrData = array('cod'=> $code);
-// 		echo json_encode($arrData,JSON_UNESCAPED_UNICODE);
-// }
+}else{
+	$code = "0";
+	$msg = "";
+	$arrData = array('cod'=> $code);
+		echo json_encode($arrData,JSON_UNESCAPED_UNICODE);
+}
 
 
  ?>
