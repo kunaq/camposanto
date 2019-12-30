@@ -85,7 +85,8 @@ $_SESSION['captcha'] = simple_php_captcha();
 		        			$_GET["ruta"] == 'resolucionContrato' ||
 		        			$_GET["ruta"] == 'usoServicios' ||
 		        			$_GET["ruta"] == 'led' ||
-		        			$_GET["ruta"] == 'visorPrestacionServicio'){
+		        			$_GET["ruta"] == 'visorPrestacionServicio' ||
+		        			$_GET["ruta"] == 'clientes'){
 
 		           		   	include "modulos/".$_GET["ruta"].".php";
 
@@ -174,7 +175,8 @@ $_SESSION['captcha'] = simple_php_captcha();
         	    $_GET["ruta"] == 'seguimientoContrato' ||
         	    $_GET["ruta"] == 'usoServicios' ||
         		$_GET["ruta"] == 'led' ||
-        		$_GET["ruta"] == 'visorPrestacionServicio'){  
+        		$_GET["ruta"] == 'visorPrestacionServicio' ||
+        		$_GET["ruta"] == 'clientes'){  
                 echo '<script type="text/javascript" src="vista/js/'.$_GET["ruta"].'.js"></script>';
             }
         }
