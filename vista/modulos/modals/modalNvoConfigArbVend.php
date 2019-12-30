@@ -14,7 +14,7 @@
 			</div>
 			<div class="modal-body" >
 				<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="490">
-					<div class="row">
+					<div class="form-group row">
 						<div class="col-lg-12">
 							<input type="text" disabled class="form-control form-control-sm m-input" name="dscTrabModConfArbVen" id="dscTrabModConfArbVen">
 						</div>
