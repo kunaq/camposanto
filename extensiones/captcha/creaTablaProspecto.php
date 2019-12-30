@@ -1,5 +1,7 @@
 <?php
 require_once "../../modelo/conexion.php";
+require_once "../../funciones.php";
+
 	$db = new Conexion();                                             
 
                 $sql = $db->consulta("SELECT cod_prospecto, fch_registro, dsc_prospecto, dsc_documento, cod_consejero, dsc_telefono_1 FROM vtaca_prospecto_venta WHERE cod_estado = 'ACT'");
@@ -51,7 +53,7 @@ require_once "../../modelo/conexion.php";
                             '.$key['cod_prospecto'].'
                         </td>
                         <td>
-                            '.$key['dsc_prospecto'].'
+                            '.utf8_encode($key['dsc_prospecto']).'
                         </td>
                         <td style="text-align: center;">
                             '.$key['dsc_documento'].'
