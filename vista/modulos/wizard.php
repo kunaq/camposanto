@@ -1092,7 +1092,7 @@
 												</div>
 												<div class="col-lg-4 form-group">
 													<div class="input-group date">
-														<input type="text" disabled class="form-control form-control-sm m-input" readonly  placeholder="Seleccionar fecha" id="m_datepicker_1_modal"/>
+														<input type="text" disabled class="form-control form-control-sm m-input" readonly  placeholder="Seleccionar fecha" id="m_datepicker_1_modal" data-date-format="dd/mm/yyyy"/>
 														<div class="input-group-append">
 															<span class="input-group-text">
 																<i class="la la-calendar-check-o"></i>
@@ -1105,7 +1105,7 @@
 												</div>
 												<div class="col-lg-4 form-group">
 													<div class="input-group date">
-														<input type="text" disabled class="form-control form-control-sm m-input" readonly  placeholder="Seleccionar fecha" id="m_datepicker_2"/>
+														<input type="text" disabled class="form-control form-control-sm m-input" readonly  placeholder="Seleccionar fecha" id="m_datepicker_2" data-date-format="dd/mm/yyyy"/>
 														<div class="input-group-append">
 															<span class="input-group-text">
 																<i class="la la-calendar-check-o"></i>
@@ -1323,7 +1323,7 @@
 										</div>
 										<div class="col-lg-8">
 											<div class="input-group date">
-												<input type="text" class="form-control form-control-sm m-input" disabled readonly  placeholder="Seleccionar fecha" id="m_datepicker_3"/>
+												<input type="text" class="form-control form-control-sm m-input" disabled readonly  placeholder="Seleccionar fecha" id="m_datepicker_3" data-date-format="dd/mm/yyyy"/>
 												<div class="input-group-append">
 													<span class="input-group-text">
 														<i class="la la-calendar-check-o"></i>
