@@ -45,8 +45,8 @@ class Conexion{
   public function rollback(){
     return true;
   }
-  public function row($query){
+  public function validar($stmt){
 
-    return sqlsrv_has_rows($query);
+    return mssql_rows_affected($stmt);
   }
 }
