@@ -10,7 +10,7 @@ $sql = $db->consulta("SELECT cod_estado FROM vtaca_prospecto_venta WHERE cod_tip
 
 // $estado = "";
 
-if ($rows = $db->row($sql)) {
+if ($rows = $db->rows($sql)) {
      
     while($key = $db->recorrer($sql)){
 
@@ -32,6 +32,7 @@ if ($rows = $db->row($sql)) {
 
     $db->liberar($sql);
     $db->cerrar();
+
 }else{
 	$code = "0";
 	$arrData = array('cod'=> $code);
