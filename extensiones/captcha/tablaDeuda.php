@@ -37,7 +37,7 @@ $tabla="";
 $deuda_total_final = 0;
 $deuda_vencida_final = 0;
 $datos = array();
- if ($rows = $db->row($sql)) {
+ if ($rows = $db->rows($sql)) {
 	$tabla.='
                 <div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="600">
                 <div class="table-responsive">

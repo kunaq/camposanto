@@ -783,7 +783,6 @@ function actualizarProspecto(){
   var telefono1 = document.getElementById("telefono1").value;
   var telefono2 = document.getElementById("telefono2").value;
   var fchRegistro = document.getElementById("fechaReg").value;
-  console.log(Date.parse(fchRegistro));
   var usuario = document.getElementById("usuario").value;
   var origen = document.getElementById("canalVenta").value;
   var calificacion = document.getElementById("calificacion").value;
