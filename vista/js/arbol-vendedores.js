@@ -185,3 +185,6 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
 
 });
 
+$("#NvoConfArbVen").on("click",function(){
+    $('#m_modal_nvoConfigArbVen').modal('show');
+});

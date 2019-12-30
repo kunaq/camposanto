@@ -34,7 +34,7 @@ function cambiaTodo()
   container.querySelectorAll('tr').forEach(function (li_i) 
   {            
       var ls_servicio_main = $(li_i).attr("name"); //codigo de servicio
-      console.log(li_i);
+      //console.log(container);
       lde_derecho = 0;
       /*var container2 = document.querySelector('#bodyIncluidos');    //----servicios incluidos (eliminado)
       if(!container2.querySelectorAll('tr'))
@@ -93,7 +93,8 @@ function cambiaTodo()
         lde_precio_venta_aux = document.getElementById("numA_"+ls_servicio_main).value;
       }
 
-      var suma = lde_precio_venta_aux + lde_derecho;
+      var suma = parseFloat(lde_precio_venta_aux) + lde_derecho;
+      //console.log(suma);
       document.getElementById("numA_"+ls_servicio_main).value = suma; //precio de venta 1era tabla 
       suma1 = Number(suma).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
       document.getElementById("numA1_"+ls_servicio_main).innerHTML = suma1+"<input type='hidden' value="+suma+" class='form-control form-control-sm m-input numA' id='numA_"+ls_servicio_main+"'>";           
@@ -147,14 +148,14 @@ function cambiaTodo()
        
        if(is_flg_generacion_ee == 'SI')          
        {  
-          if(ls_flg_ds == 'SI' && ls_flg_ssff == 'SI')
+          if(ls_flg_ds == 'SI' || ls_flg_ssff == 'SI')
           {
-            lde_afecto_dscto = lde_afecto_dscto + document.getElementById("numA_"+ls_servicio_main).value;
+            lde_afecto_dscto = lde_afecto_dscto + parseFloat(document.getElementById("numA_"+ls_servicio_main).value);
           }
         }              
        else
        {               
-          lde_afecto_dscto = lde_afecto_dscto + document.getElementById("numA_"+ls_servicio_main).value;
+          lde_afecto_dscto = lde_afecto_dscto + parseFloat(document.getElementById("numA_"+ls_servicio_main).value);
        }
     });                               
   }
@@ -189,19 +190,19 @@ function cambiaTodo()
                     
          if(is_flg_generacion_ee == 'SI')               
          {    
-           if(ls_flg_ds == 'SI' && ls_flg_ssff == 'SI')
+           if(ls_flg_ds == 'SI' || ls_flg_ssff == 'SI')
            {
-              lde_afecto_dscto = lde_afecto_dscto + (document.getElementById("numA_"+ls_servicio_main).value - document.getElementById("numF_"+ls_servicio_main).value);
+              lde_afecto_dscto = lde_afecto_dscto + (parseFloat(document.getElementById("numA_"+ls_servicio_main).value) - parseFloat(document.getElementById("numF_"+ls_servicio_main).value));
            }
          }                
          else
          {              
-           lde_afecto_dscto = lde_afecto_dscto + document.getElementById("numA_"+ls_servicio_main).value;
+           lde_afecto_dscto = lde_afecto_dscto + parseFloat(document.getElementById("numA_"+ls_servicio_main).value);
          }            
       });             
   }
 
-
+console.log('lde_afecto_dscto1',lde_afecto_dscto);
 
   if(lde_afecto_dscto == null)
   {
@@ -291,12 +292,12 @@ function cambiaTodo()
       //lde_valor = tab_1.tp_7.dw_dscto.GetItemDecimal(li_i, "imp_valor");
       var lde_valor = document.getElementById("imp_valor_"+cod).value;
       lde_valor = lde_valor;
+      console.log('lde_afecto_dscto',lde_afecto_dscto);
       if(ls_flg_porcentaje == 'SI')
       {
         //console.log(lde_afecto_dscto);
-        lde_valor = (( lde_afecto_dscto * lde_valor ) / 100);   //-------Aqui lde_afecto_dscto es 0 siempre!!
+        lde_valor = (( parseFloat(lde_afecto_dscto) * parseFloat(lde_valor) ) / 100);   //-------Aqui lde_afecto_dscto es 0 siempre!!
       }    
-
       // -- Seteo -- //
       
       //tab_1.tp_7.dw_dscto.SetItem(li_i, "imp_monto", lde_valor);
@@ -533,9 +534,9 @@ function cambiaTodo()
          // -- Carencia -- //
          
          var lde_valor_neto = lde_precio_venta - lde_valor_descuento;
-        
+        //console.log('precio venta',lde_precio_venta);
          var lde_carencia = lde_precio_lista - lde_valor_neto;
-
+        // console.log('carencia',lde_carencia);
          var valor3 = Number(lde_carencia).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
          
          // -- Seteo -- //

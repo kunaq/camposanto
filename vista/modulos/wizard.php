@@ -533,7 +533,6 @@
 															</tr>
 														</thead>
 														<tbody  id="bodyServicio" style="height: 200px;">
-															<tr></tr>
 														</tbody>
 														<tfoot >
 															<tr>
@@ -632,7 +631,6 @@
 															</tr>
 														</thead>
 														<tbody id="bodyDscto" style="height: 180px;">
-															<tr></tr>
 														</tbody>
 														<tfoot>
 															<tr>
@@ -654,7 +652,7 @@
 																<td>
 																	&nbsp;
 																</td>
-																<td class="TotalD A">
+																<td class="TotalD A" style="text-align: right;">
 																	0,00
 																</td>
 															</tr>	
@@ -775,7 +773,7 @@
 												<div class="col-lg-6">
 													<label>1er Vencimiento</label>
 													<div class="input-group date">
-														<input type="text" class="form-control form-control-sm m-input"  id="m_datepicker_1" data-date-format="mm/dd/yyyy" value="<?php echo date('m/d/Y', strtotime(date('m/d/Y').'+ 1 month')); ?>"/>
+														<input type="text" class="form-control form-control-sm m-input"  id="m_datepicker_1" data-date-format="dd/mm/yyyy" value="<?php echo date('m/d/Y', strtotime(date('m/d/Y').'+ 1 month')); ?>"/>
 														<div class="input-group-append">
 															<span class="input-group-text">
 																<i class="la la-calendar-check-o"></i>
@@ -927,7 +925,7 @@
 												<div class="col-lg-12">
 													<label>Fecha 1ra Cuota</label>
 													<div class="input-group date">
-														<input type="text" class="form-control form-control-sm m-input" id="m_datepicker_2_validate" data-date-format="mm/dd/yyyy" value="<?php echo date('m/d/Y',strtotime(date('m/d/Y').'+ 1 month')); ?>" />
+														<input type="text" class="form-control form-control-sm m-input" id="m_datepicker_2_validate" data-date-format="dd/mm/yyyy" />
 														<div class="input-group-append">
 															<span class="input-group-text">
 																<i class="la la-calendar-check-o"></i>
