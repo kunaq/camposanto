@@ -1,6 +1,8 @@
+
 function mayus(e) {
     e.value = e.value.toUpperCase();
 }
+
 
 $("#importe").on({
     "focus": function (event) {
@@ -328,7 +330,6 @@ function tablaContactos(){
 
 function agregarFilaContacto(){
   var vendedor = document.getElementById('codVendedor').value;
-  console.log(vendedor);
   if (vendedor == "") {
     swal({
       title: "Advertencia",
