@@ -330,7 +330,6 @@ function tablaContactos(){
 
 function agregarFilaContacto(){
   var vendedor = document.getElementById('codVendedor').value;
-  console.log(vendedor);
   if (vendedor == "") {
     swal({
       title: "Advertencia",
