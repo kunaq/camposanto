@@ -1,6 +1,8 @@
+
 function mayus(e) {
     e.value = e.value.toUpperCase();
 }
+
 
 $("#importe").on({
     "focus": function (event) {
