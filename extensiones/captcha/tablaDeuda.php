@@ -36,7 +36,7 @@ $code = "1";
 $tabla="";
 $deuda_total_final = 0;
 $deuda_vencida_final = 0;
-$datos = array();
+
  // if ($rows = $db->rows($sql)) {
 	$tabla.='
                 <div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="600">
@@ -63,7 +63,7 @@ $datos = array();
         $contrato = $key['cod_contrato'];
         $nservicio = $key['num_servicio'];
         $servicio = $key['dsc_servicio_principal'];
-        $fec_act = date('d-m-Y', $key['fch_activacion']->getTimestamp());
+        $fec_act = dateFormat($key['fch_activacion']);
         $deuda_total = $key['imp_deuda'];
         $ctd_tot_cuotas = $key['ctd_cuota'];
         $deuda_vencida = $key['imp_deuda_vencida'];
@@ -130,7 +130,6 @@ $datos = array();
 	$db->cerrar();
 	$arrData = array('cod'=> $code, 'tabla'=>$tabla, 'deudaTotal'=>$deuda_total_soles);
 	echo json_encode($arrData,JSON_UNESCAPED_UNICODE);
-    return $datos;
 // }else{
 // 	$code = "0";
 // 	$msg = "";
