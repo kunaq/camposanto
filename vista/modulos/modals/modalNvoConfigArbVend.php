@@ -19,7 +19,7 @@
 							<input type="text" disabled class="form-control form-control-sm m-input" name="dscTrabModConfArbVen" id="dscTrabModConfArbVen">
 						</div>
 					</div>
-					<div class="row">
+					<div class="form-group row">
 						<div class="col-lg-1">
 							<label>Año</label>
 						</div>
@@ -49,7 +49,22 @@
 							</select>
 						</div>
 					</div>
-					
+					<hr>
+					<div class="form-group row">
+						<div class="col-lg-1">
+							<label>Grupo</label>
+						</div>
+						<div class="col-lg-2">
+							<select class="form-control form-control-sm m-input" id="grupoConfTraArbVen" class="grupoConfTraArbVen">
+								<?php
+								$prueba = controladorArbolVen::ctrNombreTrabajador();
+							  ?>
+							 </select>
+						</div>
+						<div class="col-lg-9">
+							<input type="text" disabled class="form-control form-control-sm m-input" name="dscGrupoModConfArbVen" id="dscGrupoModConfArbVen">
+						</div>
+					</div>
 				</div>
 			</div>
 			<div class="modal-footer">

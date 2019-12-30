@@ -50,5 +50,18 @@ class ModeloArbolVen{
 
 	}//function mdlBuscarCtto
 
+	static public function mdlBuscarGrupoVen($tabla,$tabla2){
+		$db = new Conexion();
+		$sql = $db->consulta("SELECT $tabla.*, (SELECT dsc_nombres FROM $tabla2 WHERE $tabla2.cod_trabajador = $tabla.cod_jefe_ventas) as nom_jefe_ventas, (SELECT dsc_apellido_materno FROM $tabla2 WHERE $tabla2.cod_trabajador = $tabla.cod_jefe_ventas) as apelM_jefe_ventas, (SELECT dsc_apellido_paterno FROM $tabla2 WHERE $tabla2.cod_trabajador = $tabla.cod_jefe_ventas) as apelP_jefe_ventas, (SELECT dsc_nombres FROM $tabla2 WHERE $tabla2.cod_trabajador = $tabla.cod_supervisor) as nom_supervisor, (SELECT dsc_apellido_materno FROM $tabla2 WHERE $tabla2.cod_trabajador = $tabla.cod_supervisor) as apelM_supervisor, (SELECT dsc_apellido_paterno FROM $tabla2 WHERE $tabla2.cod_trabajador = $tabla.cod_supervisor) as apelP_supervisor FROM $tabla WHERE flg_activo = 'SI'");
+		$datos = array();
+    	 while($key = $db->recorrer($sql)){
+                    $datos[] =  $key;
+                    echo '<option value="'.$key['cod_grupo'].'" dsc_jefe="'.$key['apelP_jefe_ventas'].' '.$key['apelM_jefe_ventas'].', '.$key['nom_jefe_ventas'].'" cod_jefe="'.$key['cod_jefe_ventas'].'" dsc_supervisor="'.$key['apelP_supervisor'].' '.$key['apelM_supervisor'].', '.$key['nom_supervisor'].'" cod_supervisor="'.$key['cod_supervisor'].'">'.$key['dsc_grupo'].'</option>';
+                }
+		$db->liberar($sql);
+        $db->cerrar();
+
+	}//function mdlBuscarGrupoVen
+
 }//class ModeloArbolVen
 ?>
