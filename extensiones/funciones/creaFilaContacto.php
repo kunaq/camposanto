@@ -71,7 +71,7 @@ function listarTrabajadores($cod){
                         </select>
                     </td>
                     <td class="'.$numfila.'">
-                        <textarea class="form-control form-control-sm m-input" rows="1" style="width: 400px;" id="observacion-'.$numfila.'"></textarea>
+                        <textarea class="form-control form-control-sm m-input" rows="1" style="width: 400px;" id="observacion-'.$numfila.'" onkeyup="mayus(this);"></textarea>
                     </td>
                 </tr>';              
     	

@@ -112,7 +112,7 @@ $sql = $db->consulta("SELECT cod_prospecto, num_linea, fch_contacto, cod_calific
                         
         $tabla .='</td>
                     <td class="'.$linea.'">
-                        <textarea class="form-control form-control-sm m-input" rows="1" style="width: 400px;" id="observacion-'.$linea.'">'.$observaciones.'</textarea>
+                        <textarea class="form-control form-control-sm m-input" rows="1" style="width: 400px;" id="observacion-'.$linea.'" onkeyup="mayus(this);">'.$observaciones.'</textarea>
                     </td>
                 </tr>';              
 	 }
