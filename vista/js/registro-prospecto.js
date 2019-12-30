@@ -413,6 +413,29 @@ function borrarFila(id){
   document.getElementById(id).remove();
 }
 
+function verificarDocumento(numDoc){
+  var tipoDoc = document.getElementById('tipoDocRegPro').value;
+  $.ajax({
+    type:'POST',
+    url: 'extensiones/funciones/verificarProspectoExistente.php',
+    dataType: 'text',
+    data: {'tipoDoc':tipoDoc, 'numDoc':numDoc},
+    success : function(response){
+      var info = JSON.parse(response);
+      if (info.cod == 1) {
+        swal({
+          title: "Advertencia",
+          text: 'El tipo y número de documento ya se encuentra vinculado a un prospecto en estado "'+info.estado+'". Por favor verifique.',
+          type: "warning",
+          confirmButtonText: "Aceptar",
+        });
+        document.getElementById('numDocRegPro').value = "";
+      }else{
+        return true;
+      }
+    }
+  });
+}
 
 function registrarProspecto(){
   //Datos vtaca_prospecto_venta

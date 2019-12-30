@@ -77,7 +77,7 @@ if (isset($_POST['variable1'])) {
 											</label>
 										</div>
 										<div class="col-lg-3">
-											<input type="text" class="form-control form-control-sm m-input" id="numDocRegPro" name="numDocRegPro">
+											<input type="text" class="form-control form-control-sm m-input" id="numDocRegPro" name="numDocRegPro" onchange="verificarDocumento(this.value)">
 										</div>
 										<div class="col-lg-3">
 											<div class="row">
