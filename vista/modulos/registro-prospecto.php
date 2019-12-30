@@ -224,7 +224,7 @@ if (isset($_POST['variable1'])) {
 								<div class="row">
 									<div class="col-lg-9">
 										<label>Fecha / Días Transcurridos</label>
-										<input type="text" class="form-control form-control-sm m-input" disabled id="fechaReg" value="<?php echo date('d/m/Y',strtotime(date('m/d/Y'))); ?>"/>
+										<input type="text" class="form-control form-control-sm m-input" disabled id="fechaReg" value="<?php echo date('d/m/Y h:i',strtotime(date('m/d/Y h:i'))); ?>"/>
 									</div>
 									<div class="col-lg-3">
 										<label>&nbsp;</label>
@@ -250,6 +250,7 @@ if (isset($_POST['variable1'])) {
 								<div class="row">
 									<div class="col-lg-12">
 										<select class="form-control form-control-sm m-select2 m-select2-general" id="canalVenta">
+											<option value="">Seleccione</option>
 											<?php
 												$tabla = "vtama_canal_venta";
 												$item1 = "cod_canal_venta";
@@ -269,6 +270,7 @@ if (isset($_POST['variable1'])) {
 								<div class="row">
 									<div class="col-lg-12">
 										<select class="form-control form-control-sm m-select2 m-select2-general" id="calificacion">
+											<option value="">Seleccione</option>
 											<?php
 												$tabla = "vtama_calificacion_prospecto";
 												$item1 = "cod_calificacion";
@@ -414,13 +416,14 @@ if (isset($_POST['variable1'])) {
 					<div class="row">
 						<div class="col-md-12">
 							<p class="pull-right">
-								<button type="button" class="btn btn-sm btn-primary btnGuardarKqPst" title="Nuevo" id=""  style="margin-right:6px;" onclick="obtenerValores()"><i class="fa fa-plus"></i></button>	
+								<button type="button" class="btn btn-sm btn-primary btnGuardarKqPst" title="Nuevo" id=""  style="margin-right:6px;" onclick="agregarFilaContacto()"><i class="fa fa-plus"></i></button>	
 								<button type="button" class="btn btn-sm btn-primary btn-danger" title="Eliminar" id="btnEliminarFila"><i class="fa fa-trash"></i></button>
 							</p>										
 						</div>
 					</div>
 					<div class="row">
 						<div class="table-responsive col-lg-12">
+							<input type="hidden" class="form-control form-control-sm m-input" disabled id="usuarioC" value="<?php echo $_SESSION['user'] ?>" />
 						<table class="table" width="100%" id="tabRegConRegPro">
 							<thead>
 								<tr>
@@ -434,44 +437,6 @@ if (isset($_POST['variable1'])) {
 								</tr>
 							</thead>
 							<tbody id="tabBodyRegPro">
-<!-- 								<tr>
-									<td style="text-align: center;">1</td>
-									<td>20/10/2019</td>
-									<td>
-										<select class="form-control form-control-sm m-select2 m-select2-general">
-											<?php
-												$tabla = "vtama_calificacion_prospecto";
-												$item1 = "cod_calificacion";
-												$item2 = "dsc_calificacion";
-												$prueba = controladorEmpresa::
-												ctrSelects($tabla,$item1,$item2);
-											?> 
-										</select>
-									</td>
-									<td>
-										<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
-											<label>
-												<input type="checkbox"  name="">
-												<span></span>
-											</label>
-										</span>
-									</td>
-									<td>
-										<select class="form-control form-control-sm m-select2 m-select2-general">
-											<?php $prueba = controladorEmpresa::ctrTrabajador(); ?>
-										</select>
-									</td>
-									<td>
-										<select class="form-control form-control-sm m-select2 m-select2-general">
-											<option value="1">Primera</option>
-											<option value="2" selected>Segunda</option>
-										</select>
-									</td>
-									<td>
-										<textarea class="form-control form-control-sm m-input" rows="1" style="width: 400px;">Observaciones lorem ipsun lorem ipsun lorem ipsun lorem ipsun lorem ipsun lorem ipsun lorem ipsun lorem ipsun lorem ipsun
-										</textarea>
-									</td>
-								</tr> -->
 							</tbody>
 						</table>
 						</div>

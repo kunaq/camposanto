@@ -145,6 +145,7 @@ function esJuridica(){
   var juridicocheck = document.getElementById('juridico');
   if (juridicocheck.checked != true){
     document.getElementById('tipoDocRegPro').value = "vacio";
+    $('#tipoDocRegPro').prop('disabled', false);
     $('#divRazonSocial').hide();
     $('#divNombre').show();
     $('#apePaterno').prop('disabled', false);
@@ -323,63 +324,89 @@ function tablaContactos(){
     });
 }
 
-function obtenerValores(){
-  //gets table
-  var oTable = document.getElementById('tabBodyRegPro');
-  var vendedor = document.getElementById("codVendedor").value;
-
-  //gets rows of table
-  var rowLength = oTable.rows.length;
-  if (rowLength == 0) {
-
-      var filaNueva = 1;
-
-      $.ajax({
-            type:'POST',
-            url: 'extensiones/funciones/creaFilaContacto.php',
-            dataType: 'text',
-            data: {'fila':filaNueva, 'vendedor':vendedor},
-            success : function(response){
-              document.getElementById("tabBodyRegPro").insertAdjacentHTML("beforeEnd" ,response);
-             }
-        });
+function agregarFilaContacto(){
+  var vendedor = document.getElementById('codVendedor').value;
+  console.log(vendedor);
+  if (vendedor == "") {
+    swal({
+      title: "Advertencia",
+      text: "Debe ingresar los datos del vendedor en el registro del Prospecto.",
+      type: "warning",
+      confirmButtonText: "Aceptar",
+    })
   }else{
-    for (i = 0; i < rowLength; i++){
-       //gets cells of current row
-       var oCells = oTable.rows.item(i).cells;
+    //gets table
+    var oTable = document.getElementById('tabBodyRegPro');
+    var vendedor = document.getElementById("codVendedor").value;
 
-       //gets amount of cells of current row
-       var cellLength = oCells.length;
+    //gets rows of table
+    var rowLength = oTable.rows.length;
+    if (rowLength == 0) {
 
-       //loops through each cell in current row
-       for(var j = 0; j < cellLength; j++){
-          /* get your cell info here */
-           var cellVal = oCells.item(0).innerHTML;
-       }
-    }
+        var filaNueva = 1;
+
+        $.ajax({
+              type:'POST',
+              url: 'extensiones/funciones/creaFilaContacto.php',
+              dataType: 'text',
+              data: {'fila':filaNueva, 'vendedor':vendedor},
+              success : function(response){
+                document.getElementById("tabBodyRegPro").insertAdjacentHTML("beforeEnd" ,response);
+               }
+          });
+    }else{
+      for (i = 0; i < rowLength; i++){
+         //gets cells of current row
+         var oCells = oTable.rows.item(i).cells;
+
+         //gets amount of cells of current row
+         var cellLength = oCells.length;
+
+         //loops through each cell in current row
+         for(var j = 0; j < cellLength; j++){
+            /* get your cell info here */
+             var cellVal = oCells.item(0).innerHTML;
+         }
+      }
       //loops through rows    
       var cellValL = cellVal.trim();
       var filaNueva = parseInt(cellValL) + parseInt(1);
 
       $.ajax({
-            type:'POST',
-            url: 'extensiones/funciones/creaFilaContacto.php',
-            dataType: 'text',
-            data: {'fila':filaNueva, 'vendedor':vendedor},
-            success : function(response){
-              document.getElementById("tabBodyRegPro").insertAdjacentHTML("beforeEnd" ,response);
-             }
-        });
+        type:'POST',
+        url: 'extensiones/funciones/creaFilaContacto.php',
+        dataType: 'text',
+        data: {'fila':filaNueva, 'vendedor':vendedor},
+        success : function(response){
+        document.getElementById("tabBodyRegPro").insertAdjacentHTML("beforeEnd" ,response);
+        }
+      });
+    }
   }
-  
 }
 
 function verDetalles(evt) {
   var target = evt.srcElement ? evt.srcElement : evt.target;
-  var x = target.className;
-  // var respuesta = document.getElementById("registro_"+x).value;
+  var id = target.className;
   boton = document.getElementById("btnEliminarFila");
-  boton.addEventListener("click", function(){borrarFila(x)}, false);
+  boton.addEventListener("click", function(){eliminaFila(id)}, false);
+}
+
+function eliminaFila(id){
+  swal({
+        title: "¿Está seguro de eliminar la fila "+id+"?",
+        type: "question",
+        showCancelButton: !0,
+        confirmButtonText: "Si, eliminar",
+        cancelButtonText: "No, cancelar"
+    }).then(function(e) {
+        e.value ? swal({
+          title:"Eliminado", 
+          text:"Se ha eliminado la fila.",
+          type: "success",
+          onBeforeOpen: borrarFila(id)         
+        }) : "cancel" === e.dismiss
+    })
 }
 
 function borrarFila(id){
@@ -388,6 +415,327 @@ function borrarFila(id){
 
 
 function registrarProspecto(){
+  //Datos vtaca_prospecto_venta
+  var importe = document.getElementById("importe").value;
+  var tipoDoc = document.getElementById("tipoDocRegPro").value;
+  var numDoc = document.getElementById("numDocRegPro").value;
+  var juridico = document.getElementById('juridico');
+  if (juridico.checked != true){
+    var jur = "NO";
+  }else{
+    var jur = "SI";
+  }
+  var apePaterno = document.getElementById("apePaterno").value;
+  var apeMaterno = document.getElementById("apeMaterno").value;
+  var nombre = document.getElementById("nombre").value;
+  var razonSocial = document.getElementById("razonSocial").value;
+  var direccion = document.getElementById("direccion").value;
+  var pais = document.getElementById("pais").value;
+  var departamento = document.getElementById("departamento").value;
+  var provincia = document.getElementById("provincia").value;
+  var distrito = document.getElementById("distrito").value;
+  var telefono1 = document.getElementById("telefono1").value;
+  var telefono2 = document.getElementById("telefono2").value;
+  var fchRegistro = document.getElementById("fechaReg").value;
+  var usuario = document.getElementById("usuario").value;
+  var origen = document.getElementById("canalVenta").value;
+  var calificacion = document.getElementById("calificacion").value;
+  var vendedor = document.getElementById("codVendedor").value;
+  var grupo = document.getElementById("codGrupo").value;
+  var supervisor = document.getElementById("codSupervisor").value;
+  var jefeVentas = document.getElementById("codJefeVentas").value;
+  var observacionP = document.getElementById("observacion").value;
+  var estado = document.getElementById("estado").value;
+  var localidad = document.getElementById("localidadRegPro").value;
+  var contrato = document.getElementById("codCttRegPro").value;
+  var servicio = document.getElementById("numServRegPro").value;
+  var tipoCtt = document.getElementById("tipoCttRegPro").value;
+  var usuarioC = document.getElementById("usuarioC").value;
+
+
+//-------------------------- Datos vtade_prospecto_venta-----------------------------//
+
+  var oTable = document.getElementById('tabBodyRegPro');
+  var vendedor = document.getElementById("codVendedor").value;
+  //gets rows of table
+  var rowLength = oTable.rows.length;
+  if (rowLength == 0) {
+
+    swal({
+      title: "Error",
+      text: "Debe ingresar un registro de contacto con el Prospecto.",
+      type: "warning",
+      confirmButtonText: "Aceptar",
+    })
+
+  }else {
+
+    if (jur == "NO") {
+      if (tipoDoc == "vacio") {
+        swal({
+          title: "Advertencia",
+          text: "Debe seleccionar un tipo de documento.",
+          type: "warning",
+          confirmButtonText: "Aceptar",
+        })
+      }else if (tipoDoc == "DI001" && numDoc.length < 8) {
+        swal({
+          title: "Advertencia",
+          text: "Debe ingresar un DNI valido.",
+          type: "warning",
+          confirmButtonText: "Aceptar",
+        })
+      }else if (tipoDoc == "DI002" && numDoc.length < 12) {
+        swal({
+          title: "Advertencia",
+          text: "Debe ingresar un Carnet de Extranjeria valido.",
+          type: "warning",
+          confirmButtonText: "Aceptar",
+        })
+      }else if (tipoDoc == "DI003" && numDoc.length < 12) {
+        swal({
+          title: "Advertencia",
+          text: "Debe ingresar un Pasaporte valido.",
+          type: "warning",
+          confirmButtonText: "Aceptar",
+        })
+      }
+      else if (tipoDoc == "DI004" && numDoc.length < 11) {
+        swal({
+          title: "Advertencia",
+          text: "Debe ingresar un RUC valido.",
+          type: "warning",
+          confirmButtonText: "Aceptar",
+        })
+      }else if (apePaterno == "") {
+        swal({
+          title: "Advertencia",
+          text: "Debe ingresar el apellido paterno del prospecto.",
+          type: "warning",
+          confirmButtonText: "Aceptar",
+        })
+      }else if (apeMaterno == "") {
+        swal({
+          title: "Advertencia",
+          text: "Debe ingresar el apellido materno del prospecto.",
+          type: "warning",
+          confirmButtonText: "Aceptar",
+        })
+      }else if (nombre == "") {
+        swal({
+          title: "Advertencia",
+          text: "Debe ingresar el nombre del prospecto.",
+          type: "warning",
+          confirmButtonText: "Aceptar",
+        })
+      }else if (direccion == "") {
+        swal({
+          title: "Advertencia",
+          text: "Debe ingresar la dirección del prospecto.",
+          type: "warning",
+          confirmButtonText: "Aceptar",
+        })
+      }else if (distrito == "0" || distrito == "") {
+        swal({
+          title: "Advertencia",
+          text: "Debe seleccionar el distrito de la dirección.",
+          type: "warning",
+          confirmButtonText: "Aceptar",
+        })
+      }else if (origen == "") {
+        swal({
+          title: "Advertencia",
+          text: "Debe seleccionar el canal de venta.",
+          type: "warning",
+          confirmButtonText: "Aceptar",
+        })
+      }else if (calificacion == "") {
+        swal({
+          title: "Advertencia",
+          text: "Debe seleccionar la calificación del prospecto.",
+          type: "warning",
+          confirmButtonText: "Aceptar",
+        })
+      }else {
+        $.ajax({
+        type:'POST',
+        url: 'extensiones/funciones/registrarProspecto.php',
+        dataType: 'text',
+        data: {'importe':importe,'tipoDoc':tipoDoc, 'numDoc':numDoc, 'jur':jur,'apePaterno':apePaterno, 'apeMaterno':apeMaterno, 'nombre':nombre,'razonSocial':razonSocial, 'direccion':direccion, 'pais':pais,'departamento':departamento, 'provincia':provincia, 'distrito':distrito,'telefono1':telefono1, 'telefono2':telefono2, 'fchRegistro':fchRegistro,'usuario':usuario, 'origen':origen, 'calificacion':calificacion,'vendedor':vendedor, 'grupo':grupo, 'supervisor':supervisor, 'jefeVentas':jefeVentas, 'observacion':observacionP, 'estado':estado},
+        success : function(response){
+           var info = JSON.parse(response);
+
+           if (info.cod == 1) {
+
+            for (i = 0; i < rowLength; i++){
+               //gets cells of current row
+              var oCells = oTable.rows.item(i).cells;
+               //gets amount of cells of current row
+              var cellLength = oCells.length;
+              var fila = oCells.item(0).innerHTML.trim();
+              var fchCon = oCells.item(1).innerHTML.trim();
+              var funcion = document.getElementById("tipo-"+fila).value;
+              var cal = document.getElementById("calificacion-"+fila).value;
+              var cierre = document.getElementById("cierre-"+fila);
+              if (cierre.checked != true){
+                var cie = "NO";
+              }else{
+                var cie = "SI";
+              }
+              var consejero = document.getElementById("consejero-"+fila).value;
+              var indicador = document.getElementById("indicador-"+fila).value;
+              var observacion = document.getElementById("observacion-"+fila).value;
+              var jsonContacto = "{'codPro':"+info.codProspecto+", 'num_linea':"+fila+", 'fchContacto':"+fchCon+", 'calificacion':"+cal+", 'presentacion':"+cie+", 'consejero':"+consejero+", 'observacion':"+observacion+", 'indicador':"+indicador+", 'usuarioC':"+usuarioC+"}";
+
+              $.ajax({
+                type:'POST',
+                url: 'extensiones/funciones/registrarContacto.php',
+                dataType: 'text',
+                data: {'codPro':info.codProspecto, 'num_linea':fila, 'fchContacto':fchCon, 'calificacion':cal, 'presentacion':cie, 'consejero':consejero, 'observacion':observacion, 'indicador':indicador, 'usuarioC':usuarioC},
+                success : function(response){
+                  var resp = JSON.parse(response);
+                  if (resp.cod == 1) {
+                    swal({
+                        type: "success",
+                        title: resp.msg,
+                        showConfirmButton: true,
+                      confirmButtonText: "Aceptar"
+                    });
+                  }else{
+                    swal({
+                        type: "warning",
+                        title: "Ocurrio un error al registrar el Prospecto.",
+                        showConfirmButton: true,
+                      confirmButtonText: "Cerrar"
+                    });
+                  }
+                  document.getElementById('codProspecto').value = info.codProspecto;
+                  verificarRegistro();
+                 }
+              });
+            }
+           }
+         }
+       });
+      }
+    }else if (jur == "SI") {
+
+      if (tipoDoc == "DI004" && numDoc == "") {
+        swal({
+          title: "Advertencia",
+          text: "Debe ingresar el numero de documento.",
+          type: "warning",
+          confirmButtonText: "Aceptar",
+        })
+      }else if (tipoDoc == "DI004" && numDoc.length < 11) {
+        swal({
+          title: "Advertencia",
+          text: "El numero del documento ingresado no tiene la cantidad de digitos configurado (11) para el tipo de documento.",
+          type: "warning",
+          confirmButtonText: "Aceptar",
+        })
+      }else if (razonSocial == "") {
+        swal({
+          title: "Advertencia",
+          text: "Debe ingresar la razón social del prospecto.",
+          type: "warning",
+          confirmButtonText: "Aceptar",
+        })
+      }else if (direccion == "") {
+        swal({
+          title: "Advertencia",
+          text: "Debe ingresar la dirección del prospecto.",
+          type: "warning",
+          confirmButtonText: "Aceptar",
+        })
+      }else if (distrito == "0" || distrito == "") {
+        swal({
+          title: "Advertencia",
+          text: "Debe seleccionar el distrito de la dirección.",
+          type: "warning",
+          confirmButtonText: "Aceptar",
+        })
+      }else if (origen == "") {
+        swal({
+          title: "Advertencia",
+          text: "Debe seleccionar el canal de venta.",
+          type: "warning",
+          confirmButtonText: "Aceptar",
+        })
+      }else if (calificacion == "") {
+        swal({
+          title: "Advertencia",
+          text: "Debe seleccionar la calificación del prospecto.",
+          type: "warning",
+          confirmButtonText: "Aceptar",
+        })
+      }else {
+        $.ajax({
+        type:'POST',
+        url: 'extensiones/funciones/registrarProspecto.php',
+        dataType: 'text',
+        data: {'importe':importe,'tipoDoc':tipoDoc, 'numDoc':numDoc, 'jur':jur,'apePaterno':apePaterno, 'apeMaterno':apeMaterno, 'nombre':nombre,'razonSocial':razonSocial, 'direccion':direccion, 'pais':pais,'departamento':departamento, 'provincia':provincia, 'distrito':distrito,'telefono1':telefono1, 'telefono2':telefono2, 'fchRegistro':fchRegistro,'usuario':usuario, 'origen':origen, 'calificacion':calificacion,'vendedor':vendedor, 'grupo':grupo, 'supervisor':supervisor, 'jefeVentas':jefeVentas, 'observacion':observacionP, 'estado':estado},
+        success : function(response){
+           var info = JSON.parse(response);
+
+           if (info.cod == 1) {
+
+            for (i = 0; i < rowLength; i++){
+               //gets cells of current row
+              var oCells = oTable.rows.item(i).cells;
+               //gets amount of cells of current row
+              var cellLength = oCells.length;
+              var fila = oCells.item(0).innerHTML.trim();
+              var fchCon = oCells.item(1).innerHTML.trim();
+              var funcion = document.getElementById("tipo-"+fila).value;
+              var cal = document.getElementById("calificacion-"+fila).value;
+              var cierre = document.getElementById("cierre-"+fila);
+              if (cierre.checked != true){
+                var cie = "NO";
+              }else{
+                var cie = "SI";
+              }
+              var consejero = document.getElementById("consejero-"+fila).value;
+              var indicador = document.getElementById("indicador-"+fila).value;
+              var observacion = document.getElementById("observacion-"+fila).value;
+              var jsonContacto = "{'codPro':"+info.codProspecto+", 'num_linea':"+fila+", 'fchContacto':"+fchCon+", 'calificacion':"+cal+", 'presentacion':"+cie+", 'consejero':"+consejero+", 'observacion':"+observacion+", 'indicador':"+indicador+", 'usuarioC':"+usuarioC+"}";
+
+              $.ajax({
+                type:'POST',
+                url: 'extensiones/funciones/registrarContacto.php',
+                dataType: 'text',
+                data: {'codPro':info.codProspecto, 'num_linea':fila, 'fchContacto':fchCon, 'calificacion':cal, 'presentacion':cie, 'consejero':consejero, 'observacion':observacion, 'indicador':indicador, 'usuarioC':usuarioC},
+                success : function(response){
+                  var resp = JSON.parse(response);
+                  if (resp.cod == 1) {
+                    swal({
+                        type: "success",
+                        title: resp.msg,
+                        showConfirmButton: true,
+                      confirmButtonText: "Aceptar"
+                    });
+                  }else{
+                    swal({
+                        type: "warning",
+                        title: "Ocurrio un error al registrar el Prospecto.",
+                        showConfirmButton: true,
+                      confirmButtonText: "Cerrar"
+                    });
+                  }
+                  document.getElementById('codProspecto').value = info.codProspecto;
+                  verificarRegistro();
+                 }
+              });
+            }
+           }
+         }
+       });
+      }
+    } 
+  }
+}
+
+function actualizarProspecto(){
   //Datos vtaca_prospecto_venta
   var importe = document.getElementById("importe").value;
   var tipoDoc = document.getElementById("tipoDocRegPro").value;
@@ -409,6 +757,7 @@ function registrarProspecto(){
   var telefono1 = document.getElementById("telefono1").value;
   var telefono2 = document.getElementById("telefono2").value;
   var fchRegistro = document.getElementById("fechaReg").value;
+  console.log(Date.parse(fchRegistro));
   var usuario = document.getElementById("usuario").value;
   var origen = document.getElementById("canalVenta").value;
   var calificacion = document.getElementById("calificacion").value;
@@ -436,6 +785,7 @@ function registrarProspecto(){
       var cellLength = oCells.length;
       var fila = oCells.item(0).innerHTML.trim();
       var fchCon = oCells.item(1).innerHTML.trim();
+      var funcion = document.getElementById("tipo-"+fila).value;
       var cal = document.getElementById("calificacion-"+fila).value;
       var cierre = document.getElementById("cierre-"+fila);
       if (cierre.checked != true){
@@ -446,10 +796,11 @@ function registrarProspecto(){
       var consejero = document.getElementById("consejero-"+fila).value;
       var indicador = document.getElementById("indicador-"+fila).value;
       var observacion = document.getElementById("observacion-"+fila).value;
-      var jsonContacto = "{'num_linea':"+fila+", 'fchContacto':"+fchCon+", 'calificacion':"+cal+",'presentacion':"+cie+", 'consejero':"+consejero+", 'observacion':"+observacion+", 'indicador'="+indicador+", 'usuario':"+usuario+"}";
-      console.log(jsonContacto);
+      var jsonContacto = "{'num_linea':"+fila+", 'fchContacto':"+fchCon+", 'calificacion':"+cal+", 'presentacion':"+cie+", 'consejero':"+consejero+", 'observacion':"+observacion+", 'indicador'="+indicador+", 'usuario':"+usuario+"}";
+      
     }
   }
 }
+
 
 verificarRegistro();
