@@ -384,7 +384,7 @@
 													</div>
 												</div>
 												<div class="col-lg-3">
-													<span id="espacio"></span>
+													<span id="espacioWiz"></span>
 												</div>
 											</div>
 										</div>
