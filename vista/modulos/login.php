@@ -17,7 +17,7 @@
 							<div class="form-group m-form__group seleccioneEmpresa" style="padding-top: 0;">
 								<select class="form-control m-input" data-init-plugin="select2" id="ingEmpresa" required>
 									<option value="" selected disabled>SELECCIONAR</option>
-									<option value="1" selected disabled>SAN ANTONIO</option>
+									<option value="00001" selected disabled>SAN ANTONIO</option>
 									<?php
 									$empresa = ControladorControlEmpresa::ctrMostrarControlEmpresa();
 									foreach ($empresa as $key => $value) {
