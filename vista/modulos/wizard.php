@@ -344,8 +344,8 @@
 													<label> Tipo plataforma:</label>
 													<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="tipoPlat" disabled="disabled" id="tipoPlat" onchange="buscaPlataforma(this.value);">
 														<option value="">Tipo de plataforma</option>
-														<option value="TP001">PLATAFORMA</option>
-														<option value="TP002">NICHO</option>
+														<option value="TP001">NICHO</option>
+														<option value="TP002">PLATAFORMA</option>
 													</select>
 												</div>
 												<div class="col-lg-4">
