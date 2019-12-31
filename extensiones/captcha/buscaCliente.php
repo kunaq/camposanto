@@ -1,7 +1,7 @@
 <?php
 require_once "../../modelo/conexion.php";
 
-   $cod = $_GET['value'];
+   $cod = $_POST['cod'];
    
     $db = new Conexion();                                             
 
