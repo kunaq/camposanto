@@ -1,5 +1,6 @@
 <?php
 require_once "../../modelo/conexion.php";
+
    $cod = $_GET['value'];
    //var_dump($cod);
     $db = new Conexion();                                             
@@ -30,7 +31,7 @@ require_once "../../modelo/conexion.php";
               }
 
                 $datos[] =  $key;
-                $respuesta = $key['dsc_cliente'].'/'.$key['cod_tipo_documento'].'/'.$key['dsc_documento'].'/'.$key['flg_juridico'].'/'.$key['dsc_telefono_1'].'/'.$key['dsc_direccion'].'/'.$key['cod_cliente'];
+                $respuesta = utf8_encode($key['dsc_cliente']).'/'.$key['cod_tipo_documento'].'/'.utf8_encode($key['dsc_documento']).'/'.$key['flg_juridico'].'/'.$key['dsc_telefono_1'].'/'.utf8_encode($key['dsc_direccion']).'/'.$key['cod_cliente'];
           
           }
         }
@@ -60,7 +61,7 @@ require_once "../../modelo/conexion.php";
               }
 
                 $datos[] =  $key;
-                $respuesta = $key['dsc_prospecto'].'/'.$key['cod_tipo_documento'].'/'.$key['dsc_documento'].'/'.$key['flg_juridico'];
+                $respuesta = utf8_encode($key['dsc_prospecto']).'/'.$key['cod_tipo_documento'].'/'.$key['dsc_documento'].'/'.$key['flg_juridico'];
             }
     		}    
     //var_dump($sql);
