@@ -148,6 +148,7 @@
 																  ?> 
 															</select>
 															<input type="hidden" name="flagIntegral" id="flagIntegral">
+															<input type="hidden" name="flagNvoCtto" id="flagNvoCtto">
 														</div>
 														<div class="col-lg-3">
 															<label class="">

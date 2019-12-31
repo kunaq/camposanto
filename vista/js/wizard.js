@@ -700,6 +700,7 @@ function validaEspacio(valor){
             var flagInt = respuesta.split("/")[2];
             var tipoNecesidad = respuesta.split("/")[3];
             document.getElementById("flagIntegral").value = flagInt;
+            document.getElementById("flagNvoCtto").value = nuevoCtt;
             if (valida == 'SI') {
                 $('#tipoPlat').prop('disabled',false);
                 $('#camposanto').prop('disabled',false);

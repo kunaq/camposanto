@@ -7,6 +7,14 @@ class AjaxWizard{
 		$respuesta = ControladorWizard::ctrEdoEspacio();
 		echo json_encode($respuesta);
 	}//function ajaxEdoEspacio
+	public function ajaxIdentificador(){
+		$respuesta = ControladorWizard::ctrIdentificador();
+		echo json_encode($respuesta);
+	}//function ajaxIdentificador
+	public function ajaxGuardaDetalle(){
+		$respuesta = ControladorWizard::ctrGuardaDetalle();
+		echo json_encode($respuesta);
+	}//function ajaxGuardaDetalle
 }//class AjaxWizard
 /*=============================================
 ACCIONES
@@ -14,4 +22,12 @@ ACCIONES
 if(isset($_POST["edoEspacio"]) && $_POST["edoEspacio"] == 'mostrar'){
 	$cliente = new AjaxWizard();
 	$cliente -> ajaxEdoEspacio();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'identificador'){
+	$cliente = new AjaxWizard();
+	$cliente -> ajaxIdentificador();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'guardarfila'){
+	$cliente = new AjaxWizard();
+	$cliente -> ajaxGuardaDetalle();
 }
