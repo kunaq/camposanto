@@ -31,14 +31,14 @@ require_once "../../modelo/conexion.php";
             echo "<tr height='60' name='".$cod."' id='".$cod."' >
                     <td class='tdDscServicioAdd'>
                       ".$key['dsc_servicio']."
-                      <input type='hidden' value=".$key['flg_afecto_igv']." id='flg_afecto_igv_".$cod."'>
-                      <input type='hidden' value=".$key['flg_sadicional']." id='flg_sadicional_".$cod."'>
-                      <input type='hidden' value=".$key['flg_contado']." id='ls_flg_contado_".$cod."'>
-                      <input type='hidden' value=".$key['flg_sin_precio']." id='ls_flg_libre_".$cod."'>
-                      <input type='hidden' value=".$key['flg_dsepultura']." id='ls_flg_ds_".$cod."'>
-                      <input type='hidden' value=".$key['flg_sfunerario']." id='ls_flg_sf_".$cod."'>
-                      <input type='hidden' value=".$key['flg_tipo_plan']." id='ls_flg_plan_".$cod."'>
-                      <input type='hidden' value=".$key['flg_ds_compartido']." id='ls_flg_ds_compartido_".$cod."'>
+                      <input type='hidden' value='".$key['flg_afecto_igv']."' id='flg_afecto_igv_".$cod."'>
+                      <input type='hidden' value='".$key['flg_sadicional']."' id='flg_sadicional_".$cod."'>
+                      <input type='hidden' value='".$key['flg_contado']."' id='ls_flg_contado_".$cod."'>
+                      <input type='hidden' value='".$key['flg_sin_precio']."' id='ls_flg_libre_".$cod."'>
+                      <input type='hidden' value='".$key['flg_dsepultura']."' id='ls_flg_ds_".$cod."'>
+                      <input type='hidden' value='".$key['flg_sfunerario']."' id='ls_flg_sf_".$cod."'>
+                      <input type='hidden' value='".$key['flg_tipo_plan']."' id='ls_flg_plan_".$cod."'>
+                      <input type='hidden' value='".$key['flg_ds_compartido']."' id='ls_flg_ds_compartido_".$cod."'>
                       <input type='hidden' value=".$key['flg_cremacion']." id='ls_flg_cremacion_".$cod."'>
                       <input type='hidden' value=".$key['flg_ds_temporal']." id='ls_flg_ds_temporal_".$cod."'>
                       <input type='hidden' value=".$key['flg_sfunerario']." id='ls_flg_ssff_".$cod."'>
