@@ -120,7 +120,7 @@
 																<td>
 																	<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--yellow" style="margin-bottom: 14px;">
 																		<label>
-																			<input type="checkbox" name="" id="cuoDefCheck" onchange="cuoDefinidas();">
+																			<input type="checkbox" name="" id="regularizacionCheck">
 																			<span></span>
 																		</label>
 																	</span>

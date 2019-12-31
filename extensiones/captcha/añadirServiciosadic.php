@@ -18,6 +18,11 @@ require_once "../../modelo/conexion.php";
 		while($key = $db->recorrer($sql)){
             $datos[] =  $key;
             $impTot = $key['imp_precio_venta']-$key['imp_precio_cuoi'];
+            if($key['imp_min_inhumar'] == '' || $key['imp_min_inhumar'] == null){
+              $inhumar = 0;
+            }else{
+              $inhumar = $key['imp_min_inhumar'];
+            }
             
             /*$ls_flg_libre = $key['flg_sin_precio'];
             $ls_flg_ds = $key['flg_dsepultura'];
@@ -42,7 +47,7 @@ require_once "../../modelo/conexion.php";
                       <input type='hidden' value='".$key['flg_cremacion']."' id='ls_flg_cremacion_".$cod."'>
                       <input type='hidden' value='".$key['flg_ds_temporal']."' id='ls_flg_ds_temporal_".$cod."'>
                       <input type='hidden' value='".$key['flg_sfunerario']."' id='ls_flg_ssff_".$cod."'>
-                      <input type='hidden' value='".$key['imp_min_inhumar']."' id='imp_min_inhumar_".$cod."'>
+                      <input type='hidden' value='".$inhumar."' id='imp_min_inhumar_".$cod."'>
                       <input type='hidden' value='".$cod." id='codServicio' class='codServicio'>
                     </td>
                     <td class='tdCtdServicioAdd ColumnaLetra'>
