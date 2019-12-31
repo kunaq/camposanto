@@ -2521,7 +2521,7 @@ function grabaTemporal(){
       type: 'POST',
       url: 'ajax/wizard.ajax.php',
       dataType: 'text',
-      data: { 'accion':'guardarfila', 'll_id':ll_id, 'li_i':i, 'ls_codigo':ls_codigo, 'li_ctd':li_ctd, 'lde_precio_venta':lde_precio_venta, 'lde_det_total':lde_det_total,'lde_cuoi':lde_cuoi, 'lde_foma':lde_foma, 'lde_cuoi_st':lde_cuoi_st, 'lde_min_inh':lde_min_inh, 'lde_precio_lista':lde_precio_lista, 'lde_valor_endoso':lde_valor_endoso, 'ls_flg_ds_compartido':ls_flg_ds_compartido, 'lde_imp_carencia':lde_imp_carencia, 'ls_flg_cremacion':ls_flg_cremacion, 'ls_flg_ds_temporal':ls_flg_ds_temporal, 'ls_flg_ssff':ls_flg_ssff, 'lde_saldo_detalle':,lde_saldo_detalle},
+      data: { 'accion':'guardarfila', 'll_id':ll_id, 'li_i':i, 'ls_codigo':ls_codigo, 'li_ctd':li_ctd, 'lde_precio_venta':lde_precio_venta, 'lde_det_total':lde_det_total,'lde_cuoi':lde_cuoi, 'lde_foma':lde_foma, 'lde_cuoi_st':lde_cuoi_st, 'lde_min_inh':lde_min_inh, 'lde_precio_lista':lde_precio_lista, 'lde_valor_endoso':lde_valor_endoso, 'ls_flg_ds_compartido':ls_flg_ds_compartido, 'lde_imp_carencia':lde_imp_carencia, 'ls_flg_cremacion':ls_flg_cremacion, 'ls_flg_ds_temporal':ls_flg_ds_temporal, 'ls_flg_ssff':ls_flg_ssff, 'lde_saldo_detalle':lde_saldo_detalle},
       success : function(respuesta){
          if(respuesta == 'ok'){
 
