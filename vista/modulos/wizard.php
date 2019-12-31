@@ -383,6 +383,9 @@
 														<input type="text" class="form-control form-control-sm m-input" name="tipo" id="tipo" disabled="disabled">
 													</div>
 												</div>
+												<div class="col-lg-3">
+													<span id="espacioWiz"></span>
+												</div>
 											</div>
 										</div>
 									</fieldset>									

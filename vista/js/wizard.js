@@ -908,19 +908,19 @@ function buscanomEspacio(valor){
             $("#tipo").val(respuesta);
         }
     });
-    var aux = document.getElementById("espacio").value;
+    var aux = document.getElementById("espacioWiz").value;
     var estado = aux.split("/")[1];
     if(estado == 'E01'){
-        document.getElementById('estado').innerHTML='LIBRE';
-        document.getElementById("estado").style.color = 'limegreen';
+        document.getElementById('espacioWiz').innerHTML='LIBRE';
+        document.getElementById("espacioWiz").style.color = 'limegreen';
     }
     else if(estado == 'E04'){
-        document.getElementById('estado').innerHTML='BLOQUEADO';
-        document.getElementById("estado").style.color = 'gold';
+        document.getElementById('espacioWiz').innerHTML='BLOQUEADO';
+        document.getElementById("espacioWiz").style.color = 'gold';
     }
     else{
-        document.getElementById('estado').innerHTML='OCUPADO';
-        document.getElementById("estado").style.color = 'red';
+        document.getElementById('espacioWiz').innerHTML='OCUPADO';
+        document.getElementById("espacioWiz").style.color = 'red';
     }
 }
 

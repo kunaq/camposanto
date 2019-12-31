@@ -37,7 +37,3 @@ class ModeloWizard{
 
 }//class ModeloWizard
 ?>
-
-
-<!-- EXECUTE @RC = [dbo].[usp_vta_prc_genera_contrato] @as_usuario  ,@as_cliente  ,@as_contrato_base  ,@as_num_comprobante  ,@as_contrato_reg  ,@as_tipo_comprobante  ,@as_localidad  ,@as_tipo_recaudacion  ,@as_localidad_base  ,@as_servicio_base  ,@as_tipo_ctt_base  ,@as_camposanto  ,@as_plataforma  ,@as_area  ,@as_eje_horizontal  ,@as_eje_vertical  ,@as_tipo_espacio  ,@as_convenio  ,@as_moneda  ,@as_moneda_comprob  ,@as_espacio  ,@as_tipo_necesidad  ,@adt_fch_emision  ,@ade_imp_cuoi  ,@ade_valor_igv  ,@as_flg_nuevo  ,@as_flg_comprobante  ,@as_flg_modif  ,@as_flg_regularizar  ,@as_flg_ctt_x_tn  ,@as_cod_empresa  ,@as_tipo_programa_base  ,@ai_nivel  ,@as_flg_emitir_saldo  ,@as_flg_integral  ,@as_flg_cronograma_cuoi GO -->
-
