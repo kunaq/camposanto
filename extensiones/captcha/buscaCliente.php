@@ -3,7 +3,7 @@ require_once "../../modelo/conexion.php";
 
    $cod = $_POST['cod'];
 
-   echo $cod;
+   // echo $cod;
    
     $db = new Conexion();                                             
 
@@ -12,7 +12,11 @@ require_once "../../modelo/conexion.php";
 
 // $respuesta = "";
 
-      if ($rows = $db->rows($sql)) {
+      $rows = $db->rows($sql);
+
+      echo $rows;
+
+      if ($rows) {
           
           while($key = $db->recorrer($sql)){
 
