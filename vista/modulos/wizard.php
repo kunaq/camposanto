@@ -1460,7 +1460,7 @@
 									</a>
 								</div>
 								<div class="col-lg-4 m--align-right">
-									<a href="#" class="btn btnGuardarKqPst m-btn m-btn--custom m-btn--icon" data-wizard-action="submit">
+									<a href="#" class="btn btnGuardarKqPst m-btn m-btn--custom m-btn--icon" data-wizard-action="submit" onclick="grabaTemporal();">
 										<span>
 											<i class="la la-check"></i>
 											&nbsp;&nbsp;
