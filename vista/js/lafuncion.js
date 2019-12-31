@@ -2517,30 +2517,30 @@ function grabaTemporal(){
 
     // -- Insertar -- //
 
-    $.ajax({
-      type: 'POST',
-      url: 'ajax/wizard.ajax.php',
-      dataType: 'text',
-      data: { 'accion':'guardarfila', 'll_id':ll_id, 'li_i':i, 'ls_codigo':ls_codigo, 'li_ctd':li_ctd, 'lde_precio_venta':lde_precio_venta, 'lde_det_total':lde_det_total,'lde_cuoi':lde_cuoi, 'lde_foma':lde_foma, 'lde_cuoi_st':lde_cuoi_st, 'lde_min_inh':lde_min_inh, 'lde_precio_lista':lde_precio_lista, 'lde_valor_endoso':lde_valor_endoso, 'ls_flg_ds_compartido':ls_flg_ds_compartido, 'lde_imp_carencia':lde_imp_carencia, 'ls_flg_cremacion':ls_flg_cremacion, 'ls_flg_ds_temporal':ls_flg_ds_temporal, 'ls_flg_ssff':ls_flg_ssff, 'lde_saldo_detalle':lde_saldo_detalle},
-      success : function(respuesta){
-         if(respuesta == 'ok'){
+    // $.ajax({
+    //   type: 'POST',
+    //   url: 'ajax/wizard.ajax.php',
+    //   dataType: 'text',
+    //   data: { 'accion':'guardarfila', 'll_id':ll_id, 'li_i':i, 'ls_codigo':ls_codigo, 'li_ctd':li_ctd, 'lde_precio_venta':lde_precio_venta, 'lde_det_total':lde_det_total,'lde_cuoi':lde_cuoi, 'lde_foma':lde_foma, 'lde_cuoi_st':lde_cuoi_st, 'lde_min_inh':lde_min_inh, 'lde_precio_lista':lde_precio_lista, 'lde_valor_endoso':lde_valor_endoso, 'ls_flg_ds_compartido':ls_flg_ds_compartido, 'lde_imp_carencia':lde_imp_carencia, 'ls_flg_cremacion':ls_flg_cremacion, 'ls_flg_ds_temporal':ls_flg_ds_temporal, 'ls_flg_ssff':ls_flg_ssff, 'lde_saldo_detalle':lde_saldo_detalle},
+    //   success : function(respuesta){
+    //      if(respuesta == 'ok'){
 
-            // swal({
-            //   type: "success",
-            //   title: "Se ha guardado correctamente.",
-            //   showConfirmButton: true,
-            // confirmButtonText: "Cerrar"
-            // });//swal
-          }else{
-            swal({
-                type: "error",
-                title: "Ha ocurrido un problema al guardar los datos, por favor vuelva a intentarlo.",
-                showConfirmButton: true,
-              confirmButtonText: "Cerrar"
-            });//swal
-          } 
-      }
-    });
+    //         // swal({
+    //         //   type: "success",
+    //         //   title: "Se ha guardado correctamente.",
+    //         //   showConfirmButton: true,
+    //         // confirmButtonText: "Cerrar"
+    //         // });//swal
+    //       }else{
+    //         swal({
+    //             type: "error",
+    //             title: "Ha ocurrido un problema al guardar los datos, por favor vuelva a intentarlo.",
+    //             showConfirmButton: true,
+    //           confirmButtonText: "Cerrar"
+    //         });//swal
+    //       } 
+    //   }
+    // });
     
     //INSERT INTO vtama_temp_recaudacion ( num_id, num_linea, cod_servicio, num_ctd, imp_precio_venta, imp_total, imp_cuoi, imp_foma, imp_cuoi_standar, imp_min_inhumar, imp_precio_lista, imp_endoso, cod_servicio_main, flg_servicio, cod_servicio_secundario, flg_ds_compartido, imp_costo_carencia, flg_cremacion, flg_ds_temporal, flg_ssff, imp_saldo ) VALUES ( :ll_id, :li_i, :ls_codigo, :li_ctd, :lde_precio_venta, :lde_det_total, :lde_cuoi, :lde_foma, :lde_cuoi_st, :lde_min_inh, :lde_precio_lista, :lde_valor_endoso, :ls_codigo, 'SI', :ls_codigo, :ls_flg_ds_compartido, :lde_imp_carencia, :ls_flg_cremacion, :ls_flg_ds_temporal, :ls_flg_ssff, :lde_saldo_detalle )USING SQLCA;
     
