@@ -25,6 +25,7 @@
 									}
 									?>
 								</select>
+								<input type="hidden" name="codEmpresa" id="codEmpresa" value="001">
 							</div>	
 							<!-- ENTRADA PARA EL USUARIO -->
 							<div class="form-group m-input-icon m-input-icon--left">
