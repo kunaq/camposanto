@@ -13,7 +13,7 @@ class ControladorWizard{
 
 	static public function ctrIdentificador(){
 		$respuesta = ModeloWizard::mdlIdentificador();
-		$borrar = ModeloWizard::mdlBorrarTemporal($respuesta);
+		// $borrar = ModeloWizard::mdlBorrarTemporal($respuesta);
 		return $respuesta;
 	}//function ctrIdentificador
 

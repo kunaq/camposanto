@@ -16,13 +16,24 @@ class ModeloWizard{
 
 	static public function mdlIdentificador(){
 		$db = new Conexion();
-		$sql = $db->consulta("SELECT @@spid FROM scfma_parametros_sistema");
-		$datos = arrayMapUtf8Encode($db->recorrer($sql));
-	    if ($datos == null || $datos == ''){
-       	    $datos = 0;
-     	}
-		$sqlDel = $db->consulta("DELETE  FROM vtama_temp_recaudacion WHERE vtama_temp_recaudacion.num_id = $datos");
-		return $datos;
+
+		$sql = $db->consulta("SELECT @@spid as id FROM scfma_parametros_sistema");
+
+		$id = "";
+
+		while($key = $db->recorrer($sql)){
+
+			if ($key['id'] == null || $key['id'] == ''){
+
+       	    	$id = 0;
+
+     		}else{
+     			$id = $key['id'];
+     		}
+		}
+		$sqlDel = $db->consulta("DELETE  FROM vtama_temp_recaudacion WHERE vtama_temp_recaudacion.num_id = $id");
+
+		return $id;
 	}
 
 	static public function mdlGuardaDetalle($tabla,$ll_id,$li_i,$ls_codigo,$li_ctd,$lde_precio_venta,$lde_det_total,$lde_cuoi,$lde_foma,$lde_cuoi_st,$lde_min_inh,$lde_precio_lista,$lde_valor_endoso,$ls_flg_ds_compartido,$lde_imp_carencia,$ls_flg_cremacion,$ls_flg_ds_temporal,$ls_flg_ssff,$lde_saldo_detalle){
