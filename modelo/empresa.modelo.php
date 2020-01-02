@@ -65,7 +65,7 @@ class ModeloEmpresa{
 
                 while($key = $db->recorrer($sql)){
                     $datos[] =  $key;
-                    echo '<option value="'.$key[$item1].'">'.Utf8Decode($key[$item2]).'</option>';
+                    echo '<option value="'.$key[$item1].'">'.Utf8Encode($key[$item2]).'</option>';
                 }
  
             }else{
