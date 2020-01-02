@@ -551,6 +551,7 @@ $("#numDocCliente").change(function() {
             $('#nombreCliente').val(nombre);
             document.getElementById("TipoDcoCliente").value = tipodoc;
             document.getElementById("numDocCliente").value = numdoc;
+            $("#numDocCliente").change();
             if (jur == 'SI') {
                 $('#juridico').prop("checked", true);
             }
