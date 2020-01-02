@@ -2469,41 +2469,42 @@ function grabaTemporal(){
   //li_total = tab_1.tp_1.dw_detalle.Rowcount()
   var li_total = $("#bodyServicio tr").length;
   var i = 0;
-
+  var datos = new Array();
   var container = document.querySelector('#bodyServicio');
   container.querySelectorAll('tr').forEach(function (li_i) 
   {  
     i++;
+    datos['num_fila'] = i;
     //ls_codigo         = tab_1.tp_1.dw_detalle.GetItemString(li_i, "cod_servicio")
-    var ls_codigo = $(li_i).attr("name");
+    datos['ls_codigo'] = $(li_i).attr("name");
     //li_ctd            = tab_1.tp_1.dw_detalle.GetItemNumber(li_i, "ctd_cantidad")
-    var li_ctd = document.getElementById("ctd_"+ls_codigo).value;
+    datos['li_ctd'] = document.getElementById("ctd_"+ls_codigo).value;
     //lde_precio_venta    = tab_1.tp_1.dw_detalle.GetItemDecimal(li_i, "imp_precio_venta")
-    var lde_precio_venta = document.getElementById("numA_"+ls_codigo).value;
+    datos['lde_precio_venta'] = document.getElementById("numA_"+ls_codigo).value;
     //lde_det_total     = tab_1.tp_1.dw_detalle.GetItemDecimal(li_i, "compute_2") cada importe total
-    var lde_det_total = document.getElementById("numC1_"+ls_codigo).value;
+    datos['lde_det_total'] = document.getElementById("numC1_"+ls_codigo).value;
     //lde_cuoi          = tab_1.tp_1.dw_detalle.GetItemDecimal(li_i, "imp_cuoi")
-    var lde_cuoi = document.getElementById("numF_"+ls_codigo).value;
+    datos['lde_cuoi'] = document.getElementById("numF_"+ls_codigo).value;
     //lde_cuoi_st       = tab_1.tp_1.dw_detalle.GetItemDecimal(li_i, "imp_cuoi_standar")
-    var lde_cuoi_st = document.getElementById("cui_std_"+ls_codigo).value;
+    datos['lde_cuoi_st'] = document.getElementById("cui_std_"+ls_codigo).value;
     //lde_min_inh       = tab_1.tp_1.dw_detalle.GetItemDecimal(li_i, "imp_min_inhumar")
-    var lde_min_inh  = document.getElementById("imp_min_inhumar_"+ls_codigo).value;
+    datos['lde_min_inh']  = document.getElementById("imp_min_inhumar_"+ls_codigo).value;
     //lde_precio_lista      = tab_1.tp_1.dw_detalle.GetItemDecimal(li_i, "imp_precio_lista")
-    var lde_precio_lista = document.getElementById("lista_"+ls_codigo).value;
+    datos['lde_precio_lista'] = document.getElementById("lista_"+ls_codigo).value;
     //lde_valor_endoso    = tab_1.tp_1.dw_detalle.GetItemDecimal(li_i, "imp_endoso")
-    var lde_valor_endoso = document.getElementById("numG_"+ls_codigo).value;
+    datos['lde_valor_endoso'] = document.getElementById("numG_"+ls_codigo).value;
     //lde_foma          = tab_1.tp_1.dw_detalle.GetItemDecimal(li_i, "imp_foma")
-    var lde_foma = document.getElementById("numD_"+ls_codigo).value;
+    datos['lde_foma'] = document.getElementById("numD_"+ls_codigo).value;
     //ls_flg_ds_compartido  = tab_1.tp_1.dw_detalle.GetItemString(li_i, "flg_ds_compartido")
-    var ls_flg_ds_compartido = document.getElementById("ls_flg_ds_compartido_"+ls_codigo).value;
+    datos['ls_flg_ds_compartido'] = document.getElementById("ls_flg_ds_compartido_"+ls_codigo).value;
     //ls_flg_cremacion    = tab_1.tp_1.dw_detalle.GetItemString(li_i, "flg_cremacion")
-    var ls_flg_cremacion = document.getElementById("ls_flg_cremacion_"+ls_codigo).value;
+    datos['ls_flg_cremacion'] = document.getElementById("ls_flg_cremacion_"+ls_codigo).value;
     //ls_flg_ds_temporal  = tab_1.tp_1.dw_detalle.GetItemString(li_i, "flg_ds_temporal")
-    var ls_flg_ds_temporal = document.getElementById("ls_flg_ds_temporal_"+ls_codigo).value;
+    datos['ls_flg_ds_temporal'] = document.getElementById("ls_flg_ds_temporal_"+ls_codigo).value;
     //lde_imp_carencia    = tab_1.tp_1.dw_detalle.GetItemDecimal(li_i, "imp_carencia")
-    var lde_imp_carencia = document.getElementById("numE_"+ls_codigo).value;
+    datos['lde_imp_carencia'] = document.getElementById("numE_"+ls_codigo).value;
     //ls_flg_ssff       = tab_1.tp_1.dw_detalle.GetItemString(li_i, "flg_ssff")
-    var ls_flg_ssff = document.getElementById("ls_flg_ssff_"+ls_codigo).value;
+    datos['ls_flg_ssff'] = document.getElementById("ls_flg_ssff_"+ls_codigo).value;
     //lde_saldo_detalle   = tab_1.tp_1.dw_detalle.GetItemDecimal(li_i, "compute_7")
     var lde_saldo_detalle = document.getElementById("numH1_"+ls_servicio_main).value;
     
@@ -2512,7 +2513,9 @@ function grabaTemporal(){
     //If IsNull(lde_saldo_detalle) Then lde_saldo_detalle = 0
     
      if (lde_saldo_detalle == null || lde_saldo_detalle == ''){
-         lde_saldo_detalle = 0;
+         datos['lde_saldo_detalle'] = 0;
+     }else{
+        datos['lde_saldo_detalle'] = lde_saldo_detalle;
      }
 
     // -- Insertar -- //
@@ -2546,5 +2549,6 @@ function grabaTemporal(){
     
     
   });
+  console.log('datos',datos);
 
 }

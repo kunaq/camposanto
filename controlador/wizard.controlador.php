@@ -41,7 +41,7 @@ class ControladorWizard{
 		return $respuesta;
 	}//function ctrGuardaDetalle
 
-	static public function ejecutaProcedureGeneraCtto(){
+	static public function ctrEjecutaProcedureGeneraCtto(){
 		$fecha = date('Y-m-d');
 		$hora = date('H:i:s');
 		$fechaActual = $fecha.' '.$hora;
