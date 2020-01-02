@@ -535,7 +535,8 @@ $("#codVendedor").change(function () {
 
 $("#numDocCliente").change(function() {
     var valor = $(this).val();
-     console.log(valor);
+     //console.log(valor);
+    var cod = ''; 
     $.ajax({
         type: 'GET',
         url: 'extensiones/captcha/buscaCliente.php',
@@ -547,7 +548,7 @@ $("#numDocCliente").change(function() {
             var tipodoc = respuesta.split("/")[1];
             var numdoc = respuesta.split("/")[2];
             var jur = respuesta.split("/")[3];
-            var cod = respuesta.split("/")[6];
+            cod = respuesta.split("/")[6];
             $('#nombreCliente').val(nombre);
             document.getElementById("TipoDcoCliente").value = tipodoc;
             document.getElementById("numDocCliente").value = numdoc;
