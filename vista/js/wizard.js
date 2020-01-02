@@ -534,21 +534,19 @@ $("#codVendedor").change(function () {
 });
 
 $("#numDocCliente").change(function() {
-    var valor = $(this).val();
-     //console.log(valor);
-    var cod = ''; 
+    var valor = $(this).val(); 
     $.ajax({
         type: 'GET',
         url: 'extensiones/captcha/buscaCliente.php',
         dataType: 'text',
         data: { 'value' : valor },
         success : function(respuesta){
-            //console.log(respuesta);
+            console.log(respuesta);
             var nombre = respuesta.split("/")[0];
             var tipodoc = respuesta.split("/")[1];
             var numdoc = respuesta.split("/")[2];
             var jur = respuesta.split("/")[3];
-            cod = respuesta.split("/")[6];
+            var cod = respuesta.split("/")[6];
             $('#nombreCliente').val(nombre);
             document.getElementById("TipoDcoCliente").value = tipodoc;
             document.getElementById("numDocCliente").value = numdoc;
