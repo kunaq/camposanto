@@ -2609,3 +2609,8 @@ function grabaTemporal(){
   // });
 
 }
+
+function pruebalastchild(){
+  var x = document.getElementById("bodyCobertura").lastChild;
+  console.log(x);
+}
