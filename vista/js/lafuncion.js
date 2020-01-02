@@ -2438,13 +2438,14 @@ function grabaTemporal(){
   // var oTable = document.getElementById('tabBodyRegPro');
   // //gets rows of table
   // var rowLength = oTable.rows.length;
-
+  
   $.ajax({
     type: 'POST',
     url: 'ajax/wizard.ajax.php',
     dataType: 'text',
     data: { 'accion' : 'identificador' },
     success : function(respuesta){
+      var j = 0;
       var ll_id = respuesta;
       // console.log(ll_id);
       var oTable = document.getElementById('bodyServicio');
@@ -2455,46 +2456,72 @@ function grabaTemporal(){
         var ofila = oTable.rows.item(i);
         var codSer = ofila.id;
         var linea = i + 1;
-        console.log(linea);
         
         var li_ctd = document.getElementById("ctd_"+codSer).value;
         var lde_precio_venta = document.getElementById("numA_"+codSer).value;
         var lde_det_total = document.getElementById("numC1_"+codSer).value;
-        var lde_cuoi = document.getElementById("numF_"+codSer).value;
+        var lde_cuoi = pasaAnumero(document.getElementById("numF_"+codSer).value);
         var lde_cuoi_st = document.getElementById("cui_std_"+codSer).value;
         var lde_min_inh  = document.getElementById("imp_min_inhumar_"+codSer).value;
         var lde_precio_lista = document.getElementById("lista_"+codSer).value;
-        var lde_valor_endoso = document.getElementById("numG_"+codSer).value;
-        var lde_foma = document.getElementById("numD_"+codSer).value;
+        var lde_valor_endoso = pasaAnumero(document.getElementById("numG_"+codSer).value);
+        var lde_foma = pasaAnumero(document.getElementById("numD_"+codSer).value);
         var ls_flg_ds_compartido = document.getElementById("ls_flg_ds_compartido_"+codSer).value;
         var ls_flg_cremacion = document.getElementById("ls_flg_cremacion_"+codSer).value;
         var ls_flg_ds_temporal = document.getElementById("ls_flg_ds_temporal_"+codSer).value;
-        var lde_imp_carencia = document.getElementById("numE_"+codSer).value;
+        var lde_imp_carencia = pasaAnumero(document.getElementById("numE_"+codSer).value);
         var ls_flg_ssff = document.getElementById("ls_flg_ssff_"+codSer).value;
         var lde_saldo_detalle = document.getElementById("numH1_"+codSer).value;
 
         if (lde_saldo_detalle == null || lde_saldo_detalle == ''){
          lde_saldo_detalle = 0;
         }
-
+        
         $.ajax({
-            type: 'POST',
-            url: 'ajax/wizard.ajax.php',
-            dataType: 'text',
-            data:{'accion' : 'guardarfila', 'num_id' : ll_id, 'num_linea' : linea, 'cod_servicio' : codSer, 'num_ctd' : li_ctd, 'imp_precio_venta' : lde_precio_venta, 'imp_total' : lde_det_total, 'imp_cuoi' : lde_cuoi, 'imp_foma' : lde_foma, 'imp_cuoi_standar' : lde_cuoi_st, 'imp_min_inhumar' : lde_min_inh, 'imp_precio_lista' : lde_precio_lista, 'imp_endoso' : lde_valor_endoso, 'flg_ds_compartido' : ls_flg_ds_compartido, 'imp_costo_carencia' : lde_imp_carencia, 'flg_cremacion' : ls_flg_cremacion, 'flg_ds_temporal' : ls_flg_ds_temporal, 'flg_ssff' : ls_flg_ssff, 'imp_saldo' : lde_saldo_detalle},
-            success : function(response){
-              console.log(response);
+          type: 'POST',
+           url: 'ajax/wizard.ajax.php',
+           dataType: 'text',
+           data:{'accion' : 'guardarfila', 'num_id' : ll_id, 'num_linea' : linea, 'cod_servicio' : codSer, 'num_ctd' : li_ctd, 'imp_precio_venta' : lde_precio_venta, 'imp_total' : lde_det_total, 'imp_cuoi' : lde_cuoi, 'imp_foma' : lde_foma, 'imp_cuoi_standar' : lde_cuoi_st, 'imp_min_inhumar' : lde_min_inh, 'imp_precio_lista' : lde_precio_lista, 'imp_endoso' : lde_valor_endoso, 'flg_ds_compartido' : ls_flg_ds_compartido, 'imp_costo_carencia' : lde_imp_carencia, 'flg_cremacion' : ls_flg_cremacion, 'flg_ds_temporal' : ls_flg_ds_temporal, 'flg_ssff' : ls_flg_ssff, 'imp_saldo' : lde_saldo_detalle},
+           success : function(response){
+             if (response == 1) {
+               j++;
+               if (j == rowLength) {
+                var cod_cliente = document.getElementById('').value;
+                var tipo_recaudacion = document.getElementById('').value;
+                var tipo_programa = document.getElementById('tipPro').value;
+                var camposanto = document.getElementById('camposanto').value;
+                var plataforma = document.getElementById('plataforma').value;
+                var area = document.getElementById('area').value;
+                var eje_x = document.getElementById('ejex').value;
+                var eje_y = document.getElementById('ejey').value;
+                var espacio = document.getElementById('espacio').value;
+                var endoso = document.getElementById().value;
+                // ultima fila de la tabla
+                var tipo_espacio = document.getElementById().value;
+                var tipo_necesidad = document.getElementById().value;
+                var imp_cuoi = document.getElementById().value;
+                var nuevo_ctt = document.getElementById('flagNvoCtto').value;
+                var flg_integral = document.getElementById('flagIntegral').value;
+                var regularizacion = document.getElementById('regularizacionCheck');
+                if (juridicocheck.checked != true){
+                  var flg_regularizacion = "NO";
+                }else{
+                  var flg_regularizacion = "SI"
+                }
+                var cod_empresa = document.getElementById('').value;
+                var nivel = document.getElementById().value;
+
+                 $.ajax({
+                   type: 'POST',
+                   url: 'ajax/wizard.ajax.php',
+                   dataType: 'text',
+                   data: { 'accion' : 'ejecutaProcedure' },
+                   success : function(respuesta){}
+                 });
                }
-            });
-        // $.ajax({
-        //   type: 'POST',
-        //   url: 'ajax/wizard.ajax.php',
-        //   dataType: 'text',
-        //   data: {'accion' : 'guardarfila', 'num_id' : ll_id, 'num_linea' : ofila, 'cod_servicio' : codSer, 'num_ctd' : li_ctd, 'imp_precio_venta' : lde_precio_venta, 'imp_total' : lde_det_total, 'imp_cuoi' : lde_cuoi, 'imp_foma' : lde_foma, 'imp_cuoi_standar' : lde_cuoi_st, 'imp_min_inhumar' : lde_min_inh, 'imp_precio_lista' : lde_precio_lista, 'imp_endoso' : lde_valor_endoso, 'flg_ds_compartido, ' : ls_flg_ds_compartido, 'imp_costo_carencia' : lde_imp_carencia, 'flg_cremacion' : ls_flg_cremacion, 'flg_ds_temporal' : ls_flg_ds_temporal, 'flg_ssff' : ls_flg_ssff, 'imp_saldo' : lde_saldo_detalle},
-        //   success : function(respuesta){
-        //     console.log(respuesta)
-        //   }
-        // });
+             }
+           }
+        });
       }
     }
   });
