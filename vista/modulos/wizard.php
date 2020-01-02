@@ -698,9 +698,6 @@
 										<button class="btn btnGuardarKqPst m-btn" type="button" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Añadir descuento" onclick="callTablaEndoso();">
 											<i class="fa fa-plus"></i>
 										</button>
-										<button class="btn btnGuardarKqPst m-btn" type="button" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Añadir descuento" onclick="pruebalastchild();">
-											<i class="fa fa-plus"></i>
-										</button>
 									</span>
 								</div>
 							</div>
