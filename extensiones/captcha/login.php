@@ -2,6 +2,7 @@
 @session_start();
 require_once "../../modelo/conexion.php";
    $usuario = $_POST['user'];
+   $_SESSION['localidad'] = $_POST['ingEmpresa'];
    $usuario = strtoupper($usuario);
    $pass = $_POST['password'];
    $pass = strtoupper($pass);

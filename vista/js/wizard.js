@@ -535,13 +535,14 @@ $("#codVendedor").change(function () {
 
 $("#numDocCliente").change(function() {
     var valor = $(this).val();
+     
     $.ajax({
         type: 'GET',
         url: 'extensiones/captcha/buscaCliente.php',
         dataType: 'text',
         data: { 'value' : valor },
         success : function(respuesta){
-            console.log(respuesta);
+            //console.log(respuesta);
             var nombre = respuesta.split("/")[0];
             var tipodoc = respuesta.split("/")[1];
             var numdoc = respuesta.split("/")[2];
@@ -908,19 +909,19 @@ function buscanomEspacio(valor){
             $("#tipo").val(respuesta);
         }
     });
-    var aux = document.getElementById("espacioWiz").value;
+    var aux = document.getElementById("espacio").value;
     var estado = aux.split("/")[1];
     if(estado == 'E01'){
-        document.getElementById('espacioWiz').innerHTML='LIBRE';
-        document.getElementById("espacioWiz").style.color = 'limegreen';
+        document.getElementById('estado').innerHTML='LIBRE';
+        document.getElementById("estado").style.color = 'limegreen';
     }
     else if(estado == 'E04'){
-        document.getElementById('espacioWiz').innerHTML='BLOQUEADO';
-        document.getElementById("espacioWiz").style.color = 'gold';
+        document.getElementById('estado').innerHTML='BLOQUEADO';
+        document.getElementById("estado").style.color = 'gold';
     }
     else{
-        document.getElementById('espacioWiz').innerHTML='OCUPADO';
-        document.getElementById("espacioWiz").style.color = 'red';
+        document.getElementById('estado').innerHTML='OCUPADO';
+        document.getElementById("estado").style.color = 'red';
     }
 }
 
