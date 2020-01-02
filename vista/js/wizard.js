@@ -542,7 +542,7 @@ $("#numDocCliente").change(function() {
         dataType: 'text',
         data: { 'value' : valor },
         success : function(respuesta){
-            //console.log(respuesta);
+            console.log(respuesta);
             var nombre = respuesta.split("/")[0];
             var tipodoc = respuesta.split("/")[1];
             var numdoc = respuesta.split("/")[2];
