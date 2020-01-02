@@ -1,6 +1,6 @@
 <?php 
 require_once "../../modelo/conexion.php";
-
+require_once "../../funciones.php";
 $cod = $_GET['cod_cliente'];
 
  $db = new Conexion();
