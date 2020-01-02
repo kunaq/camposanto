@@ -1,7 +1,7 @@
 <?php 
 require_once "../../modelo/conexion.php";
-
-$cod = $_GET['cod'];
+require_once "../../funciones.php";
+$cod = $_GET['cod_cliente'];
 
  $db = new Conexion();
 
@@ -128,12 +128,12 @@ $deuda_vencida_final = 0;
 
     $db->liberar($sql);
 	$db->cerrar();
-	$arrData = array('cod'=> $code, 'tabla'=>$tabla, 'deudaTotal'=>$deuda_total_soles);
+	$arrData = array('codig'=> $code, 'tabla'=>$tabla, 'deudaTotal'=>$deuda_total_soles);
 	echo json_encode($arrData,JSON_UNESCAPED_UNICODE);
 }else{
 	$code = "0";
 	$msg = "";
-	$arrData = array('cod'=> $code);
+	$arrData = array('codig'=> $code);
 		echo json_encode($arrData,JSON_UNESCAPED_UNICODE);
 }
 

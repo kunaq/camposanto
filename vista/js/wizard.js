@@ -534,15 +534,14 @@ $("#codVendedor").change(function () {
 });
 
 $("#numDocCliente").change(function() {
-    var valor = $(this).val();
-     
+    var valor = $(this).val(); 
     $.ajax({
         type: 'GET',
         url: 'extensiones/captcha/buscaCliente.php',
         dataType: 'text',
         data: { 'value' : valor },
         success : function(respuesta){
-            //console.log(respuesta);
+            console.log(respuesta);
             var nombre = respuesta.split("/")[0];
             var tipodoc = respuesta.split("/")[1];
             var numdoc = respuesta.split("/")[2];
@@ -563,10 +562,10 @@ $("#numDocCliente").change(function() {
               type: 'GET',
                 url: 'extensiones/captcha/tablaDeuda.php',
                 dataType: 'text',
-                data: { 'cod' : cod },
+                data: { 'cod_cliente' : cod },
                 success : function(response){
                   var info = JSON.parse(response);
-                  if (info.cod == 0) {
+                  if (info.codig == 0) {
                     return true;
                   }else{
                     $('#tablaDeuda').html('')

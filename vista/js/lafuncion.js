@@ -2579,7 +2579,6 @@ function grabaTemporal(){
     
     //INSERT INTO vtama_temp_recaudacion ( num_id, num_linea, cod_servicio, num_ctd, imp_precio_venta, imp_total, imp_cuoi, imp_foma, imp_cuoi_standar, imp_min_inhumar, imp_precio_lista, imp_endoso, cod_servicio_main, flg_servicio, cod_servicio_secundario, flg_ds_compartido, imp_costo_carencia, flg_cremacion, flg_ds_temporal, flg_ssff, imp_saldo ) VALUES ( :ll_id, :li_i, :ls_codigo, :li_ctd, :lde_precio_venta, :lde_det_total, :lde_cuoi, :lde_foma, :lde_cuoi_st, :lde_min_inh, :lde_precio_lista, :lde_valor_endoso, :ls_codigo, 'SI', :ls_codigo, :ls_flg_ds_compartido, :lde_imp_carencia, :ls_flg_cremacion, :ls_flg_ds_temporal, :ls_flg_ssff, :lde_saldo_detalle )USING SQLCA;
     
-    
   // });
 
 }
