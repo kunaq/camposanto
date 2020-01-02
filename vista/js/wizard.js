@@ -566,7 +566,7 @@ $("#numDocCliente").change(function() {
                 data: { 'cod' : cod },
                 success : function(response){
                   var info = JSON.parse(response);
-                  if (info.cod == 0) {
+                  if (info.codig == 0) {
                     return true;
                   }else{
                     $('#tablaDeuda').html('')
