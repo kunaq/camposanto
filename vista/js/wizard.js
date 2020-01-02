@@ -563,7 +563,7 @@ $("#numDocCliente").change(function() {
               type: 'GET',
                 url: 'extensiones/captcha/tablaDeuda.php',
                 dataType: 'text',
-                data: { 'cod' : cod },
+                data: { 'cod_cliente' : cod },
                 success : function(response){
                   var info = JSON.parse(response);
                   if (info.codig == 0) {
