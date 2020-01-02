@@ -1,10 +1,18 @@
 <?php
 
 function arrayMapUtf8Decode($data){
-	return $data;
+    if($data != ''){
+        return array_map('utf8_decode', $data);
+    }else{
+        return $data;
+    }
 }//function arrayMapUtf8
 function arrayMapUtf8Encode($data){
-	return $data;
+    if($data != ''){
+        return array_map('utf8_encode', $data);
+    }else{
+        return $data;
+    }
 }//function arrayMapUtf8
 function dateFormat($data){
 	return date_format(new DateTime($data), 'd/m/Y');
