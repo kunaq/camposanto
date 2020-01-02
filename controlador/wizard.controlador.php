@@ -62,7 +62,7 @@ class ControladorWizard{
 						"as_area" => $_POST['area'],
 						"as_eje_horizontal" => $_POST['ejex'],
 						"as_eje_vertical" => $_POST['ejey'],
-						"as_tipo_espacio" => $_POST['espacio'],
+						"as_tipo_espacio" => $_POST['tipoEspacio'],
 						"as_convenio" => $_POST['endoso'],
 						"as_moneda" => 'SOL',
 						"as_moneda_comprob" => NULL,

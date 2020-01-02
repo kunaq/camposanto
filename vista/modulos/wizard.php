@@ -385,7 +385,7 @@
 												<div class="col-lg-3">
 													<div class="m-input-icon m-input-icon--right">
 														<label>Tipo: </label>
-														<input type="text" class="form-control form-control-sm m-input" name="tipo" id="tipo" disabled="disabled">
+														<input type="text" class="form-control form-control-sm m-input" name="tipoEspacio" id="tipoEspacio" disabled="disabled">
 													</div>
 												</div>
 												<div class="col-lg-3">
