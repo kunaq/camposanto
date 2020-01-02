@@ -2486,9 +2486,8 @@ function grabaTemporal(){
              if (response == 1) {
                j++;
                if (j == rowLength) {
-                var cod_cliente = document.getElementById('').value;
-                var tipo_recaudacion = document.getElementById('').value;
-                var tipo_programa = document.getElementById('tipPro').value;
+                var cod_cliente = document.getElementById('cod_cliente').value;
+                var tipo_recaudacion = document.getElementById('tipPro').value;
                 var camposanto = document.getElementById('camposanto').value;
                 var plataforma = document.getElementById('plataforma').value;
                 var area = document.getElementById('area').value;
@@ -2497,9 +2496,18 @@ function grabaTemporal(){
                 var espacio = document.getElementById('espacio').value;
                 var endoso = document.getElementById().value;
                 // ultima fila de la tabla
-                var tipo_espacio = document.getElementById().value;
-                var tipo_necesidad = document.getElementById().value;
-                var imp_cuoi = document.getElementById().value;
+                var oTable = document.getElementById('bodyServicio');
+                //gets rows of table
+                var rowLength = oTable.rows.length;
+
+                for (i = 0; i < rowLength; i++){
+                  var ofila = oTable.rows.item(i);
+                  var codSer = ofila.id;
+                  var linea = i + 1;
+                }
+                var tipo_espacio = document.getElementById('tipoEspacio').value;
+                var tipo_necesidad = document.getElementById('tiponec').value;
+                var imp_cuoi = document.getElementById('importeCUI').value;
                 var nuevo_ctt = document.getElementById('flagNvoCtto').value;
                 var flg_integral = document.getElementById('flagIntegral').value;
                 var regularizacion = document.getElementById('regularizacionCheck');
@@ -2508,8 +2516,7 @@ function grabaTemporal(){
                 }else{
                   var flg_regularizacion = "SI"
                 }
-                var cod_empresa = document.getElementById('').value;
-                var nivel = document.getElementById().value;
+                // var nivel = document.getElementById().value;
 
                  $.ajax({
                    type: 'POST',
@@ -2518,6 +2525,8 @@ function grabaTemporal(){
                    data: { 'accion' : 'ejecutaProcedure' },
                    success : function(respuesta){}
                  });
+               }else{
+                console.log("ocurrio un error al registrar el contrato")
                }
              }
            }
