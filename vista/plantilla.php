@@ -6,7 +6,7 @@ $_SESSION['captcha'] = simple_php_captcha();
 <html lang="en" >
 	<!-- begin::Head -->
 	<head>
-		<meta charset="utf-8" />
+		<meta http-equiv=”Content-Type” content=”text/html; charset="utf-8" />
 		<title>
 			Sistema de Gestión de Camposanto
 		</title>
