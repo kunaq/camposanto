@@ -310,6 +310,10 @@
 														<i class="la la-users"></i>
 													</button>
 													</span>
+													<button type="button" class="m-btn btn btn-metal btn-sm mt25" 
+															data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar prospecto" onclick="grabaTemporal();">
+														<i class="la la-search"></i>
+													</button>
 												</div>
 												<div class="col-lg-12">
 													<label>Apellido y Nombre: * </label>

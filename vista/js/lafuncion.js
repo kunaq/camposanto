@@ -2435,19 +2435,9 @@ function calcular() {
 
 function grabaTemporal(){
 
-  // -- Grabar la temporal de Recaudacion -- //
- 
- var ll_id = '';
-
-  // SELECT  @@spid
-  // INTO    :ll_id
-  // FROM    scfma_parametros_sistema
-  // USING SQLCA;
-
-  // -- Borra Datos de Temporal -- //
-
-  // DELETE  FROM vtama_temp_recaudacion
-  // WHERE vtama_temp_recaudacion.num_id = :ll_id
+  // var oTable = document.getElementById('tabBodyRegPro');
+  // //gets rows of table
+  // var rowLength = oTable.rows.length;
 
   $.ajax({
     type: 'POST',
@@ -2455,11 +2445,46 @@ function grabaTemporal(){
     dataType: 'text',
     data: { 'accion' : 'identificador' },
     success : function(respuesta){
-      console.log('respuesta',respuesta);
-      ll_id = respuesta;
-      //If IsNull(ll_id) Then ll_id = 0
-      if (ll_id == null || ll_id == ''){
-        ll_id = 0;
+      var ll_id = respuesta;
+      // console.log(ll_id);
+      var oTable = document.getElementById('bodyServicio');
+      //gets rows of table
+      var rowLength = oTable.rows.length;
+
+      for (i = 0; i < rowLength; i++){
+        var ofila = oTable.rows.item(i);
+        var codSer = ofila.id;
+        var oCells = oTable.rows.item(i).cells;
+        var cellLength = oCells.length;
+        
+        var li_ctd = document.getElementById("ctd_"+codSer).value;
+        console.log(li_ctd);
+        var lde_precio_venta = document.getElementById("numA_"+codSer).value;
+        console.log(lde_precio_venta);
+        var lde_det_total = document.getElementById("numC1_"+codSer).value;
+        console.log(lde_det_total);
+        var lde_cuoi = document.getElementById("numF_"+codSer).value;
+        console.log(lde_cuoi);
+        var lde_cuoi_st = document.getElementById("cui_std_"+codSer).value;
+        // var lde_min_inh  = document.getElementById("imp_min_inhumar_"+codSer).value;
+        var lde_precio_lista = document.getElementById("lista_"+codSer).value;
+        console.log(lde_precio_lista);
+        var lde_valor_endoso = document.getElementById("numG_"+codSer).value;
+        console.log(lde_valor_endoso);
+        var lde_foma = document.getElementById("numD_"+codSer).value;
+        console.log(lde_foma);
+        var ls_flg_ds_compartido = document.getElementById("ls_flg_ds_compartido_"+codSer).value;
+        console.log(ls_flg_ds_compartido);
+        var ls_flg_cremacion = document.getElementById("ls_flg_cremacion_"+codSer).value;
+        console.log(ls_flg_cremacion);
+        var ls_flg_ds_temporal = document.getElementById("ls_flg_ds_temporal_"+codSer).value;
+        var lde_imp_carencia = document.getElementById("numE_"+codSer).value;
+        var ls_flg_ssff = document.getElementById("ls_flg_ssff_"+codSer).value;
+        var lde_saldo_detalle = document.getElementById("numH1_"+codSer).value;
+
+        if (lde_saldo_detalle == null || lde_saldo_detalle == ''){
+         lde_saldo_detalle = 0;
+        } 
       }
     }
   });
@@ -2467,53 +2492,53 @@ function grabaTemporal(){
   // -- Detalle Ctt (principal) -- //
    
   //li_total = tab_1.tp_1.dw_detalle.Rowcount()
-  var li_total = $("#bodyServicio tr").length;
-  var i = 0;
+  // var li_total = $("#bodyServicio tr").length;
+  // var i = 0;
 
-  var container = document.querySelector('#bodyServicio');
-  container.querySelectorAll('tr').forEach(function (li_i) 
-  {  
-    i++;
-    //ls_codigo         = tab_1.tp_1.dw_detalle.GetItemString(li_i, "cod_servicio")
-    var ls_codigo = $(li_i).attr("name");
-    //li_ctd            = tab_1.tp_1.dw_detalle.GetItemNumber(li_i, "ctd_cantidad")
-    var li_ctd = document.getElementById("ctd_"+ls_codigo).value;
-    //lde_precio_venta    = tab_1.tp_1.dw_detalle.GetItemDecimal(li_i, "imp_precio_venta")
-    var lde_precio_venta = document.getElementById("numA_"+ls_codigo).value;
-    //lde_det_total     = tab_1.tp_1.dw_detalle.GetItemDecimal(li_i, "compute_2") cada importe total
-    var lde_det_total = document.getElementById("numC1_"+ls_codigo).value;
-    //lde_cuoi          = tab_1.tp_1.dw_detalle.GetItemDecimal(li_i, "imp_cuoi")
-    var lde_cuoi = document.getElementById("numF_"+ls_codigo).value;
-    //lde_cuoi_st       = tab_1.tp_1.dw_detalle.GetItemDecimal(li_i, "imp_cuoi_standar")
-    var lde_cuoi_st = document.getElementById("cui_std_"+ls_codigo).value;
-    //lde_min_inh       = tab_1.tp_1.dw_detalle.GetItemDecimal(li_i, "imp_min_inhumar")
-    var lde_min_inh  = document.getElementById("imp_min_inhumar_"+ls_codigo).value;
-    //lde_precio_lista      = tab_1.tp_1.dw_detalle.GetItemDecimal(li_i, "imp_precio_lista")
-    var lde_precio_lista = document.getElementById("lista_"+ls_codigo).value;
-    //lde_valor_endoso    = tab_1.tp_1.dw_detalle.GetItemDecimal(li_i, "imp_endoso")
-    var lde_valor_endoso = document.getElementById("numG_"+ls_codigo).value;
-    //lde_foma          = tab_1.tp_1.dw_detalle.GetItemDecimal(li_i, "imp_foma")
-    var lde_foma = document.getElementById("numD_"+ls_codigo).value;
-    //ls_flg_ds_compartido  = tab_1.tp_1.dw_detalle.GetItemString(li_i, "flg_ds_compartido")
-    var ls_flg_ds_compartido = document.getElementById("ls_flg_ds_compartido_"+ls_codigo).value;
-    //ls_flg_cremacion    = tab_1.tp_1.dw_detalle.GetItemString(li_i, "flg_cremacion")
-    var ls_flg_cremacion = document.getElementById("ls_flg_cremacion_"+ls_codigo).value;
-    //ls_flg_ds_temporal  = tab_1.tp_1.dw_detalle.GetItemString(li_i, "flg_ds_temporal")
-    var ls_flg_ds_temporal = document.getElementById("ls_flg_ds_temporal_"+ls_codigo).value;
-    //lde_imp_carencia    = tab_1.tp_1.dw_detalle.GetItemDecimal(li_i, "imp_carencia")
-    var lde_imp_carencia = document.getElementById("numE_"+ls_codigo).value;
-    //ls_flg_ssff       = tab_1.tp_1.dw_detalle.GetItemString(li_i, "flg_ssff")
-    var ls_flg_ssff = document.getElementById("ls_flg_ssff_"+ls_codigo).value;
-    //lde_saldo_detalle   = tab_1.tp_1.dw_detalle.GetItemDecimal(li_i, "compute_7")
-    var lde_saldo_detalle = document.getElementById("numH1_"+ls_servicio_main).value;
+  // var container = document.querySelector('#bodyServicio');
+  // container.querySelectorAll('tr').forEach(function (li_i) 
+  // {  
+  //   i++;
+  //   //ls_codigo         = tab_1.tp_1.dw_detalle.GetItemString(li_i, "cod_servicio")
+  //   var ls_codigo = $(li_i).attr("name");
+  //   //li_ctd            = tab_1.tp_1.dw_detalle.GetItemNumber(li_i, "ctd_cantidad")
+  //   var li_ctd = document.getElementById("ctd_"+ls_codigo).value;
+  //   //lde_precio_venta    = tab_1.tp_1.dw_detalle.GetItemDecimal(li_i, "imp_precio_venta")
+  //   var lde_precio_venta = document.getElementById("numA_"+ls_codigo).value;
+  //   //lde_det_total     = tab_1.tp_1.dw_detalle.GetItemDecimal(li_i, "compute_2") cada importe total
+  //   var lde_det_total = document.getElementById("numC1_"+ls_codigo).value;
+  //   //lde_cuoi          = tab_1.tp_1.dw_detalle.GetItemDecimal(li_i, "imp_cuoi")
+  //   var lde_cuoi = document.getElementById("numF_"+ls_codigo).value;
+  //   //lde_cuoi_st       = tab_1.tp_1.dw_detalle.GetItemDecimal(li_i, "imp_cuoi_standar")
+  //   var lde_cuoi_st = document.getElementById("cui_std_"+ls_codigo).value;
+  //   //lde_min_inh       = tab_1.tp_1.dw_detalle.GetItemDecimal(li_i, "imp_min_inhumar")
+  //   var lde_min_inh  = document.getElementById("imp_min_inhumar_"+ls_codigo).value;
+  //   //lde_precio_lista      = tab_1.tp_1.dw_detalle.GetItemDecimal(li_i, "imp_precio_lista")
+  //   var lde_precio_lista = document.getElementById("lista_"+ls_codigo).value;
+  //   //lde_valor_endoso    = tab_1.tp_1.dw_detalle.GetItemDecimal(li_i, "imp_endoso")
+  //   var lde_valor_endoso = document.getElementById("numG_"+ls_codigo).value;
+  //   //lde_foma          = tab_1.tp_1.dw_detalle.GetItemDecimal(li_i, "imp_foma")
+  //   var lde_foma = document.getElementById("numD_"+ls_codigo).value;
+  //   //ls_flg_ds_compartido  = tab_1.tp_1.dw_detalle.GetItemString(li_i, "flg_ds_compartido")
+  //   var ls_flg_ds_compartido = document.getElementById("ls_flg_ds_compartido_"+ls_codigo).value;
+  //   //ls_flg_cremacion    = tab_1.tp_1.dw_detalle.GetItemString(li_i, "flg_cremacion")
+  //   var ls_flg_cremacion = document.getElementById("ls_flg_cremacion_"+ls_codigo).value;
+  //   //ls_flg_ds_temporal  = tab_1.tp_1.dw_detalle.GetItemString(li_i, "flg_ds_temporal")
+  //   var ls_flg_ds_temporal = document.getElementById("ls_flg_ds_temporal_"+ls_codigo).value;
+  //   //lde_imp_carencia    = tab_1.tp_1.dw_detalle.GetItemDecimal(li_i, "imp_carencia")
+  //   var lde_imp_carencia = document.getElementById("numE_"+ls_codigo).value;
+  //   //ls_flg_ssff       = tab_1.tp_1.dw_detalle.GetItemString(li_i, "flg_ssff")
+  //   var ls_flg_ssff = document.getElementById("ls_flg_ssff_"+ls_codigo).value;
+  //   //lde_saldo_detalle   = tab_1.tp_1.dw_detalle.GetItemDecimal(li_i, "compute_7")
+  //   var lde_saldo_detalle = document.getElementById("numH1_"+ls_servicio_main).value;
     
-    // -- Inicializa -- //
+  //   // -- Inicializa -- //
     
-    //If IsNull(lde_saldo_detalle) Then lde_saldo_detalle = 0
+  //   //If IsNull(lde_saldo_detalle) Then lde_saldo_detalle = 0
     
-     if (lde_saldo_detalle == null || lde_saldo_detalle == ''){
-         lde_saldo_detalle = 0;
-     }
+  //    if (lde_saldo_detalle == null || lde_saldo_detalle == ''){
+  //        lde_saldo_detalle = 0;
+  //    }
 
     // -- Insertar -- //
 
@@ -2545,6 +2570,6 @@ function grabaTemporal(){
     //INSERT INTO vtama_temp_recaudacion ( num_id, num_linea, cod_servicio, num_ctd, imp_precio_venta, imp_total, imp_cuoi, imp_foma, imp_cuoi_standar, imp_min_inhumar, imp_precio_lista, imp_endoso, cod_servicio_main, flg_servicio, cod_servicio_secundario, flg_ds_compartido, imp_costo_carencia, flg_cremacion, flg_ds_temporal, flg_ssff, imp_saldo ) VALUES ( :ll_id, :li_i, :ls_codigo, :li_ctd, :lde_precio_venta, :lde_det_total, :lde_cuoi, :lde_foma, :lde_cuoi_st, :lde_min_inh, :lde_precio_lista, :lde_valor_endoso, :ls_codigo, 'SI', :ls_codigo, :ls_flg_ds_compartido, :lde_imp_carencia, :ls_flg_cremacion, :ls_flg_ds_temporal, :ls_flg_ssff, :lde_saldo_detalle )USING SQLCA;
     
     
-  });
+  // });
 
 }
