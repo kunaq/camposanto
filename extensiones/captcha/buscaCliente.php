@@ -7,7 +7,7 @@ require_once "../../modelo/conexion.php";
    
     $db = new Conexion();                                             
 
-       	$sql = $db->consulta("SELECT c.cod_cliente, c.dsc_cliente, c.dsc_documento, c.cod_tipo_documento, c.flg_juridico, c.dsc_telefono_1, d.dsc_direccion, c.cod_cliente FROM vtama_cliente c LEFT JOIN vtade_cliente_direccion d ON c.cod_cliente=d.cod_cliente where c.cod_cliente = '$cod' OR c.dsc_documento = '$cod' AND d.flg_comprobante='SI'");
+       	$sql = $db->consulta("SELECT c.cod_cliente, c.dsc_cliente, c.dsc_documento, c.cod_tipo_documento, c.flg_juridico, c.dsc_telefono_1, d.dsc_direccion, c.cod_cliente FROM vtama_cliente c LEFT JOIN vtade_cliente_direccion d ON c.cod_cliente=d.cod_cliente where c.cod_cliente = '$cod' OR c.dsc_documento = '$cod' OR d.flg_comprobante='SI'");
 
 
 // $respuesta = "";
