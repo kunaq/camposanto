@@ -69,9 +69,9 @@ class ControladorWizard{
 						"as_espacio" => $_POST['espacio'],
 						"as_tipo_necesidad" => $_POST['tipoNec'],
 						"adt_fch_emision" => $fechaActual,
-						"ade_imp_cuoi" => $_POST['impCuoi'] ,
+						"ade_imp_cuoi" => $_POST['importeCUI'] ,
 						"ade_valor_igv" => 0.18,
-						"as_flg_nuevo" => $_POST['nvoCtto'],
+						"as_flg_nuevo" => $_POST['flagNvoCtto'],
 						"as_flg_comprobante" => 'NO',
 						"as_flg_modif" => 'NO',
 						"as_flg_regularizar" => $_POST['regularizacionCheck'],
@@ -80,7 +80,7 @@ class ControladorWizard{
 						"as_tipo_programa_base" => NULL,
 						"ai_nivel" => $_POST['nivel'],
 						"as_flg_emitir_saldo" => 'NO',
-						"as_flg_integral" => $_POST['flg_integral'],
+						"as_flg_integral" => $_POST['flagIntegral'],
 						"as_flg_cronograma_cuoi" => 'NO'
 					);
 		$respuesta = ModeloWizard::ejecutaProcedureGeneraCtto($datos);
