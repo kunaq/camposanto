@@ -3,6 +3,7 @@
 require_once "../../modelo/conexion.php";
    $usuario = $_POST['user'];
    $_SESSION['localidad'] = $_POST['ingEmpresa'];
+   $_SESSION['codEmpresa'] = $_POST['codEmpresa'];
    $usuario = strtoupper($usuario);
    $pass = $_POST['password'];
    $pass = strtoupper($pass);
