@@ -52,7 +52,7 @@ class ControladorWizard{
 						"as_contrato_reg" => NULL,
 						"as_tipo_comprobante" => NULL,
 						"as_localidad" => $_SESSION['localidad'],
-						"as_tipo_recaudacion", => $_POST['tipPro'],
+						"as_tipo_recaudacion" => $_POST['tipPro'],
 						"as_localidad_base" => NULL,
 						"as_servicio_base" => NULL,
 						"as_tipo_ctt_base" => NULL,
