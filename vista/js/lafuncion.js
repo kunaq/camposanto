@@ -2620,6 +2620,6 @@ function grabaTemporal(){
 }
 
 function pruebalastchild(){
-  var x = document.getElementById("bodyCobertura").lastChild;
+  var x = document.getElementById("bodyCobertura").lastChild.nodeName;
   console.log(x);
 }
