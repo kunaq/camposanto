@@ -548,6 +548,7 @@ $("#numDocCliente").change(function() {
             var jur = respuesta.split("/")[3];
             var cod = respuesta.split("/")[6];
             $('#nombreCliente').val(nombre);
+            $("#cod_cliente").val(cod);
             document.getElementById("TipoDcoCliente").value = tipodoc;
             document.getElementById("numDocCliente").value = numdoc;
             if (jur == 'SI') {

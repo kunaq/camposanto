@@ -293,6 +293,7 @@
 														  ?>
 													</select>
 												</div>
+												<input type="hidden" name="cod_cliente" id="cod_cliente">
 												<div class="col-lg-4">	
 													<span data-toggle="modal" data-target="#m_modal_2">
 													<button type="button" class="m-btn btn btnGuardarKqPst btn-sm mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar cliente" onclick="creaTablaCliente('cliente');">
@@ -384,7 +385,7 @@
 												<div class="col-lg-3">
 													<div class="m-input-icon m-input-icon--right">
 														<label>Tipo: </label>
-														<input type="text" class="form-control form-control-sm m-input" name="tipo" id="tipo" disabled="disabled">
+														<input type="text" class="form-control form-control-sm m-input" name="tipoEspacio" id="tipoEspacio" disabled="disabled">
 													</div>
 												</div>
 												<div class="col-lg-3">

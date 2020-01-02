@@ -17,7 +17,7 @@ require_once "../../modelo/conexion.php";
           }
 
             $datos[] =  $key;
-            echo "<option value = ".$key['cod_plataforma'].">".$tipoPla." - ".$key['cod_plataforma']." - ".$key['dsc_plataforma']."</option>";    
+            echo "<option value = ".$key['cod_plataforma'].">".$tipoPla." - ".$key['cod_plataforma']." - ".utf8_encode($key['dsc_plataforma'])."</option>";    
              
 		}        
 		//echo $respuesta;
