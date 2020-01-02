@@ -293,6 +293,7 @@
 														  ?>
 													</select>
 												</div>
+												<input type="hidden" name="cod_cliente" id="cod_cliente">
 												<div class="col-lg-4">	
 													<span data-toggle="modal" data-target="#m_modal_2">
 													<button type="button" class="m-btn btn btnGuardarKqPst btn-sm mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar cliente" onclick="creaTablaCliente('cliente');">
