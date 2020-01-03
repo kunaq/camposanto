@@ -2499,7 +2499,7 @@ function grabaTemporal(){
                 var area = document.getElementById('area').value;
                 var eje_x = document.getElementById('ejex').value;
                 var eje_y = document.getElementById('ejey').value;
-                var espacio = document.getElementById('espacio').value;
+                // var espacio = document.getElementById('espacio').value;
                 var endoTable = document.getElementById('bodyCobertura');
                 var endoTLenght = endoTable.rows.length;
                 if (endoTLenght == 0) {
@@ -2508,7 +2508,7 @@ function grabaTemporal(){
                   var ultimoEnd = document.getElementById("bodyCobertura").lastChild;
                   var endoso = ultimoEnd.id;
                 }
-                var tipo_espacio = document.getElementById('tipoEspacio').value;
+                // var tipo_espacio = document.getElementById('tipoEspacio').value;
                 var tipo_necesidad = document.getElementById('tiponec').value;
                 var imp_cuoi = pasaAnumero(document.getElementById('importeCUI').value);
                 var nuevo_ctt = document.getElementById('flagNvoCtto').value;
