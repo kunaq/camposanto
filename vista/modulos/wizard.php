@@ -332,7 +332,6 @@
 												<div class="col-lg-3">
 													<label>Camposanto *</label>
 													<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="camposanto" required id="camposanto" disabled="disabled">
-														<option value="">Camposanto</option>
 														<?php
 														  $tabla = "vtama_camposanto";
 														  $item1 = "cod_camposanto";
@@ -895,11 +894,11 @@
 													<td></td>
 													<td></td>
 													<td class="Suma">Total</td>
-													<td class="Suma A">0,00</td>
-													<td class="Suma B">0,00</td>
-													<td class="Suma C">0,00</td>
-													<td class="Suma D">0,00</td>
-													<td class="Suma E">0,00</td>
+													<td class="Suma A" style="text-align: right;">0,00</td>
+													<td class="Suma B" style="text-align: right;">0,00</td>
+													<td class="Suma C" style="text-align: right;">0,00</td>
+													<td class="Suma D" style="text-align: right;">0,00</td>
+													<td class="Suma E" style="text-align: right;">0,00</td>
 												</tr>
 											</tfoot>
 										</table>

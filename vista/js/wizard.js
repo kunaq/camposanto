@@ -703,6 +703,7 @@ function validaEspacio(valor){
             if (valida == 'SI') {
                 $('#tipoPlat').prop('disabled',false);
                 $('#camposanto').prop('disabled',false);
+                $("#camposanto").val($("#camposanto option:first").val());
                 $('#ejex').prop('disabled',false);
                 $('#ejey').prop('disabled',false);
                 $('#plataforma').prop('disabled',false);
@@ -891,7 +892,7 @@ function buscaEspacio(valor){
                 }else{
                     edo = 'OCUPADO';
                 }
-                texto += '<option value="'+value.cod_tipo_espacio+'/'+value.cod_estado+'">'+value.cod_espacio+' '+edo+'</option>';
+                texto += '<option value="'+value.cod_tipo_espacio+'/'+value.cod_estado+'/'+value.cod_espacio+'">'+value.cod_espacio+' '+edo+'</option>';
             });//each  
             $("#espacio").html(texto);              
         }//success

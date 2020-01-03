@@ -1080,6 +1080,7 @@ function cronograma(){
       for (var i = 0; i < row; i++) {
       //    //ls_cod_servicio = tab_1.tp_1.dw_detalle.GetItemString(li_i, "cod_servicio")
       ls_cod_servicio = $(codServicio[i]).val(); 
+      console.log(ls_cod_servicio);
             //console.log('re',$(codServicio[i]).val());
 
       //    // -- Flag -- //
@@ -1090,7 +1091,7 @@ function cronograma(){
       //    INNER JOIN vtama_tipo_servicio ON vtama_servicio.cod_tipo_servicio = vtama_tipo_servicio.cod_tipo_servicio
       //    WHERE vtama_servicio.cod_servicio = :ls_cod_servicio
       //    USING SQLCA;
-      var ls_flg_afecto_igv = document.getElementById("flg_afecto_igv_"+ls_cod_servicio[i]).value;
+      var ls_flg_afecto_igv = document.getElementById("flg_afecto_igv_"+ls_cod_servicio).value;
          
          if(ls_flg_afecto_igv == null || ls_flg_afecto_igv == ''){
             ls_flg_afecto_igv = 'NO';
@@ -2486,6 +2487,11 @@ function grabaTemporal(){
              if (response == 1) {
                j++;
                if (j == rowLength) {
+                // console.log("aca");
+                var aux = document.getElementById('espacio').value;
+                var tipo_espacio = aux.split("/")[0];
+                var espacio = aux.split("/")[2];
+
                 var cod_cliente = document.getElementById('cod_cliente').value;
                 var tipo_recaudacion = document.getElementById('tipPro').value;
                 var camposanto = document.getElementById('camposanto').value;
