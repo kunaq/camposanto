@@ -332,7 +332,6 @@
 												<div class="col-lg-3">
 													<label>Camposanto *</label>
 													<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="camposanto" required id="camposanto" disabled="disabled">
-														<option value="">Camposanto</option>
 														<?php
 														  $tabla = "vtama_camposanto";
 														  $item1 = "cod_camposanto";

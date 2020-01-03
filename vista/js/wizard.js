@@ -703,7 +703,7 @@ function validaEspacio(valor){
             if (valida == 'SI') {
                 $('#tipoPlat').prop('disabled',false);
                 $('#camposanto').prop('disabled',false);
-                $("#camposanto").val($("#camposanto option:second").val());
+                $("#camposanto").val($("#camposanto option:first").val());
                 $('#ejex').prop('disabled',false);
                 $('#ejey').prop('disabled',false);
                 $('#plataforma').prop('disabled',false);
