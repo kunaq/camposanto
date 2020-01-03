@@ -48,7 +48,7 @@ require_once "../../modelo/conexion.php";
                       <input type='hidden' value='".$key['flg_ds_temporal']."' id='ls_flg_ds_temporal_".$cod."'>
                       <input type='hidden' value='".$key['flg_sfunerario']."' id='ls_flg_ssff_".$cod."'>
                       <input type='hidden' value='".$inhumar."' id='imp_min_inhumar_".$cod."'>
-                      <input type='hidden' value='".$cod." id='codServicio' class='codServicio'>
+                      <input type='hidden' value='".$cod."' id='codServicio' class='codServicio'>
                     </td>
                     <td class='tdCtdServicioAdd ColumnaLetra'>
                     <div class='row'>
