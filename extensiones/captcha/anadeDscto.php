@@ -64,6 +64,7 @@ require_once "../../modelo/conexion.php";
                         <input type='hidden' value='NO' id='flg_convenio_".$cod."'>
                         <input type='hidden' value='".$ls_flg_periodo."' id='flg_periodo_carencia_".$cod."'>
                         <input type='hidden' value='".$ls_flg_porcentaje."' id='ls_flg_porcentaje_".$cod."'>
+                        <input type='hidden' value='".$key['flg_tasa']."' id='flg_tasa_".$cod."'>
                       </td>
                       <td class='tdDsctoDsc'>
                         ".$nombre."
@@ -82,6 +83,7 @@ require_once "../../modelo/conexion.php";
                       </td>
                       <td class='tdDsctoLib'>
                       ".$checkLib."
+                      <input type='hidden' value='".$ls_flg_libre."' id='flg_libre_".$cod."'>
                       </td>
                       <td class='tdDsctoPor'>
                         ".$checkPor."

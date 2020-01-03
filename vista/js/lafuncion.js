@@ -2435,10 +2435,6 @@ function calcular() {
 //----------------------------------------------------------------------------------------------//
 
 function grabaTemporal(){
-
-  // var oTable = document.getElementById('tabBodyRegPro');
-  // //gets rows of table
-  // var rowLength = oTable.rows.length;
   
   $.ajax({
     type: 'POST',
@@ -2448,9 +2444,7 @@ function grabaTemporal(){
     success : function(respuesta){
       var j = 0;
       var ll_id = respuesta;
-      // console.log(ll_id);
       var oTable = document.getElementById('bodyServicio');
-      //gets rows of table
       var rowLength = oTable.rows.length;
 
       for (i = 0; i < rowLength; i++){
@@ -2487,7 +2481,7 @@ function grabaTemporal(){
              if (response == 1) {
                j++;
                if (j == rowLength) {
-                // console.log("aca");
+
                 var aux = document.getElementById('espacio').value;
                 var tipo_espacio = aux.split("/")[0];
                 var espacio = aux.split("/")[2];
@@ -2523,7 +2517,29 @@ function grabaTemporal(){
                    dataType: 'text',
                    data: {'accion' : 'ejecutaProcedure', 'cod_cliente' : cod_cliente, 'tipPro' : tipo_recaudacion, 'camposanto' : camposanto, 'plataforma' : plataforma, 'area' : area, 'ejex' : eje_x, 'ejey' : eje_y, 'tipoEspacio' : tipo_espacio, 'endoso' : endoso, 'espacio' : espacio, 'tipoNec' : tipo_necesidad, 'importeCUI' : imp_cuoi, 'flagNvoCtto' : nuevo_ctt, 'regularizacionCheck' : flg_regularizacion, 'flagIntegral' : flg_integral },
                    success : function(respuesta){
-                    console.log(respuesta);
+                    var info = JSON.parse(respuesta);
+                    if (info.cod == 1) {
+                      var dscTable = document.getElementById('bodyDscto');
+                      var dscTableLenght = dscTable.rows.length;
+                      for (i = 0; i < dscTableLenght; i++){
+                        var dscFila = dscTable.rows.item(i);
+                        var codDsc = dscFila.id;
+                        var li_ctd = document.getElementById("ctd_"+codSer).value;
+                        var lde_precio_venta = document.getElementById("numA_"+codSer).value;
+                        var lde_det_total = document.getElementById("numC1_"+codSer).value;
+                        var lde_cuoi = pasaAnumero(document.getElementById("numF_"+codSer).value);
+                        var lde_cuoi_st = document.getElementById("cui_std_"+codSer).value;
+                        var lde_min_inh  = document.getElementById("imp_min_inhumar_"+codSer).value;
+                        var lde_precio_lista = document.getElementById("lista_"+codSer).value;
+                      }
+
+                      var cobTable = document.getElementById('bodyCobertura');
+                      var cobTableLenght = cobTable.rows.length;
+                      for (i = 0; i < cobTableLenght; i++){
+                        var cobFila = cobTable.rows.item(i);
+                        var codCob = cobFila.id;
+                      }
+                    }
                    }
                  });
                }
