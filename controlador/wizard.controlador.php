@@ -1,4 +1,5 @@
 <?php
+session_start();
 class ControladorWizard{
 	static public function ctrEdoEspacio(){
 		$tabla = "vtaca_espacio";
