@@ -51538,8 +51538,10 @@ th{
 
 .sidecheck{
     position: absolute;
-    top: 0;
-    right: 20px;
+    top: -5px;
+    right: 30px;
+    padding-left: 10px;
+    background-color: white;
 }
 
 /* ---------------- Estilos Refinanciamiento ---------------- */
