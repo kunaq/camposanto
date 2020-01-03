@@ -2486,6 +2486,7 @@ function grabaTemporal(){
              if (response == 1) {
                j++;
                if (j == rowLength) {
+                console.log("aca");
                 var cod_cliente = document.getElementById('cod_cliente').value;
                 var tipo_recaudacion = document.getElementById('tipPro').value;
                 var camposanto = document.getElementById('camposanto').value;
@@ -2494,39 +2495,29 @@ function grabaTemporal(){
                 var eje_x = document.getElementById('ejex').value;
                 var eje_y = document.getElementById('ejey').value;
                 var espacio = document.getElementById('espacio').value;
-                var endoso = document.getElementById().value;
-                // ultima fila de la tabla
-                var oTable = document.getElementById('bodyServicio');
-                //gets rows of table
-                var rowLength = oTable.rows.length;
-
-                for (i = 0; i < rowLength; i++){
-                  var ofila = oTable.rows.item(i);
-                  var codSer = ofila.id;
-                  var linea = i + 1;
-                }
+                var ultimoEnd = document.getElementById("bodyCobertura").lastChild;
+                var endoso = ultimoEnd.id;
                 var tipo_espacio = document.getElementById('tipoEspacio').value;
                 var tipo_necesidad = document.getElementById('tiponec').value;
-                var imp_cuoi = document.getElementById('importeCUI').value;
+                var imp_cuoi = pasaAnumero(document.getElementById('importeCUI').value);
                 var nuevo_ctt = document.getElementById('flagNvoCtto').value;
                 var flg_integral = document.getElementById('flagIntegral').value;
                 var regularizacion = document.getElementById('regularizacionCheck');
-                if (juridicocheck.checked != true){
+                if (regularizacion.checked != true){
                   var flg_regularizacion = "NO";
                 }else{
                   var flg_regularizacion = "SI"
                 }
-                // var nivel = document.getElementById().value;
 
                  $.ajax({
                    type: 'POST',
                    url: 'ajax/wizard.ajax.php',
                    dataType: 'text',
-                   data: { 'accion' : 'ejecutaProcedure' },
-                   success : function(respuesta){}
+                   data: {'accion' : 'ejecutaProcedure', 'cod_cliente' : cod_cliente, 'tipPro' : tipo_recaudacion, 'camposanto' : camposanto, 'plataforma' : plataforma, 'area' : area, 'ejex' : eje_x, 'ejey' : eje_y, 'tipoEspacio' : tipo_espacio, 'endoso' : endoso, 'espacio' : espacio, 'tipoNec' : tipo_necesidad, 'importeCUI' : imp_cuoi, 'flagNvoCtto' : nuevo_ctt, 'regularizacionCheck' : flg_regularizacion, 'flagIntegral' : flg_integral },
+                   success : function(respuesta){
+                    console.log(respuesta);
+                   }
                  });
-               }else{
-                console.log("ocurrio un error al registrar el contrato")
                }
              }
            }
