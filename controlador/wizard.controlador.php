@@ -47,7 +47,6 @@ class ControladorWizard{
 		$fecha = date('Y-m-d');
 		$hora = date('H:i:s');
 		$fechaActual = $fecha.' '.$hora;
-		print_r($_SESSION);
 		$datos = array("a_usuario" => $_SESSION["user"],
 						"as_cliente" => $_POST['cod_cliente'],
 						"as_contrato_base" => NULL,

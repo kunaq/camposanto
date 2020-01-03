@@ -7,7 +7,8 @@ require_once "../../modelo/conexion.php";
    $usuario = strtoupper($usuario);
    $pass = $_POST['password'];
    $pass = strtoupper($pass);
-   $db = new Conexion();                                             
+   $db = new Conexion();  
+   print_r($_SESSION);                                           
 
     $sql = $db->consulta("SELECT * FROM scfma_usuario where cod_usuario = '$usuario' AND dsc_clave = '$pass' AND flg_activo = 'SI'");
     // echo "SELECT * FROM scfma_usuario where cod_usuario = '$usuario' AND dsc_clave = '$pass' AND flg_activo = 'SI'";
