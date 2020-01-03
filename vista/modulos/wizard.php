@@ -895,8 +895,8 @@
 													<td></td>
 													<td class="Suma">Total</td>
 													<td class="Suma A">0,00</td>
-													<td class="Suma B">0,00</td>
-													<td class="Suma C">0,00</td>
+													<td class="Suma B" style="text-align: right;">0,00</td>
+													<td class="Suma C" style="text-align: right;">0,00</td>
 													<td class="Suma D">0,00</td>
 													<td class="Suma E">0,00</td>
 												</tr>
