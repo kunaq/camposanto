@@ -2487,7 +2487,10 @@ function grabaTemporal(){
              if (response == 1) {
                j++;
                if (j == rowLength) {
-                console.log("aca");
+                // console.log("aca");
+                var aux = document.getElementById('espacio').value;
+                var tipo_espacio = aux.split("/")[0];
+                var espacio = aux.split("/")[2];
                 var cod_cliente = document.getElementById('cod_cliente').value;
                 var tipo_recaudacion = document.getElementById('tipPro').value;
                 var camposanto = document.getElementById('camposanto').value;
@@ -2495,10 +2498,8 @@ function grabaTemporal(){
                 var area = document.getElementById('area').value;
                 var eje_x = document.getElementById('ejex').value;
                 var eje_y = document.getElementById('ejey').value;
-                var espacio = document.getElementById('espacio').value;
                 var ultimoEnd = document.getElementById("bodyCobertura").lastChild;
                 var endoso = ultimoEnd.id;
-                var tipo_espacio = document.getElementById('tipoEspacio').value;
                 var tipo_necesidad = document.getElementById('tiponec').value;
                 var imp_cuoi = pasaAnumero(document.getElementById('importeCUI').value);
                 var nuevo_ctt = document.getElementById('flagNvoCtto').value;
