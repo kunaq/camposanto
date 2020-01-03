@@ -1090,7 +1090,7 @@ function cronograma(){
       //    INNER JOIN vtama_tipo_servicio ON vtama_servicio.cod_tipo_servicio = vtama_tipo_servicio.cod_tipo_servicio
       //    WHERE vtama_servicio.cod_servicio = :ls_cod_servicio
       //    USING SQLCA;
-      var ls_flg_afecto_igv = document.getElementById("flg_afecto_igv_"+ls_cod_servicio).value;
+      var ls_flg_afecto_igv = document.getElementById("flg_afecto_igv_"+ls_cod_servicio[i]).value;
          
          if(ls_flg_afecto_igv == null || ls_flg_afecto_igv == ''){
             ls_flg_afecto_igv = 'NO';
