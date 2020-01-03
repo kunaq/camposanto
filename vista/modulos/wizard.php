@@ -894,11 +894,11 @@
 													<td></td>
 													<td></td>
 													<td class="Suma">Total</td>
-													<td class="Suma A">0,00</td>
+													<td class="Suma A" style="text-align: right;">0,00</td>
 													<td class="Suma B" style="text-align: right;">0,00</td>
 													<td class="Suma C" style="text-align: right;">0,00</td>
-													<td class="Suma D">0,00</td>
-													<td class="Suma E">0,00</td>
+													<td class="Suma D" style="text-align: right;">0,00</td>
+													<td class="Suma E" style="text-align: right;">0,00</td>
 												</tr>
 											</tfoot>
 										</table>
