@@ -48,7 +48,7 @@ class ModeloWizard{
 			return "error";
 		}
 
-	}
+	}//function mdlGuardaDetalle
 
 	static public function ejecutaProcedureGeneraCtto($datos){
 		$db = new Conexion();
@@ -65,16 +65,33 @@ class ModeloWizard{
 
 	    		$arrData = array('cod' => '1', 'num_contrato'=> $num_contrato, 'num_servicio'=>$num_servicio, 'cod_tipo_ctt'=>$cod_tipo_ctt, 'cod_tipo_programa'=> $cod_tipo_programa, 'num_refinanciamiento'=>$num_refinanciamiento, 'cod_localidad'=>$cod_localidad);
 			}
-
 			return json_encode($arrData,JSON_UNESCAPED_UNICODE);
 		}else{
 			$arrData = array('cod' => '0', 'msg'=> 'error al registrar contrato');
 			return json_encode($arrData,JSON_UNESCAPED_UNICODE);
 		}
+		return $datos;
+	}//function ejecutaProcedureGeneraCtto
 
-		
+	static public function mdlguardaDscto($datos, $tabla){
+		$db = new Conexion();
+		$sql = $db->consulta("INSERT INTO $tabla (cod_localidad, cod_contrato, num_servicio, cod_tipo_descuento, flg_tasa, flg_libre, imp_valor, imp_dscto, fch_registro, cod_usuario, flg_periodo_carencia, cod_tipo_ctt, cod_tipo_programa ) VALUES ('".$datos["ls_localidad"]."', '".$datos["ls_num_contrato_new"]."', '".$datos["ls_num_servicio_new"]."', '".$datos["ls_tipo_dscto"]."', '".$datos["ls_flg_tasa"]."', '".$datos["ls_flg_libre"]."', ".$datos["lde_valor_dscto"].", ".$datos["lde_imp_dscto"].", '".$datos["ldt_fch_actual"]."', '".$datos["gs_usuario"]."', '".$datos["ls_flg_periodo"]."', '".$datos["ls_tipo_ctt_new"]."', '".$datos["ls_tipo_programa_new"]." )");
+		if($sql){
+			return 1;
+		}else{
+			return "error";
+		}
 
+	}//function mdlguardaDscto
+
+	static public function mdlGuardaEndoso($datos, $tabla){
+		$db = new Conexion();
+		$sql = $db->consulta("INSERT INTO $tabla ( cod_localidad, cod_contrato, num_servicio, cod_entidad, imp_valor, cod_usuario, fch_registro, fch_vencimiento, cod_estado, imp_saldo, imp_total_emitido, cod_tipo_ctt, cod_tipo_programa ) VALUES ( '".$datos['ls_localidad']."', '".$datos['ls_num_contrato_new']."', '".$datos['ls_num_servicio_new']."', '".$datos['ls_endoso']."', ".$datos['lde_valor_endoso'].", '".$datos['gs_usuario']."', '".$datos['ldt_fch_actual']."', '".$datos['ldt_fecha_venc']."', 'REG', ".$datos['lde_valor_endoso'].", 0.00, '".$datos['ls_tipo_ctt_new']."', '".$datos['ls_tipo_programa_new']."' )");
+		if($sql){
+			return 1;
+		}else{
+			return "error";
+		}
 	}
-
 }//class ModeloWizard
 ?>

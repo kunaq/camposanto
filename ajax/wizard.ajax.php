@@ -19,6 +19,14 @@ class AjaxWizard{
 		$respuesta = ControladorWizard::ctrEjecutaProcedureGeneraCtto();
 		echo json_encode($respuesta);
 	}//function ajaxEjecutaProcedureGeneraCtto
+	public function ajaxGuardaDscto(){
+		$respuesta = ControladorWizard::ctrGuardaDscto();
+		echo json_encode($respuesta);
+	}//function ajaxGuardaDscto
+	public function ajaxGuardaEndoso(){
+		$respuesta = ControladorWizard::ctrGuardaEndoso();
+		echo json_encode($respuesta);
+	}//function ajaxGuardaEndoso
 }//class AjaxWizard
 /*=============================================
 ACCIONES
@@ -38,4 +46,12 @@ else if(isset($_POST["accion"]) && $_POST["accion"] == 'guardarfila'){
 else if(isset($_POST["accion"]) && $_POST["accion"] == 'ejecutaProcedure'){
 	$cliente = new AjaxWizard();
 	$cliente -> ajaxEjecutaProcedureGeneraCtto();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'guardaDscto'){
+	$cliente = new AjaxWizard();
+	$cliente -> ajaxGuardaDscto();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'guardaEndoso'){
+	$cliente = new AjaxWizard();
+	$cliente -> ajaxGuardaEndoso();
 }
