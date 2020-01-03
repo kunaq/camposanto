@@ -250,7 +250,7 @@
 										<legend class="tittle-box">Cliente *</legend>
 										<legend class="sidecheck">
 											<div class="row form-group">
-												<div class="col-lg-9" style="padding-right: 0;">
+												<div class="col-lg-6" style="padding-right: 0;">
 													<label>Juridico</label>
 												</div>
 												<div class="col-lg-3">
