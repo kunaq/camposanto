@@ -114,33 +114,18 @@
 												<legend class="tittle-box">Datos de Programa</legend>
 												<legend class="sidecheck">
 													<div class="row form-group">
-														<div class="col-lg-2">
+														<div class="col-lg-9" style="padding-right: 0;">
 															<label>Venta por regularización</label>
 														</div>
-														<div class="col-lg-4">
-															<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
+														<div class="col-lg-3">
+															<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--yellow">
 																<label>
-																	<input type="checkbox" name="chkProComPerVen" id="chkProComPerVen">
+																	<input type="checkbox" name="regularizacionCheck" id="regularizacionCheck">
 																	<span></span>
 																</label>
 															</span>
 														</div>
 													</div>
-													<!-- <table>
-														<tbody>
-															<tr>
-																<td><label style="margin-bottom: 30px">Venta por regularización</label></td>
-																<td>
-																	<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--yellow" style="margin-bottom: 14px;">
-																		<label>
-																			<input type="checkbox" name="regularizacionCheck" id="regularizacionCheck">
-																			<span></span>
-																		</label>
-																	</span>
-																</td>
-															</tr>
-														</tbody>
-													</table> -->
 												</legend>
 												<div class="col-lg-12">
 													<div class="row form-group">
