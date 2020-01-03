@@ -114,7 +114,7 @@
 												<legend class="tittle-box">Datos de Programa</legend>
 												<legend class="sidecheck">
 													<div class="row form-group">
-														<div class="col-lg-2">
+														<div class="col-lg-8">
 															<label>Venta por regularización</label>
 														</div>
 														<div class="col-lg-4">
