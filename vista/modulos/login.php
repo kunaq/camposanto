@@ -25,6 +25,7 @@
 									}
 									?>
 								</select>
+								<input type="hidden" name="codLocalidad" id="codLocalidad" value="00001">
 								<input type="hidden" name="codEmpresa" id="codEmpresa" value="001">
 							</div>	
 							<!-- ENTRADA PARA EL USUARIO -->
