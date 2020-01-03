@@ -249,7 +249,20 @@
 									<fieldset class="fieldFormHorizontal">
 										<legend class="tittle-box">Cliente *</legend>
 										<legend class="sidecheck">
-											<table>
+											<div class="row form-group">
+												<div class="col-lg-9" style="padding-right: 0;">
+													<label>Venta por regularización</label>
+												</div>
+												<div class="col-lg-3">
+													<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--yellow">
+														<label>
+															<input type="checkbox" name="juridico" id="juridico">
+															<span></span>
+														</label>
+													</span>
+												</div>
+											</div>
+											<!-- <table>
 												<tbody>
 													<tr>
 														<td><label style="margin-bottom: 30px">Juridico</label></td>
@@ -263,7 +276,7 @@
 														</td>
 													</tr>
 												</tbody>
-											</table>
+											</table> -->
 										</legend>
 										<div class="col-lg-12">
 											<div class="row form-group">
