@@ -86,7 +86,49 @@ class ControladorWizard{
 					);
 		$respuesta = ModeloWizard::ejecutaProcedureGeneraCtto($datos);
 		return $respuesta;
-	}
+	}//function ctrEjecutaProcedureGeneraCtto
 
+	static public function ctrGuardaDscto(){
+		$tabla = 'vtavi_descuento_x_contrato';
+		$fecha = date('Y-m-d');
+		$hora = date('H:i:s');
+		$fechaActual = $fecha.' '.$hora;
+		$datos =  array('ls_localidad' => $_SESSION['localidad'],
+						'ls_num_contrato_new' => $_POST['ls_num_contrato_new'],
+						'ls_num_servicio_new' => $_POST['ls_num_servicio_new'],
+						'ls_tipo_dscto' => $_POST['ls_tipo_dscto'],
+						'ls_flg_tasa' => $_POST['ls_flg_tasa'],
+						'ls_flg_libre' => $_POST['ls_flg_libre'],
+						'lde_valor_dscto' => $_POST['lde_valor_dscto'],
+						'lde_imp_dscto' => $_POST['lde_imp_dscto'],
+						'ldt_fch_actual' => $fechaActual,
+						'gs_usuario' => $_SESSION["user"],
+						'ls_flg_periodo' => $_POST['ls_flg_periodo'],
+						'ls_tipo_ctt_new' => $_POST['ls_tipo_ctt_new'],
+						'ls_tipo_programa_new' => $_POST['ls_tipo_programa_new']
+					 );
+		$respuesta = ModeloWizard::mdlguardaDscto($datos, $tabla);
+		return $respuesta;
+	}//function ctrGuardaDscto
+
+	static public function ctrGuardaEndoso(){
+		$tabla = 'vtavi_endoso_x_contrato';
+		$fecha = date('Y-m-d');
+		$hora = date('H:i:s');
+		$fechaActual = $fecha.' '.$hora;
+		$datos =  array('ls_localidad' => $_SESSION['localidad'],
+						'ls_num_contrato_new' => $_POST['ls_num_contrato_new'],
+						'ls_num_servicio_new' => $_POST['ls_num_servicio_new'],
+						'ls_endoso' => $_POST['ls_endoso'],
+						'lde_valor_endoso' => $_POST['lde_valor_endoso'],
+						'gs_usuario' => $_SESSION['user'],
+						'ldt_fch_actual' => $fechaActual,
+						'ldt_fecha_venc' => $_POST['ldt_fecha_venc'],
+						'ls_tipo_ctt_new' => $_POST['ls_tipo_ctt_new'],
+						'ls_tipo_programa_new' => $_POST['ls_tipo_programa_new']
+						);
+		$respuesta = ModeloWizard::mdlGuardaEndoso($datos, $tabla);
+		return $respuesta;
+	}
 }//class ControladorWizard
 ?>
