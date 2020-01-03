@@ -251,7 +251,7 @@
 										<legend class="sidecheck">
 											<div class="row form-group">
 												<div class="col-lg-9" style="padding-right: 0;">
-													<label>Venta por regularización</label>
+													<label>Juridico</label>
 												</div>
 												<div class="col-lg-3">
 													<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--yellow">
