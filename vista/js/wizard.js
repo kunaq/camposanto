@@ -892,7 +892,7 @@ function buscaEspacio(valor){
                 }else{
                     edo = 'OCUPADO';
                 }
-                texto += '<option value="'+value.cod_tipo_espacio+'/'+value.cod_estado+'">'+value.cod_espacio+' '+edo+'</option>';
+                texto += '<option value="'+value.cod_tipo_espacio+'/'+value.cod_estado+'/'+value.cod_espacio+'">'+value.cod_espacio+' '+edo+'</option>';
             });//each  
             $("#espacio").html(texto);              
         }//success

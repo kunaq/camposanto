@@ -47,7 +47,7 @@ class ControladorWizard{
 		$fecha = date('Y-m-d');
 		$hora = date('H:i:s');
 		$fechaActual = $fecha.' '.$hora;
-		$espacio = split($_POST['espacio'], '/');
+		$espacio = split('/',$_POST['espacio']);
 		$datos = array("a_usuario" => $_SESSION["user"],
 						"as_cliente" => $_POST['cod_cliente'],
 						"as_contrato_base" => NULL,
@@ -64,11 +64,11 @@ class ControladorWizard{
 						"as_area" => $_POST['area'],
 						"as_eje_horizontal" => $_POST['ejex'],
 						"as_eje_vertical" => $_POST['ejey'],
-						"as_tipo_espacio" => $_POST['tipoEspacio'],
+						"as_tipo_espacio" => $espacio[0],
 						"as_convenio" => $_POST['endoso'],
 						"as_moneda" => 'SOL',
 						"as_moneda_comprob" => NULL,
-						"as_espacio" => $espacio[0],
+						"as_espacio" => $espacio[2],
 						"as_tipo_necesidad" => $_POST['tipoNec'],
 						"adt_fch_emision" => $fechaActual,
 						"ade_imp_cuoi" => $_POST['importeCUI'] ,
