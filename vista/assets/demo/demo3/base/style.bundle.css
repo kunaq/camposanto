@@ -51541,7 +51541,7 @@ th{
     top: -5px;
     right: 30px;
     padding-left: 10px;
-    background-color: white;
+    background-color: white !important;
 }
 
 /* ---------------- Estilos Refinanciamiento ---------------- */
