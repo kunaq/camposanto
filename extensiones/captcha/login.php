@@ -2,12 +2,13 @@
 @session_start();
 require_once "../../modelo/conexion.php";
    $usuario = $_POST['user'];
-   $_SESSION['localidad'] = $_POST['ingEmpresa'];
+   $_SESSION['localidad'] = $_POST['codLocalidad'];
    $_SESSION['codEmpresa'] = $_POST['codEmpresa'];
    $usuario = strtoupper($usuario);
    $pass = $_POST['password'];
    $pass = strtoupper($pass);
-   $db = new Conexion();                                             
+   $db = new Conexion();  
+   // print_r($_SESSION);                                           
 
     $sql = $db->consulta("SELECT * FROM scfma_usuario where cod_usuario = '$usuario' AND dsc_clave = '$pass' AND flg_activo = 'SI'");
     // echo "SELECT * FROM scfma_usuario where cod_usuario = '$usuario' AND dsc_clave = '$pass' AND flg_activo = 'SI'";

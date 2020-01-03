@@ -15,7 +15,7 @@
 						<form class="m-form" id="formIngresarSistema">
 							<!-- SELECCIONAR EMPRESA -->
 							<div class="form-group m-form__group seleccioneEmpresa" style="padding-top: 0;">
-								<select class="form-control m-input" data-init-plugin="select2" id="ingEmpresa" required>
+								<select class="form-control m-input" data-init-plugin="select2" name="ingEmpresa" id="ingEmpresa" required>
 									<option value="" selected disabled>SELECCIONAR</option>
 									<option value="00001" selected disabled>SAN ANTONIO</option>
 									<?php
@@ -25,6 +25,7 @@
 									}
 									?>
 								</select>
+								<input type="hidden" name="codLocalidad" id="codLocalidad" value="00001">
 								<input type="hidden" name="codEmpresa" id="codEmpresa" value="001">
 							</div>	
 							<!-- ENTRADA PARA EL USUARIO -->
