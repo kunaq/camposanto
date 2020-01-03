@@ -76,9 +76,9 @@ class ControladorWizard{
 						"as_flg_modif" => 'NO',
 						"as_flg_regularizar" => $_POST['regularizacionCheck'],
 						"as_flg_ctt_x_tn" => 'NO',
-						"as_cod_empresa" => $_POST['codEmpresa'],
+						"as_cod_empresa" => $_SESSION['codEmpresa'],
 						"as_tipo_programa_base" => NULL,
-						"ai_nivel" => $_POST['nivel'],
+						"ai_nivel" => "1",
 						"as_flg_emitir_saldo" => 'NO',
 						"as_flg_integral" => $_POST['flagIntegral'],
 						"as_flg_cronograma_cuoi" => 'NO'

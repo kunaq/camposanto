@@ -388,6 +388,10 @@
 														<input type="text" class="form-control form-control-sm m-input" name="tipoEspacio" id="tipoEspacio" disabled="disabled">
 													</div>
 												</div>
+												<div class="col-lg-2">
+													<br>
+													<h4 id="estado" class="estado"></h4>
+												</div>
 												<div class="col-lg-3">
 													<span id="espacioWiz"></span>
 												</div>
