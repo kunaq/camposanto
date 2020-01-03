@@ -541,7 +541,7 @@
 																</th>
 															</tr>
 														</thead>
-														<tbody  id="bodyServicio" style="height: 200px;">
+														<tbody  id="bodyServicio" style="height: 300px;">
 														</tbody>
 														<tfoot >
 															<tr>
@@ -639,7 +639,7 @@
 																</th>
 															</tr>
 														</thead>
-														<tbody id="bodyDscto" style="height: 180px;">
+														<tbody id="bodyDscto" style="height: 105px;">
 														</tbody>
 														<tfoot>
 															<tr>
@@ -726,7 +726,7 @@
 															</th>
 														</tr>
 													</thead>
-													<tbody id="bodyCobertura" style="height: 300px;">	
+													<tbody id="bodyCobertura" style="height: 225px;">	
 													</tbody>
 													<tfoot>
 														<tr>
