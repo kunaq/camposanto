@@ -58,12 +58,6 @@ class ModeloWizard{
 	    		$datos[] = arrayMapUtf8Encode($key);
 			}
 		return $datos;
-		if($sql){
-			return 1;
-		}else{
-			return "error";
-		}
-
 	}
 
 }//class ModeloWizard
