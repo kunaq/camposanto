@@ -79,7 +79,7 @@ class ControladorWizard{
 						"as_flg_ctt_x_tn" => 'NO',
 						"as_cod_empresa" => $_SESSION['codEmpresa'],
 						"as_tipo_programa_base" => NULL,
-						"ai_nivel" => 1,
+						"ai_nivel" => NULL,
 						"as_flg_emitir_saldo" => 'NO',
 						"as_flg_integral" => $_POST['flagIntegral'],
 						"as_flg_cronograma_cuoi" => 'NO'
