@@ -93,14 +93,14 @@ class ControladorWizard{
 		$fecha = date('Y-m-d');
 		$hora = date('H:i:s');
 		$fechaActual = $fecha.' '.$hora;
-		$datos =  array('ls_localidad' => $_SESSION['localidad'],
+		$datos =  array('ls_localidad' => $_POST['localidad'],
 						'ls_num_contrato_new' => $_POST['ls_num_contrato_new'],
 						'ls_num_servicio_new' => $_POST['ls_num_servicio_new'],
 						'ls_tipo_dscto' => $_POST['ls_tipo_dscto'],
 						'ls_flg_tasa' => $_POST['ls_flg_tasa'],
 						'ls_flg_libre' => $_POST['ls_flg_libre'],
-						'lde_valor_dscto' => $_POST['lde_valor_dscto'],
-						'lde_imp_dscto' => $_POST['lde_imp_dscto'],
+						'lde_valor_dscto' => (float)$_POST['lde_valor_dscto'],
+						'lde_imp_dscto' => (float)$_POST['lde_imp_dscto'],
 						'ldt_fch_actual' => $fechaActual,
 						'gs_usuario' => $_SESSION["user"],
 						'ls_flg_periodo' => $_POST['ls_flg_periodo'],
