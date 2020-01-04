@@ -2537,7 +2537,9 @@ function grabaTemporal(){
                           url: 'ajax/wizard.ajax.php',
                           dataType: 'text',
                           data: {'accion' : 'guardaDscto', 'localidad' : info.cod_localidad, 'ls_num_contrato_new' : info.num_contrato, 'ls_num_servicio_new' : info.num_servicio, 'ls_tipo_dscto' : codDsc, 'ls_flg_tasa' : flg_tasa, 'ls_flg_libre' : flg_libre, 'lde_valor_dscto' : imp_valor, 'lde_imp_dscto' : imp_dscto, 'ls_flg_periodo' : flg_periodo_carencia, 'ls_tipo_ctt_new' : info.cod_tipo_ctt, 'ls_tipo_programa_new' : info.cod_tipo_programa},
-                          success : function(respuesta){}
+                          success : function(respuesta){
+                            console.log(respuesta);
+                          }
                         });
                       }
 
@@ -2554,7 +2556,9 @@ function grabaTemporal(){
                           url: 'ajax/wizard.ajax.php',
                           dataType: 'text',
                           data: {'accion' : 'guardaEndoso', 'localidad' : info.cod_localidad, 'ls_num_contrato_new' : info.num_contrato, 'ls_num_servicio_new' : info.num_servicio, 'ls_endoso' : codCob, 'lde_valor_endoso' : imp_endoso, 'ldt_fecha_venc' : fch_ven_endoso, 'ls_tipo_ctt_new' : info.cod_tipo_ctt, 'ls_tipo_programa_new' : info.cod_tipo_programa},
-                          success : function(respuesta){}
+                          success : function(respuesta){
+                            console.log(respuesta);
+                          }
                         });
                       }
                     }
