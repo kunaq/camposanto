@@ -2524,13 +2524,13 @@ function grabaTemporal(){
                       for (i = 0; i < dscTableLenght; i++){
                         var dscFila = dscTable.rows.item(i);
                         var codDsc = dscFila.id;
-                        var li_ctd = document.getElementById("ctd_"+codSer).value;
-                        var lde_precio_venta = document.getElementById("numA_"+codSer).value;
-                        var lde_det_total = document.getElementById("numC1_"+codSer).value;
-                        var lde_cuoi = pasaAnumero(document.getElementById("numF_"+codSer).value);
-                        var lde_cuoi_st = document.getElementById("cui_std_"+codSer).value;
-                        var lde_min_inh  = document.getElementById("imp_min_inhumar_"+codSer).value;
-                        var lde_precio_lista = document.getElementById("lista_"+codSer).value;
+                        var flg_tasa = document.getElementById("flg_tasa_"+dscFila).value;
+                        var flg_libre = document.getElementById("flg_libre_"+dscFila).value;
+                        var imp_valor = document.getElementById("imp_valor_"+dscFila).value;
+                        var imp_dscto = pasaAnumero(document.getElementById("imp_monto_"+dscFila).value);
+                        var flg_periodo_carencia = document.getElementById("flg_periodo_carencia_"+dscFila).value;
+                        var cadena = info.num_contrato + info.num_servicio + info.cod_tipo_ctt + info.num_refinanciamiento + info.cod_tipo_programa + info.cod_localidad + codDsc + flg_tasa + flg_libre + imp_valor + imp_dsct;
+                        console.log(cadena);
                       }
 
                       var cobTable = document.getElementById('bodyCobertura');
