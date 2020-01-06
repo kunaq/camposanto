@@ -2602,9 +2602,9 @@ function grabaTemporal(){
                           data: {'accion' : 'guardaBeneficiario', 'localidad' : respuesta['cod_localidad'], 'ls_num_contrato_new' : respuesta['num_contrato'], 'li_linea_benef' : lineaBen, 'ls_num_servicio_new' : respuesta['num_servicio'], 'ls_ape_paterno_benef' : apellPaterno, 'ls_ape_materno_benef' : apellMaterno, 'ls_nombre_benef' : nombre, 'ls_tipo_doc_benef' : tipoDoc, 'ls_num_doc_benef' : numDoc, 'ldt_nacimiento' : fchNac, 'ldt_deceso' : fchDec, 'ls_religion' : religion, 'ls_lugar_deceso' : lugar, 'ls_motivo_deceso' : motivo, 'ls_flg_autopsia' : flg_autopsia, 'lde_peso' : pesof, 'lde_talla' : tallaf, 'ls_parentesco' : parentesco, 'ls_estado_civil' : edoCivil, 'ls_sexo' : sexo, 'ls_tipo_ctt_new' : respuesta['cod_tipo_ctt'], 'ls_tipo_programa_new' : respuesta['cod_tipo_programa']},
                           success : function(respuesta){
                             console.log(respuesta);
-                          }
-                        });
-                      }
+                          }//success beneficiario
+                        });//ajax beneficiario
+                      }//for rowLength  beneficiario
                     }//if (respuesta['cod'] == 1)
                    }//success procedure
                 });//ajax procedure
