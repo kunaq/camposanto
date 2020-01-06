@@ -2518,7 +2518,6 @@ function grabaTemporal(){
                    data: {'accion' : 'ejecutaProcedure', 'cod_cliente' : cod_cliente, 'tipPro' : tipo_recaudacion, 'camposanto' : camposanto, 'plataforma' : plataforma, 'area' : area, 'ejex' : eje_x, 'ejey' : eje_y, 'tipoEspacio' : tipo_espacio, 'endoso' : endoso, 'espacio' : espacio, 'tipoNec' : tipo_necesidad, 'importeCUI' : imp_cuoi, 'flagNvoCtto' : nuevo_ctt, 'regularizacionCheck' : flg_regularizacion, 'flagIntegral' : flg_integral },
                    success : function(respuesta){
                     console.log(respuesta);
-                    console.log(respuesta['cod']);
                     if (respuesta['cod'] == 1) {
                       var dscTable = document.getElementById('bodyDscto');
                       var dscTableLenght = dscTable.rows.length;
@@ -2573,8 +2572,9 @@ function grabaTemporal(){
                         var apellPaterno = datosB.split(",")[2];
                         var apellMaterno = datosB.split(",")[3];
                         var nombre = datosB.split(",")[4];
-                        var fechNac = (datosB.split(",")[5]).toLocaleDateString();
+                        var fechNac = new Date(datosB.split(",")[5]);
                         console.log(fechNac);
+                        console.log(fechNac.toLocaleDateString());
                         var fechDec = (datosB.split(",")[6]).toLocaleDateString();
                         console.log(fechDec);
                         var religion = datosB.split(",")[7];
