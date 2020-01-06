@@ -2631,7 +2631,7 @@ function grabaTemporal(){
                           type: 'POST',
                           url: 'ajax/wizard.ajax.php',
                           dataType: 'text',
-                          data: {'accion' : 'guardaCronograma', 'localidad' : respuesta['cod_localidad'], 'ls_num_contrato_new' : respuesta['num_contrato'], 'li_refinanciamiento' : respuesta['num_refinanciamiento'], 'li_cuota' : cuota, 'ls_tipo_cuota' : tipoCuota, 'ldt_vencimiento' : fchVen, 'lde_principal' : subTotal, 'lde_interes' : interes, 'lde_igv' : igv, 'lde_total' : total, 'ls_tipo_ctt_new' : respuesta['cod_tipo_ctt'], 'ls_tipo_programa_new' : respuesta['cod_tipo_programa']},
+                          data: {'accion' : 'guardaCronograma', 'localidad' : respuesta['cod_localidad'], 'ls_num_contrato_new' : respuesta['num_contrato'], 'li_refinanciamiento' : respuesta['num_refinanciamiento'], 'li_cuota' : cuota, 'ls_tipo_cuota' : estado, 'ldt_vencimiento' : fchVen, 'lde_principal' : subTotal, 'lde_interes' : interes, 'lde_igv' : igv, 'lde_total' : total, 'ls_tipo_ctt_new' : respuesta['cod_tipo_ctt'], 'ls_tipo_programa_new' : respuesta['cod_tipo_programa']},
                           success : function(respuesta){
                             if(respuesta == 1){
                               checkCronograma = "success";
