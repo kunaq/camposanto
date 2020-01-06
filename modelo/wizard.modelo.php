@@ -65,7 +65,7 @@ class ModeloWizard{
 
 	    		$arrData = array('cod' => '1', 'num_contrato'=> $num_contrato, 'num_servicio'=>$num_servicio, 'cod_tipo_ctt'=>$cod_tipo_ctt, 'cod_tipo_programa'=> $cod_tipo_programa, 'num_refinanciamiento'=>$num_refinanciamiento, 'cod_localidad'=>$cod_localidad);
 			}
-			return json_encode($arrData,JSON_UNESCAPED_UNICODE);
+			return $arrData;
 		}else{
 			$arrData = array('cod' => '0', 'msg'=> 'error al registrar contrato');
 			return $arrData;
