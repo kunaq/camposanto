@@ -75,7 +75,8 @@ class ModeloWizard{
 
 	static public function mdlguardaDscto($datos, $tabla){
 		$db = new Conexion();
-		$sql = $db->consulta("INSERT INTO $tabla (cod_localidad, cod_contrato, num_servicio, cod_tipo_descuento, flg_tasa, flg_libre, imp_valor, imp_dscto, fch_registro, cod_usuario, flg_periodo_carencia, cod_tipo_ctt, cod_tipo_programa ) VALUES ('".$datos["ls_localidad"]."', '".$datos["ls_num_contrato_new"]."', '".$datos["ls_num_servicio_new"]."', '".$datos["ls_tipo_dscto"]."', '".$datos["ls_flg_tasa"]."', '".$datos["ls_flg_libre"]."', ".$datos["lde_valor_dscto"].", ".$datos["lde_imp_dscto"].", '".$datos["ldt_fch_actual"]."', '".$datos["gs_usuario"]."', '".$datos["ls_flg_periodo"]."', '".$datos["ls_tipo_ctt_new"]."', '".$datos["ls_tipo_programa_new"]."')");
+		$sql = $db->consulta("INSERT INTO $tabla (cod_localidad, cod_contrato, num_servicio, cod_tipo_descuento, flg_tasa, flg_libre, imp_valor, imp_dscto, fch_registro, cod_usuario, flg_periodo_carencia, cod_tipo_ctt, cod_tipo_programa ) VALUES ('".$datos["ls_localidad"]."', '".$datos["ls_num_contrato_new"]."', '".$datos["ls_num_servicio_new"]."', '".$datos["ls_tipo_dscto"]."', '".$datos["ls_flg_tasa"]."', '".$datos["ls_flg_libre"]."', ".$datos["lde_valor_dscto"].", ".$datos["lde_imp_dscto"].", '".$datos["ldt_fch_actual"]."', '".$datos["gs_usuario"]."', '".$datos["ls_flg_periodo"]."', '".$datos["ls_tipo_ctt_new"]."', '".$datos["ls_tipo_programa_new"]." )");
+		echo "INSERT INTO $tabla (cod_localidad, cod_contrato, num_servicio, cod_tipo_descuento, flg_tasa, flg_libre, imp_valor, imp_dscto, fch_registro, cod_usuario, flg_periodo_carencia, cod_tipo_ctt, cod_tipo_programa ) VALUES ('".$datos["ls_localidad"]."', '".$datos["ls_num_contrato_new"]."', '".$datos["ls_num_servicio_new"]."', '".$datos["ls_tipo_dscto"]."', '".$datos["ls_flg_tasa"]."', '".$datos["ls_flg_libre"]."', ".$datos["lde_valor_dscto"].", ".$datos["lde_imp_dscto"].", '".$datos["ldt_fch_actual"]."', '".$datos["gs_usuario"]."', '".$datos["ls_flg_periodo"]."', '".$datos["ls_tipo_ctt_new"]."', '".$datos["ls_tipo_programa_new"]." )";
 		if($sql){
 			return 1;
 		}else{
@@ -86,7 +87,7 @@ class ModeloWizard{
 
 	static public function mdlGuardaEndoso($datos, $tabla){
 		$db = new Conexion();
-		$sql = $db->consulta("INSERT INTO $tabla ( cod_localidad, cod_contrato, num_servicio, cod_entidad, imp_valor, cod_usuario, fch_registro, fch_vencimiento, cod_estado, imp_saldo, imp_total_emitido, cod_tipo_ctt, cod_tipo_programa ) VALUES ( '".$datos['ls_localidad']."', '".$datos['ls_num_contrato_new']."', '".$datos['ls_num_servicio_new']."', '".$datos['ls_endoso']."', ".$datos['lde_valor_endoso'].", '".$datos['gs_usuario']."', '".$datos['ldt_fch_actual']."', '".$datos['ldt_fecha_venc']."', 'REG', ".$datos['lde_valor_endoso'].", 0.00, '".$datos['ls_tipo_ctt_new']."', '".$datos['ls_tipo_programa_new']."')");
+		$sql = $db->consulta("INSERT INTO $tabla ( cod_localidad, cod_contrato, num_servicio, cod_entidad, imp_valor, cod_usuario, fch_registro, fch_vencimiento, cod_estado, imp_saldo, imp_total_emitido, cod_tipo_ctt, cod_tipo_programa ) VALUES ( '".$datos['ls_localidad']."', '".$datos['ls_num_contrato_new']."', '".$datos['ls_num_servicio_new']."', '".$datos['ls_endoso']."', ".$datos['lde_valor_endoso'].", '".$datos['gs_usuario']."', '".$datos['ldt_fch_actual']."', '".$datos['ldt_fecha_venc']."', 'REG', ".$datos['lde_valor_endoso'].", 0.00, '".$datos['ls_tipo_ctt_new']."', '".$datos['ls_tipo_programa_new']."' )");
 		if($sql){
 			return 1;
 		}else{
@@ -96,14 +97,30 @@ class ModeloWizard{
 
 	static public function mdlGuardaBeneficiario($datos, $tabla){
 		$db = new Conexion();
-		$sql = ("SELECT	MAX($tabla.num_item) FROM $tabla WHERE	$tabla.cod_localidad = '".$datos['ls_localidad']."' AND	$tabla.cod_tipo_ctt = '".$datos['ls_tipo_ctt_new']."' AND $tabla.cod_tipo_programa = '".$datos['ls_tipo_programa_new']."' AND $tabla.cod_contrato = '".$datos['ls_num_contrato_new']."'");
+
+		// -- Maxima linea de beneficiario -- //
+
+		$sql = $db->consulta("SELECT	MAX($tabla.num_item) FROM $tabla WHERE	$tabla.cod_localidad = '".$datos['ls_localidad']."' AND	$tabla.cod_tipo_ctt = '".$datos['ls_tipo_ctt_new']."' AND $tabla.cod_tipo_programa = '".$datos['ls_tipo_programa_new']."' AND $tabla.cod_contrato = '".$datos['ls_num_contrato_new']."'");
 		$li_max_item = arrayMapUtf8Encode($db->recorrer($sql));
 
-		if(is_null(li_max_item)){
+		if(is_null($li_max_item)){
 		 $li_max_item = 0;
 		}
 
+		// -- Beneficiario -- //
 
+		// -- Linea -- //
+	
+		$li_linea_benef = $datos['li_i'] + $li_max_item;
+		
+		// -- Insertar -- //
+		
+		$sql1 = $db->consulta("INSERT INTO $tabla ( cod_localidad, cod_contrato, num_item, num_servicio, dsc_apellidopaterno, dsc_apellidomaterno, dsc_nombre, cod_tipo_documento, dsc_documento, fch_nacimiento, fch_entierro, num_nivel, fch_deceso, cod_religion, cod_lugar_deceso, cod_motivo_deceso, flg_autopsia, num_peso, num_talla, cod_parentesco, cod_estado_civil, cod_sexo, cod_tipo_ctt, cod_estado, fch_alta, cod_tipo_programa ) VALUES ( '".$datos['ls_localidad']."', '".$datos['ls_num_contrato_new']."', ".$li_linea_benef.", '".$datos['ls_num_servicio_new']."', '".$datos['ls_ape_paterno_benef']."', '".$datos['ls_ape_materno_benef']."', '".$datos['ls_nombre_benef']."', '".$datos['ls_tipo_doc_benef']."', '".$datos['ls_num_doc_benef']."', '".$datos['ldt_nacimiento']."', NULL, NULL, '".$datos['ldt_deceso']."', '".$datos['ls_religion']."', '".$datos['ls_lugar_deceso']."', '".$datos['ls_motivo_deceso']."', '".$datos['ls_flg_autopsia']."', '".$datos['lde_peso']."', '".$datos['lde_talla']."', '".$datos['ls_parentesco']."', '".$datos['ls_estado_civil']."', '".$datos['ls_sexo']."', '".$datos['ls_tipo_ctt_new']."', 'VIG', '".$datos['ldt_fch_actual']."', '".$datos['ls_tipo_programa_new']."')");
+		if($sql){
+			return 1;
+		}else{
+			return "error";
+		}
 
 	}
 

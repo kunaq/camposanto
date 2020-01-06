@@ -1,5 +1,5 @@
 <?php
-session_start();
+@session_start();
 class ControladorWizard{
 	static public function ctrEdoEspacio(){
 		$tabla = "vtaca_espacio";
@@ -93,7 +93,7 @@ class ControladorWizard{
 		$fecha = date('Y-m-d');
 		$hora = date('H:i:s');
 		$fechaActual = $fecha.' '.$hora;
-		$datos =  array('ls_localidad' => $_POST['localidad'],
+		$datos =  array('ls_localidad' => $_SESSION['localidad'],
 						'ls_num_contrato_new' => $_POST['ls_num_contrato_new'],
 						'ls_num_servicio_new' => $_POST['ls_num_servicio_new'],
 						'ls_tipo_dscto' => $_POST['ls_tipo_dscto'],
@@ -121,7 +121,7 @@ class ControladorWizard{
 						'ls_num_servicio_new' => $_POST['ls_num_servicio_new'],
 						'ls_endoso' => $_POST['ls_endoso'],
 						'lde_valor_endoso' => $_POST['lde_valor_endoso'],
-						'gs_usuario' => $_SESSION['user'],
+						'gs_usuario' => $_SESSION["user"],
 						'ldt_fch_actual' => $fechaActual,
 						'ldt_fecha_venc' => $_POST['ldt_fecha_venc'],
 						'ls_tipo_ctt_new' => $_POST['ls_tipo_ctt_new'],
@@ -130,6 +130,39 @@ class ControladorWizard{
 		$respuesta = ModeloWizard::mdlGuardaEndoso($datos, $tabla);
 		return $respuesta;
 	}//function ctrGuardaEndoso
+
+	static public function ctrGuardaBeneficiario(){
+		$tabla = 'vtade_beneficiario_x_contrato';
+		$fecha = date('Y-m-d');
+		$hora = date('H:i:s');
+		$fechaActual = $fecha.' '.$hora;
+		$datos = array('ls_localidad' => $_SESSION['localidad'],
+					   'li_i' => $_POST['li_i'],
+					   'ls_num_contrato_new' => $_POST['ls_num_contrato_new'],
+					   'ls_num_servicio_new' => $_POST['ls_num_servicio_new'],
+					   'ls_ape_paterno_benef' => $_POST['ls_ape_paterno_benef'],
+					   'ls_ape_materno_benef' => $_POST['ls_ape_materno_benef'],
+					   'ls_nombre_benef' => $_POST['ls_nombre_benef'],
+					   'ls_tipo_doc_benef' => $_POST['ls_tipo_doc_benef'],
+					   'ls_num_doc_benef' => $_POST['ls_num_doc_benef'],
+					   'ldt_nacimiento' => $_POST['ldt_nacimiento'],
+					   'ldt_deceso' => $_POST['ldt_deceso'],
+					   'ls_religion' => $_POST['ls_religion'],
+					   'ls_lugar_deceso' => $_POST['ls_lugar_deceso'],
+					   'ls_motivo_deceso' => $_POST['ls_motivo_deceso'],
+					   'ls_flg_autopsia' => $_POST['ls_flg_autopsia'],
+					   'lde_peso' => $_POST['lde_peso'],
+					   'lde_talla' => $_POST['lde_talla'],
+					   'ls_parentesco' => $_POST['ls_parentesco'],
+					   'ls_estado_civil' => $_POST['ls_estado_civil'],
+					   'ls_sexo' => $_POST['ls_sexo'],
+					   'ls_tipo_ctt_new' => $_POST['ls_tipo_ctt_new'],
+					   'ldt_fch_actual' => $fechaActual,
+					   'ls_tipo_programa_new' => $_POST['ls_tipo_programa_new']
+					  );
+		$respuesta = ModeloWizard::mdlGuardaBeneficiario($datos, $tabla);
+		return $respuesta;
+	}//function ctrGuardaBeneficiario
 
 
 
