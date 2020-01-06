@@ -2517,6 +2517,7 @@ function grabaTemporal(){
                    dataType: 'text',
                    data: {'accion' : 'ejecutaProcedure', 'cod_cliente' : cod_cliente, 'tipPro' : tipo_recaudacion, 'camposanto' : camposanto, 'plataforma' : plataforma, 'area' : area, 'ejex' : eje_x, 'ejey' : eje_y, 'tipoEspacio' : tipo_espacio, 'endoso' : endoso, 'espacio' : espacio, 'tipoNec' : tipo_necesidad, 'importeCUI' : imp_cuoi, 'flagNvoCtto' : nuevo_ctt, 'regularizacionCheck' : flg_regularizacion, 'flagIntegral' : flg_integral },
                    success : function(respuesta){
+                    console.log(respuesta);
                     var info = JSON.parse(respuesta);
                     if (info.cod == 1) {
                       var dscTable = document.getElementById('bodyDscto');
