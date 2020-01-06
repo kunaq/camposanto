@@ -2549,7 +2549,7 @@ function grabaTemporal(){
                         var codCob = cobFila.id;
                         var imp_endoso = pasaAnumero(document.getElementById("vEndoso_"+codCob).value);
                         var fch_ven_endoso = ($('#m_datepicker_4_'+codCob).datepicker("getDate")).toLocaleDateString();
-                        console.log('fecha vev',fch_ven_endoso);
+                        console.log('fecha ve',fch_ven_endoso);
 
                         $.ajax({
                           type: 'POST',

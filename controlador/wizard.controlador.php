@@ -116,6 +116,7 @@ class ControladorWizard{
 		$fecha = date('Y-m-d');
 		$hora = date('H:i:s');
 		$fechaActual = $fecha.' '.$hora;
+		echo $_POST['ldt_fecha_venc'];
 		$datos =  array('ls_localidad' => $_POST['localidad'],
 						'ls_num_contrato_new' => $_POST['ls_num_contrato_new'],
 						'ls_num_servicio_new' => $_POST['ls_num_servicio_new'],
