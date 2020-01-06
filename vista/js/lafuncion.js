@@ -2573,8 +2573,10 @@ function grabaTemporal(){
                         var apellPaterno = respuesta.split(",")[2];
                         var apellMaterno = respuesta.split(",")[3];
                         var nombre = respuesta.split(",")[4];
-                        var fechNac = respuesta.split(",")[5];
-                        var fechDec = respuesta.split(",")[6];
+                        var fechNac = (respuesta.split(",")[5]).toLocaleDateString();
+                        console.log(fechNac);
+                        var fechDec = (respuesta.split(",")[6]).toLocaleDateString();
+                        console.log(fechDec);
                         var religion = respuesta.split(",")[7];
                         var edoCivil = respuesta.split(",")[8];
                         var sexo = respuesta.split(",")[9];
@@ -2582,7 +2584,9 @@ function grabaTemporal(){
                         var lugar = respuesta.split(",")[11];
                         var motivo = respuesta.split(",")[12];
                         var peso = respuesta.split(",")[13];
+                        var pesof = peso.replace(",",".");
                         var talla = respuesta.split(",")[14];
+                        var tallaf = talla.replace(",",".");
                         var autopsia = respuesta.split(",")[15];
                         if (autopsia == "false") {
                           flg_autopsia = "NO";
