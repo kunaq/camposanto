@@ -106,7 +106,7 @@ class ModeloWizard{
 		if(is_null($li_max_item[0])){
 		 $li_max_item = 0;
 		}
-
+		var_dump($li_max_item);
 		// -- Beneficiario -- //
 
 		// -- Linea -- //
