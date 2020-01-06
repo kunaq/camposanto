@@ -2514,7 +2514,7 @@ function grabaTemporal(){
                  $.ajax({
                    type: 'POST',
                    url: 'ajax/wizard.ajax.php',
-                   dataType: 'text',
+                   dataType: 'json',
                    data: {'accion' : 'ejecutaProcedure', 'cod_cliente' : cod_cliente, 'tipPro' : tipo_recaudacion, 'camposanto' : camposanto, 'plataforma' : plataforma, 'area' : area, 'ejex' : eje_x, 'ejey' : eje_y, 'tipoEspacio' : tipo_espacio, 'endoso' : endoso, 'espacio' : espacio, 'tipoNec' : tipo_necesidad, 'importeCUI' : imp_cuoi, 'flagNvoCtto' : nuevo_ctt, 'regularizacionCheck' : flg_regularizacion, 'flagIntegral' : flg_integral },
                    success : function(respuesta){
                     console.log(respuesta);
