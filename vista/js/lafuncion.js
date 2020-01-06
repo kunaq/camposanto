@@ -2573,10 +2573,11 @@ function grabaTemporal(){
                         var apellPaterno = respuesta.split(",")[2];
                         var apellMaterno = respuesta.split(",")[3];
                         var nombre = respuesta.split(",")[4];
-                        var fechNac = (respuesta.split(",")[5]).toLocaleDateString();
+                        var fechNac = respuesta.split(",")[5];
                         console.log(fechNac);
-                        var fechDec = (respuesta.split(",")[6]).toLocaleDateString();
-                        console.log(fechDec);
+                        console.log(fechNac..toLocaleDateString());
+                        var fechDec = respuesta.split(",")[6];
+                        console.log(fechDec.toLocaleDateString());
                         var religion = respuesta.split(",")[7];
                         var edoCivil = respuesta.split(",")[8];
                         var sexo = respuesta.split(",")[9];
