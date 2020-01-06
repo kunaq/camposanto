@@ -2562,7 +2562,6 @@ function grabaTemporal(){
 
                       var benTable = document.getElementById('bodyBeneficiario');
                       var benTableLenght = benTable.rows.length;
-                      console.log(benTableLenght);
                       for (i = 0; i < benTableLenght; i++){
                         var benFila = benTable.rows.item(i);
                         var doc = benFila.id;
@@ -2612,33 +2611,25 @@ function grabaTemporal(){
                         var oCells = croTable.rows.item(i).cells;
 
                         var cuota = oCells.item(0).innerHTML.trim();
-                        console.log(cuota);
                         var tipoCuota = oCells.item(1).innerHTML.trim();
-                        console.log(tipoCuota);
                         var estado = oCells.item(2).innerHTML.trim();
-                        console.log(estado);
                         var fchVen = oCells.item(3).innerHTML.trim();
-                        console.log(fchVen);
-                        var subTotal = oCells.item(4).innerHTML.trim();
-                        console.log(subTotal);
-                        var interes = oCells.item(5).innerHTML.trim();
-                        console.log(interes);
-                        var total = oCells.item(6).innerHTML.trim();
-                        console.log(total);
-                        var saldo = oCells.item(7).innerHTML.trim();
-                        console.log(saldo);
+                        var subTotal = pasaAnumero(oCells.item(4).innerHTML.trim());
+                        var interes = pasaAnumero(oCells.item(5).innerHTML.trim());
+                        var igv = pasaAnumero(oCells.item(6).innerHTML.trim());
+                        var total = pasaAnumero(oCells.item(7).innerHTML.trim());
+                        var saldo = pasaAnumero(oCells.item(8).innerHTML.trim());
 
-                        // $.ajax({
-                        //   type: 'POST',
-                        //   url: 'ajax/wizard.ajax.php',
-                        //   dataType: 'text',
-                        //   data: {'accion' : 'guardaCronograma', 'localidad' : respuesta['cod_localidad'], 'ls_num_contrato_new' : respuesta['num_contrato'], 'ls_num_servicio_new' : respuesta['num_servicio'], 'ls_endoso' : codCob, 'lde_valor_endoso' : imp_endoso, 'ldt_fecha_venc' : fch_ven_endoso, 'ls_tipo_ctt_new' : respuesta['cod_tipo_ctt'], 'ls_tipo_programa_new' : respuesta['cod_tipo_programa']},
-                        //   success : function(respuesta){
-                        //     console.log(respuesta);
-                        //   }//success cronograma
-                        // });//ajax cronograma
+                        $.ajax({
+                          type: 'POST',
+                          url: 'ajax/wizard.ajax.php',
+                          dataType: 'text',
+                          data: {'accion' : 'guardaCronograma', 'localidad' : respuesta['cod_localidad'], 'ls_num_contrato_new' : respuesta['num_contrato'], 'li_refinanciamiento' : respuesta['num_refinanciamiento'], 'li_cuota' : cuota, 'ls_tipo_cuota' : tipoCuota, 'ldt_vencimiento' : fchVen, 'lde_principal' : subTotal, 'lde_interes' : subTotal, 'lde_igv' : igv, 'lde_total' : total, 'ls_tipo_ctt_new' : respuesta['cod_tipo_ctt'], 'ls_tipo_programa_new' : respuesta['cod_tipo_programa']},
+                          success : function(respuesta){
+                            console.log(respuesta);
+                          }//success cronograma
+                        });//ajax cronograma
                       }//for croTableLenght
-
                     }//if (respuesta['cod'] == 1)
                    }//success procedure
                 });//ajax procedure
