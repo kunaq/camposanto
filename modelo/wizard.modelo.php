@@ -111,7 +111,7 @@ class ModeloWizard{
 
 		// -- Linea -- //
 	
-		$li_linea_benef = $datos['li_i'] + $li_max_item;
+		// $li_linea_benef = $datos['li_i'] + $li_max_item;
 		
 		// -- Insertar -- //
 		
