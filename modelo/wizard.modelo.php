@@ -68,7 +68,7 @@ class ModeloWizard{
 			return json_encode($arrData,JSON_UNESCAPED_UNICODE);
 		}else{
 			$arrData = array('cod' => '0', 'msg'=> 'error al registrar contrato');
-			return json_encode($arrData,JSON_UNESCAPED_UNICODE);
+			return $arrData;
 		}
 		return $datos;
 	}//function ejecutaProcedureGeneraCtto

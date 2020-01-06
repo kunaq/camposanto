@@ -2520,8 +2520,6 @@ function grabaTemporal(){
                     console.log(respuesta);
                     var info = JSON.parse(respuesta);
                     console.log(info.cod);
-                    console.log(info.cod_contrato);
-                    console.log(info.cod_localidad);
                     // if (info.cod == 1) {
                       var dscTable = document.getElementById('bodyDscto');
                       var dscTableLenght = dscTable.rows.length;
@@ -2533,8 +2531,10 @@ function grabaTemporal(){
                         var imp_valor = pasaAnumero(document.getElementById("imp_valor_"+codDsc).value);
                         var imp_dscto = pasaAnumero(document.getElementById("imp_monto_"+codDsc).value);
                         var flg_periodo_carencia = document.getElementById("flg_periodo_carencia_"+codDsc).value;
+
                         var cadena = info.num_contrato + info.num_servicio + info.cod_tipo_ctt + info.num_refinanciamiento + info.cod_tipo_programa + info.cod_localidad + codDsc + flg_tasa + flg_libre + imp_valor + imp_dscto;
                         console.log(cadena);
+
 
                         $.ajax({
                           type: 'POST',

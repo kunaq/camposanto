@@ -25,7 +25,7 @@ class AjaxWizard{
 	}//function ajaxGuardaDscto
 	public function ajaxGuardaEndoso(){
 		$respuesta = ControladorWizard::ctrGuardaEndoso();
-		echo json_encode($respuesta);
+		echo json_encode($respuesta,JSON_UNESCAPED_UNICODE);
 	}//function ajaxGuardaEndoso
 }//class AjaxWizard
 /*=============================================
