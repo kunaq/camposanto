@@ -2575,9 +2575,9 @@ function grabaTemporal(){
                         var nombre = respuesta.split(",")[4];
                         var fechNac = respuesta.split(",")[5];
                         console.log(fechNac);
-                        console.log(fechNac..toLocaleDateString());
+                        // console.log(fechNac.toLocaleDateString());
                         var fechDec = respuesta.split(",")[6];
-                        console.log(fechDec.toLocaleDateString());
+                        // console.log(fechDec.toLocaleDateString());
                         var religion = respuesta.split(",")[7];
                         var edoCivil = respuesta.split(",")[8];
                         var sexo = respuesta.split(",")[9];
