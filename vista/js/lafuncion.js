@@ -2609,7 +2609,7 @@ function grabaTemporal(){
                       var croTable = document.getElementById('bodyCronograma');
                       var croTableLenght = croTable.rows.length;
                       for (i = 0; i < croTableLenght; i++){
-                        var oCells = oTable.rows.item(i).cells;
+                        var oCells = croTable.rows.item(i).cells;
 
                         var cuota = oCells.item(0).innerHTML.trim();
                         console.log(cuota);
@@ -2650,4 +2650,3 @@ function grabaTemporal(){
     }//success identificador
   });// ajax identificador
 }// funcion grabaTemporal
-
