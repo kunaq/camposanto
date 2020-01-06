@@ -2519,7 +2519,7 @@ function grabaTemporal(){
                    success : function(respuesta){
                     console.log(respuesta);
                     var info = JSON.parse(respuesta);
-                    console.log(info.cod);
+                    console.log(respuesta['cod']);
                     // if (info.cod == 1) {
                       var dscTable = document.getElementById('bodyDscto');
                       var dscTableLenght = dscTable.rows.length;
