@@ -164,7 +164,26 @@ class ControladorWizard{
 		return $respuesta;
 	}//function ctrGuardaBeneficiario
 
-
+	static public function ctrGuardaCronograma(){
+		$tabla = 'vtade_cronograma';
+		$datos = array('ls_localidad' => $_SESSION['localidad'], 
+					   'ls_num_contrato_new' => $_POST['ls_num_contrato_new'],
+					   'li_refinanciamiento' => $_POST['li_refinanciamiento'],
+					   'li_cuota' => $_POST['li_cuota'],
+					   'ls_tipo_cuota' => $_POST['ls_tipo_cuota'],
+					   'ldt_vencimiento' => $_POST['ldt_vencimiento'],
+					   'lde_principal' => $_POST['lde_principal'],
+					   'lde_interes' => $_POST['lde_interes'],
+					   'lde_igv' => $_POST['lde_igv'],
+					   'lde_total' => $_POST['lde_total'],
+					   'gde_igv' => $_POST['gde_igv'],
+					   'ls_tipo_ctt_new' => $_POST['ls_tipo_ctt_new'],
+					   'ls_tipo_programa_new' => $_POST['ls_tipo_programa_new'],
+					   'is_flg_generar_moras' => 'SI'
+					  );
+		$respuesta = ModeloWizard::mdlGuardaCronograma($datos,$tabla);
+		return $respuesta;
+	}// function ctrGuardaCronograma
 
 }//class ControladorWizard
 ?>

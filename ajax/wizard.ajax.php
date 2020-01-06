@@ -31,6 +31,10 @@ class AjaxWizard{
 		$respuesta = ControladorWizard::ctrGuardaBeneficiario();
 		echo json_encode($respuesta);
 	}//function ajaxGuardaBeneficiario
+	public function ajaxGuardaCronograma(){
+		$respuesta = ControladorWizard::ctrGuardaCronograma();
+		echo json_encode($respuesta);
+	}//function ajaxGuardaCronograma
 }//class AjaxWizard
 /*=============================================
 ACCIONES
@@ -62,4 +66,8 @@ else if(isset($_POST["accion"]) && $_POST["accion"] == 'guardaEndoso'){
 else if(isset($_POST["accion"]) && $_POST["accion"] == 'guardaBeneficiario'){
 	$cliente = new AjaxWizard();
 	$cliente -> ajaxGuardaBeneficiario();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'guardaCronograma'){
+	$cliente = new AjaxWizard();
+	$cliente -> ajaxGuardaCronograma();
 }

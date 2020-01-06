@@ -114,14 +114,25 @@ class ModeloWizard{
 		
 		// -- Insertar -- //
 		
-		$sql1 = $db->consulta("INSERT INTO $tabla ( cod_localidad, cod_contrato, num_item, num_servicio, dsc_apellidopaterno, dsc_apellidomaterno, dsc_nombre, cod_tipo_documento, dsc_documento, fch_nacimiento, fch_entierro, num_nivel, fch_deceso, cod_religion, cod_lugar_deceso, cod_motivo_deceso, flg_autopsia, num_peso, num_talla, cod_parentesco, cod_estado_civil, cod_sexo, cod_tipo_ctt, cod_estado, fch_alta, cod_tipo_programa ) VALUES ( '".$datos['ls_localidad']."', '".$datos['ls_num_contrato_new']."', ".$li_linea_benef.", '".$datos['ls_num_servicio_new']."', '".$datos['ls_ape_paterno_benef']."', '".$datos['ls_ape_materno_benef']."', '".$datos['ls_nombre_benef']."', '".$datos['ls_tipo_doc_benef']."', '".$datos['ls_num_doc_benef']."', '".$datos['ldt_nacimiento']."', NULL, NULL, '".$datos['ldt_deceso']."', '".$datos['ls_religion']."', '".$datos['ls_lugar_deceso']."', '".$datos['ls_motivo_deceso']."', '".$datos['ls_flg_autopsia']."', '".$datos['lde_peso']."', '".$datos['lde_talla']."', '".$datos['ls_parentesco']."', '".$datos['ls_estado_civil']."', '".$datos['ls_sexo']."', '".$datos['ls_tipo_ctt_new']."', 'VIG', '".$datos['ldt_fch_actual']."', '".$datos['ls_tipo_programa_new']."')");
+		$sql1 = $db->consulta("INSERT INTO $tabla ( cod_localidad, cod_contrato, num_item, num_servicio, dsc_apellidopaterno, dsc_apellidomaterno, dsc_nombre, cod_tipo_documento, dsc_documento, fch_nacimiento, fch_entierro, num_nivel, fch_deceso, cod_religion, cod_lugar_deceso, cod_motivo_deceso, flg_autopsia, num_peso, num_talla, cod_parentesco, cod_estado_civil, cod_sexo, cod_tipo_ctt, cod_estado, fch_alta, cod_tipo_programa ) VALUES ( '".$datos['ls_localidad']."', '".$datos['ls_num_contrato_new']."', ".$li_linea_benef.", '".$datos['ls_num_servicio_new']."', '".$datos['ls_ape_paterno_benef']."', '".$datos['ls_ape_materno_benef']."', '".$datos['ls_nombre_benef']."', '".$datos['ls_tipo_doc_benef']."', '".$datos['ls_num_doc_benef']."', CONVER(DATE,'".$datos['ldt_nacimiento']."',105), NULL, NULL, CONVERT(DATE,'".$datos['ldt_deceso']."',105), '".$datos['ls_religion']."', '".$datos['ls_lugar_deceso']."', '".$datos['ls_motivo_deceso']."', '".$datos['ls_flg_autopsia']."', '".$datos['lde_peso']."', '".$datos['lde_talla']."', '".$datos['ls_parentesco']."', '".$datos['ls_estado_civil']."', '".$datos['ls_sexo']."', '".$datos['ls_tipo_ctt_new']."', 'VIG', '".$datos['ldt_fch_actual']."', '".$datos['ls_tipo_programa_new']."')");
 		if($sql){
 			return 1;
 		}else{
 			return "error";
 		}
 
-	}
+	}//function mdlGuardaBeneficiario
+
+	static public function mdlGuardaCronograma($datos,$tabla){
+		$db = new Conexion();
+		$sql = $db->consulta("INSERT INTO $tabla (cod_localidad, cod_contrato, num_refinanciamiento, num_cuota, cod_tipo_cuota, fch_vencimiento, cod_estadocuota, cod_estadocuota_ant, imp_principal, imp_interes, imp_igv, imp_total, imp_totalpagado, imp_totalemitido, imp_saldo, imp_valor_igv, cod_tipo_ctt, cod_tipo_programa, flg_generar_mora ) VALUES ( '".$datos['ls_localidad']."', '".$datos['ls_num_contrato_new']."', ".$datos['li_refinanciamiento'].", ".$datos['li_cuota'].", '".$datos['ls_tipo_cuota']."', CONVERT(DATE,'".$datos['ldt_vencimiento']."',105), 'REG', NULL, ".$datos['lde_principal'].", ".$datos['lde_interes'].", ".$datos['lde_igv'].", ".$datos['lde_total'].", 0, 0, ".$datos['lde_total'].", ".$datos['gde_igv'].", '".$datos['ls_tipo_ctt_new']."', '".$datos['ls_tipo_programa_new']."', ( CASE WHEN '".$datos['ls_tipo_cuota']."' = 'FMA' THEN 'NO' ELSE '".$datos['is_flg_generar_moras']."' END ))");
+		if($sql){
+			return 1;
+		}else{
+			return "error";
+		}
+
+	}//function mdlGuardaCronograma
 
 }//class ModeloWizard
 ?>
