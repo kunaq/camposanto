@@ -2435,7 +2435,10 @@ function calcular() {
 //----------------------------------------------------------------------------------------------//
 
 function grabaTemporal(){
-  
+  var checkDescuento = "";
+  var checkEndoso = "";
+  var checkBeneficiario = "";
+  var checkCronograma = ""; 
   $.ajax({
     type: 'POST',
     url: 'ajax/wizard.ajax.php',
@@ -2517,7 +2520,6 @@ function grabaTemporal(){
                    dataType: 'json',
                    data: {'accion' : 'ejecutaProcedure', 'cod_cliente' : cod_cliente, 'tipPro' : tipo_recaudacion, 'camposanto' : camposanto, 'plataforma' : plataforma, 'area' : area, 'ejex' : eje_x, 'ejey' : eje_y, 'tipoEspacio' : tipo_espacio, 'endoso' : endoso, 'espacio' : espacio, 'tipoNec' : tipo_necesidad, 'importeCUI' : imp_cuoi, 'flagNvoCtto' : nuevo_ctt, 'regularizacionCheck' : flg_regularizacion, 'flagIntegral' : flg_integral },
                    success : function(respuesta){
-                    console.log(respuesta);
                     if (respuesta['cod'] == 1) {
                       var dscTable = document.getElementById('bodyDscto');
                       var dscTableLenght = dscTable.rows.length;
@@ -2536,7 +2538,9 @@ function grabaTemporal(){
                           dataType: 'text',
                           data: {'accion' : 'guardaDscto', 'localidad' : respuesta['cod_localidad'], 'ls_num_contrato_new' : respuesta['num_contrato'], 'ls_num_servicio_new' : respuesta['num_servicio'], 'ls_tipo_dscto' : codDsc, 'ls_flg_tasa' : flg_tasa, 'ls_flg_libre' : flg_libre, 'lde_valor_dscto' : imp_valor, 'lde_imp_dscto' : imp_dscto, 'ls_flg_periodo' : flg_periodo_carencia, 'ls_tipo_ctt_new' : respuesta['cod_tipo_ctt'], 'ls_tipo_programa_new' : respuesta['cod_tipo_programa']},
                           success : function(respuesta){
-                            console.log(respuesta);
+                            if(respuesta == 1){
+                              checkDescuento = "success";
+                            }
                           }//success descuento
                         });//ajax descuento
                       }//for dscTableLenght;
@@ -2555,7 +2559,9 @@ function grabaTemporal(){
                           dataType: 'text',
                           data: {'accion' : 'guardaEndoso', 'localidad' : respuesta['cod_localidad'], 'ls_num_contrato_new' : respuesta['num_contrato'], 'ls_num_servicio_new' : respuesta['num_servicio'], 'ls_endoso' : codCob, 'lde_valor_endoso' : imp_endoso, 'ldt_fecha_venc' : fch_ven_endoso, 'ls_tipo_ctt_new' : respuesta['cod_tipo_ctt'], 'ls_tipo_programa_new' : respuesta['cod_tipo_programa']},
                           success : function(respuesta){
-                            console.log(respuesta);
+                            if(respuesta == 1){
+                              checkEndoso = "success";
+                            }
                           }//success endoso
                         });//ajax endoso
                       }//for cobTableLenght
@@ -2566,7 +2572,6 @@ function grabaTemporal(){
                         var benFila = benTable.rows.item(i);
                         var doc = benFila.id;
                         var lineaBen = i + 1;
-                        console.log(lineaBen);
                         var datosB = document.getElementById("registro_"+doc).value;
                         var tipoDoc = datosB.split(",")[0];
                         var numDoc = datosB.split(",")[1];
@@ -2600,7 +2605,9 @@ function grabaTemporal(){
                           dataType: 'text',
                           data: {'accion' : 'guardaBeneficiario', 'localidad' : respuesta['cod_localidad'], 'ls_num_contrato_new' : respuesta['num_contrato'], 'li_linea_benef' : lineaBen, 'ls_num_servicio_new' : respuesta['num_servicio'], 'ls_ape_paterno_benef' : apellPaterno, 'ls_ape_materno_benef' : apellMaterno, 'ls_nombre_benef' : nombre, 'ls_tipo_doc_benef' : tipoDoc, 'ls_num_doc_benef' : numDoc, 'ldt_nacimiento' : fchNac, 'ldt_deceso' : fchDec, 'ls_religion' : religion, 'ls_lugar_deceso' : lugar, 'ls_motivo_deceso' : motivo, 'ls_flg_autopsia' : flg_autopsia, 'lde_peso' : pesof, 'lde_talla' : tallaf, 'ls_parentesco' : parentesco, 'ls_estado_civil' : edoCivil, 'ls_sexo' : sexo, 'ls_tipo_ctt_new' : respuesta['cod_tipo_ctt'], 'ls_tipo_programa_new' : respuesta['cod_tipo_programa']},
                           success : function(respuesta){
-                            console.log(respuesta);
+                            if(respuesta == 1){
+                              checkBeneficiario = "success";
+                            }
                           }//success beneficiario
                         });//ajax beneficiario
                       }//for rowLength  beneficiario
@@ -2624,9 +2631,12 @@ function grabaTemporal(){
                           type: 'POST',
                           url: 'ajax/wizard.ajax.php',
                           dataType: 'text',
-                          data: {'accion' : 'guardaCronograma', 'localidad' : respuesta['cod_localidad'], 'ls_num_contrato_new' : respuesta['num_contrato'], 'li_refinanciamiento' : respuesta['num_refinanciamiento'], 'li_cuota' : cuota, 'ls_tipo_cuota' : tipoCuota, 'ldt_vencimiento' : fchVen, 'lde_principal' : subTotal, 'lde_interes' : subTotal, 'lde_igv' : igv, 'lde_total' : total, 'ls_tipo_ctt_new' : respuesta['cod_tipo_ctt'], 'ls_tipo_programa_new' : respuesta['cod_tipo_programa']},
+                          data: {'accion' : 'guardaCronograma', 'localidad' : respuesta['cod_localidad'], 'ls_num_contrato_new' : respuesta['num_contrato'], 'li_refinanciamiento' : respuesta['num_refinanciamiento'], 'li_cuota' : cuota, 'ls_tipo_cuota' : tipoCuota, 'ldt_vencimiento' : fchVen, 'lde_principal' : subTotal, 'lde_interes' : subTotal, 'gde_igv' : igv, 'lde_total' : total, 'ls_tipo_ctt_new' : respuesta['cod_tipo_ctt'], 'ls_tipo_programa_new' : respuesta['cod_tipo_programa']},
                           success : function(respuesta){
-                            console.log(respuesta);
+                            if(respuesta == 1){
+                              checkCronograma = "success";
+                              console.log(checkEndoso);
+                            }
                           }//success cronograma
                         });//ajax cronograma
                       }//for croTableLenght
