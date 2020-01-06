@@ -2560,6 +2560,46 @@ function grabaTemporal(){
                           }
                         });
                       }
+
+                      var benTable = document.getElementById('bodyBeneficiario');
+                      var benTableLenght = benTable.rows.length;
+                      for (i = 0; i < benTableLenght; i++){
+                        var benFila = benTable.rows.item(i);
+                        var doc = benFila.id;
+                        var lineaBen = i + 1;
+                        var respuesta = document.getElementById("registro_"+doc).value;
+                        var tipoDoc = respuesta.split(",")[0];
+                        var numDoc = respuesta.split(",")[1];
+                        var apellPaterno = respuesta.split(",")[2];
+                        var apellMaterno = respuesta.split(",")[3];
+                        var nombre = respuesta.split(",")[4];
+                        var fechNac = respuesta.split(",")[5];
+                        var fechDec = respuesta.split(",")[6];
+                        var religion = respuesta.split(",")[7];
+                        var edoCivil = respuesta.split(",")[8];
+                        var sexo = respuesta.split(",")[9];
+                        var parentesco = respuesta.split(",")[10];
+                        var lugar = respuesta.split(",")[11];
+                        var motivo = respuesta.split(",")[12];
+                        var peso = respuesta.split(",")[13];
+                        var talla = respuesta.split(",")[14];
+                        var autopsia = respuesta.split(",")[15];
+                        if (autopsia == "false") {
+                          flg_autopsia = "NO";
+                        }else{
+                          flg_autopsia = "SI";
+                        }
+
+                        $.ajax({
+                          type: 'POST',
+                          url: 'ajax/wizard.ajax.php',
+                          dataType: 'text',
+                          data: {'accion' : '', 'localidad' : respuesta['cod_localidad'], 'ls_num_contrato_new' : respuesta['num_contrato'], 'li_linea_benef' : lineaBen, 'ls_num_servicio_new' : respuesta['num_servicio'], 'ls_ape_paterno_benef' : apellPaterno, 'ls_ape_materno_benef' : apellMaterno, 'ls_nombre_benef' : nombre, 'ls_tipo_doc_benef' : tipoDoc, 'ls_num_doc_benef' : numDoc, 'ldt_nacimiento' : fechNac, 'ldt_deceso' : fechDec, 'ls_religion' : religion, 'ls_lugar_deceso' : lugar, 'ls_motivo_deceso' : motivo, 'ls_flg_autopsia' : flg_autopsia, 'lde_peso' : peso, 'lde_talla' : talla, 'ls_parentesco' : parentesco, 'ls_estado_civil' : edoCivil, 'ls_sexo' : sexo, 'ls_tipo_ctt_new' : respuesta['cod_tipo_ctt'], 'ls_tipo_programa_new' : respuesta['cod_tipo_programa']},
+                          success : function(respuesta){
+                            console.log(respuesta);
+                          }
+                        });
+                      }
                     }
                    }
                  });
