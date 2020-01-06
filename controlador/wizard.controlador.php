@@ -136,7 +136,7 @@ class ControladorWizard{
 		$fecha = date('Y-m-d');
 		$hora = date('H:i:s');
 		$fechaActual = $fecha.' '.$hora;
-		$datos = array('ls_localidad' => $_SESSION['localidad'],
+		$datos = array('ls_localidad' => $_POST['localidad'],
 					   'li_i' => $_POST['li_i'],
 					   'ls_num_contrato_new' => $_POST['ls_num_contrato_new'],
 					   'ls_num_servicio_new' => $_POST['ls_num_servicio_new'],
@@ -166,7 +166,7 @@ class ControladorWizard{
 
 	static public function ctrGuardaCronograma(){
 		$tabla = 'vtade_cronograma';
-		$datos = array('ls_localidad' => $_SESSION['localidad'], 
+		$datos = array('ls_localidad' => $_POST['localidad'], 
 					   'ls_num_contrato_new' => $_POST['ls_num_contrato_new'],
 					   'li_refinanciamiento' => $_POST['li_refinanciamiento'],
 					   'li_cuota' => $_POST['li_cuota'],
