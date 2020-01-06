@@ -2478,9 +2478,9 @@ function grabaTemporal(){
            dataType: 'text',
            data:{'accion' : 'guardarfila', 'num_id' : ll_id, 'num_linea' : linea, 'cod_servicio' : codSer, 'num_ctd' : li_ctd, 'imp_precio_venta' : lde_precio_venta, 'imp_total' : lde_det_total, 'imp_cuoi' : lde_cuoi, 'imp_foma' : lde_foma, 'imp_cuoi_standar' : lde_cuoi_st, 'imp_min_inhumar' : lde_min_inh, 'imp_precio_lista' : lde_precio_lista, 'imp_endoso' : lde_valor_endoso, 'flg_ds_compartido' : ls_flg_ds_compartido, 'imp_costo_carencia' : lde_imp_carencia, 'flg_cremacion' : ls_flg_cremacion, 'flg_ds_temporal' : ls_flg_ds_temporal, 'flg_ssff' : ls_flg_ssff, 'imp_saldo' : lde_saldo_detalle},
            success : function(response){
-             if (response == 1) {
-               j++;
-               if (j == rowLength) {
+            if (response == 1) {
+              j++;
+              if (j == rowLength) {
 
                 var aux = document.getElementById('espacio').value;
                 var tipo_espacio = aux.split("/")[0];
@@ -2511,7 +2511,7 @@ function grabaTemporal(){
                   var flg_regularizacion = "SI"
                 }
 
-                 $.ajax({
+                $.ajax({
                    type: 'POST',
                    url: 'ajax/wizard.ajax.php',
                    dataType: 'json',
@@ -2538,9 +2538,9 @@ function grabaTemporal(){
                           data: {'accion' : 'guardaDscto', 'localidad' : respuesta['cod_localidad'], 'ls_num_contrato_new' : respuesta['num_contrato'], 'ls_num_servicio_new' : respuesta['num_servicio'], 'ls_tipo_dscto' : codDsc, 'ls_flg_tasa' : flg_tasa, 'ls_flg_libre' : flg_libre, 'lde_valor_dscto' : imp_valor, 'lde_imp_dscto' : imp_dscto, 'ls_flg_periodo' : flg_periodo_carencia, 'ls_tipo_ctt_new' : respuesta['cod_tipo_ctt'], 'ls_tipo_programa_new' : respuesta['cod_tipo_programa']},
                           success : function(respuesta){
                             console.log(respuesta);
-                          }
-                        });
-                      }
+                          }//success descuento
+                        });//ajax descuento
+                      }//for dscTableLenght;
 
                       var cobTable = document.getElementById('bodyCobertura');
                       var cobTableLenght = cobTable.rows.length;
@@ -2557,57 +2557,19 @@ function grabaTemporal(){
                           data: {'accion' : 'guardaEndoso', 'localidad' : respuesta['cod_localidad'], 'ls_num_contrato_new' : respuesta['num_contrato'], 'ls_num_servicio_new' : respuesta['num_servicio'], 'ls_endoso' : codCob, 'lde_valor_endoso' : imp_endoso, 'ldt_fecha_venc' : fch_ven_endoso, 'ls_tipo_ctt_new' : respuesta['cod_tipo_ctt'], 'ls_tipo_programa_new' : respuesta['cod_tipo_programa']},
                           success : function(respuesta){
                             console.log(respuesta);
-                          }
-                        });
-                      }
 
-                      var benTable = document.getElementById('bodyBeneficiario');
-                      var benTableLenght = benTable.rows.length;
-                      for (i = 0; i < benTableLenght; i++){
-                        var benFila = benTable.rows.item(i);
-                        var doc = benFila.id;
-                        var lineaBen = i + 1;
-                        var respuesta = document.getElementById("registro_"+doc).value;
-                        var tipoDoc = respuesta.split(",")[0];
-                        var numDoc = respuesta.split(",")[1];
-                        var apellPaterno = respuesta.split(",")[2];
-                        var apellMaterno = respuesta.split(",")[3];
-                        var nombre = respuesta.split(",")[4];
-                        var fechNac = respuesta.split(",")[5];
-                        var fechDec = respuesta.split(",")[6];
-                        var religion = respuesta.split(",")[7];
-                        var edoCivil = respuesta.split(",")[8];
-                        var sexo = respuesta.split(",")[9];
-                        var parentesco = respuesta.split(",")[10];
-                        var lugar = respuesta.split(",")[11];
-                        var motivo = respuesta.split(",")[12];
-                        var peso = respuesta.split(",")[13];
-                        var talla = respuesta.split(",")[14];
-                        var autopsia = respuesta.split(",")[15];
-                        if (autopsia == "false") {
-                          flg_autopsia = "NO";
-                        }else{
-                          flg_autopsia = "SI";
-                        }
+                          }//success endoso
+                        });//ajax endoso
+                      }//for cobTableLenght
+                    }//if (respuesta['cod'] == 1)
+                   }//success procedure
+                });//ajax procedure
+              }//if (j == rowLength)
+            }//if (response == 1)
+          }//success tabla temporal
+        });//ajax tabla temporal
+      }// for rowLength tabla servicios
+    }//success identificador
+  });// ajax identificador
+}// funcion grabaTemporal
 
-                        $.ajax({
-                          type: 'POST',
-                          url: 'ajax/wizard.ajax.php',
-                          dataType: 'text',
-                          data: {'accion' : '', 'localidad' : respuesta['cod_localidad'], 'ls_num_contrato_new' : respuesta['num_contrato'], 'li_linea_benef' : lineaBen, 'ls_num_servicio_new' : respuesta['num_servicio'], 'ls_ape_paterno_benef' : apellPaterno, 'ls_ape_materno_benef' : apellMaterno, 'ls_nombre_benef' : nombre, 'ls_tipo_doc_benef' : tipoDoc, 'ls_num_doc_benef' : numDoc, 'ldt_nacimiento' : fechNac, 'ldt_deceso' : fechDec, 'ls_religion' : religion, 'ls_lugar_deceso' : lugar, 'ls_motivo_deceso' : motivo, 'ls_flg_autopsia' : flg_autopsia, 'lde_peso' : peso, 'lde_talla' : talla, 'ls_parentesco' : parentesco, 'ls_estado_civil' : edoCivil, 'ls_sexo' : sexo, 'ls_tipo_ctt_new' : respuesta['cod_tipo_ctt'], 'ls_tipo_programa_new' : respuesta['cod_tipo_programa']},
-                          success : function(respuesta){
-                            console.log(respuesta);
-                          }
-                        });
-                      }
-                    }
-                   }
-                 });
-               }
-             }
-           }
-        });
-      }
-    }
-  });
-}
