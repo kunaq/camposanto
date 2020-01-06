@@ -103,7 +103,7 @@ class ModeloWizard{
 		$li_max_item = arrayMapUtf8Encode($db->recorrer($sql));
 		// var_dump($li_max_item);
 
-		if(is_null($li_max_item[0])){
+		if(is_null($li_max_item[0]) || $li_max_item[0] == ''){
 		 $li_max_item = 0;
 		}
 		var_dump($li_max_item);
