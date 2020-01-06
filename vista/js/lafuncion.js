@@ -2573,8 +2573,8 @@ function grabaTemporal(){
                         var apellPaterno = respuesta.split(",")[2];
                         var apellMaterno = respuesta.split(",")[3];
                         var nombre = respuesta.split(",")[4];
-                        var fechNac = respuesta.split(",")[5];
-                        var fechDec = respuesta.split(",")[6];
+                        var fechNac = (respuesta.split(",")[5]).toLocaleDateString();
+                        var fechDec = r(espuesta.split(",")[6]).toLocaleDateString();
                         var religion = respuesta.split(",")[7];
                         var edoCivil = respuesta.split(",")[8];
                         var sexo = respuesta.split(",")[9];
@@ -2582,7 +2582,9 @@ function grabaTemporal(){
                         var lugar = respuesta.split(",")[11];
                         var motivo = respuesta.split(",")[12];
                         var peso = respuesta.split(",")[13];
+                        var pesof = peso.replace(",",".");
                         var talla = respuesta.split(",")[14];
+                        var tallaf = talla.replace(",",".");
                         var autopsia = respuesta.split(",")[15];
                         if (autopsia == "false") {
                           flg_autopsia = "NO";
@@ -2594,7 +2596,7 @@ function grabaTemporal(){
                           type: 'POST',
                           url: 'ajax/wizard.ajax.php',
                           dataType: 'text',
-                          data: {'accion' : '', 'localidad' : respuesta['cod_localidad'], 'ls_num_contrato_new' : respuesta['num_contrato'], 'li_linea_benef' : lineaBen, 'ls_num_servicio_new' : respuesta['num_servicio'], 'ls_ape_paterno_benef' : apellPaterno, 'ls_ape_materno_benef' : apellMaterno, 'ls_nombre_benef' : nombre, 'ls_tipo_doc_benef' : tipoDoc, 'ls_num_doc_benef' : numDoc, 'ldt_nacimiento' : fechNac, 'ldt_deceso' : fechDec, 'ls_religion' : religion, 'ls_lugar_deceso' : lugar, 'ls_motivo_deceso' : motivo, 'ls_flg_autopsia' : flg_autopsia, 'lde_peso' : peso, 'lde_talla' : talla, 'ls_parentesco' : parentesco, 'ls_estado_civil' : edoCivil, 'ls_sexo' : sexo, 'ls_tipo_ctt_new' : respuesta['cod_tipo_ctt'], 'ls_tipo_programa_new' : respuesta['cod_tipo_programa']},
+                          data: {'accion' : 'guardaBeneficiario', 'localidad' : respuesta['cod_localidad'], 'ls_num_contrato_new' : respuesta['num_contrato'], 'li_linea_benef' : lineaBen, 'ls_num_servicio_new' : respuesta['num_servicio'], 'ls_ape_paterno_benef' : apellPaterno, 'ls_ape_materno_benef' : apellMaterno, 'ls_nombre_benef' : nombre, 'ls_tipo_doc_benef' : tipoDoc, 'ls_num_doc_benef' : numDoc, 'ldt_nacimiento' : fechNac, 'ldt_deceso' : fechDec, 'ls_religion' : religion, 'ls_lugar_deceso' : lugar, 'ls_motivo_deceso' : motivo, 'ls_flg_autopsia' : flg_autopsia, 'lde_peso' : pesof, 'lde_talla' : tallaf, 'ls_parentesco' : parentesco, 'ls_estado_civil' : edoCivil, 'ls_sexo' : sexo, 'ls_tipo_ctt_new' : respuesta['cod_tipo_ctt'], 'ls_tipo_programa_new' : respuesta['cod_tipo_programa']},
                           success : function(respuesta){
                             console.log(respuesta);
                           }
