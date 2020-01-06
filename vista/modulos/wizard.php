@@ -885,8 +885,7 @@
 													<th>Saldo</th>
 												</tr>
 											</thead>
-											<tbody id="bodyCronograma">
-												
+											<tbody id="bodyCronograma">	
 											</tbody>
 											<tfoot id="footCronograma">
 												<tr>
