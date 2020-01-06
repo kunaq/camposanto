@@ -2566,8 +2566,8 @@ function grabaTemporal(){
                       for (i = 0; i < benTableLenght; i++){
                         var benFila = benTable.rows.item(i);
                         var doc = benFila.id;
-                        console.log(doc);
                         var lineaBen = i + 1;
+                        console.log(lineaBen);
                         var datosB = document.getElementById("registro_"+doc).value;
                         var tipoDoc = datosB.split(",")[0];
                         var numDoc = datosB.split(",")[1];
