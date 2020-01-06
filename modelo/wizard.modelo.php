@@ -100,7 +100,7 @@ class ModeloWizard{
 
 		// -- Maxima linea de beneficiario -- //
 
-		$sql = $db->consulta("SELECT	MAX($tabla.num_item) FROM $tabla WHERE	$tabla.cod_localidad = '".$datos['ls_localidad']."' AND	$tabla.cod_tipo_ctt = '".$datos['ls_tipo_ctt_new']."' AND $tabla.cod_tipo_programa = '".$datos['ls_tipo_programa_new']."' AND $tabla.cod_contrato = '".$datos['ls_num_contrato_new']."'");
+		$sql = $db->consulta("SELECT MAX($tabla.num_item) FROM $tabla WHERE	$tabla.cod_localidad = '".$datos['ls_localidad']."' AND	$tabla.cod_tipo_ctt = '".$datos['ls_tipo_ctt_new']."' AND $tabla.cod_tipo_programa = '".$datos['ls_tipo_programa_new']."' AND $tabla.cod_contrato = '".$datos['ls_num_contrato_new']."'");
 		$li_max_item = arrayMapUtf8Encode($db->recorrer($sql));
 
 		if(is_null($li_max_item)){
