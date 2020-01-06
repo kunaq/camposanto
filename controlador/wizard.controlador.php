@@ -176,7 +176,7 @@ class ControladorWizard{
 					   'lde_interes' => $_POST['lde_interes'],
 					   'lde_igv' => $_POST['lde_igv'],
 					   'lde_total' => $_POST['lde_total'],
-					   'gde_igv' => $_POST['gde_igv'],
+					   'gde_igv' => 0.18,
 					   'ls_tipo_ctt_new' => $_POST['ls_tipo_ctt_new'],
 					   'ls_tipo_programa_new' => $_POST['ls_tipo_programa_new'],
 					   'is_flg_generar_moras' => 'SI'
