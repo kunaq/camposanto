@@ -2533,7 +2533,7 @@ function grabaTemporal(){
                         var imp_valor = pasaAnumero(document.getElementById("imp_valor_"+codDsc).value);
                         var imp_dscto = pasaAnumero(document.getElementById("imp_monto_"+codDsc).value);
                         var flg_periodo_carencia = document.getElementById("flg_periodo_carencia_"+codDsc).value;
-                        var cadena = info.num_contrato + info.num_servicio + info.cod_tipo_ctt + info.num_refinanciamiento + info.cod_tipo_programa + info.cod_localidad + codDsc + flg_tasa + flg_libre + imp_valor + imp_dsct;
+                        var cadena = info.num_contrato + info.num_servicio + info.cod_tipo_ctt + info.num_refinanciamiento + info.cod_tipo_programa + info.cod_localidad + codDsc + flg_tasa + flg_libre + imp_valor + imp_dscto;
                         console.log(cadena);
 
                         $.ajax({
