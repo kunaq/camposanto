@@ -66,7 +66,16 @@ var WizardDemo = function() {
                             showCancelButton:!0,
                             confirmButtonText: "Generar",
                             cancelButtonText:"Cancelar"
-                        }).then(function(e){e.value&&swal("","El contrato ha sido generado.","success")})
+                        }).then(function(e){
+                          var grabar = grabaTemporal();
+                          if (grabar == 1){
+                            e.value&&swal("","El contrato ha sido generado.","success")
+                           }
+                          else{
+                            e.value&&swal("","El contrato no ha podido ser generado, por favor intente nuevamente.","warning")
+                          }
+                         
+                        })
                     }
                 }))
             })
