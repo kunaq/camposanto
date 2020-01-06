@@ -2562,9 +2562,11 @@ function grabaTemporal(){
 
                       var benTable = document.getElementById('bodyBeneficiario');
                       var benTableLenght = benTable.rows.length;
+                      console.log(benTableLenght);
                       for (i = 0; i < benTableLenght; i++){
                         var benFila = benTable.rows.item(i);
                         var doc = benFila.id;
+                        console.log(doc);
                         var lineaBen = i + 1;
                         var datosB = document.getElementById("registro_"+doc).value;
                         var tipoDoc = datosB.split(",")[0];
@@ -2604,7 +2606,6 @@ function grabaTemporal(){
                           }
                         });
                       }
-
                     }//if (respuesta['cod'] == 1)
                    }//success procedure
                 });//ajax procedure
