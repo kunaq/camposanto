@@ -137,7 +137,7 @@ class ControladorWizard{
 		$hora = date('H:i:s');
 		$fechaActual = $fecha.' '.$hora;
 		$datos = array('ls_localidad' => $_POST['localidad'],
-					   'li_i' => $_POST['li_i'],
+					   'li_i' => $_POST['li_linea_benef'],
 					   'ls_num_contrato_new' => $_POST['ls_num_contrato_new'],
 					   'ls_num_servicio_new' => $_POST['ls_num_servicio_new'],
 					   'ls_ape_paterno_benef' => $_POST['ls_ape_paterno_benef'],
