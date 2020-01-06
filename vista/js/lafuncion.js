@@ -2547,24 +2547,24 @@ function grabaTemporal(){
                         });
                       }
 
-                      var cobTable = document.getElementById('bodyCobertura');
-                      var cobTableLenght = cobTable.rows.length;
-                      for (i = 0; i < cobTableLenght; i++){
-                        var cobFila = cobTable.rows.item(i);
-                        var codCob = cobFila.id;
-                        var imp_endoso = pasaAnumero(document.getElementById("vEndoso_"+codCob).value);
-                        var fch_ven_endoso = ($('#m_datepicker_4_'+codCob).datepicker("getDate")).toLocaleDateString();
+                      // var cobTable = document.getElementById('bodyCobertura');
+                      // var cobTableLenght = cobTable.rows.length;
+                      // for (i = 0; i < cobTableLenght; i++){
+                      //   var cobFila = cobTable.rows.item(i);
+                      //   var codCob = cobFila.id;
+                      //   var imp_endoso = pasaAnumero(document.getElementById("vEndoso_"+codCob).value);
+                      //   var fch_ven_endoso = ($('#m_datepicker_4_'+codCob).datepicker("getDate")).toLocaleDateString();
 
-                        $.ajax({
-                          type: 'POST',
-                          url: 'ajax/wizard.ajax.php',
-                          dataType: 'text',
-                          data: {'accion' : 'guardaEndoso', 'localidad' : info.cod_localidad, 'ls_num_contrato_new' : info.num_contrato, 'ls_num_servicio_new' : info.num_servicio, 'ls_endoso' : codCob, 'lde_valor_endoso' : imp_endoso, 'ldt_fecha_venc' : fch_ven_endoso, 'ls_tipo_ctt_new' : info.cod_tipo_ctt, 'ls_tipo_programa_new' : info.cod_tipo_programa},
-                          success : function(respuesta){
-                            console.log(respuesta);
-                          }
-                        });
-                      }
+                      //   $.ajax({
+                      //     type: 'POST',
+                      //     url: 'ajax/wizard.ajax.php',
+                      //     dataType: 'text',
+                      //     data: {'accion' : 'guardaEndoso', 'localidad' : info.cod_localidad, 'ls_num_contrato_new' : info.num_contrato, 'ls_num_servicio_new' : info.num_servicio, 'ls_endoso' : codCob, 'lde_valor_endoso' : imp_endoso, 'ldt_fecha_venc' : fch_ven_endoso, 'ls_tipo_ctt_new' : info.cod_tipo_ctt, 'ls_tipo_programa_new' : info.cod_tipo_programa},
+                      //     success : function(respuesta){
+                      //       console.log(respuesta);
+                      //     }
+                      //   });
+                      // }
                     }
                    }
                  });
