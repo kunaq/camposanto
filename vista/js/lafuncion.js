@@ -2518,9 +2518,8 @@ function grabaTemporal(){
                    data: {'accion' : 'ejecutaProcedure', 'cod_cliente' : cod_cliente, 'tipPro' : tipo_recaudacion, 'camposanto' : camposanto, 'plataforma' : plataforma, 'area' : area, 'ejex' : eje_x, 'ejey' : eje_y, 'tipoEspacio' : tipo_espacio, 'endoso' : endoso, 'espacio' : espacio, 'tipoNec' : tipo_necesidad, 'importeCUI' : imp_cuoi, 'flagNvoCtto' : nuevo_ctt, 'regularizacionCheck' : flg_regularizacion, 'flagIntegral' : flg_integral },
                    success : function(respuesta){
                     console.log(respuesta);
-                    //var info = JSON.parse(respuesta);
                     console.log(respuesta['cod']);
-                    // if (info.cod == 1) {
+                    if (respuesta['cod'] == 1) {
                       var dscTable = document.getElementById('bodyDscto');
                       var dscTableLenght = dscTable.rows.length;
                       for (i = 0; i < dscTableLenght; i++){
@@ -2532,40 +2531,36 @@ function grabaTemporal(){
                         var imp_dscto = pasaAnumero(document.getElementById("imp_monto_"+codDsc).value);
                         var flg_periodo_carencia = document.getElementById("flg_periodo_carencia_"+codDsc).value;
 
-                        // var cadena = info.num_contrato + info.num_servicio + info.cod_tipo_ctt + info.num_refinanciamiento + info.cod_tipo_programa + info.cod_localidad + codDsc + flg_tasa + flg_libre + imp_valor + imp_dscto;
-                        // console.log(cadena);
-
-
                         $.ajax({
                           type: 'POST',
                           url: 'ajax/wizard.ajax.php',
                           dataType: 'text',
-                          data: {'accion' : 'guardaDscto', 'localidad' : info.cod_localidad, 'ls_num_contrato_new' : info.num_contrato, 'ls_num_servicio_new' : info.num_servicio, 'ls_tipo_dscto' : codDsc, 'ls_flg_tasa' : flg_tasa, 'ls_flg_libre' : flg_libre, 'lde_valor_dscto' : imp_valor, 'lde_imp_dscto' : imp_dscto, 'ls_flg_periodo' : flg_periodo_carencia, 'ls_tipo_ctt_new' : info.cod_tipo_ctt, 'ls_tipo_programa_new' : info.cod_tipo_programa},
+                          data: {'accion' : 'guardaDscto', 'localidad' : respuesta['cod_localidad'], 'ls_num_contrato_new' : respuesta['num_contrato'], 'ls_num_servicio_new' : respuesta['num_servicio'], 'ls_tipo_dscto' : codDsc, 'ls_flg_tasa' : flg_tasa, 'ls_flg_libre' : flg_libre, 'lde_valor_dscto' : imp_valor, 'lde_imp_dscto' : imp_dscto, 'ls_flg_periodo' : flg_periodo_carencia, 'ls_tipo_ctt_new' : respuesta['cod_tipo_ctt'], 'ls_tipo_programa_new' : respuesta['cod_tipo_programa']},
                           success : function(respuesta){
                             console.log(respuesta);
                           }
                         });
                       }
 
-                      // var cobTable = document.getElementById('bodyCobertura');
-                      // var cobTableLenght = cobTable.rows.length;
-                      // for (i = 0; i < cobTableLenght; i++){
-                      //   var cobFila = cobTable.rows.item(i);
-                      //   var codCob = cobFila.id;
-                      //   var imp_endoso = pasaAnumero(document.getElementById("vEndoso_"+codCob).value);
-                      //   var fch_ven_endoso = ($('#m_datepicker_4_'+codCob).datepicker("getDate")).toLocaleDateString();
+                      var cobTable = document.getElementById('bodyCobertura');
+                      var cobTableLenght = cobTable.rows.length;
+                      for (i = 0; i < cobTableLenght; i++){
+                        var cobFila = cobTable.rows.item(i);
+                        var codCob = cobFila.id;
+                        var imp_endoso = pasaAnumero(document.getElementById("vEndoso_"+codCob).value);
+                        var fch_ven_endoso = ($('#m_datepicker_4_'+codCob).datepicker("getDate")).toLocaleDateString();
 
-                      //   $.ajax({
-                      //     type: 'POST',
-                      //     url: 'ajax/wizard.ajax.php',
-                      //     dataType: 'text',
-                      //     data: {'accion' : 'guardaEndoso', 'localidad' : info.cod_localidad, 'ls_num_contrato_new' : info.num_contrato, 'ls_num_servicio_new' : info.num_servicio, 'ls_endoso' : codCob, 'lde_valor_endoso' : imp_endoso, 'ldt_fecha_venc' : fch_ven_endoso, 'ls_tipo_ctt_new' : info.cod_tipo_ctt, 'ls_tipo_programa_new' : info.cod_tipo_programa},
-                      //     success : function(respuesta){
-                      //       console.log(respuesta);
-                      //     }
-                      //   });
-                      // }
-                    // }
+                        $.ajax({
+                          type: 'POST',
+                          url: 'ajax/wizard.ajax.php',
+                          dataType: 'text',
+                          data: {'accion' : 'guardaEndoso', 'localidad' : respuesta['cod_localidad'], 'ls_num_contrato_new' : respuesta['num_contrato'], 'ls_num_servicio_new' : respuesta['num_servicio'], 'ls_endoso' : codCob, 'lde_valor_endoso' : imp_endoso, 'ldt_fecha_venc' : fch_ven_endoso, 'ls_tipo_ctt_new' : respuesta['cod_tipo_ctt'], 'ls_tipo_programa_new' : respuesta['cod_tipo_programa']},
+                          success : function(respuesta){
+                            console.log(respuesta);
+                          }
+                        });
+                      }
+                    }
                    }
                  });
                }
