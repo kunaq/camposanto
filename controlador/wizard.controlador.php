@@ -166,6 +166,11 @@ class ControladorWizard{
 
 	static public function ctrGuardaCronograma(){
 		$tabla = 'vtade_cronograma';
+		if ($_POST['ls_tipo_cuota'] == "FMA") {
+			$flg_generar_mora = "NO";
+		}else{
+			$flg_generar_mora = "SI";
+		}
 		$datos = array('ls_localidad' => $_POST['localidad'], 
 					   'ls_num_contrato_new' => $_POST['ls_num_contrato_new'],
 					   'li_refinanciamiento' => $_POST['li_refinanciamiento'],
@@ -179,7 +184,7 @@ class ControladorWizard{
 					   'gde_igv' => 0.18,
 					   'ls_tipo_ctt_new' => $_POST['ls_tipo_ctt_new'],
 					   'ls_tipo_programa_new' => $_POST['ls_tipo_programa_new'],
-					   'is_flg_generar_moras' => 'SI'
+					   'is_flg_generar_moras' => $flg_generar_mora
 					  );
 		$respuesta = ModeloWizard::mdlGuardaCronograma($datos,$tabla);
 		return $respuesta;
