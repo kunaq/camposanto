@@ -129,6 +129,32 @@ class ControladorWizard{
 						);
 		$respuesta = ModeloWizard::mdlGuardaEndoso($datos, $tabla);
 		return $respuesta;
-	}
+	}//function ctrGuardaEndoso
+
+	static public function ctrGuardaFila(){
+		$tabla = 'vtama_temp_recaudacion';
+		$datos =  array('ll_id' => $_POST['li_i'],
+						'li_i' => $_POST['i'],
+						'ls_codigo' => $_POST['ls_codigo'],
+						'li_ctd' => $_POST['li_ctd'],
+						'lde_precio_venta' => $_POST['lde_precio_venta'],
+						'lde_det_total' => $_POST['lde_det_total'],
+						'lde_cuoi' => $_POST['lde_cuoi'],
+						'lde_foma' => $_POST['lde_foma'],
+						'lde_cuoi_st' => $_POST['lde_cuoi_st'],
+						'lde_min_inh' => $_POST['lde_min_inh'],
+						'lde_precio_lista' => $_POST['lde_precio_lista'],
+						'lde_valor_endoso' => $_POST['lde_valor_endoso'],
+						'ls_flg_ds_compartido' => $_POST['ls_flg_ds_compartido'],
+						'lde_imp_carencia' => $_POST['lde_imp_carencia'],
+						'ls_flg_cremacion' => $_POST['ls_flg_cremacion'],
+						'ls_flg_ds_temporal' => $_POST['ls_flg_ds_temporal'], 
+						'ls_flg_ssff' => $_POST['ls_flg_ssff'],
+						'lde_saldo_detalle' => $_POST['lde_saldo_detalle'],
+						);
+		$respuesta = ModeloWizard::mdlGuardaFila($datos, $tabla);
+		return $respuesta;
+	}//ctrGuardaFila
+
 }//class ControladorWizard
 ?>

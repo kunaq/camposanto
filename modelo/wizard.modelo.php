@@ -92,6 +92,17 @@ class ModeloWizard{
 		}else{
 			return "error";
 		}
-	}
+	} //function mdlGuardaEndoso
+
+	static public function mdlGuardaFila($datos, $tabla){
+		$db = new Conexion();
+		$sql = $db->consulta("INSERT INTO vtama_temp_recaudacion ( num_id, num_linea, cod_servicio, num_ctd, imp_precio_venta, imp_total, imp_cuoi, imp_foma, imp_cuoi_standar, imp_min_inhumar, imp_precio_lista, imp_endoso, cod_servicio_main, flg_servicio, cod_servicio_secundario, flg_ds_compartido, imp_costo_carencia, flg_cremacion, flg_ds_temporal, flg_ssff, imp_saldo ) VALUES ( ".$datos['ll_id'].", ".$datos['li_i'].", '".$datos['ls_codigo']."', ".$datos['li_ctd'].", ".$datos['lde_precio_venta'].", ".$datos['lde_det_total'].", ".$datos['lde_cuoi'].", ".$datos['lde_foma'].", ".$datos['lde_cuoi_st'].", ".$datos['lde_min_inh'].", ".$datos['lde_precio_lista'].", ".$datos['lde_valor_endoso'].", '".$datos['ls_codigo']."', 'SI', '".$datos['ls_codigo']."', '".$datos['ls_flg_ds_compartido']."', ".$datos['lde_imp_carencia'].", '".$datos['ls_flg_cremacion']."', '".$datos['ls_flg_ds_temporal']."', '".$datos['ls_flg_ssff']."', ".$datos['lde_saldo_detalle']." )");
+		if($sql){
+			return 1;
+		}else{
+			return "error";
+		}
+	} //function mdlGuardaFila
+
 }//class ModeloWizard
 ?>
