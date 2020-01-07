@@ -2425,7 +2425,7 @@ function calcular() {
 //-----------------------------FUNCIÓN GRABAR TABLA TEMPORAL-----------------------------------------//
 //----------------------------------------------------------------------------------------------//
 
-function grabaTemporal(){
+async function grabaTemporal(){
   var checkDescuento = "";
   var checkEndoso = "";
   var checkBeneficiario = "";
@@ -2626,11 +2626,6 @@ function grabaTemporal(){
                           success : function(respuesta){
                             if(respuesta == 1){
                               checkCronograma = "success";
-                              console.log("registro endoso:" ,checkEndoso);
-                              console.log("registro descuento:" ,checkDescuento);
-                              console.log("registro beneficiario:" ,checkBeneficiario);
-                              console.log("registro Cronograma:" ,checkCronograma);
-                              
                             }
                           }//success cronograma
                         });//ajax cronograma
@@ -2645,4 +2640,5 @@ function grabaTemporal(){
       }// for rowLength tabla servicios
     }//success identificador
   });// ajax identificador
+  console.log(checkBeneficiario);
 }// funcion grabaTemporal
