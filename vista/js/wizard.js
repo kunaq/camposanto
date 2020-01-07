@@ -1231,13 +1231,6 @@ function anadeEndoso(cod, nombre){
             });
         }
 }
-// -------------------- Funcion para ingresar solo numeros  -------------------- //
-function justNumbers(e){
-  var keynum = window.event ? window.event.keyCode : e.which;
-  if ((keynum == 8) || (keynum == 46))
-  return true;
-  return /\d/.test(String.fromCharCode(keynum));
-}
 
 // -------------------- Agregar Nuevo Cliente -------------------- //
 function esJuridica(){
@@ -1270,6 +1263,14 @@ function esJuridica(){
     $('#ecivilNvoCliWiz').prop('disabled', true);
     $('#ecivilNvoCliWiz').val('');
   }
+}
+
+// -------------------- Funcion para ingresar solo numeros  -------------------- //
+function justNumbers(e){
+  var keynum = window.event ? window.event.keyCode : e.which;
+  if ((keynum == 8) || (keynum == 46))
+  return true;
+  return /\d/.test(String.fromCharCode(keynum));
 }
 
 function DocLenghtCliente(tipo){
@@ -1383,4 +1384,28 @@ function eliminaFilaEndoso(id){
   }
   sumatabla();
   cambiaTodo();
+}
+
+function DocLengthBenef(tipo){
+    if (tipo == "DI001") {
+      $('#numDocBenef').val('');
+      document.getElementById("numDocBenef").setAttribute('maxlength',8);
+      document.getElementById("numDocBenef").setAttribute('onkeypress',"return justNumbers(event);");
+    }else if(tipo == "DI002"){
+      $('#numDocBenef').val('');
+      document.getElementById("numDocBenef").setAttribute('maxlength',12);
+      $("#numDocBenef").removeAttr("onkeypress");
+    }else if(tipo == "DI003"){
+      $('#numDocBenef').val('');
+      document.getElementById("numDocBenef").setAttribute('maxlength',12);
+      $("#numDocBenef").removeAttr("onkeypress");
+    }else if(tipo == "DI004"){
+      $('#numDocBenef').val('');
+      document.getElementById("numDocBenef").setAttribute('maxlength',11)
+      document.getElementById("numDocBenef").setAttribute('onkeypress',"return justNumbers(event);");
+    }else if(tipo == "DI005"){
+      $('#numDocBenef').val('');
+      $("#numDocBenef").removeAttr("maxlength");
+      $("#numDocBenef").removeAttr("onkeypress");
+    }
 }
