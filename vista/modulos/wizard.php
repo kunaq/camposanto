@@ -1052,7 +1052,7 @@
 													</label>
 												</div>
 												<div class="col-lg-3 form-group">
-													<select class="form-control form-control-sm m-input custom-select custom-select-danger" disabled name="tipoDocBenef" id="tipoDocBenef">
+													<select class="form-control form-control-sm m-input custom-select custom-select-danger" disabled name="tipoDocBenef" id="tipoDocBenef" onchange="DocLengthBenef(this.value);">
 														<option value="">
 														Seleccione
 														</option>
@@ -1463,7 +1463,7 @@
 									</a>
 								</div>
 								<div class="col-lg-4 m--align-right">
-									<a class="btn btnGuardarKqPst m-btn m-btn--custom m-btn--icon" data-wizard-action="submit" onclick="grabaTemporal();">
+									<a class="btn btnGuardarKqPst m-btn m-btn--custom m-btn--icon" data-wizard-action="submit">
 										<span>
 											<i class="la la-check"></i>
 											&nbsp;&nbsp;
