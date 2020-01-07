@@ -2635,7 +2635,10 @@ function grabaTemporal(){
                           success : function(respuesta){
                             if(respuesta == 1){
                               checkCronograma = "success";
-                              console.log(checkEndoso);
+                              console.log("registro endoso:" ,checkEndoso);
+                              console.log("registro descuento:" ,checkDescuento);
+                              console.log("registro beneficiario:" ,checkBeneficiario);
+                              console.log("registro Cronograma:" ,checkCronograma);
                             }
                           }//success cronograma
                         });//ajax cronograma
