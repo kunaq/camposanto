@@ -196,7 +196,7 @@ function cambiaTodo()
       });             
   }
 
-console.log('lde_afecto_dscto1',lde_afecto_dscto);
+// console.log('lde_afecto_dscto1',lde_afecto_dscto);
 
   if(lde_afecto_dscto == null)
   {
@@ -284,7 +284,7 @@ console.log('lde_afecto_dscto1',lde_afecto_dscto);
       //lde_valor = tab_1.tp_7.dw_dscto.GetItemDecimal(li_i, "imp_valor");
       var lde_valor = document.getElementById("imp_valor_"+cod).value;
       lde_valor = lde_valor;
-      console.log('lde_afecto_dscto',lde_afecto_dscto);
+      // console.log('lde_afecto_dscto',lde_afecto_dscto);
       if(ls_flg_porcentaje == 'SI')
       {
         //console.log(lde_afecto_dscto);
@@ -1072,7 +1072,7 @@ function cronograma(){
       for (var i = 0; i < row; i++) {
       //    //ls_cod_servicio = tab_1.tp_1.dw_detalle.GetItemString(li_i, "cod_servicio")
       ls_cod_servicio = $(codServicio[i]).val(); 
-      console.log(ls_cod_servicio);
+      // console.log(ls_cod_servicio);
             //console.log('re',$(codServicio[i]).val());
 
       //    // -- Flag -- //
