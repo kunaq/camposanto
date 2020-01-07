@@ -264,6 +264,9 @@
 								</span>
 							</a>
 						</li>
+						<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  m-menu-submenu-toggle="hover">
+							<img src="vista/img/logo_blanco.png" style="width: 140px;">
+						</li>
 					</ul>
 				</div>
 			</li>
