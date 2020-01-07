@@ -2630,6 +2630,7 @@ function grabaTemporal(){
                               console.log("registro descuento:" ,checkDescuento);
                               console.log("registro beneficiario:" ,checkBeneficiario);
                               console.log("registro Cronograma:" ,checkCronograma);
+                              
                             }
                           }//success cronograma
                         });//ajax cronograma
