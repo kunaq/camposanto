@@ -2635,10 +2635,13 @@ function grabaTemporal(){
                           success : function(respuesta){
                             if(respuesta == 1){
                               checkCronograma = "success";
-                              console.log(checkEndoso);
+                              // console.log(checkEndoso);
                             }
                           }//success cronograma
                         });//ajax cronograma
+                        if(checkEndoso == checkCronograma == checkBeneficiario == checkDescuento == "success"){
+                          return "generado";
+                        }
                       }//for croTableLenght
                     }//if (respuesta['cod'] == 1)
                    }//success procedure
