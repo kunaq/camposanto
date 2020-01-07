@@ -54,7 +54,7 @@ var WizardDemo = function() {
                 submitHandler: function(e) {}
             }),
             (r = n.find('[data-wizard-action="submit"]')).on("click", function(e) {
-              console.log(r);
+                console.log(r);
                 e.preventDefault(),
                 i.form() && (mApp.progress(r),
                 n.ajaxSubmit({
