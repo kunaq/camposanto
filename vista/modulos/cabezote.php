@@ -40,7 +40,7 @@ include "modals/modalConfiguraciones.php"; ?>
 							<div id="m_header_topbar" class="m-topbar  m-stack m-stack--ver m-stack--general">
 								<div class="m-stack__item m-topbar__nav-wrapper">
 									<ul class="m-topbar__nav m-nav m-nav--inline">
-										<li class="m-nav__item m-topbar__quick-actions m-topbar__quick-actions--img m-dropdown m-dropdown--large m-dropdown--header-bg-fill m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push m-dropdown--mobile-full-width m-dropdown--skin-light">
+										<li class="m-nav__item m-topbar__quick-actions m-topbar__quick-actions--img m-dropdown m-dropdown--large m-dropdown--header-bg-fill m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push m-dropdown--mobile-full-width m-dropdown--skin-light" style="vertical-align: sub;">
 											<!-- <div class="m-card-user__details"> -->
 													<span class="user_name">
 														<?php echo $_SESSION['nombre']; ?>
