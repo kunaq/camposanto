@@ -267,7 +267,7 @@
 					</ul>
 				</div>
 			</li>
-			<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true" style="text-align: center;" m-menu-submenu-toggle="hover">
+			<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true" style="text-align: center; padding-top: 17rem;" m-menu-submenu-toggle="hover">
 				<img src="vista/img/logo_blanco.png" style="width: 40px;">
 			</li>
 		</ul>
