@@ -2630,6 +2630,7 @@ function grabaTemporal(){
                           }//success cronograma
                         });//ajax cronograma
                       }//for croTableLenght
+                      return "generado";
                     }//if (respuesta['cod'] == 1)
                    }//success procedure
                 });//ajax procedure
@@ -2640,5 +2641,4 @@ function grabaTemporal(){
       }// for rowLength tabla servicios
     }//success identificador
   });// ajax identificador
-  console.log(checkBeneficiario);
 }// funcion grabaTemporal
