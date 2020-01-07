@@ -2425,7 +2425,7 @@ function calcular() {
 //-----------------------------FUNCIÓN GRABAR TABLA TEMPORAL-----------------------------------------//
 //----------------------------------------------------------------------------------------------//
 
-async function grabaTemporal(){
+function grabaTemporal(){
   var checkDescuento = "";
   var checkEndoso = "";
   var checkBeneficiario = "";
