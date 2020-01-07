@@ -2642,6 +2642,9 @@ function grabaTemporal(){
                             }
                           }//success cronograma
                         });//ajax cronograma
+                        if(checkEndoso == checkCronograma == checkBeneficiario == checkDescuento == "success"){
+                          return "generado";
+                        }
                       }//for croTableLenght
                     }//if (respuesta['cod'] == 1)
                    }//success procedure
