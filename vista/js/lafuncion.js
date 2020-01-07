@@ -46,9 +46,7 @@ function cambiaTodo()
            /*var ls_flg_derecho = auxiliar.split('_')[1];   //flg_derecho_incluido
            var ls_flg_personalizado = auxiliar.split('_')[2]; // flg_personalizado
            var ls_flg_descargado = auxiliar.split('_')[3]; // flg_descargado
-
             // -- Personalizado -- //
-
             if( ls_flg_personalizado == 'SI')
             {
                 lde_valor_derecho = document.getElementById("filaB_"+ls_servicio_in).value;
@@ -57,9 +55,7 @@ function cambiaTodo()
             {
                 lde_valor_derecho = document.getElementById("filaC_"+ls_servicio_in).value;
             }
-
             // -- Inicializa -- //
-
             if(lde_valor_derecho == null)
             {
               lde_valor_derecho = 0;
@@ -72,9 +68,7 @@ function cambiaTodo()
             {
               ls_flg_personalizado = 'NO';
             }
-
             // -- Añade -- //
-
             if((ls_servicio_main == ls_servicio_in) && (ls_flg_derecho == 'SI' || ls_flg_personalizado == 'SI') && ls_flg_descargado == 'NO')
             {
               lde_derecho = lde_derecho + lde_valor_derecho;
@@ -210,11 +204,9 @@ console.log('lde_afecto_dscto1',lde_afecto_dscto);
   }
 
   /* -- Prevensión (eliminado) -- //
-
   var lde_prevension = 0.00;
   var container3 = document.querySelectorAll('#bodyCtt');
   //var li_total = tab_1.tp_2.dw_ctt.RowCount();
-
   container3.querySelectorAll('tr').forEach(function (li_i)
   {
       lde_valor_prevension = tab_1.tp_2.dw_ctt.GetItemDecimal(li_i, "imp_total");
@@ -1528,7 +1520,6 @@ function cronograma(){
                                            lde_valor_cuota_interes_x_mes = Round(lde_valor_cuota_interes_x_mes, 0)
            
            End Choose
-
            // -- Seteo de cuotas -- //
            
            For li_i = 1 To li_cuotas
@@ -2435,241 +2426,222 @@ function calcular() {
 //----------------------------------------------------------------------------------------------//
 
 function grabaTemporal(){
+  var checkDescuento = "";
+  var checkEndoso = "";
+  var checkBeneficiario = "";
+  var checkCronograma = ""; 
+  $.ajax({
+    type: 'POST',
+    url: 'ajax/wizard.ajax.php',
+    dataType: 'text',
+    data: { 'accion' : 'identificador' },
+    success : function(respuesta){
+      var j = 0;
+      var ll_id = respuesta;
+      var oTable = document.getElementById('bodyServicio');
+      var rowLength = oTable.rows.length;
 
-  swal({
-        title: "¿Está seguro de generar el contrato?",
-        text: "¡Si no lo está puede cancelar la acción!",
-        type: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        cancelButtonText: 'Cancelar',
-        confirmButtonText: 'Si, guardar!'
-      }).then(function(result){
-        if (result.value) {
-          var checkDescuento = "";
-          var checkEndoso = "";
-          var checkBeneficiario = "";
-          var checkCronograma = ""; 
-          $.ajax({
-            type: 'POST',
-            url: 'ajax/wizard.ajax.php',
-            dataType: 'text',
-            data: { 'accion' : 'identificador' },
-            success : function(respuesta){
-              var j = 0;
-              var ll_id = respuesta;
-              var oTable = document.getElementById('bodyServicio');
-              var rowLength = oTable.rows.length;
+      for (i = 0; i < rowLength; i++){
+        var ofila = oTable.rows.item(i);
+        var codSer = ofila.id;
+        var linea = i + 1;
+        
+        var li_ctd = document.getElementById("ctd_"+codSer).value;
+        var lde_precio_venta = document.getElementById("numA_"+codSer).value;
+        var lde_det_total = document.getElementById("numC1_"+codSer).value;
+        var lde_cuoi = pasaAnumero(document.getElementById("numF_"+codSer).value);
+        var lde_cuoi_st = document.getElementById("cui_std_"+codSer).value;
+        var lde_min_inh  = document.getElementById("imp_min_inhumar_"+codSer).value;
+        var lde_precio_lista = document.getElementById("lista_"+codSer).value;
+        var lde_valor_endoso = pasaAnumero(document.getElementById("numG_"+codSer).value);
+        var lde_foma = pasaAnumero(document.getElementById("numD_"+codSer).value);
+        var ls_flg_ds_compartido = document.getElementById("ls_flg_ds_compartido_"+codSer).value;
+        var ls_flg_cremacion = document.getElementById("ls_flg_cremacion_"+codSer).value;
+        var ls_flg_ds_temporal = document.getElementById("ls_flg_ds_temporal_"+codSer).value;
+        var lde_imp_carencia = pasaAnumero(document.getElementById("numE_"+codSer).value);
+        var ls_flg_ssff = document.getElementById("ls_flg_ssff_"+codSer).value;
+        var lde_saldo_detalle = document.getElementById("numH1_"+codSer).value;
 
-              for (i = 0; i < rowLength; i++){
-                var ofila = oTable.rows.item(i);
-                var codSer = ofila.id;
-                var linea = i + 1;
-                
-                var li_ctd = document.getElementById("ctd_"+codSer).value;
-                var lde_precio_venta = document.getElementById("numA_"+codSer).value;
-                var lde_det_total = document.getElementById("numC1_"+codSer).value;
-                var lde_cuoi = pasaAnumero(document.getElementById("numF_"+codSer).value);
-                var lde_cuoi_st = document.getElementById("cui_std_"+codSer).value;
-                var lde_min_inh  = document.getElementById("imp_min_inhumar_"+codSer).value;
-                var lde_precio_lista = document.getElementById("lista_"+codSer).value;
-                var lde_valor_endoso = pasaAnumero(document.getElementById("numG_"+codSer).value);
-                var lde_foma = pasaAnumero(document.getElementById("numD_"+codSer).value);
-                var ls_flg_ds_compartido = document.getElementById("ls_flg_ds_compartido_"+codSer).value;
-                var ls_flg_cremacion = document.getElementById("ls_flg_cremacion_"+codSer).value;
-                var ls_flg_ds_temporal = document.getElementById("ls_flg_ds_temporal_"+codSer).value;
-                var lde_imp_carencia = pasaAnumero(document.getElementById("numE_"+codSer).value);
-                var ls_flg_ssff = document.getElementById("ls_flg_ssff_"+codSer).value;
-                var lde_saldo_detalle = document.getElementById("numH1_"+codSer).value;
+        if (lde_saldo_detalle == null || lde_saldo_detalle == ''){
+         lde_saldo_detalle = 0;
+        }
+        
+        $.ajax({
+          type: 'POST',
+           url: 'ajax/wizard.ajax.php',
+           dataType: 'text',
+           data:{'accion' : 'guardarfila', 'num_id' : ll_id, 'num_linea' : linea, 'cod_servicio' : codSer, 'num_ctd' : li_ctd, 'imp_precio_venta' : lde_precio_venta, 'imp_total' : lde_det_total, 'imp_cuoi' : lde_cuoi, 'imp_foma' : lde_foma, 'imp_cuoi_standar' : lde_cuoi_st, 'imp_min_inhumar' : lde_min_inh, 'imp_precio_lista' : lde_precio_lista, 'imp_endoso' : lde_valor_endoso, 'flg_ds_compartido' : ls_flg_ds_compartido, 'imp_costo_carencia' : lde_imp_carencia, 'flg_cremacion' : ls_flg_cremacion, 'flg_ds_temporal' : ls_flg_ds_temporal, 'flg_ssff' : ls_flg_ssff, 'imp_saldo' : lde_saldo_detalle},
+           success : function(response){
+            if (response == 1) {
+              j++;
+              if (j == rowLength) {
 
-                if (lde_saldo_detalle == null || lde_saldo_detalle == ''){
-                 lde_saldo_detalle = 0;
+                var aux = document.getElementById('espacio').value;
+                var tipo_espacio = aux.split("/")[0];
+                var espacio = aux.split("/")[2];
+                var cod_cliente = document.getElementById('cod_cliente').value;
+                var tipo_recaudacion = document.getElementById('tipPro').value;
+                var camposanto = document.getElementById('camposanto').value;
+                var plataforma = document.getElementById('plataforma').value;
+                var area = document.getElementById('area').value;
+                var eje_x = document.getElementById('ejex').value;
+                var eje_y = document.getElementById('ejey').value;
+                var endoTable = document.getElementById('bodyCobertura');
+                var endoTLenght = endoTable.rows.length;
+                if (endoTLenght == 0) {
+                  var endoso = "NULL";
+                }else{
+                  var ultimoEnd = document.getElementById("bodyCobertura").lastChild;
+                  var endoso = ultimoEnd.id;
                 }
-                
-                $.ajax({
-                  type: 'POST',
-                   url: 'ajax/wizard.ajax.php',
-                   dataType: 'text',
-                   data:{'accion' : 'guardarfila', 'num_id' : ll_id, 'num_linea' : linea, 'cod_servicio' : codSer, 'num_ctd' : li_ctd, 'imp_precio_venta' : lde_precio_venta, 'imp_total' : lde_det_total, 'imp_cuoi' : lde_cuoi, 'imp_foma' : lde_foma, 'imp_cuoi_standar' : lde_cuoi_st, 'imp_min_inhumar' : lde_min_inh, 'imp_precio_lista' : lde_precio_lista, 'imp_endoso' : lde_valor_endoso, 'flg_ds_compartido' : ls_flg_ds_compartido, 'imp_costo_carencia' : lde_imp_carencia, 'flg_cremacion' : ls_flg_cremacion, 'flg_ds_temporal' : ls_flg_ds_temporal, 'flg_ssff' : ls_flg_ssff, 'imp_saldo' : lde_saldo_detalle},
-                   success : function(response){
-                    if (response == 1) {
-                      j++;
-                      if (j == rowLength) {
+                var tipo_necesidad = document.getElementById('tiponec').value;
+                var imp_cuoi = pasaAnumero(document.getElementById('importeCUI').value);
+                var nuevo_ctt = document.getElementById('flagNvoCtto').value;
+                var flg_integral = document.getElementById('flagIntegral').value;
+                var regularizacion = document.getElementById('regularizacionCheck');
+                if (regularizacion.checked != true){
+                  var flg_regularizacion = "NO";
+                }else{
+                  var flg_regularizacion = "SI"
+                }
 
-                        var aux = document.getElementById('espacio').value;
-                        var tipo_espacio = aux.split("/")[0];
-                        var espacio = aux.split("/")[2];
-                        var cod_cliente = document.getElementById('cod_cliente').value;
-                        var tipo_recaudacion = document.getElementById('tipPro').value;
-                        var camposanto = document.getElementById('camposanto').value;
-                        var plataforma = document.getElementById('plataforma').value;
-                        var area = document.getElementById('area').value;
-                        var eje_x = document.getElementById('ejex').value;
-                        var eje_y = document.getElementById('ejey').value;
-                        var endoTable = document.getElementById('bodyCobertura');
-                        var endoTLenght = endoTable.rows.length;
-                        if (endoTLenght == 0) {
-                          var endoso = "NULL";
+                $.ajax({
+                   type: 'POST',
+                   url: 'ajax/wizard.ajax.php',
+                   dataType: 'json',
+                   data: {'accion' : 'ejecutaProcedure', 'cod_cliente' : cod_cliente, 'tipPro' : tipo_recaudacion, 'camposanto' : camposanto, 'plataforma' : plataforma, 'area' : area, 'ejex' : eje_x, 'ejey' : eje_y, 'tipoEspacio' : tipo_espacio, 'endoso' : endoso, 'espacio' : espacio, 'tipoNec' : tipo_necesidad, 'importeCUI' : imp_cuoi, 'flagNvoCtto' : nuevo_ctt, 'regularizacionCheck' : flg_regularizacion, 'flagIntegral' : flg_integral },
+                   success : function(respuesta){
+                    if (respuesta['cod'] == 1) {
+                      var dscTable = document.getElementById('bodyDscto');
+                      var dscTableLenght = dscTable.rows.length;
+                      for (i = 0; i < dscTableLenght; i++){
+                        var dscFila = dscTable.rows.item(i);
+                        var codDsc = dscFila.id;
+                        var flg_tasa = document.getElementById("flg_tasa_"+codDsc).value;
+                        var flg_libre = document.getElementById("flg_libre_"+codDsc).value;
+                        var imp_valor = pasaAnumero(document.getElementById("imp_valor_"+codDsc).value);
+                        var imp_dscto = pasaAnumero(document.getElementById("imp_monto_"+codDsc).value);
+                        var flg_periodo_carencia = document.getElementById("flg_periodo_carencia_"+codDsc).value;
+
+                        $.ajax({
+                          type: 'POST',
+                          url: 'ajax/wizard.ajax.php',
+                          dataType: 'text',
+                          data: {'accion' : 'guardaDscto', 'localidad' : respuesta['cod_localidad'], 'ls_num_contrato_new' : respuesta['num_contrato'], 'ls_num_servicio_new' : respuesta['num_servicio'], 'ls_tipo_dscto' : codDsc, 'ls_flg_tasa' : flg_tasa, 'ls_flg_libre' : flg_libre, 'lde_valor_dscto' : imp_valor, 'lde_imp_dscto' : imp_dscto, 'ls_flg_periodo' : flg_periodo_carencia, 'ls_tipo_ctt_new' : respuesta['cod_tipo_ctt'], 'ls_tipo_programa_new' : respuesta['cod_tipo_programa']},
+                          success : function(respuesta){
+                            if(respuesta == 1){
+                              checkDescuento = "success";
+                            }
+                          }//success descuento
+                        });//ajax descuento
+                      }//for dscTableLenght;
+
+                      var cobTable = document.getElementById('bodyCobertura');
+                      var cobTableLenght = cobTable.rows.length;
+                      for (i = 0; i < cobTableLenght; i++){
+                        var cobFila = cobTable.rows.item(i);
+                        var codCob = cobFila.id;
+                        var imp_endoso = pasaAnumero(document.getElementById("vEndoso_"+codCob).value);
+                        var fch_ven_endoso = ($('#m_datepicker_4_'+codCob).datepicker("getDate")).toLocaleDateString();
+
+                        $.ajax({
+                          type: 'POST',
+                          url: 'ajax/wizard.ajax.php',
+                          dataType: 'text',
+                          data: {'accion' : 'guardaEndoso', 'localidad' : respuesta['cod_localidad'], 'ls_num_contrato_new' : respuesta['num_contrato'], 'ls_num_servicio_new' : respuesta['num_servicio'], 'ls_endoso' : codCob, 'lde_valor_endoso' : imp_endoso, 'ldt_fecha_venc' : fch_ven_endoso, 'ls_tipo_ctt_new' : respuesta['cod_tipo_ctt'], 'ls_tipo_programa_new' : respuesta['cod_tipo_programa']},
+                          success : function(respuesta){
+                            if(respuesta == 1){
+                              checkEndoso = "success";
+                            }
+                          }//success endoso
+                        });//ajax endoso
+                      }//for cobTableLenght
+
+                      var benTable = document.getElementById('bodyBeneficiario');
+                      var benTableLenght = benTable.rows.length;
+                      for (i = 0; i < benTableLenght; i++){
+                        var benFila = benTable.rows.item(i);
+                        var doc = benFila.id;
+                        var lineaBen = i + 1;
+                        var datosB = document.getElementById("registro_"+doc).value;
+                        var tipoDoc = datosB.split(",")[0];
+                        var numDoc = datosB.split(",")[1];
+                        var apellPaterno = datosB.split(",")[2];
+                        var apellMaterno = datosB.split(",")[3];
+                        var nombre = datosB.split(",")[4];
+                        var fechNac = new Date(datosB.split(",")[5]);
+                        var fchNac = fechNac.toLocaleDateString();
+                        var fechDec = new Date(datosB.split(",")[6]);
+                        var fchDec = fechDec.toLocaleString();
+                        var religion = datosB.split(",")[7];
+                        var edoCivil = datosB.split(",")[8];
+                        var sexo = datosB.split(",")[9];
+                        var parentesco = datosB.split(",")[10];
+                        var lugar = datosB.split(",")[11];
+                        var motivo = datosB.split(",")[12];
+                        var peso = datosB.split(",")[13];
+                        var pesof = peso.replace(",",".");
+                        var talla = datosB.split(",")[14];
+                        var tallaf = talla.replace(",",".");
+                        var autopsia = datosB.split(",")[15];
+                        if (autopsia == "false") {
+                          flg_autopsia = "NO";
                         }else{
-                          var ultimoEnd = document.getElementById("bodyCobertura").lastChild;
-                          var endoso = ultimoEnd.id;
-                        }
-                        var tipo_necesidad = document.getElementById('tiponec').value;
-                        var imp_cuoi = pasaAnumero(document.getElementById('importeCUI').value);
-                        var nuevo_ctt = document.getElementById('flagNvoCtto').value;
-                        var flg_integral = document.getElementById('flagIntegral').value;
-                        var regularizacion = document.getElementById('regularizacionCheck');
-                        if (regularizacion.checked != true){
-                          var flg_regularizacion = "NO";
-                        }else{
-                          var flg_regularizacion = "SI"
+                          flg_autopsia = "SI";
                         }
 
                         $.ajax({
-                           type: 'POST',
-                           url: 'ajax/wizard.ajax.php',
-                           dataType: 'json',
-                           data: {'accion' : 'ejecutaProcedure', 'cod_cliente' : cod_cliente, 'tipPro' : tipo_recaudacion, 'camposanto' : camposanto, 'plataforma' : plataforma, 'area' : area, 'ejex' : eje_x, 'ejey' : eje_y, 'tipoEspacio' : tipo_espacio, 'endoso' : endoso, 'espacio' : espacio, 'tipoNec' : tipo_necesidad, 'importeCUI' : imp_cuoi, 'flagNvoCtto' : nuevo_ctt, 'regularizacionCheck' : flg_regularizacion, 'flagIntegral' : flg_integral },
-                           success : function(respuesta){
-                            if (respuesta['cod'] == 1) {
-                              var dscTable = document.getElementById('bodyDscto');
-                              var dscTableLenght = dscTable.rows.length;
-                              for (i = 0; i < dscTableLenght; i++){
-                                var dscFila = dscTable.rows.item(i);
-                                var codDsc = dscFila.id;
-                                var flg_tasa = document.getElementById("flg_tasa_"+codDsc).value;
-                                var flg_libre = document.getElementById("flg_libre_"+codDsc).value;
-                                var imp_valor = pasaAnumero(document.getElementById("imp_valor_"+codDsc).value);
-                                var imp_dscto = pasaAnumero(document.getElementById("imp_monto_"+codDsc).value);
-                                var flg_periodo_carencia = document.getElementById("flg_periodo_carencia_"+codDsc).value;
+                          type: 'POST',
+                          url: 'ajax/wizard.ajax.php',
+                          dataType: 'text',
+                          data: {'accion' : 'guardaBeneficiario', 'localidad' : respuesta['cod_localidad'], 'ls_num_contrato_new' : respuesta['num_contrato'], 'li_linea_benef' : lineaBen, 'ls_num_servicio_new' : respuesta['num_servicio'], 'ls_ape_paterno_benef' : apellPaterno, 'ls_ape_materno_benef' : apellMaterno, 'ls_nombre_benef' : nombre, 'ls_tipo_doc_benef' : tipoDoc, 'ls_num_doc_benef' : numDoc, 'ldt_nacimiento' : fchNac, 'ldt_deceso' : fchDec, 'ls_religion' : religion, 'ls_lugar_deceso' : lugar, 'ls_motivo_deceso' : motivo, 'ls_flg_autopsia' : flg_autopsia, 'lde_peso' : pesof, 'lde_talla' : tallaf, 'ls_parentesco' : parentesco, 'ls_estado_civil' : edoCivil, 'ls_sexo' : sexo, 'ls_tipo_ctt_new' : respuesta['cod_tipo_ctt'], 'ls_tipo_programa_new' : respuesta['cod_tipo_programa']},
+                          success : function(respuesta){
+                            if(respuesta == 1){
+                              checkBeneficiario = "success";
+                            }
+                          }//success beneficiario
+                        });//ajax beneficiario
+                      }//for rowLength  beneficiario
 
-                                $.ajax({
-                                  type: 'POST',
-                                  url: 'ajax/wizard.ajax.php',
-                                  dataType: 'text',
-                                  data: {'accion' : 'guardaDscto', 'localidad' : respuesta['cod_localidad'], 'ls_num_contrato_new' : respuesta['num_contrato'], 'ls_num_servicio_new' : respuesta['num_servicio'], 'ls_tipo_dscto' : codDsc, 'ls_flg_tasa' : flg_tasa, 'ls_flg_libre' : flg_libre, 'lde_valor_dscto' : imp_valor, 'lde_imp_dscto' : imp_dscto, 'ls_flg_periodo' : flg_periodo_carencia, 'ls_tipo_ctt_new' : respuesta['cod_tipo_ctt'], 'ls_tipo_programa_new' : respuesta['cod_tipo_programa']},
-                                  success : function(respuesta){
-                                    if(respuesta == 1){
-                                      checkDescuento = "success";
-                                    }
-                                  }//success descuento
-                                });//ajax descuento
-                              }//for dscTableLenght;
+                      var croTable = document.getElementById('bodyCronograma');
+                      var croTableLenght = croTable.rows.length;
+                      for (i = 0; i < croTableLenght; i++){
+                        var oCells = croTable.rows.item(i).cells;
 
-                              var cobTable = document.getElementById('bodyCobertura');
-                              var cobTableLenght = cobTable.rows.length;
-                              for (i = 0; i < cobTableLenght; i++){
-                                var cobFila = cobTable.rows.item(i);
-                                var codCob = cobFila.id;
-                                var imp_endoso = pasaAnumero(document.getElementById("vEndoso_"+codCob).value);
-                                var fch_ven_endoso = ($('#m_datepicker_4_'+codCob).datepicker("getDate")).toLocaleDateString();
+                        var cuota = oCells.item(0).innerHTML.trim();
+                        var tipoCuota = oCells.item(1).innerHTML.trim();
+                        var estado = oCells.item(2).innerHTML.trim();
+                        var fchVen = oCells.item(3).innerHTML.trim();
+                        var subTotal = pasaAnumero(oCells.item(4).innerHTML.trim());
+                        var interes = pasaAnumero(oCells.item(5).innerHTML.trim());
+                        var igv = pasaAnumero(oCells.item(6).innerHTML.trim());
+                        var total = pasaAnumero(oCells.item(7).innerHTML.trim());
+                        var saldo = pasaAnumero(oCells.item(8).innerHTML.trim());
 
-                                $.ajax({
-                                  type: 'POST',
-                                  url: 'ajax/wizard.ajax.php',
-                                  dataType: 'text',
-                                  data: {'accion' : 'guardaEndoso', 'localidad' : respuesta['cod_localidad'], 'ls_num_contrato_new' : respuesta['num_contrato'], 'ls_num_servicio_new' : respuesta['num_servicio'], 'ls_endoso' : codCob, 'lde_valor_endoso' : imp_endoso, 'ldt_fecha_venc' : fch_ven_endoso, 'ls_tipo_ctt_new' : respuesta['cod_tipo_ctt'], 'ls_tipo_programa_new' : respuesta['cod_tipo_programa']},
-                                  success : function(respuesta){
-                                    if(respuesta == 1){
-                                      checkEndoso = "success";
-                                    }
-                                  }//success endoso
-                                });//ajax endoso
-                              }//for cobTableLenght
-
-                              var benTable = document.getElementById('bodyBeneficiario');
-                              var benTableLenght = benTable.rows.length;
-                              for (i = 0; i < benTableLenght; i++){
-                                var benFila = benTable.rows.item(i);
-                                var doc = benFila.id;
-                                var lineaBen = i + 1;
-                                var datosB = document.getElementById("registro_"+doc).value;
-                                var tipoDoc = datosB.split(",")[0];
-                                var numDoc = datosB.split(",")[1];
-                                var apellPaterno = datosB.split(",")[2];
-                                var apellMaterno = datosB.split(",")[3];
-                                var nombre = datosB.split(",")[4];
-                                var fechNac = new Date(datosB.split(",")[5]);
-                                var fchNac = fechNac.toLocaleDateString();
-                                var fechDec = new Date(datosB.split(",")[6]);
-                                var fchDec = fechDec.toLocaleString();
-                                var religion = datosB.split(",")[7];
-                                var edoCivil = datosB.split(",")[8];
-                                var sexo = datosB.split(",")[9];
-                                var parentesco = datosB.split(",")[10];
-                                var lugar = datosB.split(",")[11];
-                                var motivo = datosB.split(",")[12];
-                                var peso = datosB.split(",")[13];
-                                var pesof = peso.replace(",",".");
-                                var talla = datosB.split(",")[14];
-                                var tallaf = talla.replace(",",".");
-                                var autopsia = datosB.split(",")[15];
-                                if (autopsia == "false") {
-                                  flg_autopsia = "NO";
-                                }else{
-                                  flg_autopsia = "SI";
-                                }
-
-                                $.ajax({
-                                  type: 'POST',
-                                  url: 'ajax/wizard.ajax.php',
-                                  dataType: 'text',
-                                  data: {'accion' : 'guardaBeneficiario', 'localidad' : respuesta['cod_localidad'], 'ls_num_contrato_new' : respuesta['num_contrato'], 'li_linea_benef' : lineaBen, 'ls_num_servicio_new' : respuesta['num_servicio'], 'ls_ape_paterno_benef' : apellPaterno, 'ls_ape_materno_benef' : apellMaterno, 'ls_nombre_benef' : nombre, 'ls_tipo_doc_benef' : tipoDoc, 'ls_num_doc_benef' : numDoc, 'ldt_nacimiento' : fchNac, 'ldt_deceso' : fchDec, 'ls_religion' : religion, 'ls_lugar_deceso' : lugar, 'ls_motivo_deceso' : motivo, 'ls_flg_autopsia' : flg_autopsia, 'lde_peso' : pesof, 'lde_talla' : tallaf, 'ls_parentesco' : parentesco, 'ls_estado_civil' : edoCivil, 'ls_sexo' : sexo, 'ls_tipo_ctt_new' : respuesta['cod_tipo_ctt'], 'ls_tipo_programa_new' : respuesta['cod_tipo_programa']},
-                                  success : function(respuesta){
-                                    if(respuesta == 1){
-                                      checkBeneficiario = "success";
-                                    }
-                                  }//success beneficiario
-                                });//ajax beneficiario
-                              }//for rowLength  beneficiario
-
-                              var croTable = document.getElementById('bodyCronograma');
-                              var croTableLenght = croTable.rows.length;
-                              for (i = 0; i < croTableLenght; i++){
-                                var oCells = croTable.rows.item(i).cells;
-
-                                var cuota = oCells.item(0).innerHTML.trim();
-                                var tipoCuota = oCells.item(1).innerHTML.trim();
-                                var estado = oCells.item(2).innerHTML.trim();
-                                var fchVen = oCells.item(3).innerHTML.trim();
-                                var subTotal = pasaAnumero(oCells.item(4).innerHTML.trim());
-                                var interes = pasaAnumero(oCells.item(5).innerHTML.trim());
-                                var igv = pasaAnumero(oCells.item(6).innerHTML.trim());
-                                var total = pasaAnumero(oCells.item(7).innerHTML.trim());
-                                var saldo = pasaAnumero(oCells.item(8).innerHTML.trim());
-
-                                $.ajax({
-                                  type: 'POST',
-                                  url: 'ajax/wizard.ajax.php',
-                                  dataType: 'text',
-                                  data: {'accion' : 'guardaCronograma', 'localidad' : respuesta['cod_localidad'], 'ls_num_contrato_new' : respuesta['num_contrato'], 'li_refinanciamiento' : respuesta['num_refinanciamiento'], 'li_cuota' : cuota, 'ls_tipo_cuota' : estado, 'ldt_vencimiento' : fchVen, 'lde_principal' : subTotal, 'lde_interes' : interes, 'lde_igv' : igv, 'lde_total' : total, 'ls_tipo_ctt_new' : respuesta['cod_tipo_ctt'], 'ls_tipo_programa_new' : respuesta['cod_tipo_programa']},
-                                  success : function(respuesta){
-                                    if(respuesta == 1){
-                                      checkCronograma = "success";
-                                      // console.log(checkEndoso);
-                                    }
-                                  }//success cronograma
-                                });//ajax cronograma
-                                if(checkEndoso == checkCronograma == checkBeneficiario == checkDescuento == "success"){
-                                  swal({
-                                    title: "",
-                                    text: "Se ha generado el contrato con éxito.",
-                                    type: "success",
-                                    confirmButtonText: "Aceptar",
-                                  })
-                                }
-                              }//for croTableLenght
-                            }//if (respuesta['cod'] == 1)
-                           }//success procedure
-                        });//ajax procedure
-                      }//if (j == rowLength)
-                    }//if (response == 1)
-                  }//success tabla temporal
-                });//ajax tabla temporal
-              }// for rowLength tabla servicios
-            }//success identificador
-          });// ajax identificador
-        }//if result.value
-      });//then
+                        $.ajax({
+                          type: 'POST',
+                          url: 'ajax/wizard.ajax.php',
+                          dataType: 'text',
+                          data: {'accion' : 'guardaCronograma', 'localidad' : respuesta['cod_localidad'], 'ls_num_contrato_new' : respuesta['num_contrato'], 'li_refinanciamiento' : respuesta['num_refinanciamiento'], 'li_cuota' : cuota, 'ls_tipo_cuota' : estado, 'ldt_vencimiento' : fchVen, 'lde_principal' : subTotal, 'lde_interes' : interes, 'lde_igv' : igv, 'lde_total' : total, 'ls_tipo_ctt_new' : respuesta['cod_tipo_ctt'], 'ls_tipo_programa_new' : respuesta['cod_tipo_programa']},
+                          success : function(respuesta){
+                            if(respuesta == 1){
+                              checkCronograma = "success";
+                              console.log("registro endoso:" ,checkEndoso);
+                              console.log("registro descuento:" ,checkDescuento);
+                              console.log("registro beneficiario:" ,checkBeneficiario);
+                              console.log("registro Cronograma:" ,checkCronograma);
+                            }
+                          }//success cronograma
+                        });//ajax cronograma
+                      }//for croTableLenght
+                    }//if (respuesta['cod'] == 1)
+                   }//success procedure
+                });//ajax procedure
+              }//if (j == rowLength)
+            }//if (response == 1)
+          }//success tabla temporal
+        });//ajax tabla temporal
+      }// for rowLength tabla servicios
+    }//success identificador
+  });// ajax identificador
 }// funcion grabaTemporal
