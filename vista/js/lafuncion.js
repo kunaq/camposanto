@@ -2626,15 +2626,14 @@ function grabaTemporal(){
                           success : function(respuesta){
                             if(respuesta == 1){
                               checkCronograma = "success";
-                              console.log("registro endoso:" ,checkEndoso);
-                              console.log("registro descuento:" ,checkDescuento);
-                              console.log("registro beneficiario:" ,checkBeneficiario);
-                              console.log("registro Cronograma:" ,checkCronograma);
-                              
                             }
                           }//success cronograma
                         });//ajax cronograma
                       }//for croTableLenght
+                      console.log("registro endoso:" ,checkEndoso);
+                      console.log("registro descuento:" ,checkDescuento);
+                      console.log("registro beneficiario:" ,checkBeneficiario);
+                      console.log("registro Cronograma:" ,checkCronograma);
                     }//if (respuesta['cod'] == 1)
                    }//success procedure
                 });//ajax procedure
