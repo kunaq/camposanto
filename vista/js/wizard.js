@@ -1424,6 +1424,7 @@ function generarCtt(){
                           var grabar = grabaTemporal();
                           grabar.then(function(){
                             console.log(grabar);
+                            
                           })
                           // if (grabar == "generado"){
                           //    swal({
