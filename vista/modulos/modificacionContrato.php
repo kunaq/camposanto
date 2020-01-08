@@ -38,7 +38,6 @@
 											</button>
 										</div>
 									</div>
-									<input type="text" class="form-control form-control-sm m-input" name="codContrato" id="codContrato">
 								</div>
 								<div class="col-lg-6">
 									<label>Tipo</label>
