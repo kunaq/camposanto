@@ -1,5 +1,6 @@
 
 
 function buscaCtto(){
-	alert(document.getElementById("codContrato").value);
+	var codCtto = document.getElementById("codContrato").value;
+	alert(codCtto);
 }
