@@ -24,11 +24,12 @@ function buscaCtto(){
 function llenaDatos(codCtto){
 	$.ajax({
         url: 'ajax/modifCtto.ajax.php',
-        dataType: 'text',
+        dataType: 'json',
         method: "POST",
         data: { 'accion' : 'conCodigo', 'codCtto' : codCtto },
         success : function(respuesta){
-        	console.log('con codigo',respuesta);
+        	console.log('respuesta',respuesta[1]);
+        	console.log('tipo_programa',respuesta[0]['cod_tipo_programa'])
         	$("#tipoPrograma option[value='"+respuesta[0]['cod_tipo_programa']+"']").attr("selected",true);
         }
     });
