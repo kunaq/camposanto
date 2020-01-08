@@ -24,7 +24,7 @@ function buscaCtto(){
 function llenaDatos(codCtto){
 	$.ajax({
         url: 'ajax/modifCtto.ajax.php',
-        dataType: 'text',
+        dataType: 'json',
         method: "POST",
         data: { 'accion' : 'conCodigo', 'codCtto' : codCtto },
         success : function(respuesta){
