@@ -30,12 +30,21 @@
 								</div>
 								<div class="col-lg-6">
 									<label>Contrato</label>
-									<input type="text" class="form-control form-control-sm m-input" name="codContrato" id="codContrato">
+									<div class="input-group">
+										<input type="text" class="form-control form-control-sm m-input" name="codContrato" id="codContrato">
+										<div class="input-group-append">
+											<button class="btn btnGuardarKqPst btn-sm" type="button" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar contrato" onclick="buscaCtto();">
+												<i class="la la-search"></i>
+											</button>
+										</div>
+									</div>
 								</div>
 								<div class="col-lg-6">
 									<label>Tipo</label>
 									<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="tipoPrograma" id="tipoPrograma">
-										<option value="AAA">Seleccione</option>
+										<option value="">Seleccione</option>
+										<option value="TR000">CONTRATO DE SERVICIO</option>
+										<option value="TR001">SERVICIO PRE-INSCRITO</option>
 									</select>
 								</div>
 								<div class="col-lg-3">
