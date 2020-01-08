@@ -6,7 +6,7 @@ class ControladorModifCtto{
 		$tabla = "vtade_contrato";
 		$tabla2 = 'vtama_cliente';
 		$codCtto = $_POST['codCtto'];
-		$respuesta = ModeloModifCtto::mdlBuscaCttos($tabla,$codCtto);
+		$respuesta = ModeloModifCtto::mdlBuscaCttos($tabla,$tabla2,$codCtto);
 		return $respuesta;
 	}//function ctrBuscaCtto
 
