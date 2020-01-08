@@ -29,7 +29,7 @@ function llenaDatos(codCtto){
         data: { 'accion' : 'conCodigo', 'codCtto' : codCtto },
         success : function(respuesta){
         	console.log('con codigo',respuesta);
-        	$("#tipoPrograma").val(respuesta['cod_tipo_programa']) ;
+        	$("#tipoPrograma option[value='"+respuesta['cod_tipo_programa']+"']").attr("selected",true);
         }
     });
 }
