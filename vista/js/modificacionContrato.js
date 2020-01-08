@@ -47,6 +47,11 @@ function llenaDatos(codCtto){
         	$("#modC").val(respuesta[0]['cod_tipo_ctt']);
         	$("#nomCliContrato").val(respuesta[0]['dsc_cliente']);
         	$("#campoContrato").val(respuesta[0]['dsc_camposanto']);
+        	$("#platContrato").val(respuesta[0]['dsc_plataforma']);
+        	$("#areaContrato").val(respuesta[0]['dsc_area']);
+        	$("#ejeHCotrato").val(respuesta[0]['cod_ejehorizontal_actual']);
+        	$("#ejeVContrato").val(respuesta[0]['cod_ejevertical_actual']);
+        	$("#espacioContrato").val(respuesta[0]['cod_espacio_actual']);
         }
     });
 }
