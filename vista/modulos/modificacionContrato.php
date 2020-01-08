@@ -131,7 +131,7 @@
 									<div class="col-lg-2">
 										<label>Espacio</label>
 										<div class="input-group">
-		  									<input type="text" class="form-control form-control-sm m-input" name="espacioContrato" id="espacionContrato" disabled>
+		  									<input type="text" class="form-control form-control-sm m-input" name="espacioContrato" id="espacioContrato" disabled>
 		  									<div class="input-group-append">
 		   										 <button class="btn btn-sm btnGuardarKqPst btn-outline-secondary" type="button"><i class="fa fa-th-list"></i></button>
 		  									</div>
