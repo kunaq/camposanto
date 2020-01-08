@@ -1,5 +1,5 @@
 
 
-function buscaCtto(id){
-	alert(id);
+function buscaCtto(){
+	alert($("#codContrato").value);
 }
