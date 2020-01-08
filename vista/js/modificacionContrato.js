@@ -10,6 +10,7 @@ function buscaCtto(){
         $.ajax({
             url: 'ajax/modifCtto.ajax.php',
             dataType: 'text',
+            method: "POST",
             data: { 'accion' : 'tabla' },
             success : function(respuesta){
                 $('#tablaCttoBusq').html('')
@@ -24,6 +25,7 @@ function llenaDatos(codCtto){
 	$.ajax({
         url: 'ajax/modifCtto.ajax.php',
         dataType: 'text',
+        method: "POST",
         data: { 'accion' : 'conCodigo', 'cod_contrato' : codCtto },
         success : function(respuesta){
         	console.log('con codigo',respuesta);
