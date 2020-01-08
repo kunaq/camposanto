@@ -2630,7 +2630,7 @@ function grabaTemporal(){
                           }//success cronograma
                         });//ajax cronograma
                       }//for croTableLenght
-                      return "generado";
+                      return respuesta['num_contrato'];
                     }//if (respuesta['cod'] == 1)
                    }//success procedure
                 });//ajax procedure

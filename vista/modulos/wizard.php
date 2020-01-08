@@ -192,7 +192,7 @@
 														<input type="text" class="form-control form-control-sm m-input" name="nomVendedor" disabled id="nomVendedor" placeholder="">
 														<div class="input-group-append">
 															<span data-toggle="modal" data-target="#m_modal_4">
-																<button class="btn btnGuardarKqPst btn-sm" type="button" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar vendedor" onclick="creaTablaVendedor();">
+																<button type="button" class="btn btnGuardarKqPst btn-sm" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar vendedor" onclick="creaTablaVendedor();">
 																	<i class="la la-search"></i>
 																</button>
 															</span>
@@ -307,10 +307,6 @@
 														<i class="la la-users"></i>
 													</button>
 													</span>
-													<button type="button" class="m-btn btn btn-metal btn-sm mt25" 
-															data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar prospecto" onclick="grabaTemporal();">
-														<i class="la la-search"></i>
-													</button>
 												</div>
 												<div class="col-lg-12">
 													<label>Apellido y Nombre: * </label>
@@ -455,7 +451,7 @@
 								<div class="col-sm-2 offset-sm-10 col-md-1 offset-md-11">
 									<div class="row">
 										<div class="col-lg-12">
-											<p style="text-align: center;"><button  class="btn btn-metal m-btn m-btn--icon m-btn--icon-only m-btn--pill" data-placement="top" data-toggle="m-tooltip" data-container="body" data-original-title="Para modificación se tomará como descuento lo ya pagado."><i class="fa fa-question"></i></button>
+											<p style="text-align: center;"><button type="button" class="btn btn-metal m-btn m-btn--icon m-btn--icon-only m-btn--pill" data-placement="top" data-toggle="m-tooltip" data-container="body" data-original-title="Para modificación se tomará como descuento lo ya pagado."><i class="fa fa-question"></i></button>
 											</p>
 										</div>
 									</div>
@@ -585,7 +581,7 @@
 							</div>
 							<div class="row">
 								<div class="col-sm-2 offset-sm-10 col-md-1 offset-md-11">
-									<p style="text-align: center;"><button  class="btn btn-metal m-btn m-btn--icon m-btn--icon-only m-btn--pill" data-placement="top" data-toggle="m-tooltip" data-container="body" data-original-title="Ingrese los descuentos que van a reducir el precio total por los servicios adquiridos por el usuario."><i class="fa fa-question"></i></button>
+									<p style="text-align: center;"><button type="button" class="btn btn-metal m-btn m-btn--icon m-btn--icon-only m-btn--pill" data-placement="top" data-toggle="m-tooltip" data-container="body" data-original-title="Ingrese los descuentos que van a reducir el precio total por los servicios adquiridos por el usuario."><i class="fa fa-question"></i></button>
 									</p>
 								</div>
 							</div>
@@ -985,21 +981,21 @@
 									</div>
 									<div class="m-form__group row">
 										<div class="col-lg-2 offset-lg-2">
-											<button data-toggle="m-tooltip" data-container="body" data-placement="top" id="botonAgregarB" title="" data-original-title="Agregar beneficiario" onclick="cargaFormBenef();" class="btn btnGuardarKqPst btn-lg m-btn m-btn m-btn--icon">
+											<button data-toggle="m-tooltip" data-container="body" data-placement="top" id="botonAgregarB" type="button" title="" data-original-title="Agregar beneficiario" onclick="cargaFormBenef();" class="btn btnGuardarKqPst btn-lg m-btn m-btn m-btn--icon">
 												<span>
 													<span>&nbsp;</span>
 													<i class="la la-user-plus"></i>
 													<span>&nbsp;</span>
 												</span>
 											</button>
-											<button data-toggle="m-tooltip" hidden="hidden" data-container="body" data-placement="top" id="botonModificarB" title="" data-original-title="Guardar cambios" onclick="" class="btn btn-success btn-lg m-btn m-btn m-btn--icon">
+											<button data-toggle="m-tooltip" hidden="hidden" data-container="body" data-placement="top" type="button" id="botonModificarB" title="" data-original-title="Guardar cambios" onclick="" class="btn btn-success btn-lg m-btn m-btn m-btn--icon">
 												<span>
 													<span>&nbsp;</span>
 													<i class="la la-check"></i>
 													<span>&nbsp;</span>
 												</span>
 											</button>
-											<button data-toggle="m-tooltip" hidden="hidden" data-container="body" data-placement="top" id="botonGuardarB" title="" data-original-title="Guardar beneficiario" onclick="guardaBenef();" class="btn btnGuardarKqPst btn-lg m-btn m-btn m-btn--icon">
+											<button data-toggle="m-tooltip" hidden="hidden" data-container="body" data-placement="top" type="button" id="botonGuardarB" title="" data-original-title="Guardar beneficiario" onclick="guardaBenef();" class="btn btnGuardarKqPst btn-lg m-btn m-btn m-btn--icon">
 												<span>
 													<span>&nbsp;</span>
 													<i class="la la-check"></i>
@@ -1008,7 +1004,7 @@
 											</button>	
 										</div>
 										<div class="col-lg-2 offset-lg-1">
-											<button data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Editar beneficiario" id="botonEditaB" class="btn btnEditarKqPst2 btn-lg m-btn m-btn m-btn--icon">
+											<button data-toggle="m-tooltip" type="button" data-container="body" data-placement="top" title="" data-original-title="Editar beneficiario" id="botonEditaB" class="btn btnEditarKqPst2 btn-lg m-btn m-btn m-btn--icon">
 												<span>
 													<span>&nbsp;</span>
 													<i class="flaticon-edit-1"></i>
@@ -1446,7 +1442,7 @@
 						<!--end: Form Wizard Step 7-->
 					</div>
 					<!--end: Form Body -->
-<!--begin: Form Actions -->
+					<!--begin: Form Actions -->
 					<div class="m-portlet__foot m-portlet__foot--fit m--margin-top-40">
 						<div class="m-form__actions">
 							<div class="row">
@@ -1463,12 +1459,12 @@
 									</a>
 								</div>
 								<div class="col-lg-4 m--align-right">
-									<a class="btn btnGuardarKqPst m-btn m-btn--custom m-btn--icon" data-wizard-action="submit">
+									<a href="#" class="btn btn-primary m-btn m-btn--custom m-btn--icon" data-wizard-action="submit" onclick="generarCtt()">
 										<span>
 											<i class="la la-check"></i>
 											&nbsp;&nbsp;
 											<span>
-												Finalizar
+												Submit
 											</span>
 										</span>
 									</a>
@@ -1487,127 +1483,126 @@
 						</div>
 					</div>
 					<!--end: Form Actions -->
-			<div class="modal fade" id="m_modal_3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-				<div class="modal-dialog modal-lg" role="document">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="exampleModalLabel">
-								Selección de prospectos de ventas
-							</h5>
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">
-									&times;
-								</span>
-							</button>
-						</div>
-						<div class="modal-body" id="tablaProspecto" style="height: 800px;">
-										
-						</div>
-						<div class="modal-footer">
+					<div class="modal fade" id="m_modal_3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog modal-lg" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLabel">
+										Selección de prospectos de ventas
+									</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">
+											&times;
+										</span>
+									</button>
+								</div>
+								<div class="modal-body" id="tablaProspecto" style="height: 800px;">
+												
+								</div>
+								<div class="modal-footer">
+								</div>
+							</div>
 						</div>
 					</div>
-				</div>
-			</div>
-			<div class="modal fade" id="m_modal_4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-				<div class="modal-dialog modal-lg" role="document">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="exampleModalLabel">
-								Selección de trabajadores
-							</h5>
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">
-									&times;
-								</span>
-							</button>
-						</div>
-						<div class="modal-body" id="tablaVendedor" style="height: 1100px;">
+					<div class="modal fade" id="m_modal_4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog modal-lg" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLabel">
+										Selección de trabajadores
+									</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">
+											&times;
+										</span>
+									</button>
+								</div>
+								<div class="modal-body" id="tablaVendedor" style="height: 1100px;">
 
-						</div>
-						<div class="modal-footer">
+								</div>
+								<div class="modal-footer">
+								</div>
+							</div>
 						</div>
 					</div>
-				</div>
-			</div>
 
-			<!-- ----------------Resumen------------------------ -->
-			<div class="sidebar-wrapper stickResumen" id="container-button"> 
-				<a href="#container" class="btn btnGuardarKqPst m-btn m-btn--icon btn-lg m-btn--icon-only toggle-collapse-resumen" onclick="toggleResumen(this)" id="toggle-button">
-					<i class="flaticon-diagram"></i>
-				</a>
-				<ul class="m-nav-sticky side-nav" id="resumen2" style="margin-top: 30px;">
-					<li class="m-nav-sticky__item nav-item">
-						<div class="row">
-							<div class="col-lg-4 offset-lg-4"><b>Resumen</b></div>
-						</div>
-					</li>
-					<li class="m-nav-sticky__item nav-item">
-						<div class="row">
-							<div class="col-lg-4">
-								<label class="res-label">
-									Cobertura:
-								</label>
+					<!-- ----------------Resumen------------------------ -->
+					<div class="sidebar-wrapper stickResumen" id="container-button"> 
+						<a href="#container" class="btn btnGuardarKqPst m-btn m-btn--icon btn-lg m-btn--icon-only toggle-collapse-resumen" onclick="toggleResumen(this)" id="toggle-button">
+							<i class="flaticon-diagram"></i>
+						</a>
+						<ul class="m-nav-sticky side-nav" id="resumen2" style="margin-top: 30px;">
+							<li class="m-nav-sticky__item nav-item">
+								<div class="row">
+									<div class="col-lg-4 offset-lg-4"><b>Resumen</b></div>
+								</div>
+							</li>
+							<li class="m-nav-sticky__item nav-item">
+								<div class="row">
+									<div class="col-lg-4">
+										<label class="res-label">
+											Cobertura:
+										</label>
+									</div>
+									<div class="col-lg-7">
+										<input type="text" size="3" maxlength="3" disabled class="form-control form-control-sm m-input" id="imp_cobertura" name="imp_cobertura" placeholder="0,00" style="text-align: right;">
+									</div>
+								</div>
+							</li>
+							<li class="m-nav-sticky__item nav-item">
+								<div class="row">
+									<div class="col-lg-4">
+										<label class="res-label">
+											Dscto:
+										</label>
+									</div>
+									<div class="col-lg-7">
+										<input type="text" size="3" maxlength="3" disabled class="form-control form-control-sm m-input" id="imp_dscto" name="imp_dscto" placeholder="0,00" style="text-align: right;">
+									</div>
+								</div>
+							</li>
+							<li class="m-nav-sticky__item nav-item">
+								<div class="row">
+									<div class="col-lg-4">
+										<label class="res-label">
+											CUI total:
+										</label>
+									</div>
+									<div class="col-lg-7">
+										<input type="text" disabled class="form-control form-control-sm m-input" id="cuitotal" name="cuitotal" placeholder="0,00" style="text-align: right;">
+									</div>
+								</div>
+							</li>
+							<li class="m-nav-sticky__item nav-item">
+								<div class="row">
+									<div class="col-lg-4">
+										<label class="res-label">
+											Total:
+										</label>
+									</div>
+									<div class="col-lg-7">
+										<input type="text" size="3" maxlength="3" disabled class="form-control form-control-sm m-input" id="total1" name="total1" placeholder="0,00" style="text-align: right;">
+									</div>
+								</div>
+							</li>
+							<li class="m-nav-sticky__item nav-item" >
+								<div class="row">
+								<div class="col-lg-4">
+									<label class="res-label">
+										Saldo a pagar:
+									</label>
+								</div>
+								<div class="col-lg-7">
+									<input type="text" size="3" maxlength="3" disabled class="form-control form-control-sm m-input" id="saldopagar" name="saldopagar" placeholder="0,00" style="text-align: right;">
+									<input type="hidden" id="imp_subtotal" name="imp_subtotal">
+									<input type="hidden" id="imp_igv" name="imp_igv">
+								</div>
 							</div>
-							<div class="col-lg-7">
-								<input type="text" size="3" maxlength="3" disabled class="form-control form-control-sm m-input" id="imp_cobertura" name="imp_cobertura" placeholder="0,00" style="text-align: right;">
-							</div>
-						</div>
-					</li>
-					<li class="m-nav-sticky__item nav-item">
-						<div class="row">
-							<div class="col-lg-4">
-								<label class="res-label">
-									Dscto:
-								</label>
-							</div>
-							<div class="col-lg-7">
-								<input type="text" size="3" maxlength="3" disabled class="form-control form-control-sm m-input" id="imp_dscto" name="imp_dscto" placeholder="0,00" style="text-align: right;">
-							</div>
-						</div>
-					</li>
-					<li class="m-nav-sticky__item nav-item">
-						<div class="row">
-							<div class="col-lg-4">
-								<label class="res-label">
-									CUI total:
-								</label>
-							</div>
-							<div class="col-lg-7">
-								<input type="text" disabled class="form-control form-control-sm m-input" id="cuitotal" name="cuitotal" placeholder="0,00" style="text-align: right;">
-							</div>
-						</div>
-					</li>
-					<li class="m-nav-sticky__item nav-item">
-						<div class="row">
-							<div class="col-lg-4">
-								<label class="res-label">
-									Total:
-								</label>
-							</div>
-							<div class="col-lg-7">
-								<input type="text" size="3" maxlength="3" disabled class="form-control form-control-sm m-input" id="total1" name="total1" placeholder="0,00" style="text-align: right;">
-							</div>
-						</div>
-					</li>
-					<li class="m-nav-sticky__item nav-item" >
-						<div class="row">
-						<div class="col-lg-4">
-							<label class="res-label">
-								Saldo a pagar:
-							</label>
-						</div>
-						<div class="col-lg-7">
-							<input type="text" size="3" maxlength="3" disabled class="form-control form-control-sm m-input" id="saldopagar" name="saldopagar" placeholder="0,00" style="text-align: right;">
-							<input type="hidden" id="imp_subtotal" name="imp_subtotal">
-							<input type="hidden" id="imp_igv" name="imp_igv">
-						</div>
+							</li>
+						</ul>
 					</div>
-					</li>
-				</ul>
-			</div>
-			</div>	
-
-			</form>
+					</div>	
+				</form>
 			</div>
 			<!--end: Form Wizard Form-->
 		</div>
