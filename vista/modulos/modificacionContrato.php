@@ -53,7 +53,7 @@
 									</label>
 									<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
 										<label>
-											<input type="checkbox" id="juridico" disabled="" name="">
+											<input type="checkbox" id="juridico" disabled="" name="checkModif" id="checkModif">
 											<span class="jurid"></span>
 										</label>
 									</span>
