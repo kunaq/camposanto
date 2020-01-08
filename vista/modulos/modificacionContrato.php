@@ -30,6 +30,14 @@
 								</div>
 								<div class="col-lg-6">
 									<label>Contrato</label>
+									<div class="input-group">
+										<input type="text" class="form-control form-control-sm m-input" name="codContrato" id="codContrato">
+										<div class="input-group-append">
+											<button class="btn btnGuardarKqPst btn-sm" type="button" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar contrato" onclick="buscaCtto();">
+												<i class="la la-search"></i>
+											</button>
+										</div>
+									</div>
 									<input type="text" class="form-control form-control-sm m-input" name="codContrato" id="codContrato">
 								</div>
 								<div class="col-lg-6">
