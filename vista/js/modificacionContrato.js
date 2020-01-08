@@ -46,7 +46,7 @@ function llenaDatos(codCtto){
         	}
         	$("#modC").val(respuesta[0]['cod_tipo_ctt']);
         	$("#nomCliContrato").val(respuesta[0]['dsc_cliente']);
-        	$("#campoContrato")
+        	$("#campoContrato").val(respuesta[0]['dsc_camposanto']);
         }
     });
 }
