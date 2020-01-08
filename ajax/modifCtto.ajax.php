@@ -1,7 +1,7 @@
 <?php
 require_once "../funciones.php";
-require_once "../controlador/ModifCtto.controlador.php";
-require_once "../modelo/ModifCtto.modelo.php";
+require_once "../controlador/modifCtto.controlador.php";
+require_once "../modelo/modifCtto.modelo.php";
 class AjaxModifCtto{
 	public function ajaxBuscaCtto(){
 		$respuesta = ControladorModifCtto::ctrBuscaCtto();
