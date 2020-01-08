@@ -28,7 +28,7 @@ function llenaDatos(codCtto){
         method: "POST",
         data: { 'accion' : 'conCodigo', 'codCtto' : codCtto },
         success : function(respuesta){
-        	var lenght = respuesta.lenght();
+        	var lenght = respuesta.lenght;
         	console.log('respuesta',respuesta[1]);
         	$("#codContrato").val(respuesta[0]['cod_contrato']);
         	$("#tipoPrograma option[value='"+respuesta[0]['cod_tipo_programa']+"']").attr("selected",true);
