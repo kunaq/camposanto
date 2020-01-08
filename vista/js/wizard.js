@@ -1422,7 +1422,9 @@ function generarCtt(){
                             cancelButtonText:"Cancelar"
                         }).then(function(){
                           var grabar = grabaTemporal();
-                          console.log(grabar);
+                          grabar.then(function(){
+                            console.log(grabar);
+                          })
                           // if (grabar == "generado"){
                           //    swal({
                           //       title: "",
