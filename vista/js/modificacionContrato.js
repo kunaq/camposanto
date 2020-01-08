@@ -26,7 +26,7 @@ function llenaDatos(codCtto){
         url: 'ajax/modifCtto.ajax.php',
         dataType: 'text',
         method: "POST",
-        data: { 'accion' : 'conCodigo', 'cod_contrato' : codCtto },
+        data: { 'accion' : 'conCodigo', 'codCtto' : codCtto },
         success : function(respuesta){
         	console.log('con codigo',respuesta);
         }
