@@ -42,7 +42,9 @@
 								<div class="col-lg-6">
 									<label>Tipo</label>
 									<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="tipoPrograma" id="tipoPrograma">
-										<option value="AAA">Seleccione</option>
+										<option value="">Seleccione</option>
+										<option value="TR000">CONTRATO DE SERVICIO</option>
+										<option value="TR001">SERVICIO PRE-INSCRITO</option>
 									</select>
 								</div>
 								<div class="col-lg-3">
