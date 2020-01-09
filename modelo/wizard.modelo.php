@@ -135,5 +135,27 @@ class ModeloWizard{
 
 	}//function mdlGuardaCronograma
 
+	static public function mdlGeneraEspacio($datos){
+		$db = new Conexion();
+		$tipo_recaudacion = $datos['ls_tipo_recaudacion'];
+		$sql = $db->consulta("SELECT flg_valida_espacio FROM vtama_tipo_recaudacion WHERE cod_tipo_recaudacion = '$tipo_recaudacion'");
+
+		while($key = $db->recorrer($sql)){
+			$flg_valida_espacio = $key['flg_valida_espacio'];
+		}
+		
+		if($flg_valida_espacio == "SI"){
+			$sql2 = $db->consulta("EXEC usp_vta_prc_genera_espacio '".$datos['as_camposanto']."', '".$datos['as_plataforma']."', '".$datos['as_area']."', '".$datos['as_eje_horizontal']."', '".$datos['as_eje_vertical']."', '".$datos['as_espacio']."', '".$datos['as_tipo_espacio']."'");
+			
+			if ($sql2) {
+				return 1;
+			}else{
+				return 0;
+			}
+		}else{
+			return 0;
+		}
+	}//function mdlGeneraEspacio
+
 }//class ModeloWizard
 ?>
