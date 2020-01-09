@@ -29,6 +29,7 @@ function llenaDatos(codCtto){
         data: { 'accion' : 'conCodigo', 'codCtto' : codCtto },
         success : function(respuesta){
         	var longResp = respuesta.lenght;
+        	console.log(longResp);
         	console.log('respuesta',respuesta[1]);
         	document.getElementById("codContrato").value = respuesta[0]['cod_contrato'];
         	$("#tipoPrograma option[value='"+respuesta[0]['cod_tipo_programa']+"']").attr("selected",true);
