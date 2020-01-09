@@ -143,7 +143,7 @@
 									</div>
 									<div class="col-lg-4">
 										<label>Tipo Espacio</label>
-										<input type="text" class="form-control form-control-sm m-input" name="tipoEspContrato" id="tipoEspContrato" disabled>
+										<input type="text" class="form-control form-control-sm m-input" name="tipoEspModifContrato" id="tipoEspModifContrato" disabled>
 									</div>
 							</div>
 						</div>
