@@ -54,12 +54,13 @@ function llenaDatos(codCtto){
         	document.getElementById("tipoEspModifContrato").value = respuesta[0]['dsc_tipo_espacio'];
         	$.each(respuesta,function(index,value){
         		if(value['fch_generacion'] != ''){
-        		   var aux_dia = value['fch_generacion'].getDate();
-	               var aux_mes = value['fch_generacion'].getMonth();
-	               var aux_anio = value['fch_generacion'].getFullYear();
+        		   var date = new Date(value['fch_generacion']);
+        		   var aux_dia = date.getDate();
+	               var aux_mes = date.getMonth();
+	               var aux_anio = date.getFullYear();
 	               if(aux_mes == '0'){
 	                  aux_mes = '12';
-	                  aux_anio = value['fch_generacion'].getFullYear()-1;
+	                  aux_anio = date.getFullYear()-1;
 	                }               
 	               var fch_generacion = aux_dia+'/'+aux_mes+'/'+aux_anio;
                
