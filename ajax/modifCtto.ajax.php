@@ -21,7 +21,7 @@ class AjaxModifCtto{
 	public function ajaxBuscaDatosServicio(){
 		$respuesta = ControladorModifCtto::ctrBuscaDatosServicio();
 		echo json_encode($respuesta);
-	}
+	}//ajaxBuscaDatosServicio
 }//class AjaxModifCtto
 /*=============================================
 ACCIONES

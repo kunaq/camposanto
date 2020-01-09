@@ -16,5 +16,13 @@ class ControladorModifCtto{
 		return $respuesta;
 	}//function ctrBuscaCtto
 
+	static public function ctrBuscaDatosServicio(){
+		$tabla = 'vtade_contrato';
+		$codCtto = $_POST['codCtto'];
+		$num_servicio = $_POST['num_servicio'];
+		$respuesta = ModeloModifCtto::mdlBuscaDatosServicio($tabla,$codCtto,$num_servicio);
+		return $respuesta;
+	}//ctrBuscaDatosServicio
+
 }//class ControladorModifCtto
 ?>
