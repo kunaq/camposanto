@@ -10,8 +10,9 @@ class ControladorModifCtto{
 		$tabla5 = 'vtama_area_plataforma';
 		$tabla6 = 'vtama_plataforma';
 		$tabla7 = 'vtama_tipo_espacio';
+		$tabla8 = 'vtama_tipo_servicio';
 		$codCtto = $_POST['codCtto'];
-		$respuesta = ModeloModifCtto::mdlBuscaCttos($tabla,$tabla2,$tabla3,$tabla4,$tabla5,$tabla6,$tabla7,$codCtto);
+		$respuesta = ModeloModifCtto::mdlBuscaCttos($tabla,$tabla2,$tabla3,$tabla4,$tabla5,$tabla6,$tabla7,$tabla8,$codCtto);
 		return $respuesta;
 	}//function ctrBuscaCtto
 

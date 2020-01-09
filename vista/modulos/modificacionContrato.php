@@ -82,7 +82,7 @@
 								<div class="col-lg-12">
 									<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="250">
 										<div class="table-responsive">
-											<table class="table m-table">
+											<table id="tableDetCttoModif" class="table m-table">
 												<thead>
 													<th>N°</th>
 													<th>Tipo de Servicio</th>
@@ -93,6 +93,7 @@
 													<th>Fecha Resolución</th>
 													<th>Fecha Transferencia</th>
 												</thead>
+												<tbody id="bodyDetCttoModif"></tbody>
 											</table>
 										</div>
 									</div>
