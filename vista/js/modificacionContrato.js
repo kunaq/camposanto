@@ -57,13 +57,14 @@ function llenaDatos(codCtto){
         		var fila ='<tr>'+
 					'<td class="text-center">'+respuesta[i]['num_servicio']+'</td>'+
 					'<td class="text-left">'+respuesta[i]['dsc_tipo_servicio']+'</td>'+
-					'<td class="text-right">'+probando+'</td>'+
-					'<td class="text-right">'+probando+'</td>'+
-					'<td class="text-right">'+probando+'</td>'+
-					'<td class="text-right">'+probando+'</td>'+
-					'<td class="text-right tdSgvDrvSmlCrnFinVista">'+probando+'</td>'+
-					'<td class="text-right tdTotalSmlCrnFinVista">'+probando+'</td>'+
+					'<td class="text-right">probando</td>'+
+					'<td class="text-right">probando</td>'+
+					'<td class="text-right">probando</td>'+
+					'<td class="text-right">probando</td>'+
+					'<td class="text-right tdSgvDrvSmlCrnFinVista">probando</td>'+
+					'<td class="text-right tdTotalSmlCrnFinVista">probando</td>'+
 				'</tr>';
+				console.log(fila);
 				document.getElementById("bodyDetCttoModif").insertAdjacentHTML("beforeEnd" ,fila);
         	}
         }
