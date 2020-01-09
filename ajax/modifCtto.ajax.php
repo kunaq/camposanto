@@ -18,6 +18,10 @@ class AjaxModifCtto{
 		}
 		echo json_encode($respuesta);
 	}//function ajaxBuscaCtto
+	public function ajaxBuscaDatosServicio(){
+		$respuesta = ControladorModifCtto::ctrBuscaDatosServicio();
+		echo json_encode($respuesta);
+	}
 }//class AjaxModifCtto
 /*=============================================
 ACCIONES
@@ -29,4 +33,8 @@ if(isset($_POST["accion"]) && $_POST["accion"] == 'tabla'){
 else if(isset($_POST["accion"]) && $_POST["accion"] == 'conCodigo'){
 	$cliente = new AjaxModifCtto();
 	$cliente -> ajaxBuscaCtto();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'pestannas'){
+	$cliente = new AjaxModifCtto();
+	$cliente -> ajaxBuscaDatosServicio();
 }

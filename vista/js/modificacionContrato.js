@@ -53,7 +53,7 @@ function llenaDatos(codCtto){
         	$("#espacioContrato").val(respuesta[0]['cod_espacio_actual']);
         	document.getElementById("tipoEspModifContrato").value = respuesta[0]['dsc_tipo_espacio'];
         	$.each(respuesta,function(index,value){
-        		var fila ='<tr class="btnVerServicio" id="'+value['num_servicio']+'" onclick="muestraInfo('+value['num_servicio']+');">'+
+        		var fila ='<tr onclick="muestraInfo('+value['num_servicio']+');">'+
 					'<td class="text-center">'+value['num_servicio']+'</td>'+
 					'<td class="text-left">'+value['dsc_tipo_servicio']+'</td>'+
 					'<td class="text-center">'+value['fch_generacion']+'</td>'+
@@ -64,17 +64,20 @@ function llenaDatos(codCtto){
 					'<td class="text-center">'+value['fch_transferencia']+'</td>'+
 				'</tr>';
 				document.getElementById("bodyDetCttoModif").insertAdjacentHTML("beforeEnd" ,fila);
-        	});
-        }
-    });
-}
+        	});//each
+        }//success
+    });//ajax
+}//llenaDatos
 
 function muestraInfo(id){
-	console.log(id);
-}
-
-$("#bodyDetCttoModif").on("click","tr.btnVerServicio",function(){
 	var codCtto = $("#codContrato").val();
-	var aux = $(this).parent('tr');
-	console.log(aux.id);
-});
+	$.ajax({
+        url: 'ajax/modifCtto.ajax.php',
+        dataType: 'json',
+        method: "POST",
+        data: { 'accion' : 'pestannas', 'codCtto' : codCtto, 'num_servicio' : id },
+        success : function(respuesta){
+        	console.log('respuesta',respuesta);
+        }//success
+    });//ajax
+}//muestraInfo
