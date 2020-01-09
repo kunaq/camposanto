@@ -5,6 +5,9 @@ require_once "../modelo/modifCtto.modelo.php";
 class AjaxModifCtto{
 	public function ajaxBuscaCtto(){
 		$respuesta = ControladorModifCtto::ctrBuscaCtto();
+		foreach ($respuesta as $key => $value) {
+			$respuesta[$key]["fch_generacion"] = dateFormat($respuesta[$key]["fch_generacion"]);
+		}
 		echo json_encode($respuesta);
 	}//function ajaxBuscaCtto
 }//class AjaxModifCtto
