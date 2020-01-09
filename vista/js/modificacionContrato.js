@@ -69,7 +69,7 @@ function llenaDatos(codCtto){
     });
 }
 
-muestraInfo(id){
+function muestraInfo(id){
 	console.log(id);
 }
 
