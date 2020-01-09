@@ -28,8 +28,6 @@ function llenaDatos(codCtto){
         method: "POST",
         data: { 'accion' : 'conCodigo', 'codCtto' : codCtto },
         success : function(respuesta){
-        	var longResp = respuesta.lenght;
-        	console.log(longResp);
         	console.log('respuesta',respuesta[1]);
         	document.getElementById("codContrato").value = respuesta[0]['cod_contrato'];
         	$("#tipoPrograma option[value='"+respuesta[0]['cod_tipo_programa']+"']").attr("selected",true);
@@ -54,10 +52,10 @@ function llenaDatos(codCtto){
         	$("#ejeVContrato").val(respuesta[0]['cod_ejevertical_actual']);
         	$("#espacioContrato").val(respuesta[0]['cod_espacio_actual']);
         	document.getElementById("tipoEspModifContrato").value = respuesta[0]['dsc_tipo_espacio'];
-        	for(i = 0; i < longResp; i++){
+        	$.each(respuesta,function(index,value){
         		var fila ='<tr>'+
-					'<td class="text-center">'+respuesta[i]['num_servicio']+'</td>'+
-					'<td class="text-left">'+respuesta[i]['dsc_tipo_servicio']+'</td>'+
+					'<td class="text-center">'+value['num_servicio']+'</td>'+
+					'<td class="text-left">'+value['dsc_tipo_servicio']+'</td>'+
 					'<td class="text-right">probando</td>'+
 					'<td class="text-right">probando</td>'+
 					'<td class="text-right">probando</td>'+
@@ -67,7 +65,7 @@ function llenaDatos(codCtto){
 				'</tr>';
 				console.log(fila);
 				document.getElementById("bodyDetCttoModif").insertAdjacentHTML("beforeEnd" ,fila);
-        	}
+        	});
         }
     });
 }
