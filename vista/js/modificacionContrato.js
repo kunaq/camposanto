@@ -53,6 +53,7 @@ function llenaDatos(codCtto){
         	$("#espacioContrato").val(respuesta[0]['cod_espacio_actual']);
         	document.getElementById("tipoEspModifContrato").value = respuesta[0]['dsc_tipo_espacio'];
         	$.each(respuesta,function(index,value){
+        		console.log('index',index);
         		var fila ='<tr>'+
 					'<td class="text-center">'+value['num_servicio']+'</td>'+
 					'<td class="text-left">'+value['dsc_tipo_servicio']+'</td>'+
