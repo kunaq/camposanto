@@ -55,6 +55,7 @@ function llenaDatos(codCtto){
         	$.each(respuesta,function(index,value){
         		if(value['fch_generacion'] != ''){
         		   var date = new Date(value['fch_generacion']);
+        		   console.log(date);
         		   var aux_dia = date.getDate();
 	               var aux_mes = date.getMonth();
 	               var aux_anio = date.getFullYear();
