@@ -69,7 +69,7 @@ function llenaDatos(codCtto){
     });
 }
 
-$("#bodyDetCttoModif").on("click","tr.btnVerServicio",function(){
+$("#bodyDetCttoModif").on("click","td.btnVerServicio",function(){
 	var codCtto = $("#codContrato").val();
-	console.log($(this).parent('tr').id);
+	console.log($(this).parent('tr'));
 });
