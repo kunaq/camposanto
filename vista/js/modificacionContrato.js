@@ -54,7 +54,7 @@ function llenaDatos(codCtto){
         	$("#espacioContrato").val(respuesta[0]['cod_espacio_actual']);
         	document.getElementById("tipoEspModifContrato").value = respuesta[0]['dsc_tipo_espacio'];
         	for(i = 0; i < longResp; i++){
-        		$("#bodyDetCttoModif").append('<tr>'+
+        		var fila ='<tr>'+
 					'<td class="text-center">'+respuesta[i]['num_servicio']+'</td>'+
 					'<td class="text-left">'+respuesta[i]['dsc_tipo_servicio']+'</td>'+
 					'<td class="text-right">'+probando+'</td>'+
@@ -63,7 +63,8 @@ function llenaDatos(codCtto){
 					'<td class="text-right">'+probando+'</td>'+
 					'<td class="text-right tdSgvDrvSmlCrnFinVista">'+probando+'</td>'+
 					'<td class="text-right tdTotalSmlCrnFinVista">'+probando+'</td>'+
-				'</tr>');
+				'</tr>';
+				document.getElementById("bodyCronograma").insertAdjacentHTML("beforeEnd" ,fila);
         	}
         }
     });
