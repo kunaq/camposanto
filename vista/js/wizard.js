@@ -1421,22 +1421,6 @@ function generarCtt(){
                             confirmButtonText: "Generar",
                             cancelButtonText:"Cancelar"
                         }).then(function(){
-                          var grabar = grabaTemporal();
-                          (grabar).then(function(){
-                            console.log(grabar);
-
-                          })
-                          // if (grabar == "generado"){
-                          //    swal({
-                          //       title: "",
-                          //       text: "Se ha generado el contrato con éxito.",
-                          //       type: "success",
-                          //       confirmButtonText: "Aceptar",
-                          //     })
-                          //  }
-                          // else{
-                          //   swal("","El contrato no ha podido ser generado, por favor intente nuevamente.","warning")
-                          // }
-                         
+                          grabaTemporal();
                         })
 }
