@@ -2426,6 +2426,7 @@ function calcular() {
 //----------------------------------------------------------------------------------------------//
 
 function grabaTemporal(){
+  $(".loader").fadeIn("slow");
   var checkDescuento = "";
   var checkEndoso = "";
   var checkBeneficiario = "";
@@ -2642,8 +2643,25 @@ function grabaTemporal(){
                             }
                           }//success Generar Espacio
                       });
+
+                      $(".loader").fadeOut("slow");
+                      swal({
+                          title: "",
+                          text: "Se ha generado el contrato "+respuesta['num_contrato']+" con éxito.",
+                          type: "success",
+                          confirmButtonText: "Aceptar",
+                        })
+
+                      // setTimeout(function(){ 
+                      //   $(".loader").fadeIn("slow");
+                      //   swal({
+                      //     title: "",
+                      //     text: "Se ha generado el contrato "+respuesta['num_contrato']+" con éxito.",
+                      //     type: "success",
+                      //     confirmButtonText: "Aceptar",
+                      //   })
+                      // }, 2000);
                       
-                      return respuesta['num_contrato'];
                     }//if (respuesta['cod'] == 1)
                    }//success procedure
                 });//ajax procedure
