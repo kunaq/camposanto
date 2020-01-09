@@ -70,5 +70,5 @@ function llenaDatos(codCtto){
 }
 
 $("#bodyDetCttoModif").on("click","tr.btnVerServicio",function(){
-	console.log($(this).attr);
+	console.log($("#bodyDetCttoModif tr").attr);
 });
