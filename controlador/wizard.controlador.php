@@ -190,5 +190,19 @@ class ControladorWizard{
 		return $respuesta;
 	}// function ctrGuardaCronograma
 
+	static public function ctrGeneraEspacio(){
+		$datos = array('ls_tipo_recaudacion' => $_POST['ls_tipo_recaudacion'], 
+					   'as_camposanto' => $_POST['as_camposanto'],
+					   'as_plataforma' => $_POST['as_plataforma'],
+					   'as_area' => $_POST['as_area'],
+					   'as_eje_horizontal' => $_POST['as_eje_horizontal'],
+					   'as_eje_vertical' => $_POST['as_eje_vertical'],
+					   'as_espacio' => $_POST['as_espacio'],
+					   'as_tipo_espacio' => $_POST['as_tipo_espacio']
+					  );
+		$respuesta = ModeloWizard::mdlGeneraEspacio($datos);
+		return $respuesta;
+	}// function ctrGuardaCronograma
+
 }//class ControladorWizard
 ?>

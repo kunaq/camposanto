@@ -2630,6 +2630,19 @@ function grabaTemporal(){
                           }//success cronograma
                         });//ajax cronograma
                       }//for croTableLenght
+
+                      $.ajax({
+                          type: 'POST',
+                          url: 'ajax/wizard.ajax.php',
+                          dataType: 'text',
+                          data: {'accion' : 'generaEspacio', 'ls_tipo_recaudacion' : tipo_recaudacion, 'as_camposanto' : camposanto, 'as_plataforma' : plataforma, 'as_area' : area, 'as_eje_horizontal' : eje_x, 'as_eje_vertical' : eje_y, 'as_espacio' : espacio, 'as_tipo_espacio' : tipo_espacio},
+                          success : function(respuesta){
+                            if(respuesta == 1){
+                              console.log("espacio generado");
+                            }
+                          }//success Generar Espacio
+                      });
+                      
                       return respuesta['num_contrato'];
                     }//if (respuesta['cod'] == 1)
                    }//success procedure
