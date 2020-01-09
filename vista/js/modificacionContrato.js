@@ -52,6 +52,7 @@ function llenaDatos(codCtto){
         	$("#ejeHCotrato").val(respuesta[0]['cod_ejehorizontal_actual']);
         	$("#ejeVContrato").val(respuesta[0]['cod_ejevertical_actual']);
         	$("#espacioContrato").val(respuesta[0]['cod_espacio_actual']);
+        	$("#tipoEspContrato").val(respuesta[0]['dsc_tipo_espacio']);
         }
     });
 }
