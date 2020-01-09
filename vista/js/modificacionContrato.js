@@ -71,5 +71,6 @@ function llenaDatos(codCtto){
 
 $("#bodyDetCttoModif").on("click","tr.btnVerServicio",function(){
 	var codCtto = $("#codContrato").val();
-	console.log($(this).parent('tr').id);
+	var aux = $(this).parent('tr');
+	console.log(aux.id);
 });
