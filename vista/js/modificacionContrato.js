@@ -53,10 +53,23 @@ function llenaDatos(codCtto){
         	$("#espacioContrato").val(respuesta[0]['cod_espacio_actual']);
         	document.getElementById("tipoEspModifContrato").value = respuesta[0]['dsc_tipo_espacio'];
         	$.each(respuesta,function(index,value){
+        		if(value['fch_generacion'] != ''){
+        		   var aux_dia = value['fch_generacion'].getDate();
+	               var aux_mes = value['fch_generacion'].getMonth();
+	               var aux_anio = value['fch_generacion'].getFullYear();
+	               if(aux_mes == '0'){
+	                  aux_mes = '12';
+	                  aux_anio = value['fch_generacion'].getFullYear()-1;
+	                }               
+	               var fch_generacion = aux_dia+'/'+aux_mes+'/'+aux_anio;
+               
+        		}else{
+        			var fch_generacion = '';
+        		}
         		var fila ='<tr>'+
 					'<td class="text-center">'+value['num_servicio']+'</td>'+
 					'<td class="text-left">'+value['dsc_tipo_servicio']+'</td>'+
-					'<td class="text-center">'+value['fch_generacion']+'</td>'+
+					'<td class="text-center">'+fch_generacion+'</td>'+
 					'<td class="text-center">'+value['fch_emision']+'</td>'+
 					'<td class="text-center">'+value['fch_activacion']+'</td>'+
 					'<td class="text-center">'+value['fch_anulacion']+'</td>'+
