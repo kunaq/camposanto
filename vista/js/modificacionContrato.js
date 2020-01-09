@@ -64,7 +64,7 @@ function llenaDatos(codCtto){
 					'<td class="text-right tdSgvDrvSmlCrnFinVista">'+probando+'</td>'+
 					'<td class="text-right tdTotalSmlCrnFinVista">'+probando+'</td>'+
 				'</tr>';
-				document.getElementById("bodyCronograma").insertAdjacentHTML("beforeEnd" ,fila);
+				document.getElementById("bodyDetCttoModif").insertAdjacentHTML("beforeEnd" ,fila);
         	}
         }
     });
