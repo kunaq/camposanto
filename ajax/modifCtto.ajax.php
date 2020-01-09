@@ -7,6 +7,7 @@ class AjaxModifCtto{
 		$respuesta = ControladorModifCtto::ctrBuscaCtto();
 		foreach ($respuesta as $key => $value) {
 			$respuesta[$key]["fch_generacion"] = dateFormat($respuesta[$key]["fch_generacion"]);
+			$respuesta["fch_anulacion"] = ($respuesta["fch_anulacion"] != '') ? dateFormat($respuesta["fch_anulacion"]) : '';
 		}
 		echo json_encode($respuesta);
 	}//function ajaxBuscaCtto
