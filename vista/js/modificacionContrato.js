@@ -56,14 +56,13 @@ function llenaDatos(codCtto){
         		var fila ='<tr>'+
 					'<td class="text-center">'+value['num_servicio']+'</td>'+
 					'<td class="text-left">'+value['dsc_tipo_servicio']+'</td>'+
-					'<td class="text-right">probando</td>'+
-					'<td class="text-right">probando</td>'+
-					'<td class="text-right">probando</td>'+
-					'<td class="text-right">probando</td>'+
-					'<td class="text-right tdSgvDrvSmlCrnFinVista">probando</td>'+
-					'<td class="text-right tdTotalSmlCrnFinVista">probando</td>'+
+					'<td class="text-center">'+value['fch_generacion']+'</td>'+
+					'<td class="text-center">'+value['fch_emision']+'</td>'+
+					'<td class="text-center">'+value['fch_activacion']+'</td>'+
+					'<td class="text-center">'+value['fch_anulacion']+'</td>'+
+					'<td class="text-center">'+value['fch_resolucion']+'</td>'+
+					'<td class="text-center">'+value['fch_transferencia']+'</td>'+
 				'</tr>';
-				console.log(fila);
 				document.getElementById("bodyDetCttoModif").insertAdjacentHTML("beforeEnd" ,fila);
         	});
         }
