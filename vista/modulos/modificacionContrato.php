@@ -388,21 +388,7 @@
 																		<th>I.G.V.</th>
 																		<th>Total</th>
 																	</thead>
-																	<tbody>
-																		<tr>
-																			<td>1</td>
-																			<td>DU000035</td>
-																			<td>POR SERVICIO DE DERECHO DE USO</td>
-																			<td>1</td>
-																			<td>9.300,00</td>
-																			<td>3.815,00</td>
-																			<td>7.600,00</td>
-																			<td>0,00</td>
-																			<td>7.600,00</td>
-																		</tr>
-																		<tr>
-																			<td></td>
-																		</tr>
+																	<tbody id="bodyServiciosPpales">
 																	</tbody>
 																	<tfoot>
 																		<td></td>

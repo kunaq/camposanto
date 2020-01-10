@@ -59,6 +59,7 @@ function llenaDatos(codCtto){
         	$("#ejeVContrato").val(respuesta[0]['cod_ejevertical_actual']);
         	$("#espacioContrato").val(respuesta[0]['cod_espacio_actual']);
         	document.getElementById("tipoEspModifContrato").value = respuesta[0]['dsc_tipo_espacio'];
+        	$("#bodyDetCttoModif")..empty();
         	$.each(respuesta,function(index,value){
         		var fila ='<tr onclick="muestraInfo('+value['num_servicio']+');">'+
 					'<td class="text-center">'+value['num_servicio']+'</td>'+
@@ -110,6 +111,19 @@ function muestraInfo(id){
         	$("#igv").val(respuesta['imp_igv']);
         	$("#subtotal").val(respuesta['imp_subtotal']);
         	$("#total").val(respuesta['imp_totalneto']);
+        	var fila ='<tr>'+
+					'<td>1</td>'+
+					'<td>'+respuesta['cod_servicio_principal']+'</td>'+
+					'<td>POR SERVICIO DE DERECHO DE USO</td>'+
+					'<td>1</td>'+
+					'<td>9.300,00</td>'+
+					'<td>3.815,00</td>'+
+					'<td>7.600,00</td>'+
+					'<td>0,00</td>'+
+					'<td>7.600,00</td>'+
+				'</tr>';
+			document.getElementById("bodyServiciosPpales").insertAdjacentHTML("beforeEnd" ,fila);
+
         }//success
     });//ajax
 }//muestraInfo
