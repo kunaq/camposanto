@@ -78,7 +78,34 @@ function muestraInfo(id){
         data: { 'accion' : 'pestannas', 'codCtto' : codCtto, 'num_servicio' : id },
         success : function(respuesta){
         	console.log('respuesta',respuesta);
+        	if(respuesta['cod_tipo_necesidad'] == 'NF'){
+        		var tipoNec = 'NECESIDAD FUTURA';
+        	}else{
+        		var tipoNec = 'NECESIDAD INMEDIATA';
+        	}
+        	if(respuesta['ctd_beneficiario'] == ''){
+        		var numBenef = 0;	
+        	} else{
+        		var numBenef = respuesta['ctd_beneficiario'];
+        	}
         	$("#idPropietario").val(respuesta['cod_empresa']);
+        	$("#tipoServicio").val(respuesta['dsc_tipo_servicio']);
+        	$("#tipoNecesidad").val(tipoNec);
+        	$("#convenio").val(respuesta['dsc_entidad']);
+        	$("#formaCobro").val(respuesta['cod_forma_cobro']);
+        	$("#numBeneficiarios").val(numBenef);
+        	$("#moneda").val(respuesta['cod_moneda']);
+        	// $("#").val(respuesta['']);
+        	// $("#").val(respuesta['']);
+        	// $("#").val(respuesta['']);
+        	// $("#").val(respuesta['']);
+        	// $("#").val(respuesta['']);
+        	// $("#").val(respuesta['']);
+        	// $("#").val(respuesta['']);
+        	// $("#").val(respuesta['']);
+        	// $("#").val(respuesta['']);
+        	// $("#").val(respuesta['']);
+        	// $("#").val(respuesta['']);
         }//success
     });//ajax
 }//muestraInfo
