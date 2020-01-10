@@ -18,7 +18,7 @@ class ControladorModifCtto{
 
 	static public function ctrBuscaDatosServicio(){
 		$tabla = 'vtade_contrato';
-		4tabla2 = 'vtade_contrato';
+		$tabla2 = 'vtade_contrato_servicio';
 		$codCtto = $_POST['codCtto'];
 		$num_servicio = $_POST['num_servicio'];
 		$respuesta = ModeloModifCtto::mdlBuscaDatosServicio($tabla,$tabla2,$codCtto,$num_servicio);
