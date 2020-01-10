@@ -111,16 +111,21 @@ function muestraInfo(id){
         	$("#igv").val(respuesta['imp_igv']);
         	$("#subtotal").val(respuesta['imp_subtotal']);
         	$("#total").val(respuesta['imp_totalneto']);
+        	$("#bodyServiciosPpales").empty();
         	var fila = '<tr>'+
 							'<td>1</td>'+
 							'<td>'+respuesta['cod_servicio_principal']+'</td>'+
 							'<td>'+respuesta['dsc_servicio']+'</td>'+
-							'<td>1</td>'+
-							'<td>9.300,00</td>'+
-							'<td>3.815,00</td>'+
-							'<td>7.600,00</td>'+
-							'<td>0,00</td>'+
-							'<td>7.600,00</td>'+
+							'<td>'+respuesta['num_ctd']+'</td>'+
+							'<td>'+respuesta['imp_precio_venta'].toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+							'<td>'+respuesta['imp_min_inhumar'].toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+							'</td>'+
+							'<td>'+respuesta['imp_subtotal'].toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+							'</td>'+
+							'<td>'+respuesta['imp_igv'].toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+							'</td>'+
+							'<td>'+respuesta['imp_totalneto'].toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+							'</td>'+
 						'</tr>';
 						console.log(fila);
 			document.getElementById("bodyServiciosPpales").insertAdjacentHTML("beforeEnd" ,fila);
