@@ -18,6 +18,7 @@ class ModeloModifCtto{
 	static public function mdlBuscaDatosServicio($tabla,$tabla2,$tabla3,$codCtto,$num_servicio){
 		$db = new Conexion();
 		$sql = $db->consulta("SELECT $tabla.*, $tabla2.*, $tabla3.dsc_entidad FROM $tabla INNER JOIN $tabla2 ON ($tabla.cod_contrato = $tabla2.cod_contrato) INNER JOIN $tabla3 ON $tabla3.cod_entidad = $tabla.cod_convenio WHERE $tabla.cod_contrato  LIKE (RIGHT('0000000000'+'$codCtto',10)) AND $tabla.num_servicio = $num_servicio");
+		echo "SELECT $tabla.*, $tabla2.*, $tabla3.dsc_entidad FROM $tabla INNER JOIN $tabla2 ON ($tabla.cod_contrato = $tabla2.cod_contrato) INNER JOIN $tabla3 ON $tabla3.cod_entidad = $tabla.cod_convenio WHERE $tabla.cod_contrato  LIKE (RIGHT('0000000000'+'$codCtto',10)) AND $tabla.num_servicio = $num_servicio";
 		$datos = arrayMapUtf8Encode($db->recorrer($sql));
 		return $datos;
 		$db->liberar($sql);
