@@ -78,6 +78,7 @@ function muestraInfo(id){
         data: { 'accion' : 'pestannas', 'codCtto' : codCtto, 'num_servicio' : id },
         success : function(respuesta){
         	console.log('respuesta',respuesta);
+        	$("#idPropietario").val(respuesta['cod_empresa']);
         }//success
     });//ajax
 }//muestraInfo
