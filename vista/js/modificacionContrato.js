@@ -129,7 +129,7 @@ function muestraInfo(id){
 						'</tr>';
 						console.log(fila);
 			document.getElementById("bodyServiciosPpales").insertAdjacentHTML("beforeEnd" ,fila);
-			$("#totalServPpal").innerHTML = Number(respuesta['imp_totalneto']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
+			$("#totalServPpal").innerText = Number(respuesta['imp_totalneto']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
 
         }//success
     });//ajax
