@@ -1,4 +1,5 @@
 $("#codContrato").number(true, 0, ',', '');
+$("#cuota").number(true,2);
 
 function buscaCtto(){
 	var codCtto = document.getElementById("codContrato").value;
@@ -95,8 +96,8 @@ function muestraInfo(id){
         	$("#formaCobro").val(respuesta['cod_forma_cobro']);
         	$("#numBeneficiarios").val(numBenef);
         	$("#moneda").val(respuesta['cod_moneda']);
-        	// $("#").val(respuesta['']);
-        	// $("#").val(respuesta['']);
+        	$("#fechaVencimiento").val(respuesta['fch_primer_vencimiento']);
+        	$("#cuota").val(respuesta['imp_valor_cuota']);
         	// $("#").val(respuesta['']);
         	// $("#").val(respuesta['']);
         	// $("#").val(respuesta['']);
