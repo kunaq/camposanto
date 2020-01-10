@@ -86,7 +86,7 @@
 												<thead>
 													<th>N°</th>
 													<th>Tipo de Servicio</th>
-													<th>Fecha Genereación</th>
+													<th>Fecha Generación</th>
 													<th>Fecha Emisión</th>
 													<th>Fecha Activación</th>
 													<th>Fecha Anulación</th>
@@ -420,19 +420,7 @@
 																		<th>Valor</th>
 																		<th>Dscto.</th>
 																	</thead>
-																	<tbody>
-																		<tr>
-																			<td>TRAMOS</td>
-																			<td>25/04/2019 16:53</td>
-																			<td>DESCUENTO LIBRE</td>
-																			<td><input type="checkbox" name=""></td>
-																			<td><input type="checkbox" name=""></td>
-																			<td>1.700,00</td>
-																			<td>1.700,00</td>
-																		</tr>
-																		<tr>
-																			<td></td>
-																		</tr>
+																	<tbody id="bodyDsctoModif">
 																	</tbody>
 																	<tfoot>
 																		<td></td>
@@ -441,7 +429,7 @@
 																		<td></td>
 																		<td></td>
 																		<td>Total:</td>
-																		<td>1.700,00</td>
+																		<td id="totalDsctoModif"></td>
 																	</tfoot>
 															</table>
 														</div>

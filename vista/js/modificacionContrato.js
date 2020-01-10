@@ -130,6 +130,19 @@ function muestraInfo(id){
 						// console.log(fila);
 			document.getElementById("bodyServiciosPpales").insertAdjacentHTML("beforeEnd" ,fila);
 			document.getElementById("totalServPpal").innerText = Number(respuesta['imp_totalneto']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
+			$("#bodyDsctoModif").empty();
+        	var bodyDsctoModif = '<tr>'+
+									'<td>TRAMOS</td>'+
+									'<td>25/04/2019 16:53</td>'+
+									'<td>DESCUENTO LIBRE</td>'+
+									'<td><input type="checkbox" name=""></td>'+
+									'<td><input type="checkbox" name=""></td>'+
+									'<td>1.700,00</td>'+
+									'<td>1.700,00</td>'+
+								'</tr>';
+						// console.log(fila);
+			document.getElementById("bodyDsctoModif").insertAdjacentHTML("beforeEnd" ,filaDsto);
+			document.getElementById("totalDsctoModif").innerText = Number(respuesta['imp_totalneto']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
 
         }//success
     });//ajax
