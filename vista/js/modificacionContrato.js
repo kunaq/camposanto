@@ -117,14 +117,14 @@ function muestraInfo(id){
 							'<td>'+respuesta['cod_servicio_principal']+'</td>'+
 							'<td>'+respuesta['dsc_servicio']+'</td>'+
 							'<td>'+respuesta['num_ctd']+'</td>'+
-							'<td>'+respuesta['imp_precio_venta'].toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
-							'<td>'+respuesta['imp_min_inhumar'].toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+							'<td>'+Number(respuesta['imp_precio_venta']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+							'<td>'+Number(respuesta['imp_min_inhumar']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
 							'</td>'+
-							'<td>'+respuesta['imp_subtotal'].toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+							'<td>'+Number(respuesta['imp_subtotal']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
 							'</td>'+
-							'<td>'+respuesta['imp_igv'].toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+							'<td>'+Number(respuesta['imp_igv']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
 							'</td>'+
-							'<td>'+respuesta['imp_totalneto'].toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+							'<td>'+Number(respuesta['imp_totalneto']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
 							'</td>'+
 						'</tr>';
 						console.log(fila);
