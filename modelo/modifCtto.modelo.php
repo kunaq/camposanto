@@ -18,7 +18,7 @@ class ModeloModifCtto{
 
 	static public function mdlBuscaDatosServicio($tabla,$codCtto,$num_servicio){
 		$db = new Conexion();
-		$sql = $db->consulta("SELECT * FROM $tabla WHERE cod_contrato = '$codCtto' AND num_servicio = $num_servicio");
+		$sql = $db->consulta("SELECT * FROM $tabla WHERE cod_contrato  LIKE (RIGHT('0000000000'+'$codCtto',10)) AND num_servicio = $num_servicio");
 		echo "SELECT * FROM $tabla WHERE cod_contrato = '$codCtto' AND num_servicio = $num_servicio";
 		$datos = arrayMapUtf8Encode($db->recorrer($sql));
 		return $datos;
