@@ -23,6 +23,9 @@ function Utf8Encode($data){
 function dateFormat($data){
 	return date_format(new DateTime($data), 'd/m/Y');
 }//function dateFormat
+function dateTimeFormat($data){
+    return date_format(new DateTime($data), 'd-m-Y H:i:s');
+}//function dateTimeFormat
 function escapeComillasJson($data){
 	$data = str_replace('"', '\\"', $data);
 	return $data;
