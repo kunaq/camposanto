@@ -26,6 +26,7 @@ class AjaxModifCtto{
 		$respuesta["fch_activacion"] = ($respuesta["fch_activacion"] != '') ? dateFormat($respuesta["fch_activacion"]) : '';
 		$respuesta["fch_resolucion"] = ($respuesta["fch_resolucion"] != '') ? dateFormat($respuesta["fch_resolucion"]) : '';
 		$respuesta["fch_primer_vencimiento"] = ($respuesta["fch_primer_vencimiento"] != '') ? dateFormat($respuesta["fch_primer_vencimiento"]) : '';
+		$respuesta["fch_registro"] = ($respuesta["fch_registro"] != '') ? dateTimeFormat($respuesta["fch_registro"]) : '';
 		echo json_encode($respuesta);
 	}//ajaxBuscaDatosServicio
 }//class AjaxModifCtto

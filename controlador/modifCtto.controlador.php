@@ -17,14 +17,16 @@ class ControladorModifCtto{
 	}//function ctrBuscaCtto
 
 	static public function ctrBuscaDatosServicio(){
-		$tabla = 'vtade_contrato';
-		$tabla2 = 'vtade_contrato_servicio';
-		$tabla3 = 'vtama_entidad';
-		$tabla4 = 'vtama_tipo_servicio';
-		$tabla5 = 'vtama_servicio';
+		$tablaCtto = 'vtade_contrato';
+		$tablaCttoSvcio = 'vtade_contrato_servicio';
+		$tablaEnt = 'vtama_entidad';
+		$tablaTipoSvcio = 'vtama_tipo_servicio';
+		$tablaMaSvcio = 'vtama_servicio';
+		$tablaDscto = 'vtavi_descuento_x_contrato';
+		$tablaMaDcsto = 'vtama_tipo_descuento';
 		$codCtto = $_POST['codCtto'];
 		$num_servicio = $_POST['num_servicio'];
-		$respuesta = ModeloModifCtto::mdlBuscaDatosServicio($tabla,$tabla2,$tabla3,$tabla4,$tabla5,$codCtto,$num_servicio);
+		$respuesta = ModeloModifCtto::mdlBuscaDatosServicio($tablaCtto,$tablaCttoSvcio,$tablaEnt,$tablaTipoSvcio,$tablaMaSvcio,$tablaDscto,$tablaMaDcsto,$codCtto,$num_servicio);
 		return $respuesta;
 	}//ctrBuscaDatosServicio
 

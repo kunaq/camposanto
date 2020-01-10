@@ -132,7 +132,7 @@ function muestraInfo(id){
 			document.getElementById("totalServPpal").innerText = Number(respuesta['imp_totalneto']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
 			$("#bodyDsctoModif").empty();
         	var bodyDsctoModif = '<tr>'+
-									'<td>TRAMOS</td>'+
+									'<td>'+respuesta['cod_usuario']+'</td>'+
 									'<td>25/04/2019 16:53</td>'+
 									'<td>DESCUENTO LIBRE</td>'+
 									'<td><input type="checkbox" name=""></td>'+
