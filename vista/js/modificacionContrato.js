@@ -122,7 +122,7 @@ function muestraInfo(id){
 						// 	'<td>0,00</td>'+
 						// 	'<td>7.600,00</td>'+
 						// '</tr>';
-			document.getElementById("bodyServiciosPpales").insertAdjacentHTML("beforeEnd" ,fila);
+			// document.getElementById("bodyServiciosPpales").insertAdjacentHTML("beforeEnd" ,fila);
 
         }//success
     });//ajax
