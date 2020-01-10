@@ -20,9 +20,10 @@ class ControladorModifCtto{
 		$tabla = 'vtade_contrato';
 		$tabla2 = 'vtade_contrato_servicio';
 		$tabla3 = 'vtama_entidad';
+		$tabla4 = 'vtama_tipo_espacio';
 		$codCtto = $_POST['codCtto'];
 		$num_servicio = $_POST['num_servicio'];
-		$respuesta = ModeloModifCtto::mdlBuscaDatosServicio($tabla,$tabla2,$tabla3,$codCtto,$num_servicio);
+		$respuesta = ModeloModifCtto::mdlBuscaDatosServicio($tabla,$tabla2,$tabla3,$tabla4,$codCtto,$num_servicio);
 		return $respuesta;
 	}//ctrBuscaDatosServicio
 
