@@ -114,7 +114,7 @@ function muestraInfo(id){
         	var fila ='<tr>'+
 					'<td>1</td>'+
 					'<td>'+respuesta['cod_servicio_principal']+'</td>'+
-					'<td>POR SERVICIO DE DERECHO DE USO</td>'+
+					'<td>'+respuesta['dsc_servicio']+'</td>'+
 					'<td>1</td>'+
 					'<td>9.300,00</td>'+
 					'<td>3.815,00</td>'+
