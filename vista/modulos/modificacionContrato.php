@@ -399,7 +399,7 @@
 																		<td></td>
 																		<td></td>
 																		<td>Total:</td>
-																		<td>7.600,00</td>
+																		<td id="totalServPpal">7.600,00</td>
 																	</tfoot>
 																</table>
 														</div>
