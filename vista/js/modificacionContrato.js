@@ -111,17 +111,17 @@ function muestraInfo(id){
         	$("#igv").val(respuesta['imp_igv']);
         	$("#subtotal").val(respuesta['imp_subtotal']);
         	$("#total").val(respuesta['imp_totalneto']);
-        	var fila ='<tr>'+
-					'<td>1</td>'+
-					'<td>'+respuesta['cod_servicio_principal']+'</td>'+
-					'<td>'+respuesta['dsc_servicio']+'</td>'+
-					'<td>1</td>'+
-					'<td>9.300,00</td>'+
-					'<td>3.815,00</td>'+
-					'<td>7.600,00</td>'+
-					'<td>0,00</td>'+
-					'<td>7.600,00</td>'+
-				'</tr>';
+      //   	var fila = '<tr>'+
+						// 	'<td>1</td>'+
+						// 	'<td>'+respuesta['cod_servicio_principal']+'</td>'+
+						// 	'<td>'+respuesta['dsc_servicio']+'</td>'+
+						// 	'<td>1</td>'+
+						// 	'<td>9.300,00</td>'+
+						// 	'<td>3.815,00</td>'+
+						// 	'<td>7.600,00</td>'+
+						// 	'<td>0,00</td>'+
+						// 	'<td>7.600,00</td>'+
+						// '</tr>';
 			document.getElementById("bodyServiciosPpales").insertAdjacentHTML("beforeEnd" ,fila);
 
         }//success
