@@ -1,5 +1,11 @@
 $("#codContrato").number(true, 0, ',', '');
 $("#cuota").number(true,2);
+$("#interes").number(true,2);
+$("#saldoFinanciar").number(true,2);
+$("#cuotaInicial").number(true,2);
+$("#igv").number(true,2);
+$("#subtotal").number(true,2);
+$("#total").number(true,2);
 
 function buscaCtto(){
 	var codCtto = document.getElementById("codContrato").value;
