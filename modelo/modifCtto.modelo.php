@@ -16,5 +16,14 @@ class ModeloModifCtto{
         $db->cerrar();
 	}//mdlBuscaCttos
 
+	static public function mdlBuscaDatosServicio($tabla,$codCtto,$num_servicio){
+		$db = new Conexion();
+		$sql = $db->consulta("SELECT * FROM $tabla WHERE cod_contrato = '$codCtto' AND num_servicio = $num_servicio");
+		$datos = arrayMapUtf8Encode($db->recorrer($sql));
+		return $datos;
+		$db->liberar($sql);
+        $db->cerrar();
+	}//mdlBuscaDatosServicio
+
 }//class ModeloModifCtto
 ?>
