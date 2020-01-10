@@ -98,15 +98,12 @@ function muestraInfo(id){
         	$("#moneda").val(respuesta['cod_moneda']);
         	$("#fechaVencimiento").val(respuesta['fch_primer_vencimiento']);
         	$("#cuota").val(respuesta['imp_valor_cuota']);
-        	// $("#").val(respuesta['']);
-        	// $("#").val(respuesta['']);
-        	// $("#").val(respuesta['']);
-        	// $("#").val(respuesta['']);
-        	// $("#").val(respuesta['']);
-        	// $("#").val(respuesta['']);
-        	// $("#").val(respuesta['']);
-        	// $("#").val(respuesta['']);
-        	// $("#").val(respuesta['']);
+        	$("#interes").val(respuesta['imp_interes']);
+        	$("#saldoFinanciar").val(respuesta['imp_saldofinanciar']);
+        	$("#cuotaInicial").val(respuesta['imp_cuoi']);
+        	$("#igv").val(respuesta['imp_igv']);
+        	$("#subtotal").val(respuesta['imp_subtotal']);
+        	$("#total").val(respuesta['imp_totalneto']);
         }//success
     });//ajax
 }//muestraInfo
