@@ -244,7 +244,8 @@ function buscaDatosTi(){
         data: { 'accion' : 'buscaCli', 'codCliente' : codCliente },
         success : function(respuesta){
         	console.log('respuesta',respuesta);
-        		
+        	$("#numDocTitular").val(respuesta['dsc_documento']);
+
         }//success
     });//ajax
 }//buscaDatosTi
