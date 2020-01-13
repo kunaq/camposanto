@@ -24,9 +24,10 @@ class ControladorModifCtto{
 		$tablaMaSvcio = 'vtama_servicio';
 		$tablaDscto = 'vtavi_descuento_x_contrato';
 		$tablaMaDcsto = 'vtama_tipo_descuento';
+		$tablaEndoso = 'vtavi_endoso_x_contrato';
 		$codCtto = $_POST['codCtto'];
 		$num_servicio = $_POST['num_servicio'];
-		$respuesta = ModeloModifCtto::mdlBuscaDatosServicio($tablaCtto,$tablaCttoSvcio,$tablaEnt,$tablaTipoSvcio,$tablaMaSvcio,$tablaDscto,$tablaMaDcsto,$codCtto,$num_servicio);
+		$respuesta = ModeloModifCtto::mdlBuscaDatosServicio($tablaCtto,$tablaCttoSvcio,$tablaEnt,$tablaTipoSvcio,$tablaMaSvcio,$tablaDscto,$tablaMaDcsto,$tablaEndoso,$codCtto,$num_servicio);
 		return $respuesta;
 	}//ctrBuscaDatosServicio
 
