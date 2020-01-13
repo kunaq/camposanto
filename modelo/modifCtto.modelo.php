@@ -38,7 +38,7 @@ class ModeloModifCtto{
 
 	static public function mdlBuscaDsctoXCtto($tablaDscto,$tablaMaDcsto,$codCtto,$num_servicio){
 		$db = new Conexion();
-		$sql = $db->consulta("SELECT $tablaDscto.flg_tasa, $tablaMaDcsto.dsc_tipo_descuento, $tablaDscto.flg_libre, $tablaDscto.cod_usuario, $tablaDscto.fch_registro, $tablaDscto.imp_valor, $tablaDscto.imp_dscto FROM $tablaDscto INNER JOIN $tablaMaDcsto ON $tablaMaDcsto.cod_tipo_descuento = $tablaDscto.cod_tipo_descuento WHERE $tablaDscto.cod_contrato LIKE (RIGHT('0000000000'+'$codCtto',10)) AND $tablaDscto.num_servicio = $num_servicio");
+		$sql = $db->consulta("SELECT $tablaDscto.flg_tasa, $tablaMaDcsto.dsc_tipo_descuento, $tablaDscto.flg_libre, $tablaDscto.cod_usuario, $tablaDscto.fch_registro, $tablaDscto.imp_valor, $tablaDscto.imp_dscto FROM $tablaDscto LEFT JOIN $tablaMaDcsto ON $tablaMaDcsto.cod_tipo_descuento = $tablaDscto.cod_tipo_descuento WHERE $tablaDscto.cod_contrato LIKE (RIGHT('0000000000'+'$codCtto',10)) AND $tablaDscto.num_servicio = $num_servicio");
 		$datos = array();
     	while($key = $db->recorrer($sql)){
 	    		$datos[] = arrayMapUtf8Encode($key);
