@@ -83,7 +83,7 @@ function muestraInfo(id){
         url: 'ajax/modifCtto.ajax.php',
         dataType: 'json',
         method: "POST",
-        data: { 'accion' : 'pestannas', 'codCtto' : codCtto, 'num_servicio' : id },
+        data: { 'accion' : 'DetServ', 'codCtto' : codCtto, 'num_servicio' : id },
         success : function(respuesta){
         	console.log('respuesta',respuesta);
         	if(respuesta['cod_tipo_necesidad'] == 'NF'){
@@ -111,50 +111,52 @@ function muestraInfo(id){
         	$("#igv").val(respuesta['imp_igv']);
         	$("#subtotal").val(respuesta['imp_subtotal']);
         	$("#total").val(respuesta['imp_totalneto']);
-        	$("#bodyServiciosPpales").empty();
-        	var fila = '<tr>'+
-							'<td>1</td>'+
-							'<td>'+respuesta['cod_servicio_principal']+'</td>'+
-							'<td>'+respuesta['dsc_servicio']+'</td>'+
-							'<td>'+respuesta['num_ctd']+'</td>'+
-							'<td>'+Number(respuesta['imp_precio_venta']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
-							'<td>'+Number(respuesta['imp_min_inhumar']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
-							'</td>'+
-							'<td>'+Number(respuesta['imp_subtotal']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
-							'</td>'+
-							'<td>'+Number(respuesta['imp_igv']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
-							'</td>'+
-							'<td>'+Number(respuesta['imp_totalneto']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
-							'</td>'+
-						'</tr>';
-						// console.log(fila);
-			document.getElementById("bodyServiciosPpales").insertAdjacentHTML("beforeEnd" ,fila);
-			document.getElementById("totalServPpal").innerText = Number(respuesta['imp_totalneto']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
-			var check_tasa = '';
-			var check_libre = '';
-			if(respuesta['flg_tasa'] == 'SI'){
-				check_tasa = "<i class='fa fa-check'></i>";
-				check_libre = '';
-			}else if(respuesta['flg_libre'] == 'SI'){
-				check_libre = "<i class='fa fa-check'></i>";
-				check_tasa = '';
-			}else{
-				check_libre = '';
-				check_tasa = '';
-			}
-			$("#bodyDsctoModif").empty();
-        	var filaDsto = '<tr>'+
-									'<td>'+respuesta['cod_usuario']+'</td>'+
-									'<td>'+respuesta['fch_registro']+'</td>'+
-									'<td>'+respuesta['dsc_tipo_descuento']+'</td>'+
-									'<td>'+check_tasa+'</td>'+
-									'<td>'+check_libre+'</td>'+
-									'<td>'+Number(respuesta['imp_valor']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
-									'<td>'+Number(respuesta['imp_dscto']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
-								'</tr>';
-						// console.log(fila);
-			document.getElementById("bodyDsctoModif").insertAdjacentHTML("beforeEnd" ,filaDsto);
-			document.getElementById("totalDsctoModif").innerText = Number(respuesta['imp_totalneto']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
+
+
+		   //      	$("#bodyServiciosPpales").empty();
+		   //      	var fila = '<tr>'+
+					// 				'<td>1</td>'+
+					// 				'<td>'+respuesta['cod_servicio_principal']+'</td>'+
+					// 				'<td>'+respuesta['dsc_servicio']+'</td>'+
+					// 				'<td>'+respuesta['num_ctd']+'</td>'+
+					// 				'<td>'+Number(respuesta['imp_precio_venta']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+					// 				'<td>'+Number(respuesta['imp_min_inhumar']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+					// 				'</td>'+
+					// 				'<td>'+Number(respuesta['imp_subtotal']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+					// 				'</td>'+
+					// 				'<td>'+Number(respuesta['imp_igv']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+					// 				'</td>'+
+					// 				'<td>'+Number(respuesta['imp_totalneto']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+					// 				'</td>'+
+					// 			'</tr>';
+					// 			// console.log(fila);
+					// document.getElementById("bodyServiciosPpales").insertAdjacentHTML("beforeEnd" ,fila);
+					// document.getElementById("totalServPpal").innerText = Number(respuesta['imp_totalneto']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
+					// var check_tasa = '';
+					// var check_libre = '';
+					// if(respuesta['flg_tasa'] == 'SI'){
+					// 	check_tasa = "<i class='fa fa-check'></i>";
+					// 	check_libre = '';
+					// }else if(respuesta['flg_libre'] == 'SI'){
+					// 	check_libre = "<i class='fa fa-check'></i>";
+					// 	check_tasa = '';
+					// }else{
+					// 	check_libre = '';
+					// 	check_tasa = '';
+					// }
+					// $("#bodyDsctoModif").empty();
+		   //      	var filaDsto = '<tr>'+
+					// 						'<td>'+respuesta['cod_usuario']+'</td>'+
+					// 						'<td>'+respuesta['fch_registro']+'</td>'+
+					// 						'<td>'+respuesta['dsc_tipo_descuento']+'</td>'+
+					// 						'<td>'+check_tasa+'</td>'+
+					// 						'<td>'+check_libre+'</td>'+
+					// 						'<td>'+Number(respuesta['imp_valor']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+					// 						'<td>'+Number(respuesta['imp_dscto']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+					// 					'</tr>';
+					// 			// console.log(fila);
+					// document.getElementById("bodyDsctoModif").insertAdjacentHTML("beforeEnd" ,filaDsto);
+					// document.getElementById("totalDsctoModif").innerText = Number(respuesta['imp_totalneto']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
 
         }//success
     });//ajax

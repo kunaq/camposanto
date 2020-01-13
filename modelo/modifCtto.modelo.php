@@ -17,11 +17,8 @@ class ModeloModifCtto{
 
 	static public function mdlBuscaDatosServicio($tablaCtto,$tablaCttoSvcio,$tablaEnt,$tablaTipoSvcio,$tablaMaSvcio,$tablaDscto,$tablaMaDcsto,$tablaEndoso,$codCtto,$num_servicio){
 		$db = new Conexion();
-		$sql = $db->consulta("SELECT $tablaCtto.*, $tablaCttoSvcio.*, $tablaEnt.dsc_entidad, $tablaTipoSvcio.dsc_tipo_servicio, $tablaMaSvcio.dsc_servicio, $tablaDscto.*, $tablaMaDcsto.dsc_tipo_descuento, $tablaEndoso.cod_entidad FROM $tablaCtto INNER JOIN $tablaCttoSvcio ON ($tablaCtto.cod_contrato = $tablaCttoSvcio.cod_contrato) LEFT JOIN $tablaEnt ON $tablaEnt.cod_entidad = $tablaCtto.cod_convenio INNER JOIN $tablaTipoSvcio ON $tablaTipoSvcio.cod_tipo_servicio = $tablaCtto.cod_tipo_servicio INNER JOIN $tablaMaSvcio ON $tablaMaSvcio.cod_servicio = $tablaCttoSvcio.cod_servicio_principal LEFT JOIN $tablaDscto ON ($tablaDscto.cod_contrato =  $tablaCtto.cod_contrato AND $tablaDscto.num_servicio = $tablaCtto.num_servicio) LEFT JOIN $tablaMaDcsto ON $tablaDscto.cod_tipo_descuento = $tablaMaDcsto.cod_tipo_descuento LEFT JOIN $tablaEndoso ON ($tablaCtto.cod_contrato = $tablaEndoso.cod_contrato AND $tablaCtto.num_servicio = $tablaEndoso.num_servicio) WHERE $tablaCtto.cod_contrato LIKE (RIGHT('0000000000'+'$codCtto',10)) AND $tablaCtto.num_servicio = $num_servicio AND $tablaCttoSvcio.num_servicio = $num_servicio");
-		$datos = array();
-    	while($key = $db->recorrer($sql)){
-	    		$datos[] = arrayMapUtf8Encode($key);
-			}
+		$sql = $db->consulta("SELECT $tablaCtto.*, $tablaEnt.dsc_entidad, $tablaTipoSvcio.dsc_tipo_servicio,FROM $tablaCtto LEFT JOIN $tablaEnt ON $tablaEnt.cod_entidad = $tablaCtto.cod_convenio INNER JOIN $tablaTipoSvcio ON $tablaTipoSvcio.cod_tipo_servicio = $tablaCtto.cod_tipo_servicio WHERE $tablaCtto.cod_contrato LIKE (RIGHT('0000000000'+'$codCtto',10)) AND $tablaCtto.num_servicio = $num_servicio AND $tablaCttoSvcio.num_servicio = $num_servicio");
+		$datos = arrayMapUtf8Encode($db->recorrer($sql));
 		return $datos;
 		$db->liberar($sql);
         $db->cerrar();
