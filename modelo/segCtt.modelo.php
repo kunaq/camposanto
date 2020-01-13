@@ -163,7 +163,7 @@ class ModeloSegContrato{
 		                            <td>'.$key["num_cuota"].'</td>
 		                            <td>'.$key["cod_estadocuota"].'</td>
 		                            <td>'.$fchVencimiento.'</td>
-		                            <td>'.$fechactual.'</td>
+		                            <td>'.$fchCancelacion.'</td>
 		                            <td>'.number_format(round($key["imp_principal"], 2),2,',','.').'</td>
 		                            <td>'.number_format(round($key["imp_interes"], 2),2,',','.').'</td>
 		                            <td>'.number_format(round($key["imp_igv"], 2),2,',','.').'</td>
@@ -177,7 +177,7 @@ class ModeloSegContrato{
 		                            <td>'.$key["num_cuota"].'</td>
 		                            <td>'.$key["cod_estadocuota"].'</td>
 		                            <td>'.$fchVencimiento.'</td>
-		                            <td>'.$fechactual.'</td>
+		                            <td>'.$fchCancelacion.'</td>
 		                            <td>'.number_format(round($key["imp_principal"], 2),2,',','.').'</td>
 		                            <td>'.number_format(round($key["imp_interes"], 2),2,',','.').'</td>
 		                            <td>'.number_format(round($key["imp_igv"], 2),2,',','.').'</td>
