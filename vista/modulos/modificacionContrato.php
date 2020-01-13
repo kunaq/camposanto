@@ -549,7 +549,7 @@
 														<div class="row">
 															<div class="col-lg-7">
 																<label>Codigo Cliente</label>
-																<input type="text" class="form-control form-control-sm m-input" name="codCliTitular" id="codCliTitular" disabled onchange="alert('llego');">
+																<input type="text" class="form-control form-control-sm m-input" name="codCliTitular" id="codCliTitular" disabled >
 															</div>
 															<div class="col-lg-5">
 																<button type="button" id="btn2Com" class="btn btn-sm btnEditarKqPst2 mt25">
