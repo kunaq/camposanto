@@ -104,6 +104,7 @@ class ModeloSegContrato{
 		$totalSaldo = 0;
 		$totalMora = 0;
 		$tasa = 0.12;
+		$fecha = date('d-m-Y');
 		$num_dias=1;
 
 		$db = new Conexion();
@@ -155,18 +156,23 @@ class ModeloSegContrato{
 	            $fchCancelacion = dateFormat($key['fch_cancelacion']);
 	        }
 
-     		$cronogramaCtt .=   '<tr>
-		                            <td>'.$key['cod_tipo_cuota'].'</td>
-		                            <td>'.$key["num_cuota"].'</td>
-		                            <td>'.$key["cod_estadocuota"].'</td>
-		                            <td>-</td>
-		                            <td>-</td>
-		                            <td>'.number_format(round($key["imp_principal"], 2),2,',','.').'</td>
-		                            <td>'.number_format(round($key["imp_interes"], 2),2,',','.').'</td>
-		                            <td>'.number_format(round($key["imp_igv"], 2),2,',','.').'</td>
-		                            <td>'.number_format(round($key["imp_total"], 2),2,',','.').'</td>
-		                            <td>'.number_format(round($key["imp_saldo"], 2),2,',','.').'</td>
-		                            <td>'.number_format(round($key["imp_mora"], 2),2,',','.').'</td>
+	        if ($fchCancelacion > $fecha) {
+	        	$cronogramaCtt .= '<tr class="cuoVen">'; 
+	        }else{
+	        	$cronograma .= '<tr class="cuoPorVencer">';
+	        }
+
+     		$cronogramaCtt .=   '<td>'.$key['cod_tipo_cuota'].'</td>
+		                         <td>'.$key["num_cuota"].'</td>
+		                         <td>'.$key["cod_estadocuota"].'</td>
+		                         <td>'.$fchVencimiento.'</td>
+		                         <td>'.$fchCancelacion.'</td>
+		                         <td>'.number_format(round($key["imp_principal"], 2),2,',','.').'</td>
+		                         <td>'.number_format(round($key["imp_interes"], 2),2,',','.').'</td>
+		                         <td>'.number_format(round($key["imp_igv"], 2),2,',','.').'</td>
+		                         <td>'.number_format(round($key["imp_total"], 2),2,',','.').'</td>
+		                         <td>'.number_format(round($key["imp_saldo"], 2),2,',','.').'</td>
+		                         <td>'.number_format(round($key["imp_mora"], 2),2,',','.').'</td>
 		                        </tr>';
 
 		    $total += $key["imp_total"];
