@@ -184,7 +184,9 @@ function buscaDscto(){
         success : function(respuesta){
         	console.log('respuesta',respuesta);
         	$("#bodyDsctoModif").empty();
+        	var total = 0;
         	$.each(respuesta,function(index,value){
+        		total = total + parseFloat(value['imp_dscto']);
         		var check_tasa = '';
 				var check_libre = '';
 				if(value['flg_tasa'] == 'SI'){
@@ -208,7 +210,7 @@ function buscaDscto(){
 								'</tr>';
 							// console.log(fila);
 				document.getElementById("bodyDsctoModif").insertAdjacentHTML("beforeEnd" ,filaDsto);
-				document.getElementById("totalDsctoModif").innerText = Number(value['imp_totalneto']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
+				document.getElementById("totalDsctoModif").innerText = Number(total).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
 
         	});//each
         }//success
