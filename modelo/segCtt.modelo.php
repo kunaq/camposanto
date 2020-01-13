@@ -155,8 +155,9 @@ class ModeloSegContrato{
 	            $fchCancelacion = dateFormat($key['fch_cancelacion']);
 	        }
 
-	      	$cronogramaCtt .=   '<tr>
-		                            <td>'.$key['cod_tipo_cuota'].'</td>
+	        if ($fchCancelacion > $fecha) {
+	        	$cronogramaCtt.='<tr class="cuoVen">
+	        						<td>'.$key['cod_tipo_cuota'].'</td>
 		                            <td>'.$key["num_cuota"].'</td>
 		                            <td>'.$key["cod_estadocuota"].'</td>
 		                            <td>'.$fchVencimiento.'</td>
@@ -167,7 +168,23 @@ class ModeloSegContrato{
 		                            <td>'.number_format(round($key["imp_total"], 2),2,',','.').'</td>
 		                            <td>'.number_format(round($key["imp_saldo"], 2),2,',','.').'</td>
 		                            <td>'.number_format(round($key["imp_mora"], 2),2,',','.').'</td>
-		                        </tr>';       
+		                        </tr>'; 
+	        }else{
+	        	$cronogramaCtt.='<tr class="cuoPorVencer">
+	        						<td>'.$key['cod_tipo_cuota'].'</td>
+		                            <td>'.$key["num_cuota"].'</td>
+		                            <td>'.$key["cod_estadocuota"].'</td>
+		                            <td>'.$fchVencimiento.'</td>
+		                            <td>'.$fchCancelacion.'</td>
+		                            <td>'.number_format(round($key["imp_principal"], 2),2,',','.').'</td>
+		                            <td>'.number_format(round($key["imp_interes"], 2),2,',','.').'</td>
+		                            <td>'.number_format(round($key["imp_igv"], 2),2,',','.').'</td>
+		                            <td>'.number_format(round($key["imp_total"], 2),2,',','.').'</td>
+		                            <td>'.number_format(round($key["imp_saldo"], 2),2,',','.').'</td>
+		                            <td>'.number_format(round($key["imp_mora"], 2),2,',','.').'</td>
+		                        </tr>';
+	        }
+      
 		}
 		$arrData = array('cronograma'=> $cronogramaCtt); 
 
