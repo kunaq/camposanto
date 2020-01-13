@@ -38,37 +38,37 @@ class ModeloSegContrato{
         if ($key['fch_generacion'] == NULL) {
             $tfechGen = "-";
         }else{
-            $tfechGen = $key['fch_generacion'];
+            $tfechGen = dateFormat($key['fch_generacion']);
         }
         // -------- Condicional para campos NULL de fch_emision -------- //
         if ($key['fch_emision'] == NULL) {
             $tfechEmi = "-";
         }else{
-            // $tfechEmi = dateFormat($key['fch_emision']);
+            $tfechEmi = dateFormat($key['fch_emision']);
         }
         // -------- Condicional para campos NULL de fch_activacion -------- //
         if ($key['fch_activacion'] == NULL) {
             $tfechAct = "-";
         }else{
-            // $tfechAct = dateFormat($key['fch_activacion']);
+            $tfechAct = dateFormat($key['fch_activacion']);
         }
         // -------- Condicional para campos NULL de fch_resolución -------- //
         if ($key['fch_resolucion'] == NULL) {
             $tfechRes = "-";
         }else{
-            // $tfechRes = dateFormat($key['fch_resolucion']);
+            $tfechRes = dateFormat($key['fch_resolucion']);
         }
         // -------- Condicional para campos NULL de fch_anulacion -------- //
         if ($key['fch_anulacion'] == NULL) {
             $tfechAnu = "-";
         }else{
-            // $tfechAnu = dateFormat($key['fch_anulacion']);
+            $tfechAnu = dateFormat($key['fch_anulacion']);
         }
         // -------- Condicional para campos NULL de fch_transferencia -------- //
         if ($key['fch_transferencia'] == NULL) {
             $tfechTrans = "-";
         }else{
-            // $tfechTrans = dateFormat($key['fch_transferencia']);
+            $tfechTrans = dateFormat($key['fch_transferencia']);
         }
         $numCtt = "'".$key['cod_contrato']."'";
         $codLocalidad = $key['cod_localidad'];
@@ -93,7 +93,7 @@ class ModeloSegContrato{
                     </tr>';
     }
 
-    return $tfechGen;
+    return $tablaServicios;
 
 	}//function mdlgetServiciosCtt
 
@@ -147,13 +147,13 @@ class ModeloSegContrato{
 	        if ($key['fch_vencimiento'] == NULL) {
 	            $fchVencimiento = "-";
 	        }else{
-	            $fchVencimiento = dateFormat($key['fch_vencimiento']);
+	            $fchVencimiento = $key['fch_vencimiento'];
 	        }
 	        // -------- Condicional para campos NULL de fch_cancelacion -------- //
 	        if ($key['fch_cancelacion'] == NULL) {
 	            $fchCancelacion = "-";
 	        }else{
-	            $fchCancelacion = dateFormat($key['fch_cancelacion']);
+	            $fchCancelacion = $key['fch_cancelacion'];
 	        }
 
 	        if ($fchCancelacion > $fecha) {
@@ -182,7 +182,7 @@ class ModeloSegContrato{
 
 		$arrData = array('cronograma'=> $cronogramaCtt, 'total' => number_format(round($total, 2),2,',','.'), 'totalSaldo'=> number_format(round($totalSaldo, 2),2,',','.'), 'totalMora'=> number_format(round($totalMora, 2),2,',','.')); 
 
-		return $arrData;
+		return $fchVencimiento;
 
 	}//function mdlGetDatosCtt
 
