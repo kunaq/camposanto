@@ -142,22 +142,15 @@ class ModeloSegContrato{
 
 		while($key = $db->recorrer($sql)){
 
-	      $cronogramaCtt .=   '<tr>
-		                            <td>'.$key['cod_tipo_cuota'].'</td>
-		                            <td>'.$key["num_cuota"].'</td>
-		                            <td>'.$key["cod_estadocuota"].'</td>
-		                            <td>-</td>
-		                            <td>-</td>
-		                            <td>'.number_format(round($key["imp_principal"], 2),2,',','.').'</td>
-		                            <td>'.number_format(round($key["imp_interes"], 2),2,',','.').'</td>
-		                            <td>'.number_format(round($key["imp_igv"], 2),2,',','.').'</td>
-		                            <td>'.number_format(round($key["imp_total"], 2),2,',','.').'</td>
-		                            <td>'.number_format(round($key["imp_saldo"], 2),2,',','.').'</td>
-		                            <td>'.number_format(round($key["imp_mora"], 2),2,',','.').'</td>
-		                        </tr>';            
+	      $cliente = $key['imp_principal'];
+	      // $cod_localidad = $key['cod_localidad'];
+	      // $dsc_localidad = $key['dsc_localidad'];
+	      // $contrato = $key['cod_contrato'];
+	      // $tipoCtt = $key['cod_tipo_ctt'];
+	      // $programa = $key['cod_tipo_programa'];
+	      // $modificado = $key['flg_ctt_modif'];             
 		}
-
-		$arrData = array('cronograma'=> $cronogramaCtt); 
+		$arrData = array('imp' => $cliente); 
 
 		return $arrData;
 
