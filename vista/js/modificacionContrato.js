@@ -85,7 +85,7 @@ function muestraInfo(id){
         method: "POST",
         data: { 'accion' : 'DetServ', 'codCtto' : codCtto, 'num_servicio' : id },
         success : function(respuesta){
-        	console.log('respuesta',respuesta);
+        	// console.log('respuesta',respuesta);
         	if(respuesta['cod_tipo_necesidad'] == 'NF'){
         		var tipoNec = 'NECESIDAD FUTURA';
         	}else{
@@ -96,6 +96,7 @@ function muestraInfo(id){
         	} else{
         		var numBenef = respuesta['ctd_beneficiario'];
         	}
+        	$("#numServicio").val(respuesta['num_servicio']);
         	$("#idPropietario").val(respuesta['cod_empresa']);
         	$("#tipoServicio").val(respuesta['dsc_tipo_servicio']);
         	$("#tipoNecesidad").val(tipoNec);
@@ -173,5 +174,7 @@ function muestraInfo(id){
 }//muestraInfo
 
 function buscaDscto(){
-	alert('llego');
+	var codCtto = $("#codContrato").val();
+	var numServicio = $("#numServicio").val();
+	console.log('codCtto',codCtto,'numServicio',numServicio);
 }

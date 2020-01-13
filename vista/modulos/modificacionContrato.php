@@ -245,6 +245,7 @@
 										<div class="col-lg-12">
 											<div class="row form-group">
 												<div class="col-lg-6">
+													<input type="hidden" name="numServicio" id="numServicio">
 													<div class="row">
 														<div class="col-lg-8">
 															<label>Tipo de Servicio</label>
