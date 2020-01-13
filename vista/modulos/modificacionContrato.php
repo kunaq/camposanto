@@ -367,9 +367,6 @@
 										<li class="nav-item m-tabs__item">
 											<a class="nav-link m-tabs__link" data-toggle="tab" href="#m_tabs_6_3" role="tab">Endosos</a>
 										</li>
-										<li class="nav-item m-tabs__item">
-											<a class="nav-link m-tabs__link" data-toggle="tab" href="#m_tabs_6_4" role="tab">Contratos-Transferencias</a>
-										</li>
 									</ul>
 									<div class="col-lg-12">
 										<div class="tab-content">
@@ -465,51 +462,6 @@
 																	<td id="totalValEndosoModif">0,00</td>
 																	<td id="totalSaldoEndosoModif">0,00</td>
 																	<td id="totalEmiEndosoModif">0,00</td>
-																</tfoot>
-															</table>
-														</div>
-													</div>
-												</div>
-											</div>
-											<div id="m_tabs_6_4" class="tab-pane" role="tabpanel">
-												<div class="col-lg-12">
-													<div class="row">
-														<div class="table-responsive">
-															<table class="table m-table">
-																<thead>
-																	<th>Localidad</th>
-																	<th>Tipo Nec.</th>
-																	<th>Tipo de Programa</th>
-																	<th>Contrat</th>
-																	<th>N° Servicio</th>
-																	<th>Servicio</th>
-																	<th>Fecha de Solicitud</th>
-																	<th>Total</th>
-																</thead>
-																<tbody>
-																	<tr>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																		<td></td>
-																	</tr>
-																	<tr>
-																		<td></td>
-																	</tr>
-																</tbody>
-																<tfoot>
-																	<td></td>
-																	<td></td>
-																	<td></td>
-																	<td></td>
-																	<td></td>
-																	<td></td>
-																	<td></td>
-																	<td></td>
 																</tfoot>
 															</table>
 														</div>
