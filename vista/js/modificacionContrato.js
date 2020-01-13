@@ -218,7 +218,7 @@ function buscaEndoso(){
 									'<td>'+value['cod_estado']+'</td>'+
 									'<td>'+value['fch_vencimiento']+'</td>'+
 									'<td>'+value['fch_cancelacion']+'</td>'+
-									'<td>'+value['dsc_entidad']+'</td>'+
+									'<td style="text-align: left;">'+value['dsc_entidad']+'</td>'+
 									'<td>'+Number(value['imp_valor']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
 									'<td>'+Number(value['imp_saldo']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
 									'<td>'+Number(value['imp_total_emitido']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
