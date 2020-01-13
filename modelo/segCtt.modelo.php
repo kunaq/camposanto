@@ -156,13 +156,14 @@ class ModeloSegContrato{
 	            $fchCancelacion = dateFormat($key['fch_cancelacion']);
 	        }
 
-	        if ($fchCancelacion > $fecha) {
-	        	$cronogramaCtt .= '<tr class="cuoVen">'; 
-	        }else{
-	        	$cronogramaCtt .= '<tr class="cuoPorVencer">';
-	        }
+	        // if ($fchCancelacion > $fecha) {
+	        // 	$cronogramaCtt .= '<tr class="cuoVen">'; 
+	        // }else{
+	        // 	$cronogramaCtt .= '<tr class="cuoPorVencer">';
+	        // }
 
-     		$cronogramaCtt .=   '<td>'.$key['cod_tipo_cuota'].'</td>
+     		$cronogramaCtt .=   '<tr class="cuoVen">
+     						<td>'.$key['cod_tipo_cuota'].'</td>
 		                         <td>'.$key["num_cuota"].'</td>
 		                         <td>'.$key["cod_estadocuota"].'</td>
 		                         <td>'.$fchVencimiento.'</td>
@@ -178,7 +179,7 @@ class ModeloSegContrato{
 		    $total += $key["imp_total"];
 		    $totalSaldo += $key["imp_saldo"];
 		    $totalMora += $key["imp_mora"];
-		    
+
 		}
 
 		$arrData = array('cronograma'=> $cronogramaCtt, 'total' => number_format(round($total, 2),2,',','.'), 'totalSaldo'=> number_format(round($totalSaldo, 2),2,',','.'), 'totalMora'=> number_format(round($totalMora, 2),2,',','.')); 
