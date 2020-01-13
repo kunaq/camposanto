@@ -178,6 +178,7 @@ class ModeloSegContrato{
 		    $total += $key["imp_total"];
 		    $totalSaldo += $key["imp_saldo"];
 		    $totalMora += $key["imp_mora"];
+		    
 		}
 
 		$arrData = array('cronograma'=> $cronogramaCtt, 'total' => number_format(round($total, 2),2,',','.'), 'totalSaldo'=> number_format(round($totalSaldo, 2),2,',','.'), 'totalMora'=> number_format(round($totalMora, 2),2,',','.')); 
