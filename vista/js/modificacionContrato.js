@@ -144,7 +144,7 @@ function muestraInfo(id){
 			}
 
 			$("#bodyDsctoModif").empty();
-        	var bodyDsctoModif = '<tr>'+
+        	var filaDsto = '<tr>'+
 									'<td>'+respuesta['cod_usuario']+'</td>'+
 									'<td>'+respuesta['fch_registro']+'</td>'+
 									'<td>'+respuesta['dsc_tipo_descuento']+'</td>'+
