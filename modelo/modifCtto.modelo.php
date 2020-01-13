@@ -48,5 +48,17 @@ class ModeloModifCtto{
         $db->cerrar();
 	}//mdlBuscaDsctoXCtto
 
+	static public function mdlBuscaEndXCtto($tablaEndoso,$tablaMaEnd,$codCtto,$num_servicio){
+		$db = new Conexion();
+		$sql = $db->consulta();
+		$datos = array("SELECT $tablaMaEnd.dsc_entidad, $tablaEndoso.imp_valor, $tablaEndoso.imp_saldo, $tablaEndoso.imp_total_emitido, $tablaEndoso.cod_usuario, $tablaEndoso.fch_registro, $tablaEndoso.cod_estado, $tablaEndoso.fch_vencimiento, $tablaEndoso.fch_cancelacion FROM $tablaEndoso INNER JOIN $tablaMaEnd ON $tablaMaEnd.cod_entidad = $tablaEndoso.cod_entidad WHERE $tablaEndoso.cod_contrato LIKE (RIGHT('0000000000'+'$codCtto',10)) AND $tablaEndoso.num_servicio = $num_servicio");
+    	while($key = $db->recorrer($sql)){
+	    		$datos[] = arrayMapUtf8Encode($key);
+			}
+		return $datos;
+		$db->liberar($sql);
+        $db->cerrar();
+	}//mdlBuscaEndXCtto
+
 }//class ModeloModifCtto
 ?>

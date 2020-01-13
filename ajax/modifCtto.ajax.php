@@ -41,6 +41,15 @@ class AjaxModifCtto{
 		}	
 	echo json_encode($respuesta);
 	}//ajaxBuscaDsctoXCtto
+	public function ajaxBuscaEndXCtto(){
+		$respuesta = ControladorModifCtto::ctrBuscaEndXCtto();
+		foreach ($respuesta as $key => $value) {
+			$respuesta[$key]["fch_registro"] = ($respuesta[$key]["fch_registro"] != '') ? dateTimeFormat($respuesta[$key]["fch_registro"]) : '';
+			$respuesta[$key]["fch_vencimiento"] = ($respuesta[$key]["fch_vencimiento"] != '') ? dateFormat($respuesta[$key]["fch_vencimiento"]) : '';
+			$respuesta[$key]["fch_cancelacion"] = ($respuesta[$key]["fch_cancelacion"] != '') ? dateFormat($respuesta[$key]["fch_cancelacion"]) : '';
+		}	
+	echo json_encode($respuesta);
+	}//ajaxBuscaEndXCtto
 }//class AjaxModifCtto
 /*=============================================
 ACCIONES
@@ -64,4 +73,8 @@ else if(isset($_POST["accion"]) && $_POST["accion"] == 'servPpal'){
 else if(isset($_POST["accion"]) && $_POST["accion"] == 'DsctoXCtto'){
 	$cliente = new AjaxModifCtto();
 	$cliente -> ajaxBuscaDsctoXCtto();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'EndXCtto'){
+	$cliente = new AjaxModifCtto();
+	$cliente -> ajaxBuscaEndXCtto();
 }
