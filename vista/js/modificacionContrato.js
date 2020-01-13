@@ -142,7 +142,6 @@ function muestraInfo(id){
 				check_libre = '';
 				check_tasa = '';
 			}
-
 			$("#bodyDsctoModif").empty();
         	var filaDsto = '<tr>'+
 									'<td>'+respuesta['cod_usuario']+'</td>'+
@@ -150,8 +149,8 @@ function muestraInfo(id){
 									'<td>'+respuesta['dsc_tipo_descuento']+'</td>'+
 									'<td>'+check_tasa+'</td>'+
 									'<td>'+check_libre+'</td>'+
-									'<td>'+respuesta['imp_valor']+'</td>'+
-									'<td>'+respuesta['imp_dscto']+'</td>'+
+									'<td>'+Number(respuesta['imp_valor']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+									'<td>'+Number(respuesta['imp_dscto']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
 								'</tr>';
 						// console.log(fila);
 			document.getElementById("bodyDsctoModif").insertAdjacentHTML("beforeEnd" ,filaDsto);

@@ -442,7 +442,7 @@
 														<div class="table-responsive">
 															<table class="table m-table">
 																<thead>
-																	<th>Uuario</th>
+																	<th>Usuario</th>
 																	<th>F. Registro</th>
 																	<th>Estado</th>
 																	<th>F. Vencimiento</th>
