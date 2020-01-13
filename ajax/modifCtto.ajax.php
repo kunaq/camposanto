@@ -53,5 +53,5 @@ else if(isset($_POST["accion"]) && $_POST["accion"] == 'DetServ'){
 }
 else if(isset($_POST["accion"]) && $_POST["accion"] == 'servPpal'){
 	$cliente = new AjaxModifCtto();
-	$cliente -> ajaxBuscaDatosServicio();
+	$cliente -> ajaxBuscaServPpal();
 }
