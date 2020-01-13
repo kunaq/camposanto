@@ -159,7 +159,7 @@ function buscaDscto(){
         method: "POST",
         data: { 'accion' : 'DsctoXCtto', 'codCtto' : codCtto, 'num_servicio' : numServicio },
         success : function(respuesta){
-        	console.log('respuesta',respuesta);
+        	// console.log('respuesta',respuesta);
         	$("#bodyDsctoModif").empty();
         	var total = 0;
         	$.each(respuesta,function(index,value){
