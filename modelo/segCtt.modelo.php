@@ -142,19 +142,32 @@ class ModeloSegContrato{
 
 		while($key = $db->recorrer($sql)){
 
-	      $cronogramaCtt .=   '<tr>
+			// -------- Condicional para campos NULL de fch_vencimiento -------- //
+	        if ($key['fch_vencimiento'] == NULL) {
+	            $fchVencimiento = "-";
+	        }else{
+	            $fchVencimiento = dateFormat($key['fch_vencimiento']);
+	        }
+	        // -------- Condicional para campos NULL de fch_cancelacion -------- //
+	        if ($key['fch_cancelacion'] == NULL) {
+	            $fchCancelacion = "-";
+	        }else{
+	            $fchCancelacion = dateFormat($key['fch_cancelacion']);
+	        }
+
+	      	$cronogramaCtt .=   '<tr>
 		                            <td>'.$key['cod_tipo_cuota'].'</td>
 		                            <td>'.$key["num_cuota"].'</td>
 		                            <td>'.$key["cod_estadocuota"].'</td>
-		                            <td>-</td>
-		                            <td>-</td>
+		                            <td>'.$fchVencimiento.'</td>
+		                            <td>'.$fchCancelacion.'</td>
 		                            <td>'.number_format(round($key["imp_principal"], 2),2,',','.').'</td>
 		                            <td>'.number_format(round($key["imp_interes"], 2),2,',','.').'</td>
 		                            <td>'.number_format(round($key["imp_igv"], 2),2,',','.').'</td>
 		                            <td>'.number_format(round($key["imp_total"], 2),2,',','.').'</td>
 		                            <td>'.number_format(round($key["imp_saldo"], 2),2,',','.').'</td>
 		                            <td>'.number_format(round($key["imp_mora"], 2),2,',','.').'</td>
-		                        </tr>';            
+		                        </tr>';       
 		}
 		$arrData = array('cronograma'=> $cronogramaCtt); 
 
