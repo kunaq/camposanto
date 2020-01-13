@@ -103,7 +103,7 @@ class ModeloSegContrato{
 		$totalSaldo = 0;
 		$totalMora = 0;
 		$tasa = 0.12;
-		$fecha_actual = strtotime(date("d-m-Y H:i:00",time()));
+		$fecha = date('Y-m-d');
 		$num_dias=1;
 
 		$db = new Conexion();
@@ -155,16 +155,15 @@ class ModeloSegContrato{
 	            $fchCancelacion = dateFormat($key['fch_cancelacion']);
 	        }
 
-	        $fchEntrada = new DateTime($key['fch_vencimiento']);
-	        $fecha_entrada = strtotime($fchEntrada);
+	        // $fchEntrada = new DateTime($key['fch_vencimiento']);
 
-	        if ($fchVencimiento < $fchEntrada) {
+	        if ($fchVencimiento < $fecha) {
 	        	$cronogramaCtt.='<tr style="color: red;">
 	        						<td>'.$key['cod_tipo_cuota'].'</td>
 		                            <td>'.$key["num_cuota"].'</td>
 		                            <td>'.$key["cod_estadocuota"].'</td>
 		                            <td>'.$fchVencimiento.'</td>
-		                            <td>'.$fchCancelacion.'</td>
+		                            <td>'.$fecha.'</td>
 		                            <td>'.number_format(round($key["imp_principal"], 2),2,',','.').'</td>
 		                            <td>'.number_format(round($key["imp_interes"], 2),2,',','.').'</td>
 		                            <td>'.number_format(round($key["imp_igv"], 2),2,',','.').'</td>
@@ -178,7 +177,7 @@ class ModeloSegContrato{
 		                            <td>'.$key["num_cuota"].'</td>
 		                            <td>'.$key["cod_estadocuota"].'</td>
 		                            <td>'.$fchVencimiento.'</td>
-		                            <td>'.$fchCancelacion.'</td>
+		                            <td>'.$fecha.'</td>
 		                            <td>'.number_format(round($key["imp_principal"], 2),2,',','.').'</td>
 		                            <td>'.number_format(round($key["imp_interes"], 2),2,',','.').'</td>
 		                            <td>'.number_format(round($key["imp_igv"], 2),2,',','.').'</td>
