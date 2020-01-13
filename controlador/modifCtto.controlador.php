@@ -38,12 +38,20 @@ class ControladorModifCtto{
 	static public function ctrBuscaDsctoXCtto(){
 		$tablaDscto = 'vtavi_descuento_x_contrato';
 		$tablaMaDcsto = 'vtama_tipo_descuento';
-		// $tablaEndoso = 'vtavi_endoso_x_contrato';
 		$codCtto = $_POST['codCtto'];
 		$num_servicio = $_POST['num_servicio'];
 		$respuesta = ModeloModifCtto::mdlBuscaDsctoXCtto($tablaDscto,$tablaMaDcsto,$codCtto,$num_servicio);
 		return $respuesta;
 	}//ctrBuscaDsctoXCtto
+
+	static public function ctrBuscaEndXCtto(){
+		$tablaEndoso = 'vtavi_endoso_x_contrato';
+		$tablaMaEnd = 'vtama_entidad';
+		$codCtto = $_POST['codCtto'];
+		$num_servicio = $_POST['num_servicio'];
+		$respuesta = ModeloModifCtto::mdlBuscaEndXCtto($tablaEndoso,$tablaMaEnd,$codCtto,$num_servicio);
+		return $respuesta;
+	}
 
 }//class ControladorModifCtto
 ?>

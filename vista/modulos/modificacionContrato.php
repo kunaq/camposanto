@@ -453,18 +453,7 @@
 																	<th>Saldo</th>
 																	<th>Emitido</th>
 																</thead>
-																<tbody>
-																	<tr>
-																		<td>1</td>
-																		<td>DU000035</td>
-																		<td>POR SERVICIO DE DERECHO DE USO</td>
-																		<td>1</td>
-																		<td>9.300,00</td>
-																		<td>3.815,00</td>
-																		<td>7.600,00</td>
-																		<td>0,00</td>
-																		<td>7.600,00</td>
-																	</tr>
+																<tbody id="bodyEndosoModif">
 																</tbody>
 																<tfoot>
 																	<td></td>
@@ -473,9 +462,9 @@
 																	<td></td>
 																	<td></td>
 																	<td>Total:</td>
-																	<td>0,00</td>
-																	<td>0,00</td>
-																	<td>0,00</td>
+																	<td id="totalValEndosoModif">0,00</td>
+																	<td id="totalSaldoEndosoModif">0,00</td>
+																	<td id="totalEmiEndosoModif">0,00</td>
 																</tfoot>
 															</table>
 														</div>

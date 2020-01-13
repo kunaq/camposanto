@@ -120,7 +120,9 @@ function muestraInfo(id){
 		        success : function(respuesta){
 		        	// console.log('respuesta',respuesta);
 		        	$("#bodyServiciosPpales").empty();
+		        	var total = 0;
 		        	$.each(respuesta,function(index,value){
+		        		total = total + parseFloat(value['imp_total']);
 		        		var fila = '<tr>'+
 									'<td>1</td>'+
 									'<td>'+value['cod_servicio_principal']+'</td>'+
@@ -138,37 +140,12 @@ function muestraInfo(id){
 								'</tr>';
 								// console.log(fila);
 						document.getElementById("bodyServiciosPpales").insertAdjacentHTML("beforeEnd" ,fila);
-						document.getElementById("totalServPpal").innerText = Number(value['imp_total']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
+						document.getElementById("totalServPpal").innerText = Number(total).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
 					});//each
 		        }//success
 		    });//ajax
-
-					// var check_tasa = '';
-					// var check_libre = '';
-					// if(respuesta['flg_tasa'] == 'SI'){
-					// 	check_tasa = "<i class='fa fa-check'></i>";
-					// 	check_libre = '';
-					// }else if(respuesta['flg_libre'] == 'SI'){
-					// 	check_libre = "<i class='fa fa-check'></i>";
-					// 	check_tasa = '';
-					// }else{
-					// 	check_libre = '';
-					// 	check_tasa = '';
-					// }
-					// $("#bodyDsctoModif").empty();
-		   //      	var filaDsto = '<tr>'+
-					// 						'<td>'+respuesta['cod_usuario']+'</td>'+
-					// 						'<td>'+respuesta['fch_registro']+'</td>'+
-					// 						'<td>'+respuesta['dsc_tipo_descuento']+'</td>'+
-					// 						'<td>'+check_tasa+'</td>'+
-					// 						'<td>'+check_libre+'</td>'+
-					// 						'<td>'+Number(respuesta['imp_valor']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
-					// 						'<td>'+Number(respuesta['imp_dscto']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
-					// 					'</tr>';
-					// 			// console.log(fila);
-					// document.getElementById("bodyDsctoModif").insertAdjacentHTML("beforeEnd" ,filaDsto);
-					// document.getElementById("totalDsctoModif").innerText = Number(respuesta['imp_totalneto']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
-
+		    buscaDscto();
+		    buscaEndoso();
         }//success
     });//ajax
 }//muestraInfo
@@ -182,7 +159,7 @@ function buscaDscto(){
         method: "POST",
         data: { 'accion' : 'DsctoXCtto', 'codCtto' : codCtto, 'num_servicio' : numServicio },
         success : function(respuesta){
-        	console.log('respuesta',respuesta);
+        	// console.log('respuesta',respuesta);
         	$("#bodyDsctoModif").empty();
         	var total = 0;
         	$.each(respuesta,function(index,value){
@@ -216,3 +193,42 @@ function buscaDscto(){
         }//success
     });//ajax
 }//buscaDscto
+
+function buscaEndoso(){
+	var codCtto = $("#codContrato").val();
+	var numServicio = $("#numServicio").val();
+	$.ajax({
+        url: 'ajax/modifCtto.ajax.php',
+        dataType: 'json',
+        method: "POST",
+        data: { 'accion' : 'EndXCtto', 'codCtto' : codCtto, 'num_servicio' : numServicio },
+        success : function(respuesta){
+        	console.log('respuesta',respuesta);
+        	$("#bodyEndosoModif").empty();
+        	var totalSaldo = 0;
+        	var totalEmitido = 0;
+        	var totalValor = 0;
+        	$.each(respuesta,function(index,value){
+        		totalSaldo = totalSaldo + parseFloat(value['imp_valor']);
+        		totalEmitido = totalEmitido + parseFloat(value['imp_saldo']);
+        		totalValor = totalValor + parseFloat(value['imp_total_emitido']);
+        		var filaDsto = '<tr>'+
+									'<td>'+value['cod_usuario']+'</td>'+
+									'<td>'+value['fch_registro']+'</td>'+
+									'<td>'+value['cod_estado']+'</td>'+
+									'<td>'+value['fch_vencimiento']+'</td>'+
+									'<td>'+value['fch_cancelacion']+'</td>'+
+									'<td style="text-align: left;">'+value['dsc_entidad']+'</td>'+
+									'<td>'+Number(value['imp_valor']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+									'<td>'+Number(value['imp_saldo']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+									'<td>'+Number(value['imp_total_emitido']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+								'</tr>';
+							// console.log(fila);
+				document.getElementById("bodyEndosoModif").insertAdjacentHTML("beforeEnd" ,filaDsto);
+				document.getElementById("totalSaldoEndosoModif").innerText = Number(totalSaldo).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
+				document.getElementById("totalEmiEndosoModif").innerText = Number(totalEmitido).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
+				document.getElementById("totalValEndosoModif").innerText = Number(totalValor).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
+        	});//each
+        }//success
+    });//ajax
+}//buscaEndoso
