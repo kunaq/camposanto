@@ -15,7 +15,7 @@ class AjaxSegCtt{
 	}//function ajaxGetServiciosCtt
 	public function ajaxGetCuotas(){
 		$respuesta = ControladorSegContrato::ctrGetCuotas();
-		echo json_encode($respuesta);
+		echo var_dump($respuesta);
 	}//function ajaxGuardaDscto
 	// public function ajaxEjecutaProcedureGeneraCtto(){
 	// 	$respuesta = ControladorWizard::ctrEjecutaProcedureGeneraCtto();

@@ -34,12 +34,11 @@ class ModeloSegContrato{
 		$tablaServicios = "";
 
 		while ($key = $db->recorrer($sql)) {
-			var_dump($key['fch_generacion']);
         // -------- Condicional para campos NULL de fch_generacion -------- //
         if ($key['fch_generacion'] == NULL) {
             $tfechGen = "-";
         }else{
-            $tfechGen = dateFormat($key['fch_generacion']);
+            $tfechGen = $key['fch_generacion'];
         }
         // -------- Condicional para campos NULL de fch_emision -------- //
         if ($key['fch_emision'] == NULL) {
@@ -94,7 +93,7 @@ class ModeloSegContrato{
                     </tr>';
     }
 
-    return $tablaServicios;
+    return $tfechGen;
 
 	}//function mdlgetServiciosCtt
 
