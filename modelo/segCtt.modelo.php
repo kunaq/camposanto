@@ -103,7 +103,7 @@ class ModeloSegContrato{
 		$totalSaldo = 0;
 		$totalMora = 0;
 		$tasa = 0.12;
-		$fecha = date('Y-m-d');
+		$fecha_actual = strtotime(date("d-m-Y H:i:00",time()));
 		$num_dias=1;
 
 		$db = new Conexion();
@@ -156,8 +156,9 @@ class ModeloSegContrato{
 	        }
 
 	        $fchEntrada = new DateTime($key['fch_vencimiento']);
+	        $fecha_entrada = strtotime($fchEntrada);
 
-	        if ($fchEntrada < $fecha) {
+	        if ($fchVencimiento < $fchEntrada) {
 	        	$cronogramaCtt.='<tr style="color: red;">
 	        						<td>'.$key['cod_tipo_cuota'].'</td>
 		                            <td>'.$key["num_cuota"].'</td>
