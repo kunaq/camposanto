@@ -103,7 +103,7 @@ class ModeloSegContrato{
 		$totalSaldo = 0;
 		$totalMora = 0;
 		$tasa = 0.12;
-		$fecha = date('d/m/Y');
+		$fechactual = date_format(new DateTime, 'd/m/Y');
 		$num_dias=1;
 
 		$db = new Conexion();
@@ -163,7 +163,7 @@ class ModeloSegContrato{
 		                            <td>'.$key["num_cuota"].'</td>
 		                            <td>'.$key["cod_estadocuota"].'</td>
 		                            <td>'.$fchVencimiento.'</td>
-		                            <td>'.$fecha.'</td>
+		                            <td>'.$fechactual.'</td>
 		                            <td>'.number_format(round($key["imp_principal"], 2),2,',','.').'</td>
 		                            <td>'.number_format(round($key["imp_interes"], 2),2,',','.').'</td>
 		                            <td>'.number_format(round($key["imp_igv"], 2),2,',','.').'</td>
@@ -177,7 +177,7 @@ class ModeloSegContrato{
 		                            <td>'.$key["num_cuota"].'</td>
 		                            <td>'.$key["cod_estadocuota"].'</td>
 		                            <td>'.$fchVencimiento.'</td>
-		                            <td>'.$fecha.'</td>
+		                            <td>'.$fechactual.'</td>
 		                            <td>'.number_format(round($key["imp_principal"], 2),2,',','.').'</td>
 		                            <td>'.number_format(round($key["imp_interes"], 2),2,',','.').'</td>
 		                            <td>'.number_format(round($key["imp_igv"], 2),2,',','.').'</td>
