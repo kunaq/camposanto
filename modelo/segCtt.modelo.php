@@ -165,8 +165,8 @@ class ModeloSegContrato{
      		$cronogramaCtt .=   '<td>'.$key['cod_tipo_cuota'].'</td>
 		                         <td>'.$key["num_cuota"].'</td>
 		                         <td>'.$key["cod_estadocuota"].'</td>
-		                         <td>'.$fchVencimiento.'</td>
-		                         <td>'.$fchCancelacion.'</td>
+		                         <td>-</td>
+		                         <td>-</td>
 		                         <td>'.number_format(round($key["imp_principal"], 2),2,',','.').'</td>
 		                         <td>'.number_format(round($key["imp_interes"], 2),2,',','.').'</td>
 		                         <td>'.number_format(round($key["imp_igv"], 2),2,',','.').'</td>
