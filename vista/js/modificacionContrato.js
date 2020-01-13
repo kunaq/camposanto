@@ -98,6 +98,7 @@ function muestraInfo(id){
         	}
         	$("#numServicio").val(respuesta['num_servicio']);
         	$("#idPropietario").val(respuesta['cod_empresa']);
+        	$("#dscPropietario").val(respuesta['dsc_camposanto']);
         	$("#tipoServicio").val(respuesta['dsc_tipo_servicio']);
         	$("#tipoNecesidad").val(tipoNec);
         	$("#convenio").val(respuesta['dsc_entidad']);
@@ -112,6 +113,7 @@ function muestraInfo(id){
         	$("#igv").val(respuesta['imp_igv']);
         	$("#subtotal").val(respuesta['imp_subtotal']);
         	$("#total").val(respuesta['imp_totalneto']);
+        	$("#codCliTitular").val(respuesta['cod_cliente']);
         	$.ajax({
 		        url: 'ajax/modifCtto.ajax.php',
 		        dataType: 'json',
