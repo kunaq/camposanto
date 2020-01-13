@@ -34,67 +34,66 @@ class ModeloSegContrato{
 		$tablaServicios = "";
 
 		while ($key = $db->recorrer($sql)) {
-        // -------- Condicional para campos NULL de fch_generacion -------- //
-        if ($key['fch_generacion'] == NULL) {
-            $tfechGen = "-";
-        }else{
-            $tfechGen = dateFormat($key['fch_generacion']);
-        }
-        // -------- Condicional para campos NULL de fch_emision -------- //
-        if ($key['fch_emision'] == NULL) {
-            $tfechEmi = "-";
-        }else{
-            $tfechEmi = dateFormat($key['fch_emision']);
-        }
-        // -------- Condicional para campos NULL de fch_activacion -------- //
-        if ($key['fch_activacion'] == NULL) {
-            $tfechAct = "-";
-        }else{
-            $tfechAct = dateFormat($key['fch_activacion']);
-        }
-        // -------- Condicional para campos NULL de fch_resolución -------- //
-        if ($key['fch_resolucion'] == NULL) {
-            $tfechRes = "-";
-        }else{
-            $tfechRes = dateFormat($key['fch_resolucion']);
-        }
-        // -------- Condicional para campos NULL de fch_anulacion -------- //
-        if ($key['fch_anulacion'] == NULL) {
-            $tfechAnu = "-";
-        }else{
-            $tfechAnu = dateFormat($key['fch_anulacion']);
-        }
-        // -------- Condicional para campos NULL de fch_transferencia -------- //
-        if ($key['fch_transferencia'] == NULL) {
-            $tfechTrans = "-";
-        }else{
-            $tfechTrans = dateFormat($key['fch_transferencia']);
-        }
-        $numCtt = "'".$key['cod_contrato']."'";
-        $codLocalidad = $key['cod_localidad'];
-        $localidad = "'".$key['cod_localidad']."'";
-        $tasaInt = "'".$key['imp_tasa_interes']."'";
-        $codTipoCtt = $key['cod_tipo_ctt'];
-        $tipoContrato = "'".$key['cod_tipo_ctt']."'";
-        $tipoPrograma = "'".$key['cod_tipo_programa']."'";
-        $numRef = "'".$key['num_refinanciamiento']."'";
-        $numServ = "'".$key['num_servicio']."'";
+	        // -------- Condicional para campos NULL de fch_generacion -------- //
+	        if ($key['fch_generacion'] == NULL) {
+	            $tfechGen = "-";
+	        }else{
+	            $tfechGen = dateFormat($key['fch_generacion']);
+	        }
+	        // -------- Condicional para campos NULL de fch_emision -------- //
+	        if ($key['fch_emision'] == NULL) {
+	            $tfechEmi = "-";
+	        }else{
+	            $tfechEmi = dateFormat($key['fch_emision']);
+	        }
+	        // -------- Condicional para campos NULL de fch_activacion -------- //
+	        if ($key['fch_activacion'] == NULL) {
+	            $tfechAct = "-";
+	        }else{
+	            $tfechAct = dateFormat($key['fch_activacion']);
+	        }
+	        // -------- Condicional para campos NULL de fch_resolución -------- //
+	        if ($key['fch_resolucion'] == NULL) {
+	            $tfechRes = "-";
+	        }else{
+	            $tfechRes = dateFormat($key['fch_resolucion']);
+	        }
+	        // -------- Condicional para campos NULL de fch_anulacion -------- //
+	        if ($key['fch_anulacion'] == NULL) {
+	            $tfechAnu = "-";
+	        }else{
+	            $tfechAnu = dateFormat($key['fch_anulacion']);
+	        }
+	        // -------- Condicional para campos NULL de fch_transferencia -------- //
+	        if ($key['fch_transferencia'] == NULL) {
+	            $tfechTrans = "-";
+	        }else{
+	            $tfechTrans = dateFormat($key['fch_transferencia']);
+	        }
 
-        $tablaServicios.= 
-                   '<tr onclick="getDatosServicioCtt(this,'.$localidad.','.$tasaInt.','.$tipoContrato.','.$tipoPrograma.','.$numCtt.','.$numRef.','.$numServ.');">
-                        <td>'.$key['num_servicio'].'</td>
-                        <td>'.$key['dsc_tipo_servicio'].'</td>
-                        <td>'.$tfechGen.'</td>
-                        <td>'.$tfechEmi.'</td>
-                        <td>'.$tfechAct.'</td>
-                        <td>'.$tfechAnu.'</td>
-                        <td>'.$tfechRes.'</td>
-                        <td>'.$tfechTrans.'</td>
-                    </tr>';
-    }
+	        $numCtt = "'".$key['cod_contrato']."'";
+	        $codLocalidad = $key['cod_localidad'];
+	        $localidad = "'".$key['cod_localidad']."'";
+	        $tasaInt = "'".$key['imp_tasa_interes']."'";
+	        $codTipoCtt = $key['cod_tipo_ctt'];
+	        $tipoContrato = "'".$key['cod_tipo_ctt']."'";
+	        $tipoPrograma = "'".$key['cod_tipo_programa']."'";
+	        $numRef = "'".$key['num_refinanciamiento']."'";
+	        $numServ = "'".$key['num_servicio']."'";
 
+	        $tablaServicios.= 
+	                   '<tr onclick="getDatosServicioCtt(this,'.$localidad.','.$tasaInt.','.$tipoContrato.','.$tipoPrograma.','.$numCtt.','.$numRef.','.$numServ.');">
+	                        <td>'.$key['num_servicio'].'</td>
+	                        <td>'.$key['dsc_tipo_servicio'].'</td>
+	                        <td>'.$tfechGen.'</td>
+	                        <td>'.$tfechEmi.'</td>
+	                        <td>'.$tfechAct.'</td>
+	                        <td>'.$tfechAnu.'</td>
+	                        <td>'.$tfechRes.'</td>
+	                        <td>'.$tfechTrans.'</td>
+	                    </tr>';
+   		}
     return $tablaServicios;
-
 	}//function mdlgetServiciosCtt
 
 	static public function mdlGetCuotas($datos){
@@ -143,20 +142,7 @@ class ModeloSegContrato{
 
 		while($key = $db->recorrer($sql)){
 
-			// -------- Condicional para campos NULL de fch_vencimiento -------- //
-	        if ($key['fch_vencimiento'] == NULL) {
-	            $fchVencimiento = "-";
-	        }else{
-	            $fchVencimiento = dateFormat($key['fch_vencimiento']);
-	        }
-	        // -------- Condicional para campos NULL de fch_cancelacion -------- //
-	        if ($key['fch_cancelacion'] == NULL) {
-	            $fchCancelacion = "-";
-	        }else{
-	            $fchCancelacion = dateFormat($key['fch_cancelacion']);
-	        }
-
-     		$cronogramaCtt .=   '<tr>
+	      $cronogramaCtt .=   '<tr>
 		                            <td>'.$key['cod_tipo_cuota'].'</td>
 		                            <td>'.$key["num_cuota"].'</td>
 		                            <td>'.$key["cod_estadocuota"].'</td>
@@ -168,14 +154,10 @@ class ModeloSegContrato{
 		                            <td>'.number_format(round($key["imp_total"], 2),2,',','.').'</td>
 		                            <td>'.number_format(round($key["imp_saldo"], 2),2,',','.').'</td>
 		                            <td>'.number_format(round($key["imp_mora"], 2),2,',','.').'</td>
-		                        </tr>';
-
-		    $total += $key["imp_total"];
-		    $totalSaldo += $key["imp_saldo"];
-		    $totalMora += $key["imp_mora"];
+		                        </tr>';            
 		}
 
-		$arrData = array('cronograma'=> $cronogramaCtt, 'total' => number_format(round($total, 2),2,',','.'), 'totalSaldo'=> number_format(round($totalSaldo, 2),2,',','.'), 'totalMora'=> number_format(round($totalMora, 2),2,',','.')); 
+		$arrData = array('cronograma'=> $cronogramaCtt); 
 
 		return $arrData;
 
