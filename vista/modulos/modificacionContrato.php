@@ -361,7 +361,7 @@
 											<a class="nav-link m-tabs__link active" data-toggle="tab" href="#m_tabs_6_1" role="tab">Servicios Principales</a>
 										</li>
 										<li class="nav-item m-tabs__item">
-											<a class="nav-link m-tabs__link" data-toggle="tab" href="#m_tabs_6_2" role="tab">Descuentos</a>
+											<a class="nav-link m-tabs__link" data-toggle="tab" href="#m_tabs_6_2" role="tab" onclick="buscaDscto();">Descuentos</a>
 										</li>
 										<li class="nav-item m-tabs__item">
 											<a class="nav-link m-tabs__link" data-toggle="tab" href="#m_tabs_6_3" role="tab">Endosos</a>

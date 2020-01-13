@@ -171,3 +171,7 @@ function muestraInfo(id){
         }//success
     });//ajax
 }//muestraInfo
+
+function buscaDscto(){
+	alert('llego');
+}
