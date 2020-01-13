@@ -103,7 +103,7 @@ class ModeloSegContrato{
 		$totalSaldo = 0;
 		$totalMora = 0;
 		$tasa = 0.12;
-		$fecha = date('d-m-Y');
+		$fechactual = new DateTime;
 		$num_dias=1;
 
 		$db = new Conexion();
@@ -155,9 +155,9 @@ class ModeloSegContrato{
 	            $fchCancelacion = dateFormat($key['fch_cancelacion']);
 	        }
 
-	        // $fchEntrada = new DateTime($data);
+	        $fchEntrada = new DateTime($key['fch_vencimiento']);
 
-	        if ($fchVencimiento < $fecha) {
+	        if ($fchEntrada < $fechactual) {
 	        	$cronogramaCtt.='<tr style="color: red;">
 	        						<td>'.$key['cod_tipo_cuota'].'</td>
 		                            <td>'.$key["num_cuota"].'</td>
@@ -171,7 +171,7 @@ class ModeloSegContrato{
 		                            <td>'.number_format(round($key["imp_saldo"], 2),2,',','.').'</td>
 		                            <td>'.number_format(round($key["imp_mora"], 2),2,',','.').'</td>
 		                        </tr>'; 
-	        }else{
+	        }elseif ($fchEntrada > $fechactual) {
 	        	$cronogramaCtt.='<tr style="color: #0050CC;">
 	        						<td>'.$key['cod_tipo_cuota'].'</td>
 		                            <td>'.$key["num_cuota"].'</td>
@@ -186,9 +186,12 @@ class ModeloSegContrato{
 		                            <td>'.number_format(round($key["imp_mora"], 2),2,',','.').'</td>
 		                        </tr>';
 	        }
-      
+
+	        $total += $key["imp_total"];
+		    $totalSaldo += $key["imp_saldo"];
+		    $totalMora += $key["imp_mora"];
 		}
-		$arrData = array('cronograma'=> $cronogramaCtt); 
+		$arrData = array('cronograma'=> $cronogramaCtt, 'total' => number_format(round($total, 2),2,',','.'), 'totalSaldo'=> number_format(round($totalSaldo, 2),2,',','.'), 'totalMora'=> number_format(round($totalMora, 2),2,',','.')); 
 
 		return $arrData;
 
