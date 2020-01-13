@@ -155,9 +155,9 @@ class ModeloSegContrato{
 	            $fchCancelacion = dateFormat($key['fch_cancelacion']);
 	        }
 
-	        // $fchEntrada = new DateTime($key['fch_vencimiento']);
+	        $fchEntrada = new DateTime($key['fch_vencimiento']);
 
-	        if ($$key['fch_vencimiento'] > $fechactual) {
+	        if ($key['fch_vencimiento'] > $fechactual) {
 	        	$cronogramaCtt.='<tr style="color: red;">
 	        						<td>'.$key['cod_tipo_cuota'].'</td>
 		                            <td>'.$key["num_cuota"].'</td>
