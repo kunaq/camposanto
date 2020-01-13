@@ -464,9 +464,6 @@
 																		<td>0,00</td>
 																		<td>7.600,00</td>
 																	</tr>
-																	<tr>
-																		<td></td>
-																	</tr>
 																</tbody>
 																<tfoot>
 																	<td></td>
