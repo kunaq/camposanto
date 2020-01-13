@@ -60,5 +60,14 @@ class ModeloModifCtto{
         $db->cerrar();
 	}//mdlBuscaEndXCtto
 
+	static public function mdlBuscaCliente($tablaCliente,$tablaDireccion,$tablaPais,$tablaDpto,$tablaProvi,$tablaDtto,$codCliente){
+		$db = new Conexion();
+		$sql = $db->consulta("SELECT $tablaCliente.*, $tablaDireccion.*, $tablaPais.dsc_pais, $tablaDpto.dsc_departamento, $tablaProvi.dsc_provincia,$tablaDtto.dsc_distrito FROM $tablaCliente LEFT JOIN $tablaDireccion ON $tablaDireccion.cod_cliente = $tablaCliente.cod_cliente INNER JOIN $tablaPais ON $tablaPais.cod_pais = $tablaDireccion.cod_pais INNER JOIN $tablaDpto.cod_departamento = $tablaDireccion.cod_departamento INNER JOIN $tablaProvi ON $tablaProvi.cod_provincia = $tablaDireccion.cod_provincia INNER JOIN $tablaDtto ON $tablaDtto.cod_distrito = $tablaDireccion.cod_distrito WHERE $tablaCliente.cod_cliente = $codCliente");
+		$datos = arrayMapUtf8Encode($db->recorrer($sql));
+		return $datos;
+		$db->liberar($sql);
+        $db->cerrar();
+	}//mdlBuscaCliente
+
 }//class ModeloModifCtto
 ?>
