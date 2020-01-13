@@ -138,7 +138,7 @@ function muestraInfo(id){
 								// console.log(fila);
 						document.getElementById("bodyServiciosPpales").insertAdjacentHTML("beforeEnd" ,fila);
 						document.getElementById("totalServPpal").innerText = Number(value['imp_totalneto']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
-					}//each
+					});//each
 		        }//success
 		    });//ajax
 
