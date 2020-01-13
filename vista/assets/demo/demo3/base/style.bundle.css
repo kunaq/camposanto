@@ -51724,3 +51724,13 @@ th{
     background-color: transparent;
     text-decoration: none;
 }
+
+/*--------------------------------- Seguimiento Contrato --------------------------------*/
+
+.myTableServicios tbody tr:hover{
+    background-color: #b6afaf;
+}
+
+.selected{
+    background-color: #b6afaf;
+}

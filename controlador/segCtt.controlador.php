@@ -1,47 +1,38 @@
 <?php
+
 session_start();
-class ControladorWizard{
-	static public function ctrEdoEspacio(){
-		$tabla = "vtaca_espacio";
-		$y = $_POST['value'];
-	    $x = $_POST['ejex'];
-	    $area = $_POST['area'];
-	    $plat = $_POST['plat'];
-	    $camps = $_POST['campo'];
-		$respuesta = ModeloWizard::mdlEdoEspacio($tabla,$camps,$plat,$area,$x,$y);
-		return $respuesta;
-	}//function ctrEdoEspacio
 
-	static public function ctrIdentificador(){
-		$respuesta = ModeloWizard::mdlIdentificador();
-		// $borrar = ModeloWizard::mdlBorrarTemporal($respuesta);
-		return $respuesta;
-	}//function ctrIdentificador
+class ControladorSegContrato{
 
-	static public function ctrGuardaDetalle(){
-		$tabla = "vtama_temp_recaudacion";
-		$num_id = $_POST['num_id'];
-	    $num_linea = $_POST['num_linea'];
-	    $cod_servicio = $_POST['cod_servicio'];
-	    $num_ctd = $_POST['num_ctd'];
-	    $imp_precio_venta = (float)$_POST['imp_precio_venta'];
-	    $imp_total = (float)$_POST['imp_total'];
-	    $imp_cuoi = (float)$_POST['imp_cuoi'];
-	    $imp_foma = (float)$_POST['imp_foma'];
-	    $imp_cuoi_standar = (float)$_POST['imp_cuoi_standar'];
-	    $imp_min_inhumar = (float)$_POST['imp_min_inhumar'];
-	    $imp_precio_lista = (float)$_POST['imp_precio_lista'];
-	    $imp_endoso = (float)$_POST['imp_endoso'];
-	    $flg_ds_compartido = $_POST['flg_ds_compartido'];
-	    $imp_costo_carencia = (float)$_POST['imp_costo_carencia'];
-	    $flg_cremacion = $_POST['flg_cremacion'];
-	    $flg_ds_temporal = $_POST['flg_ds_temporal'];
-	    $flg_ssff = $_POST['flg_ssff'];
-	    $imp_saldo = (float)$_POST['imp_saldo'];
+	static public function ctrGetDatosCtt(){
+		$cod_contrato = $_POST['cod_contrato'];
 	    
-		$respuesta = ModeloWizard::mdlGuardaDetalle($tabla,$num_id,$num_linea,$cod_servicio,$num_ctd,$imp_precio_venta,$imp_total,$imp_cuoi,$imp_foma,$imp_cuoi_standar,$imp_min_inhumar,$imp_precio_lista,$imp_endoso,$flg_ds_compartido,$imp_costo_carencia,$flg_cremacion,$flg_ds_temporal,$flg_ssff,$imp_saldo);
+		$respuesta = ModeloSegContrato::mdlGetDatosCtt($cod_contrato);
 		return $respuesta;
-	}//function ctrGuardaDetalle
+	}//function ctrGetDatosCtt
+
+	static public function ctrGetServiciosCtt(){
+
+		$cod_contrato = $_POST['cod_contrato'];
+
+		$respuesta = ModeloSegContrato::mdlgetServiciosCtt($cod_contrato);
+		return $respuesta;
+	}//function ctrgetServiciosCtt
+
+	static public function ctrGetCuotas(){
+
+		$datos = array('localidad' => $_POST['localidad'],
+					   'impTasa' => $_POST['impTasa'],
+					   'tipoCtt' => $_POST['tipoCtt'],
+					   'tipoPro' => $_POST['tipoPro'],
+					   'codCtt' => $_POST['codCtt'],
+					   'numRef' => $_POST['numRef'],
+					   'numSer' => $_POST['numSer']);
+
+		$respuesta = ModeloSegContrato::mdlGetCuotas($datos);
+		return $respuesta;
+	}//function ctrgetServiciosCtt
+
 
 	static public function ctrEjecutaProcedureGeneraCtto(){
 		$fecha = date('Y-m-d');
@@ -87,29 +78,6 @@ class ControladorWizard{
 		$respuesta = ModeloWizard::ejecutaProcedureGeneraCtto($datos);
 		return $respuesta;
 	}//function ctrEjecutaProcedureGeneraCtto
-
-	static public function ctrGuardaDscto(){
-		$tabla = 'vtavi_descuento_x_contrato';
-		$fecha = date('Y-m-d');
-		$hora = date('H:i:s');
-		$fechaActual = $fecha.' '.$hora;
-		$datos =  array('ls_localidad' => $_SESSION['localidad'],
-						'ls_num_contrato_new' => $_POST['ls_num_contrato_new'],
-						'ls_num_servicio_new' => $_POST['ls_num_servicio_new'],
-						'ls_tipo_dscto' => $_POST['ls_tipo_dscto'],
-						'ls_flg_tasa' => $_POST['ls_flg_tasa'],
-						'ls_flg_libre' => $_POST['ls_flg_libre'],
-						'lde_valor_dscto' => (float)$_POST['lde_valor_dscto'],
-						'lde_imp_dscto' => (float)$_POST['lde_imp_dscto'],
-						'ldt_fch_actual' => $fechaActual,
-						'gs_usuario' => $_SESSION["user"],
-						'ls_flg_periodo' => $_POST['ls_flg_periodo'],
-						'ls_tipo_ctt_new' => $_POST['ls_tipo_ctt_new'],
-						'ls_tipo_programa_new' => $_POST['ls_tipo_programa_new']
-					 );
-		$respuesta = ModeloWizard::mdlguardaDscto($datos, $tabla);
-		return $respuesta;
-	}//function ctrGuardaDscto
 
 	static public function ctrGuardaEndoso(){
 		$tabla = 'vtavi_endoso_x_contrato';
