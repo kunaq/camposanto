@@ -59,7 +59,7 @@
 								</div>
 								<div class="col-lg-1" id="divBtnCtt">
 									<label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<button class="btn btn-sm btnGuardarKqPst" id="btnBuscarContrato" onclick="buscaCtt();"><i class="fa fa-search"></i></button>
+									<button class="btn btn-sm btnGuardarKqPst" id="btnBuscarContrato" onclick="getDatosCtt();"><i class="fa fa-search"></i></button>
 								</div>
 							</div>
 						</div>
@@ -117,7 +117,7 @@
 								<div class="col-lg-10" id="divTableServicios">
 									<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="200">
 		                				<div class="table-responsive">
-											<table class="table">
+											<table class="table myTableServicios" id="myTableServicios">
 												<thead>
 													<th>N°</th>
 													<th>Tipo de Servicio</th>
@@ -128,6 +128,7 @@
 													<th>Fecha Resolución</th>
 													<th>Fecha Transferencia</th>
 												</thead>
+												<tbody id="tbodyServicios"></tbody>
 											</table>
 										</div>
 									</div>
@@ -141,7 +142,7 @@
 												</thead>
 												<tbody id="tbodyRef">
 													<tr>
-														<td></td>
+														<td id="numRef"></td>
 													</tr>
 												</tbody>
 											</table>
@@ -242,7 +243,7 @@
 																	<th>Saldo</th>
 																	<th>Mora</th>
 																</thead>
-																<tbody>
+																<tbody id="tbodyCuotas">
 																	<tr>
 																		<td></td>
 																		<td></td>		
@@ -267,9 +268,9 @@
 																		<td></td>
 																		<td>Total</td>
 																		<td>-----></td>
-																		<td>0,00</td>
-																		<td>0,00</td>
-																		<td>0,00</td>
+																		<td id="total">0,00</td>
+																		<td id="saldoTotal">0,00</td>
+																		<td id="moraTotal">0,00</td>
 																	</tr>
 																</tfoot>
 															</table>
