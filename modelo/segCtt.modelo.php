@@ -159,7 +159,7 @@ class ModeloSegContrato{
 	        if ($fchCancelacion > $fecha) {
 	        	$cronogramaCtt .= '<tr class="cuoVen">'; 
 	        }else{
-	        	$cronograma .= '<tr class="cuoPorVencer">';
+	        	$cronogramaCtt .= '<tr class="cuoPorVencer">';
 	        }
 
      		$cronogramaCtt .=   '<td>'.$key['cod_tipo_cuota'].'</td>
