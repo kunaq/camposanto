@@ -147,7 +147,7 @@ class ModeloSegContrato{
 	        if ($key['fch_vencimiento'] == NULL) {
 	            $fchVencimiento = "-";
 	        }else{
-	            $fchVencimiento = $key['fch_vencimiento']['date'];
+	            $fchVencimiento = $key['fch_vencimiento'];
 	        }
 	        // -------- Condicional para campos NULL de fch_cancelacion -------- //
 	        if ($key['fch_cancelacion'] == NULL) {
