@@ -130,15 +130,28 @@ function muestraInfo(id){
 						// console.log(fila);
 			document.getElementById("bodyServiciosPpales").insertAdjacentHTML("beforeEnd" ,fila);
 			document.getElementById("totalServPpal").innerText = Number(respuesta['imp_totalneto']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
+			var check_tasa = '';
+			var check_libre = '';
+			if(respuesta['flg_tasa'] == 'SI'){
+				check_tasa = "<i class='fa fa-check'></i>";
+				check_libre = '';
+			}else if(respuesta['flg_libre'] == 'SI'){
+				check_libre = "<i class='fa fa-check'></i>";
+				check_tasa = '';
+			}else{
+				check_libre = '';
+				check_tasa = '';
+			}
+
 			$("#bodyDsctoModif").empty();
         	var bodyDsctoModif = '<tr>'+
 									'<td>'+respuesta['cod_usuario']+'</td>'+
-									'<td>25/04/2019 16:53</td>'+
-									'<td>DESCUENTO LIBRE</td>'+
-									'<td><input type="checkbox" name=""></td>'+
-									'<td><input type="checkbox" name=""></td>'+
-									'<td>1.700,00</td>'+
-									'<td>1.700,00</td>'+
+									'<td>'+respuesta['fch_registro']+'</td>'+
+									'<td>'+respuesta['dsc_tipo_descuento']+'</td>'+
+									'<td>'+check_tasa+'</td>'+
+									'<td>'+check_libre+'</td>'+
+									'<td>'+respuesta['imp_valor']+'</td>'+
+									'<td>'+respuesta['imp_dscto']+'</td>'+
 								'</tr>';
 						// console.log(fila);
 			document.getElementById("bodyDsctoModif").insertAdjacentHTML("beforeEnd" ,filaDsto);
