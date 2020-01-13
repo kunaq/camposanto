@@ -111,9 +111,14 @@ function muestraInfo(id){
         	$("#igv").val(respuesta['imp_igv']);
         	$("#subtotal").val(respuesta['imp_subtotal']);
         	$("#total").val(respuesta['imp_totalneto']);
-
-
-		   //      	$("#bodyServiciosPpales").empty();
+        	$.ajax({
+		        url: 'ajax/modifCtto.ajax.php',
+		        dataType: 'json',
+		        method: "POST",
+		        data: { 'accion' : 'servPpal', 'codCtto' : codCtto, 'num_servicio' : id },
+		        success : function(respuesta){
+		        	console.log('respuesta',respuesta);
+		        	$("#bodyServiciosPpales").empty();
 		   //      	var fila = '<tr>'+
 					// 				'<td>1</td>'+
 					// 				'<td>'+respuesta['cod_servicio_principal']+'</td>'+
@@ -126,12 +131,15 @@ function muestraInfo(id){
 					// 				'</td>'+
 					// 				'<td>'+Number(respuesta['imp_igv']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
 					// 				'</td>'+
-					// 				'<td>'+Number(respuesta['imp_totalneto']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+					// 				'<td>'+Number(respuesta['imp_total']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
 					// 				'</td>'+
 					// 			'</tr>';
 					// 			// console.log(fila);
 					// document.getElementById("bodyServiciosPpales").insertAdjacentHTML("beforeEnd" ,fila);
 					// document.getElementById("totalServPpal").innerText = Number(respuesta['imp_totalneto']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
+		        }//success
+		    });//ajax
+
 					// var check_tasa = '';
 					// var check_libre = '';
 					// if(respuesta['flg_tasa'] == 'SI'){

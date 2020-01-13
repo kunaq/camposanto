@@ -18,18 +18,25 @@ class ControladorModifCtto{
 
 	static public function ctrBuscaDatosServicio(){
 		$tablaCtto = 'vtade_contrato';
-		$tablaCttoSvcio = 'vtade_contrato_servicio';
 		$tablaEnt = 'vtama_entidad';
 		$tablaTipoSvcio = 'vtama_tipo_servicio';
-		$tablaMaSvcio = 'vtama_servicio';
-		$tablaDscto = 'vtavi_descuento_x_contrato';
-		$tablaMaDcsto = 'vtama_tipo_descuento';
-		$tablaEndoso = 'vtavi_endoso_x_contrato';
 		$codCtto = $_POST['codCtto'];
 		$num_servicio = $_POST['num_servicio'];
-		$respuesta = ModeloModifCtto::mdlBuscaDatosServicio($tablaCtto,$tablaCttoSvcio,$tablaEnt,$tablaTipoSvcio,$tablaMaSvcio,$tablaDscto,$tablaMaDcsto,$tablaEndoso,$codCtto,$num_servicio);
+		$respuesta = ModeloModifCtto::mdlBuscaDatosServicio($tablaCtto,$tablaEnt,$tablaTipoSvcio,$codCtto,$num_servicio);
 		return $respuesta;
 	}//ctrBuscaDatosServicio
+
+	static public function ctrBuscaServPpal(){
+		$tablaCttoSvcio = 'vtade_contrato_servicio';
+		$tablaMaSvcio = 'vtama_servicio';
+		// $tablaDscto = 'vtavi_descuento_x_contrato';
+		// $tablaMaDcsto = 'vtama_tipo_descuento';
+		// $tablaEndoso = 'vtavi_endoso_x_contrato';
+		$codCtto = $_POST['codCtto'];
+		$num_servicio = $_POST['num_servicio'];
+		$respuesta = ModeloModifCtto::mdlBuscaServPpal($tablaCttoSvcio,$tablaMaSvcio,$codCtto,$num_servicio);
+		return $respuesta;
+	}//ctrBuscaServPpal
 
 }//class ControladorModifCtto
 ?>

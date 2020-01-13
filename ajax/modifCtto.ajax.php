@@ -20,15 +20,21 @@ class AjaxModifCtto{
 	}//function ajaxBuscaCtto
 	public function ajaxBuscaDatosServicio(){
 		$respuesta = ControladorModifCtto::ctrBuscaDatosServicio();
-		// $respuesta["fch_generacion"] = ($respuesta["fch_generacion"] != '') ? dateFormat($respuesta["fch_generacion"]) : '';
-		// $respuesta["fch_anulacion"] = ($respuesta["fch_anulacion"] != '') ? dateFormat($respuesta["fch_anulacion"]) : '';
-		// $respuesta["fch_emision"]= ($respuesta["fch_emision"] != '') ? dateFormat($respuesta["fch_emision"]) : '';
-		// $respuesta["fch_activacion"] = ($respuesta["fch_activacion"] != '') ? dateFormat($respuesta["fch_activacion"]) : '';
-		// $respuesta["fch_resolucion"] = ($respuesta["fch_resolucion"] != '') ? dateFormat($respuesta["fch_resolucion"]) : '';
 		$respuesta["fch_primer_vencimiento"] = ($respuesta["fch_primer_vencimiento"] != '') ? dateFormat($respuesta["fch_primer_vencimiento"]) : '';
 		// $respuesta["fch_registro"] = ($respuesta["fch_registro"] != '') ? dateTimeFormat($respuesta["fch_registro"]) : '';
 		echo json_encode($respuesta);
 	}//ajaxBuscaDatosServicio
+	public function ajaxBuscaServPpal(){
+		$respuesta = ControladorModifCtto::ctrBuscaServPpal();
+		foreach ($respuesta as $key => $value) {
+			$respuesta["fch_generacion"] = ($respuesta["fch_generacion"] != '') ? dateFormat($respuesta["fch_generacion"]) : '';
+			$respuesta["fch_anulacion"] = ($respuesta["fch_anulacion"] != '') ? dateFormat($respuesta["fch_anulacion"]) : '';
+			$respuesta["fch_emision"]= ($respuesta["fch_emision"] != '') ? dateFormat($respuesta["fch_emision"]) : '';
+			$respuesta["fch_activacion"] = ($respuesta["fch_activacion"] != '') ? dateFormat($respuesta["fch_activacion"]) : '';
+			$respuesta["fch_resolucion"] = ($respuesta["fch_resolucion"] != '') ? dateFormat($respuesta["fch_resolucion"]) : '';
+		}	
+	echo json_encode($respuesta);
+	}//ajaxBuscaServPpal
 }//class AjaxModifCtto
 /*=============================================
 ACCIONES
@@ -42,6 +48,10 @@ else if(isset($_POST["accion"]) && $_POST["accion"] == 'conCodigo'){
 	$cliente -> ajaxBuscaCtto();
 }
 else if(isset($_POST["accion"]) && $_POST["accion"] == 'DetServ'){
+	$cliente = new AjaxModifCtto();
+	$cliente -> ajaxBuscaDatosServicio();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'servPpal'){
 	$cliente = new AjaxModifCtto();
 	$cliente -> ajaxBuscaDatosServicio();
 }
