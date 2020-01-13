@@ -147,32 +147,27 @@ class ModeloSegContrato{
 	        if ($key['fch_vencimiento'] == NULL) {
 	            $fchVencimiento = "-";
 	        }else{
-	            $fchVencimiento = $key['fch_vencimiento']->format('Y-m-d H:i:s')
+	            $fchVencimiento = dateFormat($key['fch_vencimiento']);
 	        }
 	        // -------- Condicional para campos NULL de fch_cancelacion -------- //
 	        if ($key['fch_cancelacion'] == NULL) {
 	            $fchCancelacion = "-";
 	        }else{
-	            $fchCancelacion = $key['fch_cancelacion'];
+	            $fchCancelacion = dateFormat($key['fch_cancelacion']);
 	        }
 
-	        if ($fchCancelacion > $fecha) {
-	        	$cronogramaCtt .= '<tr class="cuoVen">'; 
-	        }else{
-	        	$cronogramaCtt .= '<tr class="cuoPorVencer">';
-	        }
-
-     		$cronogramaCtt .=   '<td>'.$key['cod_tipo_cuota'].'</td>
-		                         <td>'.$key["num_cuota"].'</td>
-		                         <td>'.$key["cod_estadocuota"].'</td>
-		                         <td>-</td>
-		                         <td>-</td>
-		                         <td>'.number_format(round($key["imp_principal"], 2),2,',','.').'</td>
-		                         <td>'.number_format(round($key["imp_interes"], 2),2,',','.').'</td>
-		                         <td>'.number_format(round($key["imp_igv"], 2),2,',','.').'</td>
-		                         <td>'.number_format(round($key["imp_total"], 2),2,',','.').'</td>
-		                         <td>'.number_format(round($key["imp_saldo"], 2),2,',','.').'</td>
-		                         <td>'.number_format(round($key["imp_mora"], 2),2,',','.').'</td>
+     		$cronogramaCtt .=   '<tr>
+		                            <td>'.$key['cod_tipo_cuota'].'</td>
+		                            <td>'.$key["num_cuota"].'</td>
+		                            <td>'.$key["cod_estadocuota"].'</td>
+		                            <td>-</td>
+		                            <td>-</td>
+		                            <td>'.number_format(round($key["imp_principal"], 2),2,',','.').'</td>
+		                            <td>'.number_format(round($key["imp_interes"], 2),2,',','.').'</td>
+		                            <td>'.number_format(round($key["imp_igv"], 2),2,',','.').'</td>
+		                            <td>'.number_format(round($key["imp_total"], 2),2,',','.').'</td>
+		                            <td>'.number_format(round($key["imp_saldo"], 2),2,',','.').'</td>
+		                            <td>'.number_format(round($key["imp_mora"], 2),2,',','.').'</td>
 		                        </tr>';
 
 		    $total += $key["imp_total"];
@@ -182,7 +177,7 @@ class ModeloSegContrato{
 
 		$arrData = array('cronograma'=> $cronogramaCtt, 'total' => number_format(round($total, 2),2,',','.'), 'totalSaldo'=> number_format(round($totalSaldo, 2),2,',','.'), 'totalMora'=> number_format(round($totalMora, 2),2,',','.')); 
 
-		return $fchVencimiento;
+		return $arrData;
 
 	}//function mdlGetDatosCtt
 
