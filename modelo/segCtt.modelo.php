@@ -103,7 +103,7 @@ class ModeloSegContrato{
 		$totalSaldo = 0;
 		$totalMora = 0;
 		$tasa = 0.12;
-		$fecha = date('Y-m-d');
+		$fecha = date('d/m/Y');
 		$num_dias=1;
 
 		$db = new Conexion();
