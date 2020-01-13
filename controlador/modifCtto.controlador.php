@@ -29,14 +29,21 @@ class ControladorModifCtto{
 	static public function ctrBuscaServPpal(){
 		$tablaCttoSvcio = 'vtade_contrato_servicio';
 		$tablaMaSvcio = 'vtama_servicio';
-		// $tablaDscto = 'vtavi_descuento_x_contrato';
-		// $tablaMaDcsto = 'vtama_tipo_descuento';
-		// $tablaEndoso = 'vtavi_endoso_x_contrato';
 		$codCtto = $_POST['codCtto'];
 		$num_servicio = $_POST['num_servicio'];
 		$respuesta = ModeloModifCtto::mdlBuscaServPpal($tablaCttoSvcio,$tablaMaSvcio,$codCtto,$num_servicio);
 		return $respuesta;
 	}//ctrBuscaServPpal
+
+	static public function ctrBuscaDsctoXCtto(){
+		$tablaDscto = 'vtavi_descuento_x_contrato';
+		$tablaMaDcsto = 'vtama_tipo_descuento';
+		// $tablaEndoso = 'vtavi_endoso_x_contrato';
+		$codCtto = $_POST['codCtto'];
+		$num_servicio = $_POST['num_servicio'];
+		$respuesta = ModeloModifCtto::mdlBuscaDsctoXCtto($tablaDscto,$tablaMaDcsto,$codCtto,$num_servicio);
+		return $respuesta;
+	}//ctrBuscaDsctoXCtto
 
 }//class ControladorModifCtto
 ?>

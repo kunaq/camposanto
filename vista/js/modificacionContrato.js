@@ -118,7 +118,7 @@ function muestraInfo(id){
 		        method: "POST",
 		        data: { 'accion' : 'servPpal', 'codCtto' : codCtto, 'num_servicio' : id },
 		        success : function(respuesta){
-		        	console.log('respuesta',respuesta);
+		        	// console.log('respuesta',respuesta);
 		        	$("#bodyServiciosPpales").empty();
 		        	$.each(respuesta,function(index,value){
 		        		var fila = '<tr>'+
@@ -176,5 +176,41 @@ function muestraInfo(id){
 function buscaDscto(){
 	var codCtto = $("#codContrato").val();
 	var numServicio = $("#numServicio").val();
-	console.log('codCtto',codCtto,'numServicio',numServicio);
-}
+	$.ajax({
+        url: 'ajax/modifCtto.ajax.php',
+        dataType: 'json',
+        method: "POST",
+        data: { 'accion' : 'DsctoXCtto', 'codCtto' : codCtto, 'num_servicio' : numServicio },
+        success : function(respuesta){
+        	console.log('respuesta',respuesta);
+        	$("#bodyDsctoModif").empty();
+        	$.each(respuesta,function(index,value){
+        		var check_tasa = '';
+				var check_libre = '';
+				if(value['flg_tasa'] == 'SI'){
+					check_tasa = "<i class='fa fa-check'></i>";
+					check_libre = '';
+				}else if(value['flg_libre'] == 'SI'){
+					check_libre = "<i class='fa fa-check'></i>";
+					check_tasa = '';
+				}else{
+					check_libre = '';
+					check_tasa = '';
+				}
+	        	var filaDsto = '<tr>'+
+									'<td>'+value['cod_usuario']+'</td>'+
+									'<td>'+value['fch_registro']+'</td>'+
+									'<td>'+value['dsc_tipo_descuento']+'</td>'+
+									'<td>'+check_tasa+'</td>'+
+									'<td>'+check_libre+'</td>'+
+									'<td>'+Number(value['imp_valor']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+									'<td>'+Number(value['imp_dscto']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+								'</tr>';
+							// console.log(fila);
+				document.getElementById("bodyDsctoModif").insertAdjacentHTML("beforeEnd" ,filaDsto);
+				document.getElementById("totalDsctoModif").innerText = Number(value['imp_totalneto']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
+
+        	});//each
+        }//success
+    });//ajax
+}//buscaDscto

@@ -21,7 +21,6 @@ class AjaxModifCtto{
 	public function ajaxBuscaDatosServicio(){
 		$respuesta = ControladorModifCtto::ctrBuscaDatosServicio();
 		$respuesta["fch_primer_vencimiento"] = ($respuesta["fch_primer_vencimiento"] != '') ? dateFormat($respuesta["fch_primer_vencimiento"]) : '';
-		// $respuesta["fch_registro"] = ($respuesta["fch_registro"] != '') ? dateTimeFormat($respuesta["fch_registro"]) : '';
 		echo json_encode($respuesta);
 	}//ajaxBuscaDatosServicio
 	public function ajaxBuscaServPpal(){
@@ -35,6 +34,13 @@ class AjaxModifCtto{
 		}	
 	echo json_encode($respuesta);
 	}//ajaxBuscaServPpal
+	public function ajaxBuscaDsctoXCtto(){
+		$respuesta = ControladorModifCtto::ctrBuscaDsctoXCtto();
+		foreach ($respuesta as $key => $value) {
+			$respuesta[$key]["fch_registro"] = ($respuesta[$key]["fch_registro"] != '') ? dateTimeFormat($respuesta[$key]["fch_registro"]) : '';
+		}	
+	echo json_encode($respuesta);
+	}//ajaxBuscaDsctoXCtto
 }//class AjaxModifCtto
 /*=============================================
 ACCIONES
@@ -54,4 +60,8 @@ else if(isset($_POST["accion"]) && $_POST["accion"] == 'DetServ'){
 else if(isset($_POST["accion"]) && $_POST["accion"] == 'servPpal'){
 	$cliente = new AjaxModifCtto();
 	$cliente -> ajaxBuscaServPpal();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'DsctoXCtto'){
+	$cliente = new AjaxModifCtto();
+	$cliente -> ajaxBuscaDsctoXCtto();
 }

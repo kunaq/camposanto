@@ -36,5 +36,17 @@ class ModeloModifCtto{
         $db->cerrar();
 	}//mdlBuscaServPpal
 
+	static public function mdlBuscaDsctoXCtto($tablaDscto,$tablaMaDcsto,$codCtto,$num_servicio){
+		$db = new Conexion();
+		$sql = $db->consulta("SELECT $tablaDscto.flg_tasa, $tablaMaDcsto.dsc_tipo_descuento, $tablaDscto.flg_libre, $tablaDscto.cod_usuario, $tablaDscto.fch_registro, $tablaDscto.imp_valor, $tablaDscto.imp_dscto, $tablaDscto.imp_totalnetos FROM $tablaDscto INNER JOIN $tablaMaDcsto ON $tablaMaDcsto.cod_tipo_descuento = $tablaDscto.cod_tipo_descuento WHERE $tablaDscto.cod_contrato LIKE (RIGHT('0000000000'+'$codCtto',10)) AND $tablaDscto.num_servicio = $num_servicio");
+		$datos = array();
+    	while($key = $db->recorrer($sql)){
+	    		$datos[] = arrayMapUtf8Encode($key);
+			}
+		return $datos;
+		$db->liberar($sql);
+        $db->cerrar();
+	}//mdlBuscaDsctoXCtto
+
 }//class ModeloModifCtto
 ?>
