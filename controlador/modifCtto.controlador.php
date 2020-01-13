@@ -59,7 +59,7 @@ class ControladorModifCtto{
 		$tablaPais = 'vtama_pais';
 		$tablaDpto = 'vtama_departamento';
 		$tablaProvi = 'vtama_provincia';
-		$tablaDtto = 'vyama_distrito';
+		$tablaDtto = 'vtama_distrito';
 		$codCliente = $_POST['codCliente'];
 		$respuesta = ModeloModifCtto::mdlBuscaCliente($tablaCliente,$tablaDireccion,$tablaPais,$tablaDpto,$tablaProvi,$tablaDtto,$codCliente);
 		return $respuesta;
