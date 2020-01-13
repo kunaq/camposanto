@@ -113,7 +113,7 @@ function muestraInfo(id){
         	$("#igv").val(respuesta['imp_igv']);
         	$("#subtotal").val(respuesta['imp_subtotal']);
         	$("#total").val(respuesta['imp_totalneto']);
-        	$("#codCliTitular").val(respuesta['cod_cliente']);
+        	$("#codCliTitular").val(respuesta['cod_cliente']).triger('change');
         	$.ajax({
 		        url: 'ajax/modifCtto.ajax.php',
 		        dataType: 'json',
