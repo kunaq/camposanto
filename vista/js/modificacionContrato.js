@@ -234,3 +234,17 @@ function buscaEndoso(){
         }//success
     });//ajax
 }//buscaEndoso
+
+function buscaDatosTi(){
+	var codCliente = $("#codCliTitular").val();
+	$.ajax({
+        url: 'ajax/modifCtto.ajax.php',
+        dataType: 'json',
+        method: "POST",
+        data: { 'accion' : 'buscaCli', 'codCliente' : codCliente },
+        success : function(respuesta){
+        	console.log('respuesta',respuesta);
+        		
+        }//success
+    });//ajax
+}//buscaDatosTi

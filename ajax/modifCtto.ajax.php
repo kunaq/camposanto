@@ -50,6 +50,11 @@ class AjaxModifCtto{
 		}	
 	echo json_encode($respuesta);
 	}//ajaxBuscaEndXCtto
+	public function ajaxBuscaCliente(){
+		$respuesta = ControladorModifCtto::ctrBuscaCliente();
+		$respuesta["fch_nacimiento"] = ($respuesta["fch_nacimiento"] != '') ? dateFormat($respuesta["fch_nacimiento"]) : '';
+		echo json_encode($respuesta);
+	}//ajaxBuscaCliente
 }//class AjaxModifCtto
 /*=============================================
 ACCIONES
@@ -77,4 +82,8 @@ else if(isset($_POST["accion"]) && $_POST["accion"] == 'DsctoXCtto'){
 else if(isset($_POST["accion"]) && $_POST["accion"] == 'EndXCtto'){
 	$cliente = new AjaxModifCtto();
 	$cliente -> ajaxBuscaEndXCtto();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'buscaCli'){
+	$cliente = new AjaxModifCtto();
+	$cliente -> ajaxBuscaCliente();
 }

@@ -51,7 +51,19 @@ class ControladorModifCtto{
 		$num_servicio = $_POST['num_servicio'];
 		$respuesta = ModeloModifCtto::mdlBuscaEndXCtto($tablaEndoso,$tablaMaEnd,$codCtto,$num_servicio);
 		return $respuesta;
-	}
+	}//ctrBuscaEndXCtto
+
+	static public function ctrBuscaCliente(){
+		$tablaCliente = 'vtama_cliente';
+		$tablaDireccion = 'vtade_cliente_direccion';
+		$tablaPais = 'vtama_pais';
+		$tablaDpto = 'vtama_departamento';
+		$tablaProvi = 'vtama_provincia';
+		$tablaDtto = 'vyama_distrito';
+		$codCliente = $_POST['codCliente'];
+		$respuesta = ModeloModifCtto::mdlBuscaCliente($tablaCliente,$tablaDireccion,$tablaPais,$tablaDpto,$tablaProvi,$tablaDtto,$codCliente);
+		return $respuesta;
+	}//ctrBuscaCliente
 
 }//class ControladorModifCtto
 ?>
