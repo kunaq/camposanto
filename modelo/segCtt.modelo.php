@@ -157,7 +157,7 @@ class ModeloSegContrato{
 
 	        $fchEntrada = new DateTime($key['fch_vencimiento']);
 
-	        if ($fchEntrada > $fechactual) {
+	        if ($fchEntrada < $fechactual) {
 	        	$cronogramaCtt.='<tr style="color: red;">
 	        						<td>'.$key['cod_tipo_cuota'].'</td>
 		                            <td>'.$key["num_cuota"].'</td>
@@ -171,7 +171,7 @@ class ModeloSegContrato{
 		                            <td>'.number_format(round($key["imp_saldo"], 2),2,',','.').'</td>
 		                            <td>'.number_format(round($key["imp_mora"], 2),2,',','.').'</td>
 		                        </tr>'; 
-	        }elseif ($fchEntrada < $fechactual) {
+	        }elseif ($fchEntrada > $fechactual) {
 	        	$cronogramaCtt.='<tr style="color: #0050CC;">
 	        						<td>'.$key['cod_tipo_cuota'].'</td>
 		                            <td>'.$key["num_cuota"].'</td>
