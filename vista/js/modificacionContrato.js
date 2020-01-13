@@ -119,24 +119,26 @@ function muestraInfo(id){
 		        success : function(respuesta){
 		        	console.log('respuesta',respuesta);
 		        	$("#bodyServiciosPpales").empty();
-		   //      	var fila = '<tr>'+
-					// 				'<td>1</td>'+
-					// 				'<td>'+respuesta['cod_servicio_principal']+'</td>'+
-					// 				'<td>'+respuesta['dsc_servicio']+'</td>'+
-					// 				'<td>'+respuesta['num_ctd']+'</td>'+
-					// 				'<td>'+Number(respuesta['imp_precio_venta']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
-					// 				'<td>'+Number(respuesta['imp_min_inhumar']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
-					// 				'</td>'+
-					// 				'<td>'+Number(respuesta['imp_subtotal']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
-					// 				'</td>'+
-					// 				'<td>'+Number(respuesta['imp_igv']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
-					// 				'</td>'+
-					// 				'<td>'+Number(respuesta['imp_total']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
-					// 				'</td>'+
-					// 			'</tr>';
-					// 			// console.log(fila);
-					// document.getElementById("bodyServiciosPpales").insertAdjacentHTML("beforeEnd" ,fila);
-					// document.getElementById("totalServPpal").innerText = Number(respuesta['imp_totalneto']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
+		        	$.each(respuesta,function(index,value){
+		        		var fila = '<tr>'+
+									'<td>1</td>'+
+									'<td>'+value['cod_servicio_principal']+'</td>'+
+									'<td>'+value['dsc_servicio']+'</td>'+
+									'<td>'+value['num_ctd']+'</td>'+
+									'<td>'+Number(value['imp_precio_venta']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+									'<td>'+Number(value['imp_min_inhumar']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+									'</td>'+
+									'<td>'+Number(value['imp_subtotal']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+									'</td>'+
+									'<td>'+Number(value['imp_igv']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+									'</td>'+
+									'<td>'+Number(value['imp_total']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+									'</td>'+
+								'</tr>';
+								// console.log(fila);
+						document.getElementById("bodyServiciosPpales").insertAdjacentHTML("beforeEnd" ,fila);
+						document.getElementById("totalServPpal").innerText = Number(value['imp_totalneto']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
+					}//each
 		        }//success
 		    });//ajax
 
