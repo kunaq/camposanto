@@ -44,31 +44,31 @@ class ModeloSegContrato{
         if ($key['fch_emision'] == NULL) {
             $tfechEmi = "-";
         }else{
-            $tfechEmi = dateFormat($key['fch_emision']);
+            // $tfechEmi = dateFormat($key['fch_emision']);
         }
         // -------- Condicional para campos NULL de fch_activacion -------- //
         if ($key['fch_activacion'] == NULL) {
             $tfechAct = "-";
         }else{
-            $tfechAct = dateFormat($key['fch_activacion']);
+            // $tfechAct = dateFormat($key['fch_activacion']);
         }
         // -------- Condicional para campos NULL de fch_resolución -------- //
         if ($key['fch_resolucion'] == NULL) {
             $tfechRes = "-";
         }else{
-            $tfechRes = dateFormat($key['fch_resolucion']);
+            // $tfechRes = dateFormat($key['fch_resolucion']);
         }
         // -------- Condicional para campos NULL de fch_anulacion -------- //
         if ($key['fch_anulacion'] == NULL) {
             $tfechAnu = "-";
         }else{
-            $tfechAnu = dateFormat($key['fch_anulacion']);
+            // $tfechAnu = dateFormat($key['fch_anulacion']);
         }
         // -------- Condicional para campos NULL de fch_transferencia -------- //
         if ($key['fch_transferencia'] == NULL) {
             $tfechTrans = "-";
         }else{
-            $tfechTrans = dateFormat($key['fch_transferencia']);
+            // $tfechTrans = dateFormat($key['fch_transferencia']);
         }
         $numCtt = "'".$key['cod_contrato']."'";
         $codLocalidad = $key['cod_localidad'];
