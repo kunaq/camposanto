@@ -51734,3 +51734,11 @@ th{
 .selected{
     background-color: #b6afaf;
 }
+
+.cuoVencida{
+    color: #ff0000;
+}
+
+.cuoPorVencer{
+    color: #0050CC;
+}
