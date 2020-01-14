@@ -245,7 +245,7 @@ class ModeloSegContrato{
 
 		$sql = $db->consulta("SELECT num_item, num_servicio, cod_tipo_documento, dsc_documento, dsc_apellidopaterno, dsc_apellidomaterno, dsc_nombre, cod_sexo, cod_estado_civil, fch_nacimiento, cod_parentesco, num_peso, num_talla, cod_religion, dsc_observacion, fch_deceso, fch_entierro, cod_lugar_deceso, cod_motivo_deceso, num_nivel, flg_autopsia FROM vtade_beneficiario_x_contrato WHERE cod_localidad = '".$datos['localidad']."' AND cod_contrato = '".$datos['cod_contrato']."' AND num_servicio = '".$datos['cod_servicio']."'"); 
 
-		$tablaBeneficiarios = "a";
+		$tablaBeneficiarios = "";
 
 		while($key = $db->recorrer($sql)){
 
@@ -299,7 +299,7 @@ class ModeloSegContrato{
 		}
 		$arrData = array('tablaBeneficiarios'=> $tablaBeneficiarios); 
 
-		return $tablaBeneficiarios;
+		return $arrData;
 
 	}//function mdlGetDatosCtt
 
