@@ -551,6 +551,7 @@
 															<div class="col-lg-7">
 																<label>Codigo Cliente</label>
 																<input type="text" class="form-control form-control-sm m-input" name="codCliTitular" id="codCliTitular" disabled onchange="buscaDatosTi();">
+																<input type="hidden"name="codAval" id="codAval" onchange="buscaDatosAval();">
 															</div>
 															<div class="col-lg-5">
 																<button type="button" id="btn2Com" class="btn btn-sm btnEditarKqPst2 mt25">
@@ -713,7 +714,7 @@
 															<td>
 																<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
 																	<label>
-																		<input type="checkbox" name="" id="personaCheck" disabled>
+																		<input type="checkbox" name="juridico2doCheck" id="juridico2doCheck" disabled>
 																		<span></span>
 																	</label>
 																</span>
@@ -726,7 +727,7 @@
 												<div class="row">
 													<div class="col-lg-7">
 														<label>Codigo Cliente</label>
-														<input type="text" class="form-control form-control-sm m-input" name="codCliTitular2" id="codCliTitular2" disabled>
+														<input type="text" class="form-control form-control-sm m-input" name="codCliTitular2" id="codCliTitular2" disabled  onchange="buscaDatos2Ti();">
 													</div>
 													<div class="col-lg-5">
 													</div>
@@ -749,7 +750,7 @@
 													<div class="col-lg-5">
 														<label>Fch. Nacimiento</label>
 														<div class="input-group date">
-															<input type="text" class="form-control form-control-sm m-input"  id="m_datepicker_4" data-date-format="mm/dd/yyyy" disabled />
+															<input type="text" class="form-control form-control-sm m-input" name="fchNac2doTitular" id="fchNac2doTitular" data-date-format="mm/dd/yyyy" disabled />
 															<div class="input-group-append">
 																<span class="input-group-text">
 																	<i class="la la-calendar-check-o"></i>
@@ -823,39 +824,19 @@
 										<div class="row form-group">
 											<div class="col-lg-3">
 												<label>País</label>
-												<select class="form-control form-control-sm m-input custom-select custom-select-danger" id="paisTitular2" name="paisTitular2" disabled>
-													<option value="0">
-														Seleccione el país
-													</option>
-													<?php
-														$prueba = controladorEmpresa::
-																	ctrPais();
-													?> 
-												</select>
+												<input type="text" class="form-control form-control-sm m-input" name="paisTitular2" id="paisTitular2" disabled>
 											</div>
 											<div class="col-lg-3">
 												<label>Departamento</label>
-												<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="departamentoTitular2" id="departamentoTitular2" disabled>
-													<option value="">
-															Seleccione
-													</option>
-												</select>
+												<input type="text" class="form-control form-control-sm m-input" name="departamentoTitular2" id="departamentoTitular2" disabled>
 											</div>
 											<div class="col-lg-3">
 												<label>Provincia</label>
-												<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="provinciaTitular2" id="provinciaTitular2" disabled>
-													<option value="">
-														Seleccione
-													</option>
-												</select>
+												<input type="text" class="form-control form-control-sm m-input" name="provinciaTitular2" id="provinciaTitular2" disabled>
 											</div>
 											<div class="col-lg-3">
 												<label>Distrito</label>
-												<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="distritoTitular2" id="distritoTitular2" disabled>
-													<option value="">
-														Seleccione
-													</option>
-												</select>
+												<input type="text" class="form-control form-control-sm m-input" name="distritoTitular2" id="distritoTitular2" disabled>
 											</div>
 											<div class="col-lg-12">
 												<label>Dirección</label>

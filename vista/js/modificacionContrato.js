@@ -10,6 +10,10 @@ $("#fchNacTitular").datepicker({
   format: 'dd-mm-yyyy',
   autoclose: true
 });//datepicker
+$("#fchNac2doTitular").datepicker({
+  format: 'dd-mm-yyyy',
+  autoclose: true
+});//datepicker
 
 function buscaCtto(){
 	var codCtto = document.getElementById("codContrato").value;
@@ -118,6 +122,8 @@ function muestraInfo(id){
         	$("#subtotal").val(respuesta['imp_subtotal']);
         	$("#total").val(respuesta['imp_totalneto']);
         	$("#codCliTitular").val(respuesta['cod_cliente']).trigger('change');
+        	$("#codCliTitular2").val(respuesta['cod_titular_alterno']).trigger('change');
+        	$("#codAval").val(respuesta['cod_aval']).trigger('change');
         	$.ajax({
 		        url: 'ajax/modifCtto.ajax.php',
 		        dataType: 'json',
@@ -247,7 +253,7 @@ function buscaDatosTi(){
         method: "POST",
         data: { 'accion' : 'buscaCli', 'codCliente' : codCliente },
         success : function(respuesta){
-        	console.log('respuesta',respuesta);
+        	// console.log('respuesta',respuesta);
         	var juridico = false;
         	$("#numDocTitular").val(respuesta['dsc_documento']);
 			document.getElementById("docIdeTitular").setAttribute('value',respuesta['cod_tipo_documento']);
@@ -275,3 +281,40 @@ function buscaDatosTi(){
         }//success
     });//ajax
 }//buscaDatosTi
+
+function buscaDatos2Ti(){
+	var codCliente = $("#cod2doTitular").val();
+	$.ajax({
+        url: 'ajax/modifCtto.ajax.php',
+        dataType: 'json',
+        method: "POST",
+        data: { 'accion' : 'buscaCli', 'codCliente' : codCliente },
+        success : function(respuesta){
+        	console.log('respuesta',respuesta);
+        	var juridico = false;
+        	$("#numDocTitular2").val(respuesta['dsc_documento']);
+			document.getElementById("docIdeTitular2").setAttribute('value',respuesta['cod_tipo_documento']);
+            if(respuesta['flg_juridico'] == 'SI'){
+            	juridico = true;
+            }
+            $("#juridico2doCheck").prop("checked", juridico);
+            $("#fchNac2doTitular").datepicker('setDate', respuesta['fch_nacimiento']);
+            $("#apePatTitular2").val(respuesta['dsc_apellido_paterno']);
+            $("#apeMatTitular2").val(respuesta['dsc_apellido_materno']);
+            $("#nomTitular2").val(respuesta['dsc_nombre']);
+            $("#razSocTitular2").val(respuesta['dsc_razon_social']);
+            $("#cel1Titular2").val(respuesta['dsc_telefono_1']);
+            $("#cel2Titular2").val(respuesta['dsc_telefono_2']);
+            $("#edoCivilTitular2").val(respuesta['cod_estadocivil']);
+            $("#sexoTitular2").val(respuesta['cod_sexo'].trim());
+            $("#emailTitular2").val(respuesta['dsc_email']);
+            document.getElementById("paisTitular2").setAttribute('value',respuesta['dsc_pais']);
+            document.getElementById("departamentoTitular2").setAttribute('value',respuesta['dsc_departamento']);
+            document.getElementById("provinciaTitular2").setAttribute('value',respuesta['dsc_provincia']);
+            document.getElementById("distritoTitular2").setAttribute('value',respuesta['dsc_distrito']);
+            $("#direccionTitular2").val(respuesta['dsc_direccion']);
+            $("#refDirTitular2").val(respuesta['dsc_referencia']);
+            $("#zonaDirTitular2").val(respuesta['dsc_tipo_zona']);
+        }//success
+    });//ajax
+}//buscaDatos2Ti
