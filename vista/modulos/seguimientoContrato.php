@@ -374,33 +374,33 @@
 																<tbody>
 																	<tr>
 																		<th scope="row" class="static">CUOI</th>
-																		<td class="first-col">1.768,00</td>
-																		<td>0,00</td>
-																		<td>0,00</td>
-																		<td>1.768,00</td>
-																		<td>0,00</td>
-																		<td>1.768,00</td>
-																		<td>0,00</td>
+																		<td class="first-col" id="imp_sub_cui">0,00</td>
+																		<td id="imp_int_cui">0,00</td>
+																		<td id="imp_igv_cui">0,00</td>
+																		<td id="imp_tot_cui">0,00</td>
+																		<td id="imp_emi_cui">0,00</td>
+																		<td id="imp_can_cui">0,00</td>
+																		<td id="imp_sal_cui">0,00</td>
 																	</tr>
 																	<tr>
 																		<th scope="row" class="static">Financiado</th>
-																		<td class="first-col">3.282,00</td>
-																		<td>16,20</td>
-																		<td>0,00</td>
-																		<td>3.298,00</td>
-																		<td>0,00</td>
-																		<td>0,00</td>
-																		<td>3.298,00</td>
+																		<td class="first-col" id="imp_sub_reg">0,00</td>
+																		<td id="imp_int_reg">0,00</td>
+																		<td id="imp_igv_reg">0,00</td>
+																		<td id="imp_tot_reg">0,00</td>
+																		<td id="imp_emi_reg">0,00</td>
+																		<td id="imp_can_reg">0,00</td>
+																		<td id="imp_sal_reg">0,00</td>
 																	</tr>
 																	<tr>
 																		<th scope="row" class="static">FOMA</th>
-																		<td class="first-col">300,00</td>
-																		<td>0,00</td>
-																		<td>0,00</td>
-																		<td>300,00</td>
-																		<td>0,00</td>
-																		<td>0,00</td>
-																		<td>300,00</td>
+																		<td class="first-col" id="imp_sub_foma">0,00</td>
+																		<td id="imp_int_foma">0,00</td>
+																		<td id="imp_igv_foma">0,00</td>
+																		<td id="imp_tot_foma">0,00</td>
+																		<td id="imp_emi_foma">0,00</td>
+																		<td id="imp_can_foma">0,00</td>
+																		<td id="imp_sal_foma">0,00</td>
 																	</tr>
 																</tbody>
 															</table>
@@ -412,7 +412,7 @@
 																	<label>Estado</label>
 																</div>
 																<div class="col-lg-8">
-																	<input type="text" class="form-control form-control-sm m-input" id="">
+																	<input type="text" class="form-control form-control-sm m-input" id="estadoSaldos" disabled>
 																</div>
 															</div>
 														</div>
@@ -422,7 +422,7 @@
 																	<label>Moneda</label>
 																</div>
 																<div class="col-lg-8">
-																	<input type="text" class="form-control form-control-sm m-input" id="">
+																	<input type="text" class="form-control form-control-sm m-input" id="monedaSaldos" disabled>
 																</div>
 															</div>
 														</div>
