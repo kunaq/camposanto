@@ -269,7 +269,12 @@ function buscaDatosTi(){
             $("#cel1Titular").val(respuesta['dsc_telefono_1']);
             $("#cel2Titular").val(respuesta['dsc_telefono_2']);
             $("#edoCivilTitular").val(respuesta['cod_estadocivil']);
-            $("#sexoTitular").val(respuesta['cod_sexo'].trim());
+             if(respuesta['cod_sexo'] != ''){
+            	sexo = respuesta['cod_sexo'].trim();
+            }else{
+            	sexo = '';
+            }
+            $("#sexoTitular").val(sexo);
             $("#emailTitular").val(respuesta['dsc_email']);
             document.getElementById("paisTitular").setAttribute('value',respuesta['dsc_pais']);
             document.getElementById("departamentoTitular").setAttribute('value',respuesta['dsc_departamento']);
@@ -306,7 +311,12 @@ function buscaDatos2Ti(){
             $("#cel1Titular2").val(respuesta['dsc_telefono_1']);
             $("#cel2Titular2").val(respuesta['dsc_telefono_2']);
             $("#edoCivilTitular2").val(respuesta['cod_estadocivil']);
-            $("#sexoTitular2").val(respuesta['cod_sexo'].trim());
+            if(respuesta['cod_sexo'] != ''){
+            	sexo = respuesta['cod_sexo'].trim();
+            }else{
+            	sexo = '';
+            }
+            $("#sexoTitular2").val(sexo);
             $("#emailTitular2").val(respuesta['dsc_email']);
             document.getElementById("paisTitular2").setAttribute('value',respuesta['dsc_pais']);
             document.getElementById("departamentoTitular2").setAttribute('value',respuesta['dsc_departamento']);
@@ -327,7 +337,7 @@ function buscaDatosAval(){
         method: "POST",
         data: { 'accion' : 'buscaCli', 'codCliente' : codCliente },
         success : function(respuesta){
-        	console.log('respuesta',respuesta);
+        	// console.log('respuesta',respuesta);
         	var juridico = false;
         	$("#numDocAval").val(respuesta['dsc_documento']);
 			document.getElementById("docIdeAval").setAttribute('value',respuesta['cod_tipo_documento']);
@@ -343,7 +353,12 @@ function buscaDatosAval(){
             $("#cel1Aval").val(respuesta['dsc_telefono_1']);
             $("#cel2Aval").val(respuesta['dsc_telefono_2']);
             $("#edoCivilAval").val(respuesta['cod_estadocivil']);
-            $("#sexoAval").val(respuesta['cod_sexo'].trim());
+             if(respuesta['cod_sexo'] != ''){
+            	sexo = respuesta['cod_sexo'].trim();
+            }else{
+            	sexo = '';
+            }
+            $("#sexoAval").val(sexo);
             $("#emailAval").val(respuesta['dsc_email']);
             document.getElementById("paisAval").setAttribute('value',respuesta['dsc_pais']);
             document.getElementById("departamentoAval").setAttribute('value',respuesta['dsc_departamento']);
