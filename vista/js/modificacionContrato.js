@@ -184,7 +184,7 @@ function nombreTrabajador(valor,campo){
         data: { 'value' : valor },
         success : function(respuesta){
         	console.log(respuesta);
-            document.getElementById(campo).val(respuesta);
+            document.getElementById(campo).value = respuesta;
         }
     });
 }//nombreVendedor
