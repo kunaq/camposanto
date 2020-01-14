@@ -125,6 +125,12 @@ function muestraInfo(id){
         	$("#codCliTitular2").val(respuesta['cod_titular_alterno']).trigger('change');
         	$("#codAval").val(respuesta['cod_aval']).trigger('change');
         	$("#codCobrador").val(respuesta['cod_cobrador']);
+        	$("#codSupervisor").val(respuesta['cod_supervisor']);
+        	$("#codJefeVentas").val(respuesta['cod_jefeventas']);
+        	$("#codVendedor").val(respuesta['cod_vendedor']);
+        	$("#codTipoComisionista").val(respuesta['cod_tipo_comisionista']);
+        	$("#codGrupo").val(respuesta['cod_grupo']);
+
         	$.ajax({
 		        url: 'ajax/modifCtto.ajax.php',
 		        dataType: 'json',
