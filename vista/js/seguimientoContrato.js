@@ -141,12 +141,29 @@ function getDatosServicioCtt(row,localidad,tasa,tipoCtt,tipoPro,codCtt,numRef,nu
 
 		    document.getElementById('estadoSaldos').value = info.dsc_estado;
         	document.getElementById('monedaSaldos').value = info.cod_moneda;
-
         }//succes
     });//ajaxgetResumenCtt
+
+    $.ajax({
+		type: 'POST',
+        url:"ajax/segCtt.ajax.php",
+        dataType: 'text',
+        data: {'accion' : 'getBeneficiarios', 'localidad' : localidad, 'cod_contrato' : codCtt, 'cod_servicio' : numSer},
+        success: function(respuesta){
+
+        	var info = JSON.parse(respuesta);
+
+        	$("#tbodyBeneficiarios").html(info.tablaBeneficiarios);
+        	
+        }//succes
+    });//ajaxGetCuotas
 }
 
-
+function getDatosServicioCtt(row,servicio,tipoDoc,numDoc,apePaterno,apeMaterno,nombre,sexo,edoCivil,fchNac,parentesco,peso,talla,religion,observacion,fchDec,fchEnt,lugarDec,motivoDec,nivel,flgAutopsia){
+	var rows = $('#myTableBeneficiarios tr').not(':first');
+	rows.removeClass('selected'); 
+  	$(row).closest('tr').addClass('selected');
+ }
 
 
 

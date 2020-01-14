@@ -1590,7 +1590,7 @@
 							<div class="form-group m-form__group row">
 								<div class="col-lg-5">
 									<div class="m-form__group row" style="height: 500px; border: 1px solid #e4e1e1;">
-										<table class="table m-table myTableBeneficiarios">
+										<table class="table m-table myTableBeneficiarios" id="myTableBeneficiarios">
 											<thead>
 												<tr>
 													<th>
@@ -1605,18 +1605,7 @@
 
 												</tr>
 											</thead>
-											<tbody>
-												<tr>
-													<th scope="row">
-													1
-													</th>
-													<td>
-													Jhon
-													</td>
-													<td>
-													Stone
-													</td>
-												</tr>
+											<tbody id="tbodyBeneficiarios">
 											</tbody>
 										</table>
 									</div>
