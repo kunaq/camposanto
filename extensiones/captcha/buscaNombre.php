@@ -1,5 +1,6 @@
 <?php
 require_once "../../modelo/conexion.php";
+require_once "../../funciones.php";
    $cod = $_GET['value'];
    //var_dump($cod);
     $db = new Conexion();                                             
@@ -10,7 +11,7 @@ require_once "../../modelo/conexion.php";
 
 		while($key = $db->recorrer($sql)){
             $datos[] =  $key;
-            $respuesta = $key['dsc_nombres'].' '.$key['dsc_apellido_paterno'].' '.$key['dsc_apellido_materno'];    
+            $respuesta = utf8_encode($key['dsc_nombres']).' '.utf8_encode($key['dsc_apellido_paterno']).' '.utf8_encode($key['dsc_apellido_materno']);    
              
 		}    
 		//print_r($db);     
