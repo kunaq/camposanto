@@ -238,7 +238,70 @@ class ModeloSegContrato{
 		return $arrData;
 
 	}//function mdlEjecutaProcedureResumenCtt
-	
+
+	static public function mdlGetBeneficiariosServ($datos){
+
+		$db = new Conexion();
+
+		$sql = $db->consulta("SELECT num_item, num_servicio, cod_tipo_documento, dsc_documento, dsc_apellidopaterno, dsc_apellidomaterno, dsc_nombre, cod_sexo, cod_estado_civil, fch_nacimiento, cod_parentesco, num_peso, num_talla, cod_religion, dsc_observacion, fch_deceso, fch_entierro, cod_lugar_deceso, cod_motivo_deceso, num_nivel, flg_autopsia FROM vtade_beneficiario_x_contrato");
+
+		$tablaBeneficiarios = "";
+
+		while($key = $db->recorrer($sql)){
+
+	      	$cod_servicio = "'".$key['num_servicio']."'";
+	        $tipo_doc = "'".$key['cod_tipo_documento']."'";
+	        $num_doc = "'".$key['dsc_documento']."'";
+	        $ape_paterno = "'".Utf8Encode($key['dsc_apellidopaterno'])."'";
+	        $ape_materno = "'".Utf8Encode($key['dsc_apellidomaterno'])."'";
+	        $nombre = "'".Utf8Encode($key['dsc_nombre'])."'";
+	        $sexo = "'".$key['cod_sexo']."'";
+	        $edo_civil = "'".$key['cod_estado_civil']."'";
+	        if ($key['fch_nacimiento'] == NULL) {
+	            $fch_nacimiento = "-";
+	        }else{
+	            $fch_nacimiento = "'".dateFormat($key['fch_nacimiento'])."'";
+	        }
+	        $parentesco = "'".$key['cod_parentesco']."'";
+	        $peso = "'".$key['num_peso']."'";
+	        $talla = "'".$key['num_talla']."'";
+	        $religion = "'".$key['cod_religion']."'";
+	        $observacion = "'".Utf8Encode($key['dsc_observacion'])."'";
+	        if ($key['fch_deceso'] == NULL) {
+	            $fch_deceso = "-";
+	        }else{
+	            $fch_deceso = "'".dateFormat($key['fch_deceso'])."'";
+	        }
+	        if ($key['fch_entierro'] == NULL) {
+	            $fch_entierro = "-";
+	        }else{
+	            $fch_entierro = "'".dateFormat($key['fch_entierro'])."'";
+	        }
+	        $lugar_deceso = "'".$key['cod_lugar_deceso']."'";
+	        $motivo_deceso = "'".$key['cod_motivo_deceso']."'";
+	        $nivel = "'".$key['num_nivel']."'";
+	        $flg_autopsia = "'".$key['flg_autopsia']."'";
+
+	        $tablaBeneficiarios .= '<tr onclick="mostrarBeneficiario('.$cod_servicio.','.$tipo_doc.','.$num_doc.','.$ape_paterno.','.$ape_materno.','.$nombre.','.$sexo.','.$edo_civil.','.$fch_nacimiento.','.$parentesco.','.$peso.','.$talla.','.$religion.','.$observacion.','.$fch_deceso.','.$fch_entierro.','.$lugar_deceso.','.$motivo_deceso.','.$nivel.','.$flg_autopsia.');">
+										<th scope="row">
+										'.$key['num_nivel'].'
+										</th>
+										<td>
+										'.$key['dsc_nombre'].'
+										</td>
+										<td>
+										Stone
+										</td>
+										<td>
+											@jhon
+										</td>
+									</tr>';
+		}
+		$arrData = array('tablaBeneficiarios'=> $tablaBeneficiarios); 
+
+		return $arrData;
+
+	}//function mdlGetDatosCtt
 
 }//class ModeloWizard
 ?>

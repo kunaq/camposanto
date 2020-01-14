@@ -1589,8 +1589,8 @@
 						<div class="tab-pane" id="m_tabs_2_8" role="tabpanel">
 							<div class="form-group m-form__group row">
 								<div class="col-lg-5">
-									<div class="m-form__group row">
-										<table class="table m-table">
+									<div class="m-form__group row" style="height: 500px; border: 1px solid #e4e1e1;">
+										<table class="table m-table myTableBeneficiarios">
 											<thead>
 												<tr>
 													<th>
@@ -1602,9 +1602,7 @@
 													<th>
 														Apellidos
 													</th>
-													<th>
-														Username
-													</th>
+
 												</tr>
 											</thead>
 											<tbody>
@@ -1617,135 +1615,6 @@
 													</td>
 													<td>
 													Stone
-													</td>
-													<td>
-														@jhon
-													</td>
-												</tr>
-												<tr>
-													<th scope="row">
-														2
-													</th>
-													<td>
-														Lisa
-														</td>
-													<td>
-														Nilson
-													</td>
-													<td>
-														@lisa
-													</td>
-												</tr>
-												<tr>
-													<th scope="row">
-																		3
-													</th>
-													<td>
-													Larry
-													</td>
-													<td>
-													the Bird
-													</td>
-													<td>
-														@twitter
-													</td>
-												</tr>
-												<tr>
-													<th scope="row">
-														4
-													</th>
-													<td>
-														Larry
-													</td>
-													<td>
-														the Bird
-													</td>
-													<td>
-														@twitter
-													</td>
-												</tr>
-												<tr>
-													<th scope="row">
-														5
-													</th>
-													<td>
-														Larry
-													</td>
-													<td>
-														the Bird
-													</td>
-													<td>
-														@twitter
-													</td>
-												</tr>
-												<tr>
-													<th scope="row">
-														6
-													</th>
-													<td>
-														Larry
-													</td>
-													<td>
-														the Bird
-													</td>
-													<td>
-														@twitter
-													</td>
-												</tr>
-												<tr>
-													<th scope="row">
-														7
-													</th>
-													<td>
-														Larry
-													</td>
-													<td>
-														the Bird
-													</td>
-													<td>
-														@twitter
-													</td>
-												</tr>
-												<tr>
-													<th scope="row">
-														8
-													</th>
-													<td>
-														Larry
-													</td>
-													<td>
-														the Bird
-													</td>
-													<td>
-														@twitter
-													</td>
-												</tr>
-												<tr>
-													<th scope="row">
-														9
-													</th>
-													<td>
-														Larry
-													</td>
-													<td>
-														the Bird
-													</td>
-													<td>
-														@twitter
-													</td>
-												</tr>
-												<tr>
-													<th scope="row">
-														10
-													</th>
-													<td>
-														Larry
-													</td>
-													<td>
-														the Bird
-													</td>
-													<td>
-														@twitter
 													</td>
 												</tr>
 											</tbody>
@@ -1770,7 +1639,7 @@
 													<div class="col-lg-12">
 														<div class="row">
 															<fieldset class="fieldFormHorizontal">
-																<legend class="tittle-box">N° Servicio <input type="text" class="form-control-sm numServ" id="codServicio"></legend>
+																<legend class="tittle-box">N° Servicio <input type="text" class="form-control-sm numServ" id="codServicio" disabled></legend>
 																<div class="col-lg-12">
 																	<div class="row form-group">
 																		<div class="col-lg-6">
