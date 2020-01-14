@@ -33,7 +33,6 @@ function buscaCtto(){
 }
 
 function llenaDatos(codCtto){
-	$('#formModifCtto').trigger("reset");
 	$.ajax({
         url: 'ajax/modifCtto.ajax.php',
         dataType: 'json',
