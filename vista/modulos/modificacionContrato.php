@@ -534,7 +534,7 @@
 															<td>
 																<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
 																	<label>
-																		<input type="checkbox" name="" id="personaCheck" disabled>
+																		<input type="checkbox" name="juridicoCheck" id="juridicoCheck" disabled>
 																		<span></span>
 																	</label>
 																</span>
@@ -581,7 +581,7 @@
 															<div class="col-lg-5">
 																<label>Fch. Nacimiento</label>
 																<div class="input-group date">
-																	<input type="text" class="form-control form-control-sm m-input"  id="m_datepicker_3" data-date-format="mm/dd/yyyy" disabled />
+																	<input type="text" class="form-control form-control-sm m-input" name="fchNacTitular" id="fchNacTitular" data-date-format="mm/dd/yyyy" disabled />
 																	<div class="input-group-append">
 																		<span class="input-group-text">
 																			<i class="la la-calendar-check-o"></i>
@@ -666,8 +666,7 @@
 														Seleccione el país
 													</option>
 													<?php
-														$prueba = controladorEmpresa::
-																	ctrPais();
+														$prueba = controladorEmpresa::ctrPais();
 													?> 
 												</select>
 											</div>

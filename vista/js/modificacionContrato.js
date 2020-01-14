@@ -6,6 +6,10 @@ $("#cuotaInicial").number(true,2);
 $("#igv").number(true,2);
 $("#subtotal").number(true,2);
 $("#total").number(true,2);
+$("#fchNacTitular").datepicker({
+  format: 'dd-mm-yyyy',
+  autoclose: true
+});//datepicker
 
 function buscaCtto(){
 	var codCtto = document.getElementById("codContrato").value;
@@ -244,8 +248,30 @@ function buscaDatosTi(){
         data: { 'accion' : 'buscaCli', 'codCliente' : codCliente },
         success : function(respuesta){
         	console.log('respuesta',respuesta);
+        	var juridico = false;
         	$("#numDocTitular").val(respuesta['dsc_documento']);
-
+			$("#docIdeTitular").val(respuesta['cod_tipo_documento']).trigger('change');
+            if(respuesta['flg_juridico'] == 'SI'){
+            	juridico = true;
+            }
+            $("#juridicoCheck").prop("checked", juridico);
+            $("#fchNacTitular").datepicker('setDate', respuesta['fch_nacimiento']);;
+            $("#apePatTitular").val(respuesta['dsc_apellido_paterno']);
+            $("#apeMatTitular").val(respuesta['dsc_apellido_materno']);
+            $("#nomTitular").val(respuesta['dsc_nombre']);
+            $("#razSocTitular").val(respuesta['dsc_razon_social']);
+            $("#cel1Titular").val(respuesta['dsc_telefono_1']);
+            $("#cel2Titular").val(respuesta['dsc_telefono_2']);
+            $("#edoCivilTitular").val(respuesta['cod_estadocivil']);
+            $("#sexoTitular").val(respuesta['cod_sexo']);
+            $("#emailTitular").val(respuesta['dsc_email']);
+            $("#paisTitular").val(respuesta['cod_pais']).trigger('change');
+            $("#departamentoTitular").val(respuesta['cod_departamento']).trigger('change');
+            $("#provinciaTitular").val(respuesta['cod_provincia']).trigger('change');
+            $("#distritoTitular").val(respuesta['cod_distrito']).trigger('change');
+            $("#direccionTitular").val(respuesta['dsc_direccion']);
+            $("#refDirTitular").val(respuesta['dsc_referencia']);
+            $("#zonaDirTitular").val(respuesta['dsc_tipo_zona']);
         }//success
     });//ajax
 }//buscaDatosTi

@@ -56,12 +56,9 @@ class ControladorModifCtto{
 	static public function ctrBuscaCliente(){
 		$tablaCliente = 'vtama_cliente';
 		$tablaDireccion = 'vtade_cliente_direccion';
-		$tablaPais = 'vtama_pais';
-		$tablaDpto = 'vtama_departamento';
-		$tablaProvi = 'vtama_provincia';
-		$tablaDtto = 'vtama_distrito';
+		$tablaZona = 'gplma_tipo_zona';
 		$codCliente = $_POST['codCliente'];
-		$respuesta = ModeloModifCtto::mdlBuscaCliente($tablaCliente,$tablaDireccion,$tablaPais,$tablaDpto,$tablaProvi,$tablaDtto,$codCliente);
+		$respuesta = ModeloModifCtto::mdlBuscaCliente($tablaCliente,$tablaDireccion,$tablaZona,$codCliente);
 		return $respuesta;
 	}//ctrBuscaCliente
 
