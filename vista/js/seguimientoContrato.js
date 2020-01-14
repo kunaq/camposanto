@@ -159,7 +159,7 @@ function getDatosServicioCtt(row,localidad,tasa,tipoCtt,tipoPro,codCtt,numRef,nu
     });//ajaxGetCuotas
 }
 
-function getDatosServicioCtt(row,servicio,tipoDoc,numDoc,apePaterno,apeMaterno,nombre,sexo,edoCivil,fchNac,parentesco,peso,talla,religion,observacion,fchDec,fchEnt,lugarDec,motivoDec,nivel,flgAutopsia){
+function mostrarBeneficiario(row,servicio,tipoDoc,numDoc,apePaterno,apeMaterno,nombre,sexo,edoCivil,fchNac,parentesco,peso,talla,religion,observacion,fchDec,fchEnt,lugarDec,motivoDec,nivel,flgAutopsia){
 	var rows = $('#myTableBeneficiarios tr').not(':first');
 	rows.removeClass('selected'); 
   	$(row).closest('tr').addClass('selected');
