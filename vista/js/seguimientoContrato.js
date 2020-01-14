@@ -97,7 +97,53 @@ function getDatosServicioCtt(row,localidad,tasa,tipoCtt,tipoPro,codCtt,numRef,nu
 		    document.getElementById("moraTotal").innerHTML = info.totalMora;
         	
         }//succes
-    });//ajax
+    });//ajaxGetCuotas
+
+    $.ajax({
+		type: 'POST',
+        url:"ajax/segCtt.ajax.php",
+        dataType: 'text',
+        data: {'accion' : 'getResumenCtt', 'as_localidad' : localidad, 'as_tipo_ctt' : tipoCtt, 'as_contrato' : codCtt, 'as_servicio' : numSer, 'ai_ref' : numRef, 'as_tipo_programa' : tipoPro},
+        success: function(respuesta){
+
+        	var info = JSON.parse(respuesta);
+
+        	document.getElementById('cuoTotReg').value = info.ctd_total;
+        	document.getElementById('cuoCanReg').value = info.ctd_can;
+        	document.getElementById('cuoPenReg').value = info.ctd_total - info.ctd_can;
+        	document.getElementById('cuoTotFOMA').value = info.ctd_foma;
+        	document.getElementById('cuoCanFOMA').value = info.ctd_can_foma;
+        	document.getElementById('cuoPenFOMA').value = info.ctd_foma - info.ctd_can_foma;
+
+        	document.getElementById("imp_sub_cui").innerHTML = info.imp_sub_cui;
+		    document.getElementById("imp_int_cui").innerHTML = info.imp_int_cui;
+		    document.getElementById("imp_igv_cui").innerHTML = info.imp_igv_cui;
+		    document.getElementById("imp_tot_cui").innerHTML = info.imp_tot_cui;
+		    document.getElementById("imp_emi_cui").innerHTML = info.imp_emi_cui;
+		    document.getElementById("imp_can_cui").innerHTML = info.imp_can_cui;
+		    document.getElementById("imp_sal_cui").innerHTML = info.imp_sal_cui;
+
+		    document.getElementById("imp_sub_reg").innerHTML = info.imp_sub_reg;
+		    document.getElementById("imp_int_reg").innerHTML = info.imp_int_reg;
+		    document.getElementById("imp_igv_reg").innerHTML = info.imp_igv_reg;
+		    document.getElementById("imp_tot_reg").innerHTML = info.imp_total_reg;
+		    document.getElementById("imp_emi_reg").innerHTML = info.imp_emi_reg;
+		    document.getElementById("imp_can_reg").innerHTML = info.imp_can_reg;
+		    document.getElementById("imp_sal_reg").innerHTML = info.imp_sal_reg;
+
+		    document.getElementById("imp_sub_foma").innerHTML = info.imp_sub_foma;
+		    document.getElementById("imp_int_foma").innerHTML = info.imp_int_foma;
+		    document.getElementById("imp_igv_foma").innerHTML = info.imp_igv_foma;
+		    document.getElementById("imp_tot_foma").innerHTML = info.imp_tot_foma;
+		    document.getElementById("imp_emi_foma").innerHTML = info.imp_emi_foma;
+		    document.getElementById("imp_can_foma").innerHTML = info.imp_can_fma;
+		    document.getElementById("imp_sal_foma").innerHTML = info.imp_sal_foma;
+
+		    document.getElementById('estadoSaldos').value = info.dsc_estado;
+        	document.getElementById('monedaSaldos').value = info.cod_moneda;
+
+        }//succes
+    });//ajaxgetResumenCtt
 }
 
 

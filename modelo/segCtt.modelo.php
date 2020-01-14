@@ -195,32 +195,49 @@ class ModeloSegContrato{
 
 		return $arrData;
 
-	}//function mdlGetDatosCtt
+	}//function mdlGetCuotas
 
-	static public function ejecutaProcedureGeneraCtto($datos){
+	static public function mdlEjecutaProcedureResumenCtt($datos){
+
 		$db = new Conexion();
-		$sql = $db->consulta("EXEC usp_vta_prc_genera_contrato '".$datos['a_usuario']."', '".$datos['as_cliente']."', '".$datos['as_contrato_base']."', '".$datos['as_num_comprobante']."', '".$datos['as_contrato_reg']."', '".$datos['as_tipo_comprobante']."', '".$datos['as_localidad']."', '".$datos['as_tipo_recaudacion']."', '".$datos['as_localidad_base']."', '".$datos['as_servicio_base']."', '".$datos['as_tipo_ctt_base']."', '".$datos['as_camposanto']."', '".$datos['as_plataforma']."', '".$datos['as_area']."', '".$datos['as_eje_horizontal']."', '".$datos['as_eje_vertical']."', '".$datos['as_tipo_espacio']."', '".$datos['as_convenio']."', '".$datos['as_moneda']."', '".$datos['as_moneda_comprob']."', '".$datos['as_espacio']."', '".$datos['as_tipo_necesidad']."', '".$datos['adt_fch_emision']."', ".$datos['ade_imp_cuoi'].", ".$datos['ade_valor_igv'].", '".$datos['as_flg_nuevo']."', '".$datos['as_flg_comprobante']."', '".$datos['as_flg_modif']."', '".$datos['as_flg_regularizar']."', '".$datos['as_flg_ctt_x_tn']."', '".$datos['as_cod_empresa']."', '".$datos['as_tipo_programa_base']."', '".$datos['ai_nivel']."', '".$datos['as_flg_emitir_saldo']."', '".$datos['as_flg_integral']."', '".$datos['as_flg_cronograma_cuoi']."'");
-		
-		if($sql){
-			while($key = $db->recorrer($sql)){
-	    		$num_contrato = $key['num_contrato'];
-	    		$num_servicio = $key['num_servicio'];
-	    		$cod_tipo_ctt = $key['cod_tipo_ctt'];
-	    		$cod_tipo_programa = $key['cod_tipo_programa'];
-	    		$num_refinanciamiento = $key['num_refinanciamiento'];
-	    		$cod_localidad = $key['cod_localidad'];
 
-	    		$arrData = array('cod' => '1', 'num_contrato'=> $num_contrato, 'num_servicio'=>$num_servicio, 'cod_tipo_ctt'=>$cod_tipo_ctt, 'cod_tipo_programa'=> $cod_tipo_programa, 'num_refinanciamiento'=>$num_refinanciamiento, 'cod_localidad'=>$cod_localidad);
-			}
-			return $arrData;
-		}else{
-			$arrData = array('cod' => '0', 'msg'=> 'error al registrar contrato');
-			return $arrData;
+		$sql = $db->consulta("EXEC usp_vta_prc_resumen_contrato '".$datos['as_localidad']."', '".$datos['as_tipo_ctt']."', '".$datos['as_contrato']."', '".$datos['as_servicio']."', '".$datos['ai_ref']."', '".$datos['as_total']."', '".$datos['as_tipo_programa']."'");
+
+		while($key = $db->recorrer($sql)){
+
+	      $ctd_total = $key['ctd_total'];
+	      $ctd_can = $key['ctd_can'];
+	      $ctd_foma = $key['ctd_foma'];
+	      $ctd_can_foma = $key['ctd_can_foma'];
+	      $imp_total_reg = number_format(round($key['imp_total_reg'], 2),2,',','.');
+	      $imp_int_reg = number_format(round($key['imp_int_reg'], 2),2,',','.');
+	      $imp_igv_reg = number_format(round($key['imp_igv_reg'], 2),2,',','.');
+	      $imp_sub_reg = number_format(round($key['imp_sub_reg'], 2),2,',','.');
+	      $imp_tot_cui = number_format(round($key['imp_tot_cui'], 2),2,',','.');
+	      $imp_int_cui = number_format(round($key['imp_int_cui'], 2),2,',','.');
+	      $imp_igv_cui = number_format(round($key['imp_igv_cui'], 2),2,',','.');
+	      $imp_sub_cui = number_format(round($key['imp_sub_cui'], 2),2,',','.');
+	      $imp_can_cui = number_format(round($key['imp_can_cui'], 2),2,',','.');
+	      $imp_can_reg = number_format(round($key['imp_can_reg'], 2),2,',','.');
+	      $imp_can_fma = number_format(round($key['imp_can_fma'], 2),2,',','.');
+	      $imp_emi_cui = number_format(round($key['imp_emi_cui'], 2),2,',','.');
+	      $imp_emi_reg = number_format(round($key['imp_emi_reg'], 2),2,',','.');
+	      $imp_emi_foma = number_format(round($key['imp_emi_foma'], 2),2,',','.');
+	      $dsc_estado = $key['dsc_estado'];
+	      $imp_tot_foma = number_format(round($key['imp_tot_foma'], 2),2,',','.');
+	      $imp_int_foma = number_format(round($key['imp_int_foma'], 2),2,',','.');
+	      $imp_igv_foma = number_format(round($key['imp_igv_foma'], 2),2,',','.');
+	      $imp_sub_foma = number_format(round($key['imp_sub_foma'], 2),2,',','.');
+	      $imp_sal_cui = number_format(round($key['imp_sal_cui'], 2),2,',','.');
+	      $imp_sal_reg = number_format(round($key['imp_sal_reg'], 2),2,',','.');
+	      $imp_sal_foma = number_format(round($key['imp_sal_foma'], 2),2,',','.');
+	      $cod_moneda = $key['cod_moneda'];
 		}
-		return $datos;
-	}//function ejecutaProcedureGeneraCtto
+		$arrData = array('ctd_total'=> $ctd_total, 'ctd_can' => $ctd_can, 'ctd_foma'=> $ctd_foma, 'ctd_can_foma' => $ctd_can_foma, 'imp_total_reg'=> $imp_total_reg, 'imp_int_reg' => $imp_int_reg, 'imp_igv_reg'=> $imp_igv_reg, 'imp_sub_reg' => $imp_sub_reg, 'imp_tot_cui' => $imp_tot_cui, 'imp_int_cui' => $imp_int_cui, 'imp_igv_cui' => $imp_igv_cui, 'imp_sub_cui' => $imp_sub_cui, 'imp_can_cui' => $imp_can_cui, 'imp_can_reg' => $imp_can_reg, 'imp_can_fma' => $imp_can_fma, 'imp_emi_cui' => $imp_emi_cui, 'imp_emi_reg' => $imp_emi_reg, 'imp_emi_foma' => $imp_emi_foma, 'dsc_estado' => $dsc_estado, 'imp_tot_foma' => $imp_tot_foma, 'ctd_total' => $ctd_total, 'ctd_can' => $ctd_can, 'ctd_total'=> $ctd_total, 'ctd_can' => $ctd_can, 'imp_int_foma'=> $imp_int_foma, 'imp_igv_foma' => $imp_igv_foma, 'imp_sub_foma' => $imp_sub_foma, 'imp_sal_cui' => $imp_sal_cui, 'imp_sal_reg' => $imp_sal_reg, 'imp_sal_foma' => $imp_sal_foma, 'cod_moneda' => $cod_moneda); 
 
+		return $arrData;
 
+	}//function mdlEjecutaProcedureResumenCtt
 	
 
 }//class ModeloWizard
