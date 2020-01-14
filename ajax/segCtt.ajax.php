@@ -23,7 +23,7 @@ class AjaxSegCtt{
 	}//function ajaxEjecutaProcedureResumenCtt
 	public function ajaxGetBeneficiariosServ(){
 		$respuesta = ControladorSegContrato::ctrGetBeneficiariosServ();
-		echo json_encode($respuesta,JSON_UNESCAPED_UNICODE);
+		echo $respuesta;
 	}//function ajaxGuardaEndoso
 	// public function ajaxGuardaBeneficiario(){
 	// 	$respuesta = ControladorWizard::ctrGuardaBeneficiario();
