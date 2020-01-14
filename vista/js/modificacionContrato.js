@@ -176,6 +176,7 @@ function muestraInfo(id){
 }//muestraInfo
 
 function nombreVendedor(valor,campo){
+	console.log('valor',valor,'campo',campo);
     $.ajax({
         type: 'GET',
         url: 'extensiones/captcha/buscaNombre.php',
