@@ -93,7 +93,7 @@ function muestraInfo(id){
         method: "POST",
         data: { 'accion' : 'DetServ', 'codCtto' : codCtto, 'num_servicio' : id },
         success : function(respuesta){
-        	// console.log('respuesta',respuesta);
+        	console.log('respuesta',respuesta);
         	if(respuesta['cod_tipo_necesidad'] == 'NF'){
         		var tipoNec = 'NECESIDAD FUTURA';
         	}else{
@@ -295,7 +295,7 @@ function buscaDatos2Ti(){
         method: "POST",
         data: { 'accion' : 'buscaCli', 'codCliente' : codCliente },
         success : function(respuesta){
-        	console.log('respuesta',respuesta);
+        	// console.log('respuesta',respuesta);
         	var juridico = false;
         	$("#numDocTitular2").val(respuesta['dsc_documento']);
 			document.getElementById("docIdeTitular2").setAttribute('value',respuesta['cod_tipo_documento']);
