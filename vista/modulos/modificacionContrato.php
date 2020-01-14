@@ -1917,19 +1917,6 @@
 													<label>&nbsp;&nbsp;</label>
 													<input type="text" class="form-control form-control-sm m-input" name="nombreCobrador" id="nombreCobrador">
 												</div>
-												<div class="col-lg-12">
-													<label class="">Zona</label>
-													<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="zona" id="zona">
-														<option>Selecciona</option>
-														<?php
-																// $tabla = "vtama_localidad";
-																// $item1 = "cod_localidad";
-																// $item2 = "dsc_localidad";
-																// $prueba = controladorEmpresa::
-																// ctrSelects($tabla,$item1,$item2);
-														?>
-													</select>
-												</div>
 											</div>
 										</div>
 									</fieldset>
