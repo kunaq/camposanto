@@ -288,7 +288,7 @@ function buscaDatosTi(){
 }//buscaDatosTi
 
 function buscaDatos2Ti(){
-	var codCliente = $("#codCliTitular2a").val();
+	var codCliente = $("#codCliTitular2").val();
 	$.ajax({
         url: 'ajax/modifCtto.ajax.php',
         dataType: 'json',
