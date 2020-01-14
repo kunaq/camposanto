@@ -1907,7 +1907,7 @@
 											<div class="row form-group">
 												<div class="col-lg-3">
 													<label>Cobrador</label>
-													<input type="text" class="form-control form-control-sm m-input" name="codCobrador" id="codCobrador">
+													<input type="text" class="form-control form-control-sm m-input" name="codCobrador" id="codCobrador" onchange="nombreVendedor(this.value,'nombreCobrador');">
 												</div>
 												<div class="col-lg-1">
 													<label>&nbsp;</label>
@@ -1926,7 +1926,7 @@
 											<div class="row form-group">
 												<div class="col-lg-3">
 													<label>Vendedor</label>
-													<input type="text" class="form-control form-control-sm m-input" name="codVendedor" id="codVendedor">
+													<input type="text" class="form-control form-control-sm m-input" name="codVendedor" id="codVendedor" onchange="nombreVendedor(this.value,'nombreVendedor');">
 												</div>
 												<div class="col-lg-1">
 													<label>&nbsp;</label>
@@ -1961,7 +1961,7 @@
 											<div class="row form-group">
 												<div class="col-lg-3">
 													<label>Supervisor</label>
-													<input type="text" class="form-control form-control-sm m-input" name="codSupervisor" id="codSupervisor">
+													<input type="text" class="form-control form-control-sm m-input" name="codSupervisor" id="codSupervisor" onchange="nombreVendedor(this.value,'nombreSupervisor');">
 												</div>
 												<div class="col-lg-9">
 													<label>&nbsp;&nbsp;</label>
@@ -1969,7 +1969,7 @@
 												</div>
 												<div class="col-lg-3">
 													<label>Jefe de Ventas</label>
-													<input type="text" class="form-control form-control-sm m-input" name="codJefeVentas" id="codJefeVentas">
+													<input type="text" class="form-control form-control-sm m-input" name="codJefeVentas" id="codJefeVentas" onchange="nombreVendedor(this.value,'nombreJefeVentas');">
 												</div>
 												<div class="col-lg-9">
 													<label>&nbsp;&nbsp;</label>
