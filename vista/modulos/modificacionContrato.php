@@ -727,7 +727,7 @@
 												<div class="row">
 													<div class="col-lg-7">
 														<label>Codigo Cliente</label>
-														<input type="text" class="form-control form-control-sm m-input" name="codCliTitular2" id="codCliTitular2" disabled  onchange="buscaDatos2Ti();">
+														<input type="text" class="form-control form-control-sm m-input" name="codCliTitular2" id="codCliTitular2" disabled onchange="buscaDatos2Ti();">
 													</div>
 													<div class="col-lg-5">
 													</div>
@@ -888,7 +888,7 @@
 												<div class="row">
 													<div class="col-lg-7">
 														<label>Codigo Cliente</label>
-														<input type="text" class="form-control form-control-sm m-input" name="codAval" id="codAval" disabled>
+														<input type="text" class="form-control form-control-sm m-input" name="codAval" id="codAval" disabled onchange="buscaDatosAval();">
 													</div>
 													<div class="col-lg-5">
 													</div>

@@ -283,7 +283,7 @@ function buscaDatosTi(){
 }//buscaDatosTi
 
 function buscaDatos2Ti(){
-	var codCliente = $("#codCliTitular2").val();
+	var codCliente = $("#codCliTitular2a").val();
 	$.ajax({
         url: 'ajax/modifCtto.ajax.php',
         dataType: 'json',
@@ -315,6 +315,43 @@ function buscaDatos2Ti(){
             $("#direccionTitular2").val(respuesta['dsc_direccion']);
             $("#refDirTitular2").val(respuesta['dsc_referencia']);
             $("#zonaDirTitular2").val(respuesta['dsc_tipo_zona']);
+        }//success
+    });//ajax
+}//buscaDatos2Ti
+
+function buscaDatosAval(){
+	var codCliente = $("#codAval").val();
+	$.ajax({
+        url: 'ajax/modifCtto.ajax.php',
+        dataType: 'json',
+        method: "POST",
+        data: { 'accion' : 'buscaCli', 'codCliente' : codCliente },
+        success : function(respuesta){
+        	console.log('respuesta',respuesta);
+        	var juridico = false;
+        	$("#numDocAval").val(respuesta['dsc_documento']);
+			document.getElementById("docIdeAval").setAttribute('value',respuesta['cod_tipo_documento']);
+            if(respuesta['flg_juridico'] == 'SI'){
+            	juridico = true;
+            }
+            $("#juridico2doCheck").prop("checked", juridico);
+            $("#fchNac2doTitular").datepicker('setDate', respuesta['fch_nacimiento']);
+            $("#apePatAval").val(respuesta['dsc_apellido_paterno']);
+            $("#apeMatAval").val(respuesta['dsc_apellido_materno']);
+            $("#nomAval").val(respuesta['dsc_nombre']);
+            $("#razSocAval").val(respuesta['dsc_razon_social']);
+            $("#cel1Aval").val(respuesta['dsc_telefono_1']);
+            $("#cel2Aval").val(respuesta['dsc_telefono_2']);
+            $("#edoCivilAval").val(respuesta['cod_estadocivil']);
+            $("#sexoAval").val(respuesta['cod_sexo'].trim());
+            $("#emailAval").val(respuesta['dsc_email']);
+            document.getElementById("paisAval").setAttribute('value',respuesta['dsc_pais']);
+            document.getElementById("departamentoAval").setAttribute('value',respuesta['dsc_departamento']);
+            document.getElementById("provinciaAval").setAttribute('value',respuesta['dsc_provincia']);
+            document.getElementById("distritoAval").setAttribute('value',respuesta['dsc_distrito']);
+            $("#direccionAval").val(respuesta['dsc_direccion']);
+            $("#refDirAval").val(respuesta['dsc_referencia']);
+            $("#zonaDirAval").val(respuesta['dsc_tipo_zona']);
         }//success
     });//ajax
 }//buscaDatos2Ti
