@@ -251,7 +251,7 @@ function buscaDatosTi(){
         	console.log('respuesta',respuesta);
         	var juridico = false;
         	$("#numDocTitular").val(respuesta['dsc_documento']);
-			$("#docIdeTitular").setAttribute('value',respuesta['cod_tipo_documento']);
+			document.getElementById("docIdeTitular").setAttribute('value',respuesta['cod_tipo_documento']);
             if(respuesta['flg_juridico'] == 'SI'){
             	juridico = true;
             }
@@ -266,10 +266,10 @@ function buscaDatosTi(){
             $("#edoCivilTitular").val(respuesta['cod_estadocivil']);
             $("#sexoTitular").val(respuesta['cod_sexo']);
             $("#emailTitular").val(respuesta['dsc_email']);
-            $("#paisTitular").setAttribute('value',respuesta['cod_pais']);;
-            $("#departamentoTitular").setAttribute('value',respuesta['cod_departamento']);
-            $("#provinciaTitular").setAttribute('value',respuesta['cod_provincia']);
-            $("#distritoTitular").setAttribute('value',respuesta['cod_distrito']);
+            document.getElementById("paisTitular").setAttribute('value',respuesta['cod_pais']);;
+            document.getElementById("departamentoTitular").setAttribute('value',respuesta['cod_departamento']);
+            document.getElementById("provinciaTitular").setAttribute('value',respuesta['cod_provincia']);
+            document.getElementById("distritoTitular").setAttribute('value',respuesta['cod_distrito']);
             $("#direccionTitular").val(respuesta['dsc_direccion']);
             $("#refDirTitular").setAttribute('value',respuesta['dsc_referencia']);
             $("#zonaDirTitular").val(respuesta['dsc_tipo_zona']);
