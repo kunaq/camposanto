@@ -176,14 +176,12 @@ function muestraInfo(id){
 }//muestraInfo
 
 function nombreTrabajador(valor,campo){
-	console.log('valor',valor,'campo',campo);
     $.ajax({
         type: 'GET',
         url: 'extensiones/captcha/buscaNombre.php',
         dataType: 'text',
         data: { 'value' : valor },
         success : function(respuesta){
-        	console.log(respuesta);
             document.getElementById(campo).value = respuesta;
         }
     });
