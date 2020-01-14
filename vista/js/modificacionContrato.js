@@ -263,7 +263,7 @@ function buscaDatosTi(){
             $("#cel1Titular").val(respuesta['dsc_telefono_1']);
             $("#cel2Titular").val(respuesta['dsc_telefono_2']);
             $("#edoCivilTitular").val(respuesta['cod_estadocivil']);
-            $("#sexoTitular").val(respuesta['cod_sexo']);
+            $("#sexoTitular").val(trim(respuesta['cod_sexo']);
             $("#emailTitular").val(respuesta['dsc_email']);
             document.getElementById("paisTitular").setAttribute('value',respuesta['cod_pais']);
             document.getElementById("departamentoTitular").setAttribute('value',respuesta['cod_departamento']);
