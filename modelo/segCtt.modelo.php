@@ -9,17 +9,17 @@ class ModeloSegContrato{
 
 		$db = new Conexion();
 
-		$sql = $db->consulta("SELECT (SELECT vtama_cliente.dsc_cliente FROM vtama_cliente WHERE vtama_cliente.cod_cliente = vtade_contrato.cod_cliente) AS dsc_cliente, vtade_contrato.cod_localidad, (SELECT vtama_localidad.dsc_localidad FROM vtama_localidad WHERE vtama_localidad.cod_localidad = vtade_contrato.cod_localidad)AS dsc_localidad, vtade_contrato.cod_contrato, vtade_contrato.cod_tipo_ctt, vtade_contrato.cod_tipo_programa, vtade_contrato.flg_ctt_modif FROM vtade_contrato WHERE vtade_contrato.cod_contrato LIKE '%' + '$cod_contrato' + '%' AND vtade_contrato.flg_cambio_titular = 'NO'");
+		$sql = $db->consulta("SELECT TOP 1 (SELECT vtama_cliente.dsc_cliente FROM vtama_cliente WHERE vtama_cliente.cod_cliente = vtade_contrato.cod_cliente) AS dsc_cliente, vtade_contrato.cod_localidad, (SELECT vtama_localidad.dsc_localidad FROM vtama_localidad WHERE vtama_localidad.cod_localidad = vtade_contrato.cod_localidad)AS dsc_localidad, vtade_contrato.cod_contrato, vtade_contrato.cod_tipo_ctt, vtade_contrato.cod_tipo_programa, vtade_contrato.flg_ctt_modif FROM vtade_contrato WHERE vtade_contrato.cod_contrato LIKE '%' + '$cod_contrato' + '%' AND vtade_contrato.flg_cambio_titular = 'NO'");
 
 		while($key = $db->recorrer($sql)){
 
-	      $cliente = $key['dsc_cliente'];
+	      $cliente = Utf8Encode($key['dsc_cliente']);
 	      $cod_localidad = $key['cod_localidad'];
-	      $dsc_localidad = $key['dsc_localidad'];
+	      $dsc_localidad = Utf8Encode($key['dsc_localidad']);
 	      $contrato = $key['cod_contrato'];
 	      $tipoCtt = $key['cod_tipo_ctt'];
 	      $programa = $key['cod_tipo_programa'];
-	      $modificado = $key['flg_ctt_modif'];             
+	      $modificado = $key['flg_ctt_modif'];           
 		}
 		$arrData = array('cliente'=> $cliente, 'cod_localidad' => $cod_localidad, 'dsc_localidad'=> $dsc_localidad, 'contrato'=> $contrato, 'tipoCtt'=> $tipoCtt, 'programa'=> $programa, 'modificado'=> $modificado); 
 
