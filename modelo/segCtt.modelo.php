@@ -299,7 +299,7 @@ class ModeloSegContrato{
 		}
 		$arrData = array('tablaBeneficiarios'=> $tablaBeneficiarios); 
 
-		return "success";
+		return $tablaBeneficiarios;
 
 	}//function mdlGetDatosCtt
 
