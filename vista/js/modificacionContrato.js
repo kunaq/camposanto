@@ -176,6 +176,7 @@ function nombreVendedor(valor,campo){
         dataType: 'text',
         data: { 'value' : valor },
         success : function(respuesta){
+        	console.log(respuesta);
             document.getElementById(campo).val(respuesta);
         }
     });
@@ -288,7 +289,7 @@ function buscaDatosTi(){
             $("#cel1Titular").val(respuesta['dsc_telefono_1']);
             $("#cel2Titular").val(respuesta['dsc_telefono_2']);
             $("#edoCivilTitular").val(respuesta['cod_estadocivil']);
-             if(respuesta['cod_sexo'] != '' || respuesta['cod_sexo'] != null){
+             if(respuesta['cod_sexo'] != '' || respuesta['cod_sexo'] != null || respuesta['cod_sexo'] != 'undefinied'){
             	sexo = respuesta['cod_sexo'].trim();
             }else{
             	sexo = '';
@@ -330,7 +331,7 @@ function buscaDatos2Ti(){
             $("#cel1Titular2").val(respuesta['dsc_telefono_1']);
             $("#cel2Titular2").val(respuesta['dsc_telefono_2']);
             $("#edoCivilTitular2").val(respuesta['cod_estadocivil']);
-            if(respuesta['cod_sexo'] != '' || respuesta['cod_sexo'] != null){
+            if(respuesta['cod_sexo'] != '' || respuesta['cod_sexo'] != null || respuesta['cod_sexo'] != 'undefinied'){
             	sexo = respuesta['cod_sexo'].trim();
             }else{
             	sexo = '';
@@ -372,7 +373,7 @@ function buscaDatosAval(){
             $("#cel1Aval").val(respuesta['dsc_telefono_1']);
             $("#cel2Aval").val(respuesta['dsc_telefono_2']);
             $("#edoCivilAval").val(respuesta['cod_estadocivil']);
-             if(respuesta['cod_sexo'] != ''){
+             if(respuesta['cod_sexo'] != '' || respuesta['cod_sexo'] != null || respuesta['cod_sexo'] != 'undefinied'){
             	sexo = respuesta['cod_sexo'].trim();
             }else{
             	sexo = '';
