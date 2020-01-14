@@ -130,10 +130,10 @@ function muestraInfo(id){
         	if(respuesta['cod_aval'] != ''){
         		$("#codAval").trigger('change');
         	}
-        	$("#codCobrador").val(respuesta['cod_cobrador']);
-        	$("#codSupervisor").val(respuesta['cod_supervisor']);
-        	$("#codJefeVentas").val(respuesta['cod_jefeventas']);
-        	$("#codVendedor").val(respuesta['cod_vendedor']);
+        	$("#codCobrador").val(respuesta['cod_cobrador']).trigger('change');
+        	$("#codSupervisor").val(respuesta['cod_supervisor']).trigger('change');
+        	$("#codJefeVentas").val(respuesta['cod_jefeventas']).trigger('change');
+        	$("#codVendedor").val(respuesta['cod_vendedor']).trigger('change');
         	$("#codTipoComisionista").val(respuesta['cod_tipo_comisionista']);
         	$("#codGrupo").val(respuesta['cod_grupo']);
 
