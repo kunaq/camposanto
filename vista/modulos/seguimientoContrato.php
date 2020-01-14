@@ -1770,7 +1770,7 @@
 													<div class="col-lg-12">
 														<div class="row">
 															<fieldset class="fieldFormHorizontal">
-																<legend class="tittle-box">N° Servicio</legend>
+																<legend class="tittle-box">N° Servicio <input type="text" class="form-control-sm numServ" id="codServicio"></legend>
 																<div class="col-lg-12">
 																	<div class="row form-group">
 																		<div class="col-lg-6">
