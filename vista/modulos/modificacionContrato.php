@@ -662,38 +662,19 @@
 										<div class="row form-group">
 											<div class="col-lg-3">
 												<label>País</label>
-												<select class="form-control form-control-sm m-input custom-select custom-select-danger" id="paisTitular" name="paisTitular" disabled>
-													<option value="0">
-														Seleccione el país
-													</option>
-													<?php
-														$prueba = controladorEmpresa::ctrPais();
-													?> 
-												</select>
+												<input type="text" class="form-control form-control-sm m-input" name="paisTitular" id="paisTitular" disabled>
 											</div>
 											<div class="col-lg-3">
 												<label>Departamento</label>
-												<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="departamentoTitular" id="departamentoTitular" disabled="">
-													<option value="">
-														Seleccione
-													</option>
-												</select>
+												<input type="text" class="form-control form-control-sm m-input" name="departamentoTitular" id="departamentoTitular" disabled>
 											</div>
 											<div class="col-lg-3">
 												<label>Provincia</label>
-												<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="provinciaTitular" id="provinciaTitular" disabled>
-													<option value="">
-														Seleccione
-													</option>
-												</select>
+												<input type="text" class="form-control form-control-sm m-input" name="provinciaTitular" id="provinciaTitular" disabled>
 											</div>
 											<div class="col-lg-3">
 												<label>Distrito</label>
-												<select class="form-control m-input custom-select custom-select-danger" name="distritoTitular" id="distritoTitular" disabled="">
-													<option value="">
-														Seleccione
-													</option>
-												</select>
+												<input type="text" class="form-control form-control-sm m-input" name="distritoTitular" id="distritoTitular" disabled>
 											</div>
 											<div class="col-lg-12">
 												<label>Dirección</label>
