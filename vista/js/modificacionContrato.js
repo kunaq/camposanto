@@ -255,7 +255,7 @@ function buscaDatosTi(){
             	juridico = true;
             }
             $("#juridicoCheck").prop("checked", juridico);
-            $("#fchNacTitular").datepicker('setDate', respuesta['fch_nacimiento']);;
+            $("#fchNacTitular").datepicker('setDate', respuesta['fch_nacimiento']);
             $("#apePatTitular").val(respuesta['dsc_apellido_paterno']);
             $("#apeMatTitular").val(respuesta['dsc_apellido_materno']);
             $("#nomTitular").val(respuesta['dsc_nombre']);
@@ -270,7 +270,7 @@ function buscaDatosTi(){
             document.getElementById("provinciaTitular").setAttribute('value',respuesta['cod_provincia']);
             document.getElementById("distritoTitular").setAttribute('value',respuesta['cod_distrito']);
             $("#direccionTitular").val(respuesta['dsc_direccion']);
-            $("#refDirTitular").value(respuesta['dsc_referencia']);
+            $("#refDirTitular").val(respuesta['dsc_referencia']);
             $("#zonaDirTitular").val(respuesta['dsc_tipo_zona']);
         }//success
     });//ajax
