@@ -175,7 +175,7 @@ function muestraInfo(id){
     });//ajax
 }//muestraInfo
 
-function nombreVendedor(valor,campo){
+function nombreTrabajador(valor,campo){
 	console.log('valor',valor,'campo',campo);
     $.ajax({
         type: 'GET',
