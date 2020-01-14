@@ -122,8 +122,14 @@ function muestraInfo(id){
         	$("#subtotal").val(respuesta['imp_subtotal']);
         	$("#total").val(respuesta['imp_totalneto']);
         	$("#codCliTitular").val(respuesta['cod_cliente']).trigger('change');
-        	$("#codCliTitular2").val(respuesta['cod_titular_alterno']).trigger('change');
-        	$("#codAval").val(respuesta['cod_aval']).trigger('change');
+        	$("#codCliTitular2").val(respuesta['cod_titular_alterno']);
+        	if(respuesta['cod_titular_alterno'] != ''){
+        		$("#codCliTitular2").trigger('change');
+        	}
+        	$("#codAval").val(respuesta['cod_aval']);
+        	if(respuesta['cod_aval'] != ''){
+        		$("#codAval").trigger('change');
+        	}
         	$("#codCobrador").val(respuesta['cod_cobrador']);
         	$("#codSupervisor").val(respuesta['cod_supervisor']);
         	$("#codJefeVentas").val(respuesta['cod_jefeventas']);
