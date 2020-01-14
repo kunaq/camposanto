@@ -9,6 +9,7 @@
 				</div>
 			</div>
 		</div>
+		<form id="formModifCtto">
 		<div class="m-portlet__body">
 			<div class="row">
 				<div class="col-lg-4">
@@ -2179,6 +2180,7 @@
 				</div>
 			</div>	
 		</div>
+		</form>
 	</div>
 </div>
 </div>
