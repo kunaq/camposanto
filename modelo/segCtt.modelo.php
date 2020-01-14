@@ -287,13 +287,10 @@ class ModeloSegContrato{
 										'.$key['num_nivel'].'
 										</th>
 										<td>
-										'.$key['dsc_nombre'].'
+										'.Utf8Encode($key['dsc_nombre']).'
 										</td>
 										<td>
-										Stone
-										</td>
-										<td>
-											@jhon
+										'.Utf8Encode($key['dsc_apellidopaterno']).' '.Utf8Encode($key['dsc_apellidomaterno']).'
 										</td>
 									</tr>';
 		}
