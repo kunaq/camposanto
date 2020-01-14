@@ -15,7 +15,7 @@ class ModeloSegContrato{
 
 	      $cliente = Utf8Encode($key['dsc_cliente']);
 	      $cod_localidad = $key['cod_localidad'];
-	      $dsc_localidad = $key['dsc_localidad'];
+	      $dsc_localidad = Utf8Encode($key['dsc_localidad']);
 	      $contrato = $key['cod_contrato'];
 	      $tipoCtt = $key['cod_tipo_ctt'];
 	      $programa = $key['cod_tipo_programa'];
