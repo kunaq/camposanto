@@ -265,10 +265,10 @@ function buscaDatosTi(){
             $("#edoCivilTitular").val(respuesta['cod_estadocivil']);
             $("#sexoTitular").val(respuesta['cod_sexo'].trim());
             $("#emailTitular").val(respuesta['dsc_email']);
-            document.getElementById("paisTitular").setAttribute('value',respuesta['cod_pais']);
-            document.getElementById("departamentoTitular").setAttribute('value',respuesta['cod_departamento']);
-            document.getElementById("provinciaTitular").setAttribute('value',respuesta['cod_provincia']);
-            document.getElementById("distritoTitular").setAttribute('value',respuesta['cod_distrito']);
+            document.getElementById("paisTitular").setAttribute('value',respuesta['dsc_pais']);
+            document.getElementById("departamentoTitular").setAttribute('value',respuesta['dsc_departamento']);
+            document.getElementById("provinciaTitular").setAttribute('value',respuesta['dsc_provincia']);
+            document.getElementById("distritoTitular").setAttribute('value',respuesta['dsc_distrito']);
             $("#direccionTitular").val(respuesta['dsc_direccion']);
             $("#refDirTitular").val(respuesta['dsc_referencia']);
             $("#zonaDirTitular").val(respuesta['dsc_tipo_zona']);
