@@ -122,7 +122,7 @@ function muestraInfo(id){
         	$("#subtotal").val(respuesta['imp_subtotal']);
         	$("#total").val(respuesta['imp_totalneto']);
         	$("#codCliTitular").val(respuesta['cod_cliente']).trigger('change');
-        	$("#cod2doTitular").val(respuesta['cod_titular_alterno']).trigger('change');
+        	$("#codCliTitular2").val(respuesta['cod_titular_alterno']).trigger('change');
         	$("#codAval").val(respuesta['cod_aval']).trigger('change');
         	$.ajax({
 		        url: 'ajax/modifCtto.ajax.php',
@@ -283,7 +283,7 @@ function buscaDatosTi(){
 }//buscaDatosTi
 
 function buscaDatos2Ti(){
-	var codCliente = $("#cod2doTitular").val();
+	var codCliente = $("#codCliTitular2").val();
 	$.ajax({
         url: 'ajax/modifCtto.ajax.php',
         dataType: 'json',
