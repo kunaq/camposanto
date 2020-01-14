@@ -1907,7 +1907,7 @@
 											<div class="row form-group">
 												<div class="col-lg-3">
 													<label>Cobrador</label>
-													<input type="text" class="form-control form-control-sm m-input" name="codCobrador" id="codCobrador">
+													<input type="text" class="form-control form-control-sm m-input" name="codCobrador" id="codCobrador" onchange="nombreVendedor(this.value,'nombreCobrador');">
 												</div>
 												<div class="col-lg-1">
 													<label>&nbsp;</label>
@@ -1916,19 +1916,6 @@
 												<div class="col-lg-8">
 													<label>&nbsp;&nbsp;</label>
 													<input type="text" class="form-control form-control-sm m-input" name="nombreCobrador" id="nombreCobrador">
-												</div>
-												<div class="col-lg-12">
-													<label class="">Zona</label>
-													<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="zona" id="zona">
-														<option>Selecciona</option>
-														<?php
-																// $tabla = "vtama_localidad";
-																// $item1 = "cod_localidad";
-																// $item2 = "dsc_localidad";
-																// $prueba = controladorEmpresa::
-																// ctrSelects($tabla,$item1,$item2);
-														?>
-													</select>
 												</div>
 											</div>
 										</div>
@@ -1939,7 +1926,7 @@
 											<div class="row form-group">
 												<div class="col-lg-3">
 													<label>Vendedor</label>
-													<input type="text" class="form-control form-control-sm m-input" name="codVendedor" id="codVendedor">
+													<input type="text" class="form-control form-control-sm m-input" name="codVendedor" id="codVendedor" onchange="nombreVendedor(this.value,'nombreVendedor');">
 												</div>
 												<div class="col-lg-1">
 													<label>&nbsp;</label>
@@ -1974,7 +1961,7 @@
 											<div class="row form-group">
 												<div class="col-lg-3">
 													<label>Supervisor</label>
-													<input type="text" class="form-control form-control-sm m-input" name="codSupervisor" id="codSupervisor">
+													<input type="text" class="form-control form-control-sm m-input" name="codSupervisor" id="codSupervisor" onchange="nombreVendedor(this.value,'nombreSupervisor');">
 												</div>
 												<div class="col-lg-9">
 													<label>&nbsp;&nbsp;</label>
@@ -1982,7 +1969,7 @@
 												</div>
 												<div class="col-lg-3">
 													<label>Jefe de Ventas</label>
-													<input type="text" class="form-control form-control-sm m-input" name="codJefeVentas" id="codJefeVentas">
+													<input type="text" class="form-control form-control-sm m-input" name="codJefeVentas" id="codJefeVentas" onchange="nombreVendedor(this.value,'nombreJefeVentas');">
 												</div>
 												<div class="col-lg-9">
 													<label>&nbsp;&nbsp;</label>

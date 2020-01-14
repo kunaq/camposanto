@@ -124,6 +124,7 @@ function muestraInfo(id){
         	$("#codCliTitular").val(respuesta['cod_cliente']).trigger('change');
         	$("#codCliTitular2").val(respuesta['cod_titular_alterno']).trigger('change');
         	$("#codAval").val(respuesta['cod_aval']).trigger('change');
+        	$("#codCobrador").val(respuesta['cod_cobrador']);
         	$.ajax({
 		        url: 'ajax/modifCtto.ajax.php',
 		        dataType: 'json',
@@ -161,6 +162,18 @@ function muestraInfo(id){
         }//success
     });//ajax
 }//muestraInfo
+
+function nombreVendedor(valor,campo){
+    $.ajax({
+        type: 'GET',
+        url: 'extensiones/captcha/buscaNombre.php',
+        dataType: 'text',
+        data: { 'value' : valor },
+        success : function(respuesta){
+            document.getElementById(campo).val(respuesta);
+        }
+    });
+}//nombreVendedor
 
 function buscaDscto(){
 	var codCtto = $("#codContrato").val();
