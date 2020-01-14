@@ -17,7 +17,7 @@ class ControladorSegContrato{
 
 		$respuesta = ModeloSegContrato::mdlgetServiciosCtt($cod_contrato);
 		return $respuesta;
-	}//function ctrgetServiciosCtt
+	}//function ctrGetServiciosCtt
 
 	static public function ctrGetCuotas(){
 
@@ -31,7 +31,7 @@ class ControladorSegContrato{
 
 		$respuesta = ModeloSegContrato::mdlGetCuotas($datos);
 		return $respuesta;
-	}//function ctrgetServiciosCtt
+	}//function ctrGetCuotas
 
 
 	static public function ctrEjecutaProcedureResumenCtt(){
@@ -46,7 +46,17 @@ class ControladorSegContrato{
 					);
 		$respuesta = ModeloSegContrato::mdlEjecutaProcedureResumenCtt($datos);
 		return $respuesta;
-	}//function ctrEjecutaProcedureGeneraCtto
+	}//function ctrEjecutaProcedureResumenCtt
+	
+	static public function ctrGetBeneficiariosServ(){
+
+		$datos = array('localidad' => $_POST['localidad'],
+					   'cod_contrato' => $_POST['cod_contrato'],
+					   'cod_servicio' => $_POST['cod_servicio']);
+
+		$respuesta = ModeloSegContrato::mdlGetBeneficiariosServ($datos);
+		return $respuesta;
+	}//function ctrGetBeneficiariosServ
 
 
 }//class ControladorWizard

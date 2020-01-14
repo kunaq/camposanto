@@ -51729,6 +51729,7 @@ th{
 
 .myTableServicios tbody tr:hover{
     background-color: #dbd7d7;
+    cursor: pointer;
 }
 
 .selected{
@@ -51745,4 +51746,10 @@ th{
 
 .numServ{
     width: 30px;
+}
+
+
+.myTableBeneficiarios tbody tr:hover{
+    background-color: #ddd;
+    cursor: pointer;
 }

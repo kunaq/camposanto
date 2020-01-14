@@ -20,11 +20,11 @@ class AjaxSegCtt{
 	public function ajaxEjecutaProcedureResumenCtt(){
 		$respuesta = ControladorSegContrato::ctrEjecutaProcedureResumenCtt();
 		echo json_encode($respuesta,JSON_UNESCAPED_UNICODE);
-	}//function ajaxEjecutaProcedureGeneraCtto
-	// public function ajaxGuardaEndoso(){
-	// 	$respuesta = ControladorWizard::ctrGuardaEndoso();
-	// 	echo json_encode($respuesta,JSON_UNESCAPED_UNICODE);
-	// }//function ajaxGuardaEndoso
+	}//function ajaxEjecutaProcedureResumenCtt
+	public function ajaxGetBeneficiariosServ(){
+		$respuesta = ControladorSegContrato::ctrGetBeneficiariosServ();
+		echo json_encode($respuesta,JSON_UNESCAPED_UNICODE);
+	}//function ajaxGuardaEndoso
 	// public function ajaxGuardaBeneficiario(){
 	// 	$respuesta = ControladorWizard::ctrGuardaBeneficiario();
 	// 	echo json_encode($respuesta);
@@ -60,10 +60,10 @@ else if(isset($_POST["accion"]) && $_POST["accion"] == 'getResumenCtt'){
 	$cliente = new AjaxSegCtt();
 	$cliente -> ajaxEjecutaProcedureResumenCtt();
 }
-// else if(isset($_POST["accion"]) && $_POST["accion"] == 'guardaEndoso'){
-// 	$cliente = new AjaxWizard();
-// 	$cliente -> ajaxGuardaEndoso();
-// }
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'getBeneficiarios'){
+	$cliente = new AjaxSegCtt();
+	$cliente -> ajaxGetBeneficiariosServ();
+}
 // else if(isset($_POST["accion"]) && $_POST["accion"] == 'guardaBeneficiario'){
 // 	$cliente = new AjaxWizard();
 // 	$cliente -> ajaxGuardaBeneficiario();
