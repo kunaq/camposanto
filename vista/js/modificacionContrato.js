@@ -189,7 +189,7 @@ function nombreTrabajador(valor,campo){
 
 function nombreGrupoVenta(valor,campo){
     $.ajax({
-        type: 'GET',
+        type: 'POST',
         url: 'extensiones/captcha/buscarNombreGrupo.php',
         dataType: 'text',
         data: { 'cod' : valor },
