@@ -421,7 +421,7 @@ function buscaDatosAval(){
 }//buscaDatos2Ti
 
 function apagar(){
-    var checkbox = document.getElementById('AgFunChecks');
+    var checkbox = document.getElementById('AgFunCheck');
   if (checkbox.checked != true){
   	$("#codFuneraria").prop('disabled',false);
   	$("#btnAgFun").prop('disabled',false);
