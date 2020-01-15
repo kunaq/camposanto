@@ -422,7 +422,7 @@ function buscaDatosAval(){
 
 function apagar(){
     var checkbox = document.getElementById('AgFunCheck');
-  if (checkbox.checked != true){
+  if (checkbox.checked == true){
   	$("#codFuneraria").prop('disabled',false);
   	$("#btnAgFun").prop('disabled',false);
   	$("#dscFuneraria").prop('disabled',false); 	
