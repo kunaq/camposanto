@@ -1946,7 +1946,7 @@
 												</div>
 												<div class="col-lg-3">
 													<label>Tipo Comisionista</label>
-													<input type="text" class="form-control form-control-sm m-input" name="codTipoComisionista" id="codTipoComisionista">
+													<input type="text" class="form-control form-control-sm m-input" name="codTipoComisionista" id="codTipoComisionista" onchange="nombreComisionista(this.value,'nombreTipoComisionista');">
 												</div>
 												<div class="col-lg-9">
 													<label>&nbsp;&nbsp;</label>

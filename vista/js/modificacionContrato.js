@@ -199,6 +199,18 @@ function nombreGrupoVenta(valor,campo){
     });
 }//nombreGrupoVenta
 
+function nombreComisionista(valor,campo){
+    $.ajax({
+        type: 'POST',
+        url: 'extensiones/captcha/buscarNombreComisionista.php',
+        dataType: 'text',
+        data: { 'cod' : valor },
+        success : function(respuesta){
+            document.getElementById(campo).value = respuesta;
+        }
+    });
+}//nombreGrupoVenta
+
 function buscaDscto(){
 	var codCtto = $("#codContrato").val();
 	var numServicio = $("#numServicio").val();
