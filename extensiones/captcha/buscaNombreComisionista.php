@@ -8,7 +8,7 @@ require_once "../../modelo/conexion.php";
     $sql = $db->consulta("SELECT dsc_tipo_comisionista FROM vtama_tipo_comisionista WHERE cod_tipo_comisionista = '$codComisionista'");
 
 	while($key = $db->recorrer($sql)){
-    	$dsc_grupo = utf8_encode($key['dsc_grupo']);
+    	$dsc_grupo = utf8_encode($key['dsc_tipo_comisionista']);
 	}        
 	echo $dsc_grupo;
     $db->liberar($sql);
