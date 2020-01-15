@@ -258,7 +258,7 @@ class ModeloSegContrato{
 	        $sexo = "'".$key['cod_sexo']."'";
 	        $edo_civil = "'".$key['cod_estado_civil']."'";
 	        if ($key['fch_nacimiento'] == NULL) {
-	            $fch_nacimiento = "-";
+	            $fch_nacimiento = "''";
 	        }else{
 	            $fch_nacimiento = "'".dateFormat($key['fch_nacimiento'])."'";
 	        }
@@ -268,12 +268,12 @@ class ModeloSegContrato{
 	        $religion = "'".$key['cod_religion']."'";
 	        $observacion = "'".Utf8Encode($key['dsc_observacion'])."'";
 	        if ($key['fch_deceso'] == NULL) {
-	            $fch_deceso = "-";
+	            $fch_deceso = "''";
 	        }else{
 	            $fch_deceso = "'".dateFormat($key['fch_deceso'])."'";
 	        }
 	        if ($key['fch_entierro'] == NULL) {
-	            $fch_entierro = "-";
+	            $fch_entierro = "''";
 	        }else{
 	            $fch_entierro = "'".dateFormat($key['fch_entierro'])."'";
 	        }
@@ -284,7 +284,7 @@ class ModeloSegContrato{
 
 	        $tablaBeneficiarios .= '<tr onclick="mostrarBeneficiario(this,'.$cod_servicio.','.$tipo_doc.','.$num_doc.','.$ape_paterno.','.$ape_materno.','.$nombre.','.$sexo.','.$edo_civil.','.$fch_nacimiento.','.$parentesco.','.$peso.','.$talla.','.$religion.','.$observacion.','.$fch_deceso.','.$fch_entierro.','.$lugar_deceso.','.$motivo_deceso.','.$nivel.','.$flg_autopsia.');">
 										<th scope="row">
-										'.$key['num_nivel'].'
+										'.$key['num_item'].'
 										</th>
 										<td>
 										'.Utf8Encode($key['dsc_nombre']).'
