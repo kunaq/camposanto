@@ -481,7 +481,7 @@ function cargaCronograma(codCtto,numRefi){
         method: "POST",
         data: { 'accion' : 'cronograma', 'codCtto' : codCtto, 'num_refinanciamiento' : numRefi },
         success : function(respuesta){
-        	console.log('respuesta',respuesta);
+        	// console.log('respuesta',respuesta);
         	$("#bodyCronogramaModif").empty();
         	var totalSubtotal = 0;
         	var totalInteres = 0;
@@ -505,8 +505,8 @@ function cargaCronograma(codCtto,numRefi){
 									'<td style="text-align: left;">'+Number(value['imp_principal']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
 									'<td style="text-align: left;">'+Number(value['imp_saldo']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
 								'</tr>';
-							// console.log(fila);
-				document.getElementById("bodyEndosoModif").insertAdjacentHTML("beforeEnd" ,filaDsto);
+							console.log(fila);
+				document.getElementById("bodyCronogramaModif").insertAdjacentHTML("beforeEnd" ,filaDsto);
 				// document.getElementById("totalSaldoEndosoModif").innerText = Number(totalSaldo).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
 				// document.getElementById("totalEmiEndosoModif").innerText = Number(totalEmitido).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
 				// document.getElementById("totalValEndosoModif").innerText = Number(totalValor).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
