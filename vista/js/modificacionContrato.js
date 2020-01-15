@@ -494,7 +494,7 @@ function cargaCronograma(codCtto,numRefi){
         		totalIGV = totalIGV + parseFloat(value['imp_igv']);
         		totalTotal = totalTotal + parseFloat(value['imp_principal']);
         		totalSaldo = totalSaldo + parseFloat(value['imp_saldo']);
-        		var filaDsto = '<tr>'+
+        		var filaCrono = '<tr>'+
 									'<th scope="row">'+value['num_cuota']+'</th>'+
 									'<td>'+value['cod_estadocuota']+'</td>'+
 									'<td>'+value['fch_vencimiento']+'</td>'+
@@ -505,8 +505,8 @@ function cargaCronograma(codCtto,numRefi){
 									'<td style="text-align: left;">'+Number(value['imp_principal']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
 									'<td style="text-align: left;">'+Number(value['imp_saldo']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
 								'</tr>';
-							console.log(fila);
-				document.getElementById("bodyCronogramaModif").insertAdjacentHTML("beforeEnd" ,filaDsto);
+							console.log(filaCrono);
+				document.getElementById("bodyCronogramaModif").insertAdjacentHTML("beforeEnd" ,filaCrono);
 				// document.getElementById("totalSaldoEndosoModif").innerText = Number(totalSaldo).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
 				// document.getElementById("totalEmiEndosoModif").innerText = Number(totalEmitido).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
 				// document.getElementById("totalValEndosoModif").innerText = Number(totalValor).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
