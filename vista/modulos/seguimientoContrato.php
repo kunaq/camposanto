@@ -1635,7 +1635,7 @@
 																			<label class="">
 																				Tipo de documento: &nbsp;
 																			</label>
-																			<select class="form-control form-control-sm m-input custom-select custom-select-danger selectTipoDoc" id="tipoDocBenef" name="tipoDocBenef">
+																			<select class="form-control form-control-sm m-input custom-select custom-select-danger selectTipoDoc" id="tipoDocBenef" name="tipoDocBenef" disabled>
 																				<option value="vacio">
 																					Seleccione
 																				</option>
@@ -1649,32 +1649,32 @@
 																			<label>
 																				N° Documento:&nbsp;
 																			</label>
-																			<input type="text" class="form-control form-control-sm m-input">
+																			<input type="text" class="form-control form-control-sm m-input"id="numDocBenef" name="numDocBenef" disabled>
 																		</div>
 																		<div class="col-lg-6">
 																			<label class="">
 																				Apellido paterno:
 																			</label>
-																			<input type="text" class="form-control form-control-sm m-input" id="apePatBenef">
+																			<input type="text" class="form-control form-control-sm m-input" id="apePatBenef" disabled>
 																		</div>
 																		<div class="col-lg-6">
 																			<label>
 																				Apellido Materno:
 																			</label>
-																			<input type="text" class="form-control form-control-sm m-input" id="apeMatBenef">
+																			<input type="text" class="form-control form-control-sm m-input" id="apeMatBenef" disabled>
 																		</div>
 																		<div class="col-lg-12">
 																			<label class="">
 																				Nombres:
 																			</label>
-																			<input type="text" class="form-control form-control-sm m-input" id="nombreBenef">
+																			<input type="text" class="form-control form-control-sm m-input" id="nombreBenef" disabled>
 																		</div>
-																		<div class="col-lg-6">
+																		<div class="col-lg-4">
 																			<label>
 																				Fecha de nacimiento:
 																			</label>
 																			<div class="input-group date">
-																				<input type="text" class="form-control form-control-sm m-input" readonly="" placeholder="Seleccionar fecha" id="m_datepicker_4_1">
+																				<input type="text" class="form-control form-control-sm m-input" readonly="" placeholder="Seleccionar fecha" id="m_datepicker_4_1" disabled>
 																				<div class="input-group-append">
 																					<span class="input-group-text">
 																						<i class="la la-calendar-check-o"></i>
@@ -1682,24 +1682,11 @@
 																				</div>
 																			</div>
 																		</div>
-																		<div class="col-lg-6">
-																			<label>
-																					Fecha de deceso:
-																				</label>
-																			<div class="input-group date">
-																				<input type="text" class="form-control form-control-sm m-input" readonly="" placeholder="Seleccionar fecha" id="m_datepicker_4_2">
-																				<div class="input-group-append">
-																					<span class="input-group-text">
-																						<i class="la la-calendar-check-o"></i>
-																					</span>
-																				</div>
-																			</div>
-																		</div>
-																		<div class="col-lg-6">
+																		<div class="col-lg-4">
 																			<label class="">
 																				Religión:
 																			</label>
-																			<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="religionBenef" id="religionBenef">
+																			<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="religionBenef" id="religionBenef" disabled>
 																				<option value="">
 																					Seleccione
 																				</option>
@@ -1711,11 +1698,11 @@
 																					?> 
 																			</select>
 																		</div>
-																		<div class="col-lg-6">
+																		<div class="col-lg-4">
 																			<label class="">
 																				Estado civil: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 																			</label>
-																			<select class="form-control form-control-sm m-input custom-select custom-select-danger" id="ecivilNvoCliWiz" name="option">
+																			<select class="form-control form-control-sm m-input custom-select custom-select-danger" id="ecivilBenef" name="option" disabled>
 																				<option value="">
 																					Seleccione
 																				</option>
@@ -1724,11 +1711,11 @@
 																				 	?> 
 																			</select>
 																		</div>
-																		<div class="col-lg-6">
+																		<div class="col-lg-4">
 																			<label class="">
 																				Sexo: &nbsp;
 																			</label>
-																			<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="option">
+																			<select class="form-control form-control-sm m-input custom-select custom-select-danger" id="sexoBenef" name="option" disabled>
 																				<option value="M">
 																					Masculino
 																				</option>
@@ -1737,84 +1724,113 @@
 																				</option>
 																			</select>
 																		</div>
-																		<div class="col-lg-6">
+																		<div class="col-lg-4">
 																			<label class="">
 																				Parentescos: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 																			</label>
-																			<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="option">
+																			<select disabled class="form-control form-control-sm m-input custom-select custom-select-danger" name="parentescoBenef" id="parentescoBenef" disabled="">
 																				<option value="">
 																					Seleccione
 																				</option>
-																				<option>
-																					Abuelo(a)
-																				</option>
-																				<option>
-																					Conyugue
-																				</option>
-																				<option>
-																					Esposo(a)
-																				</option>
-																				<option>
-																					Hermano(a)
-																				</option>
-																				<option>
-																					Madre
-																				</option>
-																				<option>
-																					Padre
-																				</option>
-																				<option>
-																					Otros
-																				</option>
-																				<option>
-																					Titular
-																				</option>
+																				<?php
+																				  $tabla="vtama_parentesco";
+																				  $item1="cod_parentesco";
+																				  $item2="dsc_parentesco";
+												 									$prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
+																				?> 
 																			</select>
 																		</div>
-																		<div class="col-lg-6">
-																			<label class="">
-																				Lugar deceso: &nbsp;
-																			</label>
-																			<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="option">
-																				<option value="">
-																					Seleccione
-																				</option>
-																				<option>
-																					1
-																				</option>
-																				<option>
-																					2
-																				</option>
-																				<option>
-																					3
-																				</option>
-																				<option>
-																					4
-																				</option>
-																				<option>
-																					5
-																				</option>
-																			</select>
-																		</div>
-																		<div class="col-lg-6">
-																			<label>Motivo Deceso</label>
-																			<select class="form-control form-control-sm m-input">
-																				<option value="">Seleccione</option>
-																			</select>
-																		</div>
-																		<div class="col-lg-3">
+																		<div class="col-lg-2">
 																			<label class="">
 																				Peso: &nbsp;
 																			</label>
-																			<input type="text" class="form-control form-control-sm m-input" placeholder="">
+																			<input type="text" class="form-control form-control-sm m-input" id="pesoBenef" disabled>
 																		</div>
-																		<div class="col-lg-3">
+																		<div class="col-lg-2">
 																			<label class="">
 																				Talla: &nbsp;
 																			</label>
-																			<input type="text" class="form-control form-control-sm m-input" placeholder="">
+																			<input type="text" class="form-control form-control-sm m-input" id="tallaBenef" disabled>
 																		</div>
-																		<div class="col-lg-6">
+																		<div class="col-lg-12">
+																			<label>Observacion</label>
+																			<textarea class="form-control form-control-sm" rows="1" disabled id="observacionBenef"></textarea>
+																		</div>
+																	</div>
+																</div>
+															</fieldset>
+														</div>
+													</div>
+													<div class="col-lg-12">
+														<div class="row">
+															<fieldset class="fieldFormHorizontal">
+																<legend class="tittle-box">Datos de Servicio</legend>
+																<div class="col-lg-12">
+																	<div class="row form-group">
+																		<div class="col-lg-4">
+																			<label>
+																					Fecha de deceso:
+																				</label>
+																			<div class="input-group date">
+																				<input type="text" class="form-control form-control-sm m-input" readonly="" placeholder="Seleccionar fecha" id="m_datepicker_4_2" disabled>
+																				<div class="input-group-append">
+																					<span class="input-group-text">
+																						<i class="la la-calendar-check-o"></i>
+																					</span>
+																				</div>
+																			</div>
+																		</div>
+																		<div class="col-lg-4">
+																			<label>
+																					Fecha de entierro:
+																				</label>
+																			<div class="input-group date">
+																				<input type="text" class="form-control form-control-sm m-input" readonly="" placeholder="Seleccionar fecha" id="m_datepicker_4_3" disabled>
+																				<div class="input-group-append">
+																					<span class="input-group-text">
+																						<i class="la la-calendar-check-o"></i>
+																					</span>
+																				</div>
+																			</div>
+																		</div>
+																		<div class="col-lg-4">
+																			<label class="">
+																				Lugar deceso: &nbsp;
+																			</label>
+																			<select disabled class="form-control form-control-sm m-input custom-select custom-select-danger" name="lugarDecesoBenef" id="lugarDecesoBenef" disabled>
+																				<option value="">
+																					Seleccione
+																				</option>
+																				<?php
+																				  $tabla="vtama_lugar_deceso";
+																				  $item1="cod_lugar_deceso";
+																				  $item2="dsc_lugar_deceso";
+												 						          $prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
+																				?>
+																			</select>
+																		</div>
+																		<div class="col-lg-4">
+																			<label>Motivo Deceso</label>
+																			<select disabled class="form-control form-control-sm m-input custom-select custom-select-danger" name="motivoDecesoBenef" id="motivoDecesoBenef" disabled>
+																				<option value="">
+																					Seleccione
+																				</option>
+																				<?php
+																				  $tabla="vtama_motivo_deceso";
+																				  $item1="cod_motivo_deceso";
+																				  $item2="dsc_motivo_deceso";
+												 						          $prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
+																				?>
+																			</select>
+																		</div>
+																		<div class="col-lg-3">
+																			<label class="">
+																				N° Nivel (Espacio): &nbsp;
+																			</label>
+																			<input type="text" class="form-control form-control-sm m-input" id="nivel" disabled>
+																		</div>
+																		<div class="col-lg-1"></div>
+																		<div class="col-lg-4">
 																			<table>
 																				<tbody>
 																					<tr>
@@ -1826,7 +1842,7 @@
 																						<td>
 																							<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
 																								<label>
-																									<input type="checkbox" name="">
+																									<input type="checkbox" id="autopsiaBenef" disabled>
 																									<span></span>
 																								</label>
 																							</span>

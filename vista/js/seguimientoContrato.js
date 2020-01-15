@@ -150,11 +150,12 @@ function getDatosServicioCtt(row,localidad,tasa,tipoCtt,tipoPro,codCtt,numRef,nu
         dataType: 'text',
         data: {'accion' : 'getBeneficiarios', 'localidad' : localidad, 'cod_contrato' : codCtt, 'cod_servicio' : numSer},
         success: function(respuesta){
-
         	var info = JSON.parse(respuesta);
-
         	$("#tbodyBeneficiarios").html(info.tablaBeneficiarios);
-        	
+        	var benefTable = document.getElementById('tbodyBeneficiarios');
+            var benefTableLenght = benefTable.rows.length;
+            var Beneficiario1 = benefTable.rows.item(0);
+            primeraFila.click();
         }//succes
     });//ajaxGetCuotas
 }
@@ -162,7 +163,33 @@ function getDatosServicioCtt(row,localidad,tasa,tipoCtt,tipoPro,codCtt,numRef,nu
 function mostrarBeneficiario(row,servicio,tipoDoc,numDoc,apePaterno,apeMaterno,nombre,sexo,edoCivil,fchNac,parentesco,peso,talla,religion,observacion,fchDec,fchEnt,lugarDec,motivoDec,nivel,flgAutopsia){
 	var rows = $('#myTableBeneficiarios tr').not(':first');
 	rows.removeClass('selected'); 
-  	$(row).closest('tr').addClass('selected');
+  	$(row).closest('tr').addClass('selectedBen');
+
+  	document.getElementById('codServicio').value = servicio;
+  	document.getElementById('tipoDocBenef').value = tipoDoc;
+  	document.getElementById('numDocBenef').value = numDoc;
+  	document.getElementById('apePatBenef').value = apePaterno;
+  	document.getElementById('apeMatBenef').value = apeMaterno;
+  	document.getElementById('nombreBenef').value = nombre;
+  	$('#m_datepicker_4_1').datepicker('setDate', fchNac);
+  	document.getElementById('religionBenef').value = religion;
+  	document.getElementById('ecivilBenef').value = edoCivil;
+  	document.getElementById('sexoBenef').value = sexo;
+  	document.getElementById('parentescoBenef').value = parentesco;
+  	document.getElementById('pesoBenef').value = peso;
+  	document.getElementById('tallaBenef').value = talla;
+  	document.getElementById('observacionBenef').value = observacion;
+  	$('#m_datepicker_4_2').datepicker('setDate', fchDec);
+  	$('#m_datepicker_4_3').datepicker('setDate', fchEnt);
+  	document.getElementById('lugarDecesoBenef').value = lugarDec;
+  	document.getElementById('motivoDecesoBenef').value = motivoDec;
+  	document.getElementById('nivel').value = nivel;
+  	if (flgAutopsia == 'SI') {
+        $('#autopsiaBenef').prop("checked", true);
+    }
+    else{
+        $('#autopsiaBenef').prop("checked", false);
+    }
  }
 
 
