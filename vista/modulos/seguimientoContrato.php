@@ -513,15 +513,15 @@
 												</div>
 												<div class="col-lg-1">
 													<label>Eje Hor.</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="ejeHorSeCtt" disabled>
 												</div>
 												<div class="col-lg-1">
 													<label>Eje Vert.</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="ejeVerSeCtt" disabled>
 												</div>
 												<div class="col-lg-1">
 													<label>Espacio</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="espacioSegCtt" disabled>
 												</div>
 												<div class="col-lg-2">
 													<button type="button" id="btn2Com" class="btn btn-sm btnGuardarKqPst mt25">
@@ -533,7 +533,7 @@
 												</div>
 												<div class="col-lg-1">
 													<label>Nivel</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="nivelSegCtt" disabled>
 												</div>
 											</div>
 										</div>
@@ -548,35 +548,35 @@
 											<div class="row form-group">
 												<div class="col-lg-3">
 													<label>Interés</label>
-													<input type="text" class="form-control form-control-sm input" id="" disabled>
+													<input type="text" class="form-control form-control-sm input" id="imp_interes" disabled>
 												</div>
 												<div class="col-lg-3">
 													<label>Cuota Inicial</label>
-													<input type="text" class="form-control form-control-sm input" id="" disabled>
+													<input type="text" class="form-control form-control-sm input" id="imp_cuoi" disabled>
 												</div>												
 												<div class="col-lg-3">
 													<label>Subtotal</label>
-													<input type="text" class="form-control form-control-sm input" id="" disabled>
+													<input type="text" class="form-control form-control-sm input" id="imp_subtotal" disabled>
 												</div>
 												<div class="col-lg-3">
 													<label>T. Necesidad</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="tipo_necesidad" disabled>
 												</div>
 												<div class="col-lg-3">
 													<label>Saldo</label>
-													<input type="text" class="form-control form-control-sm input" id="" disabled>
+													<input type="text" class="form-control form-control-sm input" id="imp_saldo" disabled>
 												</div>
 												<div class="col-lg-3">
 													<label>I.G.V.</label>
-													<input type="text" class="form-control form-control-sm input" id="" disabled>
+													<input type="text" class="form-control form-control-sm input" id="imp_igv" disabled>
 												</div>												
 												<div class="col-lg-3">
 													<label>Total</label>
-													<input type="text" class="form-control form-control-sm input" id="" disabled>
+													<input type="text" class="form-control form-control-sm input" id="imp_total" disabled>
 												</div>
 												<div class="col-lg-3">
 													<label>Moneda</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="monedaCtt" disabled>
 												</div>
 											</div>
 										</div>

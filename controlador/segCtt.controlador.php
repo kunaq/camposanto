@@ -58,6 +58,14 @@ class ControladorSegContrato{
 		return $respuesta;
 	}//function ctrGetBeneficiariosServ
 
+	static public function ctrGetDatosEspacio(){
+
+		$datos = array('cod_contrato' => $_POST['cod_contrato'],
+					   'cod_servicio' => $_POST['cod_servicio']);
+
+		$respuesta = ModeloSegContrato::mdlGetDatosEspacio($datos);
+		return $respuesta;
+	}//function ctrGetDatosEspacio
 
 }//class ControladorWizard
 ?>
