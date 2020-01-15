@@ -1938,7 +1938,7 @@
 												</div>
 												<div class="col-lg-3">
 													<label>Grupo</label>
-													<input type="text" class="form-control form-control-sm m-input" name="codGrupo" id="codGrupo">
+													<input type="text" class="form-control form-control-sm m-input" name="codGrupo" id="codGrupo"  onchange="nombreGrupoVenta(this.value,'nombreGrupo');">
 												</div>
 												<div class="col-lg-9">
 													<label>&nbsp;&nbsp;</label>

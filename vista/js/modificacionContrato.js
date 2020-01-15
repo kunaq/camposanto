@@ -185,7 +185,19 @@ function nombreTrabajador(valor,campo){
             document.getElementById(campo).value = respuesta;
         }
     });
-}//nombreVendedor
+}//nombreTrabajador
+
+function nombreGrupoVenta(valor,campo){
+    $.ajax({
+        type: 'GET',
+        url: 'extensiones/captcha/buscarNombreGrupo.php',
+        dataType: 'text',
+        data: { 'cod' : valor },
+        success : function(respuesta){
+            document.getElementById(campo).value = respuesta;
+        }
+    });
+}//nombreGrupoVenta
 
 function buscaDscto(){
 	var codCtto = $("#codContrato").val();
