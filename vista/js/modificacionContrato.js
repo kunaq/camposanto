@@ -136,7 +136,15 @@ function muestraInfo(id){
         	$("#codVendedor").val(respuesta['cod_vendedor']).trigger('change');
         	$("#codTipoComisionista").val(respuesta['cod_tipo_comisionista']).trigger('change');
         	$("#codGrupo").val(respuesta['cod_grupo']).trigger('change');
-
+        	$("#canalVentaModif").val(respuesta['cod_canal_venta']);
+        	if(respuesta['flg_agencia'] == 'NO' || respuesta['flg_agencia'] == '' || respuesta['flg_agencia'] == null){
+        		$('#AgFunCheck').prop("checked", false);
+        		$("#AgFunCheck").trigger('change');
+        	}else{
+        		$('#AgFunCheck').prop("checked", true);
+        		$("#AgFunCheck").trigger('change');
+        	}
+        	$("#codFuneraria").val(respuesta['cod_agencia']).trigger('change');
         	$.ajax({
 		        url: 'ajax/modifCtto.ajax.php',
 		        dataType: 'json',
@@ -203,6 +211,18 @@ function nombreComisionista(valor,campo){
     $.ajax({
         type: 'POST',
         url: 'extensiones/captcha/buscaNombreComisionista.php',
+        dataType: 'text',
+        data: { 'cod' : valor },
+        success : function(respuesta){
+            document.getElementById(campo).value = respuesta;
+        }
+    });
+}//nombreGrupoVenta
+
+function nombreFuneraria(valor,campo){
+    $.ajax({
+        type: 'POST',
+        url: 'extensiones/captcha/buscaNombreFuneraria.php',
         dataType: 'text',
         data: { 'cod' : valor },
         success : function(respuesta){

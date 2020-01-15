@@ -1867,7 +1867,7 @@
 													<label class="">
 														Canal de Venta
 													</label>
-													<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="sedeContrto" id="sedeContrato">
+													<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="canalVentaModif" id="canalVentaModif">
 														<option>Selecciona</option>
 														<?php
 																$tabla = "vtama_canal_venta";
@@ -1984,11 +1984,11 @@
 											<div class="row form-group">
 												<div class="col-lg-3">
 													<label>Descripcion</label>
-													<input type="text" class="form-control form-control-sm m-input" name="codFuneraria" id="codFuneraria" disabled>
+													<input type="text" class="form-control form-control-sm m-input" name="codFuneraria" id="codFuneraria" disabled onchange="nombreFuneraria(this.value,'dscFuneraria');">
 												</div>
 												<div class="col-lg-1" style="margin-top: 1.7rem;">
 													<label>&nbsp;</label>
-													<button class="btn btn-sm btnGuardarKqPst" id="btnAgFun"><i class="fa fa-search" disabled></i></button>
+													<button class="btn btn-sm btnGuardarKqPst" type="button" id="btnAgFun"><i class="fa fa-search" disabled></i></button>
 												</div>
 												<div class="col-lg-8">
 													<label>&nbsp;&nbsp;</label>
