@@ -134,7 +134,7 @@ function muestraInfo(id){
         	$("#codSupervisor").val(respuesta['cod_supervisor']).trigger('change');
         	$("#codJefeVentas").val(respuesta['cod_jefeventas']).trigger('change');
         	$("#codVendedor").val(respuesta['cod_vendedor']).trigger('change');
-        	$("#codTipoComisionista").val(respuesta['cod_tipo_comisionista']);
+        	$("#codTipoComisionista").val(respuesta['cod_tipo_comisionista']).trigger('change');
         	$("#codGrupo").val(respuesta['cod_grupo']).trigger('change');
 
         	$.ajax({
