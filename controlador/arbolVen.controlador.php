@@ -31,7 +31,7 @@ class ControladorArbolVen{
 		$respuesta = ModeloArbolVen::mdlBuscarCtto($tabla,$tabla2,$codigo,$periodo,$tipoPeriodo,$annio);
 		return $respuesta;
 	}//function ctrBuscarCtto
-	static public function ctrNombreTrabajador(){
+	static public function ctrNombreGrupoVen(){
 		$tabla = "vtama_grupo";
 		$tabla2 = "rhuma_trabajador";
 		$respuesta = ModeloArbolVen::mdlBuscarGrupoVen($tabla,$tabla2);
