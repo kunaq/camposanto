@@ -1870,11 +1870,11 @@
 													<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="sedeContrto" id="sedeContrato">
 														<option>Selecciona</option>
 														<?php
-																// $tabla = "vtama_localidad";
-																// $item1 = "cod_localidad";
-																// $item2 = "dsc_localidad";
-																// $prueba = controladorEmpresa::
-																// ctrSelects($tabla,$item1,$item2);
+																$tabla = "vtama_canal_venta";
+																$item1 = "cod_canal_venta";
+																$item2 = "dsc_canal_venta";
+																$prueba = controladorEmpresa::
+																ctrSelects($tabla,$item1,$item2);
 														?>
 													</select>
 												</div>
@@ -1889,7 +1889,7 @@
 																<td>
 																	<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
 																		<label>
-																			<input type="checkbox" name="" id="observacionesCheck">
+																			<input type="checkbox" name="AgFunCheck" id="AgFunCheck" onchange="apagar();">
 																			<span></span>
 																		</label>
 																	</span>
@@ -1988,7 +1988,7 @@
 												</div>
 												<div class="col-lg-1">
 													<label>&nbsp;</label>
-													<button class="btn btn-sm btnGuardarKqPst"><i class="fa fa-search"></i></button>
+													<button class="btn btn-sm btnGuardarKqPst" id="btnAgFun"><i class="fa fa-search"></i></button>
 												</div>
 												<div class="col-lg-8">
 													<label>&nbsp;&nbsp;</label>

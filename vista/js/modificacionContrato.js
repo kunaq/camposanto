@@ -419,3 +419,17 @@ function buscaDatosAval(){
         }//success
     });//ajax
 }//buscaDatos2Ti
+
+function apagar(){
+    var checkbox = document.getElementById('AgFunChecks');
+  if (checkbox.checked != true){
+  	$("#codFuneraria").prop('disabled',false);
+  	$("#btnAgFun").prop('disabled',false);
+  	$("#dscFuneraria").prop('disabled',false); 	
+  }
+  else{
+  	$('#codFuneraria').prop('disabled',true);
+  	$('#btnAgFun').prop('disabled',true);
+  	$('#dscFuneraria').prop('disabled',true);
+  }
+}  
