@@ -202,7 +202,7 @@ function nombreGrupoVenta(valor,campo){
 function nombreComisionista(valor,campo){
     $.ajax({
         type: 'POST',
-        url: 'extensiones/captcha/buscarNombreComisionista.php',
+        url: 'extensiones/captcha/buscaNombreComisionista.php',
         dataType: 'text',
         data: { 'cod' : valor },
         success : function(respuesta){
