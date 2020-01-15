@@ -496,7 +496,7 @@ function cargaCronograma(codCtto,numRefi){
         		totalSaldo = totalSaldo + parseFloat(value['imp_saldo']);
         		var filaDsto = '<tr>'+
 									'<th scope="row">'+value['num_cuota']+'</th>'+
-									'<td>'+value['cod_estado_cuota']+'</td>'+
+									'<td>'+value['cod_estadocuota']+'</td>'+
 									'<td>'+value['fch_vencimiento']+'</td>'+
 									'<td style="text-align: left;">'+Number(value['imp_total']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
 									'<td style="text-align: left;">'+value['dsc_entidad']+'</td>'+
