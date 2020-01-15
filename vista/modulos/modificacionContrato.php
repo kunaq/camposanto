@@ -1528,16 +1528,16 @@
 											<div class="row form-group">
 												<div class="col-lg-6">
 													<label>Saldo a financiar: </label>
-													<input type="text" class="form-control form-control-sm m-input" placeholder="00.00">
+													<input type="text" class="form-control form-control-sm m-input" placeholder="00.00" id="saldoFinCronograma" name="saldoFinCronograma">
 												</div>
 												<div class="col-lg-6">
 													<label> N° de cuotas:</label>
-													<input type="text" class="form-control form-control-sm m-input" placeholder="0">
+													<input type="text" class="form-control form-control-sm m-input" placeholder="0" id="numCuoCronograma" name="numCuoCronograma">
 												</div>
 												<div class="col-lg-6">
 													<label>1er vencimiento:</label>
 													<div class="input-group date">
-														<input type="text" class="form-control form-control-sm m-input" readonly="" id="m_datepicker_5">
+														<input type="text" class="form-control form-control-sm m-input" readonly="" id="fchVenCronograma" name="fchVenCronograma">
 														<div class="input-group-append">
 															<span class="input-group-text">
 																<i class="la la-calendar-check-o"></i>
@@ -1547,7 +1547,7 @@
 												</div>
 												<div class="col-lg-6">
 													<label>Interes:</label>
-													<input type="text" class="form-control form-control-sm m-input" placeholder="0">
+													<input type="text" class="form-control form-control-sm m-input" placeholder="0" id="interesCronograma" name="interesCronograma">
 												</div>
 												<div class="col-lg-12">
 													<button type="reset" class="btn btn-sm btnGuardarKqPst mt25">

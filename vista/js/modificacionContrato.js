@@ -14,6 +14,10 @@ $("#fchNac2doTitular").datepicker({
   format: 'dd-mm-yyyy',
   autoclose: true
 });//datepicker
+$("#fchVenCronograma").datepicker({
+  format: 'dd-mm-yyyy',
+  autoclose: true
+});//datepicker
 
 function buscaCtto(){
 	var codCtto = document.getElementById("codContrato").value;
@@ -130,6 +134,10 @@ function muestraInfo(id){
         	if(respuesta['cod_aval'] != ''){
         		$("#codAval").trigger('change');
         	}
+        	$("#saldoFinCronograma").val(respuesta['imp_saldofinanciar']);
+        	$("#numCuoCronograma").val(respuesta['num_cuotas']);
+        	$("#fchVenCronograma").val(respuesta['fch_primer_vencimiento']);
+        	$("#interesCronograma").val(respuesta['imp_interes']);
         	$("#codCobrador").val(respuesta['cod_cobrador']).trigger('change');
         	$("#codSupervisor").val(respuesta['cod_supervisor']).trigger('change');
         	$("#codJefeVentas").val(respuesta['cod_jefeventas']).trigger('change');
@@ -453,3 +461,4 @@ function apagar(){
   	$('#dscFuneraria').prop('disabled',true);
   }
 }  
+
