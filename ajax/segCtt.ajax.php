@@ -24,11 +24,11 @@ class AjaxSegCtt{
 	public function ajaxGetBeneficiariosServ(){
 		$respuesta = ControladorSegContrato::ctrGetBeneficiariosServ();
 		echo json_encode($respuesta,JSON_UNESCAPED_UNICODE);
-	}//function ajaxGuardaEndoso
-	// public function ajaxGuardaBeneficiario(){
-	// 	$respuesta = ControladorWizard::ctrGuardaBeneficiario();
-	// 	echo json_encode($respuesta);
-	// }//function ajaxGuardaBeneficiario
+	}//function ajaxGetBeneficiariosServ
+	public function ajaxGetDatosEspacio(){
+		$respuesta = ControladorSegContrato::ctrGetDatosEspacio();
+		echo json_encode($respuesta);
+	}//function ajaxGetDatosEspacio
 	// public function ajaxGuardaCronograma(){
 	// 	$respuesta = ControladorWizard::ctrGuardaCronograma();
 	// 	echo json_encode($respuesta);
@@ -64,10 +64,10 @@ else if(isset($_POST["accion"]) && $_POST["accion"] == 'getBeneficiarios'){
 	$cliente = new AjaxSegCtt();
 	$cliente -> ajaxGetBeneficiariosServ();
 }
-// else if(isset($_POST["accion"]) && $_POST["accion"] == 'guardaBeneficiario'){
-// 	$cliente = new AjaxWizard();
-// 	$cliente -> ajaxGuardaBeneficiario();
-// }
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'getDatosEspacio'){
+	$cliente = new AjaxSegCtt();
+	$cliente -> ajaxGetDatosEspacio();
+}
 // else if(isset($_POST["accion"]) && $_POST["accion"] == 'guardaCronograma'){
 // 	$cliente = new AjaxWizard();
 // 	$cliente -> ajaxGuardaCronograma();

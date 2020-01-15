@@ -25,6 +25,9 @@ class ModeloSegContrato{
 
 		return $arrData;
 
+		$db->liberar($sql);
+        $db->cerrar();
+
 	}//function mdlGetDatosCtt
 
 	static public function mdlgetServiciosCtt($cod_contrato){
@@ -93,7 +96,10 @@ class ModeloSegContrato{
 	                        <td>'.$tfechTrans.'</td>
 	                    </tr>';
    		}
-    return $tablaServicios;
+	    return $tablaServicios;
+
+	    $db->liberar($sql);
+	    $db->cerrar();
 	}//function mdlgetServiciosCtt
 
 	static public function mdlGetCuotas($datos){
@@ -195,6 +201,9 @@ class ModeloSegContrato{
 
 		return $arrData;
 
+		$db->liberar($sql);
+        $db->cerrar();
+
 	}//function mdlGetCuotas
 
 	static public function mdlEjecutaProcedureResumenCtt($datos){
@@ -237,7 +246,55 @@ class ModeloSegContrato{
 
 		return $arrData;
 
+		$db->liberar($sql);
+        $db->cerrar();
+
 	}//function mdlEjecutaProcedureResumenCtt
+
+	static public function mdlGetDatosEspacio($datos){
+
+		$db = new Conexion();
+
+		$sql = $db->consulta("SELECT vtaca_contrato.cod_camposanto_actual, vtaca_contrato.cod_plataforma_actual, vtaca_contrato.cod_areaplataforma_actual, vtaca_contrato.cod_ejehorizontal_actual, vtaca_contrato.cod_ejevertical_actual, vtaca_contrato.cod_espacio_actual, vtaca_contrato.cod_tipoespacio_actual, vtaca_contrato.num_nivel_actual, (SELECT dsc_camposanto FROM  vtama_camposanto WHERE vtaca_contrato.cod_camposanto_actual = vtama_camposanto.cod_camposanto)AS dsc_camposanto, vtama_area_plataforma.dsc_area, vtama_plataforma.dsc_plataforma,  vtama_tipo_espacio.dsc_tipo_espacio, vtama_tipo_servicio.dsc_tipo_servicio, vtade_contrato.cod_empresa, vtade_contrato.imp_interes, vtade_contrato.imp_cuoi, vtade_contrato.imp_subtotal, vtade_contrato.imp_saldofinanciar, vtade_contrato.imp_igv, vtade_contrato.imp_totalneto, vtade_contrato.cod_moneda, vtade_contrato.cod_tipo_necesidad FROM vtade_contrato INNER JOIN vtaca_contrato ON vtade_contrato.cod_contrato = vtaca_contrato.cod_contrato LEFT JOIN vtama_camposanto ON vtama_camposanto.cod_camposanto = vtade_contrato.cod_empresa INNER JOIN vtama_area_plataforma ON vtama_area_plataforma.cod_area_plataforma = vtaca_contrato.cod_areaplataforma_actual INNER JOIN  vtama_plataforma ON vtama_plataforma.cod_plataforma = vtaca_contrato.cod_plataforma_actual INNER JOIN vtama_tipo_espacio ON vtama_tipo_espacio.cod_tipo_espacio = vtaca_contrato.cod_tipoespacio_actual INNER JOIN vtama_tipo_servicio ON vtama_tipo_servicio.cod_tipo_servicio = vtade_contrato.cod_tipo_servicio WHERE vtade_contrato.cod_contrato = '".$datos['cod_contrato']."' AND num_servicio = '".$datos['cod_servicio']."' AND vtade_contrato.flg_fondo_mantenimiento = 'NO'");
+
+
+		while($key = $db->recorrer($sql)){
+
+	      $dsc_camposanto = Utf8Encode($key['dsc_camposanto']);
+	      $dsc_plataforma = Utf8Encode($key['dsc_plataforma']);
+	      $dsc_area = $key['dsc_area'];
+	      $eje_hor = $key['cod_ejehorizontal_actual'];
+	      $eje_ver = $key['cod_ejevertical_actual'];
+	      $cod_espacio = $key['cod_espacio_actual'];
+	      if ($key['num_nivel_actual'] == NULL) {
+	      	$nivel = "";
+	      }else{
+	      	$nivel = $key['num_nivel_actual'];
+	      }
+	      $tipo_espacio = $key['dsc_tipo_espacio'];
+	      $cod_empresa = $key['cod_empresa'];
+	      $imp_interes =  number_format(round($key['imp_interes'], 2),2,',','.');
+	      $imp_cuoi =  number_format(round($key['imp_cuoi'], 2),2,',','.');
+	      $imp_subtotal =  number_format(round($key['imp_subtotal'], 2),2,',','.');
+	      $imp_saldofinanciar =  number_format(round($key['imp_saldofinanciar'], 2),2,',','.');
+	      $imp_igv =  number_format(round($key['imp_igv'], 2),2,',','.');
+	      $imp_totalneto =  number_format(round($key['imp_totalneto'], 2),2,',','.');
+	      $moneda = $key['cod_moneda'];
+	      if ($key['cod_tipo_necesidad'] == "NI") {
+	      	$tipo_nec = "NECESIDAD INMEDIATA";
+	      }else{
+	      	$tipo_nec = "NECESIDAD FUTURA";
+	      }
+		}
+
+		$arrData = array('dsc_camposanto'=> $dsc_camposanto, 'dsc_plataforma' => $dsc_plataforma, 'dsc_area'=> $dsc_area, 'eje_hor' => $eje_hor, 'eje_ver'=> $eje_ver, 'cod_espacio' => $cod_espacio, 'nivel'=> $nivel, 'tipo_espacio' => $tipo_espacio, 'cod_empresa' => $cod_empresa, 'imp_interes'=> $imp_interes, 'imp_cuoi' => $imp_cuoi, 'imp_subtotal'=> $imp_subtotal, 'imp_saldofinanciar' => $imp_saldofinanciar, 'imp_igv'=> $imp_igv, 'imp_totalneto' => $imp_totalneto, 'moneda'=> $moneda, 'tipo_nec' => $tipo_nec); 
+
+		return $arrData;
+
+		$db->liberar($sql);
+        $db->cerrar();
+
+	}//function mdlGetDatosEspacio
 
 	static public function mdlGetBeneficiariosServ($datos){
 
@@ -283,20 +340,17 @@ class ModeloSegContrato{
 	        $flg_autopsia = "'".$key['flg_autopsia']."'";
 
 	        $tablaBeneficiarios .= '<tr onclick="mostrarBeneficiario(this,'.$cod_servicio.','.$tipo_doc.','.$num_doc.','.$ape_paterno.','.$ape_materno.','.$nombre.','.$sexo.','.$edo_civil.','.$fch_nacimiento.','.$parentesco.','.$peso.','.$talla.','.$religion.','.$observacion.','.$fch_deceso.','.$fch_entierro.','.$lugar_deceso.','.$motivo_deceso.','.$nivel.','.$flg_autopsia.');">
-										<th scope="row">
-										'.$key['num_item'].'
-										</th>
-										<td>
-										'.Utf8Encode($key['dsc_nombre']).'
-										</td>
-										<td>
-										'.Utf8Encode($key['dsc_apellidopaterno']).' '.Utf8Encode($key['dsc_apellidomaterno']).'
-										</td>
+										<th scope="row">'.$key['num_item'].'</th>
+										<td>'.Utf8Encode($key['dsc_nombre']).'</td>
+										<td>'.Utf8Encode($key['dsc_apellidopaterno']).' '.Utf8Encode($key['dsc_apellidomaterno']).'</td>
 									</tr>';
 		}
 		$arrData = array('tablaBeneficiarios'=> $tablaBeneficiarios); 
 
 		return $arrData;
+
+		$db->liberar($sql);
+        $db->cerrar();
 
 	}//function mdlGetDatosCtt
 

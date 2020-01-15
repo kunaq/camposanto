@@ -148,6 +148,37 @@ function getDatosServicioCtt(row,localidad,tasa,tipoCtt,tipoPro,codCtt,numRef,nu
 		type: 'POST',
         url:"ajax/segCtt.ajax.php",
         dataType: 'text',
+        data: {'accion' : 'getDatosEspacio', 'cod_contrato' : codCtt, 'cod_servicio' : numSer},
+        success: function(respuesta){
+        	var info = JSON.parse(respuesta);
+        	document.getElementById('idPropietario').value = info.cod_empresa ;
+        	document.getElementById('campoSantoSegCtt').value = info.dsc_camposanto;
+        	document.getElementById('platSegCtt').value = info.dsc_plataforma;
+        	document.getElementById('areaSegCtt').value = info.dsc_area;
+        	document.getElementById('tipEspSegCtt').value = info.tipo_espacio;
+        	document.getElementById('ejeHorSeCtt').value = info.eje_hor;
+        	document.getElementById('ejeVerSeCtt').value = info.eje_ver;
+        	document.getElementById('espacioSegCtt').value = info.cod_espacio;
+        	document.getElementById('nivelSegCtt').value = info.nivel;
+
+        	document.getElementById('imp_interes').value = info.imp_interes;
+        	document.getElementById('imp_cuoi').value = info.imp_cuoi;
+        	document.getElementById('imp_subtotal').value = info.imp_subtotal;
+        	document.getElementById('tipo_necesidad').value = info.tipo_nec;
+        	document.getElementById('imp_saldo').value = info.imp_saldofinanciar;
+        	document.getElementById('imp_igv').value = info.imp_igv;
+        	document.getElementById('imp_total').value = info.imp_totalneto;
+        	if (info.moneda == "SOL") {
+        		document.getElementById('monedaCtt').value = "S/.";
+        	}
+        	
+        }//succes
+    });//ajaxGetDatosEspacio
+
+    $.ajax({
+		type: 'POST',
+        url:"ajax/segCtt.ajax.php",
+        dataType: 'text',
         data: {'accion' : 'getBeneficiarios', 'localidad' : localidad, 'cod_contrato' : codCtt, 'cod_servicio' : numSer},
         success: function(respuesta){
         	var info = JSON.parse(respuesta);
