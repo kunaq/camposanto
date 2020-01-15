@@ -6,6 +6,8 @@ $("#cuotaInicial").number(true,2);
 $("#igv").number(true,2);
 $("#subtotal").number(true,2);
 $("#total").number(true,2);
+$("#saldoFinCronograma").number(true,2);
+$("#valCuo").number(true,2);
 $("#fchNacTitular").datepicker({
   format: 'dd-mm-yyyy',
   autoclose: true
@@ -135,6 +137,9 @@ function muestraInfo(id){
         		$("#codAval").trigger('change');
         	}
         	$("#saldoFinCronograma").val(respuesta['imp_saldofinanciar']);
+        	if(respuesta['imp_saldofinanciar'] != 0){
+        		cargaCronograma(codCtto,respuesta['num_refinanciamiento']);
+        	}
         	$("#numCuoCronograma").val(respuesta['num_cuotas']);
         	$("#fchVenCronograma").val(respuesta['fch_primer_vencimiento']);
         	$("#interesCronograma").val(respuesta['imp_interes']);
@@ -190,54 +195,6 @@ function muestraInfo(id){
         }//success
     });//ajax
 }//muestraInfo
-
-function nombreTrabajador(valor,campo){
-    $.ajax({
-        type: 'GET',
-        url: 'extensiones/captcha/buscaNombre.php',
-        dataType: 'text',
-        data: { 'value' : valor },
-        success : function(respuesta){
-            document.getElementById(campo).value = respuesta;
-        }
-    });
-}//nombreTrabajador
-
-function nombreGrupoVenta(valor,campo){
-    $.ajax({
-        type: 'POST',
-        url: 'extensiones/captcha/buscarNombreGrupo.php',
-        dataType: 'text',
-        data: { 'cod' : valor },
-        success : function(respuesta){
-            document.getElementById(campo).value = respuesta;
-        }
-    });
-}//nombreGrupoVenta
-
-function nombreComisionista(valor,campo){
-    $.ajax({
-        type: 'POST',
-        url: 'extensiones/captcha/buscaNombreComisionista.php',
-        dataType: 'text',
-        data: { 'cod' : valor },
-        success : function(respuesta){
-            document.getElementById(campo).value = respuesta;
-        }
-    });
-}//nombreGrupoVenta
-
-function nombreFuneraria(valor,campo){
-    $.ajax({
-        type: 'POST',
-        url: 'extensiones/captcha/buscaNombreFuneraria.php',
-        dataType: 'text',
-        data: { 'cod' : valor },
-        success : function(respuesta){
-            document.getElementById(campo).value = respuesta;
-        }
-    });
-}//nombreGrupoVenta
 
 function buscaDscto(){
 	var codCtto = $("#codContrato").val();
@@ -321,6 +278,9 @@ function buscaEndoso(){
         }//success
     });//ajax
 }//buscaEndoso
+
+
+//-------------------pestaña titulares
 
 function buscaDatosTi(){
 	var codCliente = $("#codCliTitular").val();
@@ -448,6 +408,8 @@ function buscaDatosAval(){
     });//ajax
 }//buscaDatos2Ti
 
+//-------------------pestaña gestion
+
 function apagar(){
     var checkbox = document.getElementById('AgFunCheck');
   if (checkbox.checked == true){
@@ -462,3 +424,93 @@ function apagar(){
   }
 }  
 
+function nombreTrabajador(valor,campo){
+    $.ajax({
+        type: 'GET',
+        url: 'extensiones/captcha/buscaNombre.php',
+        dataType: 'text',
+        data: { 'value' : valor },
+        success : function(respuesta){
+            document.getElementById(campo).value = respuesta;
+        }
+    });
+}//nombreTrabajador
+
+function nombreGrupoVenta(valor,campo){
+    $.ajax({
+        type: 'POST',
+        url: 'extensiones/captcha/buscarNombreGrupo.php',
+        dataType: 'text',
+        data: { 'cod' : valor },
+        success : function(respuesta){
+            document.getElementById(campo).value = respuesta;
+        }
+    });
+}//nombreGrupoVenta
+
+function nombreComisionista(valor,campo){
+    $.ajax({
+        type: 'POST',
+        url: 'extensiones/captcha/buscaNombreComisionista.php',
+        dataType: 'text',
+        data: { 'cod' : valor },
+        success : function(respuesta){
+            document.getElementById(campo).value = respuesta;
+        }
+    });
+}//nombreGrupoVenta
+
+function nombreFuneraria(valor,campo){
+    $.ajax({
+        type: 'POST',
+        url: 'extensiones/captcha/buscaNombreFuneraria.php',
+        dataType: 'text',
+        data: { 'cod' : valor },
+        success : function(respuesta){
+            document.getElementById(campo).value = respuesta;
+        }
+    });
+}//nombreGrupoVenta
+
+//-------------------------cronograma
+
+function cargaCronograma(codCtto,numRefi){
+	$.ajax({
+        url: 'ajax/modifCtto.ajax.php',
+        dataType: 'json',
+        method: "POST",
+        data: { 'accion' : 'cronograma', 'codCtto' : codCtto, 'num_refinanciamiento' : numRefi },
+        success : function(respuesta){
+        	console.log('respuesta',respuesta);
+        	$("#bodyCronogramaModif").empty();
+        	var totalSubtotal = 0;
+        	var totalInteres = 0;
+        	var totalIGV = 0;
+        	var totalTotal = 0;
+        	var totalSaldo = 0;
+        	$.each(respuesta,function(index,value){
+        		totalSubtotal = totalSubtotal + parseFloat(value['imp_total']);
+        		totalInteres = totalInteres + parseFloat(value['imp_interes']);
+        		totalIGV = totalIGV + parseFloat(value['imp_igv']);
+        		totalTotal = totalTotal + parseFloat(value['imp_principal']);
+        		totalSaldo = totalSaldo + parseFloat(value['imp_saldo']);
+        		var filaDsto = '<tr>'+
+									'<th scope="row">'+value['num_cuota']+'</th>'+
+									'<td>'+value['cod_estado_cuota']+'</td>'+
+									'<td>'+value['fch_vencimiento']+'</td>'+
+									'<td style="text-align: left;">'+Number(value['imp_total']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+									'<td style="text-align: left;">'+value['dsc_entidad']+'</td>'+
+									'<td style="text-align: left;">'+Number(value['imp_interes']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+									'<td style="text-align: left;">'+Number(value['imp_igv']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+									'<td style="text-align: left;">'+Number(value['imp_principal']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+									'<td style="text-align: left;">'+Number(value['imp_saldo']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+								'</tr>';
+							// console.log(fila);
+				document.getElementById("bodyEndosoModif").insertAdjacentHTML("beforeEnd" ,filaDsto);
+				// document.getElementById("totalSaldoEndosoModif").innerText = Number(totalSaldo).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
+				// document.getElementById("totalEmiEndosoModif").innerText = Number(totalEmitido).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
+				// document.getElementById("totalValEndosoModif").innerText = Number(totalValor).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
+        	});//each
+        }//success
+    });//ajax
+}

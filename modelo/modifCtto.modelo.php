@@ -69,5 +69,17 @@ class ModeloModifCtto{
         $db->cerrar();
 	}//mdlBuscaCliente
 
+	static public function mdlBuscaCronograma($tablaCronograma,$codCtto,$num_refinanciamiento){
+		$db = new Conexion();
+		$sql = $db->consulta("SELECT num_cuota, cod_estado_cuota, fch_vencimiento, imp_principal, imp_interes, imp_igv, imp_saldo, imp_total FROM $tablaCronograma WHERE cod_contrato = '$codCtto' AND num_refinanciamiento = $num_refinanciamiento");
+		$datos = array();
+    	while($key = $db->recorrer($sql)){
+	    		$datos[] = arrayMapUtf8Encode($key);
+			}
+		return $datos;
+		$db->liberar($sql);
+        $db->cerrar();
+	}//mdlBuscaCronograma
+
 }//class ModeloModifCtto
 ?>

@@ -152,7 +152,6 @@
 					</fieldset>
 				</div>
 			</div>
-			<div style="min-height: 30px;"></div>
 			<div class="row">
 				<div class="col-lg-12">
 					<ul class="nav nav-tabs  m-tabs-line m-tabs-line--danger" role="tablist">
@@ -1520,7 +1519,7 @@
 							</div>
 						</div>
 						<div class="tab-pane" id="m_tabs_2_7" role="tabpanel">
-							<div class="row">
+							<div class="row form-group m-form__group">
 								<div class="col-lg-6">
 									<fieldset class="fieldFormHorizontal">
 										<legend>&nbsp;</legend>
@@ -1608,123 +1607,62 @@
 									</fieldset>
 								</div>
 							</div>
-									<div class="form-group m-form__group row">
-										
-									</div>
-									<div class="form-group m-form__group row">
-										<div class="col-lg-12">
-											<table class="table m-table">
-												<thead>
-													<tr>
-														<th>
-															Cuota
-														</th>
-														<th>
-															Estado
-														</th>
-														<th>
-															F. Venicimiento
-														</th>
-														<th>
-															Subtotal
-														</th>
-														<th>
-															Interes
-														</th>
-														<th>
-															I.G.V
-														</th>
-														<th>
-															Total
-														</th>
-														<th>
-															Saldo
-														</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<th scope="row">
-															1
-														</th>
-														<td>
-															Registrado
-														</td>
-														<td>
-															04/11/2019
-														</td>
-														<td>
-															1.092,32
-														</td>
-														<td>
-															8,08
-														</td>
-														<td>
-															0,00
-														</td>
-														<td>
-															1.100,32
-														</td>
-														<td>
-															1.100,32
-														</td>
-													</tr>
-													<tr>
-														<th scope="row">
-															2
-														</th>
-														<td>
-															Registrado
-														</td>
-														<td>
-															04/11/2019
-														</td>
-														<td>
-															1.092,32
-														</td>
-														<td>
-															8,08
-														</td>
-														<td>
-															0,00
-														</td>
-														<td>
-															1.100,32
-														</td>
-														<td>
-															1.100,32
-														</td>
-													</tr>
-													<tr>
-														<th scope="row">
-															3
-														</th>
-														<td>
-															Registrado
-														</td>
-														<td>
-															04/11/2019
-														</td>
-														<td>
-															1.092,32
-														</td>
-														<td>
-															8,08
-														</td>
-														<td>
-															0,00
-														</td>
-														<td>
-															1.100,32
-														</td>
-														<td>
-															1.100,32
-														</td>
-													</tr>
-												</tbody>
-											</table>
-										</div>
-									</div>
+							<div class="form-group m-form__group row">
+								<div class="col-lg-12">
+									<table class="table m-table">
+										<thead>
+											<tr>
+												<th>Cuota</th>
+												<th>Estado</th>
+												<th>Fecha de Venicimiento</th>
+												<th>Subtotal</th>
+												<th>Interes</th>
+												<th>I.G.V</th>
+												<th>Total</th>
+												<th>Saldo</th>
+											</tr>
+										</thead>
+										<tbody id="bodyCronogramaModif">
+											<tr>
+												<th scope="row">1</th>
+												<td>
+													Registrado
+												</td>
+												<td>
+													04/11/2019
+												</td>
+												<td>
+													1.092,32
+												</td>
+												<td>
+													8,08
+												</td>
+												<td>
+													0,00
+												</td>
+												<td>
+													1.100,32
+												</td>
+												<td>
+													1.100,32
+												</td>
+											</tr>
+										</tbody>
+										<tfoot>
+											<tr>
+												<th></th>
+												<td></td>
+												<td>Total:</td>
+												<td>0,00</td>
+												<td>0,00</td>
+												<td>0,00</td>
+												<td>0,00</td>
+												<td>0,00</td>
+											</tr>
+										</tfoot>
+									</table>
+								</div>
+							</div>
 						</div>
 						<div class="tab-pane" id="m_tabs_2_8" role="tabpanel">
 							<div class="row">
