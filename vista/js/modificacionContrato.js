@@ -499,7 +499,6 @@ function cargaCronograma(codCtto,numRefi){
 									'<td>'+value['cod_estadocuota']+'</td>'+
 									'<td>'+value['fch_vencimiento']+'</td>'+
 									'<td style="text-align: left;">'+Number(value['imp_total']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
-									'<td style="text-align: left;">'+value['dsc_entidad']+'</td>'+
 									'<td style="text-align: left;">'+Number(value['imp_interes']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
 									'<td style="text-align: left;">'+Number(value['imp_igv']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
 									'<td style="text-align: left;">'+Number(value['imp_principal']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
