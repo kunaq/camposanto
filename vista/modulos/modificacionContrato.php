@@ -1984,15 +1984,15 @@
 											<div class="row form-group">
 												<div class="col-lg-3">
 													<label>Descripcion</label>
-													<input type="text" class="form-control form-control-sm m-input" name="codFuneraria" id="codFuneraria" disbled>
+													<input type="text" class="form-control form-control-sm m-input" name="codFuneraria" id="codFuneraria" disabled>
 												</div>
 												<div class="col-lg-1" style="margin-top: 1.7rem;">
 													<label>&nbsp;</label>
-													<button class="btn btn-sm btnGuardarKqPst" id="btnAgFun"><i class="fa fa-search" disbled></i></button>
+													<button class="btn btn-sm btnGuardarKqPst" id="btnAgFun"><i class="fa fa-search" disabled></i></button>
 												</div>
 												<div class="col-lg-8">
 													<label>&nbsp;&nbsp;</label>
-													<input type="text" class="form-control form-control-sm m-input" name="dscFuneraria" id="dscFuneraria" disbled>
+													<input type="text" class="form-control form-control-sm m-input" name="dscFuneraria" id="dscFuneraria" disabled>
 												</div>
 											</div>
 										</div>
