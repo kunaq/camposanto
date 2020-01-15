@@ -1909,7 +1909,7 @@
 													<label>Cobrador</label>
 													<input type="text" class="form-control form-control-sm m-input" name="codCobrador" id="codCobrador" onchange="nombreTrabajador(this.value,'nombreCobrador');">
 												</div>
-												<div class="col-lg-1">
+												<div class="col-lg-1" style="margin-top: 1.7rem;">
 													<label>&nbsp;</label>
 													<button class="btn btn-sm btnGuardarKqPst"><i class="fa fa-search"></i></button>
 												</div>
@@ -1928,7 +1928,7 @@
 													<label>Vendedor</label>
 													<input type="text" class="form-control form-control-sm m-input" name="codVendedor" id="codVendedor" onchange="nombreTrabajador(this.value,'nombreVendedor');">
 												</div>
-												<div class="col-lg-1">
+												<div class="col-lg-1"  style="margin-top: 1.7rem;">
 													<label>&nbsp;</label>
 													<button class="btn btn-sm btnGuardarKqPst"><i class="fa fa-search"></i></button>
 												</div>
@@ -1984,15 +1984,15 @@
 											<div class="row form-group">
 												<div class="col-lg-3">
 													<label>Descripcion</label>
-													<input type="text" class="form-control form-control-sm m-input" name="codFuneraria" id="codFuneraria">
+													<input type="text" class="form-control form-control-sm m-input" name="codFuneraria" id="codFuneraria" disbled>
 												</div>
-												<div class="col-lg-1">
+												<div class="col-lg-1" style="margin-top: 1.7rem;">
 													<label>&nbsp;</label>
-													<button class="btn btn-sm btnGuardarKqPst" id="btnAgFun"><i class="fa fa-search"></i></button>
+													<button class="btn btn-sm btnGuardarKqPst" id="btnAgFun"><i class="fa fa-search" disbled></i></button>
 												</div>
 												<div class="col-lg-8">
 													<label>&nbsp;&nbsp;</label>
-													<input type="text" class="form-control form-control-sm m-input" name="dscFuneraria" id="dscFuneraria">
+													<input type="text" class="form-control form-control-sm m-input" name="dscFuneraria" id="dscFuneraria" disbled>
 												</div>
 											</div>
 										</div>
