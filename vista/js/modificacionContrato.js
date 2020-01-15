@@ -135,7 +135,7 @@ function muestraInfo(id){
         	$("#codJefeVentas").val(respuesta['cod_jefeventas']).trigger('change');
         	$("#codVendedor").val(respuesta['cod_vendedor']).trigger('change');
         	$("#codTipoComisionista").val(respuesta['cod_tipo_comisionista']);
-        	$("#codGrupo").val(respuesta['cod_grupo']);
+        	$("#codGrupo").val(respuesta['cod_grupo']).trigger('change');
 
         	$.ajax({
 		        url: 'ajax/modifCtto.ajax.php',
