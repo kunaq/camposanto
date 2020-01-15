@@ -1870,11 +1870,11 @@
 													<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="sedeContrto" id="sedeContrato">
 														<option>Selecciona</option>
 														<?php
-																// $tabla = "vtama_localidad";
-																// $item1 = "cod_localidad";
-																// $item2 = "dsc_localidad";
-																// $prueba = controladorEmpresa::
-																// ctrSelects($tabla,$item1,$item2);
+																$tabla = "vtama_canal_venta";
+																$item1 = "cod_canal_venta";
+																$item2 = "dsc_canal_venta";
+																$prueba = controladorEmpresa::
+																ctrSelects($tabla,$item1,$item2);
 														?>
 													</select>
 												</div>
@@ -1889,7 +1889,7 @@
 																<td>
 																	<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
 																		<label>
-																			<input type="checkbox" name="" id="observacionesCheck">
+																			<input type="checkbox" name="AgFunCheck" id="AgFunCheck" onchange="apagar();">
 																			<span></span>
 																		</label>
 																	</span>
@@ -1909,7 +1909,7 @@
 													<label>Cobrador</label>
 													<input type="text" class="form-control form-control-sm m-input" name="codCobrador" id="codCobrador" onchange="nombreTrabajador(this.value,'nombreCobrador');">
 												</div>
-												<div class="col-lg-1">
+												<div class="col-lg-1" style="margin-top: 1.7rem;">
 													<label>&nbsp;</label>
 													<button class="btn btn-sm btnGuardarKqPst"><i class="fa fa-search"></i></button>
 												</div>
@@ -1928,7 +1928,7 @@
 													<label>Vendedor</label>
 													<input type="text" class="form-control form-control-sm m-input" name="codVendedor" id="codVendedor" onchange="nombreTrabajador(this.value,'nombreVendedor');">
 												</div>
-												<div class="col-lg-1">
+												<div class="col-lg-1"  style="margin-top: 1.7rem;">
 													<label>&nbsp;</label>
 													<button class="btn btn-sm btnGuardarKqPst"><i class="fa fa-search"></i></button>
 												</div>
@@ -1946,7 +1946,7 @@
 												</div>
 												<div class="col-lg-3">
 													<label>Tipo Comisionista</label>
-													<input type="text" class="form-control form-control-sm m-input" name="codTipoComisionista" id="codTipoComisionista">
+													<input type="text" class="form-control form-control-sm m-input" name="codTipoComisionista" id="codTipoComisionista" onchange="nombreComisionista(this.value,'nombreTipoComisionista');">
 												</div>
 												<div class="col-lg-9">
 													<label>&nbsp;&nbsp;</label>
@@ -1984,15 +1984,15 @@
 											<div class="row form-group">
 												<div class="col-lg-3">
 													<label>Descripcion</label>
-													<input type="text" class="form-control form-control-sm m-input" name="codFuneraria" id="codFuneraria">
+													<input type="text" class="form-control form-control-sm m-input" name="codFuneraria" id="codFuneraria" disabled>
 												</div>
-												<div class="col-lg-1">
+												<div class="col-lg-1" style="margin-top: 1.7rem;">
 													<label>&nbsp;</label>
-													<button class="btn btn-sm btnGuardarKqPst"><i class="fa fa-search"></i></button>
+													<button class="btn btn-sm btnGuardarKqPst" id="btnAgFun"><i class="fa fa-search" disabled></i></button>
 												</div>
 												<div class="col-lg-8">
 													<label>&nbsp;&nbsp;</label>
-													<input type="text" class="form-control form-control-sm m-input" name="dscFuneraria" id="dscFuneraria">
+													<input type="text" class="form-control form-control-sm m-input" name="dscFuneraria" id="dscFuneraria" disabled>
 												</div>
 											</div>
 										</div>

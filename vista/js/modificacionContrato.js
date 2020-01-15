@@ -134,7 +134,7 @@ function muestraInfo(id){
         	$("#codSupervisor").val(respuesta['cod_supervisor']).trigger('change');
         	$("#codJefeVentas").val(respuesta['cod_jefeventas']).trigger('change');
         	$("#codVendedor").val(respuesta['cod_vendedor']).trigger('change');
-        	$("#codTipoComisionista").val(respuesta['cod_tipo_comisionista']);
+        	$("#codTipoComisionista").val(respuesta['cod_tipo_comisionista']).trigger('change');
         	$("#codGrupo").val(respuesta['cod_grupo']).trigger('change');
 
         	$.ajax({
@@ -189,8 +189,20 @@ function nombreTrabajador(valor,campo){
 
 function nombreGrupoVenta(valor,campo){
     $.ajax({
-        type: 'GET',
+        type: 'POST',
         url: 'extensiones/captcha/buscarNombreGrupo.php',
+        dataType: 'text',
+        data: { 'cod' : valor },
+        success : function(respuesta){
+            document.getElementById(campo).value = respuesta;
+        }
+    });
+}//nombreGrupoVenta
+
+function nombreComisionista(valor,campo){
+    $.ajax({
+        type: 'POST',
+        url: 'extensiones/captcha/buscaNombreComisionista.php',
         dataType: 'text',
         data: { 'cod' : valor },
         success : function(respuesta){
@@ -407,3 +419,17 @@ function buscaDatosAval(){
         }//success
     });//ajax
 }//buscaDatos2Ti
+
+function apagar(){
+    var checkbox = document.getElementById('AgFunCheck');
+  if (checkbox.checked == true){
+  	$("#codFuneraria").prop('disabled',false);
+  	$("#btnAgFun").prop('disabled',false);
+  	$("#dscFuneraria").prop('disabled',false); 	
+  }
+  else{
+  	$('#codFuneraria').prop('disabled',true);
+  	$('#btnAgFun').prop('disabled',true);
+  	$('#dscFuneraria').prop('disabled',true);
+  }
+}  

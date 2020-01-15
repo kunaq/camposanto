@@ -1,14 +1,14 @@
 <?php
 require_once "../../modelo/conexion.php";
    
-   $codGrupo = $_POST['cod'];
+   $codComisionista = $_POST['cod'];
 
     $db = new Conexion();                                             
 
-    $sql = $db->consulta("SELECT dsc_grupo FROM vtama_grupo WHERE cod_grupo = '$codGrupo'");
+    $sql = $db->consulta("SELECT dsc_tipo_comisionista FROM vtama_tipo_comisionista WHERE cod_tipo_comisionista = '$codComisionista'");
 
 	while($key = $db->recorrer($sql)){
-    	$dsc_grupo = utf8_encode($key['dsc_grupo']);
+    	$dsc_grupo = utf8_encode($key['dsc_tipo_comisionista']);
 	}        
 	echo $dsc_grupo;
     $db->liberar($sql);
