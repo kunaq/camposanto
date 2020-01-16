@@ -171,6 +171,34 @@ function getDatosServicioCtt(row,localidad,tasa,tipoCtt,tipoPro,codCtt,numRef,nu
         	if (info.moneda == "SOL") {
         		document.getElementById('monedaCtt').value = "S/.";
         	}
+
+        	$.ajax({
+				type: 'POST',
+		        url:"ajax/segCtt.ajax.php",
+		        dataType: 'text',
+		        data: {'accion' : 'getServPrincipal', 'localidad' : localidad, 'cod_contrato' : codCtt, 'cod_servicio' : numSer},
+		        success: function(respuesta){
+
+		        	var info = JSON.parse(respuesta);
+
+		        	$("#tbodyServPrincipal").html(info.tableServPrincipal);
+		        	
+		        }//succes
+		    });//ajaxGetTblServPrincipal
+
+		    $.ajax({
+				type: 'POST',
+		        url:"ajax/segCtt.ajax.php",
+		        dataType: 'text',
+		        data: {'accion' : 'getDsctoServicio', 'localidad' : localidad, 'cod_contrato' : codCtt, 'cod_servicio' : numSer},
+		        success: function(respuesta){
+
+		        	var info = JSON.parse(respuesta);
+
+		        	$("#tbodyDsctoServicio").html(info.tableDsctoSerrvicio);
+		        	
+		        }//succes
+		    });//ajaxGetCuotas
         	
         }//succes
     });//ajaxGetDatosEspacio

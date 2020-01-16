@@ -354,5 +354,40 @@ class ModeloSegContrato{
 
 	}//function mdlGetDatosCtt
 
+	static public function mdlGtServPrincipal($datos){
+
+		$db = new Conexion();
+
+		$sql = $db->consulta("SELECT vtade_contrato_servicio.cod_servicio_principal, vtama_servicio.dsc_servicio, vtade_contrato_servicio.num_ctd, vtade_contrato_servicio.num_ctd_usado, vtade_contrato_servicio.imp_precio_venta, vtade_contrato_servicio.imp_cuoi_servicio, vtade_contrato_servicio.imp_cuoi, vtade_contrato_servicio.imp_subtotal, vtade_contrato_servicio.imp_igv, vtade_contrato_servicio.imp_total FROM vtade_contrato_servicio INNER JOIN vtama_servicio ON vtade_contrato_servicio.cod_servicio_principal = vtama_servicio.cod_servicio WHERE cod_localidad = '".$datos['localidad']."' AND vtade_contrato_servicio.cod_contrato = '".$datos['cod_contrato']."' AND vtade_contrato_servicio.num_servicio = '".$datos['cod_servicio']."'"); 
+
+		$tableServPrincipal = "";
+
+		while($key = $db->recorrer($sql)){
+
+			$i=0;
+
+			$tableServPrincipal='<tr>
+									<td>'.$i++.'</td>
+									<td>'.$key['cod_servicio_principal'].'</td>
+									<td>'.Utf8Encode($key['dsc_servicio']).'</td>
+									<td>'.$key['num_ctd'].'</td>
+									<td>'.$key['num_ctd_usado'].'</td>
+									<td>'.number_format(round($key['imp_precio_venta'], 2),2,',','.').'</td>
+									<td>'.number_format(round($key['imp_cuoi_servicio'], 2),2,',','.').'</td>
+									<td>'.number_format(round($key['imp_cuoi'], 2),2,',','.').'</td>
+									<td>'.number_format(round($key['imp_subtotal'], 2),2,',','.').'</td>
+									<td>'.number_format(round($key['imp_igv'], 2),2,',','.').'</td>
+									<td>'.number_format(round($key['imp_total'], 2),2,',','.').'</td>
+								</tr>';
+		}
+		$arrData = array('tableServPrincipal'=> $tableServPrincipal); 
+
+		return $arrData;
+
+		$db->liberar($sql);
+        $db->cerrar();
+
+	}//function mdlGetDatosCtt
+
 }//class ModeloWizard
 ?>

@@ -25,8 +25,16 @@ class AjaxSegCtt{
 		$respuesta = ControladorSegContrato::ctrGetBeneficiariosServ();
 		echo json_encode($respuesta,JSON_UNESCAPED_UNICODE);
 	}//function ajaxGetBeneficiariosServ
-	public function ajaxGetDatosEspacio(){
-		$respuesta = ControladorSegContrato::ctrGetDatosEspacio();
+	public function ajaxGetServPrincipal(){
+		$respuesta = ControladorSegContrato::ctrGetServPrincipal();
+		echo json_encode($respuesta,JSON_UNESCAPED_UNICODE);
+	}//function ajaxGetServPrincipal
+	public function ajaxGetServPrincipal(){
+		$respuesta = ControladorSegContrato::ctrGetServPrincipal();
+		echo json_encode($respuesta,JSON_UNESCAPED_UNICODE);
+	}//function ajaxGetServPrincipal
+	public function ajaxGetDsctoServicio(){
+		$respuesta = ControladorSegContrato::ctrGetDsctoServicio();
 		echo json_encode($respuesta);
 	}//function ajaxGetDatosEspacio
 	// public function ajaxGuardaCronograma(){
@@ -63,6 +71,14 @@ else if(isset($_POST["accion"]) && $_POST["accion"] == 'getResumenCtt'){
 else if(isset($_POST["accion"]) && $_POST["accion"] == 'getBeneficiarios'){
 	$cliente = new AjaxSegCtt();
 	$cliente -> ajaxGetBeneficiariosServ();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'getServPrincipal'){
+	$cliente = new AjaxSegCtt();
+	$cliente -> ajaxGetServPrincipal();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'getDsctoServicio'){
+	$cliente = new AjaxSegCtt();
+	$cliente -> ajaxGetDsctoServicio();
 }
 else if(isset($_POST["accion"]) && $_POST["accion"] == 'getDatosEspacio'){
 	$cliente = new AjaxSegCtt();
