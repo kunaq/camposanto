@@ -57,6 +57,16 @@ class ControladorSegContrato{
 		$respuesta = ModeloSegContrato::mdlGetBeneficiariosServ($datos);
 		return $respuesta;
 	}//function ctrGetBeneficiariosServ
+	
+	static public function ctrGetServPrincipal(){
+
+		$datos = array('localidad' => $_POST['localidad'],
+					   'cod_contrato' => $_POST['cod_contrato'],
+					   'cod_servicio' => $_POST['cod_servicio']);
+
+		$respuesta = ModeloSegContrato::mdlGtServPrincipal($datos);
+		return $respuesta;
+	}//function ctrGetBeneficiariosServ
 
 	static public function ctrGetDatosEspacio(){
 
