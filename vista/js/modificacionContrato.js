@@ -8,6 +8,7 @@ $("#subtotal").number(true,2);
 $("#total").number(true,2);
 $("#saldoFinCronograma").number(true,2);
 $("#valCuo").number(true,2);
+$("#saldoFOMA").number(true,2);
 $("#fchNacTitular").datepicker({
   format: 'dd-mm-yyyy',
   autoclose: true
@@ -254,7 +255,7 @@ function buscaEndoso(){
         method: "POST",
         data: { 'accion' : 'EndXCtto', 'codCtto' : codCtto, 'num_servicio' : numServicio },
         success : function(respuesta){
-        	// console.log('respuesta',respuesta);
+        	// console.log('respuesta',respuesta.length);
         	$("#bodyEndosoModif").empty();
         	var totalSaldo = 0;
         	var totalEmitido = 0;
@@ -535,9 +536,11 @@ function cargaFoma(codCtto,numRefi){
         success : function(respuesta){
         	console.log('respuesta',respuesta);
         	$("#bodyCronogramaFomaModif").empty();
+        	var numCuo = 0;
         	var totalTotal = 0;
         	var totalSaldo = 0;
         	$.each(respuesta,function(index,value){
+        		numCuo++;
         		totalTotal = totalTotal + parseFloat(value['imp_total']);
         		totalSaldo = totalSaldo + parseFloat(value['imp_saldo']);
         		if(value['cod_estadocuota'] == 'REG'){
@@ -558,6 +561,7 @@ function cargaFoma(codCtto,numRefi){
         	});//each
         	$("#saldoFOMA").val(totalTotal);
         	$("#fchVenCronoFOMA").val(respuesta[0]['fch_vencimiento']);
+        	$("#nCuotasFOMA").val(numCuo);
         }//success
     });//ajax
 }

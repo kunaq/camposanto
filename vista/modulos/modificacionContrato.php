@@ -1657,7 +1657,7 @@
 												</div>
 												<div class="col-lg-4">
 													<label>N° Cuotas</label>
-													<input type="text" class="form-control form-control-sm m-input" placeholder="0" name="nCuotas" id="nCuotas">
+													<input type="text" class="form-control form-control-sm m-input" placeholder="0" name="nCuotasFOMA" id="nCuotasFOMA">
 												</div>
 												<div class="col-lg-4">
 													<label>1er Vencimiento</label>
@@ -1708,8 +1708,8 @@
 																<td></td>
 																<td></td>
 																<td>Total</td>
-																<td id="totalTotalFomaModif">0,00</td>
-																<td id="totalSaldoFomaModif">0,00</td>
+																<td style="text-align: right;" id="totalTotalFomaModif">0,00</td>
+																<td style="text-align: right;" id="totalSaldoFomaModif">0,00</td>
 															</tr>
 														</tfoot>
 													</table>
