@@ -8,6 +8,7 @@ $("#subtotal").number(true,2);
 $("#total").number(true,2);
 $("#saldoFinCronograma").number(true,2);
 $("#valCuo").number(true,2);
+$("#saldoFOMA").number(true,2);
 $("#fchNacTitular").datepicker({
   format: 'dd-mm-yyyy',
   autoclose: true
@@ -254,7 +255,7 @@ function buscaEndoso(){
         method: "POST",
         data: { 'accion' : 'EndXCtto', 'codCtto' : codCtto, 'num_servicio' : numServicio },
         success : function(respuesta){
-        	// console.log('respuesta',respuesta);
+        	console.log('respuesta',respuesta.lenght);
         	$("#bodyEndosoModif").empty();
         	var totalSaldo = 0;
         	var totalEmitido = 0;
