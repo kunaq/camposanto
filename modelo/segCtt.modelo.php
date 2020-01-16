@@ -336,23 +336,33 @@ class ModeloSegContrato{
 
 		$sql = $db->consulta("SELECT vtavi_descuento_x_contrato.flg_tasa, vtama_tipo_descuento.dsc_tipo_descuento, vtavi_descuento_x_contrato.flg_libre, vtavi_descuento_x_contrato.cod_usuario, vtavi_descuento_x_contrato.fch_registro, vtavi_descuento_x_contrato.imp_valor, vtavi_descuento_x_contrato.imp_dscto FROM vtavi_descuento_x_contrato LEFT JOIN vtama_tipo_descuento ON vtama_tipo_descuento.cod_tipo_descuento = vtavi_descuento_x_contrato.cod_tipo_descuento WHERE vtavi_descuento_x_contrato.cod_localidad = '".$datos['localidad']."' AND vtavi_descuento_x_contrato.cod_contrato = '".$datos['cod_contrato']."' AND vtavi_descuento_x_contrato.num_servicio = '".$datos['cod_servicio']."'"); 
 
-		$tableDsctoSerrvicio = "";
+		$tableDsctoServicio = "";
 		$i=0;
 
 		while($key = $db->recorrer($sql)){
 
-			$tableDsctoSerrvicio ='<tr>
+			$tableDsctoServicio .='<tr>
 									<td>'.($i+1).'</td>
 									<td>'.Utf8Encode($key['cod_usuario']).'</td>
 									<td>'.dateFormat($key['fch_registro']).'</td>
-									<td>'.$key['dsc_tipo_descuento'].'</td>
-									<td>'.$key['flg_tasa'].'</td>
-									<td>'.$key['flg_libre'].'</td>
-									<td>'.number_format(round($key['imp_valor'], 2),2,',','.').'</td>
+									<td>'.$key['dsc_tipo_descuento'].'</td>';
+			if ($key['flg_tasa'] == "SI") {
+				$tableDsctoServicio .='<td><input type="checkbox" name="" checked=""></td>';
+			}else{
+				$tableDsctoServicio .='<td><input type="checkbox" name=""></td>';
+			}
+			if ($key['flg_libre'] == "SI") {
+				$tableDsctoServicio .='<td><input type="checkbox" name="" checked=""></td>';
+			}else{
+				$tableDsctoServicio .='<td><input type="checkbox" name=""></td>';
+			}
+			$tableDsctoServicio .='<td>'.number_format(round($key['imp_valor'], 2),2,',','.').'</td>
 									<td>'.number_format(round($key['imp_dscto'], 2),2,',','.').'</td>
 								</tr>';
+
+			$dsctoTotal += $key["imp_dscto"];
 		}
-		$arrData = array('tableDsctoSerrvicio'=> $tableDsctoSerrvicio); 
+		$arrData = array('tableDsctoServicio'=> $tableDsctoServicio, 'dsctoTotal' => number_format(round($dsctoTotal, 2),2,',','.')); 
 
 		return $arrData;
 

@@ -195,7 +195,7 @@ function getDatosServicioCtt(row,localidad,tasa,tipoCtt,tipoPro,codCtt,numRef,nu
 
 		        	var info = JSON.parse(respuesta);
 
-		        	$("#tbodyDsctoServicio").html(info.tableDsctoSerrvicio);
+		        	$("#tbodyDsctoServicio").html(info.tableDsctoServicio);
 		        	
 		        }//succes
 		    });//ajaxGetCuotas
