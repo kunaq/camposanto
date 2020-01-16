@@ -1609,58 +1609,62 @@
 							</div>
 							<div class="form-group m-form__group row">
 								<div class="col-lg-12">
-									<table class="table m-table">
-										<thead>
-											<tr>
-												<th>Cuota</th>
-												<th>Estado</th>
-												<th>Fecha de Venicimiento</th>
-												<th>Subtotal</th>
-												<th>Interes</th>
-												<th>I.G.V</th>
-												<th>Total</th>
-												<th>Saldo</th>
-											</tr>
-										</thead>
-										<tbody id="bodyCronogramaModif">
-											<tr>
-												<th scope="row">1</th>
-												<td>
-													Registrado
-												</td>
-												<td>
-													04/11/2019
-												</td>
-												<td>
-													1.092,32
-												</td>
-												<td>
-													8,08
-												</td>
-												<td>
-													0,00
-												</td>
-												<td>
-													1.100,32
-												</td>
-												<td>
-													1.100,32
-												</td>
-											</tr>
-										</tbody>
-										<tfoot>
-											<tr>
-												<th></th>
-												<td></td>
-												<td>Total:</td>
-												<td>0,00</td>
-												<td>0,00</td>
-												<td>0,00</td>
-												<td>0,00</td>
-												<td>0,00</td>
-											</tr>
-										</tfoot>
-									</table>
+									<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="350">
+										<div class="table-responsive">
+											<table class="table m-table" >
+												<thead>
+													<tr>
+														<th>Cuota</th>
+														<th>Estado</th>
+														<th>Fecha de Venicimiento</th>
+														<th>Subtotal</th>
+														<th>Interes</th>
+														<th>I.G.V</th>
+														<th>Total</th>
+														<th>Saldo</th>
+													</tr>
+												</thead>
+												<tbody id="bodyCronogramaModif">
+													<tr>
+														<th scope="row">1</th>
+														<td>
+															Registrado
+														</td>
+														<td>
+															04/11/2019
+														</td>
+														<td>
+															1.092,32
+														</td>
+														<td>
+															8,08
+														</td>
+														<td>
+															0,00
+														</td>
+														<td>
+															1.100,32
+														</td>
+														<td>
+															1.100,32
+														</td>
+													</tr>
+												</tbody>
+												<tfoot>
+													<tr>
+														<th></th>
+														<td></td>
+														<td>Total:</td>
+														<td>0,00</td>
+														<td>0,00</td>
+														<td>0,00</td>
+														<td>0,00</td>
+														<td>0,00</td>
+													</tr>
+												</tfoot>
+											</table>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
