@@ -29,12 +29,12 @@ class AjaxSegCtt{
 		$respuesta = ControladorSegContrato::ctrGetServPrincipal();
 		echo json_encode($respuesta,JSON_UNESCAPED_UNICODE);
 	}//function ajaxGetServPrincipal
-	public function ajaxGetServPrincipal(){
-		$respuesta = ControladorSegContrato::ctrGetServPrincipal();
-		echo json_encode($respuesta,JSON_UNESCAPED_UNICODE);
-	}//function ajaxGetServPrincipal
 	public function ajaxGetDsctoServicio(){
 		$respuesta = ControladorSegContrato::ctrGetDsctoServicio();
+		echo json_encode($respuesta,JSON_UNESCAPED_UNICODE);
+	}//function ajaxGetServPrincipal
+	public function ajaxGetDatosEspacio(){
+		$respuesta = ControladorSegContrato::ctrGetDatosEspacio();
 		echo json_encode($respuesta);
 	}//function ajaxGetDatosEspacio
 	// public function ajaxGuardaCronograma(){
