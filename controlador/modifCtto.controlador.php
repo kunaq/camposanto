@@ -74,5 +74,13 @@ class ControladorModifCtto{
 		return $respuesta;
 	}//ctrBuscaCronograma
 
+	static public function ctrBuscaCronogramaFOMA(){
+		$tablaCronograma = 'vtade_cronograma';
+		$codCtto = $_POST['codCtto'];
+		$num_refinanciamiento = $_POST['num_refinanciamiento'];
+		$respuesta = ModeloModifCtto::mdlBuscaCronogramaFOMA($tablaCronograma,$codCtto,$num_refinanciamiento);
+		return $respuesta;
+	}//ctrBuscaCronogramaFOMA
+
 }//class ControladorModifCtto
 ?>

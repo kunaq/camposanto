@@ -1653,7 +1653,7 @@
 											<div class="row form-group">
 												<div class="col-lg-4">
 													<label>Saldo</label>
-													<input type="text" class="form-control form-control-sm m-input" placeholder="0.00" name="saldo" id="saldo">
+													<input type="text" class="form-control form-control-sm m-input" placeholder="0.00" name="saldoFOMA" id="saldoFOMA">
 												</div>
 												<div class="col-lg-4">
 													<label>N° Cuotas</label>
@@ -1662,7 +1662,7 @@
 												<div class="col-lg-4">
 													<label>1er Vencimiento</label>
 													<div class="input-group date">
-														<input type="text" class="form-control form-control-sm m-input" readonly="" id="m_datepicker_6">
+														<input type="text" class="form-control form-control-sm m-input" readonly="" id="fchVenCronoFOMA" name="fchVenCronoFOMA">
 														<div class="input-group-append">
 															<span class="input-group-text">
 																<i class="la la-calendar-check-o"></i>
@@ -1701,29 +1701,15 @@
 															<th>Total</th>
 															<th>Saldo</th>
 														</thead>
-														<tbody>
-															<tr>
-																<td>4</td>
-																<td>CANCELADO</td>
-																<td>03/06/2019</td>
-																<td>247,50</td>
-																<td>0,00</td>
-															</tr>
-															<tr>
-																<td>5</td>
-																<td>CANCELADO</td>
-																<td>03/07/2019</td>
-																<td>247,50</td>
-																<td>0,00</td>
-															</tr>
+														<tbody id="bodyCronogramaFomaModif">
 														</tbody>
 														<tfoot>
 															<tr>
 																<td></td>
 																<td></td>
 																<td>Total</td>
-																<td>495,00</td>
-																<td>0,00</td>
+																<td id="totalTotalFomaModif">0,00</td>
+																<td id="totalSaldoFomaModif">0,00</td>
 															</tr>
 														</tfoot>
 													</table>

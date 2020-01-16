@@ -20,6 +20,10 @@ $("#fchVenCronograma").datepicker({
   format: 'dd-mm-yyyy',
   autoclose: true
 });//datepicker
+$("#fchVenCronoFOMA").datepicker({
+	format : 'dd-mm-yyyy',
+	autoclose: true
+});//datepicker
 
 function buscaCtto(){
 	var codCtto = document.getElementById("codContrato").value;
@@ -139,6 +143,7 @@ function muestraInfo(id){
         	$("#saldoFinCronograma").val(respuesta['imp_saldofinanciar']);
         	if(respuesta['imp_saldofinanciar'] != 0){
         		cargaCronograma(codCtto,respuesta['num_refinanciamiento']);
+        		cargaFoma(codCtto,respuesta['num_refinanciamiento']);
         	}
         	$("#numCuoCronograma").val(respuesta['num_cuotas']);
         	$("#fchVenCronograma").val(respuesta['fch_primer_vencimiento']);
@@ -472,7 +477,7 @@ function nombreFuneraria(valor,campo){
     });
 }//nombreGrupoVenta
 
-//-------------------------cronograma
+//-------------------------cronograma y foma------------------------
 
 function cargaCronograma(codCtto,numRefi){
 	$.ajax({
@@ -509,7 +514,7 @@ function cargaCronograma(codCtto,numRefi){
 									'<td style="text-align: right;">'+Number(value['imp_principal']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
 									'<td style="text-align: right;">'+Number(value['imp_saldo']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
 								'</tr>';
-							console.log(filaCrono);
+							// console.log(filaCrono);
 				document.getElementById("bodyCronogramaModif").insertAdjacentHTML("beforeEnd" ,filaCrono);
 				document.getElementById("totalSubtotCronoModif").innerText = Number(totalSubtotal).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
 				document.getElementById("totalIntCronoModif").innerText = Number(totalInteres).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
@@ -517,6 +522,42 @@ function cargaCronograma(codCtto,numRefi){
 				document.getElementById("totalTotalCronoModif").innerText = Number(totalTotal).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
 				document.getElementById("totalSaldoCronoModif").innerText = Number(totalSaldo).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
         	});//each
+        }//success
+    });//ajax
+}
+
+function cargaFoma(codCtto,numRefi){
+	$.ajax({
+        url: 'ajax/modifCtto.ajax.php',
+        dataType: 'json',
+        method: "POST",
+        data: { 'accion' : 'FOMA', 'codCtto' : codCtto, 'num_refinanciamiento' : numRefi },
+        success : function(respuesta){
+        	console.log('respuesta',respuesta);
+        	$("#bodyCronogramaFomaModif").empty();
+        	var totalTotal = 0;
+        	var totalSaldo = 0;
+        	$.each(respuesta,function(index,value){
+        		totalTotal = totalTotal + parseFloat(value['imp_total']);
+        		totalSaldo = totalSaldo + parseFloat(value['imp_saldo']);
+        		if(value['cod_estadocuota'] == 'REG'){
+        			edoCuota = 'REGISTRADO';
+        		}else if (value['cod_estadocuota'] == 'CAN'){
+        			edoCuota = 'CANCELADO';
+        		}
+        		var filaFoma = '<tr>'+
+									'<th scope="row">'+value['num_cuota']+'</th>'+
+									'<td>'+edoCuota+'</td>'+
+									'<td>'+value['fch_vencimiento']+'</td>'+
+									'<td style="text-align: right;">'+Number(value['imp_total']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+									'<td style="text-align: right;">'+Number(value['imp_saldo']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+								'</tr>';
+				document.getElementById("bodyCronogramaFomaModif").insertAdjacentHTML("beforeEnd" ,filaFoma);
+				document.getElementById("totalTotalFomaModif").innerText = Number(totalTotal).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
+				document.getElementById("totalSaldoFomaModif").innerText = Number(totalSaldo).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
+        	});//each
+        	$("#saldoFOMA").val(totalTotal);
+        	$("#fchVenCronoFOMA").val(respuesta[0]['fch_vencimiento']);
         }//success
     });//ajax
 }

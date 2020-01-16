@@ -62,6 +62,13 @@ class AjaxModifCtto{
 		}
 		echo json_encode($respuesta);
 	}//ajaxBuscaCronograma
+	public function ajaxBuscaCronogramaFOMA(){
+		$respuesta = ControladorModifCtto::ctrBuscaCronogramaFOMA();
+		foreach ($respuesta as $key => $value) {
+			$respuesta[$key]["fch_vencimiento"] = ($respuesta[$key]["fch_vencimiento"] != '') ? dateFormat($respuesta[$key]["fch_vencimiento"]) : '';
+		}
+		echo json_encode($respuesta);
+	}//ajaxBuscaCronogramaFOMA
 }//class AjaxModifCtto
 /*=============================================
 ACCIONES
@@ -97,4 +104,8 @@ else if(isset($_POST["accion"]) && $_POST["accion"] == 'buscaCli'){
 else if(isset($_POST["accion"]) && $_POST["accion"] == 'cronograma'){
 	$cliente = new AjaxModifCtto();
 	$cliente -> ajaxBuscaCronograma();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'FOMA'){
+	$cliente = new AjaxModifCtto();
+	$cliente -> ajaxBuscaCronogramaFOMA();
 }
