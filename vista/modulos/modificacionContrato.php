@@ -1708,8 +1708,8 @@
 																<td></td>
 																<td></td>
 																<td>Total</td>
-																<td style="text-align: left;" id="totalTotalFomaModif">0,00</td>
-																<td style="text-align: left;" id="totalSaldoFomaModif">0,00</td>
+																<td style="text-align: right;" id="totalTotalFomaModif">0,00</td>
+																<td style="text-align: right;" id="totalSaldoFomaModif">0,00</td>
 															</tr>
 														</tfoot>
 													</table>
