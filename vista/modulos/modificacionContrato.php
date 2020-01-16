@@ -1631,11 +1631,11 @@
 														<th></th>
 														<td></td>
 														<td>Total:</td>
-														<td id="totalSubtotCronoModif">0,00</td>
-														<td id="totalIntCronoModif">0,00</td>
-														<td id="totalIGVCronoModif">0,00</td>
-														<td id="totalTotalCronoModif">0,00</td>
-														<td id="totalSaldoCronoModif">0,00</td>
+														<td style="text-align: right;" id="totalSubtotCronoModif">0,00</td>
+														<td style="text-align: right;" id="totalIntCronoModif">0,00</td>
+														<td style="text-align: right;" id="totalIGVCronoModif">0,00</td>
+														<td style="text-align: right;" id="totalTotalCronoModif">0,00</td>
+														<td style="text-align: right;" id="totalSaldoCronoModif">0,00</td>
 													</tr>
 												</tfoot>
 											</table>
