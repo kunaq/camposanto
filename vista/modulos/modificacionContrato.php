@@ -1625,41 +1625,17 @@
 													</tr>
 												</thead>
 												<tbody id="bodyCronogramaModif">
-													<tr>
-														<th scope="row">1</th>
-														<td>
-															Registrado
-														</td>
-														<td>
-															04/11/2019
-														</td>
-														<td>
-															1.092,32
-														</td>
-														<td>
-															8,08
-														</td>
-														<td>
-															0,00
-														</td>
-														<td>
-															1.100,32
-														</td>
-														<td>
-															1.100,32
-														</td>
-													</tr>
 												</tbody>
 												<tfoot>
 													<tr>
 														<th></th>
 														<td></td>
 														<td>Total:</td>
-														<td>0,00</td>
-														<td>0,00</td>
-														<td>0,00</td>
-														<td>0,00</td>
-														<td>0,00</td>
+														<td id="totalSubtotCronoModif">0,00</td>
+														<td id="totalIntCronoModif">0,00</td>
+														<td id="totalIGVCronoModif">0,00</td>
+														<td id="totalTotalCronoModif">0,00</td>
+														<td id="totalSaldoCronoModif">0,00</td>
 													</tr>
 												</tfoot>
 											</table>
