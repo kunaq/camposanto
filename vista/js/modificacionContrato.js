@@ -255,7 +255,7 @@ function buscaEndoso(){
         method: "POST",
         data: { 'accion' : 'EndXCtto', 'codCtto' : codCtto, 'num_servicio' : numServicio },
         success : function(respuesta){
-        	console.log('respuesta',respuesta.lenght);
+        	console.log('respuesta',respuesta.length);
         	$("#bodyEndosoModif").empty();
         	var totalSaldo = 0;
         	var totalEmitido = 0;
