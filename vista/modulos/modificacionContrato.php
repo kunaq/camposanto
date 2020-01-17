@@ -1889,7 +1889,6 @@
 					</div>
 				</div>
 			</div>	
-		</div>
 		<!------------------------------- botones --------------------------------->
 					<div class="sidebar-wrapper stickButtons" id="container-button"> 
 						<a href="#container" class="btn btnGuardarKqPst m-btn m-btn--icon btn-lg m-btn--icon-only toggle-collapse-resumen" onclick="toggleBotones(this)" id="toggle-button">
@@ -1897,6 +1896,7 @@
 						</a>
 					</div> 
 				<!-- ---------------------------fin botones----------------------------- -->
+		</div>
 		</form>
 	</div>
 </div>
