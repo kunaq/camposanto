@@ -1363,7 +1363,7 @@
 																<td>
 																	<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
 																		<label>
-																			<input type="checkbox" name="autopsiaBenef" disabled name="autopsiaBenef">
+																			<input type="checkbox" name="autopsiaBenefM" disabled name="autopsiaBenefM">
 																			<span></span>
 																		</label>
 																	</span>
