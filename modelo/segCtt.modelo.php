@@ -409,12 +409,10 @@ class ModeloSegContrato{
 		$sql = $db->consulta("SELECT vtama_entidad.dsc_entidad, vtavi_endoso_x_contrato.imp_valor, vtavi_endoso_x_contrato.imp_saldo, vtavi_endoso_x_contrato.imp_total_emitido, vtavi_endoso_x_contrato.cod_usuario, vtavi_endoso_x_contrato.fch_registro, vtavi_endoso_x_contrato.cod_estado, vtavi_endoso_x_contrato.fch_vencimiento, vtavi_endoso_x_contrato.fch_cancelacion FROM vtavi_endoso_x_contrato INNER JOIN vtama_entidad ON vtama_entidad.cod_entidad = vtavi_endoso_x_contrato.cod_entidad WHERE vtavi_endoso_x_contrato.cod_localidad = '".$datos['localidad']."' AND vtavi_endoso_x_contrato.cod_contrato = '".$datos['cod_contrato']."' AND vtavi_endoso_x_contrato.num_servicio = '".$datos['cod_servicio']."'"); 
 
 		$tableEndoServicio = "";
-		$i=0;
 
 		while($key = $db->recorrer($sql)){
 
 			$tableEndoServicio .='<tr>
-									<td>'.($i+1).'</td>
 									<td>'.Utf8Encode($key['cod_usuario']).'</td>
 									<td>'.dateFormat($key['fch_registro']).'</td>
 									<td>'.$key['dsc_tipo_descuento'].'</td>
