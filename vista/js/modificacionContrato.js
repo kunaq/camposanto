@@ -576,7 +576,7 @@ function cargaFoma(codCtto,numRefi){
 
 //----------------------------pestaña beneficiarios-----------------------------
 
-function cargaFormBenef(){
+function cargaFormBenefModif(){
 
       //---------habilita-------//
 
