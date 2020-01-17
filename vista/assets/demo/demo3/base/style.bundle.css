@@ -51774,3 +51774,8 @@ th{
 .selectedBen{
     background-color: #ddd;
 }
+
+.myTableRefinanciamiento tbody tr:hover{
+    background-color: #ddd;
+    cursor: pointer;
+}

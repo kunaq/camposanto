@@ -136,7 +136,7 @@
 								<div class="col-lg-2">
 									<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="200">
 										<div class="table-responsive">
-											<table class="table">
+											<table class="table myTableRefinanciamiento" id="myTableRefinanciamiento">
 												<thead>
 													<th>Refinanciamiento</th>
 												</thead>
