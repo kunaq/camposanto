@@ -1038,20 +1038,24 @@
 						<div class="tab-pane" id="m_tabs_2_6" role="tabpanel">
 							<div class="row">
 								<div class="col-lg-6">
-									<table class="table m-table">
-										<thead>
-											<tr>
-												<th>
-													#
-												</th>
-												<th>
-													Apellidos y nombres
-												</th>
-											</tr>
-										</thead>
-										<tbody>
-										</tbody>
-									</table>
+									<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="250">
+										<div class="table-responsive">
+											<table class="table m-table">
+												<thead>
+													<tr>
+														<th>
+															#
+														</th>
+														<th>
+															Apellidos y nombres
+														</th>
+													</tr>
+												</thead>
+												<tbody>
+												</tbody>
+											</table>
+										</div>
+									</div>
 									<div class="m-form__group row">
 										<div class="col-lg-2 offset-lg-2">
 											<button data-toggle="m-tooltip" data-container="body" data-placement="top" id="botonAgregarB" type="button" title="" data-original-title="Agregar beneficiario" onclick="cargaFormBenef();" class="btn btnGuardarKqPst btn-lg m-btn m-btn m-btn--icon">
