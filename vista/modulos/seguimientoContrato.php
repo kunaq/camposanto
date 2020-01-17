@@ -679,19 +679,7 @@
 																	<th>Valor</th>
 																	<th>Dscto.</th>
 																</thead>
-																<tbody>
-																	<tr>
-																		<td>TRAMOS</td>
-																		<td>25/04/2019 16:53</td>
-																		<td>DESCUENTO LIBRE</td>
-																		<td><input type="checkbox" name=""></td>
-																		<td><input type="checkbox" name=""></td>
-																		<td>1.700,00</td>
-																		<td>1.700,00</td>
-																	</tr>
-																	<tr>
-																		<td></td>
-																	</tr>
+																<tbody id="tbodyDsctoServicio">
 																</tbody>
 																<tfoot>
 																	<td></td>
@@ -700,7 +688,7 @@
 																	<td></td>
 																	<td></td>
 																	<td>Total:</td>
-																	<td>1.700,00</td>
+																	<td id="dsctoTotal">0,00</td>
 																</tfoot>
 															</table>
 														</div>
@@ -723,21 +711,7 @@
 																	<th>Saldo</th>
 																	<th>Emitido</th>
 																</thead>
-																<tbody>
-																	<tr>
-																		<td>1</td>
-																		<td>DU000035</td>
-																		<td>POR SERVICIO DE DERECHO DE USO</td>
-																		<td>1</td>
-																		<td>9.300,00</td>
-																		<td>3.815,00</td>
-																		<td>7.600,00</td>
-																		<td>0,00</td>
-																		<td>7.600,00</td>
-																	</tr>
-																	<tr>
-																		<td></td>
-																	</tr>
+																<tbody id="tbodyEndoServicio">
 																</tbody>
 																<tfoot>
 																	<td></td>
@@ -746,9 +720,9 @@
 																	<td></td>
 																	<td></td>
 																	<td>Total:</td>
-																	<td>0,00</td>
-																	<td>0,00</td>
-																	<td>0,00</td>
+																	<td id="endoso_total">0,00</td>
+																	<td id="saldo_total">0,00</td>
+																	<td id="emitido_total">0,00</td>
 																</tfoot>
 															</table>
 														</div>

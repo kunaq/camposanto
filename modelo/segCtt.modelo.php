@@ -336,30 +336,78 @@ class ModeloSegContrato{
 
 		$sql = $db->consulta("SELECT vtavi_descuento_x_contrato.flg_tasa, vtama_tipo_descuento.dsc_tipo_descuento, vtavi_descuento_x_contrato.flg_libre, vtavi_descuento_x_contrato.cod_usuario, vtavi_descuento_x_contrato.fch_registro, vtavi_descuento_x_contrato.imp_valor, vtavi_descuento_x_contrato.imp_dscto FROM vtavi_descuento_x_contrato LEFT JOIN vtama_tipo_descuento ON vtama_tipo_descuento.cod_tipo_descuento = vtavi_descuento_x_contrato.cod_tipo_descuento WHERE vtavi_descuento_x_contrato.cod_localidad = '".$datos['localidad']."' AND vtavi_descuento_x_contrato.cod_contrato = '".$datos['cod_contrato']."' AND vtavi_descuento_x_contrato.num_servicio = '".$datos['cod_servicio']."'"); 
 
-		$tableDsctoSerrvicio = "";
+		$tableDsctoServicio = "";
 		$i=0;
 
 		while($key = $db->recorrer($sql)){
 
-			$tableDsctoSerrvicio ='<tr>
+			$tableDsctoServicio .='<tr>
 									<td>'.($i+1).'</td>
 									<td>'.Utf8Encode($key['cod_usuario']).'</td>
 									<td>'.dateFormat($key['fch_registro']).'</td>
-									<td>'.$key['dsc_tipo_descuento'].'</td>
-									<td>'.$key['flg_tasa'].'</td>
-									<td>'.$key['flg_libre'].'</td>
-									<td>'.number_format(round($key['imp_valor'], 2),2,',','.').'</td>
+									<td>'.$key['dsc_tipo_descuento'].'</td>';
+			if ($key['flg_tasa'] == "SI") {
+				$tableDsctoServicio .='<td><input type="checkbox" name="" checked="" disabled></td>';
+			}else{
+				$tableDsctoServicio .='<td><input type="checkbox" name="" disabled></td>';
+			}
+			if ($key['flg_libre'] == "SI") {
+				$tableDsctoServicio .='<td><input type="checkbox" name="" checked="" disabled></td>';
+			}else{
+				$tableDsctoServicio .='<td><input type="checkbox" name="" disabled></td>';
+			}
+			$tableDsctoServicio .='<td>'.number_format(round($key['imp_valor'], 2),2,',','.').'</td>
 									<td>'.number_format(round($key['imp_dscto'], 2),2,',','.').'</td>
 								</tr>';
+
+			$dsctoTotal += $key["imp_dscto"];
 		}
-		$arrData = array('tableDsctoSerrvicio'=> $tableDsctoSerrvicio); 
+		$arrData = array('tableDsctoServicio'=> $tableDsctoServicio, 'dsctoTotal' => number_format(round($dsctoTotal, 2),2,',','.')); 
 
 		return $arrData;
 
 		$db->liberar($sql);
         $db->cerrar();
 
-	}//function mdlGetServPrincipal
+	}//function mdlGetDsctoServicio
+
+	static public function mdlGetEndoServicio($datos){
+
+		$db = new Conexion();
+
+		$sql = $db->consulta("SELECT vtama_entidad.dsc_entidad, vtavi_endoso_x_contrato.imp_valor, vtavi_endoso_x_contrato.imp_saldo, vtavi_endoso_x_contrato.imp_total_emitido, vtavi_endoso_x_contrato.cod_usuario, vtavi_endoso_x_contrato.fch_registro, vtavi_endoso_x_contrato.cod_estado, vtavi_endoso_x_contrato.fch_vencimiento, vtavi_endoso_x_contrato.fch_cancelacion FROM vtavi_endoso_x_contrato INNER JOIN vtama_entidad ON vtama_entidad.cod_entidad = vtavi_endoso_x_contrato.cod_entidad WHERE vtavi_endoso_x_contrato.cod_localidad = '".$datos['localidad']."' AND vtavi_endoso_x_contrato.cod_contrato = '".$datos['cod_contrato']."' AND vtavi_endoso_x_contrato.num_servicio = '".$datos['cod_servicio']."'"); 
+
+		$tableEndoServicio = "";
+		$i=0;
+
+		while($key = $db->recorrer($sql)){
+
+			$tableEndoServicio .='<tr>
+									<td>'.($i+1).'</td>
+									<td>'.Utf8Encode($key['cod_usuario']).'</td>
+									<td>'.dateFormat($key['fch_registro']).'</td>
+									<td>'.$key['dsc_tipo_descuento'].'</td>
+									<td>'.$key['cod_estado'].'</td>
+									<td>'.dateFormat($key['fch_vencimiento']).'</td>
+									<td>'.dateFormat($key['fch_cancelacion']).'</td>
+									<td>'.$key['dsc_entidad'].'</td>
+									<td>'.number_format(round($key['imp_valor'], 2),2,',','.').'</td>
+									<td>'.number_format(round($key['imp_saldo'], 2),2,',','.').'</td>
+									<td>'.number_format(round($key['imp_total_emitido'], 2),2,',','.').'</td>
+								</tr>';
+
+			$valor_total += $key["imp_valor"];
+			$saldo_total += $key["imp_saldo"];
+			$emitido_total += $key["imp_total_emitido"];
+		}
+		$arrData = array('tableEndoServicio'=> $tableEndoServicio, 'valor_total' => number_format(round($valor_total, 2),2,',','.'), 'saldo_total' => number_format(round($saldo_total, 2),2,',','.'), 'emitido_total' => number_format(round($emitido_total, 2),2,',','.')); 
+
+		return $arrData;
+
+		$db->liberar($sql);
+        $db->cerrar();
+
+	}//function mdlGetEndoServicio
 
 	static public function mdlGetBeneficiariosServ($datos){
 
