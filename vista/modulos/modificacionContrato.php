@@ -1500,7 +1500,7 @@
 												</tbody>
 												<tfoot>
 													<tr>
-														<th></th>
+														<td></td>
 														<td></td>
 														<td>Total:</td>
 														<td style="text-align: right;" id="totalSubtotCronoModif">0,00</td>
