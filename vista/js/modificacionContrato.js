@@ -614,7 +614,7 @@ function cargaFormBenefModif(){
   document.getElementById("motivoDecesoBenef").value = '';
   document.getElementById("pesoBenef").value = '';
   document.getElementById("tallaBenef").value = '';
-  document.getElementById("autopsiaBenefM").prop('checked',false); 
+  $("#autopsiaBenefM").prop('checked',false); 
 
   //---------cambia los botones a guardar y cancelar-----//
 
