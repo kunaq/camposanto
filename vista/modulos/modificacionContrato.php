@@ -4,12 +4,16 @@
 		<!--begin: Portlet Head-->
 		<!------------------------------- botones --------------------------------->
 					<div class="sidebar-wrapper stickButtons" id="container-button"> 
-						<a href="#container" class="btn btnGuardarKqPst m-btn m-btn--icon btn-lg m-btn--icon-only toggle-collapse-resumen" id="save-button">
-							<i class="fa-save"></i>
+						<a href="#container" class="btn btn-metal m-btn m-btn--icon btn-lg m-btn--icon-only toggle-collapse-resumen" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Nueva busqueda" id="new-button">
+							<i class="fa fa-search"></i>
 						</a>
-						<br>
-						<a href="#container" class="btn btnGuardarKqPst m-btn m-btn--icon btn-lg m-btn--icon-only toggle-collapse-resumen" id="null-button">
-							<i class="fa-save"></i>
+						<br><br><br>
+						<a href="#container" class="btn btnGuardarKqPst m-btn m-btn--icon btn-lg m-btn--icon-only toggle-collapse-resumen" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Guardar cambios" id="save-button">
+							<i class="fa fa-save"></i>
+						</a>
+						<br><br><br>
+						<a href="#container" class="btn btnEditarKqPst2 m-btn m-btn--icon btn-lg m-btn--icon-only toggle-collapse-resumen" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Anular contrato" id="null-button">
+							<i class="fa fa-eraser"></i>
 						</a>
 					</div> 
 				<!-- ---------------------------fin botones----------------------------- -->
