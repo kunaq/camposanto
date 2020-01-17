@@ -196,9 +196,27 @@ function getDatosServicioCtt(row,localidad,tasa,tipoCtt,tipoPro,codCtt,numRef,nu
 		        	var info = JSON.parse(respuesta);
 
 		        	$("#tbodyDsctoServicio").html(info.tableDsctoServicio);
+		        	document.getElementById("dsctoTotal").innerHTML = info.imp_sub_cui;
 		        	
 		        }//succes
-		    });//ajaxGetCuotas
+		    });//ajaxGetDsctoServicio
+
+		    $.ajax({
+				type: 'POST',
+		        url:"ajax/segCtt.ajax.php",
+		        dataType: 'text',
+		        data: {'accion' : 'getEndoServicio', 'localidad' : localidad, 'cod_contrato' : codCtt, 'cod_servicio' : numSer},
+		        success: function(respuesta){
+
+		        	var info = JSON.parse(respuesta);
+
+		        	$("#tbodyEndoServicio").html(info.tableEndoServicio);
+		        	document.getElementById("endoso_total").innerHTML = info.valor_total;
+		        	document.getElementById("saldo_total").innerHTML = info.saldo_total;
+		        	document.getElementById("emitido_total").innerHTML = info.emitido_total;
+		        	
+		        }//succes
+		    });//ajaxGetDsctoServicio
         	
         }//succes
     });//ajaxGetDatosEspacio

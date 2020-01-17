@@ -32,7 +32,11 @@ class AjaxSegCtt{
 	public function ajaxGetDsctoServicio(){
 		$respuesta = ControladorSegContrato::ctrGetDsctoServicio();
 		echo json_encode($respuesta,JSON_UNESCAPED_UNICODE);
-	}//function ajaxGetServPrincipal
+	}//function ajaxGetDsctoServicio
+	public function ajaxGetEndoServicio(){
+		$respuesta = ControladorSegContrato::ctrGetEndoServicio();
+		echo json_encode($respuesta,JSON_UNESCAPED_UNICODE);
+	}//function ajaxGetEndoServicio
 	public function ajaxGetDatosEspacio(){
 		$respuesta = ControladorSegContrato::ctrGetDatosEspacio();
 		echo json_encode($respuesta);
@@ -79,6 +83,10 @@ else if(isset($_POST["accion"]) && $_POST["accion"] == 'getServPrincipal'){
 else if(isset($_POST["accion"]) && $_POST["accion"] == 'getDsctoServicio'){
 	$cliente = new AjaxSegCtt();
 	$cliente -> ajaxGetDsctoServicio();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'getEndoServicio'){
+	$cliente = new AjaxSegCtt();
+	$cliente -> ajaxGetEndoServicio();
 }
 else if(isset($_POST["accion"]) && $_POST["accion"] == 'getDatosEspacio'){
 	$cliente = new AjaxSegCtt();
