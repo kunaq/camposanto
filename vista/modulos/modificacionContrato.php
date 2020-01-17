@@ -1045,13 +1045,7 @@
 													#
 												</th>
 												<th>
-													Nombre
-												</th>
-												<th>
-													Apellidos
-												</th>
-												<th>
-													Username
+													Apellidoss y nombres
 												</th>
 											</tr>
 										</thead>
@@ -1063,158 +1057,64 @@
 												<td>
 													Jhon
 												</td>
-												<td>
-													Stone
-												</td>
-												<td>
-													@jhon
-												</td>
-											</tr>
-											<tr>
-												<th scope="row">
-													1
-												</th>
-												<td>
-													Jhon
-												</td>
-												<td>
-													Stone
-												</td>
-												<td>
-													@jhon
-												</td>
-											</tr>
-											<tr>
-												<th scope="row">
-													1
-												</th>
-												<td>
-													Jhon
-												</td>
-												<td>
-													Stone
-												</td>
-												<td>
-													@jhon
-												</td>
-											</tr>
-											<tr>
-												<th scope="row">
-													1
-												</th>
-												<td>
-													Jhon
-												</td>
-												<td>
-													Stone
-												</td>
-												<td>
-													@jhon
-												</td>
-											</tr>
-											<tr>
-												<th scope="row">
-													1
-												</th>
-												<td>
-													Jhon
-												</td>
-												<td>
-													Stone
-												</td>
-												<td>
-													@jhon
-												</td>
-											</tr>
-											<tr>
-												<th scope="row">
-													1
-												</th>
-												<td>
-													Jhon
-												</td>
-												<td>
-													Stone
-												</td>
-												<td>
-													@jhon
-												</td>
-											</tr>
-											<tr>
-												<th scope="row">
-													1
-												</th>
-												<td>
-													Jhon
-												</td>
-												<td>
-													Stone
-												</td>
-												<td>
-													@jhon
-												</td>
-											</tr>
-											<tr>
-												<th scope="row">
-													1
-												</th>
-												<td>
-													Jhon
-												</td>
-												<td>
-													Stone
-												</td>
-												<td>
-													@jhon
-												</td>
-											</tr>
-											<tr>
-												<th scope="row">
-													1
-												</th>
-												<td>
-													Jhon
-												</td>
-												<td>
-													Stone
-												</td>
-												<td>
-													@jhon
-												</td>
-											</tr>
-											<tr>
-												<th scope="row">
-													1
-												</th>
-												<td>
-													Jhon
-												</td>
-												<td>
-													Stone
-												</td>
-												<td>
-													@jhon
-												</td>
 											</tr>
 										</tbody>
 									</table>
 									<div class="m-form__group row">
-										<div class="col-lg-12" style="display: inherit;">
-											<div class="input-group">
-												<button type="reset" class="btn btnGuardarKqPst">
-													Nuevo <br> beneficiario
-												</button>
-											</div>
-											<div class="input-group">
-												<button type="reset" class="btn btn-metal">
-													Modificar <br> beneficiario
-												</button>
-											</div>
-											<div class="input-group">
-												<button type="reset" class="btn btn-danger">
-													Eliminar <br> beneficiario
-												</button>
-											</div>
+										<div class="col-lg-2 offset-lg-2">
+											<button data-toggle="m-tooltip" data-container="body" data-placement="top" id="botonAgregarB" type="button" title="" data-original-title="Agregar beneficiario" onclick="cargaFormBenef();" class="btn btnGuardarKqPst btn-lg m-btn m-btn m-btn--icon">
+												<span>
+													<span>&nbsp;</span>
+													<i class="la la-user-plus"></i>
+													<span>&nbsp;</span>
+												</span>
+											</button>
+											<button data-toggle="m-tooltip" hidden="hidden" data-container="body" data-placement="top" type="button" id="botonModificarB" title="" data-original-title="Guardar cambios" onclick="" class="btn btn-success btn-lg m-btn m-btn m-btn--icon">
+												<span>
+													<span>&nbsp;</span>
+													<i class="la la-check"></i>
+													<span>&nbsp;</span>
+												</span>
+											</button>
+											<button data-toggle="m-tooltip" hidden="hidden" data-container="body" data-placement="top" type="button" id="botonGuardarB" title="" data-original-title="Guardar beneficiario" onclick="guardaBenef();" class="btn btnGuardarKqPst btn-lg m-btn m-btn m-btn--icon">
+												<span>
+													<span>&nbsp;</span>
+													<i class="la la-check"></i>
+													<span>&nbsp;</span>
+												</span>
+											</button>	
+										</div>
+										<div class="col-lg-2 offset-lg-1">
+											<button data-toggle="m-tooltip" type="button" data-container="body" data-placement="top" title="" data-original-title="Editar beneficiario" id="botonEditaB" class="btn btnEditarKqPst2 btn-lg m-btn m-btn m-btn--icon">
+												<span>
+													<span>&nbsp;</span>
+													<i class="flaticon-edit-1"></i>
+													<span>&nbsp;</span>
+												</span>
+											</button>	
+										</div>
+										<div class="col-lg-2 offset-lg-1">
+											<button data-toggle="m-tooltip" data-container="body" data-placement="top" title="" id="botonEliminarB" data-original-title="Eliminar beneficiario" class="btn btn-danger btn-lg m-btn m-btn m-btn--icon">
+												<span>
+													<span>&nbsp;</span>
+													<i class="la la-user-times"></i>
+													<span>&nbsp;</span>
+												</span>
+											</button>
+											<button data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Descartar cambios" id="botonDescartarB" onclick="limpiaydsi();" hidden="hidden" class="btn btn-danger btn-lg m-btn m-btn m-btn--icon">
+												<span>
+													<span>&nbsp;</span>
+													<i class="la la-remove"></i>
+													<span>&nbsp;</span>
+												</span>
+											</button>
+											<button data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Descartar cambios" id="botonCancelarEdicionB" hidden="hidden" class="btn btn-danger btn-lg m-btn m-btn m-btn--icon">
+												<span>
+													<span>&nbsp;</span>
+													<i class="la la-remove"></i>
+													<span>&nbsp;</span>
+												</span>
+											</button>
 										</div>
 									</div>
 								</div>
@@ -1230,7 +1130,7 @@
 																<label>Tipo Doc:</label>
 															</div>
 															<div class="col-lg-8">
-																<select class="form-control form-control-sm m-input custom-select custom-select-danger selectTipoDoc" id="tipoDocBenef" name="tipoDocBenef">
+																<select class="form-control form-control-sm m-input custom-select custom-select-danger selectTipoDoc" id="tipoDocBenef" disabled name="tipoDocBenef">
 																	<option value="vacio">
 																		Seleccione
 																	</option>
@@ -1252,7 +1152,7 @@
 																</label>
 															</div>
 															<div class="col-lg-8">
-																<input type="text" class="form-control form-control-sm m-input">
+																<input type="text" class="form-control form-control-sm m-input" disabled id="numDocBenef" name="numDocBenef">
 															</div>
 														</div>	
 													</div>
@@ -1263,7 +1163,7 @@
 															<label>Apellido Paterno</label>
 														</div>
 														<div class="col-lg-8">
-															<input type="text" class="form-control form-control-sm m-input" id="apePatBenef">
+															<input type="text" class="form-control form-control-sm m-input" disabled id="apePatBenef">
 														</div>
 													</div>
 												</div>
@@ -1273,7 +1173,7 @@
 															<label>Apellido Materno</label>
 														</div>
 														<div class="col-lg-8">
-															<input type="text" class="form-control form-control-sm m-input" id="apeMatBenef">
+															<input type="text" class="form-control form-control-sm m-input" disabled id="apeMatBenef">
 														</div>
 													</div>
 												</div>
@@ -1283,7 +1183,7 @@
 															<label>Nombres:</label>
 														</div>
 														<div class="col-lg-10">
-															<input type="text" class="form-control form-control-sm m-input" id="nombreBenef">
+															<input type="text" disabled class="form-control form-control-sm m-input" id="nombreBenef" name="nombreBenef">
 														</div>
 													</div>
 												</div>
@@ -1294,7 +1194,7 @@
 														</div>
 														<div class="col-lg-8">
 															<div class="input-group date">
-																<input type="text" class="form-control form-control-sm m-input" readonly="" placeholder="Seleccionar fecha" id="m_datepicker_4_1">
+																<input type="text" class="form-control form-control-sm m-input" disabled readonly="" placeholder="Seleccionar fecha" id="fchNacBenef">
 																<div class="input-group-append">
 																	<span class="input-group-text">
 																		<i class="la la-calendar-check-o"></i>
@@ -1311,7 +1211,7 @@
 														</div>
 														<div class="col-lg-8">
 															<div class="input-group date">
-																<input type="text" class="form-control form-control-sm m-input" readonly="" placeholder="Seleccionar fecha" id="m_datepicker_4_2">
+																<input type="text" class="form-control form-control-sm m-input" disabled readonly="" placeholder="Seleccionar fecha" id="fchDecBenef">
 																<div class="input-group-append">
 																	<span class="input-group-text">
 																		<i class="la la-calendar-check-o"></i>
@@ -1327,7 +1227,7 @@
 															<label>Religión</label>
 														</div>
 														<div class="col-lg-8">
-															<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="religionBenef" id="religionBenef">
+															<select class="form-control form-control-sm m-input custom-select custom-select-danger" disabled name="religionBenef" id="religionBenef">
 																<option value="">
 																	Seleccione
 																</option>
@@ -1347,7 +1247,7 @@
 															<label>Estado Civil</label>
 														</div>
 														<div class="col-lg-8">
-															<select class="form-control form-control-sm m-input custom-select custom-select-danger" id="ecivilNvoCliWiz" name="option">
+															<select class="form-control form-control-sm m-input custom-select custom-select-danger" disabled id="edoCivilBenef" name="edoCivilBenef">
 																<option value="">
 																	Seleccione
 																</option>
@@ -1364,7 +1264,7 @@
 															<label>Sexo:</label>
 														</div>
 														<div class="col-lg-8">
-															<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="option">
+															<select class="form-control form-control-sm m-input custom-select custom-select-danger" disabled id="sexoBenef" name="sexoBenef">
 																<option value="M">
 																	Masculino
 																</option>
@@ -1381,34 +1281,16 @@
 															<label>Parentesco</label>
 														</div>
 														<div class="col-lg-8">
-															<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="option">
+															<select class="form-control form-control-sm m-input custom-select custom-select-danger" disabled id="parentescoBenef" name="parentescoBenef">
 																<option value="">
 																	Seleccione
 																</option>
-																<option>
-																	Abuelo(a)
-																</option>
-																<option>
-																	Conyugue
-																</option>
-																<option>
-																	Esposo(a)
-																</option>
-																<option>
-																	Hermano(a)
-																</option>
-																<option>
-																	Madre
-																</option>
-																<option>
-																	Padre
-																</option>
-																<option>
-																	Otros
-																</option>
-																<option>
-																	Titular
-																</option>
+																<?php
+																  $tabla="vtama_parentesco";
+																  $item1="cod_parentesco";
+																  $item2="dsc_parentesco";
+								 									$prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
+																?> 
 															</select>
 														</div>
 													</div>
@@ -1419,25 +1301,16 @@
 															<label>Lugar Deceso:</label>
 														</div>
 														<div class="col-lg-8">
-															<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="option">
+															<select class="form-control form-control-sm m-input custom-select custom-select-danger" disabled id="lugarDecesoBenef" name="lugarDecesoBenef">
 																<option value="">
 																	Seleccione
 																</option>
-																<option>
-																	1
-																</option>
-																<option>
-																	2
-																</option>
-																<option>
-																	3
-																</option>
-																<option>
-																	4
-																</option>
-																<option>
-																	5
-																</option>
+																<?php
+																  $tabla="vtama_lugar_deceso";
+																  $item1="cod_lugar_deceso";
+																  $item2="dsc_lugar_deceso";
+								 						          $prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
+																?>
 															</select>
 														</div>
 													</div>
@@ -1448,25 +1321,16 @@
 															<label>Motivo Deceso</label>
 														</div>
 														<div class="col-lg-8">
-															<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="option">
+															<select class="form-control form-control-sm m-input custom-select custom-select-danger" id="motivoDecesoBenef" disabled name="motivoDecesoBenef">
 																<option value="">
 																	Seleccione
 																</option>
-																<option>
-																	1
-																</option>
-																<option>
-																	2
-																</option>
-																<option>
-																	3
-																</option>
-																<option>
-																	4
-																</option>
-																<option>
-																	5
-																</option>
+																<?php
+																  $tabla="vtama_motivo_deceso";
+																  $item1="cod_motivo_deceso";
+																  $item2="dsc_motivo_deceso";
+								 						          $prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
+																?>
 															</select>
 														</div>
 													</div>
@@ -1477,7 +1341,7 @@
 															<label>Peso</label>
 														</div>
 														<div class="col-lg-8">
-															<input type="text" class="form-control form-control-sm m-input" placeholder="">
+															<input type="text" class="form-control form-control-sm m-input" id="pesoBenef" name="pesoBenef" disabled placeholder="">
 														</div>
 													</div>
 												</div>
@@ -1487,7 +1351,7 @@
 															<label>Talla</label>
 														</div>
 														<div class="col-lg-8">
-															<input type="text" class="form-control form-control-sm m-input" placeholder="">
+															<input type="text" class="form-control form-control-sm m-input" id="tallaBenef" name="tallaBenef" disabled placeholder="">
 														</div>
 													</div>
 												</div>
@@ -1503,7 +1367,7 @@
 																<td>
 																	<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
 																		<label>
-																			<input type="checkbox" name="">
+																			<input type="checkbox" name="autopsiaBenef" disabled name="autopsiaBenef">
 																			<span></span>
 																		</label>
 																	</span>

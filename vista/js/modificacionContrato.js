@@ -25,6 +25,14 @@ $("#fchVenCronoFOMA").datepicker({
 	format : 'dd-mm-yyyy',
 	autoclose: true
 });//datepicker
+$("#fchNacBenef").datepicker({
+	format : 'dd-mm-yyyy',
+	autoclose: true
+});//datepicker
+$("#fchDecBenef").datepicker({
+	format : 'dd-mm-yyyy',
+	autoclose: true
+});//datepicker
 
 function buscaCtto(){
 	var codCtto = document.getElementById("codContrato").value;
@@ -564,4 +572,322 @@ function cargaFoma(codCtto,numRefi){
         	$("#nCuotasFOMA").val(numCuo);
         }//success
     });//ajax
+}
+
+//----------------------------pestaña beneficiarios-----------------------------
+
+function cargaFormBenef(){
+
+      //---------habilita-------//
+
+  $('#tipoDocBenef').prop('disabled',false);
+  $('#numDocBenef').prop('disabled',false);
+  $('#apePatBenef').prop('disabled',false);
+  $('#apeMatBenef').prop('disabled',false);
+  $('#nombreBenef').prop('disabled',false);
+  $('#fchNacBenef').prop('disabled',false);
+  $('#fchDecBenef').prop('disabled',false);
+  $('#religionBenef').prop('disabled',false);
+  $('#edoCivilBenef').prop('disabled',false);
+  $('#sexoBenef').prop('disabled',false);
+  $('#parentescoBenef').prop('disabled',false);
+  $('#lugarDecesoBenef').prop('disabled',false);
+  $('#motivoDecesoBenef').prop('disabled',false);
+  $('#pesoBenef').prop('disabled',false);
+  $('#tallaBenef').prop('disabled',false);
+  $('#autopsiaBenef').prop('disabled',false);
+  
+  //---------------limpia--------//
+
+  document.getElementById("tipoDocBenef").value = '';
+  document.getElementById("numDocBenef").value = '';
+  document.getElementById("apePatBenef").value = '';
+  document.getElementById("apeMatBenef").value = '';
+  document.getElementById("nombreBenef").value = '';
+  $('#fchNacBenef').datepicker('setDate', null);
+  $('#fchDecBenef').datepicker('setDate', null);
+  document.getElementById("religionBenef").value = '';
+  document.getElementById("edoCivilBenef").value = '';
+  document.getElementById("sexoBenef").value = '';
+  document.getElementById("parentescoBenef").value = '';
+  document.getElementById("lugarDecesoBenef").value = '';
+  document.getElementById("motivoDecesoBenef").value = '';
+  document.getElementById("pesoBenef").value = '';
+  document.getElementById("tallaBenef").value = '';
+  document.getElementById("autopsiaBenef").value = ''; 
+
+  //---------cambia los botones a guardar y cancelar-----//
+
+  $('#botonAgregarB').prop('hidden',true);
+  $('#botonModificarB').prop('hidden',true);
+  $('#botonGuardarB').prop('hidden',false);
+  $('#botonEditaB').prop('hidden',true);
+  $('#botonEliminarB').prop('hidden',true);
+  $('#botonDescartarB').prop('hidden',false);
+  $('#botonCancelarEdicionB').prop('hidden',true);
+
+  document.getElementById("tipoDocBenef").focus();
+
+}
+
+function verificaBenef(val){
+  var row = $("#bodyBeneficiario tr").length;
+  if(row > 0){
+    var filas = document.querySelectorAll("#bodyBeneficiario tr");
+    for (var i = 1; i <= row; i++) {
+      result = filas[i-1].querySelectorAll("td");
+      com = result[0].innerHTML;
+      if(val == com){
+        return 1;
+        break;
+      }
+    }
+  }
+  else{
+    return 0;
+  }
+}
+
+function guardaBenef(){
+  var tipoDoc = document.getElementById("tipoDocBenef").value;
+  var numDoc = document.getElementById("numDocBenef").value;
+  var aux = verificaBenef(numDoc);
+  var apellPaterno = document.getElementById("apePatBenef").value;
+  var apellMaterno = document.getElementById("apeMatBenef").value;
+  var nombre = document.getElementById("nombreBenef").value;
+  var fechNac = $('#fchNacBenef').datepicker("getDate");
+  var fechDec = $('#fchDecBenef').datepicker("getDate");
+  var religion = document.getElementById("religionBenef").value;
+  var edoCivil = document.getElementById("edoCivilBenef").value;
+  var sexo = document.getElementById("sexoBenef").value;
+  var parentesco = document.getElementById("parentescoBenef").value;
+  var lugarDeceso = document.getElementById("lugarDecesoBenef").value;
+  var motivoDeceso = document.getElementById("motivoDecesoBenef").value;
+  var peso = document.getElementById("pesoBenef").value;
+  var talla = document.getElementById("tallaBenef").value;
+  var autopsia = document.getElementById("autopsiaBenef").checked;
+  var registro = [tipoDoc,numDoc,apellPaterno,apellMaterno,nombre,fechNac,fechDec,religion,edoCivil,sexo,parentesco,lugarDeceso,motivoDeceso,peso,talla,autopsia];
+  var muestra = '<tr onclick="verDetalles(event)" id="'+numDoc+'"><td class="'+numDoc+'">'+numDoc+'</td><td class="'+numDoc+'">'+nombre+'</td><td class="'+numDoc+'">'+apellPaterno+' '+apellMaterno+'<input type="hidden" id="idBenef" value="'+numDoc+'"><input type="hidden" id="registro_'+numDoc+'" value="'+registro+'"></td></tr>';
+  document.getElementById("bodyBeneficiario").insertAdjacentHTML("beforeEnd" ,muestra);
+
+  swal({
+        title: "",
+        text: "Beneficiario añadido.",
+        type: "success",
+        confirmButtonText: "Aceptar",
+    })
+
+  limpiaydsi(); 
+}
+
+function eliminaBenef(id){
+  swal({
+        title: "¿Está seguro de eliminar el beneficiario?",
+        type: "question",
+        showCancelButton: !0,
+        confirmButtonText: "Si, eliminar",
+        cancelButtonText: "No, cancelar"
+    }).then(function(e) {
+        e.value ? swal({
+          title:"Eliminados", 
+          text:"Se ha eliminado el beneficiario.",
+          type: "success",
+          onBeforeOpen: borrarBenef(id)         
+        }) : "cancel" === e.dismiss
+    })
+}
+
+function borrarBenef(id){
+  document.getElementById(id).remove();
+  limpiaydsi();
+}
+
+function activaEditaBenef(id){
+
+  $('#tipoDocBenef').prop('disabled',false);
+  $('#numDocBenef').prop('disabled',false);
+  $('#apePatBenef').prop('disabled',false);
+  $('#apeMatBenef').prop('disabled',false);
+  $('#nombreBenef').prop('disabled',false);
+  $('#fchNacBenef').prop('disabled',false);
+  $('#fchDecBenef').prop('disabled',false);
+  $('#religionBenef').prop('disabled',false);
+  $('#edoCivilBenef').prop('disabled',false);
+  $('#sexoBenef').prop('disabled',false);
+  $('#parentescoBenef').prop('disabled',false);
+  $('#lugarDecesoBenef').prop('disabled',false);
+  $('#motivoDecesoBenef').prop('disabled',false);
+  $('#pesoBenef').prop('disabled',false);
+  $('#tallaBenef').prop('disabled',false);
+  $('#autopsiaBenef').prop('disabled',false);
+
+  //----------cambia los botones a editar y cancelar-------//
+
+  $('#botonAgregarB').prop('hidden',true);
+  $('#botonModificarB').prop('hidden',false);
+  $('#botonGuardarB').prop('hidden',true);
+  $('#botonEditaB').prop('hidden',true);
+  $('#botonEliminarB').prop('hidden',true);
+  $('#botonDescartarB').prop('hidden',true);
+  $('#botonCancelarEdicionB').prop('hidden',false);
+
+  boton = document.getElementById("botonModificarB");
+  boton.addEventListener("click", function(){guardaEdicionB(id)}, false);
+
+}
+
+function guardaEdicionB(id){
+  var tipoDoc = document.getElementById("tipoDocBenef").value;
+  var numDoc = document.getElementById("numDocBenef").value;
+  var apellPaterno = document.getElementById("apePatBenef").value;
+  var apellMaterno = document.getElementById("apeMatBenef").value;
+  var nombre = document.getElementById("nombreBenef").value;
+  var fechNac = $('#fchNacBenef').datepicker("getDate");
+  var fechDec = $('#fchDecBenef').datepicker("getDate");
+  var religion = document.getElementById("religionBenef").value;
+  var edoCivil = document.getElementById("edoCivilBenef").value;
+  var sexo = document.getElementById("sexoBenef").value;
+  var parentesco = document.getElementById("parentescoBenef").value;
+  var lugarDeceso = document.getElementById("lugarDecesoBenef").value;
+  var motivoDeceso = document.getElementById("motivoDecesoBenef").value;
+  var peso = document.getElementById("pesoBenef").value;
+  var talla = document.getElementById("tallaBenef").value;
+  var autopsia = document.getElementById("autopsiaBenef").checked;
+  var registro = [tipoDoc,numDoc,apellPaterno,apellMaterno,nombre,fechNac,fechDec,religion,edoCivil,sexo,parentesco,lugarDeceso,motivoDeceso,peso,talla,autopsia];
+  var muestra = '<tr onclick="verDetalles(event)" id="'+numDoc+'"><td class="'+numDoc+'">'+numDoc+'</td><td class="'+numDoc+'">'+nombre+'</td><td class="'+numDoc+'">'+apellPaterno+' '+apellMaterno+'<input type="hidden" id="idBenef" value="'+numDoc+'"><input type="hidden" id="registro_'+numDoc+'" value="'+registro+'"></td></tr>';
+  document.getElementById(id).remove();
+  document.getElementById("bodyBeneficiario").insertAdjacentHTML("beforeEnd" ,muestra);
+
+  swal({
+        title: "",
+        text: "Beneficiario modificado.",
+        type: "success",
+        confirmButtonText: "Aceptar",
+    })
+
+  limpiaydsi();
+}
+
+function limpiaydsi(){
+
+          //------------limpia------------------//
+  
+  document.getElementById("tipoDocBenef").value = '';
+  document.getElementById("numDocBenef").value = '';
+  document.getElementById("apePatBenef").value = '';
+  document.getElementById("apeMatBenef").value = '';
+  document.getElementById("nombreBenef").value = '';
+  $('#fchNacBenef').datepicker('setDate', null);
+  $('#fchDecBenef').datepicker('setDate', null);
+  document.getElementById("religionBenef").value = '';
+  document.getElementById("edoCivilBenef").value = '';
+  document.getElementById("sexoBenef").value = '';
+  document.getElementById("parentescoBenef").value = '';
+  document.getElementById("lugarDecesoBenef").value = '';
+  document.getElementById("motivoDecesoBenef").value = '';
+  document.getElementById("pesoBenef").value = '';
+  document.getElementById("tallaBenef").value = '';
+  $('#autopsiaBenef').prop("checked", false);
+
+        //------------deshabilita---------------//
+
+  $('#tipoDocBenef').prop('disabled',true);
+  $('#numDocBenef').prop('disabled',true);
+  $('#apePatBenef').prop('disabled',true);
+  $('#apeMatBenef').prop('disabled',true);
+  $('#nombreBenef').prop('disabled',true);
+  $('#fchNacBenef').prop('disabled',true);
+  $('#fchDecBenef').prop('disabled',true);
+  $('#religionBenef').prop('disabled',true);
+  $('#edoCivilBenef').prop('disabled',true);
+  $('#sexoBenef').prop('disabled',true);
+  $('#parentescoBenef').prop('disabled',true);
+  $('#lugarDecesoBenef').prop('disabled',true);
+  $('#motivoDecesoBenef').prop('disabled',true);
+  $('#pesoBenef').prop('disabled',true);
+  $('#tallaBenef').prop('disabled',true);
+  $('#autopsiaBenef').prop('disabled',true);
+
+  //----------cabia a los botones originales-----------//
+
+  $('#botonAgregarB').prop('hidden',false);
+  $('#botonModificarB').prop('hidden',true);
+  $('#botonGuardarB').prop('hidden',true);
+  $('#botonEditaB').prop('hidden',false);
+  $('#botonEliminarB').prop('hidden',false);
+  $('#botonDescartarB').prop('hidden',true);
+  $('#botonCancelarEdicionB').prop('hidden',true);
+
+}
+
+function verDetalles(evt) {
+  var target = evt.srcElement ? evt.srcElement : evt.target;
+  var x = target.className;
+  var respuesta = document.getElementById("registro_"+x).value;
+  var tipoDoc = respuesta.split(",")[0];
+  var numDoc = respuesta.split(",")[1];
+  var apellPaterno = respuesta.split(",")[2];
+  var apellMaterno = respuesta.split(",")[3];
+  var nombre = respuesta.split(",")[4];
+  var fechNac = respuesta.split(",")[5];
+  var fechDec = respuesta.split(",")[6];
+  var religion = respuesta.split(",")[7];
+  var edoCivil = respuesta.split(",")[8];
+  var sexo = respuesta.split(",")[9];
+  var parentesco = respuesta.split(",")[10];
+  var lugar = respuesta.split(",")[11];
+  var motivo = respuesta.split(",")[12];
+  var peso = respuesta.split(",")[13];
+  var talla = respuesta.split(",")[14];
+  var autopsia = respuesta.split(",")[15];
+
+  document.getElementById("tipoDocBenef").setAttribute('value',tipoDoc);
+  document.getElementById("tipoDocBenef").value = tipoDoc;
+  $('#tipoDocBenef').prop('disabled',true);
+  document.getElementById("numDocBenef").setAttribute('value',numDoc);
+  document.getElementById("numDocBenef").value = numDoc;
+  $('#numDocBenef').prop('disabled',true);
+  document.getElementById("apePatBenef").setAttribute('value',apellPaterno);
+  document.getElementById("apePatBenef").value = apellPaterno;
+  $('#apePatBenef').prop('disabled',true);
+  document.getElementById("apeMatBenef").setAttribute('value',apellMaterno);
+  document.getElementById("apeMatBenef").value = apellMaterno;
+  $('#apeMatBenef').prop('disabled',true);
+  document.getElementById("nombreBenef").setAttribute('value',nombre);
+  document.getElementById("nombreBenef").value = nombre;
+  $('#nombreBenef').prop('disabled',true);
+  $('#fchNacBenef').datepicker('setDate', fechNac);
+  $('#fchNacBenef').prop('disabled',true);
+  $('#fchDecBenef').datepicker('setDate', fechDec);
+  $('#fchDecBenef').prop('disabled',true);
+  document.getElementById("religionBenef").setAttribute('value',religion);
+  document.getElementById("religionBenef").value = religion;
+  $('#religionBenef').prop('disabled',true);
+  document.getElementById("edoCivilBenef").setAttribute('value',edoCivil);
+  document.getElementById("edoCivilBenef").value = edoCivil;
+  $('#edoCivilBenef').prop('disabled',true);
+  document.getElementById("sexoBenef").setAttribute('value',sexo);
+  document.getElementById("sexoBenef").value = sexo;
+  $('#sexoBenef').prop('disabled',true);
+  document.getElementById("parentescoBenef").setAttribute('value',parentesco);
+  document.getElementById("parentescoBenef").value = parentesco;
+  $('#parentescoBenef').prop('disabled',true);
+  document.getElementById("lugarDecesoBenef").setAttribute('value',lugar);
+  document.getElementById("lugarDecesoBenef").value = lugar;
+  $('#lugarDecesoBenef').prop('disabled',true);
+  document.getElementById("motivoDecesoBenef").setAttribute('value',motivo);
+  document.getElementById("motivoDecesoBenef").value = motivo;
+  $('#motivoDecesoBenef').prop('disabled',true);
+  document.getElementById("pesoBenef").setAttribute('value',peso);
+  document.getElementById("pesoBenef").value = peso;
+  $('#pesoBenef').prop('disabled',true);
+  document.getElementById("tallaBenef").setAttribute('value',talla);
+  document.getElementById("tallaBenef").value = talla;
+  $('#tallaBenef').prop('disabled',true);
+  $('#autopsiaBenef').prop("checked", autopsia);
+  $('#autopsiaBenef').prop('disabled',true);
+  boton = document.getElementById("botonEditaB");
+  boton.addEventListener("click", function(){activaEditaBenef(numDoc)}, false);
+  boton2 = document.getElementById("botonEliminarB");
+  boton2.addEventListener("click", function(){eliminaBenef(numDoc)}, false);
 }
