@@ -665,7 +665,7 @@ function guardaBenef(){
   var motivoDeceso = document.getElementById("motivoDecesoBenef").value;
   var peso = document.getElementById("pesoBenef").value;
   var talla = document.getElementById("tallaBenef").value;
-  var autopsia = document.getElementById("autopsiaBenefM").checked;
+  var autopsia = $("#autopsiaBenefM").checked;
   var registro = [tipoDoc,numDoc,apellPaterno,apellMaterno,nombre,fechNac,fechDec,religion,edoCivil,sexo,parentesco,lugarDeceso,motivoDeceso,peso,talla,autopsia];
   var muestra = '<tr onclick="verDetalles(event)" id="'+numDoc+'">'+
   					'<td class="'+numDoc+'">'+apellPaterno+' '+apellMaterno+', '+nombre+
@@ -755,7 +755,7 @@ function guardaEdicionB(id){
   var motivoDeceso = document.getElementById("motivoDecesoBenef").value;
   var peso = document.getElementById("pesoBenef").value;
   var talla = document.getElementById("tallaBenef").value;
-  var autopsia = document.getElementById("autopsiaBenefM").checked;
+  var autopsia = $("#autopsiaBenefM").checked;
   var registro = [tipoDoc,numDoc,apellPaterno,apellMaterno,nombre,fechNac,fechDec,religion,edoCivil,sexo,parentesco,lugarDeceso,motivoDeceso,peso,talla,autopsia];
   var muestra = '<tr onclick="verDetalles(event)" id="'+numDoc+'"><td class="'+numDoc+'">'+numDoc+'</td><td class="'+numDoc+'">'+nombre+'</td><td class="'+numDoc+'">'+apellPaterno+' '+apellMaterno+'<input type="hidden" id="idBenef" value="'+numDoc+'"><input type="hidden" id="registro_'+numDoc+'" value="'+registro+'"></td></tr>';
   document.getElementById(id).remove();
