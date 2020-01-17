@@ -1547,31 +1547,31 @@
 							</div>
 							<div class="row">
 								<div class="col-lg-8">
-											<br>
-											<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="200">
-												<div class="table-responsive">
-													<table class="table m-table">
-														<thead>
-															<th>Cuota</th>
-															<th>Estado</th>
-															<th>F. Vecimiento</th>
-															<th>Total</th>
-															<th>Saldo</th>
-														</thead>
-														<tbody id="bodyCronogramaFomaModif">
-														</tbody>
-														<tfoot>
-															<tr>
-																<td></td>
-																<td></td>
-																<td>Total</td>
-																<td style="text-align: right;" id="totalTotalFomaModif">0,00</td>
-																<td style="text-align: right;" id="totalSaldoFomaModif">0,00</td>
-															</tr>
-														</tfoot>
-													</table>
-												</div>
-											</div>
+									<br>
+									<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="200">
+										<div class="table-responsive">
+											<table class="table m-table">
+												<thead>
+													<th>Cuota</th>
+													<th>Estado</th>
+													<th>F. Vecimiento</th>
+													<th>Total</th>
+													<th>Saldo</th>
+												</thead>
+												<tbody id="bodyCronogramaFomaModif">
+												</tbody>
+												<tfoot>
+													<tr>
+														<td></td>
+														<td></td>
+														<td>Total</td>
+														<td style="text-align: right;" id="totalTotalFomaModif">0,00</td>
+														<td style="text-align: right;" id="totalSaldoFomaModif">0,00</td>
+													</tr>
+												</tfoot>
+											</table>
+										</div>
+									</div>
 								</div>
 								<div class="col-lg-4">
 									<fieldset class="fieldFormHorizontal">
@@ -1888,17 +1888,17 @@
 						</div>
 					</div>
 				</div>
-				<!------------------------------- botones --------------------------------->
+			</div>	
+		</div>
+		</form>
+	</div>
+	<!------------------------------- botones --------------------------------->
 					<div class="sidebar-wrapper stickButtons" id="container-button"> 
 						<a href="#container" class="btn btnGuardarKqPst m-btn m-btn--icon btn-lg m-btn--icon-only toggle-collapse-resumen" onclick="toggleBotones(this)" id="toggle-button">
 							<i class="flaticon-save"></i>
 						</a>
 					</div> 
 				<!-- ---------------------------fin botones----------------------------- -->
-			</div>	
-		</div>
-		</form>
-	</div>
 </div>
 </div>
 
