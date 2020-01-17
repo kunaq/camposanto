@@ -1890,19 +1890,17 @@
 				</div>
 			</div>	
 		</div>
-		</form>
-	</div>
-	<!------------------------------- botones --------------------------------->
+		<!------------------------------- botones --------------------------------->
 					<div class="sidebar-wrapper stickButtons" id="container-button"> 
 						<a href="#container" class="btn btnGuardarKqPst m-btn m-btn--icon btn-lg m-btn--icon-only toggle-collapse-resumen" onclick="toggleBotones(this)" id="toggle-button">
 							<i class="flaticon-save"></i>
 						</a>
 					</div> 
 				<!-- ---------------------------fin botones----------------------------- -->
+		</form>
+	</div>
 </div>
 </div>
-
-
 
 <?php
 include "modals/modalObservacionCliente.php";
