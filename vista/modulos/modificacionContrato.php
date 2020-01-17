@@ -1058,7 +1058,7 @@
 									</div>
 									<div class="m-form__group row">
 										<div class="col-lg-2 offset-lg-2">
-											<button data-toggle="m-tooltip" data-container="body" data-placement="top" id="botonAgregarB" type="button" title="" data-original-title="Agregar beneficiario" onclick="cargaFormBenef();" class="btn btnGuardarKqPst btn-lg m-btn m-btn m-btn--icon">
+											<button data-toggle="m-tooltip" data-container="body" data-placement="top" id="botonAgregarB" type="button" title="" data-original-title="Agregar beneficiario" onclick="cargaFormBenefModif();" class="btn btnGuardarKqPst btn-lg m-btn m-btn m-btn--icon">
 												<span>
 													<span>&nbsp;</span>
 													<i class="la la-user-plus"></i>
