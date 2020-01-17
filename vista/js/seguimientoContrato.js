@@ -242,8 +242,8 @@ function getDatosServicioCtt(row,localidad,tasa,tipoCtt,tipoPro,codCtt,numRef,nu
         	$("#tbodyBeneficiarios").html(info.tablaBeneficiarios);
         	var benefTable = document.getElementById('tbodyBeneficiarios');
             var benefTableLenght = benefTable.rows.length;
-            var Beneficiario1 = benefTable.rows.item(0);
-            primeraFila.click();
+            var beneficiario1 = benefTable.rows.item(0);
+            beneficiario1.click();
         }//succes
     });//ajaxGetCuotas
 }
