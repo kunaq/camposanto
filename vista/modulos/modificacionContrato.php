@@ -2,6 +2,13 @@
 	<!--Begin::Main Portlet-->
 	<div class="m-portlet m-portlet--space">
 		<!--begin: Portlet Head-->
+		<!------------------------------- botones --------------------------------->
+					<div class="sidebar-wrapper stickButtons" id="container-button"> 
+						<a href="#container" class="btn btnGuardarKqPst m-btn m-btn--icon btn-lg m-btn--icon-only toggle-collapse-resumen" onclick="toggleBotones(this)" id="toggle-button">
+							<i class="flaticon-save"></i>
+						</a>
+					</div> 
+				<!-- ---------------------------fin botones----------------------------- -->
 		<div class="m-portlet__head">
 			<div class="m-portlet__head-caption">
 				<div class="m-portlet__head-title">
@@ -1889,13 +1896,6 @@
 					</div>
 				</div>
 			</div>	
-		<!------------------------------- botones --------------------------------->
-					<div class="sidebar-wrapper stickButtons" id="container-button"> 
-						<a href="#container" class="btn btnGuardarKqPst m-btn m-btn--icon btn-lg m-btn--icon-only toggle-collapse-resumen" onclick="toggleBotones(this)" id="toggle-button">
-							<i class="flaticon-save"></i>
-						</a>
-					</div> 
-				<!-- ---------------------------fin botones----------------------------- -->
 		</div>
 		</form>
 	</div>
