@@ -10,6 +10,7 @@
 						<br>
 						<a href="#container" class="btn btnGuardarKqPst m-btn m-btn--icon btn-lg m-btn--icon-only toggle-collapse-resumen" id="null-button">
 							<i class="fa-save"></i>
+						</a>
 					</div> 
 				<!-- ---------------------------fin botones----------------------------- -->
 		<div class="m-portlet__head">
