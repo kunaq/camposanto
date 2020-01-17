@@ -1044,14 +1044,11 @@
 												<thead>
 													<tr>
 														<th>
-															#
-														</th>
-														<th>
 															Apellidos y nombres
 														</th>
 													</tr>
 												</thead>
-												<tbody>
+												<tbody id="bodyBeneficiarioM">
 												</tbody>
 											</table>
 										</div>

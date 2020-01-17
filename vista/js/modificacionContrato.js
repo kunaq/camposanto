@@ -631,9 +631,9 @@ function cargaFormBenefModif(){
 }
 
 function verificaBenef(val){
-  var row = $("#bodyBeneficiario tr").length;
+  var row = $("#bodyBeneficiarioM tr").length;
   if(row > 0){
-    var filas = document.querySelectorAll("#bodyBeneficiario tr");
+    var filas = document.querySelectorAll("#bodyBeneficiarioM tr");
     for (var i = 1; i <= row; i++) {
       result = filas[i-1].querySelectorAll("td");
       com = result[0].innerHTML;
@@ -667,8 +667,11 @@ function guardaBenef(){
   var talla = document.getElementById("tallaBenef").value;
   var autopsia = document.getElementById("autopsiaBenefM").checked;
   var registro = [tipoDoc,numDoc,apellPaterno,apellMaterno,nombre,fechNac,fechDec,religion,edoCivil,sexo,parentesco,lugarDeceso,motivoDeceso,peso,talla,autopsia];
-  var muestra = '<tr onclick="verDetalles(event)" id="'+numDoc+'"><td class="'+numDoc+'">'+numDoc+'</td><td class="'+numDoc+'">'+nombre+'</td><td class="'+numDoc+'">'+apellPaterno+' '+apellMaterno+'<input type="hidden" id="idBenef" value="'+numDoc+'"><input type="hidden" id="registro_'+numDoc+'" value="'+registro+'"></td></tr>';
-  document.getElementById("bodyBeneficiario").insertAdjacentHTML("beforeEnd" ,muestra);
+  var muestra = '<tr onclick="verDetalles(event)" id="'+numDoc+'">'+
+  					'<td class="'+numDoc+'">'+apellPaterno+' '+apellMaterno+', '+nombre+
+  					'<input type="hidden" id="idBenef" value="'+numDoc+'"><input type="hidden" id="registro_'+numDoc+'" value="'+registro+'">'+
+  					'</td></tr>';
+  document.getElementById("bodyBeneficiarioM").insertAdjacentHTML("beforeEnd" ,muestra);
 
   swal({
         title: "",
@@ -756,7 +759,7 @@ function guardaEdicionB(id){
   var registro = [tipoDoc,numDoc,apellPaterno,apellMaterno,nombre,fechNac,fechDec,religion,edoCivil,sexo,parentesco,lugarDeceso,motivoDeceso,peso,talla,autopsia];
   var muestra = '<tr onclick="verDetalles(event)" id="'+numDoc+'"><td class="'+numDoc+'">'+numDoc+'</td><td class="'+numDoc+'">'+nombre+'</td><td class="'+numDoc+'">'+apellPaterno+' '+apellMaterno+'<input type="hidden" id="idBenef" value="'+numDoc+'"><input type="hidden" id="registro_'+numDoc+'" value="'+registro+'"></td></tr>';
   document.getElementById(id).remove();
-  document.getElementById("bodyBeneficiario").insertAdjacentHTML("beforeEnd" ,muestra);
+  document.getElementById("bodyBeneficiarioM").insertAdjacentHTML("beforeEnd" ,muestra);
 
   swal({
         title: "",
