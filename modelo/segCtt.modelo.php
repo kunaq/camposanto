@@ -415,7 +415,6 @@ class ModeloSegContrato{
 			$tableEndoServicio .='<tr>
 									<td>'.Utf8Encode($key['cod_usuario']).'</td>
 									<td>'.dateFormat($key['fch_registro']).'</td>
-									<td>'.$key['dsc_tipo_descuento'].'</td>
 									<td>'.$key['cod_estado'].'</td>
 									<td>'.dateFormat($key['fch_vencimiento']).'</td>
 									<td>'.dateFormat($key['fch_cancelacion']).'</td>
