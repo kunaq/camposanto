@@ -35,29 +35,6 @@ function getParameterByName() {
 
 function getDatosCtt(){
 	var codCtt = document.getElementById('cttSegCon').value;
-	$.ajax({
-		type: 'POST',
-        url:"ajax/segCtt.ajax.php",
-        dataType: 'text',
-        data: {'accion' : 'getDatosCtt', 'cod_contrato' : codCtt},
-        success: function(respuesta){
-
-        	var info = JSON.parse(respuesta);
-        	document.getElementById('cttSegCon').value = info.contrato;
-        	document.getElementById('dscCliSegCtt').value = info.cliente;
-        	document.getElementById('dscLocSegCtt').value = info.dsc_localidad;
-        	document.getElementById('numCttSegCtt').value = info.contrato;
-        	document.getElementById('tipCttSegCtt').value = info.tipoCtt;
-        	document.getElementById('progSegCtt').value = info.programa;
-        	if (info.modificado == "SI") {
-        		$('#modificadoSegCtt').prop("checked", true);
-        	}else{
-        		$('#modificadoSegCtt').prop("checked", false);
-        	}
-
-        }//succes
-    });//ajax
-
     $.ajax({
 		type: 'POST',
         url:"ajax/segCtt.ajax.php",
@@ -79,8 +56,42 @@ function getDatosServicioCtt(row,localidad,tasa,tipoCtt,tipoPro,codCtt,numRef,nu
 	var rows = $('#myTableServicios tr').not(':first');
 	rows.removeClass('selected'); 
   	$(row).closest('tr').addClass('selected');
-  	var fila="<tr><td>"+numRef+"</td></tr>";
-  	document.getElementById("tbodyRef").innerHTML = fila;
+
+  	$.ajax({
+		type: 'POST',
+        url:"ajax/segCtt.ajax.php",
+        dataType: 'text',
+        data: {'accion' : 'getDatosCtt', 'localidad' : localidad, 'cod_contrato' : codCtt, 'cod_servicio' : numSer},
+        success: function(respuesta){
+
+        	var info = JSON.parse(respuesta);
+        	document.getElementById('cttSegCon').value = info.contrato;
+        	document.getElementById('dscCliSegCtt').value = info.cliente;
+        	document.getElementById('dscLocSegCtt').value = info.dsc_localidad;
+        	document.getElementById('numCttSegCtt').value = info.contrato;
+        	document.getElementById('tipCttSegCtt').value = info.tipoCtt;
+        	document.getElementById('progSegCtt').value = info.programa;
+        	if (info.modificado == "SI") {
+        		$('#modificadoSegCtt').prop("checked", true);
+        	}else{
+        		$('#modificadoSegCtt').prop("checked", false);
+        	}
+
+        }//succes
+    });//ajax
+
+  	$.ajax({
+		type: 'POST',
+        url:"ajax/segCtt.ajax.php",
+        dataType: 'text',
+        data: {'accion' : 'getRefinServ', 'localidad' : localidad, 'cod_contrato' : codCtt, 'cod_servicio' : numSer},
+        success: function(respuesta){
+
+        	var info = JSON.parse(respuesta);
+        	$("#tbodyRef").html(info.tbodyRefinanciamiento);
+        	
+        }//succes
+    });//ajaxgetRefinServ
 
   	$.ajax({
 		type: 'POST',

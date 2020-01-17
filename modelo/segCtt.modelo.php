@@ -5,11 +5,11 @@ require_once "../funciones.php";
 
 class ModeloSegContrato{
 
-	static public function mdlGetDatosCtt($cod_contrato){
+	static public function mdlGetDatosCtt($localidad, $cod_contrato, $cod_servicio){
 
 		$db = new Conexion();
 
-		$sql = $db->consulta("SELECT TOP 1 (SELECT vtama_cliente.dsc_cliente FROM vtama_cliente WHERE vtama_cliente.cod_cliente = vtade_contrato.cod_cliente) AS dsc_cliente, vtade_contrato.cod_localidad, (SELECT vtama_localidad.dsc_localidad FROM vtama_localidad WHERE vtama_localidad.cod_localidad = vtade_contrato.cod_localidad)AS dsc_localidad, vtade_contrato.cod_contrato, vtade_contrato.cod_tipo_ctt, vtade_contrato.cod_tipo_programa, vtade_contrato.flg_ctt_modif FROM vtade_contrato WHERE vtade_contrato.cod_contrato LIKE '%' + '$cod_contrato' + '%' AND vtade_contrato.flg_cambio_titular = 'NO'");
+		$sql = $db->consulta("SELECT (SELECT vtama_cliente.dsc_cliente FROM vtama_cliente WHERE vtama_cliente.cod_cliente = vtade_contrato.cod_cliente) AS dsc_cliente, vtade_contrato.cod_localidad, (SELECT vtama_localidad.dsc_localidad FROM vtama_localidad WHERE vtama_localidad.cod_localidad = vtade_contrato.cod_localidad)AS dsc_localidad, vtade_contrato.cod_contrato, vtade_contrato.cod_tipo_ctt, vtade_contrato.cod_tipo_programa, vtade_contrato.flg_ctt_modif FROM vtade_contrato WHERE vtade_contrato.cod_localidad = '$localidad' AND vtade_contrato.cod_contrato = '$cod_contrato' AND vtade_contrato.num_servicio = '$cod_servicio' AND vtade_contrato.flg_cambio_titular = 'NO'");
 
 		while($key = $db->recorrer($sql)){
 
@@ -32,7 +32,7 @@ class ModeloSegContrato{
 
 	static public function mdlgetServiciosCtt($cod_contrato){
 		$db = new Conexion();
-		$sql = $db->consulta("SELECT vtade_contrato.cod_localidad, vtade_contrato.imp_tasa_interes, vtade_contrato.cod_tipo_ctt, vtade_contrato.cod_tipo_programa, vtade_contrato.cod_contrato, vtade_contrato.num_servicio, (SELECT vtama_tipo_servicio.dsc_tipo_servicio FROM vtama_tipo_servicio WHERE vtama_tipo_servicio.cod_tipo_servicio = vtade_contrato.cod_tipo_servicio)AS dsc_tipo_servicio, vtade_contrato.fch_generacion, vtade_contrato.fch_emision, vtade_contrato.fch_anulacion, vtade_contrato.fch_activacion, vtade_contrato.fch_resolucion, vtade_contrato.fch_transferencia, vtade_contrato.num_refinanciamiento FROM vtade_contrato WHERE vtade_contrato.cod_contrato LIKE '%' + '$cod_contrato' + '%' ORDER BY num_servicio ASC");
+		$sql = $db->consulta("SELECT vtade_contrato.cod_localidad, vtade_contrato.imp_tasa_interes, vtade_contrato.cod_tipo_ctt, vtade_contrato.cod_tipo_programa, vtade_contrato.cod_contrato, vtade_contrato.num_servicio, (SELECT vtama_tipo_servicio.dsc_tipo_servicio FROM vtama_tipo_servicio WHERE vtama_tipo_servicio.cod_tipo_servicio = vtade_contrato.cod_tipo_servicio)AS dsc_tipo_servicio, vtade_contrato.fch_generacion, vtade_contrato.fch_emision, vtade_contrato.fch_anulacion, vtade_contrato.fch_activacion, vtade_contrato.fch_resolucion, vtade_contrato.fch_transferencia, vtade_contrato.num_refinanciamiento FROM vtade_contrato WHERE vtade_contrato.cod_contrato LIKE (RIGHT('0000000000'+'$cod_contrato',10)) ORDER BY num_servicio ASC");
 
 		$tablaServicios = "";
 
@@ -101,6 +101,37 @@ class ModeloSegContrato{
 	    $db->liberar($sql);
 	    $db->cerrar();
 	}//function mdlgetServiciosCtt
+
+	static public function mdlGetRefinServ($localidad,$cod_contrato,$cod_servicio){
+
+		$db = new Conexion();
+
+		$sql = $db->consulta("SELECT * FROM vtavi_cronograma_x_servicio WHERE cod_localidad = '$localidad' AND cod_contrato = '$cod_contrato' AND num_servicio = '$cod_servicio' ORDER BY num_refinanciamiento ASC"); 
+
+		$tbodyRefinanciamiento = "";
+
+		while($key = $db->recorrer($sql)){
+
+			$null = "''";
+			$localidad = "'".$key['cod_localidad']."'";
+			$cod_contrato = "'".$key['cod_contrato']."'";
+			$num_serv = "'".$key['num_servicio']."'";
+			$num_ref = "'".$key['num_refinanciamiento']."'";
+	        $cod_tipo_ctt = "'".$key['cod_tipo_ctt']."'";
+	        $cod_tipo_programa = "'".$key['cod_tipo_programa']."'";
+
+			$tbodyRefinanciamiento .='<tr>
+									<td onclick="getDatosServxRef(this,'.$localidad.','.$cod_tipo_ctt.','.$cod_tipo_programa.','.$cod_contrato.','.$num_ref.','.$num_serv.')">'.$key['num_refinanciamiento'].'</td>
+								</tr>';
+		}
+		$arrData = array('tbodyRefinanciamiento'=> $tbodyRefinanciamiento); 
+
+		return $arrData;
+
+		$db->liberar($sql);
+        $db->cerrar();
+
+	}//function mdlGetEndoServicio
 
 	static public function mdlGetCuotas($datos){
 
@@ -376,6 +407,44 @@ class ModeloSegContrato{
 		$db = new Conexion();
 
 		$sql = $db->consulta("SELECT vtama_entidad.dsc_entidad, vtavi_endoso_x_contrato.imp_valor, vtavi_endoso_x_contrato.imp_saldo, vtavi_endoso_x_contrato.imp_total_emitido, vtavi_endoso_x_contrato.cod_usuario, vtavi_endoso_x_contrato.fch_registro, vtavi_endoso_x_contrato.cod_estado, vtavi_endoso_x_contrato.fch_vencimiento, vtavi_endoso_x_contrato.fch_cancelacion FROM vtavi_endoso_x_contrato INNER JOIN vtama_entidad ON vtama_entidad.cod_entidad = vtavi_endoso_x_contrato.cod_entidad WHERE vtavi_endoso_x_contrato.cod_localidad = '".$datos['localidad']."' AND vtavi_endoso_x_contrato.cod_contrato = '".$datos['cod_contrato']."' AND vtavi_endoso_x_contrato.num_servicio = '".$datos['cod_servicio']."'"); 
+
+		$tableEndoServicio = "";
+		$i=0;
+
+		while($key = $db->recorrer($sql)){
+
+			$tableEndoServicio .='<tr>
+									<td>'.($i+1).'</td>
+									<td>'.Utf8Encode($key['cod_usuario']).'</td>
+									<td>'.dateFormat($key['fch_registro']).'</td>
+									<td>'.$key['dsc_tipo_descuento'].'</td>
+									<td>'.$key['cod_estado'].'</td>
+									<td>'.dateFormat($key['fch_vencimiento']).'</td>
+									<td>'.dateFormat($key['fch_cancelacion']).'</td>
+									<td>'.$key['dsc_entidad'].'</td>
+									<td>'.number_format(round($key['imp_valor'], 2),2,',','.').'</td>
+									<td>'.number_format(round($key['imp_saldo'], 2),2,',','.').'</td>
+									<td>'.number_format(round($key['imp_total_emitido'], 2),2,',','.').'</td>
+								</tr>';
+
+			$valor_total += $key["imp_valor"];
+			$saldo_total += $key["imp_saldo"];
+			$emitido_total += $key["imp_total_emitido"];
+		}
+		$arrData = array('tableEndoServicio'=> $tableEndoServicio, 'valor_total' => number_format(round($valor_total, 2),2,',','.'), 'saldo_total' => number_format(round($saldo_total, 2),2,',','.'), 'emitido_total' => number_format(round($emitido_total, 2),2,',','.')); 
+
+		return $arrData;
+
+		$db->liberar($sql);
+        $db->cerrar();
+
+	}//function mdlGetEndoServicio
+
+	static public function mdlGetCuotasCron($datos){
+
+		$db = new Conexion();
+
+		$sql = $db->consulta("SELECT cod_localidad, cod_contrato, num_cuota, cod_tipo_cuota, cod_estadocuota, fch_vencimiento, fch_cancelacion, imp_principal, imp_interes, imp_igv, imp_total, imp_saldo, imp_totalemitido, imp_totalpagado,( CASE WHEN vtade_cronograma.cod_estadocuota = 'REG' AND vtade_cronograma.cod_tipo_cuota = 'ARM' AND vtade_cronograma.flg_generar_mora = 'SI' AND vtade_cronograma.flg_mora_cancelada = 'NO' AND vtade_cronograma.fch_vencimiento < GETDATE() THEN ( CASE WHEN 1 > 0 THEN ROUND((((vtade_cronograma.imp_total * 0.12) / 100) * DATEDIFF(DD, vtade_cronograma.fch_vencimiento, GETDATE())), 4) ELSE 0 END ) ELSE 0 END ) AS imp_mora FROM vtade_cronograma WHERE cod_localidad = '".$datos['localidad']."' AND cod_contrato = '".$datos['cod_contrato']."' AND num_refinanciamiento = (SELECT MAX(num_refinanciamiento) FROM vtade_cronograma)"); 
 
 		$tableEndoServicio = "";
 		$i=0;

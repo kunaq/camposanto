@@ -5,9 +5,11 @@ session_start();
 class ControladorSegContrato{
 
 	static public function ctrGetDatosCtt(){
+		$localidad = $_POST['localidad'];
 		$cod_contrato = $_POST['cod_contrato'];
+		$cod_servicio = $_POST['cod_servicio'];
 	    
-		$respuesta = ModeloSegContrato::mdlGetDatosCtt($cod_contrato);
+		$respuesta = ModeloSegContrato::mdlGetDatosCtt($localidad,$cod_contrato,$cod_servicio);
 		return $respuesta;
 	}//function ctrGetDatosCtt
 
@@ -18,6 +20,16 @@ class ControladorSegContrato{
 		$respuesta = ModeloSegContrato::mdlgetServiciosCtt($cod_contrato);
 		return $respuesta;
 	}//function ctrGetServiciosCtt
+
+	static public function ctrGetRefinServ(){
+
+		$localidad = $_POST['localidad'];
+		$cod_contrato = $_POST['cod_contrato'];
+		$cod_servicio = $_POST['cod_servicio'];
+
+		$respuesta = ModeloSegContrato::mdlGetRefinServ($localidad,$cod_contrato,$cod_servicio);
+		return $respuesta;
+	}//function ctrGetRefinServ
 
 	static public function ctrGetCuotas(){
 
@@ -86,6 +98,15 @@ class ControladorSegContrato{
 		$respuesta = ModeloSegContrato::mdlGetEndoServicio($datos);
 		return $respuesta;
 	}//function ctrGetEndoServicio
+
+	static public function ctrGetCuotasCron(){
+
+		$datos = array('localidad' => $_POST['localidad'],
+					   'cod_contrato' => $_POST['cod_contrato']);
+
+		$respuesta = ModeloSegContrato::mdlGetCuotasCron($datos);
+		return $respuesta;
+	}//function ctrGetCuotasCron
 
 	static public function ctrGetBeneficiariosServ(){
 

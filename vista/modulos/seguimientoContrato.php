@@ -738,7 +738,7 @@
 							<div class="row form-group">
 								<div class="col-lg-12">
 									<fieldset class="fieldFormHorizontal">
-										<legend class="tittle-box">Cuotas(8)</legend>
+										<legend class="tittle-box" id="num_cuotas_SegCtt">Cuotas</legend>
 										<div class="col-lg-12">
 											<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="300">
 				                				<div class="table-responsive">
@@ -782,14 +782,14 @@
 																<td></td>
 																<td></td>
 																<td>Total</td>
-																<td>0,00</td>
-																<td>0,00</td>
-																<td>0,00</td>
-																<td>0,00</td>
-																<td>0,00</td>
-																<td>0,00</td>
-																<td>0,00</td>
-																<td>0,00</td>
+																<td id="cuo_subtotal_total">0,00</td>
+																<td id="cuo_interes_total">0,00</td>
+																<td id="cuo_igv_total">0,00</td>
+																<td id="cuo_total_total">0,00</td>
+																<td id="cuo_saldo_total">0,00</td>
+																<td id="cuo_emitido_total">0,00</td>
+																<td id="cuo_cancelado_total">0,00</td>
+																<td id="cuo_mora_total">0,00</td>
 															</tr>
 														</tfoot>
 													</table>
