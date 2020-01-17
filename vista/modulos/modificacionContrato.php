@@ -1038,7 +1038,7 @@
 						<div class="tab-pane" id="m_tabs_2_6" role="tabpanel">
 							<div class="row">
 								<div class="col-lg-6">
-									<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="250">
+									<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="260">
 										<div class="table-responsive">
 											<table class="table m-table">
 												<thead>
