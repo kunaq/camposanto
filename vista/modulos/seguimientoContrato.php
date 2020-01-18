@@ -141,9 +141,6 @@
 													<th>Refinanciamiento</th>
 												</thead>
 												<tbody id="tbodyRef">
-													<tr>
-														<td id="numRef"></td>
-													</tr>
 												</tbody>
 											</table>
 										</div>
