@@ -278,8 +278,12 @@ function getDatosServicioCtt(row,localidad,tasa,tipoCtt,tipoPro,codCtt,numRef,nu
         	$("#tbodyBeneficiarios").html(info.tablaBeneficiarios);
         	var benefTable = document.getElementById('tbodyBeneficiarios');
             var benefTableLenght = benefTable.rows.length;
-            var beneficiario1 = benefTable.rows.item(0);
-            beneficiario1.click();
+            if (benefTableLenght == 0) {
+
+            }else{
+            	var beneficiario1 = benefTable.rows.item(0);
+	            beneficiario1.click();
+            }
         }//succes
     });//ajaxGetCuotas
 }
@@ -474,8 +478,12 @@ function getDatosServxRef(row,localidad,tasa,tipoCtt,tipoPro,codCtt,numRef,numSe
         	$("#tbodyBeneficiarios").html(info.tablaBeneficiarios);
         	var benefTable = document.getElementById('tbodyBeneficiarios');
             var benefTableLenght = benefTable.rows.length;
-            var beneficiario1 = benefTable.rows.item(0);
-            beneficiario1.click();
+            if (benefTableLenght == 0) {
+
+            }else{
+            	var beneficiario1 = benefTable.rows.item(0);
+	            beneficiario1.click();
+            }
         }//succes
     });//ajaxGetCuotas
 }
