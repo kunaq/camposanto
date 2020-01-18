@@ -270,6 +270,21 @@ function getDatosServicioCtt(row,localidad,tasa,tipoCtt,tipoPro,codCtt,numRef,nu
 
     $.ajax({
 		type: 'POST',
+		url:"ajax/segCtt.ajax.php",
+		dataType: 'text',
+		data: {'accion' : 'getDetFinanciamiento', 'localidad' : localidad, 'cod_contrato' : codCtt, 'num_refinanciamiento' : numRef},
+		    success: function(respuesta){
+
+		   	var info = JSON.parse(respuesta);
+
+		   	$("#tbodyDetFin").html(info.tableDetFinanciamiento);
+		   	document.getElementById("det_fin_saldo_total").innerHTML = info.saldoTotal;
+		        	
+		    }//succes
+	});//ajaxGetDetFinanciamiento
+
+    $.ajax({
+		type: 'POST',
         url:"ajax/segCtt.ajax.php",
         dataType: 'text',
         data: {'accion' : 'getBeneficiarios', 'localidad' : localidad, 'cod_contrato' : codCtt, 'cod_servicio' : numSer},
@@ -467,6 +482,21 @@ function getDatosServxRef(row,localidad,tasa,tipoCtt,tipoPro,codCtt,numRef,numSe
         	
         }//succes
     });//ajaxGetDatosEspacio
+
+    $.ajax({
+		type: 'POST',
+		url:"ajax/segCtt.ajax.php",
+		dataType: 'text',
+		data: {'accion' : 'getDetFinanciamiento', 'localidad' : localidad, 'cod_contrato' : codCtt, 'num_refinanciamiento' : numRef},
+		    success: function(respuesta){
+
+		   	var info = JSON.parse(respuesta);
+
+		   	$("#tbodyDetFin").html(info.tableDetFinanciamiento);
+		   	document.getElementById("det_fin_saldo_total").innerHTML = info.saldoTotal;
+		        	
+		    }//succes
+	});//ajaxGetDetFinanciamiento
 
     $.ajax({
 		type: 'POST',

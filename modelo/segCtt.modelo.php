@@ -532,6 +532,35 @@ class ModeloSegContrato{
         $db->cerrar();
 
 	}//function mdlGetDatosCtt
+	
+	static public function mdlGetDetFinanciamiento($datos){
+
+		$db = new Conexion();
+
+		$sql = $db->consulta("SELECT num_servicio, (SELECT vtama_tipo_servicio.dsc_tipo_servicio FROM vtama_tipo_servicio WHERE vtama_tipo_servicio.cod_tipo_servicio = vtade_contrato.cod_tipo_servicio)AS dsc_tipo_servicio, imp_saldofinanciar FROM vtade_contrato WHERE cod_localidad = '".$datos['localidad']."' AND cod_contrato = '".$datos['cod_contrato']."' AND num_refinanciamiento = '".$datos['num_refinanciamiento']."' AND flg_fondo_mantenimiento = 'NO'");
+
+		$tableDetFinanciamiento = "";
+		$saldoTotal = 0;
+
+		while($key = $db->recorrer($sql)){
+
+			$tableDetFinanciamiento .='<tr>
+									<td>'.$key['num_servicio'].'</td>
+									<td>'.$key['dsc_tipo_servicio'].'</td>
+									<td>'.number_format(round($key['imp_saldofinanciar'], 2),2,',','.').'</td>';
+
+
+			$saldoTotal += $key["imp_saldofinanciar"];
+		}
+		$arrData = array('tableDetFinanciamiento'=> $tableDetFinanciamiento, 'saldoTotal' => number_format(round($saldoTotal, 2),2,',','.')); 
+
+		return $arrData;
+
+		$db->liberar($sql);
+        $db->cerrar();
+
+	}//function mdlGetDsctoServicio
+
 
 }//class ModeloWizard
 ?>

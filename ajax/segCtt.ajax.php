@@ -47,8 +47,12 @@ class AjaxSegCtt{
 	}//function ajaxGetEndoServicio
 	public function ajaxGetDatosEspacio(){
 		$respuesta = ControladorSegContrato::ctrGetDatosEspacio();
-		echo json_encode($respuesta);
+		echo json_encode($respuesta,JSON_UNESCAPED_UNICODE);
 	}//function ajaxGetDatosEspacio
+	public function ajaxGetDetFinanciamiento(){
+		$respuesta = ControladorSegContrato::ctrGetDetFinanciamiento();
+		echo json_encode($respuesta,JSON_UNESCAPED_UNICODE);
+	}//function ajaxGetDetFinanciamiento
 
 }//class AjaxWizard
 
@@ -100,11 +104,7 @@ else if(isset($_POST["accion"]) && $_POST["accion"] == 'getDatosEspacio'){
 	$cliente = new AjaxSegCtt();
 	$cliente -> ajaxGetDatosEspacio();
 }
-// else if(isset($_POST["accion"]) && $_POST["accion"] == 'guardaCronograma'){
-// 	$cliente = new AjaxWizard();
-// 	$cliente -> ajaxGuardaCronograma();
-// }
-// else if(isset($_POST["accion"]) && $_POST["accion"] == 'generaEspacio'){
-// 	$cliente = new AjaxWizard();
-// 	$cliente -> ajaxGeneraEspacio();
-// }
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'getDetFinanciamiento'){
+	$cliente = new AjaxSegCtt();
+	$cliente -> ajaxGetDetFinanciamiento();
+}

@@ -45,7 +45,6 @@ class ControladorSegContrato{
 		return $respuesta;
 	}//function ctrGetCuotas
 
-
 	static public function ctrEjecutaProcedureResumenCtt(){
 
 		$datos = array("as_localidad" => $_POST['as_localidad'],
@@ -118,5 +117,14 @@ class ControladorSegContrato{
 		return $respuesta;
 	}//function ctrGetBeneficiariosServ
 
+	static public function ctrGetDetFinanciamiento(){
+
+		$datos = array('localidad' => $_POST['localidad'],
+					   'cod_contrato' => $_POST['cod_contrato'],
+					   'num_refinanciamiento' => $_POST['num_refinanciamiento']);
+
+		$respuesta = ModeloSegContrato::mdlGetDetFinanciamiento($datos);
+		return $respuesta;
+	}//function ctrGetEndoServicio
 }//class ControladorWizard
 ?>

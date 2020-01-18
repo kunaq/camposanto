@@ -441,18 +441,13 @@
 															<th>Tipo Servicio</th>
 															<th>Saldo Financiar</th>
 														</thead>
-														<tbody style="height: 170px;">
-															<tr>
-																<td>0</td>
-																<td>DERECHO DE USO</td>
-																<td>4.132,00</td>
-															</tr>
+														<tbody class="tbodyDetFin" id="tbodyDetFin">
 														</tbody>
 														<tfoot>
 															<tr>
 																<td></td>
 																<td>Total:</td>
-																<td>4.132,00</td>
+																<td id="det_fin_saldo_total">0,00</td>
 															</tr>
 														</tfoot>
 													</table>
