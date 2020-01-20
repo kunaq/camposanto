@@ -85,6 +85,7 @@
 								<div class="col-lg-12">
 									<label>Cliente</label>
 									<input type="text" class="form-control form-control-sm m-input" name="nomCliContrato" id="nomCliContrato" disabled>
+									<input type="hidden" id="flg_activado" name="flg_activado">
 								</div>
 							</div>
 						</div>

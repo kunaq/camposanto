@@ -86,6 +86,7 @@ function llenaDatos(codCtto){
         	$("#ejeHCotrato").val(respuesta[0]['cod_ejehorizontal_actual']);
         	$("#ejeVContrato").val(respuesta[0]['cod_ejevertical_actual']);
         	$("#espacioContrato").val(respuesta[0]['cod_espacio_actual']);
+        	$("#flg_activado").val(respuesta[0]['flg_activado']);
         	document.getElementById("tipoEspModifContrato").value = respuesta[0]['dsc_tipo_espacio'];
         	$("#bodyDetCttoModif").empty();
         	$.each(respuesta,function(index,value){
@@ -926,3 +927,12 @@ function cargaObservaciones(codCtto,numServicio){
         }//success
     });//ajax
 }// function cargaObservaciones
+
+//-------------------------------botones---------------------------------
+
+function anulaCtto(){
+	var activado = $("#flg_activado").val();
+	if (activado == 'SI') {
+		alert('paso');
+	}
+}
