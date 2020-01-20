@@ -49,8 +49,8 @@
 		</div>	
 
 		<!-- boton movilidad -->
-		<div class="sidebar-wrapper stickLeyendaIni" id="container-button"> 
-			<a href="#container" class="btn btn-metal m-btn m-btn--icon btn-lg m-btn--icon-only m-btn--pill m-btn--air toggle-collapse-resumen" onclick="toggleLeyendaIni(this)" id="toggle-button">
+		<div class="sidebar-wrapper stickBotonMovilidad"> 
+			<a href="#container" class="btn btn-metal m-btn m-btn--icon btn-lg m-btn--icon-only m-btn--pill m-btn--air">
 				<i class="fa fa-car"></i>
 			</a>
 		</div>
