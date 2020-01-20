@@ -50928,7 +50928,7 @@ body {
     height: 285px;
     transition: 0.800s ease;
     position: fixed;
-    top: 15%;
+    top: 19%;
     list-style: none;
     padding: 0 10px;
     margin: 0;
@@ -50936,7 +50936,7 @@ body {
 }
 
 .stickBotonMovilidad{
-    right: 0.35rem;
+    right: 0.2rem;
     height: 285px;
     transition: 0.800s ease;
     position: fixed;

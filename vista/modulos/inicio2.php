@@ -58,7 +58,7 @@
 
 		<!-- leyenda -->
 		<div class="sidebar-wrapper stickLeyendaIni" id="container-button"> 
-			<a href="#container" class="btn btn-metal m-btn m-btn--icon btn-sm m-btn--icon-only m-btn--pill m-btn--air toggle-collapse-resumen" onclick="toggleLeyendaIni(this)" id="toggle-button">
+			<a href="#container" class="btn btn-metal m-btn m-btn--icon btn-sm m-btn--icon-only m-btn--pill m-btn--air toggle-collapse-resumen" onclick="toggleLeyendaIni(this)" id="toggle-button" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Leyenda">
 				<i class="flaticon-info"></i>
 			</a>
 			<ul class="m-nav-sticky side-nav" id="leyendaIni" style="margin-top: -50px;">
