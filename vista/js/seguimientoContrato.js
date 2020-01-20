@@ -93,7 +93,7 @@ function mostrarBeneficiario(row,servicio,tipoDoc,numDoc,apePaterno,apeMaterno,n
 		type: 'POST',
         url:"ajax/segCtt.ajax.php",
         dataType: 'text',
-        data: {'accion' : 'getComprobantes', 'localidad' : localidad , 'cod_contrato' : codCtt, 'num_cuota' : num_cuota, 'num_refinanciamiento' : num_refinanciamiento},
+        data: {'accion' : 'getComprobantes', 'localidad' : localidad , 'cod_contrato' : contrato, 'num_cuota' : num_cuota, 'num_refinanciamiento' : num_refinanciamiento},
         success: function(respuesta){
 
         	$("#tbodyComprobantes").html(info.tbodyComprobantes);
