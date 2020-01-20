@@ -51782,3 +51782,12 @@ th{
 .tbodyDetFin{
     height: 170px;
 }
+
+.myTableCronograma tbody tr:hover{
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+.tbodyCronograma{
+    height: 200px;
+}

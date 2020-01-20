@@ -84,6 +84,12 @@ function mostrarBeneficiario(row,servicio,tipoDoc,numDoc,apePaterno,apeMaterno,n
     }
  }
 
+ function getDatosCuota(row){
+ 	var rows = $('#myTableCronograma tr').not(':first');
+	rows.removeClass('selected'); 
+  	$(row).closest('tr').addClass('selected');
+ }
+
 function getDatosServicioCtt(row,localidad,tasa,tipoCtt,tipoPro,codCtt,numRef,numSer){
 	var rows = $('#myTableServicios tr').not(':first');
 	rows.removeClass('selected'); 
@@ -283,6 +289,34 @@ function getDatosServicioCtt(row,localidad,tasa,tipoCtt,tipoPro,codCtt,numRef,nu
 		    }//succes
 	});//ajaxGetDetFinanciamiento
 
+	$.ajax({
+		type: 'POST',
+		url:"ajax/segCtt.ajax.php",
+		dataType: 'text',
+		data: {'accion' : 'getCuotasCron', 'localidad' : localidad, 'cod_contrato' : codCtt, 'num_refinanciamiento' : numRef},
+		    success: function(respuesta){
+
+		   	var info = JSON.parse(respuesta);
+
+		   	$("#tbodyCronograma").html(info.tbodyCronograma);
+		   	document.getElementById("num_cuotas_SegCtt").innerHTML = info.cuotas;
+		   	document.getElementById("cuo_subtotal_total").innerHTML = info.imp_principal_total;
+		   	document.getElementById("cuo_interes_total").innerHTML = info.imp_interes_total;
+		   	document.getElementById("cuo_igv_total").innerHTML = info.imp_igv_total;
+		   	document.getElementById("cuo_total_total").innerHTML = info.imp_total_total;
+		   	document.getElementById("cuo_saldo_total").innerHTML = info.imp_saldo_total;
+		   	document.getElementById("cuo_emitido_total").innerHTML = info.imp_totalemitido_total;
+		   	document.getElementById("cuo_cancelado_total").innerHTML = info.imp_totalpagado_total;
+		   	document.getElementById("cuo_mora_total").innerHTML = info.imp_mora_total;
+
+		   	var cronograma = document.getElementById('tbodyCronograma');
+            var cronogramaLenght = cronograma.rows.length;
+            var primeraCuota = cronograma.rows.item(0);
+            primeraCuota.click();
+		        	
+		    }//succes
+	});//ajaxGetDetFinanciamiento
+
     $.ajax({
 		type: 'POST',
         url:"ajax/segCtt.ajax.php",
@@ -300,7 +334,7 @@ function getDatosServicioCtt(row,localidad,tasa,tipoCtt,tipoPro,codCtt,numRef,nu
 	            beneficiario1.click();
             }
         }//succes
-    });//ajaxGetCuotas
+    });//ajaxGetBeneficiarios
 }
 
 function getDatosServxRef(row,localidad,tasa,tipoCtt,tipoPro,codCtt,numRef,numSer){
@@ -498,6 +532,33 @@ function getDatosServxRef(row,localidad,tasa,tipoCtt,tipoPro,codCtt,numRef,numSe
 		    }//succes
 	});//ajaxGetDetFinanciamiento
 
+	$.ajax({
+		type: 'POST',
+		url:"ajax/segCtt.ajax.php",
+		dataType: 'text',
+		data: {'accion' : 'getCuotasCron', 'localidad' : localidad, 'cod_contrato' : codCtt, 'num_refinanciamiento' : numRef},
+		    success: function(respuesta){
+
+		   	var info = JSON.parse(respuesta);
+
+		   	$("#tbodyCronograma").html(info.tbodyCronograma);
+		   	document.getElementById("num_cuotas_SegCtt").innerHTML = info.cuotas;
+		   	document.getElementById("cuo_subtotal_total").innerHTML = info.imp_principal_total;
+		   	document.getElementById("cuo_interes_total").innerHTML = info.imp_interes_total;
+		   	document.getElementById("cuo_igv_total").innerHTML = info.imp_igv_total;
+		   	document.getElementById("cuo_total_total").innerHTML = info.imp_total_total;
+		   	document.getElementById("cuo_saldo_total").innerHTML = info.imp_saldo_total;
+		   	document.getElementById("cuo_emitido_total").innerHTML = info.imp_totalemitido_total;
+		   	document.getElementById("cuo_cancelado_total").innerHTML = info.imp_totalpagado_total;
+		   	document.getElementById("cuo_mora_total").innerHTML = info.imp_mora_total;
+		   	var cronograma = document.getElementById('tbodyCronograma');
+            var cronogramaLenght = cronograma.rows.length;
+            var primeraCuota = cronograma.rows.item(0);
+            primeraCuota.click();
+		        	
+		    }//succes
+	});//ajaxGetDetFinanciamiento
+
     $.ajax({
 		type: 'POST',
         url:"ajax/segCtt.ajax.php",
@@ -515,7 +576,7 @@ function getDatosServxRef(row,localidad,tasa,tipoCtt,tipoPro,codCtt,numRef,numSe
 	            beneficiario1.click();
             }
         }//succes
-    });//ajaxGetCuotas
+    });//ajaxGetBeneficiarios
 }
 
 

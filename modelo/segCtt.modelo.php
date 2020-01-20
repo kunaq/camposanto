@@ -444,6 +444,7 @@ class ModeloSegContrato{
 		$sql = $db->consulta("SELECT cod_localidad, cod_contrato, num_cuota, cod_tipo_cuota, cod_estadocuota, fch_vencimiento, fch_cancelacion, imp_principal, imp_interes, imp_igv, imp_total, imp_saldo, imp_totalemitido, imp_totalpagado,( CASE WHEN vtade_cronograma.cod_estadocuota = 'REG' AND vtade_cronograma.cod_tipo_cuota = 'ARM' AND vtade_cronograma.flg_generar_mora = 'SI' AND vtade_cronograma.flg_mora_cancelada = 'NO' AND vtade_cronograma.fch_vencimiento < GETDATE() THEN ( CASE WHEN 1 > 0 THEN ROUND((((vtade_cronograma.imp_total * 0.12) / 100) * DATEDIFF(DD, vtade_cronograma.fch_vencimiento, GETDATE())), 4) ELSE 0 END ) ELSE 0 END ) AS imp_mora FROM vtade_cronograma WHERE cod_localidad = '".$datos['localidad']."' AND cod_contrato = '".$datos['cod_contrato']."' AND num_refinanciamiento = '".$datos['num_refinanciamiento']."'");
 
 		$num_cuotas = $db->rows($sql);
+		$cuotas = "Cuotas(".$num_cuotas.")";
 
 		$imp_principal_total = 0;
 		$imp_interes_total = 0;
@@ -457,7 +458,7 @@ class ModeloSegContrato{
 
 		while($key = $db->recorrer($sql)){
 
-			$tbodyCronograma .= '<tr>
+			$tbodyCronograma .= '<tr onclick="getDatosCuota(this);">
 									<td>'.$key['num_cuota'].'</td>
 									<td>'.$key['cod_tipo_cuota'].'</td>
 									<td>'.$key['cod_estadocuota'].'</td>
@@ -483,7 +484,7 @@ class ModeloSegContrato{
 			$imp_mora_total += $key["imp_mora"];
 		}
 
-		$arrData = array('tbodyCronograma'=> $tbodyCronograma, 'imp_principal_total' => number_format(round($imp_principal_total, 2),2,',','.'), 'imp_interes_total' => number_format(round($imp_interes_total, 2),2,',','.'), 'imp_igv_total' => number_format(round($imp_igv_total, 2),2,',','.'), 'imp_total_total' => number_format(round($imp_total_total, 2),2,',','.'), 'imp_saldo_total' => number_format(round($imp_saldo_total, 2),2,',','.'), 'imp_totalemitido_total' => number_format(round($imp_totalemitido_total, 2),2,',','.'), 'imp_totalpagado_total' => number_format(round($imp_totalpagado_total, 2),2,',','.'), 'imp_mora_total' => number_format(round($imp_mora_total, 2),2,',','.'), 'num_cuotas' => $num_cuotas); 
+		$arrData = array('tbodyCronograma'=> $tbodyCronograma, 'imp_principal_total' => number_format(round($imp_principal_total, 2),2,',','.'), 'imp_interes_total' => number_format(round($imp_interes_total, 2),2,',','.'), 'imp_igv_total' => number_format(round($imp_igv_total, 2),2,',','.'), 'imp_total_total' => number_format(round($imp_total_total, 2),2,',','.'), 'imp_saldo_total' => number_format(round($imp_saldo_total, 2),2,',','.'), 'imp_totalemitido_total' => number_format(round($imp_totalemitido_total, 2),2,',','.'), 'imp_totalpagado_total' => number_format(round($imp_totalpagado_total, 2),2,',','.'), 'imp_mora_total' => number_format(round($imp_mora_total, 2),2,',','.'), 'cuotas' => $cuotas); 
 
 		return $arrData;
 
