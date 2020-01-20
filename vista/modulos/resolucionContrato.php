@@ -75,7 +75,7 @@
 								</div>
 								<div class="col-lg-6">
 									<label>Tipo Cambio</label>
-									<input type="text" class="form-control form-control-sm m-input" id="tCambioResolucion" disabled >
+									<input type="text" class="form-control form-control-sm m-input" id="tCambioResolucion" disabled  value=" <?php $prueba = controladorEmpresa::ctrtipoCambio(); ?>" >
 								</div>
 								<div class="col-lg-12">
 									<label>Tipo</label>
