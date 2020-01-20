@@ -93,9 +93,9 @@ class ModeloModifCtto{
         $db->cerrar();
 	}//mdlBuscaCronogramaFOMA
 
-	static public function mdlBuscaObservaciones($tablaObservacion,$tablaArea,$codCtto,$num_servicio){
+	static public function mdlBuscaObservaciones($tablaObservacion,$codCtto,$num_servicio){
 		$db = new Conexion();
-		 $sql = $db->consulta("SELECT $tablaObservacion.num_linea, $tablaObservacion.dsc_observacion, $tablaObservacion.cod_usuario, $tablaObservacion.fch_registro, $tablaObservacion.flg_automatico, $tablaArea.dsc_area FROM $tablaObservacion LEFT JOIN $tablaArea ON $tablaObservacion.cod_Area = $tablaArea.cod_area WHERE cod_contrato LIKE (RIGHT('0000000000'+'$codCtto',10)) AND num_servicio = $num_servicio");
+		 $sql = $db->consulta("SELECT $tablaObservacion.num_linea, $tablaObservacion.dsc_observacion, $tablaObservacion.cod_usuario, $tablaObservacion.fch_registro, $tablaObservacion.flg_automatico FROM $tablaObservacion WHERE cod_contrato LIKE (RIGHT('0000000000'+'$codCtto',10)) AND num_servicio = $num_servicio");
 		$datos = array();
     	while($key = $db->recorrer($sql)){
 	    		$datos[] = arrayMapUtf8Encode($key);

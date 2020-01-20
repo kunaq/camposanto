@@ -84,10 +84,9 @@ class ControladorModifCtto{
 
 	static public function ctrBuscaObservaciones(){
 		$tablaObservacion = 'vtade_observacion_x_contrato';
-		$tablaArea = 'rhuma_area_empresa';
 		$codCtto = $_POST['codCtto'];
 		$num_servicio = $_POST['num_servicio'];
-		$respuesta = ModeloModifCtto::mdlBuscaObservaciones($tablaObservacion,$tablaArea,$codCtto,$num_servicio);
+		$respuesta = ModeloModifCtto::mdlBuscaObservaciones($tablaObservacion,$codCtto,$num_servicio);
 		return $respuesta;
 	}//ctrBuscaObservaciones
 
