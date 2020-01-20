@@ -50936,11 +50936,11 @@ body {
 }
 
 .stickBotonMovilidad{
-    right: 0;
+    right: 0.35rem;
     height: 285px;
     transition: 0.800s ease;
     position: fixed;
-    top: 9%;
+    top: 15%;
     list-style: none;
     padding: 0 10px;
     margin: 0;
