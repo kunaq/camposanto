@@ -1790,11 +1790,11 @@
 							</div>
 						</div>
 						<div class="tab-pane" id="m_tabs_2_10" role="tabpanel">
-							<div class="row form-group">
-								<div class="col-lg-2">
+							<div class="row">
+								<div class="col-lg-1" style="margin-left: 2rem;">
 									<label class=" ">Área</label>
 								</div>
-								<div class="col-lg-4">
+								<div class="col-lg-3">
 									<input type="text" class="form-control form-control-sm m-input" name="area" id="area">
 								</div>
 							</div>
