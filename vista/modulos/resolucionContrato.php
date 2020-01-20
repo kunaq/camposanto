@@ -33,7 +33,7 @@
 									<div class="input-group">
 										<input type="text" class="form-control form-control-sm m-input" name="numConResolucion" id="numConResolucion">
 										<div class="input-group-append">
-											<button class="btn btnGuardarKqPst btn-sm" type="button" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar contrato" onclick="buscaCtto();">
+											<button class="btn btnGuardarKqPst btn-sm" type="button" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar contrato" onclick="buscaServicios();">
 												<i class="la la-search"></i>
 											</button>
 										</div>
