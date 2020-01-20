@@ -51,7 +51,7 @@
 		<!-- boton movilidad -->
 		<div class="sidebar-wrapper stickBotonMovilidad"> 
 			<a href="#container" class="btn btn-primary m-btn m-btn--icon btn-lg m-btn--icon-only m-btn--pill m-btn--air" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Separación de movilidades">
-				<i class="fa fa-car"></i>
+				<i class="fa fa-truck"></i>
 			</a>
 		</div>
 		<!-- fin boton movilidad -->
