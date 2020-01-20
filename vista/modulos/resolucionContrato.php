@@ -30,7 +30,14 @@
 								</div>
 								<div class="col-lg-3">
 									<label>Contrato</label>
-									<input type="text" class="form-control form-control-sm m-input" name="numConResolucion" id="numConResolucion">
+									<div class="input-group">
+										<input type="text" class="form-control form-control-sm m-input" name="numConResolucion" id="numConResolucion">
+										<div class="input-group-append">
+											<button class="btn btnGuardarKqPst btn-sm" type="button" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar contrato" onclick="buscaCtto();">
+												<i class="la la-search"></i>
+											</button>
+										</div>
+									</div>
 								</div>
 								<div class="col-lg-1">
 									<label>Servicio</label>
@@ -68,7 +75,7 @@
 								</div>
 								<div class="col-lg-6">
 									<label>Tipo Cambio</label>
-									<input type="text" class="form-control form-control-sm m-input" id="tCambioResolucion" disabled >
+									<input type="text" class="form-control form-control-sm m-input" id="tCambioResolucion" disabled  value=" <?php $prueba = controladorEmpresa::ctrtipoCambio(); ?>" >
 								</div>
 								<div class="col-lg-12">
 									<label>Tipo</label>
@@ -208,7 +215,7 @@
 												</div>
 												<div class="col-lg-8">
 													<label>&nbsp;</label>
-													<input type="text" class="form-control form-control-sm m-input" name="dscJVenResolucion" id="dscJVenResolucion" disabled>
+													<input type="text" class="form-control form-control-sm m-input" name="dscJVenResolucion1s" id="dscJVenResolucion1s" disabled>
 												</div>
 												<div class="col-lg-4">
 													<label>Vendedor</label>

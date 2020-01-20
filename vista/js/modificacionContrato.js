@@ -1,4 +1,5 @@
 $("#codContrato").number(true, 0, ',', '');
+$('#numDocBenef').number(true, 0, ',', '');
 $("#cuota").number(true,2);
 $("#interes").number(true,2);
 $("#saldoFinanciar").number(true,2);
