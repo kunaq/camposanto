@@ -910,16 +910,16 @@ function cargaObservaciones(codCtto,numServicio){
         	console.log('respuesta',respuesta);
         	$.each(respuesta,function(index,value){
         		if(value['flg_automatico'] == 'SI'){
-        			auto = 'true';
+        			auto = 'checked';
         		}else if (value['flg_automatico'] == 'NO'){
-        			auto = 'false';
+        			auto = '';
         		}
         		var filaObsv = '<tr>'+
 									'<td>'+value['num_linea']+'</td>'+
-									'<td>'+value['dsc_observacion']+'</td>'+
+									'<td style="text-align: left;">'+value['dsc_observacion']+'</td>'+
 									'<td>'+value['cod_usuario']+'</td>'+
 									'<td>'+value['fch_registro']+'</td>'+
-									'<td><span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger"><input type="checkbox" checked = '+auto+'><span></span></span></td>'+
+									'<td><span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger"><input type="checkbox" disabled '+auto+'><span></span></span></td>'+
 								'</tr>';
 				document.getElementById("bodyObservaciones").insertAdjacentHTML("beforeEnd" ,filaObsv);
         	});//each
