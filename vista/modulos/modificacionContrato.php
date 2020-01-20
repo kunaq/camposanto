@@ -561,6 +561,9 @@
 											<div class="col-lg-12">
 												<div class="row">
 													<div class="col-lg-6">
+														<label>Codigo Cliente</label>
+														<input type="text" class="form-control form-control-sm m-input" name="codCliTitular" id="codCliTitular" disabled onchange="buscaDatosTi();">
+														<input type="hidden"name="codAval" id="codAval" onchange="buscaDatosAval();">
 													</div>
 													<div class="col-lg-6">
 														<div class="row">
@@ -726,23 +729,16 @@
 														<input type="text" class="form-control form-control-sm m-input" name="codCliTitular2" id="codCliTitular2" disabled onchange="buscaDatos2Ti();">
 													</div>
 													<div class="col-lg-5">
-														<div class="row">
-															<div class="col-lg-7">
-																<label>Codigo Cliente</label>
-																<input type="text" class="form-control form-control-sm m-input" name="codCliTitular" id="codCliTitular" disabled onchange="buscaDatosTi();">
-																<input type="hidden"name="codAval" id="codAval" onchange="buscaDatosAval();">
-															</div>
-															<div class="col-lg-5">
-																<button type="button" id="btn2Com" class="btn btn-sm btnEditarKqPst2 mt25">
-																	<i class="fa fa-user-o"></i>
-																</button>
-																<button type="button" id="btn2Com" class="btn btn-sm btnGuardarKqPst mt25">
-																	<i class="fa fa-search"></i>
-																</button>
-																<button type="button" id="btn2Com" class="btn btn-sm btnThird mt25">
-																	<i class="fa fa-exchange"></i>
-																</button>
-															</div>
+														<div class="col-lg-5">
+															<button type="button" id="btn2Com" class="btn btn-sm btnEditarKqPst2 mt25">
+																<i class="fa fa-user-o"></i>
+															</button>
+															<button type="button" id="btn2Com" class="btn btn-sm btnGuardarKqPst mt25">
+																<i class="fa fa-search"></i>
+															</button>
+															<button type="button" id="btn2Com" class="btn btn-sm btnThird mt25">
+																<i class="fa fa-exchange"></i>
+															</button>
 														</div>
 													</div>
 												</div>
