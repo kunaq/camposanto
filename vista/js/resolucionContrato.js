@@ -38,3 +38,7 @@ function buscaPeriodo(){
          }
     });
 }
+
+function buscaServicios(){
+    alert('llego');
+}
