@@ -1793,32 +1793,10 @@
 							<div class="col-lg-12">
 								<fieldset class="fieldFormHorizontal">
 									<legend>&nbsp;</legend>
-									<div class="col-lg-12">
+									<div class="col-lg-4">
 										<div class="row form-group">
-											<div class="col-lg-4">
 											<label class=" ">Área</label>
-												<input type="text" class="form-control form-control-sm m-input" name="area" id="area">
-											</div>
-											<div class="col-lg-5"></div>
-											<div class="col-lg-3">
-												<table>
-													<tbody>
-														<tr>
-															<td>
-																<label class="m-checkbox">Mostrar Todas&nbsp;</label>
-															</td>
-															<td>
-																<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
-																	<label>
-																		<input type="checkbox" name="" id="observacionesCheck">
-																		<span></span>
-																	</label>
-																</span>
-															</td>
-														</tr>
-													</tbody>
-												</table>
-											</div>
+											<input type="text" class="form-control form-control-sm m-input" name="area" id="area">
 										</div>
 									</div>
 								</fieldset>
