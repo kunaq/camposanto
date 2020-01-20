@@ -69,6 +69,13 @@ class AjaxModifCtto{
 		}
 		echo json_encode($respuesta);
 	}//ajaxBuscaCronogramaFOMA
+	public function ajaxBuscaObservaciones(){
+		$respuesta = ControladorModifCtto::ctrBuscaObservaciones();
+		foreach ($respuesta as $key => $value) {
+			$respuesta[$key]["fch_registro"] = ($respuesta[$key]["fch_registro"] != '') ? dateTimeFormat($respuesta[$key]["fch_registro"]) : '';
+		}
+		echo json_encode($respuesta);
+	}//ajaxBuscaObservaciones
 }//class AjaxModifCtto
 /*=============================================
 ACCIONES
@@ -108,4 +115,8 @@ else if(isset($_POST["accion"]) && $_POST["accion"] == 'cronograma'){
 else if(isset($_POST["accion"]) && $_POST["accion"] == 'FOMA'){
 	$cliente = new AjaxModifCtto();
 	$cliente -> ajaxBuscaCronogramaFOMA();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'observaciones'){
+	$cliente = new AjaxModifCtto();
+	$cliente -> ajaxBuscaObservaciones();
 }

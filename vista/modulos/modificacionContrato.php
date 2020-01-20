@@ -4,15 +4,15 @@
 		<!--begin: Portlet Head-->
 		<!------------------------------- botones --------------------------------->
 					<div class="sidebar-wrapper stickButtons" id="container-button"> 
-						<a href="#container" class="btn btn-metal m-btn m-btn--icon btn-lg m-btn--icon-only toggle-collapse-resumen" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Nueva busqueda" id="new-button">
+						<a href="#container" class="btn btn-metal m-btn m-btn--icon btn-lg m-btn--icon-only" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Nueva busqueda" id="new-button">
 							<i class="fa fa-search"></i>
 						</a>
-						<br><br><br>
-						<a href="#container" class="btn btnGuardarKqPst m-btn m-btn--icon btn-lg m-btn--icon-only toggle-collapse-resumen" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Guardar cambios" id="save-button">
+						<br><br>
+						<a href="#container" class="btn btnGuardarKqPst m-btn m-btn--icon btn-lg m-btn--icon-only" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Guardar cambios" id="save-button">
 							<i class="fa fa-save"></i>
 						</a>
-						<br><br><br>
-						<a href="#container" class="btn btnEditarKqPst2 m-btn m-btn--icon btn-lg m-btn--icon-only toggle-collapse-resumen" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Anular contrato" id="null-button">
+						<br><br>
+						<a href="#container" class="btn btnEditarKqPst2 m-btn m-btn--icon btn-lg m-btn--icon-only" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Anular contrato" id="null-button">
 							<i class="fa fa-eraser"></i>
 						</a>
 					</div> 
@@ -220,12 +220,12 @@
 								Gestión
 							</a>
 						</li>
-						<!-- <li class="nav-item m-tabs__item">
+						<li class="nav-item m-tabs__item">
 							<a class="nav-link m-tabs__link" data-toggle="tab" href="#m_tabs_2_10" role="tab">
 								Observaciones
 							</a>
 						</li>
-						<li class="nav-item m-tabs__item">
+						<!-- <li class="nav-item m-tabs__item">
 							<a class="nav-link m-tabs__link" data-toggle="tab" href="#m_tabs_2_11" role="tab">
 								C. Especiales
 							</a>
@@ -561,24 +561,9 @@
 											<div class="col-lg-12">
 												<div class="row">
 													<div class="col-lg-6">
-														<div class="row">
-															<div class="col-lg-7">
-																<label>Codigo Cliente</label>
-																<input type="text" class="form-control form-control-sm m-input" name="codCliTitular" id="codCliTitular" disabled onchange="buscaDatosTi();">
-																<input type="hidden"name="codAval" id="codAval" onchange="buscaDatosAval();">
-															</div>
-															<div class="col-lg-5">
-																<button type="button" id="btn2Com" class="btn btn-sm btnEditarKqPst2 mt25">
-																	<i class="fa fa-user-o"></i>
-																</button>
-																<button type="button" id="btn2Com" class="btn btn-sm btnGuardarKqPst mt25">
-																	<i class="fa fa-search"></i>
-																</button>
-																<button type="button" id="btn2Com" class="btn btn-sm btnThird mt25">
-																	<i class="fa fa-exchange"></i>
-																</button>
-															</div>
-														</div>
+														<label>Codigo Cliente</label>
+														<input type="text" class="form-control form-control-sm m-input" name="codCliTitular" id="codCliTitular" disabled onchange="buscaDatosTi();">
+														<input type="hidden"name="codAval" id="codAval" onchange="buscaDatosAval();">
 													</div>
 													<div class="col-lg-6">
 														<div class="row">
@@ -744,6 +729,17 @@
 														<input type="text" class="form-control form-control-sm m-input" name="codCliTitular2" id="codCliTitular2" disabled onchange="buscaDatos2Ti();">
 													</div>
 													<div class="col-lg-5">
+														<div class="col-lg-5">
+															<button type="button" id="btn2Com" class="btn btn-sm btnEditarKqPst2 mt25">
+																<i class="fa fa-user-o"></i>
+															</button>
+															<button type="button" id="btn2Com" class="btn btn-sm btnGuardarKqPst mt25">
+																<i class="fa fa-search"></i>
+															</button>
+															<button type="button" id="btn2Com" class="btn btn-sm btnThird mt25">
+																<i class="fa fa-exchange"></i>
+															</button>
+														</div>
 													</div>
 												</div>
 											</div>
@@ -1790,38 +1786,13 @@
 							</div>
 						</div>
 						<div class="tab-pane" id="m_tabs_2_10" role="tabpanel">
-							<div class="col-lg-12">
-								<fieldset class="fieldFormHorizontal">
-									<legend>&nbsp;</legend>
-									<div class="col-lg-12">
-										<div class="row form-group">
-											<div class="col-lg-4">
-											<label class=" ">Área</label>
-												<input type="text" class="form-control form-control-sm m-input" name="area" id="area">
-											</div>
-											<div class="col-lg-5"></div>
-											<div class="col-lg-3">
-												<table>
-													<tbody>
-														<tr>
-															<td>
-																<label class="m-checkbox">Mostrar Todas&nbsp;</label>
-															</td>
-															<td>
-																<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
-																	<label>
-																		<input type="checkbox" name="" id="observacionesCheck">
-																		<span></span>
-																	</label>
-																</span>
-															</td>
-														</tr>
-													</tbody>
-												</table>
-											</div>
-										</div>
-									</div>
-								</fieldset>
+							<div class="row">
+								<div class="col-lg-1" style="margin-left: 2rem;">
+									<label class=" ">Área</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="text" class="form-control form-control-sm m-input" name="area" id="area">
+								</div>
 							</div>
 							<div class="row">			
 								<div class="col-lg-12">
@@ -1836,25 +1807,8 @@
 													<th>F. Registro</th>
 													<th>Auto</th>
 												</thead>
-												<tbody>
-													<tr>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
-													</tr>
-													<tr>
-														<td></td>
-													</tr>
+												<tbody id="bodyObservaciones">
 												</tbody>
-												<tfoot>
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
-												</tfoot>
 											</table>
 										</div>
 									</div>

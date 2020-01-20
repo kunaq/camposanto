@@ -50928,7 +50928,19 @@ body {
     height: 285px;
     transition: 0.800s ease;
     position: fixed;
-    top: 9%;
+    top: 19%;
+    list-style: none;
+    padding: 0 10px;
+    margin: 0;
+    z-index: 110;
+}
+
+.stickBotonMovilidad{
+    right: 0.2rem;
+    height: 285px;
+    transition: 0.800s ease;
+    position: fixed;
+    top: 15%;
     list-style: none;
     padding: 0 10px;
     margin: 0;
@@ -50940,7 +50952,7 @@ body {
     height: 285px;
     transition: 0.800s ease;
     position: fixed;
-    top: 9%;
+    top: 14%;
     list-style: none;
     padding: 5px 0;
     margin: 0;

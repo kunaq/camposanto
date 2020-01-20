@@ -82,5 +82,13 @@ class ControladorModifCtto{
 		return $respuesta;
 	}//ctrBuscaCronogramaFOMA
 
+	static public function ctrBuscaObservaciones(){
+		$tablaObservacion = 'vtade_observacion_x_contrato';
+		$codCtto = $_POST['codCtto'];
+		$num_servicio = $_POST['num_servicio'];
+		$respuesta = ModeloModifCtto::mdlBuscaObservaciones($tablaObservacion,$codCtto,$num_servicio);
+		return $respuesta;
+	}//ctrBuscaObservaciones
+
 }//class ControladorModifCtto
 ?>

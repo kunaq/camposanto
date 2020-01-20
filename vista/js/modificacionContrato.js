@@ -173,6 +173,7 @@ function muestraInfo(id){
         		$("#AgFunCheck").trigger('change');
         	}
         	$("#codFuneraria").val(respuesta['cod_agencia']).trigger('change');
+        	cargaObservaciones(codCtto,id);
         	$.ajax({
 		        url: 'ajax/modifCtto.ajax.php',
 		        dataType: 'json',
@@ -895,3 +896,33 @@ function verDetalles(evt) {
   boton2 = document.getElementById("botonEliminarB");
   boton2.addEventListener("click", function(){eliminaBenef(numDoc)}, false);
 }
+
+//---------------------------------pestaña observaciones----------------------
+
+function cargaObservaciones(codCtto,numServicio){
+	$("#bodyObservaciones").empty();
+	$.ajax({
+        url: 'ajax/modifCtto.ajax.php',
+        dataType: 'json',
+        method: "POST",
+        data: { 'accion' : 'observaciones', 'codCtto' : codCtto, 'num_servicio' : numServicio },
+        success : function(respuesta){
+        	console.log('respuesta',respuesta);
+        	$.each(respuesta,function(index,value){
+        		if(value['flg_automatico'] == 'SI'){
+        			auto = 'checked';
+        		}else if (value['flg_automatico'] == 'NO'){
+        			auto = '';
+        		}
+        		var filaObsv = '<tr>'+
+									'<td>'+value['num_linea']+'</td>'+
+									'<td style="text-align: left;">'+value['dsc_observacion']+'</td>'+
+									'<td>'+value['cod_usuario']+'</td>'+
+									'<td>'+value['fch_registro']+'</td>'+
+									'<td><span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger"><input type="checkbox" disabled '+auto+'><span></span></span></td>'+
+								'</tr>';
+				document.getElementById("bodyObservaciones").insertAdjacentHTML("beforeEnd" ,filaObsv);
+        	});//each
+        }//success
+    });//ajax
+}// function cargaObservaciones
