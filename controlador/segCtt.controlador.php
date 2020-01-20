@@ -101,7 +101,8 @@ class ControladorSegContrato{
 	static public function ctrGetCuotasCron(){
 
 		$datos = array('localidad' => $_POST['localidad'],
-					   'cod_contrato' => $_POST['cod_contrato']);
+					   'cod_contrato' => $_POST['cod_contrato'],
+					   'num_refinanciamiento' => $_POST['num_refinanciamiento']);
 
 		$respuesta = ModeloSegContrato::mdlGetCuotasCron($datos);
 		return $respuesta;
