@@ -441,7 +441,7 @@ class ModeloSegContrato{
 
 		$db = new Conexion();
 
-		$sql = $db->consulta("SELECT cod_localidad, cod_contrato, num_cuota, cod_tipo_cuota, cod_estadocuota, fch_vencimiento, fch_cancelacion, imp_principal, imp_interes, imp_igv, imp_total, imp_saldo, imp_totalemitido, imp_totalpagado,( CASE WHEN vtade_cronograma.cod_estadocuota = 'REG' AND vtade_cronograma.cod_tipo_cuota = 'ARM' AND vtade_cronograma.flg_generar_mora = 'SI' AND vtade_cronograma.flg_mora_cancelada = 'NO' AND vtade_cronograma.fch_vencimiento < GETDATE() THEN ( CASE WHEN 1 > 0 THEN ROUND((((vtade_cronograma.imp_total * 0.12) / 100) * DATEDIFF(DD, vtade_cronograma.fch_vencimiento, GETDATE())), 4) ELSE 0 END ) ELSE 0 END ) AS imp_mora FROM vtade_cronograma WHERE cod_localidad = '".$datos['localidad']."' AND cod_contrato = '".$datos['cod_contrato']."' AND num_refinanciamiento = '".$datos['num_refinanciamiento']."'");
+		$sql = $db->consulta("SELECT cod_localidad, cod_contrato, num_refinanciamiento, num_cuota, cod_tipo_cuota, cod_estadocuota, fch_vencimiento, fch_cancelacion, imp_principal, imp_interes, imp_igv, imp_total, imp_saldo, imp_totalemitido, imp_totalpagado,( CASE WHEN vtade_cronograma.cod_estadocuota = 'REG' AND vtade_cronograma.cod_tipo_cuota = 'ARM' AND vtade_cronograma.flg_generar_mora = 'SI' AND vtade_cronograma.flg_mora_cancelada = 'NO' AND vtade_cronograma.fch_vencimiento < GETDATE() THEN ( CASE WHEN 1 > 0 THEN ROUND((((vtade_cronograma.imp_total * 0.12) / 100) * DATEDIFF(DD, vtade_cronograma.fch_vencimiento, GETDATE())), 4) ELSE 0 END ) ELSE 0 END ) AS imp_mora FROM vtade_cronograma WHERE cod_localidad = '".$datos['localidad']."' AND cod_contrato = '".$datos['cod_contrato']."' AND num_refinanciamiento = '".$datos['num_refinanciamiento']."'");
 
 		$num_cuotas = $db->rows($sql);
 		$cuotas = "Cuotas(".$num_cuotas.")";
@@ -458,7 +458,12 @@ class ModeloSegContrato{
 
 		while($key = $db->recorrer($sql)){
 
-			$tbodyCronograma .= '<tr onclick="getDatosCuota(this);">
+			$localidad = "'".$key['cod_localidad']."'";
+			$cod_contrato = "'".$key['cod_contrato']."'";
+			$num_ref = "'".$key['num_refinanciamiento']."'";
+			$num_cuota = "'".$key['num_cuota']."'";
+
+			$tbodyCronograma .= '<tr onclick="getComprobantesCuota(this,'.$localidad.','.$cod_contrato.','.$num_ref.','.$num_cuota.');">
 									<td>'.$key['num_cuota'].'</td>
 									<td>'.$key['cod_tipo_cuota'].'</td>
 									<td>'.$key['cod_estadocuota'].'</td>
@@ -578,7 +583,64 @@ class ModeloSegContrato{
         $db->cerrar();
 
 	}//function mdlGetDsctoServicio
+	
+	static public function mdlGetComprobantes($datos){
 
+		$db = new Conexion();
+
+		$sql = $db->consulta("SELECT vtavi_cuotas_x_comprobante.cod_localidad, vtavi_cuotas_x_comprobante.cod_contrato, vtavi_cuotas_x_comprobante.num_refinanciamiento, (SELECT vtama_tipo_comprobante.dsc_tipo_comprobante FROM vtama_tipo_comprobante WHERE vtama_tipo_comprobante.cod_tipo_comprobante = vtaca_comprobante.cod_tipo_comprobante) AS dsc_tipo_comprobante,vtaca_comprobante.num_comprobante, vtaca_comprobante.flg_nc, vtaca_comprobante.fch_emision, vtaca_comprobante.cod_moneda, vtaca_comprobante.imp_total, vtaca_comprobante.imp_saldo, vtaca_comprobante.cod_estado FROM vtavi_cuotas_x_comprobante INNER JOIN vtaca_comprobante ON vtaca_comprobante.num_correlativo = vtavi_cuotas_x_comprobante.num_correlativo WHERE vtavi_cuotas_x_comprobante.cod_localidad_ctt = '".$datos['localidad']."' AND vtavi_cuotas_x_comprobante.cod_contrato = '".$datos['cod_contrato']."' AND vtavi_cuotas_x_comprobante.num_cuota = '".$datos['num_cuota']."' AND vtavi_cuotas_x_comprobante.num_refinanciamiento = '".$datos['num_refinanciamiento']."' UNION SELECT vtavi_mora_x_comprobante.cod_localidad, vtavi_mora_x_comprobante.cod_contrato, vtavi_mora_x_comprobante.num_refinanciamiento, (SELECT vtama_tipo_comprobante.dsc_tipo_comprobante FROM vtama_tipo_comprobante WHERE vtama_tipo_comprobante.cod_tipo_comprobante = vtaca_comprobante.cod_tipo_comprobante) AS dsc_tipo_comprobante,vtaca_comprobante.num_comprobante, vtaca_comprobante.flg_nc, vtaca_comprobante.fch_emision, vtaca_comprobante.cod_moneda, vtaca_comprobante.imp_total, vtaca_comprobante.imp_saldo, vtaca_comprobante.cod_estado FROM vtavi_mora_x_comprobante INNER JOIN vtaca_comprobante ON vtaca_comprobante.num_correlativo = vtavi_mora_x_comprobante.num_correlativo WHERE vtavi_mora_x_comprobante.cod_localidad_ctt = '".$datos['localidad']."' AND vtavi_mora_x_comprobante.cod_contrato = '".$datos['cod_contrato']."' AND vtavi_mora_x_comprobante.num_cuota = '".$datos['num_cuota']."' AND vtavi_mora_x_comprobante.num_refinanciamiento = '".$datos['num_refinanciamiento']."'");
+
+		$tbodyComprobantes = "";
+
+		while($key = $db->recorrer($sql)){
+
+			$num_comprobante = "'".$key['num_comprobante']."'";
+			$cod_localidad = "'".$key['cod_localidad']."'";
+			$cod_contrato = "'".$key['cod_contrato']."'";
+			$num_refinanciamiento = "'".$key['num_refinanciamiento']."'";
+
+			$tbodyComprobantes .= '<tr onclick="getCancelacionComprobante(this,'.$num_comprobante.','.$cod_localidad.','.$cod_contrato.','.$num_refinanciamiento.');" ondblclick="getDatosComprobante()">
+									<td>
+										<span data-toggle="modal" data-target="#m_modal_tabla_comprobante">
+											<button type="button" class="btn-comprobante btnGuardarKqPst" data-toggle="m-tooltip" data-container="body" onclick="creaTablaComprobante('.$num_comprobante.','.$cod_localidad.','.$cod_contrato.','.$num_refinanciamiento.');">
+												<i class="la la-plus"></i>
+											</button>
+										</span>
+									</td>
+									<td>'.$key['dsc_tipo_comprobante'].'</td>
+									<td>'.$key['num_comprobante'].'</td>';
+			if ($key['flg_nc'] == "SI") {
+				$tbodyComprobantes .= '<td>
+										<label class="m-checkbox">
+											<input type="checkbox" checked="" disabled>
+											<span></span>
+										</label>
+									</td>';
+			}else{
+				$tbodyComprobantes .= '<td>
+										<label class="m-checkbox">
+											<input type="checkbox" disabled>
+											<span></span>
+										</label>
+									</td>';
+			}
+			$tbodyComprobantes .= '<td>'.dateFormat($key['fch_emision']).'</td>
+								<td>'.$key['cod_moneda'].'</td>
+								<td>'.number_format(round($key['imp_total'], 2),2,',','.').'</td>
+								<td>'.number_format(round($key['imp_saldo'], 2),2,',','.').'</td>
+								<td>'.$key['cod_estado'].'</td>
+							</tr>';
+
+		}
+
+		$arrData = array('tbodyComprobantes'=> $tbodyComprobantes); 
+
+		return $arrData;
+
+		$db->liberar($sql);
+        $db->cerrar();
+
+	}//function mdlGetEndoServicio
 
 }//class ModeloWizard
 ?>

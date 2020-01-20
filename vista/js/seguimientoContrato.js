@@ -84,8 +84,33 @@ function mostrarBeneficiario(row,servicio,tipoDoc,numDoc,apePaterno,apeMaterno,n
     }
  }
 
- function getDatosCuota(row){
+ function getComprobantesCuota(row,localidad,contrato,num_refinanciamiento,num_cuota){
  	var rows = $('#myTableCronograma tr').not(':first');
+	rows.removeClass('selected'); 
+  	$(row).closest('tr').addClass('selected');
+
+  	$.ajax({
+		type: 'POST',
+        url:"ajax/segCtt.ajax.php",
+        dataType: 'text',
+        data: {'accion' : 'getComprobantes', 'localidad' : localidad , 'cod_contrato' : contrato, 'num_cuota' : num_cuota, 'num_refinanciamiento' : num_refinanciamiento},
+        success: function(respuesta){
+
+        	$("#tbodyComprobantes").html(info.tbodyComprobantes);
+		    var tablaComprobantes = document.getElementById('tbodyComprobantes');
+            var primeraFilaComp = tablaComprobantes.rows.item(0);
+            primeraFilaComp.click();
+        	
+        }//succes
+    });//ajax
+ }
+
+ function getDatosComprobante(){
+ 	console.log("doble.click");
+ }
+
+ function getCancelacionComprobante(row,comprobante,localidad,contrato,num_refinanciamiento){
+ 	var rows = $('#myTableComprobante tr').not(':first');
 	rows.removeClass('selected'); 
   	$(row).closest('tr').addClass('selected');
  }

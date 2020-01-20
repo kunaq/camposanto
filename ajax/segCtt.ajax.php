@@ -53,6 +53,10 @@ class AjaxSegCtt{
 		$respuesta = ControladorSegContrato::ctrGetDetFinanciamiento();
 		echo json_encode($respuesta,JSON_UNESCAPED_UNICODE);
 	}//function ajaxGetDetFinanciamiento
+	public function ajaxGetComprobantes(){
+		$respuesta = ControladorSegContrato::ctrGetComprobantes();
+		echo json_encode($respuesta,JSON_UNESCAPED_UNICODE);
+	}//function ajaxGetDetFinanciamiento
 
 }//class AjaxWizard
 
@@ -107,4 +111,8 @@ else if(isset($_POST["accion"]) && $_POST["accion"] == 'getDatosEspacio'){
 else if(isset($_POST["accion"]) && $_POST["accion"] == 'getDetFinanciamiento'){
 	$cliente = new AjaxSegCtt();
 	$cliente -> ajaxGetDetFinanciamiento();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'getComprobantes'){
+	$cliente = new AjaxSegCtt();
+	$cliente -> ajaxGetComprobantes();
 }

@@ -126,6 +126,18 @@ class ControladorSegContrato{
 
 		$respuesta = ModeloSegContrato::mdlGetDetFinanciamiento($datos);
 		return $respuesta;
-	}//function ctrGetEndoServicio
+	}//function ctrGetDetFinanciamiento
+	
+	static public function ctrGetComprobantes(){
+
+		$datos = array('localidad' => $_POST['localidad'],
+					   'cod_contrato' => $_POST['cod_contrato'],
+					   'num_cuota' => $_POST['num_cuota'],
+					   'num_refinanciamiento' => $_POST['num_refinanciamiento']);
+
+		$respuesta = ModeloSegContrato::mdlGetComprobantes($datos);
+		return $respuesta;
+	}//function ctrGetComprobantes
+
 }//class ControladorWizard
 ?>
