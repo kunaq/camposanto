@@ -900,6 +900,7 @@ function verDetalles(evt) {
 //---------------------------------pestaña observaciones----------------------
 
 function cargaObservaciones(codCtto,numServicio){
+	$("#bodyObservaciones").empty();
 	$.ajax({
         url: 'ajax/modifCtto.ajax.php',
         dataType: 'json',
@@ -907,6 +908,21 @@ function cargaObservaciones(codCtto,numServicio){
         data: { 'accion' : 'observaciones', 'codCtto' : codCtto, 'num_servicio' : numServicio },
         success : function(respuesta){
         	console.log('respuesta',respuesta);
+        	$.each(respuesta,function(index,value){
+        		if(value['flg_automatico'] == 'SI'){
+        			auto = 'true';
+        		}else if (value['flg_automatico'] == 'NO'){
+        			auto = 'false';
+        		}
+        		var filaObsv = '<tr>'+
+									'<td>'+value['num_linea']+'</td>'+
+									'<td>'+value['dsc_observacion']+'</td>'+
+									'<td>'+value['cod_usuario']+'</td>'+
+									'<td>'+value['fch_registro']+'</td>'+
+									'<td><span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger"><input type="checkbox" checked = '+auto+'><span></span></span></td>'+
+								'</tr>';
+				document.getElementById("bodyObservaciones").insertAdjacentHTML("beforeEnd" ,filaObsv);
+        	});//each
         }//success
     });//ajax
 }// function cargaObservaciones

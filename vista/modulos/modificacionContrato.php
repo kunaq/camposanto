@@ -4,15 +4,15 @@
 		<!--begin: Portlet Head-->
 		<!------------------------------- botones --------------------------------->
 					<div class="sidebar-wrapper stickButtons" id="container-button"> 
-						<a href="#container" class="btn btn-metal m-btn m-btn--icon btn-lg m-btn--icon-only toggle-collapse-resumen" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Nueva busqueda" id="new-button">
+						<a href="#container" class="btn btn-metal m-btn m-btn--icon btn-lg m-btn--icon-only" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Nueva busqueda" id="new-button">
 							<i class="fa fa-search"></i>
 						</a>
 						<br><br><br>
-						<a href="#container" class="btn btnGuardarKqPst m-btn m-btn--icon btn-lg m-btn--icon-only toggle-collapse-resumen" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Guardar cambios" id="save-button">
+						<a href="#container" class="btn btnGuardarKqPst m-btn m-btn--icon btn-lg m-btn--icon-only" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Guardar cambios" id="save-button">
 							<i class="fa fa-save"></i>
 						</a>
 						<br><br><br>
-						<a href="#container" class="btn btnEditarKqPst2 m-btn m-btn--icon btn-lg m-btn--icon-only toggle-collapse-resumen" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Anular contrato" id="null-button">
+						<a href="#container" class="btn btnEditarKqPst2 m-btn m-btn--icon btn-lg m-btn--icon-only" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Anular contrato" id="null-button">
 							<i class="fa fa-eraser"></i>
 						</a>
 					</div> 
@@ -1836,25 +1836,8 @@
 													<th>F. Registro</th>
 													<th>Auto</th>
 												</thead>
-												<tbody>
-													<tr>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
-													</tr>
-													<tr>
-														<td></td>
-													</tr>
+												<tbody id="bodyObservaciones">
 												</tbody>
-												<tfoot>
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
-													<td></td>
-												</tfoot>
 											</table>
 										</div>
 									</div>
