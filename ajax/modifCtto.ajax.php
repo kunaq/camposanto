@@ -72,7 +72,7 @@ class AjaxModifCtto{
 	public function ajaxBuscaObservaciones(){
 		$respuesta = ControladorModifCtto::ctrBuscaObservaciones();
 		foreach ($respuesta as $key => $value) {
-			$respuesta[$key]["fch_registro"] = ($respuesta[$key]["fch_registro"] != '') ? dateFormat($respuesta[$key]["fch_registro"]) : '';
+			$respuesta[$key]["fch_registro"] = ($respuesta[$key]["fch_registro"] != '') ? dateTimeFormat($respuesta[$key]["fch_registro"]) : '';
 		}
 		echo json_encode($respuesta);
 	}//ajaxBuscaObservaciones
