@@ -215,7 +215,7 @@
 												</div>
 												<div class="col-lg-8">
 													<label>&nbsp;</label>
-													<input type="text" class="form-control form-control-sm m-input" name="dscJVenResolucion" id="dscJVenResolucion" disabled>
+													<input type="text" class="form-control form-control-sm m-input" name="dscJVenResolucion1s" id="dscJVenResolucion1s" disabled>
 												</div>
 												<div class="col-lg-4">
 													<label>Vendedor</label>
