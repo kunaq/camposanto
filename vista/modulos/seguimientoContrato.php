@@ -734,7 +734,7 @@
 										<div class="col-lg-12">
 											<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="300">
 				                				<div class="table-responsive">
-													<table class="table">
+													<table class="table myTableCronograma">
 														<thead>
 															<th>N°</th>
 															<th>Tipo de Cuota</th>
@@ -750,22 +750,7 @@
 															<th>Cancelado</th>
 															<th>Mora</th>
 														</thead>
-														<tbody style="height: 200px;">
-															<tr>
-																<td></td>
-																<td></td>
-																<td></td>
-																<td></td>
-																<td></td>
-																<td></td>
-																<td></td>
-																<td></td>
-																<td></td>
-																<td></td>
-																<td></td>
-																<td></td>
-																<td></td>
-															</tr>
+														<tbody class="tbodyCronograma" id="tbodyCronograma">
 														</tbody>
 														<tfoot>
 															<tr>

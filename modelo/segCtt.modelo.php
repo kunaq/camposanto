@@ -458,7 +458,7 @@ class ModeloSegContrato{
 
 		while($key = $db->recorrer($sql)){
 
-			$tbodyCronograma .= '<tr>
+			$tbodyCronograma .= '<tr onclick="getDatosCuota(this);">
 									<td>'.$key['num_cuota'].'</td>
 									<td>'.$key['cod_tipo_cuota'].'</td>
 									<td>'.$key['cod_estadocuota'].'</td>
