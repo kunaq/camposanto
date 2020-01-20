@@ -807,7 +807,7 @@
 										<div class="col-lg-12">
 											<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="200">
 				                				<div class="table-responsive">
-				                					<table class="table">
+				                					<table class="table myTableCancelaciones">
 				                						<thead>
 				                							<th>Caja</th>
 				                							<th>Trx</th>
@@ -817,6 +817,7 @@
 				                							<th>Importe</th>
 				                							<th>Imp S/.</th>
 				                						</thead>
+				                						<tbody id="tbodyCancelaciones"></tbody>
 				                					</table>
 				                				</div>
 				                			</div>
