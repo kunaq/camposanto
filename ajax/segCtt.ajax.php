@@ -13,6 +13,10 @@ class AjaxSegCtt{
 		$respuesta = ControladorSegContrato::ctrGetServiciosCtt();
 		echo $respuesta;
 	}//function ajaxGetServiciosCtt
+	public function ajaxGetRefinServ(){
+		$respuesta = ControladorSegContrato::ctrGetRefinServ();
+		echo json_encode($respuesta,JSON_UNESCAPED_UNICODE);
+	}//function ajaxGetRefinServ
 	public function ajaxGetCuotas(){
 		$respuesta = ControladorSegContrato::ctrGetCuotas();
 		echo json_encode($respuesta,JSON_UNESCAPED_UNICODE);
@@ -37,18 +41,18 @@ class AjaxSegCtt{
 		$respuesta = ControladorSegContrato::ctrGetEndoServicio();
 		echo json_encode($respuesta,JSON_UNESCAPED_UNICODE);
 	}//function ajaxGetEndoServicio
+	public function ajaxGetCuotasCron(){
+		$respuesta = ControladorSegContrato::ctrGetCuotasCron();
+		echo json_encode($respuesta,JSON_UNESCAPED_UNICODE);
+	}//function ajaxGetEndoServicio
 	public function ajaxGetDatosEspacio(){
 		$respuesta = ControladorSegContrato::ctrGetDatosEspacio();
-		echo json_encode($respuesta);
+		echo json_encode($respuesta,JSON_UNESCAPED_UNICODE);
 	}//function ajaxGetDatosEspacio
-	// public function ajaxGuardaCronograma(){
-	// 	$respuesta = ControladorWizard::ctrGuardaCronograma();
-	// 	echo json_encode($respuesta);
-	// }//function ajaxGuardaCronograma
-	// public function ajaxGeneraEspacio(){
-	// 	$respuesta = ControladorWizard::ctrGeneraEspacio();
-	// 	echo json_encode($respuesta);
-	// }//function ajaxGenerarEspacio
+	public function ajaxGetDetFinanciamiento(){
+		$respuesta = ControladorSegContrato::ctrGetDetFinanciamiento();
+		echo json_encode($respuesta,JSON_UNESCAPED_UNICODE);
+	}//function ajaxGetDetFinanciamiento
 
 }//class AjaxWizard
 
@@ -63,6 +67,10 @@ if(isset($_POST["accion"]) && $_POST["accion"] == 'getDatosCtt'){
 else if(isset($_POST["accion"]) && $_POST["accion"] == 'getServicioCtt'){
 	$cliente = new AjaxSegCtt();
 	$cliente -> ajaxGetServiciosCtt();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'getRefinServ'){
+	$cliente = new AjaxSegCtt();
+	$cliente -> ajaxGetRefinServ();
 }
 else if(isset($_POST["accion"]) && $_POST["accion"] == 'getCuotas'){
 	$cliente = new AjaxSegCtt();
@@ -88,15 +96,15 @@ else if(isset($_POST["accion"]) && $_POST["accion"] == 'getEndoServicio'){
 	$cliente = new AjaxSegCtt();
 	$cliente -> ajaxGetEndoServicio();
 }
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'getCuotasCron'){
+	$cliente = new AjaxSegCtt();
+	$cliente -> ajaxGetCuotasCron();
+}
 else if(isset($_POST["accion"]) && $_POST["accion"] == 'getDatosEspacio'){
 	$cliente = new AjaxSegCtt();
 	$cliente -> ajaxGetDatosEspacio();
 }
-// else if(isset($_POST["accion"]) && $_POST["accion"] == 'guardaCronograma'){
-// 	$cliente = new AjaxWizard();
-// 	$cliente -> ajaxGuardaCronograma();
-// }
-// else if(isset($_POST["accion"]) && $_POST["accion"] == 'generaEspacio'){
-// 	$cliente = new AjaxWizard();
-// 	$cliente -> ajaxGeneraEspacio();
-// }
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'getDetFinanciamiento'){
+	$cliente = new AjaxSegCtt();
+	$cliente -> ajaxGetDetFinanciamiento();
+}
