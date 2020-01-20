@@ -138,6 +138,15 @@ class ControladorSegContrato{
 		$respuesta = ModeloSegContrato::mdlGetComprobantes($datos);
 		return $respuesta;
 	}//function ctrGetComprobantes
+	
+	static public function ctrGetCancelaciones(){
+
+		$datos = array('localidad' => $_POST['localidad'],
+					   'num_correlativo' => $_POST['num_correlativo']);
+
+		$respuesta = ModeloSegContrato::mdlGetCancelaciones($datos);
+		return $respuesta;
+	}//function ctrGetCancelaciones
 
 }//class ControladorWizard
 ?>

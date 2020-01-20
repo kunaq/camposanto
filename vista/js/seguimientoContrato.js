@@ -96,6 +96,7 @@ function mostrarBeneficiario(row,servicio,tipoDoc,numDoc,apePaterno,apeMaterno,n
         data: {'accion' : 'getComprobantes', 'localidad' : localidad , 'cod_contrato' : contrato, 'num_cuota' : num_cuota, 'num_refinanciamiento' : num_refinanciamiento},
         success: function(respuesta){
 
+        	var info = JSON.parse(respuesta);
         	$("#tbodyComprobantes").html(info.tbodyComprobantes);
 		    var tablaComprobantes = document.getElementById('tbodyComprobantes');
             var primeraFilaComp = tablaComprobantes.rows.item(0);
@@ -109,10 +110,23 @@ function mostrarBeneficiario(row,servicio,tipoDoc,numDoc,apePaterno,apeMaterno,n
  	console.log("doble.click");
  }
 
- function getCancelacionComprobante(row,comprobante,localidad,contrato,num_refinanciamiento){
+ function getCancelacionComprobante(row,localidad,num_correlativo){
  	var rows = $('#myTableComprobante tr').not(':first');
 	rows.removeClass('selected'); 
   	$(row).closest('tr').addClass('selected');
+
+  	$.ajax({
+		type: 'POST',
+        url:"ajax/segCtt.ajax.php",
+        dataType: 'text',
+        data: {'accion' : 'getCancelaciones', 'localidad' : localidad, 'num_correlativo' : num_correlativo},
+        success: function(respuesta){
+
+        	var info = JSON.parse(respuesta);
+        	$("#tbodyCancelaciones").html(info.tbodyCancelaciones);
+        	
+        }//succes
+    });//ajax
  }
 
 function getDatosServicioCtt(row,localidad,tasa,tipoCtt,tipoPro,codCtt,numRef,numSer){

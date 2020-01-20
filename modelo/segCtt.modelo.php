@@ -496,7 +496,7 @@ class ModeloSegContrato{
 		$db->liberar($sql);
         $db->cerrar();
 
-	}//function mdlGetEndoServicio
+	}//function mdlGetCuotasCron
 
 	static public function mdlGetBeneficiariosServ($datos){
 
@@ -554,7 +554,7 @@ class ModeloSegContrato{
 		$db->liberar($sql);
         $db->cerrar();
 
-	}//function mdlGetDatosCtt
+	}//function mdlGetBeneficiariosServ
 	
 	static public function mdlGetDetFinanciamiento($datos){
 
@@ -582,13 +582,13 @@ class ModeloSegContrato{
 		$db->liberar($sql);
         $db->cerrar();
 
-	}//function mdlGetDsctoServicio
+	}//function mdlGetDetFinanciamiento
 	
 	static public function mdlGetComprobantes($datos){
 
 		$db = new Conexion();
 
-		$sql = $db->consulta("SELECT vtavi_cuotas_x_comprobante.cod_localidad, vtavi_cuotas_x_comprobante.cod_contrato, vtavi_cuotas_x_comprobante.num_refinanciamiento, (SELECT vtama_tipo_comprobante.dsc_tipo_comprobante FROM vtama_tipo_comprobante WHERE vtama_tipo_comprobante.cod_tipo_comprobante = vtaca_comprobante.cod_tipo_comprobante) AS dsc_tipo_comprobante,vtaca_comprobante.num_comprobante, vtaca_comprobante.flg_nc, vtaca_comprobante.fch_emision, vtaca_comprobante.cod_moneda, vtaca_comprobante.imp_total, vtaca_comprobante.imp_saldo, vtaca_comprobante.cod_estado FROM vtavi_cuotas_x_comprobante INNER JOIN vtaca_comprobante ON vtaca_comprobante.num_correlativo = vtavi_cuotas_x_comprobante.num_correlativo WHERE vtavi_cuotas_x_comprobante.cod_localidad_ctt = '".$datos['localidad']."' AND vtavi_cuotas_x_comprobante.cod_contrato = '".$datos['cod_contrato']."' AND vtavi_cuotas_x_comprobante.num_cuota = '".$datos['num_cuota']."' AND vtavi_cuotas_x_comprobante.num_refinanciamiento = '".$datos['num_refinanciamiento']."' UNION SELECT vtavi_mora_x_comprobante.cod_localidad, vtavi_mora_x_comprobante.cod_contrato, vtavi_mora_x_comprobante.num_refinanciamiento, (SELECT vtama_tipo_comprobante.dsc_tipo_comprobante FROM vtama_tipo_comprobante WHERE vtama_tipo_comprobante.cod_tipo_comprobante = vtaca_comprobante.cod_tipo_comprobante) AS dsc_tipo_comprobante,vtaca_comprobante.num_comprobante, vtaca_comprobante.flg_nc, vtaca_comprobante.fch_emision, vtaca_comprobante.cod_moneda, vtaca_comprobante.imp_total, vtaca_comprobante.imp_saldo, vtaca_comprobante.cod_estado FROM vtavi_mora_x_comprobante INNER JOIN vtaca_comprobante ON vtaca_comprobante.num_correlativo = vtavi_mora_x_comprobante.num_correlativo WHERE vtavi_mora_x_comprobante.cod_localidad_ctt = '".$datos['localidad']."' AND vtavi_mora_x_comprobante.cod_contrato = '".$datos['cod_contrato']."' AND vtavi_mora_x_comprobante.num_cuota = '".$datos['num_cuota']."' AND vtavi_mora_x_comprobante.num_refinanciamiento = '".$datos['num_refinanciamiento']."'");
+		$sql = $db->consulta("SELECT vtavi_cuotas_x_comprobante.cod_localidad, vtavi_cuotas_x_comprobante.cod_contrato, vtavi_cuotas_x_comprobante.num_refinanciamiento, (SELECT vtama_tipo_comprobante.dsc_tipo_comprobante FROM vtama_tipo_comprobante WHERE vtama_tipo_comprobante.cod_tipo_comprobante = vtaca_comprobante.cod_tipo_comprobante) AS dsc_tipo_comprobante, vtaca_comprobante.num_comprobante, vtaca_comprobante.flg_nc, vtaca_comprobante.fch_emision, vtaca_comprobante.cod_moneda, vtaca_comprobante.imp_total, vtaca_comprobante.imp_saldo, vtaca_comprobante.cod_estado, vtavi_mora_x_comprobante.num_correlativo FROM vtavi_cuotas_x_comprobante INNER JOIN vtaca_comprobante ON vtaca_comprobante.num_correlativo = vtavi_cuotas_x_comprobante.num_correlativo WHERE vtavi_cuotas_x_comprobante.cod_localidad_ctt = '".$datos['localidad']."' AND vtavi_cuotas_x_comprobante.cod_contrato = '".$datos['cod_contrato']."' AND vtavi_cuotas_x_comprobante.num_cuota = '".$datos['num_cuota']."' AND vtavi_cuotas_x_comprobante.num_refinanciamiento = '".$datos['num_refinanciamiento']."' UNION SELECT vtavi_mora_x_comprobante.cod_localidad, vtavi_mora_x_comprobante.cod_contrato, vtavi_mora_x_comprobante.num_refinanciamiento, (SELECT vtama_tipo_comprobante.dsc_tipo_comprobante FROM vtama_tipo_comprobante WHERE vtama_tipo_comprobante.cod_tipo_comprobante = vtaca_comprobante.cod_tipo_comprobante) AS dsc_tipo_comprobante,vtaca_comprobante.num_comprobante, vtaca_comprobante.flg_nc, vtaca_comprobante.fch_emision, vtaca_comprobante.cod_moneda, vtaca_comprobante.imp_total, vtaca_comprobante.imp_saldo, vtaca_comprobante.cod_estado FROM vtavi_mora_x_comprobante INNER JOIN vtaca_comprobante ON vtaca_comprobante.num_correlativo = vtavi_mora_x_comprobante.num_correlativo WHERE vtavi_mora_x_comprobante.cod_localidad_ctt = '".$datos['localidad']."' AND vtavi_mora_x_comprobante.cod_contrato = '".$datos['cod_contrato']."' AND vtavi_mora_x_comprobante.num_cuota = '".$datos['num_cuota']."' AND vtavi_mora_x_comprobante.num_refinanciamiento = '".$datos['num_refinanciamiento']."'");
 
 		$tbodyComprobantes = "";
 
@@ -598,8 +598,9 @@ class ModeloSegContrato{
 			$cod_localidad = "'".$key['cod_localidad']."'";
 			$cod_contrato = "'".$key['cod_contrato']."'";
 			$num_refinanciamiento = "'".$key['num_refinanciamiento']."'";
+			$num_correlativo = "'".$key['num_correlativo']."'";
 
-			$tbodyComprobantes .= '<tr onclick="getCancelacionComprobante(this,'.$num_comprobante.','.$cod_localidad.','.$cod_contrato.','.$num_refinanciamiento.');" ondblclick="getDatosComprobante()">
+			$tbodyComprobantes .= '<tr onclick="getCancelacionComprobante(this,'.$cod_localidad.','.$num_correlativo.');" ondblclick="getDatosComprobante()">
 									<td>
 										<span data-toggle="modal" data-target="#m_modal_tabla_comprobante">
 											<button type="button" class="btn-comprobante btnGuardarKqPst" data-toggle="m-tooltip" data-container="body" onclick="creaTablaComprobante('.$num_comprobante.','.$cod_localidad.','.$cod_contrato.','.$num_refinanciamiento.');">
@@ -640,7 +641,42 @@ class ModeloSegContrato{
 		$db->liberar($sql);
         $db->cerrar();
 
-	}//function mdlGetEndoServicio
+	}//function mdlGetComprobantes
+
+	static public function mdlGetCancelaciones($datos){
+
+		$db = new Conexion();
+
+		$sql = $db->consulta("SELECT vtavi_caja_x_comprobante.cod_caja, vtavi_caja_x_comprobante.num_transaccion, vtaca_caja.fch_transaccion, (SELECT vtama_forma_pago.dsc_forma_pago FROM vtama_forma_pago WHERE vtama_forma_pago.cod_forma_pago = vtade_caja.cod_forma_pago) AS dsc_forma_pago, vtade_caja.cod_moneda, vtade_caja.imp_operacion, vtade_caja.imp_operacion_soles FROM vtavi_caja_x_comprobante INNER JOIN vtade_caja ON vtade_caja.num_transaccion = vtavi_caja_x_comprobante.num_transaccion INNER JOIN vtaca_caja ON vtaca_caja.num_transaccion = vtavi_caja_x_comprobante.num_transaccion WHERE vtavi_caja_x_comprobante.cod_localidad = '".$datos['localidad']."' AND vtavi_caja_x_comprobante.num_correlativo = '".$datos['num_correlativo']."'");
+
+		$tbodyCancelaciones = "";
+
+		while($key = $db->recorrer($sql)){
+
+			$tbodyCancelaciones .= '<tr onclick="">
+									<td>'.$key['cod_caja'].'</td>
+									<td>'.$key['num_transaccion'].'</td>
+									<td>'.dateFormat($key['fch_transaccion']).'</td>
+									<td>'.$key['dsc_forma_pago'].'</td>';
+			if ($key['cod_moneda'] == "SOL") {
+				$tbodyCancelaciones .= '<td>S/.</td>';
+			}else{
+				$tbodyCancelaciones .= '<td>'.$key['cod_moneda'].'</td>';
+			}
+			$tbodyCancelaciones .= '<td>'.number_format(round($key['imp_operacion'], 2),2,',','.').'</td>
+									<td>'.number_format(round($key['imp_operacion_soles'], 2),2,',','.').'</td>
+								</tr>';
+
+		}
+
+		$arrData = array('tbodyCancelaciones'=> $tbodyCancelaciones); 
+
+		return $arrData;
+
+		$db->liberar($sql);
+        $db->cerrar();
+
+	}//function GetCancelaciones
 
 }//class ModeloWizard
 ?>
