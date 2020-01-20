@@ -1790,16 +1790,13 @@
 							</div>
 						</div>
 						<div class="tab-pane" id="m_tabs_2_10" role="tabpanel">
-							<div class="col-lg-12">
-								<fieldset class="fieldFormHorizontal">
-									<legend>&nbsp;</legend>
-									<div class="col-lg-4">
-										<div class="row form-group">
-											<label class=" ">Área</label>
-											<input type="text" class="form-control form-control-sm m-input" name="area" id="area">
-										</div>
-									</div>
-								</fieldset>
+							<div class="row form-group">
+								<div class="col-lg-2">
+									<label class=" ">Área</label>
+								</div>
+								<div class="col-lg-4">
+									<input type="text" class="form-control form-control-sm m-input" name="area" id="area">
+								</div>
 							</div>
 							<div class="row">			
 								<div class="col-lg-12">
