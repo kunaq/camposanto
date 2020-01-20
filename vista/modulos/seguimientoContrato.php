@@ -781,8 +781,9 @@
 										<div class="col-lg-12">
 											<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="200">
 				                				<div class="table-responsive">
-				                					<table class="table">
+				                					<table class="table myTableComprobante">
 				                						<thead>
+				                							<th></th>
 				                							<th>Comprobante</th>
 				                							<th>Número</th>
 				                							<th>NC</th>
@@ -792,6 +793,8 @@
 				                							<th>Saldo</th>
 				                							<th>Estado</th>
 				                						</thead>
+				                						<tbody id="tbodyComprobantes">
+				                						</tbody>
 				                					</table>
 				                				</div>
 				                			</div>
@@ -2144,7 +2147,7 @@
 						</div>		
 					</div>
 				</div>
-			</div>	
+			</div>
 		</div>
 	</div>
 </div>

@@ -51791,3 +51791,18 @@ th{
 .tbodyCronograma{
     height: 200px;
 }
+
+.btn-comprobante{
+    width: 25px;
+    border-radius: 4px;
+    border: 1px;
+}
+
+.btn-comprobante i{
+    margin-left: -5px;
+}
+
+.myTableComprobante tbody tr:hover{
+    background-color: #ddd;
+    cursor: pointer;
+}
