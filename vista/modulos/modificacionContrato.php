@@ -220,12 +220,12 @@
 								Gestión
 							</a>
 						</li>
-						<!-- <li class="nav-item m-tabs__item">
+						<li class="nav-item m-tabs__item">
 							<a class="nav-link m-tabs__link" data-toggle="tab" href="#m_tabs_2_10" role="tab">
 								Observaciones
 							</a>
 						</li>
-						<li class="nav-item m-tabs__item">
+						<!-- <li class="nav-item m-tabs__item">
 							<a class="nav-link m-tabs__link" data-toggle="tab" href="#m_tabs_2_11" role="tab">
 								C. Especiales
 							</a>

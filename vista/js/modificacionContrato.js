@@ -173,6 +173,7 @@ function muestraInfo(id){
         		$("#AgFunCheck").trigger('change');
         	}
         	$("#codFuneraria").val(respuesta['cod_agencia']).trigger('change');
+        	cargaObservaciones(codCtto,id);
         	$.ajax({
 		        url: 'ajax/modifCtto.ajax.php',
 		        dataType: 'json',
@@ -895,3 +896,17 @@ function verDetalles(evt) {
   boton2 = document.getElementById("botonEliminarB");
   boton2.addEventListener("click", function(){eliminaBenef(numDoc)}, false);
 }
+
+//---------------------------------pestaña observaciones----------------------
+
+function cargaObservaciones(codCtto,numServicio){
+	$.ajax({
+        url: 'ajax/modifCtto.ajax.php',
+        dataType: 'json',
+        method: "POST",
+        data: { 'accion' : 'observaciones', 'codCtto' : codCtto, 'num_servicio' : numServicio },
+        success : function(respuesta){
+        	console.log('respuesta',respuesta);
+        }//success
+    });//ajax
+}// function cargaObservaciones
