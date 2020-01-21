@@ -60,7 +60,7 @@ function buscaMotivo(tipo){
         type:'GET',
         url: 'ajax/resCtto.ajax.php',
         dataType: 'text',
-        data: {'accion':motivo, 'codTipo':tipo},
+        data: {'accion': 'motivo', 'codTipo':tipo},
         success : function(response){
             console.log('response',response);
          }//success
