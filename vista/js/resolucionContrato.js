@@ -91,9 +91,47 @@ function buscaNumServicio(){
             $("#numSerResolucion").empty();
             var option = '';
             $.each(response,function(index,value){
-                option = '<option value="'+value['num_servicio']+'">'+value['num_servicio']+'</option>';
+                option = '<option value="'+value['num_servicio']+'/'+value['flg_resuelto']+'/'+value['flg_anulado']+'">'+value['num_servicio']+'</option>';
                 document.getElementById("numSerResolucion").insertAdjacentHTML("beforeEnd" ,option);
             });//each
         }//success
     });//ajax
 }//buscaNumServicio
+
+$("#numSerResolucion").change(function(){
+    var valor = $("#numSerResolucion").val()|;
+    var numServicio = valor.split("/")[0];
+    var resuelto = valor.split("/")[1];
+    var anulado = valor.split("/")[2];
+    if(resuelto = 'SI'){
+        bloquea();
+         swal({
+            title: "",
+            text: "El contrato ingresado está RESUELTO.",
+            type: "warning",
+            confirmButtonText: "Aceptar",
+        })
+    }
+    else if(anulado = 'SI'){
+         bloquea();
+         swal({
+            title: "",
+            text: "El contrato ingresado está ANULADO.",
+            type: "warning",
+            confirmButtonText: "Aceptar",
+        })
+    }else{
+        desbloquea();
+    }
+});//change numServicio
+
+
+function bloquea(){
+    $("#m_datepicker_4_3").prop('disabled',true);
+    $("#tipoResolucion").prop('disabled',true);
+}//bloquea
+
+function desbloquea(){
+    $("#m_datepicker_4_3").prop('disabled',false);
+    $("#tipoResolucion").prop('disabled',false);
+}//desbloquea
