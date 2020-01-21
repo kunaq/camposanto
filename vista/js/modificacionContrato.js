@@ -928,8 +928,27 @@ function cargaObservaciones(codCtto,numServicio){
     });//ajax
 }// function cargaObservaciones
 
-function masObsv(){
-    alert('llego');
+function masObsv(usuario){
+    var tablaObsv = document.getElementById("bodyObservaciones");
+    var numFilas = tablaObsv.rows.length;
+    var fechaHoy = new Date();
+    var aux_dia = fechaHoy.getDate();
+    var aux_mes1 = fechaHoy.setMonth(fechaHoy.getMonth() + 1);
+    var aux_mes = fechaHoy.getMonth();
+    var aux_anio = fechaHoy.getFullYear();
+    if(aux_mes == '0'){
+        aux_mes = '12';
+        aux_anio = fechaHoy.getFullYear()-1;
+    }               
+    fechaFinal = aux_dia+'/'+aux_mes+'/'+aux_anio;
+    var filaObsv = '<tr>'+
+                        '<td>'+(numFilas+1)+'</td>'+
+                        '<td style="text-align: left;"><input type="text" class="form-control form-control-sm m-input" name="obsv'+numFilas+'" id="obsv'+numFilas+'"></td>'+
+                        '<td>'+usuario+'</td>'+
+                        '<td>'+fechaFinal+'</td>'+
+                        '<td><span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger"><input type="checkbox" disabled><span></span></span></td>'+
+                    '</tr>';
+    tablaObsv.insertAdjacentHTML("beforeEnd" ,filaObsv);
 }
 
 //-------------------------------botones---------------------------------

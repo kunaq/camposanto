@@ -1793,7 +1793,7 @@
 									<input type="text" class="form-control form-control-sm m-input" name="area" id="area">
 								</div>
 								<div class="col-lg-1 offset-lg-6">
-									<button class="btn btnGuardarKqPst m-btn" type="button" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Añadir observación" onclick="masObsv();">
+									<button class="btn btnGuardarKqPst m-btn" type="button" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Añadir observación" onclick="masObsv(<?php echo $_SESSION['cod_usuario']?>);">
 									<i class="fa fa-plus"></i></button>
 								</div>
 							</div>
