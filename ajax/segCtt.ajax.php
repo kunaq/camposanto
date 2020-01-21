@@ -69,7 +69,8 @@ class AjaxSegCtt{
 	
 	public function ajaxFiltroComprobantes(){
 		$respuesta = ControladorSegContrato::ctrFiltroComprobantes();
-		echo json_encode($respuesta,JSON_UNESCAPED_UNICODE);
+		// echo json_encode($respuesta,JSON_UNESCAPED_UNICODE);
+		echo $respuesta;
 	}//function ajaxGetDatosCliente
 
 
