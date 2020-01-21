@@ -129,10 +129,108 @@ function mostrarBeneficiario(row,servicio,tipoDoc,numDoc,apePaterno,apeMaterno,n
     });//ajax
  }
 
-function getDatosServicioCtt(row,localidad,tasa,tipoCtt,tipoPro,codCtt,numRef,numSer){
+$("#cod_titular").change(function() {
+    var cod_titular = $(this).val();
+    $.ajax({
+		type: 'POST',
+        url:"ajax/segCtt.ajax.php",
+        dataType: 'text',
+        data: {'accion' : 'getDatosCliente', 'cod_cliente' : cod_titular},
+        success: function(respuesta){
+
+        	var info = JSON.parse(respuesta);
+        	document.getElementById('nombre_titular').value = info.dsc_cliente;
+        	document.getElementById('tipo_doc_titular').value = info.dsc_tipo_doc;
+        	document.getElementById('num_doc_titular').value = info.dsc_documento;
+        	document.getElementById('correo_titular').value = info.dsc_email;
+        	document.getElementById('direccion_titular').value = info.dsc_direccion;
+        	document.getElementById('telefono_titular').value = info.dsc_telefono_1;
+        	document.getElementById('telefono2_titular').value = info.dsc_telefono_2;
+        	if (info.flg_juridico == "SI") {
+        		$('#flg_jur_titular').prop("checked", true);
+        	}else{
+        		$('#flg_jur_titular').prop("checked", false);
+        	}
+        }//succes
+    });//ajax
+});
+
+$("#cod_titular_alterno").change(function() {
+    var cod_titular_alterno = $(this).val();
+    $.ajax({
+		type: 'POST',
+        url:"ajax/segCtt.ajax.php",
+        dataType: 'text',
+        data: {'accion' : 'getDatosCliente', 'cod_cliente' : cod_titular_alterno},
+        success: function(respuesta){
+
+        	var info = JSON.parse(respuesta);
+        	document.getElementById('nombre_titular_alterno').value = info.dsc_cliente;
+        	document.getElementById('tipo_doc_titular_alterno').value = info.dsc_tipo_doc;
+        	document.getElementById('num_doc_titular_alterno').value = info.dsc_documento;
+        	document.getElementById('correo_titular_alterno').value = info.dsc_email;
+        	document.getElementById('direccion_titular_alterno').value = info.dsc_direccion;
+        	document.getElementById('telefono_titular_alterno').value = info.dsc_telefono_1;
+        	document.getElementById('telefono2_titular_alterno').value = info.dsc_telefono_2;
+        	if (info.flg_juridico == "SI") {
+        		$('#flg_jur_titular_alterno').prop("checked", true);
+        	}else{
+        		$('#flg_jur_titular_alterno').prop("checked", false);
+        	}
+        }//succes
+    });//ajax
+});
+
+$("#cod_aval").change(function() {
+    var cod_titular = $(this).val();
+    $.ajax({
+		type: 'POST',
+        url:"ajax/segCtt.ajax.php",
+        dataType: 'text',
+        data: {'accion' : 'getDatosCliente', 'cod_cliente' : cod_titular},
+        success: function(respuesta){
+
+        	var info = JSON.parse(respuesta);
+        	document.getElementById('nombre_aval').value = info.dsc_cliente;
+        	document.getElementById('tipo_doc_aval').value = info.dsc_tipo_doc;
+        	document.getElementById('num_doc_aval').value = info.dsc_documento;
+        	document.getElementById('correo_aval').value = info.dsc_email;
+        	document.getElementById('direccion_aval').value = info.dsc_direccion;
+        	document.getElementById('telefono_aval').value = info.dsc_telefono_1;
+        	document.getElementById('telefono2_aval').value = info.dsc_telefono_2;
+        	if (info.flg_juridico == "SI") {
+        		$('#flg_jur_aval').prop("checked", true);
+        	}else{
+        		$('#flg_jur_aval').prop("checked", false);
+        	}
+        }//succes
+    });//ajax
+});
+
+function getDatosServicioCtt(row,localidad,tasa,tipoCtt,tipoPro,codCtt,numRef,numSer,titular,titular_alterno,aval){
 	var rows = $('#myTableServicios tr').not(':first');
 	rows.removeClass('selected'); 
   	$(row).closest('tr').addClass('selected');
+
+  	if (titular == "") {
+  	}else{
+  		document.getElementById('cod_titular').value = titular;
+  		$("#cod_titular").change();
+  	}
+
+  	if (titular_alterno == "") {
+  	}else{
+  		document.getElementById('cod_titular_alterno').value = titular_alterno;
+  		$("#cod_titular_alterno").change();
+  	}
+
+  	if (aval == "") {
+  	}else{
+  		document.getElementById('cod_aval').value = aval;
+  		$("#cod_aval").change();
+  	}
+    
+    
 
   	$.ajax({
 		type: 'POST',
@@ -376,7 +474,7 @@ function getDatosServicioCtt(row,localidad,tasa,tipoCtt,tipoPro,codCtt,numRef,nu
     });//ajaxGetBeneficiarios
 }
 
-function getDatosServxRef(row,localidad,tasa,tipoCtt,tipoPro,codCtt,numRef,numSer){
+function getDatosServxRef(row,localidad,tasa,tipoCtt,tipoPro,codCtt,numRef,numSer,titular,titular_alterno,aval){
 	var rows = $('#myTableRefinanciamiento tr').not(':first');
 	rows.removeClass('selected'); 
   	$(row).closest('tr').addClass('selected');
