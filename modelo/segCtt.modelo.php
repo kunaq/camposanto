@@ -683,6 +683,33 @@ class ModeloSegContrato{
         $db->cerrar();
 
 	}//function GetCancelaciones
+	
+	static public function mdlGetDatosCliente($cod_cliente){
+
+		$db = new Conexion();
+
+		$sql = $db->consulta("SELECT vtama_cliente.cod_cliente, vtama_cliente.dsc_cliente, vtama_cliente.flg_juridico, vtama_tipo_documento.dsc_tipo_documento, vtama_cliente.dsc_documento, vtama_cliente.dsc_email, vtade_cliente_direccion.dsc_direccion, vtama_cliente.dsc_telefono_1, vtama_cliente.dsc_telefono_2 FROM vtama_cliente INNER JOIN vtade_cliente_direccion ON vtade_cliente_direccion.cod_cliente = vtama_cliente.cod_cliente INNER JOIN vtama_tipo_documento ON vtama_tipo_documento.cod_tipo_documento = vtama_cliente.cod_tipo_documento WHERE vtama_cliente.cod_cliente = '$cod_cliente'");
+
+		while($key = $db->recorrer($sql)){
+
+			$cod_cliente = $key['cod_cliente'];
+		    $dsc_cliente = Utf8Encode($key['dsc_cliente']);
+		    $flg_juridico = $key['flg_juridico'];
+		    $dsc_tipo_doc = Utf8Encode($key['dsc_tipo_documento']);
+		    $dsc_documento = $key['dsc_documento'];
+		    $dsc_email = Utf8Encode($key['dsc_email']);
+		    $dsc_direccion = Utf8Encode($key['dsc_direccion']);
+		    $dsc_telefono_1 = $key['dsc_telefono_1'];
+		    $dsc_telefono_2 = $key['dsc_telefono_2'];
+		}
+		$arrData = array('cod_cliente'=> $cod_cliente, 'dsc_cliente' => $dsc_cliente, 'flg_juridico'=> $flg_juridico, 'dsc_tipo_doc'=> $dsc_tipo_doc, 'dsc_documento'=> $dsc_documento, 'dsc_email'=> $dsc_email, 'dsc_direccion'=> $dsc_direccion, 'dsc_telefono_1'=> $dsc_telefono_1, 'dsc_telefono_2'=> $dsc_telefono_2); 
+
+		return $arrData;
+
+		$db->liberar($sql);
+        $db->cerrar();
+
+	}//function mdlGetDatosCtt
 
 }//class ModeloWizard
 ?>

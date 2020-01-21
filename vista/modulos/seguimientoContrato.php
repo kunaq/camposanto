@@ -839,11 +839,11 @@
 													</label>
 												</div>
 												<div class="col-lg-4">
-													<select type="text" class="form-control form-control-sm m-input" name="idPropietario" id="idPropietario">
-														<option value=""></option>
+													<select type="text" class="form-control form-control-sm m-input" id="tipo_comprobante">
+														<option value="">Seleccione</option>
 														<?php
-															$prueba = controladorEmpresa::ctrtipoDoc();
-													 	?> 
+															$prueba = controladorEmpresa::ctrtipoCom();
+													 	?>
 													</select>
 												</div>
 												<div class="col-lg-1">
@@ -852,7 +852,7 @@
 													</label>
 												</div>
 												<div class="col-lg-4">
-													<input type="text" class="form-control form-control-sm m-input" name="" id="">
+													<input type="text" class="form-control form-control-sm m-input" id="num_comprobante">
 												</div>
 											</div>
 										</div>
@@ -870,7 +870,7 @@
 												<td>
 													<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
 														<label>
-															<input type="checkbox" name="" id="personaCheck" disabled="">
+															<input type="checkbox" name="" id="personaCheck">
 															<span></span>
 														</label>
 													</span>
@@ -1180,11 +1180,11 @@
 											<div class="row form-group">
 												<div class="col-lg-2">
 													<label>Cliente</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="cod_titular" disabled>
 												</div>
 												<div class="col-lg-5">
 													<label>&nbsp;</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="nombre_titular" disabled>
 												</div>
 												<div class="col-lg-1">
 													<label style="margin-top: 6px;">
@@ -1192,7 +1192,7 @@
 													</label>
 													<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
 														<label>
-															<input type="checkbox" id="juridico" disabled="" name="">
+															<input type="checkbox" id="juridico" disabled="" id="flg_jur_titular">
 															<span class="jurid"></span>
 														</label>
 													</span>
@@ -1212,27 +1212,27 @@
 												</div>
 												<div class="col-lg-3">
 													<label>Documento</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="tipo_doc_titular" disabled>
 												</div>
-												<div class="col-lg-">
+												<div class="col-lg-2">
 													<label>&nbsp;</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="num_doc_titular" disabled>
 												</div>
 												<div class="col-lg-6">
 													<label>E-mail</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="correo_titular" disabled>
 												</div>
 												<div class="col-lg-8">
 													<label>Dirección</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="direccion_titular" disabled>
 												</div>
 												<div class="col-lg-2">
 													<label>Telefono</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="telefono_titular" disabled>
 												</div>
 												<div class="col-lg-2">
 													<label>&nbsp;</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="telefono2_titular" disabled>
 												</div>
 											</div>
 										</div>
@@ -1245,11 +1245,11 @@
 											<div class="row form-group">
 												<div class="col-lg-2">
 													<label>Cliente</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="cod_titular_alterno" disabled>
 												</div>
 												<div class="col-lg-5">
 													<label>&nbsp;</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="nombre_titular_alterno" disabled>
 												</div>
 												<div class="col-lg-1">
 													<label style="margin-top: 6px;">
@@ -1257,7 +1257,7 @@
 													</label>
 													<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
 														<label>
-															<input type="checkbox" id="juridico" disabled="" name="">
+															<input type="checkbox" id="juridico" disabled="" id="flg_jur_titular_alterno">
 															<span class="jurid"></span>
 														</label>
 													</span>
@@ -1277,27 +1277,27 @@
 												</div>
 												<div class="col-lg-3">
 													<label>Documento</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="tipo_doc_titular_alterno" disabled>
 												</div>
-												<div class="col-lg-">
+												<div class="col-lg-2">
 													<label>&nbsp;</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="num_doc_titular_alterno" disabled>
 												</div>
 												<div class="col-lg-6">
 													<label>E-mail</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="correo_titular_alterno" disabled>
 												</div>
 												<div class="col-lg-8">
 													<label>Dirección</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="direccion_titular_alterno" disabled>
 												</div>
 												<div class="col-lg-2">
 													<label>Telefono</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="telefono_titular_alterno" disabled>
 												</div>
 												<div class="col-lg-2">
 													<label>&nbsp;</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="telefono2_titular_alterno" disabled>
 												</div>
 											</div>
 										</div>
@@ -1310,11 +1310,11 @@
 											<div class="row form-group">
 												<div class="col-lg-2">
 													<label>Cliente</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="cod_aval" disabled>
 												</div>
 												<div class="col-lg-5">
 													<label>&nbsp;</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="nombre_aval" disabled>
 												</div>
 												<div class="col-lg-1">
 													<label style="margin-top: 6px;">
@@ -1322,7 +1322,7 @@
 													</label>
 													<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
 														<label>
-															<input type="checkbox" id="juridico" disabled="" name="">
+															<input type="checkbox" id="juridico" disabled="" id="flg_jur_aval">
 															<span class="jurid"></span>
 														</label>
 													</span>
@@ -1342,27 +1342,27 @@
 												</div>
 												<div class="col-lg-3">
 													<label>Documento</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="tipo_doc_aval" disabled>
 												</div>
-												<div class="col-lg-">
+												<div class="col-lg-2">
 													<label>&nbsp;</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="num_doc_aval" disabled>
 												</div>
 												<div class="col-lg-6">
 													<label>E-mail</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="correo_aval" disabled>
 												</div>
 												<div class="col-lg-8">
 													<label>Dirección</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="direccion_aval" disabled>
 												</div>
 												<div class="col-lg-2">
 													<label>Telefono</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="telefono_aval" disabled>
 												</div>
 												<div class="col-lg-2">
 													<label>&nbsp;</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="telefono2_aval" disabled>
 												</div>
 											</div>
 										</div>

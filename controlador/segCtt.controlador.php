@@ -147,6 +147,13 @@ class ControladorSegContrato{
 		$respuesta = ModeloSegContrato::mdlGetCancelaciones($datos);
 		return $respuesta;
 	}//function ctrGetCancelaciones
+	
+	static public function ctrGetDatosCliente(){
+		$cod_cliente = $_POST['cod_cliente'];
+	    
+		$respuesta = ModeloSegContrato::mdlGetDatosCliente($cod_cliente);
+		return $respuesta;
+	}//function ctrGetDatosCtt
 
 }//class ControladorWizard
 ?>
