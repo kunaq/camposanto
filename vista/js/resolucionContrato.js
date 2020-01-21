@@ -63,6 +63,12 @@ function buscaMotivo(tipo){
         data: {'accion': 'motivo', 'codTipo':tipo},
         success : function(response){
             console.log('response',response.lenght);
+            var option = '';
+            $("#motivoResolucion").empty();
+            $.each(response,function(index,value){
+                option = '<option value="'+value['cod_motivo_resolucion']+'">'+value['dsc_motivo_resolucion']+'</option>';
+                document.getElementById("motivoResolucion").insertAdjacentHTML("beforeEnd" ,option);
+            });//each
          }//success
     });//ajax
 }//buscaMotivo
