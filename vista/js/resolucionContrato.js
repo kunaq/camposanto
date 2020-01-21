@@ -104,7 +104,7 @@ $("#numSerResolucion").change(function(){
     var resuelto = valor.split("/")[1];
     var anulado = valor.split("/")[2];
         console.log(resuelto,anulado);
-    if(resuelto = 'SI'){
+    if(resuelto == 'SI'){
         bloquea();
          swal({
             title: "",
@@ -115,7 +115,7 @@ $("#numSerResolucion").change(function(){
     }else{
         desbloquea();
     }
-    if(anulado = 'SI'){
+    if(anulado == 'SI'){
          bloquea();
          swal({
             title: "",
@@ -128,6 +128,9 @@ $("#numSerResolucion").change(function(){
     }
 });//change numServicio
 
+function buscaDetalles(value){
+    console.log(value);
+}
 
 function bloquea(){
     $("#m_datepicker_4_3").prop('disabled',true);
