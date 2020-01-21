@@ -124,7 +124,7 @@ $("#numSerResolucion").change(function(){
         });
     }
 
-    if(anulado == resuelto == 'NO'){
+    if(resuelto == 'NO' && anulado == 'NO'){
         desbloquea();
     }
 });//change numServicio
