@@ -256,8 +256,15 @@ $("#num_comprobante").change(function() {
 	        confirmButtonText: "Aceptar",
 	    })
 	    document.getElementById('num_comprobante').value = "";
-    }else if (true) {}
-    else{
+    }else if (localidad == "" || cod_contrato == "" || num_refinanciamiento == "") {
+    	swal({
+	        title: "",
+	        text: "Ingresa un numero de contrato.",
+	        type: "error",
+	        confirmButtonText: "Aceptar",
+	    });
+	    $('#mostrarTodos').prop("checked", false);
+    }else{
     	$.ajax({
 			type: 'POST',
 	        url:"ajax/segCtt.ajax.php",
