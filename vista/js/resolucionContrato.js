@@ -54,3 +54,15 @@ function buscaServicios(){
          }//success
     });//ajax
 }//buscaServicios
+
+function buscaMotivo(tipo){
+    $.ajax({
+        type:'POST',
+        url: 'ajax/resCtto.ajax.php',
+        dataType: 'json',
+        data: {'accion': 'motivo', 'codTipo':tipo},
+        success : function(response){
+            console.log('response',response.lenght);
+         }//success
+    });//ajax
+}//buscaMotivo
