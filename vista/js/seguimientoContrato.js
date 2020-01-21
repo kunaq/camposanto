@@ -110,6 +110,40 @@ function mostrarBeneficiario(row,servicio,tipoDoc,numDoc,apePaterno,apeMaterno,n
  	console.log("doble click");
  }
 
+ function getComprobantes(){
+ 	var localidad = document.getElementById('codLocSegCtt').value;
+    var cod_contrato = document.getElementById('numCttSegCtt').value;
+    var num_refinanciamiento = document.getElementById('numRefActual').value;
+    document.getElementById('tipo_comprobante').value = "";
+    document.getElementById('num_comprobante').value = "";
+    if (localidad == "" || cod_contrato == "" || num_refinanciamiento == "") {
+    	swal({
+	        title: "",
+	        text: "Ingresa un numero de contrato.",
+	        type: "error",
+	        confirmButtonText: "Aceptar",
+	    });
+	    $('#mostrarTodos').prop("checked", false);
+    }else{
+    	var checkbox = document.getElementById('mostrarTodos');
+ 		if (checkbox.checked != true){
+ 			$("#tbodyComprobantesPrincipal").html("");
+ 		}else{
+ 			$.ajax({
+				type: 'POST',
+		        url:"ajax/segCtt.ajax.php",
+		        dataType: 'text',
+		        data: {'accion' : 'filtroComprobantes', 'localidad' : localidad, 'cod_contrato' : cod_contrato, 'num_refinanciamiento' : num_refinanciamiento, 'cod_tipo_comprobante' : '', 'num_comprobante' : ''},
+		        success: function(respuesta){
+
+		        	var info = JSON.parse(respuesta);
+		        	$("#tbodyComprobantesPrincipal").html(info.tbodyComprobantesPrincipal);
+		        }//succes
+		    });//ajax
+ 		}
+    }
+ }
+
  function getCancelacionComprobante(row,localidad,num_correlativo){
  	var rows = $('#myTableComprobante tr').not(':first');
 	rows.removeClass('selected'); 
@@ -207,10 +241,53 @@ $("#cod_aval").change(function() {
     });//ajax
 });
 
+$("#num_comprobante").change(function() {
+    var num_comprobante = $(this).val();
+    var tipo_comprobante = document.getElementById('tipo_comprobante').value;
+    var localidad = document.getElementById('codLocSegCtt').value;
+    var cod_contrato = document.getElementById('numCttSegCtt').value;
+    var num_refinanciamiento = document.getElementById('numRefActual').value;
+    
+    if (tipo_comprobante == "") {
+    	swal({
+	        title: "",
+	        text: "Selecciona un tipo de comprobante.",
+	        type: "error",
+	        confirmButtonText: "Aceptar",
+	    })
+	    document.getElementById('num_comprobante').value = "";
+    }else if (true) {}
+    else{
+    	$.ajax({
+			type: 'POST',
+	        url:"ajax/segCtt.ajax.php",
+	        dataType: 'text',
+	        data: {'accion' : 'filtroComprobantes', 'localidad' : localidad, 'cod_contrato' : cod_contrato, 'num_refinanciamiento' : num_refinanciamiento, 'cod_tipo_comprobante' : tipo_comprobante, 'num_comprobante' : num_comprobante},
+	        success: function(respuesta){
+
+	        	var info = JSON.parse(respuesta);
+	        	if (info.tbodyComprobantesPrincipal == "") {
+	        		swal({
+				        title: "",
+				        text: "El comprobante ingresado no existe.",
+				        type: "info",
+				        confirmButtonText: "Aceptar",
+				    })
+	        	}else{
+	        		$("#tbodyComprobantesPrincipal").html(info.tbodyComprobantesPrincipal);
+	        	}
+	        }//succes
+	    });//ajax
+    }
+});
+
 function getDatosServicioCtt(row,localidad,tasa,tipoCtt,tipoPro,codCtt,numRef,numSer,titular,titular_alterno,aval){
 	var rows = $('#myTableServicios tr').not(':first');
 	rows.removeClass('selected'); 
   	$(row).closest('tr').addClass('selected');
+
+  	document.getElementById('codLocSegCtt').value = localidad;
+  	document.getElementById('numRefActual').value = numRef;
 
   	if (titular == "") {
   	}else{
@@ -478,6 +555,27 @@ function getDatosServxRef(row,localidad,tasa,tipoCtt,tipoPro,codCtt,numRef,numSe
 	var rows = $('#myTableRefinanciamiento tr').not(':first');
 	rows.removeClass('selected'); 
   	$(row).closest('tr').addClass('selected');
+
+  	document.getElementById('codLocSegCtt').value = localidad;
+  	document.getElementById('numRefActual').value = numRef;
+
+  	if (titular == "") {
+  	}else{
+  		document.getElementById('cod_titular').value = titular;
+  		$("#cod_titular").change();
+  	}
+
+  	if (titular_alterno == "") {
+  	}else{
+  		document.getElementById('cod_titular_alterno').value = titular_alterno;
+  		$("#cod_titular_alterno").change();
+  	}
+
+  	if (aval == "") {
+  	}else{
+  		document.getElementById('cod_aval').value = aval;
+  		$("#cod_aval").change();
+  	}
 
   	$.ajax({
 		type: 'POST',

@@ -65,7 +65,12 @@ class AjaxSegCtt{
 	public function ajaxGetDatosCliente(){
 		$respuesta = ControladorSegContrato::ctrGetDatosCliente();
 		echo json_encode($respuesta,JSON_UNESCAPED_UNICODE);
-	}//function ajaxGetDetFinanciamiento
+	}//function ajaxGetDatosCliente
+	
+	public function ajaxFiltroComprobantes(){
+		$respuesta = ControladorSegContrato::ctrFiltroComprobantes();
+		echo json_encode($respuesta,JSON_UNESCAPED_UNICODE);
+	}//function ajaxGetDatosCliente
 
 
 }//class AjaxWizard
@@ -133,4 +138,8 @@ else if(isset($_POST["accion"]) && $_POST["accion"] == 'getCancelaciones'){
 else if(isset($_POST["accion"]) && $_POST["accion"] == 'getDatosCliente'){
 	$cliente = new AjaxSegCtt();
 	$cliente -> ajaxGetDatosCliente();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'filtroComprobantes'){
+	$cliente = new AjaxSegCtt();
+	$cliente -> ajaxFiltroComprobantes();
 }

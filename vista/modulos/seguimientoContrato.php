@@ -78,6 +78,7 @@
 								</div>
 								<div class="col-lg-2">
 									<label>Contrato</label>
+									<input type="hidden" class="form-control form-control-sm m-input" id="codLocSegCtt" disabled>
 									<input type="text" class="form-control form-control-sm m-input" id="dscLocSegCtt" disabled>
 								</div>
 								<div class="col-lg-2">
@@ -86,6 +87,7 @@
 								</div>
 								<div class="col-lg-1">
 									<label>&nbsp;</label>
+									<input type="hidden" class="form-control form-control-sm m-input" id="numRefActual" disabled>
 									<input type="text" class="form-control form-control-sm m-input" id="tipCttSegCtt" disabled>
 								</div>
 								<div class="col-lg-3">
@@ -870,7 +872,7 @@
 												<td>
 													<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
 														<label>
-															<input type="checkbox" name="" id="personaCheck">
+															<input type="checkbox" name="" id="mostrarTodos" onclick="getComprobantes()">
 															<span></span>
 														</label>
 													</span>
@@ -885,7 +887,7 @@
 								<div class="col-lg-12">
 									<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="200">
 						               	<div class="table-responsive">
-											<table class="table">
+											<table class="table myTableComprobantesPrincipal" id="myTableListadoComprobantes">
 												<thead>
 													<th>Tipo</th>
 													<th>Número</th>
@@ -897,7 +899,7 @@
 													<th>Total</th>
 													<th>Saldo</th>
 												</thead>
-												<tbody>
+												<tbody id="tbodyComprobantesPrincipal">
 													<tr>
 														<td></td>
 														<td></td>		
