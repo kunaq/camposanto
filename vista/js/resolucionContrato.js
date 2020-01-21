@@ -55,7 +55,7 @@ function buscaServicios(){
     });//ajax
 }//buscaServicios
 
-function buscaServicios(tipo){
+function buscaMotivo(tipo){
     $.ajax({
         type:'GET',
         url: 'ajax/resCtto.ajax.php',
@@ -65,4 +65,4 @@ function buscaServicios(tipo){
             console.log('response',response);
          }//success
     });//ajax
-}//buscaServicios
+}//buscaMotivo
