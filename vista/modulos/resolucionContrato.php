@@ -79,7 +79,7 @@
 								</div>
 								<div class="col-lg-12">
 									<label>Tipo</label>
-									<select class="form-contro form-control-sm m-input custom-select custom-select-danger" name="tipoResolucion" id="tipoResolucion" onchange="">
+									<select class="form-contro form-control-sm m-input custom-select custom-select-danger" name="tipoResolucion" id="tipoResolucion" onchange="buscaMotivo(this.value);">
 										<option value="">Seleccione</option>
 										<?php
 											$tabla = "vtama_tipo_resolucion";
@@ -94,13 +94,6 @@
 									<label>Motivo</label>
 									<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="motivoResolucion" id="motivoResolucion" onchange="">
 										<option value="">Seleccione</option>
-										<?php
-											$tabla = "vtama_motivo_resolucion";
-											$item1 = "cod_motivo_resolucion";
-											$item2 = "dsc_motivo_resolucion";
-											$prueba = controladorEmpresa::
-											ctrSelects($tabla,$item1,$item2);
-										?>
 									</select>
 								</div>
 								<div class="col-lg-12">
