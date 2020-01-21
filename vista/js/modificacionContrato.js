@@ -928,6 +928,10 @@ function cargaObservaciones(codCtto,numServicio){
     });//ajax
 }// function cargaObservaciones
 
+function masObsv(){
+    alert('llego');
+}
+
 //-------------------------------botones---------------------------------
 
 function anulaCtto(){
