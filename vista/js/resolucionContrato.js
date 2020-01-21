@@ -57,7 +57,7 @@ function buscaServicios(){
 
 function buscaMotivo(tipo){
     $.ajax({
-        type:'GET',
+        type:'POST',
         url: 'ajax/resCtto.ajax.php',
         dataType: 'text',
         data: {'accion': 'motivo', 'codTipo':tipo},
