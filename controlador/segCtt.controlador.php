@@ -153,7 +153,19 @@ class ControladorSegContrato{
 	    
 		$respuesta = ModeloSegContrato::mdlGetDatosCliente($cod_cliente);
 		return $respuesta;
-	}//function ctrGetDatosCtt
+	}//function ctrGetDatosCliente
+	
+	static public function ctrFiltroComprobantes(){
+
+		$datos = array('localidad' => $_POST['localidad'],
+					   'cod_contrato' => $_POST['cod_contrato'],
+					   'num_refinanciamiento' => $_POST['num_refinanciamiento'],
+					   'cod_tipo_comprobante' => $_POST['cod_tipo_comprobante'],
+					   'num_comprobante' => $_POST['num_comprobante'],);
+
+		$respuesta = ModeloSegContrato::mdlFiltroComprobantes($datos);
+		return $respuesta;
+	}//function ctrFiltroComprobantes
 
 }//class ControladorWizard
 ?>
