@@ -727,6 +727,16 @@ class ModeloSegContrato{
 
 		$tbodyComprobantesPrincipal = "";
 
+		$consulta = "SELECT vtavi_cuotas_x_comprobante.cod_localidad, vtavi_cuotas_x_comprobante.num_correlativo, (SELECT vtama_tipo_comprobante.dsc_tipo_comprobante FROM vtama_tipo_comprobante WHERE vtama_tipo_comprobante.cod_tipo_comprobante = vtaca_comprobante.cod_tipo_comprobante) AS dsc_tipo_comprobante, vtaca_comprobante.num_comprobante, vtaca_comprobante.dsc_deudor, vtaca_comprobante.cod_estado, vtaca_comprobante.fch_emision, vtaca_comprobante.fch_cancelacion, vtaca_comprobante.cod_moneda, vtaca_comprobante.imp_total, vtaca_comprobante.imp_saldo 
+			FROM vtavi_cuotas_x_comprobante
+			INNER JOIN vtaca_comprobante ON vtaca_comprobante.num_correlativo = vtavi_cuotas_x_comprobante.num_correlativo
+			WHERE vtavi_cuotas_x_comprobante.cod_localidad_ctt = '".$datos['localidad']."' AND vtavi_cuotas_x_comprobante.cod_contrato = '".$datos['cod_contrato']."' AND vtavi_cuotas_x_comprobante.num_refinanciamiento = '".$datos['num_refinanciamiento']."' AND vtaca_comprobante.cod_tipo_comprobante LIKE '%' + '".$datos['cod_tipo_comprobante']."' + '%' AND vtaca_comprobante.num_comprobante LIKE '%' + '".$datos['num_comprobante']."' + '%'
+			UNION
+			SELECT vtavi_mora_x_comprobante.cod_localidad, vtavi_mora_x_comprobante.num_correlativo, (SELECT vtama_tipo_comprobante.dsc_tipo_comprobante FROM vtama_tipo_comprobante WHERE vtama_tipo_comprobante.cod_tipo_comprobante = vtaca_comprobante.cod_tipo_comprobante) AS dsc_tipo_comprobante, vtaca_comprobante.num_comprobante, vtaca_comprobante.dsc_deudor, vtaca_comprobante.cod_estado, vtaca_comprobante.fch_emision, vtaca_comprobante.fch_cancelacion, vtaca_comprobante.cod_moneda, vtaca_comprobante.imp_total, vtaca_comprobante.imp_saldo 
+			FROM vtavi_mora_x_comprobante
+			INNER JOIN vtaca_comprobante ON vtaca_comprobante.num_correlativo = vtavi_mora_x_comprobante.num_correlativo
+			WHERE vtavi_mora_x_comprobante.cod_localidad_ctt = '".$datos['localidad']."' AND vtavi_mora_x_comprobante.cod_contrato = '".$datos['cod_contrato']."' AND vtavi_mora_x_comprobante.num_refinanciamiento = '".$datos['num_refinanciamiento']."' AND vtaca_comprobante.cod_tipo_comprobante LIKE '%' + '".$datos['cod_tipo_comprobante']."' + '%' AND vtaca_comprobante.num_comprobante LIKE '%' + '".$datos['num_comprobante']."' + '%'";
+
 		while($key = $db->recorrer($sql)){
 
 			$cod_localidad = "'".$key['cod_localidad']."'";
@@ -752,7 +762,7 @@ class ModeloSegContrato{
 
 		$arrData = array('tbodyComprobantesPrincipal'=> $tbodyComprobantesPrincipal); 
 
-		return $arrData;
+		return $consulta;
 
 		$db->liberar($sql);
         $db->cerrar();

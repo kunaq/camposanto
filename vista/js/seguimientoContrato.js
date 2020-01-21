@@ -89,6 +89,8 @@ function mostrarBeneficiario(row,servicio,tipoDoc,numDoc,apePaterno,apeMaterno,n
 	rows.removeClass('selected'); 
   	$(row).closest('tr').addClass('selected');
 
+  	$("#tbodyCancelaciones").html("");
+
   	$.ajax({
 		type: 'POST',
         url:"ajax/segCtt.ajax.php",
