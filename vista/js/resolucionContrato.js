@@ -73,7 +73,7 @@ function buscaMotivo(tipo){
 }//buscaMotivo
 
 function buscaNumServicio(){
-    var ctto = $("#").val();
+    var ctto = $("#numConResolucion").val();
     $.ajax({
         type:'POST',
         url: 'ajax/resCtto.ajax.php',
