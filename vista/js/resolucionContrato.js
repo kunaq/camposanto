@@ -99,7 +99,7 @@ function buscaNumServicio(){
 }//buscaNumServicio
 
 $("#numSerResolucion").change(function(){
-    var valor = $("#numSerResolucion").val()|;
+    var valor = $("#numSerResolucion").val();
     var numServicio = valor.split("/")[0];
     var resuelto = valor.split("/")[1];
     var anulado = valor.split("/")[2];
@@ -110,7 +110,7 @@ $("#numSerResolucion").change(function(){
             text: "El contrato ingresado está RESUELTO.",
             type: "warning",
             confirmButtonText: "Aceptar",
-        })
+        });
     }
     else if(anulado = 'SI'){
          bloquea();
@@ -119,7 +119,7 @@ $("#numSerResolucion").change(function(){
             text: "El contrato ingresado está ANULADO.",
             type: "warning",
             confirmButtonText: "Aceptar",
-        })
+        });
     }else{
         desbloquea();
     }
