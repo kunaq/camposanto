@@ -81,6 +81,12 @@ function buscaNumServicio(){
         data: {'accion': 'numServicio', 'codCtto':ctto},
         success : function(response){
             console.log(response);
+            if(respuesta[0]['cod_tipo_programa'] = 'TR000'){
+                $("#progContrato").val('CONTRATO DE SERVICIO');
+            }
+            else{
+                $("#progContrato").val('SERVICIO PRE-INSCRITO');
+            }
         }//success
     });//ajax
 }//buscaNumServicio
