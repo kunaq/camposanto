@@ -734,7 +734,7 @@
 										<div class="col-lg-12">
 											<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="300">
 				                				<div class="table-responsive">
-													<table class="table myTableCronograma">
+													<table class="table myTableCronograma" id="myTableCronograma">
 														<thead>
 															<th>N°</th>
 															<th>Tipo de Cuota</th>

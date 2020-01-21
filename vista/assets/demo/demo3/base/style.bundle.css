@@ -51757,7 +51757,7 @@ th{
 }
 
 .selected{
-    background-color: #b6afaf;
+    background-color: #ddd;
 }
 
 .cuoVencida{
@@ -51805,13 +51805,14 @@ th{
 }
 
 .btn-comprobante{
-    width: 25px;
+    width: 20px;
     border-radius: 4px;
     border: 1px;
 }
 
 .btn-comprobante i{
     margin-left: -5px;
+    padding-top: 2.5px;
 }
 
 .myTableComprobante tbody tr:hover{
@@ -51822,4 +51823,8 @@ th{
 .myTableCancelaciones tbody tr:hover{
     background-color: #ddd;
     cursor: pointer;
+}
+
+.td-checkbox{
+    position: inherit !important;
 }

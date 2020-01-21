@@ -613,14 +613,14 @@ class ModeloSegContrato{
 			if ($key['flg_nc'] == "SI") {
 				$tbodyComprobantes .= '<td>
 										<label class="m-checkbox">
-											<input type="checkbox" checked="" disabled>
+											<input type="checkbox" class="td-checkbox" checked="" disabled>
 											<span></span>
 										</label>
 									</td>';
 			}else{
 				$tbodyComprobantes .= '<td>
 										<label class="m-checkbox">
-											<input type="checkbox" disabled>
+											<input type="checkbox" class="td-checkbox" disabled>
 											<span></span>
 										</label>
 									</td>';
