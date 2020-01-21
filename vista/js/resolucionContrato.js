@@ -100,6 +100,7 @@ function buscaNumServicio(){
 
 $("#numSerResolucion").change(function(){
     var valor = $("#numSerResolucion").val();
+    console.log(valor);
     var numServicio = valor.split("/")[0];
     var resuelto = valor.split("/")[1];
     var anulado = valor.split("/")[2];
@@ -111,8 +112,10 @@ $("#numSerResolucion").change(function(){
             type: "warning",
             confirmButtonText: "Aceptar",
         });
+    }else{
+        desbloquea();
     }
-    else if(anulado = 'SI'){
+    if(anulado = 'SI'){
          bloquea();
          swal({
             title: "",
