@@ -107,7 +107,7 @@ function mostrarBeneficiario(row,servicio,tipoDoc,numDoc,apePaterno,apeMaterno,n
  }
 
  function getDatosComprobante(){
- 	console.log("doble.click");
+ 	console.log("doble click");
  }
 
  function getCancelacionComprobante(row,localidad,num_correlativo){
