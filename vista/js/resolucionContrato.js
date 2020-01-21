@@ -80,7 +80,7 @@ function buscaNumServicio(){
         dataType: 'json',
         data: {'accion': 'numServicio', 'codCtto':ctto},
         success : function(response){
-            console.log(response);
+            // console.log(response);
             $("#numConResolucion").val(response[0]['cod_contrato']);
             if(response[0]['cod_tipo_programa'] = 'TR000'){
                 $("#progContrato").val('CONTRATO DE SERVICIO');
@@ -103,18 +103,17 @@ $("#numSerResolucion").change(function(){
     var numServicio = valor.split("/")[0];
     var resuelto = valor.split("/")[1];
     var anulado = valor.split("/")[2];
-        console.log(resuelto,anulado);
+        // console.log(resuelto,anulado);
     if(resuelto == 'SI'){
         bloquea();
-         swal({
+        swal({
             title: "",
             text: "El contrato ingresado está RESUELTO.",
             type: "warning",
             confirmButtonText: "Aceptar",
         });
-    }else{
-        desbloquea();
     }
+
     if(anulado == 'SI'){
          bloquea();
          swal({
@@ -123,7 +122,9 @@ $("#numSerResolucion").change(function(){
             type: "warning",
             confirmButtonText: "Aceptar",
         });
-    }else{
+    }
+
+    if(anulado == resuelto == 'NO'){
         desbloquea();
     }
 });//change numServicio
