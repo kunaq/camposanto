@@ -109,7 +109,7 @@ class ModeloSegContrato{
 
 		$db = new Conexion();
 
-		$sql = $db->consulta("SELECT vtavi_cronograma_x_servicio.*, vtade_contrato.cod_cliente, vtade_contrato.cod_titular_alterno, vtade_contrato.cod_aval FROM vtavi_cronograma_x_servicio INNER JOIN vtade_contrato ON vtade_contrato.cod_contrato = vtavi_cronograma_x_servicio.cod_contrato WHERE vtavi_cronograma_x_servicio.cod_localidad = '$localidad' AND vtavi_cronograma_x_servicio.cod_contrato = '$cod_contrato' AND vtavi_cronograma_x_servicio.num_servicio = '$cod_servicio' ORDER BY vtavi_cronograma_x_servicio.num_refinanciamiento ASC"); 
+		$sql = $db->consulta("SELECT DISTINCT vtavi_cronograma_x_servicio.*, vtade_contrato.cod_cliente, vtade_contrato.cod_titular_alterno, vtade_contrato.cod_aval FROM vtavi_cronograma_x_servicio INNER JOIN vtade_contrato ON vtade_contrato.cod_contrato = vtavi_cronograma_x_servicio.cod_contrato WHERE vtavi_cronograma_x_servicio.cod_localidad = '$localidad' AND vtavi_cronograma_x_servicio.cod_contrato = '$cod_contrato' AND vtavi_cronograma_x_servicio.num_servicio = '$cod_servicio' ORDER BY vtavi_cronograma_x_servicio.num_refinanciamiento ASC"); 
 
 		$tbodyRefinanciamiento = "";
 
