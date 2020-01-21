@@ -735,7 +735,7 @@ class ModeloSegContrato{
 			$tbodyComprobantesPrincipal .= '<tr onclick="getCancelacionPrincipal(this,'.$cod_localidad.','.$num_correlativo.');">
 									<td>'.$key['dsc_tipo_comprobante'].'</td>
 									<td>'.$key['num_comprobante'].'</td>
-									<td>'.$key['dsc_deudor'].'</td>
+									<td>'.Utf8Encode($key['dsc_deudor']).'</td>
 									<td>'.$key['cod_estado'].'</td>
 									<td>'.dateFormat($key['fch_emision']).'</td>
 									<td>'.dateFormat($key['fch_cancelacion']).'</td>';
