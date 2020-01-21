@@ -32,7 +32,7 @@ class ModeloSegContrato{
 
 	static public function mdlgetServiciosCtt($cod_contrato){
 		$db = new Conexion();
-		$sql = $db->consulta("SELECT vtade_contrato.cod_localidad, vtade_contrato.imp_tasa_interes, vtade_contrato.cod_tipo_ctt, vtade_contrato.cod_tipo_programa, vtade_contrato.cod_contrato, vtade_contrato.num_servicio, (SELECT vtama_tipo_servicio.dsc_tipo_servicio FROM vtama_tipo_servicio WHERE vtama_tipo_servicio.cod_tipo_servicio = vtade_contrato.cod_tipo_servicio)AS dsc_tipo_servicio, vtade_contrato.fch_generacion, vtade_contrato.fch_emision, vtade_contrato.fch_anulacion, vtade_contrato.fch_activacion, vtade_contrato.fch_resolucion, vtade_contrato.fch_transferencia, vtade_contrato.num_refinanciamiento FROM vtade_contrato WHERE vtade_contrato.cod_contrato LIKE (RIGHT('0000000000'+'$cod_contrato',10)) ORDER BY num_servicio ASC");
+		$sql = $db->consulta("SELECT vtade_contrato.cod_localidad, vtade_contrato.imp_tasa_interes, vtade_contrato.cod_tipo_ctt, vtade_contrato.cod_tipo_programa, vtade_contrato.cod_contrato, vtade_contrato.num_servicio, (SELECT vtama_tipo_servicio.dsc_tipo_servicio FROM vtama_tipo_servicio WHERE vtama_tipo_servicio.cod_tipo_servicio = vtade_contrato.cod_tipo_servicio)AS dsc_tipo_servicio, vtade_contrato.fch_generacion, vtade_contrato.fch_emision, vtade_contrato.fch_anulacion, vtade_contrato.fch_activacion, vtade_contrato.fch_resolucion, vtade_contrato.fch_transferencia, vtade_contrato.num_refinanciamiento, vtade_contrato.cod_cliente, vtade_contrato.cod_titular_alterno, vtade_contrato.cod_aval FROM vtade_contrato WHERE vtade_contrato.cod_contrato LIKE (RIGHT('0000000000'+'$cod_contrato',10)) ORDER BY num_servicio ASC");
 
 		$tablaServicios = "";
 
@@ -83,9 +83,12 @@ class ModeloSegContrato{
 	        $tipoPrograma = "'".$key['cod_tipo_programa']."'";
 	        $numRef = "'".$key['num_refinanciamiento']."'";
 	        $numServ = "'".$key['num_servicio']."'";
+	        $titutal = "'".$key['cod_cliente']."'";
+	        $titular_alterno = "'".$key['cod_titular_alterno']."'";
+	        $aval = "'".$key['cod_aval']."'";
 
 	        $tablaServicios.= 
-	                   '<tr onclick="getDatosServicioCtt(this,'.$localidad.','.$tasaInt.','.$tipoContrato.','.$tipoPrograma.','.$numCtt.','.$numRef.','.$numServ.');">
+	                   '<tr onclick="getDatosServicioCtt(this,'.$localidad.','.$tasaInt.','.$tipoContrato.','.$tipoPrograma.','.$numCtt.','.$numRef.','.$numServ.','.$titutal.','.$titular_alterno.','.$aval.');">
 	                        <td>'.$key['num_servicio'].'</td>
 	                        <td>'.$key['dsc_tipo_servicio'].'</td>
 	                        <td>'.$tfechGen.'</td>
@@ -106,7 +109,7 @@ class ModeloSegContrato{
 
 		$db = new Conexion();
 
-		$sql = $db->consulta("SELECT * FROM vtavi_cronograma_x_servicio WHERE cod_localidad = '$localidad' AND cod_contrato = '$cod_contrato' AND num_servicio = '$cod_servicio' ORDER BY num_refinanciamiento ASC"); 
+		$sql = $db->consulta("SELECT vtavi_cronograma_x_servicio.*, vtade_contrato.cod_cliente, vtade_contrato.cod_titular_alterno, vtade_contrato.cod_aval FROM vtavi_cronograma_x_servicio INNER JOIN vtade_contrato ON vtade_contrato.cod_contrato = vtavi_cronograma_x_servicio.cod_contrato WHERE vtavi_cronograma_x_servicio.cod_localidad = '$localidad' AND vtavi_cronograma_x_servicio.cod_contrato = '$cod_contrato' AND vtavi_cronograma_x_servicio.num_servicio = '$cod_servicio' ORDER BY vtavi_cronograma_x_servicio.num_refinanciamiento ASC"); 
 
 		$tbodyRefinanciamiento = "";
 
@@ -119,9 +122,12 @@ class ModeloSegContrato{
 			$num_ref = "'".$key['num_refinanciamiento']."'";
 	        $cod_tipo_ctt = "'".$key['cod_tipo_ctt']."'";
 	        $cod_tipo_programa = "'".$key['cod_tipo_programa']."'";
+	        $titutal = "'".$key['cod_cliente']."'";
+	        $titular_alterno = "'".$key['cod_titular_alterno']."'";
+	        $aval = "'".$key['cod_aval']."'";
 
 			$tbodyRefinanciamiento .='<tr>
-									<td onclick="getDatosServxRef(this,'.$localidad.','.$cod_tipo_ctt.','.$cod_tipo_programa.','.$cod_contrato.','.$num_ref.','.$num_serv.')">'.$key['num_refinanciamiento'].'</td>
+									<td onclick="getDatosServxRef(this,'.$localidad.','.$cod_tipo_ctt.','.$cod_tipo_programa.','.$cod_contrato.','.$num_ref.','.$num_serv.','.$titutal.','.$titular_alterno.','.$aval.')">'.$key['num_refinanciamiento'].'</td>
 								</tr>';
 		}
 		$arrData = array('tbodyRefinanciamiento'=> $tbodyRefinanciamiento); 
