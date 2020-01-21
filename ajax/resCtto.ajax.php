@@ -7,6 +7,10 @@ class AjaxResCtto{
 		$respuesta = ControladorResCtto::ctrBuscaMotivo();
 	echo json_encode($respuesta);
 	}//ajaxBuscaMotivo
+	public function ajaxBuscaNumServicio(){
+		$respuesta = ControladorResCtto::ctrBuscaNumServicio();
+	echo json_encode($respuesta);
+	}//ajaxBuscaNumServicio
 	public function ajaxBuscaDsctoXCtto(){
 		$respuesta = ControladorModifCtto::ctrBuscaDsctoXCtto();
 		foreach ($respuesta as $key => $value) {
@@ -14,7 +18,7 @@ class AjaxResCtto{
 		}	
 	echo json_encode($respuesta);
 	}//ajaxBuscaDsctoXCtto
-	}//class AjaxResCtto
+}//class AjaxResCtto
 /*=============================================
 ACCIONES
 =============================================*/
@@ -22,7 +26,7 @@ if(isset($_POST["accion"]) && $_POST["accion"] == 'motivo'){
 	$cliente = new AjaxResCtto();
 	$cliente -> ajaxBuscaMotivo();
 }
-else if(isset($_POST["accion"]) && $_POST["accion"] == 'conCodigo'){
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'numServicio'){
 	$cliente = new AjaxResCtto();
-	$cliente -> ajaxBuscaCtto();
+	$cliente -> ajaxBuscaNumServicio();
 }

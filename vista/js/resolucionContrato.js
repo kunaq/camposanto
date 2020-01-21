@@ -62,7 +62,6 @@ function buscaMotivo(tipo){
         dataType: 'json',
         data: {'accion': 'motivo', 'codTipo':tipo},
         success : function(response){
-            console.log('response',response.lenght);
             var option = '';
             $("#motivoResolucion").empty();
             $.each(response,function(index,value){
@@ -72,3 +71,16 @@ function buscaMotivo(tipo){
          }//success
     });//ajax
 }//buscaMotivo
+
+function buscaNumServicio(){
+    var ctto = $("#").val();
+    $.ajax({
+        type:'POST',
+        url: 'ajax/resCtto.ajax.php',
+        dataType: 'json',
+        data: {'accion': 'numServicio', 'codCtto':ctto},
+        success : function(response){
+            console.log(response);
+        }//success
+    });//ajax
+}//buscaNumServicio

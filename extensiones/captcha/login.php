@@ -19,7 +19,7 @@ require_once "../../modelo/conexion.php";
       $cont++;  
       $datos[] =  $key2;
         $_SESSION['user'] =  $key2['cod_usuario']; 
-        $bar = $key2['dsc_usuario'];
+        $bar = utf8_encode($key2['dsc_usuario']);
         $_SESSION['nombre'] = ucwords(strtolower($bar));
     }
     if($cont > 0){
