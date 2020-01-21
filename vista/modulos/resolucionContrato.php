@@ -124,17 +124,12 @@
 											<th>Saldo</th>
 										</thead>
 										<tbody>
-											<tr>
-												<td>0</td>
-												<td>DERECHO DE USO</td>
-												<td>3.282,00</td>
-											</tr>
 										</tbody>
 										<tfoot>
 											<tr>
 												<td></td>
 												<td style="text-align: right;">Total:&nbsp;&nbsp;</td>
-												<td>3.282,00</td>
+												<td></td>
 											</tr>
 										</tfoot>
 									</table>
