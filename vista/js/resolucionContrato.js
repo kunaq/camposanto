@@ -87,6 +87,12 @@ function buscaNumServicio(){
             else{
                 $("#progContrato").val('SERVICIO PRE-INSCRITO');
             }
+            $("#numSerResolucion").empty();
+            var option = '';
+            $.each(response,function(index,value){
+                option = '<option value="'+value['num_servicio']+'">'+value['num_servicio']+'</option>';
+                document.getElementById("numSerResolucion").insertAdjacentHTML("beforeEnd" ,option);
+            });//each
         }//success
     });//ajax
 }//buscaNumServicio

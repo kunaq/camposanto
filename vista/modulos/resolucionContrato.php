@@ -41,7 +41,8 @@
 								</div>
 								<div class="col-lg-1">
 									<label>Servicio</label>
-									<input type="text" class="form-control form-control-sm m-input" name="numSerResolucion" id="numSerResolucion">
+									<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="numSerResolucion" id="numSerResolucion" onchange="buscaDetalles(this.value);">
+									</select>
 								</div>
 								<div class="col-lg-4">
 									<label>Programa</label>
