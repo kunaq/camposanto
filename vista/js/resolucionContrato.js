@@ -142,7 +142,7 @@ function buscaDetalles(value,accion){
         type:'POST',
         url: 'ajax/resCtto.ajax.php',
         dataType: 'json',
-        data: {'accion': accion, 'codCtto':ctto, 'numServicio' : value},
+        data: {'accion': accion, 'codCtto':ctto, 'numServicio' : numServicio},
         success : function(response){
             console.log(response);
         }//success
