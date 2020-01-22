@@ -136,6 +136,7 @@ $("#numSerResolucion").change(function(){
 
 function buscaDetalles(value,accion){
     console.log(value);
+    var numServicio = value.split("/")[0];
     var ctto = $("#numConResolucion").val();
     $.ajax({
         type:'POST',
