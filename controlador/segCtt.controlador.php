@@ -166,6 +166,16 @@ class ControladorSegContrato{
 		$respuesta = ModeloSegContrato::mdlFiltroComprobantes($datos);
 		return $respuesta;
 	}//function ctrFiltroComprobantes
+	
+	static public function ctrGetAutorizacion(){
+
+		$datos = array('localidad' => $_POST['localidad'],
+					   'cod_contrato' => $_POST['cod_contrato'],
+					   'cod_servicio' => $_POST['cod_servicio']);
+
+		$respuesta = ModeloSegContrato::mdlGetAutorizacion($datos);
+		return $respuesta;
+	}//function ctrGetAutorizacion
 
 }//class ControladorWizard
 ?>
