@@ -290,7 +290,7 @@ $("#num_comprobante").change(function() {
     }
 });
 
-function getDatosServicioCtt(row,localidad,tasa,tipoCtt,tipoPro,codCtt,numRef,numSer,titular,titular_alterno,aval){
+function getDatosServicioCtt(row,localidad,tasa,tipoCtt,tipoPro,codCtt,numRef,numSer,titular,titular_alterno,aval,canalVta,flgAgencia,cobrador,vendedor,grupo,tipoComisionista,supervisor,jefeVentas,agencia){
 	var rows = $('#myTableServicios tr').not(':first');
 	rows.removeClass('selected'); 
   	$(row).closest('tr').addClass('selected');
@@ -315,8 +315,112 @@ function getDatosServicioCtt(row,localidad,tasa,tipoCtt,tipoPro,codCtt,numRef,nu
   		document.getElementById('cod_aval').value = aval;
   		$("#cod_aval").change();
   	}
+
+  	document.getElementById('canal_venta').value = canalVta;
+
+  	if (flgAgencia == "SI") {
+        $('#flg_agencia').prop("checked", true);
+    }else{
+    	$('#flg_agencia').prop("checked", false);
+    }
     
-    
+    if (cobrador == "") {
+  	}else{
+  		document.getElementById('codCobrador').value = cobrador;
+  		$.ajax({
+	        type: 'POST',
+	        url: 'extensiones/captcha/buscarNombreTrabajador.php',
+	        dataType: 'text',
+	        data: { 'cod' : cobrador },
+	        success : function(respuesta){
+	            document.getElementById('nombreCobrador').value = respuesta;
+	        }
+	    });
+  	}
+
+  	if (vendedor == "") {
+  	}else{
+  		document.getElementById('codVendedor').value = vendedor;
+  		$.ajax({
+	        type: 'POST',
+	        url: 'extensiones/captcha/buscarNombreTrabajador.php',
+	        dataType: 'text',
+	        data: { 'cod' : vendedor },
+	        success : function(respuesta){
+	            document.getElementById('nombreVendedor').value = respuesta;
+	        }
+	    });
+  	}
+
+  	if (grupo == "") {
+  	}else{
+  		document.getElementById('codGrupo').value = grupo;
+  		$.ajax({
+	        type: 'POST',
+	        url: 'extensiones/captcha/buscarNombreGrupo.php',
+	        dataType: 'text',
+	        data: { 'cod' : grupo },
+	        success : function(respuesta){
+	            document.getElementById('nombreGrupo').value = respuesta;
+	        }
+	    });
+  	}
+
+  	if (tipoComisionista == "") {
+  	}else{
+  		document.getElementById('codTipoComisionista').value = tipoComisionista;
+  		$.ajax({
+	        type: 'POST',
+	        url: 'extensiones/captcha/buscaNombreComisionista.php',
+	        dataType: 'text',
+	        data: { 'cod' : tipoComisionista },
+	        success : function(respuesta){
+	            document.getElementById('nombreTipoComisionista').value = respuesta;
+	        }
+	    });
+  	}
+
+  	if (supervisor == "") {
+  	}else{
+  		document.getElementById('codSupervisor').value = supervisor;
+  		$.ajax({
+	        type: 'POST',
+	        url: 'extensiones/captcha/buscarNombreTrabajador.php',
+	        dataType: 'text',
+	        data: { 'cod' : supervisor },
+	        success : function(respuesta){
+	            document.getElementById('nombreSupervisor').value = respuesta;
+	        }
+	    });
+  	}
+
+  	if (jefeVentas == "") {
+  	}else{
+  		document.getElementById('codJefeVentas').value = jefeVentas;
+  		$.ajax({
+	        type: 'POST',
+	        url: 'extensiones/captcha/buscarNombreTrabajador.php',
+	        dataType: 'text',
+	        data: { 'cod' : jefeVentas },
+	        success : function(respuesta){
+	            document.getElementById('nombreJefeVentas').value = respuesta;
+	        }
+	    });
+  	}
+
+  	if (agencia == "") {
+  	}else{
+  		document.getElementById('codFuneraria').value = agencia;
+  		$.ajax({
+	        type: 'POST',
+	        url: 'extensiones/captcha/buscaNombreFuneraria.php',
+	        dataType: 'text',
+	        data: { 'cod' : agencia },
+	        success : function(respuesta){
+	            document.getElementById('dscFuneraria').value = respuesta;
+	        }
+	    });
+  	}
 
   	$.ajax({
 		type: 'POST',
@@ -560,7 +664,7 @@ function getDatosServicioCtt(row,localidad,tasa,tipoCtt,tipoPro,codCtt,numRef,nu
     });//ajaxGetBeneficiarios
 }
 
-function getDatosServxRef(row,localidad,tasa,tipoCtt,tipoPro,codCtt,numRef,numSer,titular,titular_alterno,aval){
+function getDatosServxRef(row,localidad,tasa,tipoCtt,tipoPro,codCtt,numRef,numSer,titular,titular_alterno,aval,canalVta,flgAgencia,cobrador,vendedor,grupo,tipoComisionista,supervisor,jefeVentas,agencia){
 	var rows = $('#myTableRefinanciamiento tr').not(':first');
 	rows.removeClass('selected'); 
   	$(row).closest('tr').addClass('selected');

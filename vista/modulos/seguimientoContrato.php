@@ -1385,15 +1385,15 @@
 													</label>
 												</div>
 												<div class="col-lg-5">
-													<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="sedeContrto" id="sedeContrato">
-														<option>Selecciona</option>
+													<select class="form-control form-control-sm m-input custom-select custom-select-danger" id="canal_venta" disabled>
+														<option value="">Seleccione</option>
 														<?php
-																// $tabla = "vtama_localidad";
-																// $item1 = "cod_localidad";
-																// $item2 = "dsc_localidad";
-																// $prueba = controladorEmpresa::
-																// ctrSelects($tabla,$item1,$item2);
-														?>
+															$tabla = "vtama_canal_venta";
+															$item1 = "cod_canal_venta";
+															$item2 = "dsc_canal_venta";
+															$prueba = controladorEmpresa::
+															ctrSelects($tabla,$item1,$item2);
+														?> 
 													</select>
 												</div>
 												<div class="col-lg-2"></div>
@@ -1407,7 +1407,7 @@
 																<td>
 																	<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
 																		<label>
-																			<input type="checkbox" name="" id="observacionesCheck">
+																			<input type="checkbox" name="" id="flg_agencia" disabled>
 																			<span></span>
 																		</label>
 																	</span>
@@ -1425,15 +1425,11 @@
 											<div class="row form-group">
 												<div class="col-lg-3">
 													<label>Cobrador</label>
-													<input type="text" class="form-control form-control-sm m-input" name="codCobrador" id="codCobrador">
+													<input type="text" class="form-control form-control-sm m-input" name="codCobrador" id="codCobrador" disabled>
 												</div>
-												<div class="col-lg-1">
-													<label>&nbsp;</label>
-													<button class="btn btn-sm btnGuardarKqPst mt25"><i class="fa fa-search"></i></button>
-												</div>
-												<div class="col-lg-8">
+												<div class="col-lg-9">
 													<label>&nbsp;&nbsp;</label>
-													<input type="text" class="form-control form-control-sm m-input" name="nombreCobrador" id="nombreCobrador">
+													<input type="text" class="form-control form-control-sm m-input" name="nombreCobrador" id="nombreCobrador" disabled>
 												</div>
 											</div>
 										</div>
@@ -1444,27 +1440,27 @@
 											<div class="row form-group">
 												<div class="col-lg-3">
 													<label>Vendedor</label>
-													<input type="text" class="form-control form-control-sm m-input" name="codVendedor" id="codVendedor">
+													<input type="text" class="form-control form-control-sm m-input" name="codVendedor" id="codVendedor" disabled>
 												</div>
 												<div class="col-lg-9">
 													<label>&nbsp;&nbsp;</label>
-													<input type="text" class="form-control form-control-sm m-input" name="nombreVendedor" id="nombreVendedor">
+													<input type="text" class="form-control form-control-sm m-input" name="nombreVendedor" id="nombreVendedor" disabled>
 												</div>
 												<div class="col-lg-3">
 													<label>Grupo</label>
-													<input type="text" class="form-control form-control-sm m-input" name="codGrupo" id="codGrupo">
+													<input type="text" class="form-control form-control-sm m-input" name="codGrupo" id="codGrupo" disabled>
 												</div>
 												<div class="col-lg-9">
 													<label>&nbsp;&nbsp;</label>
-													<input type="text" class="form-control form-control-sm m-input" name="nombreGrupo" id="nombreGrupo">
+													<input type="text" class="form-control form-control-sm m-input" name="nombreGrupo" id="nombreGrupo" disabled>
 												</div>
 												<div class="col-lg-3">
 													<label>Tipo Comisionista</label>
-													<input type="text" class="form-control form-control-sm m-input" name="codTipoComisionista" id="codTipoComisionista">
+													<input type="text" class="form-control form-control-sm m-input" name="codTipoComisionista" id="codTipoComisionista" disabled>
 												</div>
 												<div class="col-lg-9">
 													<label>&nbsp;&nbsp;</label>
-													<input type="text" class="form-control form-control-sm m-input" name="nombreTipoComisionista" id="nombreTipoComisionista">
+													<input type="text" class="form-control form-control-sm m-input" name="nombreTipoComisionista" id="nombreTipoComisionista" disabled>
 												</div>
 											</div>
 										</div>
@@ -1475,19 +1471,19 @@
 											<div class="row form-group">
 												<div class="col-lg-3">
 													<label>Supervisor</label>
-													<input type="text" class="form-control form-control-sm m-input" name="codSupervisor" id="codSupervisor">
+													<input type="text" class="form-control form-control-sm m-input" name="codSupervisor" id="codSupervisor" disabled>
 												</div>
 												<div class="col-lg-9">
 													<label>&nbsp;&nbsp;</label>
-													<input type="text" class="form-control form-control-sm m-input" name="nombreSupervisor" id="nombreSupervisor">
+													<input type="text" class="form-control form-control-sm m-input" name="nombreSupervisor" id="nombreSupervisor" disabled>
 												</div>
 												<div class="col-lg-3">
 													<label>Jefe de Ventas</label>
-													<input type="text" class="form-control form-control-sm m-input" name="codJefeVentas" id="codJefeVentas">
+													<input type="text" class="form-control form-control-sm m-input" name="codJefeVentas" id="codJefeVentas" disabled>
 												</div>
 												<div class="col-lg-9">
 													<label>&nbsp;&nbsp;</label>
-													<input type="text" class="form-control form-control-sm m-input" name="nombreJefeVentas" id="nombreJefeVentas">
+													<input type="text" class="form-control form-control-sm m-input" name="nombreJefeVentas" id="nombreJefeVentas" disabled>
 												</div>
 											</div>
 										</div>
@@ -1498,11 +1494,11 @@
 											<div class="row form-group">
 												<div class="col-lg-3">
 													<label>Descripcion</label>
-													<input type="text" class="form-control form-control-sm m-input" name="codFuneraria" id="codFuneraria">
+													<input type="text" class="form-control form-control-sm m-input" name="codFuneraria" id="codFuneraria" disabled>
 												</div>
 												<div class="col-lg-9">
 													<label>&nbsp;&nbsp;</label>
-													<input type="text" class="form-control form-control-sm m-input" name="dscFuneraria" id="dscFuneraria">
+													<input type="text" class="form-control form-control-sm m-input" name="dscFuneraria" id="dscFuneraria" disabled>
 												</div>
 											</div>
 										</div>
