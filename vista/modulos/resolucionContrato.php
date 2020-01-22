@@ -387,11 +387,11 @@
 												</div>
 												<div class="col-lg-2">
 													<label>Saldo Insoluto</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="saldoInsResolucion" name="saldoInsResolucion" disabled>
 												</div>
 												<div class="col-lg-2">
-													<label>Porcent.</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<label>Porcentaje</label>
+													<input type="text" class="form-control form-control-sm m-input" id="porcResolucion" name="porcResolucion" disabled>
 												</div>
 												<div class="col-lg-2 check-comisiones">
 													<label class="m-checkbox">
@@ -399,8 +399,7 @@
 													</label>
 													<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
 														<label>
-															<input type="checkbox" id="check-comision" disabled name="">
-															<span class="jurid"></span>
+															<input type="checkbox" id="check-comision" disabled name="check-comision">
 														</label>
 													</span>											
 												</div>
