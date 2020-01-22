@@ -11,7 +11,7 @@ class ControladorResCtto{
 	}//ctrBuscaMotivo
 
 	static public function ctrBuscaNumServicio(){
-		$tablaTipo = 'vtade_contrato';
+		$tablaCtto = 'vtade_contrato';
 		$codCtto = $_POST['codCtto'];
 		$respuesta = ModeloResCtto::mdlBuscaNumServicio($tablaCtto,$codCtto);
 		return $respuesta;
