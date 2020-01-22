@@ -11,13 +11,11 @@ class AjaxResCtto{
 		$respuesta = ControladorResCtto::ctrBuscaNumServicio();
 	echo json_encode($respuesta);
 	}//ajaxBuscaNumServicio
-	public function ajaxBuscaDsctoXCtto(){
-		$respuesta = ControladorModifCtto::ctrBuscaDsctoXCtto();
-		foreach ($respuesta as $key => $value) {
-			$respuesta[$key]["fch_registro"] = ($respuesta[$key]["fch_registro"] != '') ? dateTimeFormat($respuesta[$key]["fch_registro"]) : '';
-		}	
+	public function ajaxBuscaDetCttoRes(){
+		$respuesta = ControladorResCtto::ctrBuscaDetCttoRes();
+		$respuesta["fch_resolucion"] = ($respuesta["fch_resolucion"] != '') ? dateTimeFormat($respuesta["fch_resolucion"]) : '';
 	echo json_encode($respuesta);
-	}//ajaxBuscaDsctoXCtto
+	}//ajaxBuscaDetCttoRes
 }//class AjaxResCtto
 /*=============================================
 ACCIONES
@@ -29,4 +27,8 @@ if(isset($_POST["accion"]) && $_POST["accion"] == 'motivo'){
 else if(isset($_POST["accion"]) && $_POST["accion"] == 'numServicio'){
 	$cliente = new AjaxResCtto();
 	$cliente -> ajaxBuscaNumServicio();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'condicionResuelto'){
+	$cliente = new AjaxResCtto();
+	$cliente -> ajaxBuscaDetCttoRes();
 }

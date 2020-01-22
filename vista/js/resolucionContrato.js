@@ -105,6 +105,8 @@ $("#numSerResolucion").change(function(){
     var anulado = valor.split("/")[2];
         // console.log(resuelto,anulado);
     if(resuelto == 'SI'){
+        limpia();
+        buscaDetalles(valor,'condicionResuelto');
         bloquea();
         swal({
             title: "",
@@ -116,6 +118,7 @@ $("#numSerResolucion").change(function(){
 
     if(anulado == 'SI'){
          bloquea();
+         limpia()
          swal({
             title: "",
             text: "El contrato ingresado está ANULADO.",
@@ -126,11 +129,23 @@ $("#numSerResolucion").change(function(){
 
     if(resuelto == 'NO' && anulado == 'NO'){
         desbloquea();
+        limpia();
+        buscaDetalles(valor,'condicionRegular');
     }
 });//change numServicio
 
-function buscaDetalles(value){
+function buscaDetalles(value,accion){
     console.log(value);
+    var ctto = $("#numConResolucion").val();
+    $.ajax({
+        type:'POST',
+        url: 'ajax/resCtto.ajax.php',
+        dataType: 'json',
+        data: {'accion': accion, 'codCtto':ctto, 'numServicio' : value},
+        success : function(response){
+            console.log(response);
+        }//success
+    });//ajax
 }
 
 function bloquea(){
@@ -138,86 +153,62 @@ function bloquea(){
     $("#tipoResolucion").prop('disabled',true);
     $("#motivoResolucion").prop('disabled',true);
     $("#detalleResolucion").prop('disabled',true);
-    $("#tipoNecResolucion").prop('disabled',true);
-    $("#codCliResolucion").prop('disabled',true);
-    $("#nombreCliResolucion").prop('disabled',true);
-    $("#tipoDocResolucion").prop('disabled',true);
-    $("#numDocResolucion").prop('disabled',true);
-    $("#telCliResolucion").prop('disabled',true);
-    $("#dirCliResolucion").prop('disabled',true);
-    $("#codJVenResolucion").prop('disabled',true);
-    $("#dscJVenResolucion1s").prop('disabled',true);
-    $("#codVenResolucion").prop('disabled',true);
-    $("#dscVenResolucion").prop('disabled',true);
-    $("#codGruResolucion").prop('disabled',true);
-    $("#dscGruResolucion").prop('disabled',true);
-    $("#codSupResolucion").prop('disabled',true);
-    $("#dscSupResolucion").prop('disabled',true);
-    $("#cuoTotReg").prop('disabled',true);
-    $("#cuoCanReg").prop('disabled',true);
-    $("#cuoPenReg").prop('disabled',true);
-    $("#cuoTotFOMA").prop('disabled',true);
-    $("#cuoCanFOMA").prop('disabled',true);
-    $("#cuoPenFOMA").prop('disabled',true);
-    $("#estadoConResolucion").prop('disabled',true);
-    $("#monedaConResolucion").prop('disabled',true);
     $("#annoPerResolucion").prop('disabled',true);
     $("#tipoPerResolucion").prop('disabled',true);
     $("#perResolucion").prop('disabled',true);
-    $("#saldoInsResolucion").prop('disabled',true);
-    $("#porcResolucion").prop('disabled',true);
-    $("#check-comision").prop('disabled',true);
-    $("#codVenComResolucion").prop('disabled',true);
-    $("#dscVenComResolucion").prop('disabled',true);
-    $("#codSupComResolucion").prop('disabled',true);
-    $("#dscSupComResolucion").prop('disabled',true);
-    $("#codGruComResolucion").prop('disabled',true);
-    $("#dscGruComResolucion").prop('disabled',true);
-    $("#codJVenComResolucion").prop('disabled',true);
-    $("#dscJVenCoResolucion").prop('disabled',true);
 
 }//bloquea
 
 function desbloquea(){
-     $("#m_datepicker_4_3").prop('disabled',false);
-    $("#tipoResolucion").prop('disabled',false);
-    $("#motivoResolucion").prop('disabled',false);
-    $("#detalleResolucion").prop('disabled',false);
-    $("#tipoNecResolucion").prop('disabled',false);
-    $("#codCliResolucion").prop('disabled',false);
-    $("#nombreCliResolucion").prop('disabled',false);
-    $("#tipoDocResolucion").prop('disabled',false);
-    $("#numDocResolucion").prop('disabled',false);
-    $("#telCliResolucion").prop('disabled',false);
-    $("#dirCliResolucion").prop('disabled',false);
-    $("#codJVenResolucion").prop('disabled',false);
-    $("#dscJVenResolucion1s").prop('disabled',false);
-    $("#codVenResolucion").prop('disabled',false);
-    $("#dscVenResolucion").prop('disabled',false);
-    $("#codGruResolucion").prop('disabled',false);
-    $("#dscGruResolucion").prop('disabled',false);
-    $("#codSupResolucion").prop('disabled',false);
-    $("#dscSupResolucion").prop('disabled',false);
-    $("#cuoTotReg").prop('disabled',false);
-    $("#cuoCanReg").prop('disabled',false);
-    $("#cuoPenReg").prop('disabled',false);
-    $("#cuoTotFOMA").prop('disabled',false);
-    $("#cuoCanFOMA").prop('disabled',false);
-    $("#cuoPenFOMA").prop('disabled',false);
-    $("#estadoConResolucion").prop('disabled',false);
-    $("#monedaConResolucion").prop('disabled',false);
-    $("#annoPerResolucion").prop('disabled',false);
-    $("#tipoPerResolucion").prop('disabled',false);
-    $("#perResolucion").prop('disabled',false);
-    $("#saldoInsResolucion").prop('disabled',false);
-    $("#porcResolucion").prop('disabled',false);
-    $("#check-comision").prop('disabled',false);
-    $("#codVenComResolucion").prop('disabled',false);
-    $("#dscVenComResolucion").prop('disabled',false);
-    $("#codSupComResolucion").prop('disabled',false);
-    $("#dscSupComResolucion").prop('disabled',false);
-    $("#codGruComResolucion").prop('disabled',false);
-    $("#dscGruComResolucion").prop('disabled',false);
-    $("#codJVenComResolucion").prop('disabled',false);
-    $("#dscJVenCoResolucion").prop('disabled',false);
+    $("#m_datepicker_4_3").prop('disabled',true);
+    $("#tipoResolucion").prop('disabled',true);
+    $("#motivoResolucion").prop('disabled',true);
+    $("#detalleResolucion").prop('disabled',true);
+    $("#annoPerResolucion").prop('disabled',true);
+    $("#tipoPerResolucion").prop('disabled',true);
+    $("#perResolucion").prop('disabled',true);
+}//desbloquea
+
+function limpia(){
+    $("#m_datepicker_4_3").val();
+    $("#tipoResolucion").val();
+    $("#motivoResolucion").val();
+    $("#detalleResolucion").val();
+    $("#tipoNecResolucion").val();
+    $("#codCliResolucion").val();
+    $("#nombreCliResolucion").val();
+    $("#tipoDocResolucion").val();
+    $("#numDocResolucion").val();
+    $("#telCliResolucion").val();
+    $("#dirCliResolucion").val();
+    $("#codJVenResolucion").val();
+    $("#dscJVenResolucion1s").val();
+    $("#codVenResolucion").val();
+    $("#dscVenResolucion").val();
+    $("#codGruResolucion").val();
+    $("#dscGruResolucion").val();
+    $("#codSupResolucion").val();
+    $("#dscSupResolucion").val();
+    $("#cuoTotReg").val();
+    $("#cuoCanReg").val();
+    $("#cuoPenReg").val();
+    $("#cuoTotFOMA").val();
+    $("#cuoCanFOMA").val();
+    $("#cuoPenFOMA").val();
+    $("#estadoConResolucion").val();
+    $("#monedaConResolucion").val();
+    $("#annoPerResolucion").val();
+    $("#tipoPerResolucion").val();
+    $("#perResolucion").val();
+    $("#saldoInsResolucion").val();
+    $("#porcResolucion").val();
+    $("#check-comision").prop('checked',false);
+    $("#codVenComResolucion").val();
+    $("#dscVenComResolucion").val();
+    $("#codSupComResolucion").val();
+    $("#dscSupComResolucion").val();
+    $("#codGruComResolucion").val();
+    $("#dscGruComResolucion").val();
+    $("#codJVenComResolucion").val();
+    $("#dscJVenCoResolucion").val();
 }//desbloquea

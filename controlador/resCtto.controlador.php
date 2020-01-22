@@ -17,5 +17,14 @@ class ControladorResCtto{
 		return $respuesta;
 	}//ctrBuscaNumServicio
 
+	static public function ctrBuscaDetCttoRes(){
+		$tablaCtto = 'vtade_contrato';
+		$tablaResolucion = 'vtavi_resolucion_contrato';
+		$codCtto = $_POST['codCtto'];
+		$numServicio = $_POST['numServicio'];
+		$respuesta = ModeloResCtto::mdlBuscaDetCttoRes($tablaCtto,$tablaResolucion,$codCtto,$numServicio);
+		return $respuesta;
+	}//ctrBuscaNumServicio
+
 }//class ControladorResCtto
 ?>

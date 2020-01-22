@@ -17,7 +17,7 @@ class ModeloResCtto{
 
 	static public function mdlBuscaNumServicio($tablaCtto,$codCtto){
 		$db = new Conexion();
-		$sql = $db->consulta("SELECT num_servicio, cod_contrato, flg_resuelto, flg_anulado, cod_tipo_ctt, cod_tipo_programa FROM vtade_contrato WHERE cod_contrato LIKE (RIGHT('0000000000'+'$codCtto',10)) AND flg_fondo_mantenimiento = 'NO' ORDER BY num_servicio ASC");
+		$sql = $db->consulta("SELECT num_servicio, cod_contrato, flg_resuelto, flg_anulado, cod_tipo_ctt, cod_tipo_programa FROM $tablaCtto WHERE cod_contrato LIKE (RIGHT('0000000000'+'$codCtto',10)) AND flg_fondo_mantenimiento = 'NO' ORDER BY num_servicio ASC");
 		$datos = array();
     	while($key = $db->recorrer($sql)){
 	    		$datos[] = arrayMapUtf8Encode($key);
@@ -27,18 +27,14 @@ class ModeloResCtto{
         $db->cerrar();
 	}//mdlBuscaNumServicio
 
-
-
-
-
-	static public function mdlBuscaCliente(){
+	static public function mdlBuscaDetCtto($tablaCtto,$tablaResolucion,$codCtto,$numServicio){
 		$db = new Conexion();
-		$sql = $db->consulta("select num_servicio,cod_contrato,flg_resuelto,flg_anulado,cod_tipo_ctt,cod_tipo_programa from vtade_contrato where cod_contrato LIKE (RIGHT('0000000000'+'444',10)) and flg_fondo_mantenimiento = 'NO'");
+		$sql = $db->consulta("SELECT $tablaCtto.cod_tipo_ctt, $tablaCtto.cod_tipo_programa, $tablaCtto.fch_resolucion, $tablaCtto.cod_jefeventas. $tablaCtto.cod_supervisor, $tablaCtto.cod_vendedor, $tablaCtto.cod_grupo, $cod_tipo_servicio, $tablaCtto.cod_tipo_necesidad, $tablaCtto.cod_tipo_contrato, $tablaCtto.cod_cliente, $tablaCtto.imp_saldofinanciar, $$tablaResolucion.num_anno_afecto, $tablaResolucion.cod_tipo_perido_afecto, $tablaResolucion.cod_periodo_afecto, $tablaResolucion.cod_jefeventas AS codJventasRes FROM $tablaCtto LEFT JOIN $tablaResolucion ON ($tablaResolucion.cod_contrato = $tablaCtto.cod_contrato AND $tablaCtto.num_servicio = $tablaResolucion.num_servicio) WHERE $tablaCtto.cod_contrato LIKE (RIGHT('0000000000'+'$codCtto',10)) AND $tablaCtto.num_servicio = $num_servicio");
 		$datos = arrayMapUtf8Encode($db->recorrer($sql));
 		return $datos;
 		$db->liberar($sql);
         $db->cerrar();
-	}//mdlBuscaCliente
+	}//mdlBuscaNumServicio
 
 }//class ModeloResCtto
 ?>
