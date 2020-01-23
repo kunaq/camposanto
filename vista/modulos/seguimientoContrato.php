@@ -2140,4 +2140,5 @@
 <?php
 include "modals/modalObservacionCliente.php";
 include "modals/modalTablaDeuda.php";
+include "modals/modalTablaComprobante.php";
  ?>
