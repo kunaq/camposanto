@@ -238,27 +238,27 @@ function buscaDetalles(value,accion){
                     $("#cuoCanFOMA").val(response['cod_moneda']);
                     var valcuoPenFma = response['ctd_foma']-response['ctd_can_foma'];
                     $("#cuoPenFOMA").val(valcuoPenFma);
-                    $("#subCuoiTab").innerText = response['imp_sub_cui'];
-                    $("#intCuoi").innerText = response['imp_int_cui'];
-                    $("#igvCuoi").innerText = response['imp_igv_cui'];
-                    $("#totalCuoi").innerText = response['imp_tot_cui'];
-                    $("#emiCuoi").innerText = response['imp_emi_cui'];
-                    $("#canCuoi").innerText = response['imp_can_cui'];
-                    $("#salCuoi").innerText = response['imp_sal_cui'];
-                    $("#subFin").innerText = response['imp_sub_reg'];
-                    $("#intFin").innerText = response['imp_int_reg'];
-                    $("#igvFin").innerText = response['imp_igv_reg'];
-                    $("#totalfin").innerText = response['imp_total_reg'];
-                    $("#emiFin").innerText = response['imp_emi_reg'];
-                    $("#canFin").innerText = response['imp_can_reg'];
-                    $("#salFin").innerText = response['imp_sal_reg'];
-                    $("#subFoma").innerText = response['imp_sub_foma'];
-                    $("#intFoma").innerText = response['imp_int_foma'];
-                    $("#igvFoma").innerText = response['imp_igv_foma'];
-                    $("#totalFoma").innerText = response['imp_tot_foma'];
-                    $("#emiFoma").innerText = response['imp_emi_foma'];
-                    $("#canFoma").innerText = response['imp_can_fma'];
-                    $("#salFoma").innerText = response['imp_sal_foma'];
+                    document.getElementById("subCuoiTab").innerText = response['imp_sub_cui'];
+                    document.getElementById("intCuoi").innerText = response['imp_int_cui'];
+                    document.getElementById("igvCuoi").innerText = response['imp_igv_cui'];
+                    document.getElementById("totalCuoi").innerText = response['imp_tot_cui'];
+                    document.getElementById("emiCuoi").innerText = response['imp_emi_cui'];
+                    document.getElementById("canCuoi").innerText = response['imp_can_cui'];
+                    document.getElementById("salCuoi").innerText = response['imp_sal_cui'];
+                    document.getElementById("subFin").innerText = response['imp_sub_reg'];
+                    document.getElementById("intFin").innerText = response['imp_int_reg'];
+                    document.getElementById("igvFin").innerText = response['imp_igv_reg'];
+                    document.getElementById("totalfin").innerText = response['imp_total_reg'];
+                    document.getElementById("emiFin").innerText = response['imp_emi_reg'];
+                    document.getElementById("canFin").innerText = response['imp_can_reg'];
+                    document.getElementById("salFin").innerText = response['imp_sal_reg'];
+                    document.getElementById("subFoma").innerText = response['imp_sub_foma'];
+                    document.getElementById("intFoma").innerText = response['imp_int_foma'];
+                    document.getElementById("igvFoma").innerText = response['imp_igv_foma'];
+                    document.getElementById("totalFoma").innerText = response['imp_tot_foma'];
+                    document.getElementById("emiFoma").innerText = response['imp_emi_foma'];
+                    document.getElementById("canFoma").innerText = response['imp_can_fma'];
+                    document.getElementById("salFoma").innerText = response['imp_sal_foma'];
                 }//success
             });//ajax resumenCtto
         }//success
