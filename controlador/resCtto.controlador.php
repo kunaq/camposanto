@@ -20,7 +20,7 @@ class ControladorResCtto{
 	static public function ctrBuscaDetCttoRes(){
 		$tablaCtto = 'vtade_contrato';
 		$tablaResolucion = 'vtavi_resolucion_contrato';
-		$tablaMaTipSer = 'vtama_tipo_contrato';
+		$tablaMaTipSer = 'vtama_tipo_servicio';
 		$codCtto = $_POST['codCtto'];
 		$numServicio = $_POST['numServicio'];
 		$respuesta = ModeloResCtto::mdlBuscaDetCttoRes($tablaCtto,$tablaResolucion,$tablaMaTipSer,$codCtto,$numServicio);
