@@ -185,9 +185,13 @@ function buscaDetalles(value,accion){
                 }//success
             });//ajax cliente
             $("#codJVenResolucion").val(response['cod_jefeventas']);
+            nombreTrabajador(response['cod_jefeventas'],'dscJVenResolucion1s');
             $("#codVenResolucion").val(response['cod_vendedor']);
-            $("#codGruResolucion").val(response['cod_vendedor']);
+            nombreTrabajador(response['cod_vendedor'],'dscVenResolucion');
+            $("#codGruResolucion").val(response['cod_grupo']);
+            nombreGrupoVenta(response['cod_grupo'],'dscGruResolucion');
             $("#codSupResolucion").val(response['cod_supervisor']);
+            nombreTrabajador(response['cod_supervisor'],'dscSupResolucion');
             $("#estadoConResolucion").val('RESUELTO');
             $("#monedaConResolucion").val(response['cod_moneda']);
             $("#annoPerResolucion").val(response['num_anno_afecto']);
@@ -203,8 +207,11 @@ function buscaDetalles(value,accion){
                 $("#check-comision").prop('checked',false);
             }
             $("#codVenComResolucion").val(response['codVenRes']);
+
             $("#codSupComResolucion").val(response['codSupRes']);
+
             $("#codGruComResolucion").val(response['codGruRes']);
+
             $("#codJVenComResolucion").val(response['codJventasRes']);
 
             $("#bodyResolucion").empty();
@@ -215,7 +222,7 @@ function buscaDetalles(value,accion){
                     '</tr>';
                     // console.log(fila);
             document.getElementById("bodyResolucion").insertAdjacentHTML("beforeEnd" ,fila);
-            document.getElementById("totalServPpalRes").innerText = Number(total).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
+            document.getElementById("totalServPpalRes").innerText = Number(response['imp_saldofinanciar']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
         }//success
     });//ajax
 }
