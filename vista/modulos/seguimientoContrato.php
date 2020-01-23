@@ -1037,11 +1037,11 @@
 						</div>
 						<div class="tab-pane" id="m_tabs_2_5" role="tabpanel">
 							<div class="row">
-								<div class="col-lg-4">
+								<div class="col-lg-5">
 									<fieldset class="fieldFormHorizontal">
 										<legend class="tittle-box">&nbsp;</legend>
 										<div class="col-lg-12">
-											<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="695">
+											<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="535">
 												<div class="table-responsive">
 													<table class="table">
 														<thead>
@@ -1049,7 +1049,7 @@
 															<th>F. Servicio</th>
 															<th>Tipo Autorización</th>
 														</thead>
-														<tbody style="height: 400px;">
+														<tbody style="height: 320px;">
 															<tr>
 																<td></td>
 																<td></td>
@@ -1062,7 +1062,7 @@
 										</div>
 									</fieldset>
 								</div>
-								<div class="col-lg-8">
+								<div class="col-lg-7">
 									<fieldset class="fieldFormHorizontal">
 										<legend class="tittle-box">&nbsp;</legend>
 										<div class="col-lg-12">
@@ -1092,15 +1092,15 @@
 										<legend class="tittle-box">Beneficiario</legend>
 										<div class="col-lg-12">
 											<div class="row form-group">
-												<div class="col-lg-12">
+												<div class="col-lg-6">
 													<label>Apellido Paterno</label>
 													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
 												</div>
-												<div class="col-lg-12">
+												<div class="col-lg-6">
 													<label>Apellido Materno</label>
 													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
 												</div>
-												<div class="col-lg-12">
+												<div class="col-lg-6">
 													<label>Nombre</label>
 													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
 												</div>
@@ -1112,11 +1112,11 @@
 													<label>&nbsp;</label>
 													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
 												</div>
-												<div class="col-lg-6">
+												<div class="col-lg-3">
 													<label>F. Nacimiento</label>
 													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
 												</div>
-												<div class="col-lg-6">
+												<div class="col-lg-3">
 													<label>F. Deceso</label>
 													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
 												</div>
@@ -1139,7 +1139,7 @@
 													<label>Plataforma</label>
 													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
 												</div>
-												<div class="col-lg-6">
+												<div class="col-lg-4">
 													<label>Área</label>
 													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
 												</div>
@@ -1151,19 +1151,19 @@
 													<label>Eje Vertical</label>
 													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
 												</div>
-												<div class="col-lg-6">
+												<div class="col-lg-2">
 													<label>Espacio</label>
 													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
 												</div>
-												<div class="col-lg-6">
+												<div class="col-lg-4">
 													<label>T. Espacio</label>
 													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
 												</div>
-												<div class="col-lg-6">
+												<div class="col-lg-4">
 													<label>Nivel</label>
 													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
 												</div>
-												<div class="col-lg-6">
+												<div class="col-lg-4">
 													<label>Profundidad</label>
 													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
 												</div>

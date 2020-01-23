@@ -767,6 +767,79 @@ class ModeloSegContrato{
         $db->cerrar();
 
 	}//function mdlFiltroComprobantes
+	
+	static public function mdlGetAutorizacion($datos){
+
+		$db = new Conexion();
+
+		$sql = $db->consulta("SELECT vtama_tipo_autorizacion.dsc_tipo_autorizacion, vtaca_autorizacion.num_uso_servicio, vtaca_autorizacion.cod_estado_autorizacion, vtaca_autorizacion.fch_servicio, vtaca_autorizacion.dsc_apellido_paterno, vtaca_autorizacion.dsc_apellido_materno, vtaca_autorizacion.dsc_nombres, vtama_tipo_documento.dsc_tipo_documento, vtaca_autorizacion.dsc_documento, vtaca_autorizacion.fch_nacimiento, vtaca_autorizacion.fch_deceso, 
+			(SELECT vtama_lugar_deceso.dsc_lugar_deceso FROM vtama_lugar_deceso WHERE vtama_lugar_deceso.cod_lugar_deceso= vtaca_autorizacion.cod_lugar_deceso) AS dsc_lugar_deceso,
+			(SELECT vtama_camposanto.dsc_camposanto FROM vtama_camposanto WHERE vtama_camposanto.cod_camposanto = vtaca_autorizacion.cod_camposanto_esp) AS dsc_camposanto,
+			(SELECT vtama_plataforma.dsc_plataforma FROM vtama_plataforma WHERE vtama_plataforma.cod_camposanto = vtaca_autorizacion.cod_camposanto_esp AND vtama_plataforma.cod_plataforma = vtaca_autorizacion.cod_plataforma_esp) AS dsc_plataforma,
+			(SELECT vtama_area_plataforma.dsc_area from vtama_area_plataforma WHERE vtama_area_plataforma.cod_camposanto = vtaca_autorizacion.cod_camposanto_esp AND vtama_area_plataforma.cod_plataforma = vtaca_autorizacion.cod_plataforma_esp AND vtama_area_plataforma.cod_area_plataforma = vtaca_autorizacion.cod_area_esp) AS dsc_area,
+			vtaca_autorizacion.cod_eje_horizontal_esp, vtaca_autorizacion.cod_eje_vertical_esp, vtaca_autorizacion.cod_espacio,
+			vtaca_autorizacion.cod_tipo_espacio, vtaca_autorizacion.num_nivel, vtaca_autorizacion.num_profundidad
+			FROM vtaca_autorizacion 
+			INNER JOIN vtama_tipo_autorizacion ON vtama_tipo_autorizacion.cod_tipo_autorizacion = vtaca_autorizacion.cod_tipo_autorizacion
+			INNER JOIN vtama_tipo_documento ON vtama_tipo_documento.cod_tipo_documento = vtaca_autorizacion.cod_tipo_documento
+			WHERE vtaca_autorizacion.cod_localidad = '".$datos['localidad']."' AND vtaca_autorizacion.cod_contrato = '".$datos['cod_contrato']."' AND vtaca_autorizacion.num_servicio = '".$datos['cod_servicio']."'"); 
+
+		$tablaAutorizacion = "";
+
+		while($key = $db->recorrer($sql)){
+
+	      	$dsc_tipo_autorizacion = "'".Utf8Encode($key['dsc_tipo_autorizacion'])."'";
+	        $num_uso_servicio = "'".$key['num_uso_servicio']."'";
+	        $cod_estado_autorizacion = "'".$key['cod_estado_autorizacion']."'";
+	        if ($key['fch_servicio'] == NULL) {
+	            $fch_servicio = "''";
+	        }else{
+	            $fch_servicio = "'".dateFormat($key['fch_servicio'])."'";
+	        }
+	        $dsc_apellido_paterno = "'".Utf8Encode($key['dsc_apellido_paterno'])."'";
+	        $dsc_apellido_materno = "'".Utf8Encode($key['dsc_apellido_materno'])."'";
+	        $dsc_nombres = "'".Utf8Encode($key['dsc_nombres'])."'";
+	        $dsc_tipo_documento = "'".$key['dsc_tipo_documento']."'";
+	        $dsc_documento = "'".$key['dsc_documento']."'";
+	        if ($key['fch_nacimiento'] == NULL) {
+	            $fch_nacimiento = "''";
+	        }else{
+	            $fch_nacimiento = "'".dateFormat($key['fch_nacimiento'])."'";
+	        }
+	        if ($key['fch_deceso'] == NULL) {
+	            $fch_deceso = "''";
+	        }else{
+	            $fch_deceso = "'".dateFormat($key['fch_deceso'])."'";
+	        }
+	        $dsc_lugar_deceso = "'".Utf8Encode($key['dsc_lugar_deceso'])."'";
+	        $dsc_camposanto = "'".Utf8Encode($key['dsc_camposanto'])."'";
+	        $dsc_plataforma = "'".Utf8Encode($key['dsc_plataforma'])."'";
+	        $dsc_area = "'".Utf8Encode($key['dsc_area'])."'";
+	        $cod_eje_horizontal = "'".$key['cod_eje_horizontal_esp']."'";
+	        $cod_eje_vertical = "'".$key['cod_eje_vertical_esp']."'";
+	        $cod_espacio = "'".$key['cod_espacio']."'";
+	        $cod_tipo_espacio = "'".$key['cod_tipo_espacio']."'";
+	        $num_nivel = "'".$key['num_nivel']."'";
+	        if ($key['num_profundidad'] == NULL) {
+	            $num_profundidad = "''";
+	        }else{
+	            $num_profundidad = "'".number_format(round($key['num_profundidad'], 2),2,',','.')."'";
+	        }
+	        
+	        $tablaAutorizacion .= '<tr onclick="mostrarAutorizacion(this,'.$dsc_tipo_autorizacion.','.$num_uso_servicio.','.$cod_estado_autorizacion.','.$fch_servicio.','.$dsc_apellido_paterno.','.$dsc_apellido_materno.','.$dsc_nombres.','.$dsc_tipo_documento.','.$dsc_documento.','.$fch_nacimiento.','.$fch_deceso.','.$dsc_lugar_deceso.','.$dsc_camposanto.','.$dsc_plataforma.','.$dsc_area.','.$cod_eje_horizontal.','.$cod_eje_vertical.','.$cod_espacio.','.$cod_tipo_espacio.','.$num_nivel.','.$num_profundidad.');">
+										<td>'.$key['num_item'].'</td>
+										<td>'.dateFormat($key['fch_servicio']).'</td>
+										<td>'.Utf8Encode($key['dsc_tipo_autorizacion']).'</td>
+									</tr>';
+		}
+		$arrData = array('tablaAutorizacion'=> $tablaAutorizacion); 
+
+		return $arrData;
+
+		$db->liberar($sql);
+        $db->cerrar();
+
+	}//function mdlGetBeneficiariosServ
 
 }//class ModeloWizard
 ?>
