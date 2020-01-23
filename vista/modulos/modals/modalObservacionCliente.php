@@ -16,11 +16,11 @@
 					<div class="row">
 						<div class="col-lg-7">
 							<label>Cliente</label>
-							<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+							<input type="text" class="form-control form-control-sm m-input" id="nombreCliObservacion" disabled>
 						</div>
 						<div class="col-lg-5">
 							<label>Clasificación</label>
-							<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+							<input type="text" class="form-control form-control-sm m-input" id="clasificacionCliObservacion" disabled>
 						</div>
 					</div>
 					<br>
@@ -35,7 +35,7 @@
 											<th>Usuario</th>
 											<th>Observación</th>
 										</thead>
-										<tbody>
+										<tbody id="tbodyObservacion">
 											<tr>
 												<td></td>
 												<td></td>
