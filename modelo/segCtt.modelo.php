@@ -785,6 +785,7 @@ class ModeloSegContrato{
 			WHERE vtaca_autorizacion.cod_localidad = '".$datos['localidad']."' AND vtaca_autorizacion.cod_contrato = '".$datos['cod_contrato']."' AND vtaca_autorizacion.num_servicio = '".$datos['cod_servicio']."'"); 
 
 		$tablaAutorizacion = "";
+		$i=0;
 
 		while($key = $db->recorrer($sql)){
 
@@ -827,7 +828,7 @@ class ModeloSegContrato{
 	        }
 	        
 	        $tablaAutorizacion .= '<tr onclick="mostrarAutorizacion(this,'.$dsc_tipo_autorizacion.','.$num_uso_servicio.','.$cod_estado_autorizacion.','.$fch_servicio.','.$dsc_apellido_paterno.','.$dsc_apellido_materno.','.$dsc_nombres.','.$dsc_tipo_documento.','.$dsc_documento.','.$fch_nacimiento.','.$fch_deceso.','.$dsc_lugar_deceso.','.$dsc_camposanto.','.$dsc_plataforma.','.$dsc_area.','.$cod_eje_horizontal.','.$cod_eje_vertical.','.$cod_espacio.','.$cod_tipo_espacio.','.$num_nivel.','.$num_profundidad.');">
-										<td>'.$key['num_item'].'</td>
+										<td>'.($i+1).'</td>
 										<td>'.dateFormat($key['fch_servicio']).'</td>
 										<td>'.Utf8Encode($key['dsc_tipo_autorizacion']).'</td>
 									</tr>';
