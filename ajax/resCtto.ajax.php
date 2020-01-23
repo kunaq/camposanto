@@ -16,6 +16,10 @@ class AjaxResCtto{
 		$respuesta["fch_resolucion"] = ($respuesta["fch_resolucion"] != '') ? dateFormat($respuesta["fch_resolucion"]) : '';
 	echo json_encode($respuesta);
 	}//ajaxBuscaDetCttoRes
+	public function ajaxEjecutaProcedureResumenCtt(){
+		$respuesta = ControladorResCtto::ctrEjecutaProcedureResumenCtt();
+	echo json_encode($respuesta,JSON_UNESCAPED_UNICODE);
+	}//function ajaxEjecutaProcedureResumenCtt
 }//class AjaxResCtto
 /*=============================================
 ACCIONES
@@ -31,4 +35,8 @@ else if(isset($_POST["accion"]) && $_POST["accion"] == 'numServicio'){
 else if(isset($_POST["accion"]) && $_POST["accion"] == 'condicionResuelto'){
 	$cliente = new AjaxResCtto();
 	$cliente -> ajaxBuscaDetCttoRes();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'buscaResumen'){
+	$cliente = new AjaxResCtto();
+	$cliente -> ajaxEjecutaProcedureResumenCtt();
 }

@@ -192,8 +192,6 @@ function buscaDetalles(value,accion){
             nombreGrupoVenta(response['cod_grupo'],'dscGruResolucion');
             $("#codSupResolucion").val(response['cod_supervisor']);
             nombreTrabajador(response['cod_supervisor'],'dscSupResolucion');
-            $("#estadoConResolucion").val('RESUELTO');
-            $("#monedaConResolucion").val(response['cod_moneda']);
             $("#annoPerResolucion").val(response['num_anno_afecto']);
             $("#annoPerResolucion").change();
             $("#tipoPerResolucion").val(response['cod_tipo_periodo_afecto']);
@@ -223,6 +221,46 @@ function buscaDetalles(value,accion){
                     // console.log(fila);
             document.getElementById("bodyResolucion").insertAdjacentHTML("beforeEnd" ,fila);
             document.getElementById("totalServPpalRes").innerText = Number(response['imp_saldofinanciar']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
+            $.ajax({
+                type:'POST',
+                url: 'ajax/resCtto.ajax.php',
+                dataType: 'json',
+                data: {'accion': 'buscaResumen', 'as_contrato':ctto, 'as_servicio' : numServicio, 'as_localidad':response['cod_localidad'], 'as_tipo_ctt': response['cod_tipo_ctt'], 'ai_ref':response['num_refinanciamiento'], 'as_tipo_programa':response['cod_tipo_programa']},
+                success : function(response){
+                    console.log(response);
+                    $("#estadoConResolucion").val(response['dsc_estado']);
+                    $("#monedaConResolucion").val(response['cod_moneda']);
+                    $("#cuoTotReg").val(response['ctd_total']);
+                    $("#cuoCanReg").val(response['ctd_can']);
+                    var valcuoPenReg = response['ctd_total']-response['ctd_can'];
+                    $("#cuoPenReg").val(valcuoPenReg);
+                    $("#cuoTotFOMA").val(response['cod_moneda']);
+                    $("#cuoCanFOMA").val(response['cod_moneda']);
+                    var valcuoPenFma = response['ctd_foma']-response['ctd_can_foma'];
+                    $("#cuoPenFOMA").val(valcuoPenFma);
+                    document.getElementById("subCuoiTab").innerText = response['imp_sub_cui'];
+                    document.getElementById("intCuoi").innerText = response['imp_int_cui'];
+                    document.getElementById("igvCuoi").innerText = response['imp_igv_cui'];
+                    document.getElementById("totalCuoi").innerText = response['imp_tot_cui'];
+                    document.getElementById("emiCuoi").innerText = response['imp_emi_cui'];
+                    document.getElementById("canCuoi").innerText = response['imp_can_cui'];
+                    document.getElementById("salCuoi").innerText = response['imp_sal_cui'];
+                    document.getElementById("subFin").innerText = response['imp_sub_reg'];
+                    document.getElementById("intFin").innerText = response['imp_int_reg'];
+                    document.getElementById("igvFin").innerText = response['imp_igv_reg'];
+                    document.getElementById("totalfin").innerText = response['imp_total_reg'];
+                    document.getElementById("emiFin").innerText = response['imp_emi_reg'];
+                    document.getElementById("canFin").innerText = response['imp_can_reg'];
+                    document.getElementById("salFin").innerText = response['imp_sal_reg'];
+                    document.getElementById("subFoma").innerText = response['imp_sub_foma'];
+                    document.getElementById("intFoma").innerText = response['imp_int_foma'];
+                    document.getElementById("igvFoma").innerText = response['imp_igv_foma'];
+                    document.getElementById("totalFoma").innerText = response['imp_tot_foma'];
+                    document.getElementById("emiFoma").innerText = response['imp_emi_foma'];
+                    document.getElementById("canFoma").innerText = response['imp_can_fma'];
+                    document.getElementById("salFoma").innerText = response['imp_sal_foma'];
+                }//success
+            });//ajax resumenCtto
         }//success
     });//ajax
 }

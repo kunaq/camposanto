@@ -27,5 +27,19 @@ class ControladorResCtto{
 		return $respuesta;
 	}//ctrBuscaNumServicio
 
+	static public function ctrEjecutaProcedureResumenCtt(){
+
+		$datos = array("as_localidad" => $_POST['as_localidad'],
+						"as_tipo_ctt" => $_POST['as_tipo_ctt'],
+						"as_contrato" => $_POST['as_contrato'],
+						"as_servicio" => $_POST['as_servicio'],
+						"ai_ref" => $_POST['ai_ref'],
+						"as_total" => "NO",
+						"as_tipo_programa" => $_POST['as_tipo_programa'],
+					);
+		$respuesta = ModeloResCtto::mdlEjecutaProcedureResumenCtt($datos);
+		return $respuesta;
+	}//function ctrEjecutaProcedureResumenCtt
+
 }//class ControladorResCtto
 ?>
