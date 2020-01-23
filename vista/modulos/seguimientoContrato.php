@@ -1196,11 +1196,9 @@
 												</div>
 												<div class="col-lg-2"></div>
 												<div class="col-lg-2" style="text-align: right;">
-													<span data-toggle="modal" data-target="#m_modal_deuda">
-														<button type="button" class="m-btn btn btn-sm btnGuardarKqPst mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Deuda Titular" onclick="">
-															<i class="fa fa-list"></i>
-														</button>
-													</span>
+													<button type="button" class="m-btn btn btn-sm btnGuardarKqPst mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Deuda Titular" onclick="getDeudasCliente('titular')">
+														<i class="fa fa-list"></i>
+													</button>
 													<span data-toggle="modal" data-target="#m_modal_observacion_cliente">
 														<button type="button" class="m-btn btn btn-sm btnGuardarKqPst mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Observaciones Cliente" onclick="">
 															<i class="fa fa-user-o"></i>
@@ -1261,11 +1259,9 @@
 												</div>
 												<div class="col-lg-2"></div>
 												<div class="col-lg-2" style="text-align: right;">
-													<span data-toggle="modal" data-target="#m_modal_deuda">
-														<button type="button" class="m-btn btn btn-sm btnGuardarKqPst mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Deuda Titular" onclick="">
-															<i class="fa fa-list"></i>
-														</button>
-													</span>
+													<button type="button" class="m-btn btn btn-sm btnGuardarKqPst mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Deuda Titular" onclick="getDeudasCliente('titular2')">
+														<i class="fa fa-list"></i>
+													</button>
 													<span data-toggle="modal" data-target="#m_modal_observacion_cliente">
 														<button type="button" class="m-btn btn btn-sm btnGuardarKqPst mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Observaciones Cliente" onclick="">
 															<i class="fa fa-user-o"></i>
@@ -1326,11 +1322,9 @@
 												</div>
 												<div class="col-lg-2"></div>
 												<div class="col-lg-2" style="text-align: right;">
-													<span data-toggle="modal" data-target="#m_modal_deuda">
-														<button type="button" class="m-btn btn btn-sm btnGuardarKqPst mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Deuda Titular" onclick="">
-															<i class="fa fa-list"></i>
-														</button>
-													</span>
+													<button type="button" class="m-btn btn btn-sm btnGuardarKqPst mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Deuda Titular" onclick="getDeudasCliente('aval')">
+														<i class="fa fa-list"></i>
+													</button>
 													<span data-toggle="modal" data-target="#m_modal_observacion_cliente">
 														<button type="button" class="m-btn btn btn-sm btnGuardarKqPst mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Observaciones Cliente" onclick="">
 															<i class="fa fa-user-o"></i>

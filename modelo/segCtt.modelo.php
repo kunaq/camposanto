@@ -848,6 +848,96 @@ class ModeloSegContrato{
         $db->cerrar();
 
 	}//function mdlGetBeneficiariosServ
+	
+	static public function mdlGetDeudasCliente($cod_cliente){
+
+		$db = new Conexion();
+
+		$sql = $db->consulta("SELECT DISTINCT vtade_contrato.cod_localidad, (SELECT vtama_localidad.dsc_localidad FROM vtama_localidad WHERE vtama_localidad.cod_localidad=vtade_contrato.cod_localidad) AS dsc_localidad, vtade_contrato.cod_contrato, vtade_contrato.fch_activacion, SUM(vtade_cronograma.imp_saldo) AS imp_deuda, COUNT(vtade_cronograma.num_cuota) AS ctd_cuota, vtade_contrato_servicio.cod_servicio_principal,(SELECT vtama_servicio.dsc_servicio FROM vtama_servicio WHERE vtama_servicio.cod_servicio=vtade_contrato_servicio.cod_servicio_principal) AS dsc_servicio_principal, vtade_contrato.num_servicio, SUM( CASE WHEN vtade_cronograma.fch_vencimiento <= GETDATE() THEN vtade_cronograma.imp_saldo ELSE 0.00 END ) AS imp_deuda_vencida, SUM( CASE WHEN vtade_cronograma.fch_vencimiento <= GETDATE() THEN 1 ELSE 0 END ) AS ctd_cuota_vencida
+
+			FROM vtade_cronograma, vtade_contrato, vtavi_cronograma_x_servicio, vtade_contrato_servicio, vtama_localidad
+
+			WHERE vtade_cronograma.cod_localidad = vtade_contrato.cod_localidad
+
+			AND vtade_cronograma.cod_contrato = vtade_contrato.cod_contrato
+			AND vtade_cronograma.num_refinanciamiento = vtavi_cronograma_x_servicio.num_refinanciamiento
+			AND vtade_contrato.cod_localidad = vtavi_cronograma_x_servicio.cod_localidad
+			AND vtade_contrato.cod_contrato = vtavi_cronograma_x_servicio.cod_contrato
+			AND vtade_contrato.num_servicio = vtavi_cronograma_x_servicio.num_servicio
+			AND vtade_contrato.cod_localidad = vtade_contrato_servicio.cod_localidad
+			AND vtade_contrato.cod_contrato = vtade_contrato_servicio.cod_contrato
+			AND vtade_contrato.num_servicio = vtade_contrato_servicio.num_servicio
+			AND vtade_contrato_servicio.flg_servicio_principal = 'SI'
+			AND vtavi_cronograma_x_servicio.flg_activo = 'SI'
+			AND vtavi_cronograma_x_servicio.flg_principal = 'SI'
+			AND vtade_contrato.flg_fondo_mantenimiento = 'NO'
+			AND vtade_contrato.flg_activado = 'SI'
+			AND vtade_contrato.flg_emitido = 'SI'
+			AND vtade_cronograma.cod_estadocuota IN ('REG', 'EMI')
+			AND vtade_cronograma.imp_saldo >= 0.1
+			AND vtade_contrato.cod_cliente = '$cod_cliente'
+
+			GROUP BY vtade_contrato.cod_localidad, vtade_contrato.cod_contrato, vtade_contrato.fch_activacion, vtade_contrato_servicio.cod_servicio_principal,vtade_contrato.num_servicio
+
+			ORDER BY vtade_contrato.cod_contrato"); 
+
+		$tablaDeuda = "";
+		$deuda_total_final = 0;
+	    $deuda_vencida_final = 0;
+
+		while($key = $db->recorrer($sql)){	      
+	        
+	        $localidad = Utf8Encode($key['dsc_localidad']);
+	        $contrato = $key['cod_contrato'];
+	        $nservicio = $key['num_servicio'];
+	        $servicio = Utf8Encode($key['dsc_servicio_principal']);
+	        $fec_act = dateFormat($key['fch_activacion']);
+	        $deuda_total = $key['imp_deuda'];
+	        $ctd_tot_cuotas = $key['ctd_cuota'];
+	        $deuda_vencida = $key['imp_deuda_vencida'];
+	        $ctd_cuotas_vencidas = $key['ctd_cuota_vencida'];
+	        $deuda_total_final += $key['imp_deuda'];
+	        $deuda_vencida_final += $deuda_vencida;
+
+	        $tablaDeuda.= 
+	                   '<tr>
+	                        <td style="text-align: center;">
+	                            '.$localidad.'
+	                        </td>
+	                        <td>
+	                            '.$contrato.'
+	                        </td>
+	                        <td style="text-align: center;">
+	                            '.$nservicio.'
+	                        </td>
+	                        <td style="text-align: center;">
+	                            '.$servicio.'
+	                        </td>
+	                        <td style="text-align: center;">
+	                            '.$fec_act.'
+	                        </td>
+	                        <td style="text-align: center;">
+	                            '.number_format(round($deuda_total, 2),2,',','.').'
+	                        </td>
+	                        <td style="text-align: center;">
+	                            '.$ctd_tot_cuotas.'
+	                        </td>
+	                        <td style="text-align: center;">
+	                            '.number_format(round($deuda_vencida, 2),2,',','.').'
+	                        </td>
+	                        <td style="text-align: center;">
+	                            '.$ctd_cuotas_vencidas.'
+	                        </td>
+	                  	</tr>';
+		}
+		$arrData = array('tablaDeuda' => $tablaDeuda, 'deuda_total' => number_format(round($deuda_total_final, 2),2,',','.'), 'deuda_vencida' => number_format(round($deuda_vencida_final, 2),2,',','.')); 
+
+		return $arrData;
+
+		$db->liberar($sql);
+        $db->cerrar();
+
+	}//function mdlGetBeneficiariosServ
 
 }//class ModeloWizard
 ?>

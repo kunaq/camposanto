@@ -319,6 +319,43 @@ $("#num_comprobante").change(function() {
     }
 });
 
+function getDeudasCliente(cliente){
+	
+	if (cliente == "titular") {
+		var cod_cliente = document.getElementById('cod_titular').value;
+		var nombre = document.getElementById('nombre_titular').value;
+		document.getElementById('nombreCliDeu').innerHTML = nombre;
+	}else if (cliente == "titular2") {
+		var cod_cliente = document.getElementById('cod_titular_alterno').value;
+		var nombre = document.getElementById('nombre_titular_alterno').value;
+		document.getElementById('nombreCliDeu').innerHTML = nombre;
+	}else if (cliente == "aval") {
+		var cod_cliente = document.getElementById('cod_aval').value;
+		var nombre = document.getElementById('nombre_aval').value;
+		document.getElementById('nombreCliDeu').innerHTML = nombre;
+	}
+
+	if (cod_cliente == "") {
+		
+	}else{
+		$.ajax({
+	        type: 'POST',
+	        url: "ajax/segCtt.ajax.php",
+	        dataType: 'text',
+	        data: {'accion' : 'getDeudasCliente', 'cod_cliente' : cod_cliente },
+	        success : function(response){
+	            var info = JSON.parse(response);
+
+	            $("#tbodyDeuda").html(info.tablaDeuda);
+	            $('#m_modal_deuda').modal('show');
+	            document.getElementById('deudaTotal').innerHTML = info.deuda_total;
+	            document.getElementById('deuda_total_foot').innerHTML = info.deuda_total;
+	            document.getElementById('deuda_vencida_foot').innerHTML = info.deuda_vencida;
+	        }
+	    });
+	}
+}
+
 function getDatosServicioCtt(row,localidad,tasa,tipoCtt,tipoPro,codCtt,numRef,numSer,titular,titular_alterno,aval,canalVta,flgAgencia,cobrador,vendedor,grupo,tipoComisionista,supervisor,jefeVentas,agencia){
 	var rows = $('#myTableServicios tr').not(':first');
 	rows.removeClass('selected'); 

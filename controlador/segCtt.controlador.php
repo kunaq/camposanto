@@ -176,6 +176,14 @@ class ControladorSegContrato{
 		$respuesta = ModeloSegContrato::mdlGetAutorizacion($datos);
 		return $respuesta;
 	}//function ctrGetAutorizacion
+	
+	static public function ctrGetDeudasCliente(){
+
+		$cod_cliente = $_POST['cod_cliente'];
+
+		$respuesta = ModeloSegContrato::mdlGetDeudasCliente($cod_cliente);
+		return $respuesta;
+	}//function ctrGetDeudasCliente
 
 }//class ControladorWizard
 ?>

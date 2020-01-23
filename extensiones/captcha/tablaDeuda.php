@@ -52,16 +52,16 @@ $deuda_vencida_final = 0;
                           <th width="70">Deuda Total</th>
                           <th width="30">Ctd. Total Cuotas</th>
                           <th width="60">Deuda Vencida</th>
-                          <th width="30" style="border-radius: 0px 25px 0px 0px;"">Ctd. Cuota(s) Vencida(s)</th>
+                          <th width="30" style="border-radius: 0px 25px 0px 0px;">Ctd. Cuota(s) Vencida(s)</th>
                         </tr>
                       </thead>
                       <tbody>';
      
     while($key = $db->recorrer($sql)){
     	$datos[] =  $key;
-    	$localidad = $key['dsc_localidad'];
+    	$localidad = Utf8Encode($key['dsc_localidad']);
         $contrato = $key['cod_contrato'];
-        $nservicio = $key['num_servicio'];
+        $nservicio = Utf8Encode($key['num_servicio']);
         $servicio = $key['dsc_servicio_principal'];
         $fec_act = dateFormat($key['fch_activacion']);
         $deuda_total = $key['imp_deuda'];
@@ -72,7 +72,7 @@ $deuda_vencida_final = 0;
         $deuda_vencida_final += $deuda_vencida;
 
         $tabla.= 
-                   '<tr>
+                    '<tr>
                         <td style="text-align: center;">
                             '.$localidad.'
                         </td>
