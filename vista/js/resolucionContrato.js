@@ -164,6 +164,26 @@ function buscaDetalles(value,accion){
                 $("#tipoNecResolucion").val('NECESIDAD INMEDIATA');
             }
             $("#codCliResolucion").val(response['cod_cliente']);
+            $.ajax({
+                url: 'ajax/modifCtto.ajax.php',
+                dataType: 'json',
+                method: "POST",
+                data: { 'accion' : 'buscaCli', 'codCliente' : response['cod_cliente'] },
+                success : function(respuesta){
+
+                    document.getElementById("tipoDocResolucion").setAttribute('value',respuesta['cod_tipo_documento']);
+                    $("#numDocResolucion").val(respuesta['dsc_documento']);
+                    if(respuesta['flg_juridico'] == 'NO'){
+                        nombre = respuesta['dsc_apellido_paterno']+' '+respuesta['dsc_apellido_materno']+', '+respuesta['dsc_nombre'];
+                        $("#nombreCliResolucion").val(nombre);
+
+                    }else{
+                        $("#nombreCliResolucion").val(respuesta['dsc_razon_social']);
+                    }
+                    $("#telCliResolucion").val(respuesta['dsc_telefono_1']);
+                    $("#dirCliResolucion").val(respuesta['dsc_direccion']);
+                }//success
+            });//ajax cliente
             $("#codJVenResolucion").val(response['cod_jefeventas']);
             $("#codVenResolucion").val(response['cod_vendedor']);
             $("#codGruResolucion").val(response['cod_vendedor']);
@@ -186,6 +206,15 @@ function buscaDetalles(value,accion){
             $("#codSupComResolucion").val(response['codSupRes']);
             $("#codGruComResolucion").val(response['codGruRes']);
             $("#codJVenComResolucion").val(response['codJventasRes']);
+            $("#bodyResolucion").empty();
+            var fila = '<tr>'+
+                        '<td>'+numServicio+'</td>'+
+                        '<td>'+dscTipoServicio+'</td>'+
+                        '<td>'+Number(response['imp_saldofinanciar']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+                    '</tr>';
+                    // console.log(fila);
+            document.getElementById("bodyResolucion").insertAdjacentHTML("beforeEnd" ,fila);
+            document.getElementById("totalServPpalRes").innerText = Number(total).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
         }//success
     });//ajax
 }

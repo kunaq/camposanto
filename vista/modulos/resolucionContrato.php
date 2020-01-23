@@ -117,13 +117,13 @@
 											<th>Tipo Servicio</th>
 											<th>Saldo</th>
 										</thead>
-										<tbody>
+										<tbody id="bodyResolucion">
 										</tbody>
 										<tfoot>
 											<tr>
 												<td></td>
 												<td style="text-align: right;">Total:&nbsp;&nbsp;</td>
-												<td></td>
+												<td id="totalServPpalRes"></td>
 											</tr>
 										</tfoot>
 									</table>
@@ -175,7 +175,11 @@
 												</div>
 												<div class="col-lg-4">
 													<label>Tipo Documento</label>
-													<input type="text" class="form-control form-control-sm m-input" name="tipoDocResolucion" id="tipoDocResolucion" disabled>
+													<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="tipoDocResolucion" id="tipoDocResolucion" disabled>
+														<?php
+															$prueba = controladorEmpresa::ctrtipoDoc();
+														?>
+													</select>
 												</div>
 												<div class="col-lg-4">
 													<label>&nbsp;</label>
