@@ -206,10 +206,11 @@ function buscaDetalles(value,accion){
             $("#codSupComResolucion").val(response['codSupRes']);
             $("#codGruComResolucion").val(response['codGruRes']);
             $("#codJVenComResolucion").val(response['codJventasRes']);
+
             $("#bodyResolucion").empty();
             var fila = '<tr>'+
                         '<td>'+numServicio+'</td>'+
-                        '<td>'+dscTipoServicio+'</td>'+
+                        '<td>'+response['dsc_tipo_servicio']+'</td>'+
                         '<td>'+Number(response['imp_saldofinanciar']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
                     '</tr>';
                     // console.log(fila);
@@ -218,6 +219,30 @@ function buscaDetalles(value,accion){
         }//success
     });//ajax
 }
+
+function nombreTrabajador(valor,campo){
+    $.ajax({
+        type: 'GET',
+        url: 'extensiones/captcha/buscaNombre.php',
+        dataType: 'text',
+        data: { 'value' : valor },
+        success : function(respuesta){
+            document.getElementById(campo).value = respuesta;
+        }
+    });
+}//nombreTrabajador
+
+function nombreGrupoVenta(valor,campo){
+    $.ajax({
+        type: 'POST',
+        url: 'extensiones/captcha/buscarNombreGrupo.php',
+        dataType: 'text',
+        data: { 'cod' : valor },
+        success : function(respuesta){
+            document.getElementById(campo).value = respuesta;
+        }
+    });
+}//nombreGrupoVenta
 
 function bloquea(){
     $("#m_datepicker_4_3").prop('disabled',true);
