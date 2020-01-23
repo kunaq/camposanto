@@ -230,6 +230,35 @@ function buscaDetalles(value,accion){
                     console.log(response);
                     $("#estadoConResolucion").val(response['dsc_estado']);
                     $("#monedaConResolucion").val(response['cod_moneda']);
+                    $("#cuoTotReg").val(response['ctd_total']);
+                    $("#cuoCanReg").val(response['ctd_can']);
+                    var valcuoPenReg = response['ctd_total']-response['ctd_can'];
+                    $("#cuoPenReg").val(valcuoPenReg);
+                    $("#cuoTotFOMA").val(response['cod_moneda']);
+                    $("#cuoCanFOMA").val(response['cod_moneda']);
+                    var valcuoPenFma = response['ctd_foma']-response['ctd_can_foma'];
+                    $("#cuoPenFOMA").val(valcuoPenFma);
+                    $("#subCuoiTab").innerText = response['imp_sub_cui'];
+                    $("#intCuoi").innerText = response['imp_int_cui'];
+                    $("#igvCuoi").innerText = response['imp_igv_cui'];
+                    $("#totalCuoi").innerText = response['imp_tot_cui'];
+                    $("#emiCuoi").innerText = response['imp_emi_cui'];
+                    $("#canCuoi").innerText = response['imp_can_cui'];
+                    $("#salCuoi").innerText = response['imp_sal_cui'];
+                    $("#subFin").innerText = response['imp_sub_reg'];
+                    $("#intFin").innerText = response['imp_int_reg'];
+                    $("#igvFin").innerText = response['imp_igv_reg'];
+                    $("#totalfin").innerText = response['imp_total_reg'];
+                    $("#emiFin").innerText = response['imp_emi_reg'];
+                    $("#canFin").innerText = response['imp_can_reg'];
+                    $("#salFin").innerText = response['imp_sal_reg'];
+                    $("#subFoma").innerText = response['imp_sub_foma'];
+                    $("#intFoma").innerText = response['imp_int_foma'];
+                    $("#igvFoma").innerText = response['imp_igv_foma'];
+                    $("#totalFoma").innerText = response['imp_tot_foma'];
+                    $("#emiFoma").innerText = response['imp_emi_foma'];
+                    $("#canFoma").innerText = response['imp_can_fma'];
+                    $("#salFoma").innerText = response['imp_sal_foma'];
                 }//success
             });//ajax resumenCtto
         }//success

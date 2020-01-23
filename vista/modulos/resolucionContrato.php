@@ -313,33 +313,33 @@
 														<tbody>
 															<tr>
 																<th scope="row" class="static">CUOI</th>
-																<td class="first-col">1.768,00</td>
-																<td>0,00</td>
-																<td>0,00</td>
-																<td>1.768,00</td>
-																<td>0,00</td>
-																<td>1.768,00</td>
-																<td>0,00</td>
+																<td class="first-col" id="subCuoiTab">0,00</td>
+																<td id="intCuoi">0,00</td>
+																<td id="igvCuoi">0,00</td>
+																<td id="totalCuoi">0,00</td>
+																<td id="emiCuoi">0,00</td>
+																<td id="canCuoi">0,00</td>
+																<td id="salCuoi">0,00</td>
 															</tr>
 															<tr>
 																<th scope="row" class="static">Financiado</th>
-																<td class="first-col">3.282,00</td>
-																<td>16,20</td>
-																<td>0,00</td>
-																<td>3.298,00</td>
-																<td>0,00</td>
-																<td>0,00</td>
-																<td>3.298,00</td>
+																<td class="first-col" id="subFin">0,00</td>
+																<td id="intFin">0,00</td>
+																<td id="igvFin">0,00</td>
+																<td id="totalfin">0,00</td>
+																<td id="emiFin">0,00</td>
+																<td id="canFin">0,00</td>
+																<td id="salFin">0,00</td>
 															</tr>
 															<tr>
 																<th scope="row" class="static">FOMA</th>
-																<td class="first-col">300,00</td>
-																<td>0,00</td>
-																<td>0,00</td>
-																<td>300,00</td>
-																<td>0,00</td>
-																<td>0,00</td>
-																<td>300,00</td>
+																<td class="first-col" id="subFoma">0,00</td>
+																<td id="intFoma">0,00</td>
+																<td id="igvFoma">0,00</td>
+																<td id="totalFoma">0,00</td>
+																<td id="emiFoma">0,00</td>
+																<td id="canFoma">0,00</td>
+																<td id="salFoma">0,00</td>
 															</tr>
 														</tbody>
 													</table>
