@@ -352,4 +352,25 @@ function limpia(){
     $("#dscGruComResolucion").val();
     $("#codJVenComResolucion").val();
     $("#dscJVenCoResolucion").val();
+    document.getElementById("subCuoiTab").innerText = '0,00';
+    document.getElementById("intCuoi").innerText =  '0,00';
+    document.getElementById("igvCuoi").innerText =  '0,00';
+    document.getElementById("totalCuoi").innerText =  '0,00';
+    document.getElementById("emiCuoi").innerText =  '0,00';
+    document.getElementById("canCuoi").innerText =  '0,00';
+    document.getElementById("salCuoi").innerText =  '0,00';
+    document.getElementById("subFin").innerText =  '0,00';
+    document.getElementById("intFin").innerText =  '0,00';
+    document.getElementById("igvFin").innerText =  '0,00';
+    document.getElementById("totalfin").innerText =  '0,00';
+    document.getElementById("emiFin").innerText =  '0,00';
+    document.getElementById("canFin").innerText =  '0,00';
+    document.getElementById("salFin").innerText =  '0,00';
+    document.getElementById("subFoma").innerText =  '0,00';
+    document.getElementById("intFoma").innerText =  '0,00';
+    document.getElementById("igvFoma").innerText =  '0,00';
+    document.getElementById("totalFoma").innerText =  '0,00';
+    document.getElementById("emiFoma").innerText =  '0,00';
+    document.getElementById("canFoma").innerText =  '0,00';
+    document.getElementById("salFoma").innerText =  '0,00';
 }//desbloquea
