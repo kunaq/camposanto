@@ -1043,18 +1043,13 @@
 										<div class="col-lg-12">
 											<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="535">
 												<div class="table-responsive">
-													<table class="table">
+													<table class="table myTableAutorizacion">
 														<thead>
 															<th>N°</th>
 															<th>F. Servicio</th>
 															<th>Tipo Autorización</th>
 														</thead>
-														<tbody style="height: 320px;">
-															<tr>
-																<td></td>
-																<td></td>
-																<td></td>
-															</tr>
+														<tbody class="tbodyAutorizacion" id="tbodyAutorizacion">
 														</tbody>
 													</table>
 												</div>
@@ -1071,19 +1066,19 @@
 													<label>
 														Tipo
 													</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="dsc_autorizacion" disabled>
 												</div>
 												<div class="col-lg-4">
 													<label>Autoriz.</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="num_uso_aut" disabled>
 												</div>
 												<div class="col-lg-8">
 													<label>Estado</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="estado_aut" disabled>
 												</div>
 												<div class="col-lg-4">
 													<label>F. Servicio</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="fch_servicio_aut" disabled>
 												</div>
 											</div>
 										</div>
@@ -1094,35 +1089,35 @@
 											<div class="row form-group">
 												<div class="col-lg-6">
 													<label>Apellido Paterno</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="ape_paterno_aut" disabled>
 												</div>
 												<div class="col-lg-6">
 													<label>Apellido Materno</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="ape_materno_aut" disabled>
 												</div>
 												<div class="col-lg-6">
 													<label>Nombre</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="nombre_aut" disabled>
 												</div>
 												<div class="col-lg-3">
 													<label>Documento</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="tipo_doc_aut" disabled>
 												</div>
 												<div class="col-lg-3">
 													<label>&nbsp;</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="num_doc_auto" disabled>
 												</div>
 												<div class="col-lg-3">
 													<label>F. Nacimiento</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="fch_nac_aut" disabled>
 												</div>
 												<div class="col-lg-3">
 													<label>F. Deceso</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="fch_dec_aut" disabled>
 												</div>
 												<div class="col-lg-6">
 													<label>Lugar Deceso</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="lugar_dec_aut" disabled>
 												</div>
 											</div>
 										</div>
@@ -1133,39 +1128,39 @@
 											<div class="row form-group">
 												<div class="col-lg-6">
 													<label>Camposanto</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="camposanto_aut" disabled>
 												</div>
 												<div class="col-lg-6">
 													<label>Plataforma</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="plataforma_aut" disabled>
 												</div>
 												<div class="col-lg-4">
 													<label>Área</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="area_aut" disabled>
 												</div>
 												<div class="col-lg-3">
 													<label>Eje Horizontal</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="eje_hor_aut" disabled>
 												</div>
 												<div class="col-lg-3">
 													<label>Eje Vertical</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="eje_ver_aut" disabled>
 												</div>
 												<div class="col-lg-2">
 													<label>Espacio</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="espacio_aut" disabled>
 												</div>
 												<div class="col-lg-4">
 													<label>T. Espacio</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="tipo_espacio_aut" disabled>
 												</div>
 												<div class="col-lg-4">
 													<label>Nivel</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="nivel_aut" disabled>
 												</div>
 												<div class="col-lg-4">
 													<label>Profundidad</label>
-													<input type="text" class="form-control form-control-sm m-input" id="" disabled>
+													<input type="text" class="form-control form-control-sm m-input" id="profundidad_aut" disabled>
 												</div>
 											</div>
 										</div>

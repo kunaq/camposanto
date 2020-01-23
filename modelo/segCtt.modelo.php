@@ -816,7 +816,7 @@ class ModeloSegContrato{
 	        $dsc_camposanto = "'".Utf8Encode($key['dsc_camposanto'])."'";
 	        $dsc_plataforma = "'".Utf8Encode($key['dsc_plataforma'])."'";
 	        $dsc_area = "'".Utf8Encode($key['dsc_area'])."'";
-	        $cod_eje_horizontal = "'".$key['cod_eje_horizontal_esp']."'";
+	        $cod_eje_horizontal = "'".Utf8Encode($key['cod_eje_horizontal_esp'])."'";
 	        $cod_eje_vertical = "'".$key['cod_eje_vertical_esp']."'";
 	        $cod_espacio = "'".$key['cod_espacio']."'";
 	        $cod_tipo_espacio = "'".$key['cod_tipo_espacio']."'";
