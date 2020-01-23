@@ -397,15 +397,19 @@
 													<label>Porcentaje</label>
 													<input type="text" class="form-control form-control-sm m-input" id="porcResolucion" name="porcResolucion" disabled>
 												</div>
-												<div class="col-lg-2 check-comisiones">
+												<div class="col-lg-1 check-comisiones">
 													<label class="m-checkbox">
 														Afecta Comisiones
 													</label>
-													<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
+												</div>
+												<div class="col-lg-1">
+													<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--yellow">
 														<label>
-															<input type="checkbox" id="check-comision" disabled name="check-comision">
+															<input type="checkbox" name="check-comision" id="check-comision" disabled>
+															<span></span>
 														</label>
-													</span>											
+													</span>
+												</div>											
 												</div>
 											</div>
 										</div>
