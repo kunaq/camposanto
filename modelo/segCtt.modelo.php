@@ -86,7 +86,7 @@ class ModeloSegContrato{
 	        $titutal = "'".$key['cod_cliente']."'";
 	        $titular_alterno = "'".$key['cod_titular_alterno']."'";
 	        $aval = "'".$key['cod_aval']."'";
-	        $canal_venta = $key['cod_canal_venta'];
+	        $canal_venta = "'".$key['cod_canal_venta']."'";
 	        $flg_agencia = $key['flg_agencia'];
 	        $cobrador = "'".$key['cod_cobrador']."'";
 	        $vendedor = "'".$key['cod_vendedor']."'";
@@ -134,6 +134,15 @@ class ModeloSegContrato{
 	        $titutal = "'".$key['cod_cliente']."'";
 	        $titular_alterno = "'".$key['cod_titular_alterno']."'";
 	        $aval = "'".$key['cod_aval']."'";
+	        $canal_venta = "'".$key['cod_canal_venta']."'";
+	        $flg_agencia = $key['flg_agencia'];
+	        $cobrador = "'".$key['cod_cobrador']."'";
+	        $vendedor = "'".$key['cod_vendedor']."'";
+	        $grupo = "'".$key['cod_grupo']."'";
+	        $tipo_comisionista = "'".$key['cod_tipo_comisionista']."'";
+	        $supervisor = "'".$key['cod_supervisor']."'";
+	        $jefe_ventas = "'".$key['cod_jefeventas']."'";
+	        $agencia = "'".$key['cod_agencia']."'";
 
 			$tbodyRefinanciamiento .='<tr>
 									<td onclick="getDatosServxRef(this,'.$localidad.','.$cod_tipo_ctt.','.$cod_tipo_programa.','.$cod_contrato.','.$num_ref.','.$num_serv.','.$titutal.','.$titular_alterno.','.$aval.','.$canal_venta.','.$flg_agencia.','.$cobrador.','.$vendedor.','.$grupo.','.$tipo_comisionista.','.$supervisor.','.$jefe_ventas.','.$agencia.')">'.$key['num_refinanciamiento'].'</td>
