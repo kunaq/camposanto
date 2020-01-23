@@ -52,6 +52,35 @@ function getDatosCtt(){
     });//ajax
 }
 
+function mostrarAutorizacion(row,dscAutorizacion,numUso,codEstado,fchServicio,apePaterno,apeMaterno,nombre,tipoDoc,numDoc,fchNac,fchDeceso,lugarDec,camposanto,plataforma,area,ejeHor,ejeVer,espacio,tipoEspacio,nivel,profundidad){
+	var rows = $('#myTableAutorizacion tr').not(':first');
+	rows.removeClass('selected'); 
+  	$(row).closest('tr').addClass('selected');
+
+  	document.getElementById('dsc_autorizacion').value = dscAutorizacion;
+  	document.getElementById('num_uso_aut').value = numUso;
+  	document.getElementById('estado_aut').value = codEstado;
+  	document.getElementById('fch_servicio_aut').value = fchServicio;
+  	document.getElementById('ape_paterno_aut').value = apePaterno;
+  	document.getElementById('ape_materno_aut').value = apeMaterno;
+  	document.getElementById('nombre_aut').value = nombre;
+  	document.getElementById('tipo_doc_aut').value = tipoDoc;
+  	document.getElementById('num_doc_auto').value = numDoc;
+  	document.getElementById('fch_nac_aut').value = fchNac;
+  	document.getElementById('fch_dec_aut').value = fchDeceso;
+  	document.getElementById('lugar_dec_aut').value = lugarDec;
+  	document.getElementById('camposanto_aut').value = camposanto;
+  	document.getElementById('plataforma_aut').value = plataforma;
+  	document.getElementById('area_aut').value = area;
+  	document.getElementById('eje_hor_aut').value = ejeHor;
+  	document.getElementById('eje_ver_aut').value = ejeVer;
+  	document.getElementById('espacio_aut').value = espacio;
+  	document.getElementById('tipo_espacio_aut').value = tipoEspacio;
+  	document.getElementById('nivel_aut').value = nivel;
+  	document.getElementById('profundidad_aut').value = profundidad;
+
+}
+
 function mostrarBeneficiario(row,servicio,tipoDoc,numDoc,apePaterno,apeMaterno,nombre,sexo,edoCivil,fchNac,parentesco,peso,talla,religion,observacion,fchDec,fchEnt,lugarDec,motivoDec,nivel,flgAutopsia){
 	var rows = $('#myTableBeneficiarios tr').not(':first');
 	rows.removeClass('selected'); 
@@ -82,7 +111,7 @@ function mostrarBeneficiario(row,servicio,tipoDoc,numDoc,apePaterno,apeMaterno,n
     else{
         $('#autopsiaBenef').prop("checked", false);
     }
- }
+}
 
  function getComprobantesCuota(row,localidad,contrato,num_refinanciamiento,num_cuota){
  	var rows = $('#myTableCronograma tr').not(':first');
@@ -644,6 +673,21 @@ function getDatosServicioCtt(row,localidad,tasa,tipoCtt,tipoPro,codCtt,numRef,nu
 		    }//succes
 	});//ajaxGetDetFinanciamiento
 
+	$.ajax({
+		type: 'POST',
+	    url:"ajax/segCtt.ajax.php",
+	    dataType: 'text',
+	    data: {'accion' : 'getAutorizacion', 'localidad' : localidad, 'cod_contrato' : codCtt, 'cod_servicio' : numSer},
+	    success: function(respuesta){
+	       	var info = JSON.parse(respuesta);
+	       	$("#tbodyAutorizacion").html(info.tablaAutorizacion);
+	       	var tAutorizacion = document.getElementById('tbodyAutorizacion');
+            var primeraAutorizacion = tAutorizacion.rows.item(0);
+            primeraAutorizacion.click();
+		        	
+		}//succes
+	});//ajaxGetAutorizacion
+
     $.ajax({
 		type: 'POST',
         url:"ajax/segCtt.ajax.php",
@@ -688,6 +732,112 @@ function getDatosServxRef(row,localidad,tasa,tipoCtt,tipoPro,codCtt,numRef,numSe
   	}else{
   		document.getElementById('cod_aval').value = aval;
   		$("#cod_aval").change();
+  	}
+
+  	document.getElementById('canal_venta').value = canalVta;
+
+  	if (flgAgencia == "SI") {
+        $('#flg_agencia').prop("checked", true);
+    }else{
+    	$('#flg_agencia').prop("checked", false);
+    }
+    
+    if (cobrador == "") {
+  	}else{
+  		document.getElementById('codCobrador').value = cobrador;
+  		$.ajax({
+	        type: 'POST',
+	        url: 'extensiones/captcha/buscarNombreTrabajador.php',
+	        dataType: 'text',
+	        data: { 'cod' : cobrador },
+	        success : function(respuesta){
+	            document.getElementById('nombreCobrador').value = respuesta;
+	        }
+	    });
+  	}
+
+  	if (vendedor == "") {
+  	}else{
+  		document.getElementById('codVendedor').value = vendedor;
+  		$.ajax({
+	        type: 'POST',
+	        url: 'extensiones/captcha/buscarNombreTrabajador.php',
+	        dataType: 'text',
+	        data: { 'cod' : vendedor },
+	        success : function(respuesta){
+	            document.getElementById('nombreVendedor').value = respuesta;
+	        }
+	    });
+  	}
+
+  	if (grupo == "") {
+  	}else{
+  		document.getElementById('codGrupo').value = grupo;
+  		$.ajax({
+	        type: 'POST',
+	        url: 'extensiones/captcha/buscarNombreGrupo.php',
+	        dataType: 'text',
+	        data: { 'cod' : grupo },
+	        success : function(respuesta){
+	            document.getElementById('nombreGrupo').value = respuesta;
+	        }
+	    });
+  	}
+
+  	if (tipoComisionista == "") {
+  	}else{
+  		document.getElementById('codTipoComisionista').value = tipoComisionista;
+  		$.ajax({
+	        type: 'POST',
+	        url: 'extensiones/captcha/buscaNombreComisionista.php',
+	        dataType: 'text',
+	        data: { 'cod' : tipoComisionista },
+	        success : function(respuesta){
+	            document.getElementById('nombreTipoComisionista').value = respuesta;
+	        }
+	    });
+  	}
+
+  	if (supervisor == "") {
+  	}else{
+  		document.getElementById('codSupervisor').value = supervisor;
+  		$.ajax({
+	        type: 'POST',
+	        url: 'extensiones/captcha/buscarNombreTrabajador.php',
+	        dataType: 'text',
+	        data: { 'cod' : supervisor },
+	        success : function(respuesta){
+	            document.getElementById('nombreSupervisor').value = respuesta;
+	        }
+	    });
+  	}
+
+  	if (jefeVentas == "") {
+  	}else{
+  		document.getElementById('codJefeVentas').value = jefeVentas;
+  		$.ajax({
+	        type: 'POST',
+	        url: 'extensiones/captcha/buscarNombreTrabajador.php',
+	        dataType: 'text',
+	        data: { 'cod' : jefeVentas },
+	        success : function(respuesta){
+	            document.getElementById('nombreJefeVentas').value = respuesta;
+	        }
+	    });
+  	}
+
+  	if (agencia == "") {
+  	}else{
+  		document.getElementById('codFuneraria').value = agencia;
+  		$.ajax({
+	        type: 'POST',
+	        url: 'extensiones/captcha/buscaNombreFuneraria.php',
+	        dataType: 'text',
+	        data: { 'cod' : agencia },
+	        success : function(respuesta){
+	            document.getElementById('dscFuneraria').value = respuesta;
+	        }
+	    });
   	}
 
   	$.ajax({
@@ -906,6 +1056,21 @@ function getDatosServxRef(row,localidad,tasa,tipoCtt,tipoPro,codCtt,numRef,numSe
 		        	
 		    }//succes
 	});//ajaxGetDetFinanciamiento
+
+	$.ajax({
+		type: 'POST',
+	    url:"ajax/segCtt.ajax.php",
+	    dataType: 'text',
+	    data: {'accion' : 'getAutorizacion', 'localidad' : localidad, 'cod_contrato' : codCtt, 'cod_servicio' : numSer},
+	    success: function(respuesta){
+	       	var info = JSON.parse(respuesta);
+	       	$("#tbodyAutorizacion").html(info.tablaAutorizacion);
+	       	var tAutorizacion = document.getElementById('tbodyAutorizacion');
+            var primeraAutorizacion = tAutorizacion.rows.item(0);
+            primeraAutorizacion.click();
+		        	
+		}//succes
+	});//ajaxGetAutorizacion
 
     $.ajax({
 		type: 'POST',
