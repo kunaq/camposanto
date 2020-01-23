@@ -352,6 +352,8 @@ function limpia(){
     $("#dscGruComResolucion").val('');
     $("#codJVenComResolucion").val('');
     $("#dscJVenCoResolucion").val('');
+    $("#bodyResolucion").empty();
+     document.getElementById("totalServPpalRes").innerText = '0,00';
     document.getElementById("subCuoiTab").innerText = '0,00';
     document.getElementById("intCuoi").innerText =  '0,00';
     document.getElementById("igvCuoi").innerText =  '0,00';
