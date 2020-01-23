@@ -223,6 +223,15 @@ function buscaDetalles(value,accion){
                     // console.log(fila);
             document.getElementById("bodyResolucion").insertAdjacentHTML("beforeEnd" ,fila);
             document.getElementById("totalServPpalRes").innerText = Number(response['imp_saldofinanciar']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
+            $.ajax({
+                type:'POST',
+                url: 'ajax/resCtto.ajax.php',
+                dataType: 'json',
+                data: {'accion': 'buscaResumen', 'as_contrato':ctto, 'as_servicio' : numServicio, 'as_localidad':response['cod_localidad'], 'as_tipo_ctt': response['cod_tipo_ctt'], 'ai_ref':response['num_refinanciamiento'], 'as_tipo_programa':response['cod_tipo_programa']},
+                success : function(response){
+                    console.log(response);
+                }//success
+            });//ajax resumenCtto
         }//success
     });//ajax
 }
