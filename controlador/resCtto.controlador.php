@@ -37,7 +37,7 @@ class ControladorResCtto{
 						"as_total" => "NO",
 						"as_tipo_programa" => $_POST['as_tipo_programa'],
 					);
-		$respuesta = ModeloSegContrato::mdlEjecutaProcedureResumenCtt($datos);
+		$respuesta = ModeloResCtto::mdlEjecutaProcedureResumenCtt($datos);
 		return $respuesta;
 	}//function ctrEjecutaProcedureResumenCtt
 
