@@ -192,8 +192,6 @@ function buscaDetalles(value,accion){
             nombreGrupoVenta(response['cod_grupo'],'dscGruResolucion');
             $("#codSupResolucion").val(response['cod_supervisor']);
             nombreTrabajador(response['cod_supervisor'],'dscSupResolucion');
-            $("#estadoConResolucion").val('RESUELTO');
-            $("#monedaConResolucion").val(response['cod_moneda']);
             $("#annoPerResolucion").val(response['num_anno_afecto']);
             $("#annoPerResolucion").change();
             $("#tipoPerResolucion").val(response['cod_tipo_periodo_afecto']);
@@ -230,6 +228,8 @@ function buscaDetalles(value,accion){
                 data: {'accion': 'buscaResumen', 'as_contrato':ctto, 'as_servicio' : numServicio, 'as_localidad':response['cod_localidad'], 'as_tipo_ctt': response['cod_tipo_ctt'], 'ai_ref':response['num_refinanciamiento'], 'as_tipo_programa':response['cod_tipo_programa']},
                 success : function(response){
                     console.log(response);
+                    $("#estadoConResolucion").val(response['dsc_estado']);
+                    $("#monedaConResolucion").val(response['cod_moneda']);
                 }//success
             });//ajax resumenCtto
         }//success
