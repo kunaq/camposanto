@@ -937,6 +937,34 @@ class ModeloSegContrato{
 		$db->liberar($sql);
         $db->cerrar();
 
+	}//function mdlGetDeudasCliente
+	
+	static public function mdlGetObservacionesCliente($cod_cliente){
+
+		$db = new Conexion();
+
+		$sql = $db->consulta("SELECT vtade_cliente_observacion.num_linea, vtade_cliente_observacion.fch_registro, vtade_cliente_observacion.cod_usuario, vtade_cliente_observacion.dsc_observacion, (SELECT vtama_tipo_calificacion.dsc_calificacion FROM vtama_tipo_calificacion WHERE vtama_tipo_calificacion.cod_calificacion = vtama_cliente.cod_calificacion) AS dsc_calificacion FROM vtade_cliente_observacion INNER JOIN vtama_cliente ON vtade_cliente_observacion.cod_cliente = vtama_cliente.cod_cliente WHERE vtade_cliente_observacion.cod_cliente = '$cod_cliente'"); 
+
+		$tbodyObservaciones = "";
+
+		while($key = $db->recorrer($sql)){
+	        
+	        $tbodyObservaciones .= '<tr>
+										<td>'.$key['num_linea'].'</td>
+										<td>'.dateFormat($key['fch_registro']).'</td>
+										<td>'.Utf8Encode($key['cod_usuario']).'</td>
+										<td>'.Utf8Encode($key['dsc_observacion']).'</td>
+									</tr>';
+
+			$calificacion = Utf8Encode($key['dsc_calificacion']);
+		}
+		$arrData = array('tbodyObservaciones'=> $tbodyObservaciones, 'calificacion' => $calificacion); 
+
+		return $arrData;
+
+		$db->liberar($sql);
+        $db->cerrar();
+
 	}//function mdlGetBeneficiariosServ
 
 }//class ModeloWizard

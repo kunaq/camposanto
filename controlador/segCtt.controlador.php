@@ -184,6 +184,14 @@ class ControladorSegContrato{
 		$respuesta = ModeloSegContrato::mdlGetDeudasCliente($cod_cliente);
 		return $respuesta;
 	}//function ctrGetDeudasCliente
+	
+	static public function ctrGetObservacionesCliente(){
+
+		$cod_cliente = $_POST['cod_cliente'];
+
+		$respuesta = ModeloSegContrato::mdlGetObservacionesCliente($cod_cliente);
+		return $respuesta;
+	}//function ctrGetObservacionesCliente
 
 }//class ControladorWizard
 ?>

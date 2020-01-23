@@ -356,6 +356,41 @@ function getDeudasCliente(cliente){
 	}
 }
 
+function getObservacionesCliente(cliente){
+	
+	if (cliente == "titular") {
+		var cod_cliente = document.getElementById('cod_titular').value;
+		var nombre = document.getElementById('nombre_titular').value;
+		document.getElementById('nombreCliObservacion').value = nombre;
+	}else if (cliente == "titular2") {
+		var cod_cliente = document.getElementById('cod_titular_alterno').value;
+		var nombre = document.getElementById('nombre_titular_alterno').value;
+		document.getElementById('nombreCliObservacion').value = nombre;
+	}else if (cliente == "aval") {
+		var cod_cliente = document.getElementById('cod_aval').value;
+		var nombre = document.getElementById('nombre_aval').value;
+		document.getElementById('nombreCliObservacion').value = nombre;
+	}
+
+	if (cod_cliente == "") {
+		
+	}else{
+		$.ajax({
+	        type: 'POST',
+	        url: "ajax/segCtt.ajax.php",
+	        dataType: 'text',
+	        data: {'accion' : 'getObservacionesCliente', 'cod_cliente' : cod_cliente },
+	        success : function(response){
+	            var info = JSON.parse(response);
+	            document.getElementById('clasificacionCliObservacion').value = info.calificacion;
+	            $("#tbodyObservacion").html(info.tbodyObservaciones);
+	            $('#m_modal_observacion_cliente').modal('show');
+	            
+	        }
+	    });
+	}
+}
+
 function getDatosServicioCtt(row,localidad,tasa,tipoCtt,tipoPro,codCtt,numRef,numSer,titular,titular_alterno,aval,canalVta,flgAgencia,cobrador,vendedor,grupo,tipoComisionista,supervisor,jefeVentas,agencia){
 	var rows = $('#myTableServicios tr').not(':first');
 	rows.removeClass('selected'); 

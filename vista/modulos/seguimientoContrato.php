@@ -1199,11 +1199,9 @@
 													<button type="button" class="m-btn btn btn-sm btnGuardarKqPst mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Deuda Titular" onclick="getDeudasCliente('titular')">
 														<i class="fa fa-list"></i>
 													</button>
-													<span data-toggle="modal" data-target="#m_modal_observacion_cliente">
-														<button type="button" class="m-btn btn btn-sm btnGuardarKqPst mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Observaciones Cliente" onclick="">
-															<i class="fa fa-user-o"></i>
-														</button>
-													</span>
+													<button type="button" class="m-btn btn btn-sm btnGuardarKqPst mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Observaciones del Titular.." onclick="getObservacionesCliente('titular')">
+														<i class="fa fa-user-o"></i>
+													</button>
 												</div>
 												<div class="col-lg-3">
 													<label>Documento</label>
@@ -1259,14 +1257,12 @@
 												</div>
 												<div class="col-lg-2"></div>
 												<div class="col-lg-2" style="text-align: right;">
-													<button type="button" class="m-btn btn btn-sm btnGuardarKqPst mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Deuda Titular" onclick="getDeudasCliente('titular2')">
+													<button type="button" class="m-btn btn btn-sm btnGuardarKqPst mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Deuda Segundo Titular" onclick="getDeudasCliente('titular2')">
 														<i class="fa fa-list"></i>
 													</button>
-													<span data-toggle="modal" data-target="#m_modal_observacion_cliente">
-														<button type="button" class="m-btn btn btn-sm btnGuardarKqPst mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Observaciones Cliente" onclick="">
-															<i class="fa fa-user-o"></i>
-														</button>
-													</span>
+													<button type="button" class="m-btn btn btn-sm btnGuardarKqPst mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Observaciones del Segundo Titular.." onclick="getObservacionesCliente('titular2')">
+														<i class="fa fa-user-o"></i>
+													</button>
 												</div>
 												<div class="col-lg-3">
 													<label>Documento</label>
@@ -1322,14 +1318,12 @@
 												</div>
 												<div class="col-lg-2"></div>
 												<div class="col-lg-2" style="text-align: right;">
-													<button type="button" class="m-btn btn btn-sm btnGuardarKqPst mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Deuda Titular" onclick="getDeudasCliente('aval')">
+													<button type="button" class="m-btn btn btn-sm btnGuardarKqPst mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Deuda de Aval" onclick="getDeudasCliente('aval')">
 														<i class="fa fa-list"></i>
 													</button>
-													<span data-toggle="modal" data-target="#m_modal_observacion_cliente">
-														<button type="button" class="m-btn btn btn-sm btnGuardarKqPst mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Observaciones Cliente" onclick="">
-															<i class="fa fa-user-o"></i>
-														</button>
-													</span>
+													<button type="button" class="m-btn btn btn-sm btnGuardarKqPst mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Observaciones de Aval" onclick="getObservacionesCliente('aval')">
+														<i class="fa fa-user-o"></i>
+													</button>
 												</div>
 												<div class="col-lg-3">
 													<label>Documento</label>

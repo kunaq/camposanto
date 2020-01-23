@@ -81,6 +81,11 @@ class AjaxSegCtt{
 		$respuesta = ControladorSegContrato::ctrGetDeudasCliente();
 		echo json_encode($respuesta,JSON_UNESCAPED_UNICODE);
 	}//function ajaxGetDeudasCliente
+	
+	public function ajaxGetObservacionesCliente(){
+		$respuesta = ControladorSegContrato::ctrGetObservacionesCliente();
+		echo json_encode($respuesta,JSON_UNESCAPED_UNICODE);
+	}//function ajaxGetObservacionesCliente
 
 
 }//class AjaxWizard
@@ -160,4 +165,8 @@ else if(isset($_POST["accion"]) && $_POST["accion"] == 'getAutorizacion'){
 else if(isset($_POST["accion"]) && $_POST["accion"] == 'getDeudasCliente'){
 	$cliente = new AjaxSegCtt();
 	$cliente -> ajaxGetDeudasCliente();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'getObservacionesCliente'){
+	$cliente = new AjaxSegCtt();
+	$cliente -> ajaxGetObservacionesCliente();
 }
