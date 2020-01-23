@@ -13,7 +13,7 @@ class AjaxResCtto{
 	}//ajaxBuscaNumServicio
 	public function ajaxBuscaDetCttoRes(){
 		$respuesta = ControladorResCtto::ctrBuscaDetCttoRes();
-		$respuesta["fch_resolucion"] = ($respuesta["fch_resolucion"] != '') ? dateTimeFormat($respuesta["fch_resolucion"]) : '';
+		$respuesta["fch_resolucion"] = ($respuesta["fch_resolucion"] != '') ? dateFormat($respuesta["fch_resolucion"]) : '';
 	echo json_encode($respuesta);
 	}//ajaxBuscaDetCttoRes
 }//class AjaxResCtto

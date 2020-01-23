@@ -136,6 +136,7 @@ $("#numSerResolucion").change(function(){
 
 function buscaDetalles(value,accion){
     // console.log(value);
+    limpia();
     var numServicio = value.split("/")[0];
     var ctto = $("#numConResolucion").val();
     $.ajax({
@@ -145,6 +146,46 @@ function buscaDetalles(value,accion){
         data: {'accion': accion, 'codCtto':ctto, 'numServicio' : numServicio},
         success : function(response){
             console.log(response);
+            if(response['cod_tipo_programa'] = 'TR000'){
+                $("#dscProgResolucion").val('CONTRATO DE SERVICIO');
+            }
+            else{
+                $("#dscProgResolucion").val('SERVICIO PRE-INSCRITO');
+            }
+            $("#tipoProgResolucion").val(response['cod_tipo_ctt']);
+            $("#m_datepicker_4_3").val(response['fch_resolucion']);
+            $("#tipoResolucion").val(response['cod_tipo_resolucion']);
+            $("#tipoResolucion").change();
+            $("#motivoResolucion").val(response['cod_motivo_resolucion']);
+            $("#detalleResolucion").val(response['dsc_motivo_usuario']);
+            if(response['cod_tipo_necesidad'] == 'NF'){
+                $("#tipoNecResolucion").val('NECESIDAD FUTURA');
+            }else if (response['cod_tipo_necesidad'] == 'NI'){
+                $("#tipoNecResolucion").val('NECESIDAD INMEDIATA');
+            }
+            $("#codCliResolucion").val(response['cod_cliente']);
+            $("#codJVenResolucion").val(response['cod_jefeventas']);
+            $("#codVenResolucion").val(response['cod_vendedor']);
+            $("#codGruResolucion").val(response['cod_vendedor']);
+            $("#codSupResolucion").val(response['cod_supervisor']);
+            $("#estadoConResolucion").val('RESUELTO');
+            $("#monedaConResolucion").val(response['cod_moneda']);
+            $("#annoPerResolucion").val(response['num_anno_afecto']);
+            $("#annoPerResolucion").change();
+            $("#tipoPerResolucion").val(response['cod_tipo_periodo_afecto']);
+            $("#tipoPerResolucion").change();
+            $("#perResolucion").val(response['cod_periodo_afecto']);
+            $("#saldoInsResolucion").val(Number(response['imp_afecto']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 }));
+            $("#porcResolucion").val(Number(response['imp_porc_afecto']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 }));
+            if(response['flg_afecta_comision'] == 'SI'){
+                $("#check-comision").prop('checked',true);
+            }else if(response['flg_afecta_comision'] == 'NO'){
+                $("#check-comision").prop('checked',false);
+            }
+            $("#codVenComResolucion").val(response['codVenRes']);
+            $("#codSupComResolucion").val(response['codSupRes']);
+            $("#codGruComResolucion").val(response['codGruRes']);
+            $("#codJVenComResolucion").val(response['codJventasRes']);
         }//success
     });//ajax
 }
