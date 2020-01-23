@@ -610,7 +610,7 @@ class ModeloSegContrato{
 
 		$db = new Conexion();
 
-		$sql = $db->consulta("SELECT vtavi_cuotas_x_comprobante.cod_localidad, vtavi_cuotas_x_comprobante.cod_contrato, vtavi_cuotas_x_comprobante.num_refinanciamiento, (SELECT vtama_tipo_comprobante.dsc_tipo_comprobante FROM vtama_tipo_comprobante WHERE vtama_tipo_comprobante.cod_tipo_comprobante = vtaca_comprobante.cod_tipo_comprobante) AS dsc_tipo_comprobante, vtaca_comprobante.num_comprobante, vtaca_comprobante.flg_nc, vtaca_comprobante.fch_emision, vtaca_comprobante.cod_moneda, vtaca_comprobante.imp_total, vtaca_comprobante.imp_saldo, vtaca_comprobante.cod_estado, vtavi_cuotas_x_comprobante.num_correlativo FROM vtavi_cuotas_x_comprobante INNER JOIN vtaca_comprobante ON vtaca_comprobante.num_correlativo = vtavi_cuotas_x_comprobante.num_correlativo WHERE vtavi_cuotas_x_comprobante.cod_localidad_ctt = '".$datos['localidad']."' AND vtavi_cuotas_x_comprobante.cod_contrato = '".$datos['cod_contrato']."' AND vtavi_cuotas_x_comprobante.num_cuota = '".$datos['num_cuota']."' AND vtavi_cuotas_x_comprobante.num_refinanciamiento = '".$datos['num_refinanciamiento']."' UNION SELECT vtavi_mora_x_comprobante.cod_localidad, vtavi_mora_x_comprobante.cod_contrato, vtavi_mora_x_comprobante.num_refinanciamiento, (SELECT vtama_tipo_comprobante.dsc_tipo_comprobante FROM vtama_tipo_comprobante WHERE vtama_tipo_comprobante.cod_tipo_comprobante = vtaca_comprobante.cod_tipo_comprobante) AS dsc_tipo_comprobante,vtaca_comprobante.num_comprobante, vtaca_comprobante.flg_nc, vtaca_comprobante.fch_emision, vtaca_comprobante.cod_moneda, vtaca_comprobante.imp_total, vtaca_comprobante.imp_saldo, vtaca_comprobante.cod_estado, vtavi_mora_x_comprobante.num_correlativo FROM vtavi_mora_x_comprobante INNER JOIN vtaca_comprobante ON vtaca_comprobante.num_correlativo = vtavi_mora_x_comprobante.num_correlativo WHERE vtavi_mora_x_comprobante.cod_localidad_ctt = '".$datos['localidad']."' AND vtavi_mora_x_comprobante.cod_contrato = '".$datos['cod_contrato']."' AND vtavi_mora_x_comprobante.num_cuota = '".$datos['num_cuota']."' AND vtavi_mora_x_comprobante.num_refinanciamiento = '".$datos['num_refinanciamiento']."'");
+		$sql = $db->consulta("SELECT vtavi_cuotas_x_comprobante.cod_localidad, vtavi_cuotas_x_comprobante.cod_contrato, vtavi_cuotas_x_comprobante.num_refinanciamiento, (SELECT vtama_tipo_comprobante.dsc_tipo_comprobante FROM vtama_tipo_comprobante WHERE vtama_tipo_comprobante.cod_tipo_comprobante = vtaca_comprobante.cod_tipo_comprobante) AS dsc_tipo_comprobante, vtaca_comprobante.num_comprobante, vtaca_comprobante.flg_nc, vtaca_comprobante.fch_emision, vtaca_comprobante.cod_moneda, vtaca_comprobante.imp_total, vtaca_comprobante.imp_saldo, vtaca_comprobante.cod_estado, vtavi_cuotas_x_comprobante.num_correlativo, (SELECT vtama_localidad.dsc_localidad FROM vtama_localidad WHERE vtama_localidad.cod_localidad = vtavi_cuotas_x_comprobante.cod_localidad) AS dsc_localidad, vtavi_cuotas_x_comprobante.cod_tipo_ctt, vtavi_cuotas_x_comprobante.cod_tipo_programa, vtavi_cuotas_x_comprobante.cod_contrato,  vtavi_cuotas_x_comprobante.num_cuota FROM vtavi_cuotas_x_comprobante INNER JOIN vtaca_comprobante ON vtaca_comprobante.num_correlativo = vtavi_cuotas_x_comprobante.num_correlativo WHERE vtavi_cuotas_x_comprobante.cod_localidad_ctt = '".$datos['localidad']."' AND vtavi_cuotas_x_comprobante.cod_contrato = '".$datos['cod_contrato']."' AND vtavi_cuotas_x_comprobante.num_cuota = '".$datos['num_cuota']."' AND vtavi_cuotas_x_comprobante.num_refinanciamiento = '".$datos['num_refinanciamiento']."' UNION SELECT vtavi_mora_x_comprobante.cod_localidad, vtavi_mora_x_comprobante.cod_contrato, vtavi_mora_x_comprobante.num_refinanciamiento, (SELECT vtama_tipo_comprobante.dsc_tipo_comprobante FROM vtama_tipo_comprobante WHERE vtama_tipo_comprobante.cod_tipo_comprobante = vtaca_comprobante.cod_tipo_comprobante) AS dsc_tipo_comprobante,vtaca_comprobante.num_comprobante, vtaca_comprobante.flg_nc, vtaca_comprobante.fch_emision, vtaca_comprobante.cod_moneda, vtaca_comprobante.imp_total, vtaca_comprobante.imp_saldo, vtaca_comprobante.cod_estado, vtavi_mora_x_comprobante.num_correlativo, (SELECT vtama_localidad.dsc_localidad FROM vtama_localidad WHERE vtama_localidad.cod_localidad = vtavi_mora_x_comprobante.cod_localidad) AS dsc_localidad, vtavi_mora_x_comprobante.cod_tipo_ctt, vtavi_mora_x_comprobante.cod_tipo_programa, vtavi_mora_x_comprobante.cod_contrato, vtavi_mora_x_comprobante.num_cuota FROM vtavi_mora_x_comprobante INNER JOIN vtaca_comprobante ON vtaca_comprobante.num_correlativo = vtavi_mora_x_comprobante.num_correlativo WHERE vtavi_mora_x_comprobante.cod_localidad_ctt = '".$datos['localidad']."' AND vtavi_mora_x_comprobante.cod_contrato = '".$datos['cod_contrato']."' AND vtavi_mora_x_comprobante.num_cuota = '".$datos['num_cuota']."' AND vtavi_mora_x_comprobante.num_refinanciamiento = '".$datos['num_refinanciamiento']."'");
 
 		$tbodyComprobantes = "";
 
@@ -621,14 +621,20 @@ class ModeloSegContrato{
 			$cod_contrato = "'".$key['cod_contrato']."'";
 			$num_refinanciamiento = "'".$key['num_refinanciamiento']."'";
 			$num_correlativo = "'".$key['num_correlativo']."'";
+			$dsc_tipo_comprobante = "'".$key['dsc_tipo_comprobante']."'";
+			$fch_emision = "'".dateFormat($key['fch_emision'])."'";
+			$dsc_localidad = "'".$key['dsc_localidad']."'";
+			$tipo_ctt = "'".$key['cod_tipo_ctt']."'";
+			$tipo_programa = "'".$key['cod_tipo_programa']."'";
+			$num_cuota = "'".$key['num_cuota']."'";
+			$cod_moneda = "'".$key['cod_moneda']."'";
+			$imp_total = "'".number_format(round($key['imp_total'], 2),2,',','.')."'";
 
 			$tbodyComprobantes .= '<tr onclick="getCancelacionComprobante(this,'.$cod_localidad.','.$num_correlativo.');" ondblclick="getDatosComprobante()">
 									<td>
-										<span data-toggle="modal" data-target="#m_modal_tabla_comprobante">
-											<button type="button" class="btn-comprobante btnGuardarKqPst" data-toggle="m-tooltip" data-container="body" onclick="creaTablaComprobante('.$num_comprobante.','.$cod_localidad.','.$cod_contrato.','.$num_refinanciamiento.');">
-												<i class="la la-plus"></i>
-											</button>
-										</span>
+										<button type="button" class="btn-comprobante btnGuardarKqPst" data-toggle="m-tooltip" data-container="body" onclick="creaTablaComprobante('.$dsc_tipo_comprobante.','.$num_comprobante.','.$fch_emision.','.$dsc_localidad.','.$tipo_ctt.','.$tipo_programa.','.$cod_contrato.','.$num_refinanciamiento.','.$num_cuota.','.$cod_moneda.','.$imp_total.');">
+											<i class="la la-plus"></i>
+										</button>
 									</td>
 									<td>'.$key['dsc_tipo_comprobante'].'</td>
 									<td>'.$key['num_comprobante'].'</td>';

@@ -319,6 +319,13 @@ $("#num_comprobante").change(function() {
     }
 });
 
+function creaTablaComprobante(tipoComprobante,numComprobante,fchEmision,localidad,tipoCtt,tipoPrograma,codCtt,numRef,numCuota,moneda,impTotal){
+	var filaComprobante = '<tr><td>'+tipoComprobante+'</td><td>'+numComprobante+'</td><td>'+fchEmision+'</td><td>'+localidad+'</td><td>'+tipoCtt+'</td><td>'+tipoPrograma+'</td><td>'+codCtt+'</td><td>'+numRef+'</td><td>'+numCuota+'</td><td>'+moneda+'</td><td>'+impTotal+'</td></tr>';
+	$("#tbodyComprobanteModal").html(filaComprobante);
+	$('#m_modal_tabla_comprobante').modal('show');
+	$("#imp_total_footer").html(impTotal);
+}
+
 function getDeudasCliente(cliente){
 	
 	if (cliente == "titular") {
