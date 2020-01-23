@@ -51254,8 +51254,8 @@ ul >li, ol > li{
     width: 100%;
 }
 .myTableDeuda thead th{
-    background-color: #0050CC;
-    color: #fff;
+    color: #000;
+    font-weight: 300;
 }
 .myTableDeuda thead th,.myTableDeuda tbody td,.myTableDeuda tfoot td{
     text-align: center;
