@@ -207,13 +207,13 @@ function buscaDetalles(value,accion){
                 $("#check-comision").prop('checked',false);
             }
             $("#codVenComResolucion").val(response['codVenRes']);
-
+            nombreTrabajador(response['codVenRes'],'dscVenComResolucion');
             $("#codSupComResolucion").val(response['codSupRes']);
-
+            nombreTrabajador(response['codSupRes'],'dscSupComResolucion');
             $("#codGruComResolucion").val(response['codGruRes']);
-
+            nombreGrupoVenta(response['codGruRes'],'dscGruComResolucion');
             $("#codJVenComResolucion").val(response['codJventasRes']);
-
+            nombreTrabajador(response['codJventasRes'],'dscJVenCoResolucion');
             $("#bodyResolucion").empty();
             var fila = '<tr>'+
                         '<td>'+numServicio+'</td>'+
