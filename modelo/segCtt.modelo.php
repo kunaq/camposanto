@@ -75,10 +75,8 @@ class ModeloSegContrato{
 	        }
 
 	        $numCtt = "'".$key['cod_contrato']."'";
-	        $codLocalidad = $key['cod_localidad'];
 	        $localidad = "'".$key['cod_localidad']."'";
 	        $tasaInt = "'".$key['imp_tasa_interes']."'";
-	        $codTipoCtt = $key['cod_tipo_ctt'];
 	        $tipoContrato = "'".$key['cod_tipo_ctt']."'";
 	        $tipoPrograma = "'".$key['cod_tipo_programa']."'";
 	        $numRef = "'".$key['num_refinanciamiento']."'";
@@ -87,7 +85,7 @@ class ModeloSegContrato{
 	        $titular_alterno = "'".$key['cod_titular_alterno']."'";
 	        $aval = "'".$key['cod_aval']."'";
 	        $canal_venta = "'".$key['cod_canal_venta']."'";
-	        $flg_agencia = $key['flg_agencia'];
+	        $flg_agencia = "'".$key['flg_agencia']."'";
 	        $cobrador = "'".$key['cod_cobrador']."'";
 	        $vendedor = "'".$key['cod_vendedor']."'";
 	        $grupo = "'".$key['cod_grupo']."'";
