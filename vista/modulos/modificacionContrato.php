@@ -2,21 +2,27 @@
 	<!--Begin::Main Portlet-->
 	<div class="m-portlet m-portlet--space">
 		<!--begin: Portlet Head-->
-		<!------------------------------- botones --------------------------------->
-					<div class="sidebar-wrapper stickButtons" id="container-button"> 
-						<a href="#container" class="btn btn-metal m-btn m-btn--icon btn-lg m-btn--icon-only" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Nueva busqueda" id="new-button">
-							<i class="fa fa-search"></i>
-						</a>
-						<br><br>
-						<a href="#container" class="btn btnGuardarKqPst m-btn m-btn--icon btn-lg m-btn--icon-only" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Guardar cambios" id="save-button">
-							<i class="fa fa-save"></i>
-						</a>
-						<br><br>
-						<a href="#container" class="btn btnEditarKqPst2 m-btn m-btn--icon btn-lg m-btn--icon-only" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Anular contrato" id="null-button">
-							<i class="fa fa-eraser"></i>
-						</a>
-					</div> 
-				<!-- ---------------------------fin botones----------------------------- -->
+<!------------------------------- botones --------------------------------->
+		<div class="sidebar-wrapper stickButtons" id="container-button">
+			<ul class="m-nav-sticky side-nav">
+				<li class="m-nav-sticky__item nav-item">
+					<a href="#container" class="btn btn-metal m-btn m-btn--icon btn-lg m-btn--icon-only" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Nueva busqueda" id="new-button">
+						<i class="fa fa-search"></i>
+					</a>
+				</li>
+				<li class="m-nav-sticky__item nav-item">
+					<a href="#container" class="btn btnGuardarKqPst m-btn m-btn--icon btn-lg m-btn--icon-only" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Guardar cambios" id="save-button">
+						<i class="fa fa-save"></i>
+					</a>
+				</li>
+				<li class="m-nav-sticky__item nav-item">
+					<a href="#container" class="btn btnEditarKqPst2 m-btn m-btn--icon btn-lg m-btn--icon-only" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Anular contrato" id="null-button">
+						<i class="fa fa-eraser"></i>
+					</a>
+				</li>
+			</ul> 					
+		</div> 
+<!-- ---------------------------fin botones----------------------------- -->
 		<div class="m-portlet__head">
 			<div class="m-portlet__head-caption">
 				<div class="m-portlet__head-title">
