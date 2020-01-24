@@ -131,14 +131,12 @@ $("#numSerResolucion").change(function(){
     if(resuelto == 'NO' && anulado == 'NO'){
         limpia();
         desbloquea();
-        $("#m_datepicker_4_3").datepicker("setDate", new Date());
         buscaDetalles(valor,'condicionRegular');
     }
 });//change numServicio
 
 function buscaDetalles(value,accion){
     // console.log(value);
-    limpia();
     var numServicio = value.split("/")[0];
     var ctto = $("#numConResolucion").val();
     $.ajax({
@@ -155,7 +153,11 @@ function buscaDetalles(value,accion){
                 $("#dscProgResolucion").val('SERVICIO PRE-INSCRITO');
             }
             $("#tipoProgResolucion").val(response['cod_tipo_ctt']);
-            $("#m_datepicker_4_3").val(response['fch_resolucion']);
+            if(value.split("/")[1] == 'NO'){
+                $("#m_datepicker_4_3").datepicker("setDate", new Date());
+            }else{
+                $("#m_datepicker_4_3").val(response['fch_resolucion']);
+            }
             $("#tipoResolucion").val(response['cod_tipo_resolucion']);
             $("#tipoResolucion").change();
             $("#motivoResolucion").val(response['cod_motivo_resolucion']);
