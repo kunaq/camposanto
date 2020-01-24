@@ -301,13 +301,14 @@ function bloquea(){
 }//bloquea
 
 function desbloquea(){
-    $("#m_datepicker_4_3").prop('disabled',true);
-    $("#tipoResolucion").prop('disabled',true);
-    $("#motivoResolucion").prop('disabled',true);
-    $("#detalleResolucion").prop('disabled',true);
-    $("#annoPerResolucion").prop('disabled',true);
-    $("#tipoPerResolucion").prop('disabled',true);
-    $("#perResolucion").prop('disabled',true);
+    $("#m_datepicker_4_3").prop('disabled',false);
+    $("#m_datepicker_4_3").datepicker("setDate", new Date());
+    $("#tipoResolucion").prop('disabled',false);
+    $("#motivoResolucion").prop('disabled',false);
+    $("#detalleResolucion").prop('disabled',false);
+    $("#annoPerResolucion").prop('disabled',false);
+    $("#tipoPerResolucion").prop('disabled',false);
+    $("#perResolucion").prop('disabled',false);
 }//desbloquea
 
 function limpia(){
