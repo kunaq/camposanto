@@ -128,8 +128,8 @@ $("#numSerResolucion").change(function(){
     }
 
     if(resuelto == 'NO' && anulado == 'NO'){
-        desbloquea();
         limpia();
+        desbloquea();
         buscaDetalles(valor,'condicionRegular');
     }
 });//change numServicio
