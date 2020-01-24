@@ -100,6 +100,7 @@ function buscaNumServicio(){
 
 $("#numSerResolucion").change(function(){
     var valor = $("#numSerResolucion").val();
+    $("#numSerResolucion").change();
     var numServicio = valor.split("/")[0];
     var resuelto = valor.split("/")[1];
     var anulado = valor.split("/")[2];
