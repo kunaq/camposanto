@@ -40,7 +40,7 @@ else if(isset($_POST["accion"]) && $_POST["accion"] == 'buscaResumen' ){
 	$cliente = new AjaxResCtto();
 	$cliente -> ajaxEjecutaProcedureResumenCtt();
 }
-else if(isset($_POST["accion"]) $_POST['accion'] == 'condicionRegular'){
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'condicionRegular'){
 	$cliente = new AjaxResCtto();
 	$cliente -> ajaxBuscaDetCttoRes();
 }
