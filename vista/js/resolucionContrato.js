@@ -130,6 +130,7 @@ $("#numSerResolucion").change(function(){
     if(resuelto == 'NO' && anulado == 'NO'){
         limpia();
         desbloquea();
+        $("#m_datepicker_4_3").datepicker("setDate", new Date());
         buscaDetalles(valor,'condicionRegular');
     }
 });//change numServicio
@@ -302,7 +303,6 @@ function bloquea(){
 
 function desbloquea(){
     $("#m_datepicker_4_3").prop('disabled',false);
-    $("#m_datepicker_4_3").datepicker("setDate", new Date());
     $("#tipoResolucion").prop('disabled',false);
     $("#motivoResolucion").prop('disabled',false);
     $("#detalleResolucion").prop('disabled',false);
