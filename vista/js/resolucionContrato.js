@@ -94,13 +94,13 @@ function buscaNumServicio(){
                 option = '<option value="'+value['num_servicio']+'/'+value['flg_resuelto']+'/'+value['flg_anulado']+'">'+value['num_servicio']+'</option>';
                 document.getElementById("numSerResolucion").insertAdjacentHTML("beforeEnd" ,option);
             });//each
+            $("#numSerResolucion").change();
         }//success
     });//ajax
 }//buscaNumServicio
 
 $("#numSerResolucion").change(function(){
     var valor = $("#numSerResolucion").val();
-    $("#numSerResolucion").change();
     var numServicio = valor.split("/")[0];
     var resuelto = valor.split("/")[1];
     var anulado = valor.split("/")[2];
