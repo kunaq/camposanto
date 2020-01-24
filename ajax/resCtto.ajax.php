@@ -36,7 +36,11 @@ else if(isset($_POST["accion"]) && $_POST["accion"] == 'condicionResuelto'){
 	$cliente = new AjaxResCtto();
 	$cliente -> ajaxBuscaDetCttoRes();
 }
-else if(isset($_POST["accion"]) && $_POST["accion"] == 'buscaResumen'){
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'buscaResumen' ){
 	$cliente = new AjaxResCtto();
 	$cliente -> ajaxEjecutaProcedureResumenCtt();
+}
+else if(isset($_POST["accion"]) $_POST['accion'] == 'condicionRegular'){
+	$cliente = new AjaxResCtto();
+	$cliente -> ajaxBuscaDetCttoRes();
 }
