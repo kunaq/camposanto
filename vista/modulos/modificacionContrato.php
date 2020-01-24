@@ -5,18 +5,18 @@
 <!------------------------------- botones --------------------------------->
 		<div class="sidebar-wrapper stickButtons" id="container-button">
 			<ul>
-				<li>
-					<a href="#container" class="btn btn-metal m-btn--square m-btn m-btn--icon btn-lg m-btn--icon-only" style="border-top-left-radius: .25rem;" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Nueva busqueda" id="new-button">
+				<li style="list-style: none;">
+					<a href="#container" class="btn btn-metal m-btn--square m-btn m-btn--icon btn-lg m-btn--icon-only" style="border-top-left-radius: .25rem !important;" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Nueva busqueda" id="new-button">
 						<i class="fa fa-search"></i>
 					</a>
 				</li>
-				<li>
+				<li style="list-style: none;">
 					<a href="#container" class="btn btnGuardarKqPst m-btn--square m-btn m-btn--icon btn-lg m-btn--icon-only" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Guardar cambios" id="save-button">
 						<i class="fa fa-save"></i>
 					</a>
 				</li>
-				<li >
-					<a href="#container" class="btn btnEditarKqPst2 m-btn--square m-btn m-btn--icon btn-lg m-btn--icon-only" style="border-bottom-left-radius: .25rem;" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Anular contrato" id="null-button">
+				<li style="list-style: none;" >
+					<a href="#container" class="btn btnEditarKqPst2 m-btn--square m-btn m-btn--icon btn-lg m-btn--icon-only" style="border-bottom-left-radius: .25rem !important;" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Anular contrato" id="null-button">
 						<i class="fa fa-eraser"></i>
 					</a>
 				</li>
