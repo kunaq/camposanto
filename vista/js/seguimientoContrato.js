@@ -139,6 +139,7 @@ function mostrarBeneficiario(row,servicio,tipoDoc,numDoc,apePaterno,apeMaterno,n
 
  function getDatosComprobante(){
  	console.log("doble click");
+ 	$('#m_modal_mantenimiento_comprobante').modal('show');
  }
 
  function getComprobantes(){

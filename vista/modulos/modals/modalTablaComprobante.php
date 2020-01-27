@@ -29,20 +29,7 @@
 								<th>M</th>
 								<th>Importe</th>
 							</thead>
-							<tbody>
-								<tr>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-								</tr>
+							<tbody id="tbodyComprobanteModal">
 							</tbody>
 							<tfoot>
 								<tr>

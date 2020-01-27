@@ -39,7 +39,7 @@
 								</div>
 								<div class="col-lg-1" id="divBtnCli">
 									<label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<button class="btn btn-sm btnGuardarKqPst" id="btnBuscarCliente"><i class="fa fa-search"></i></button>
+									<button class="btn btn-sm btnGuardarKqPst" id="btnBuscarCliente" onclick="getDatosComprobante()"><i class="fa fa-search"></i></button>
 								</div>
 								<div class="col-lg-2" id="divLoc">
 									<label>Localidad</label>
@@ -2141,4 +2141,5 @@
 include "modals/modalObservacionCliente.php";
 include "modals/modalTablaDeuda.php";
 include "modals/modalTablaComprobante.php";
+include "modals/modalMantenimientoComprobante.php";
  ?>
