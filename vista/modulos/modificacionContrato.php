@@ -1394,7 +1394,7 @@
 						</div>
 						<div class="tab-pane" id="m_tabs_2_7" role="tabpanel">
 							<div class="row form-group m-form__group">
-								<div class="col-lg-6">
+								<div class="col-lg-4">
 									<fieldset class="fieldFormHorizontal">
 										<legend>&nbsp;</legend>
 										<div class="col-lg-12">
@@ -1431,7 +1431,7 @@
 										</div>
 									</fieldset>
 								</div>
-								<div class="col-lg-6">
+								<div class="col-lg-4">
 									<fieldset class="fieldFormHorizontal">
 										<legend>&nbsp;</legend>
 										<div class="col-lg-12">
@@ -1478,6 +1478,25 @@
 												</div>
 											</div>
 										</div>
+									</fieldset>
+								</div>
+								<div class="col-lg-4">
+									<fieldset class="fieldFormHorizontal">
+										<legend>Conformación de saldo</legend>
+											<div class="table-responsive">
+												<table class="table m-table" >
+													<thead>
+														<tr>
+															<th>Servcio</th>
+															<th>Saldo</th>
+														</tr>
+													</thead>
+													<tbody id="bodyServicioVin"></tbody>
+													<tfoot>
+														<td>Total:</td>
+														<td style="text-align: right;" id="totalServicioVin">0,00</td>
+													</tfoot>
+												</table>
 									</fieldset>
 								</div>
 							</div>
