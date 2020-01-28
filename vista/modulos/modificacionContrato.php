@@ -578,79 +578,75 @@
 											</div>
 											<div class="col-lg-12">
 												<div class="row">
-													<div class="col-lg-6 offset-lg-2">
-														<div class="row">
-															<div class="col-lg-4">
-																<label>Fch. Nacimiento</label>
-																<div class="input-group date">
-																	<input type="text" class="form-control form-control-sm m-input" name="fchNacTitular" id="fchNacTitular" data-date-format="mm/dd/yyyy" disabled />
-																	<div class="input-group-append">
-																		<span class="input-group-text">
-																			<i class="la la-calendar-check-o"></i>
-																		</span>
-																	</div>
-																</div>
-															</div>
-															<div class="col-lg-4">
-																<label>Ape. Paterno</label>
-																<input type="text" class="form-control form-control-sm m-input" name="apePatTitular" id="apePatTitular" disabled>
-															</div>
-															<div class="col-lg-4">
-																<label>Ape. Materno</label>
-																<input type="text" class="form-control form-control-sm m-input" name="apeMatTitular" id="apeMatTitular" disabled>
+													<div class="col-lg-4">
+														<label>Fch. Nacimiento</label>
+														<div class="input-group date">
+															<input type="text" class="form-control form-control-sm m-input" name="fchNacTitular" id="fchNacTitular" data-date-format="mm/dd/yyyy" disabled />
+															<div class="input-group-append">
+																<span class="input-group-text">
+																	<i class="la la-calendar-check-o"></i>
+																</span>
 															</div>
 														</div>
 													</div>
+													<div class="col-lg-4">
+														<label>Ape. Paterno</label>
+														<input type="text" class="form-control form-control-sm m-input" name="apePatTitular" id="apePatTitular" disabled>
+													</div>
+													<div class="col-lg-4">
+														<label>Ape. Materno</label>
+														<input type="text" class="form-control form-control-sm m-input" name="apeMatTitular" id="apeMatTitular" disabled>
+													</div>
+												</div>
+												<div class="row form-group">
+													<div class="col-lg-6">
+														<label>Nombre</label>
+														<input type="text" class="form-control form-control-sm m-input" name="nomTitular" id="nomTitular" disabled>
+													</div>
+													<div class="col-lg-6">
+														<label>Razon Social</label>
+														<input type="text" class="form-control form-control-sm m-input" name="razSocTitular" id="razSocTitular" disabled>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-lg-3">
+														<label>Tel. Celular 1</label>
+														<input type="text" class="form-control form-control-sm m-input" name="cel1Titular" id="cel1Titular" disabled>
+													</div>
+													<div class="col-lg-3">
+														<label>Tel. Cel 2</label>
+														<input type="text" class="form-control m-input" name="cel2Titular" id="cel2Titular" disabled>
+													</div>
+													<div class="col-lg-3">
+														<label>Estado Civil</label>
+														<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="edoCivilTitular" id="edoCivilTitular" disabled>
+															<option value="">
+																Seleccione
+															</option>
+															<?php
+					  										$prueba=controladorEmpresa::ctrestadocivil();
+															?> 
+														</select>
+													</div>
+													<div class="col-lg-3">
+														<label>Sexo</label>
+														<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="sexoTitular" id="sexoTitular" disabled>
+															<option value="">
+																Seleccione
+															</option>
+															<option value="M">
+																Masculino
+															</option>
+															<option value="F">
+																Femenino
+															</option>
+														</select>
+													</div>
+												</div>
+												<div class="row">
 													<div class="col-lg-12">
-														<div class="row">
-															<div class="col-lg-6">
-																<label>Nombre</label>
-																<input type="text" class="form-control form-control-sm m-input" name="nomTitular" id="nomTitular" disabled>
-															</div>
-															<div class="col-lg-6">
-																<label>Razon Social</label>
-																<input type="text" class="form-control form-control-sm m-input" name="razSocTitular" id="razSocTitular" disabled>
-															</div>
-														</div>
-														<div class="row">
-															<div class="col-lg-3">
-																<label>Tel. Celular 1</label>
-																<input type="text" class="form-control form-control-sm m-input" name="cel1Titular" id="cel1Titular" disabled>
-															</div>
-															<div class="col-lg-3">
-																<label>Tel. Cel 2</label>
-																<input type="text" class="form-control m-input" name="cel2Titular" id="cel2Titular" disabled>
-															</div>
-															<div class="col-lg-3">
-																<label>Estado Civil</label>
-																<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="edoCivilTitular" id="edoCivilTitular" disabled>
-																	<option value="">
-																		Seleccione
-																	</option>
-																	<?php
-							  										$prueba=controladorEmpresa::ctrestadocivil();
-																	?> 
-																</select>
-															</div>
-															<div class="col-lg-3">
-																<label>Sexo</label>
-																<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="sexoTitular" id="sexoTitular" disabled>
-																	<option value="">
-																		Seleccione
-																	</option>
-																	<option value="M">
-																		Masculino
-																	</option>
-																	<option value="F">
-																		Femenino
-																	</option>
-																</select>
-															</div>
-															<div class="col-lg-12">
-																<label>E-mail</label>
-																<input type="text" class="form-control form-control-sm m-input" name="emailTitular" id="emailTitular" disabled>
-															</div>
-														</div>
+														<label>E-mail</label>
+														<input type="text" class="form-control form-control-sm m-input" name="emailTitular" id="emailTitular" disabled>
 													</div>
 												</div>
 											</div>
@@ -662,31 +658,39 @@
 								<fieldset class="fieldFormHorizontal">
 									<legend class="tittle-box">Dirección</legend>
 									<div class="col-lg-12">
-										<div class="row form-group">
-											<div class="col-lg-3">
+										<div class="row">
+											<div class="col-lg-6">
 												<label>País</label>
 												<input type="text" class="form-control form-control-sm m-input" name="paisTitular" id="paisTitular" disabled>
 											</div>
-											<div class="col-lg-3">
+											<div class="col-lg-6">
 												<label>Departamento</label>
 												<input type="text" class="form-control form-control-sm m-input" name="departamentoTitular" id="departamentoTitular" disabled>
 											</div>
-											<div class="col-lg-3">
+										</div>
+										<div class="row">
+											<div class="col-lg-6">
 												<label>Provincia</label>
 												<input type="text" class="form-control form-control-sm m-input" name="provinciaTitular" id="provinciaTitular" disabled>
 											</div>
-											<div class="col-lg-3">
+											<div class="col-lg-6">
 												<label>Distrito</label>
 												<input type="text" class="form-control form-control-sm m-input" name="distritoTitular" id="distritoTitular" disabled>
 											</div>
+										</div>
+										<div class="row">
 											<div class="col-lg-12">
 												<label>Dirección</label>
 												<input type="text" class="form-control form-control-sm m-input" name="direccionTitular" id="direccionTitular" disabled>
 											</div>
+										</div>
+										<div class="row">
 											<div class="col-lg-12">
 												<label>Referencia</label>
 												<textarea class="form-control form-control-sm m-input" rows="2" name="refDirTitular" id="refDirTitular" disabled></textarea>
 											</div>
+										</div>
+										<div class="row form-group">
 											<div class="col-lg-12">
 												<label>Zona</label>
 												<textarea class="form-control form-control-sm m-input" rows="2" name="zonaDirTitular" id="zonaDirTitular" disabled></textarea>
