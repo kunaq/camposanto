@@ -83,7 +83,17 @@
 										</div>
 										<div class="col-lg-6">
 											<label>Interés</label>
-											<select type="text" class="form-control form-control-sm m-input" id=""></select>
+											<select type="text" class="form-control form-control-sm m-input" id="">
+												<option>
+													Seleccione...
+												</option>
+												<?php
+													$tabla="vtama_interes";
+												  	$item1="num_valor";
+												  	$item2="dsc_interes";
+				 									$prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
+												  ?>
+											</select>
 										</div>
 										<div class="col-lg-12" style="border-bottom: 1px solid #6161">
 											<div class="row form-group">
