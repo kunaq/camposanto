@@ -113,7 +113,7 @@ function mostrarBeneficiario(row,servicio,tipoDoc,numDoc,apePaterno,apeMaterno,n
     }
 }
 
- function getComprobantesCuota(row,localidad,contrato,num_refinanciamiento,num_cuota){
+function getComprobantesCuota(row,localidad,contrato,num_refinanciamiento,num_cuota){
  	var rows = $('#myTableCronograma tr').not(':first');
 	rows.removeClass('selected'); 
   	$(row).closest('tr').addClass('selected');
@@ -135,14 +135,14 @@ function mostrarBeneficiario(row,servicio,tipoDoc,numDoc,apePaterno,apeMaterno,n
         	
         }//succes
     });//ajax
- }
+}
 
- function getDatosComprobante(){
+function getDatosComprobante(){
  	console.log("doble click");
  	$('#m_modal_mantenimiento_comprobante').modal('show');
- }
+}
 
- function getComprobantes(){
+function getComprobantes(){
  	var localidad = document.getElementById('codLocSegCtt').value;
     var cod_contrato = document.getElementById('numCttSegCtt').value;
     var num_refinanciamiento = document.getElementById('numRefActual').value;
@@ -174,9 +174,9 @@ function mostrarBeneficiario(row,servicio,tipoDoc,numDoc,apePaterno,apeMaterno,n
 		    });//ajax
  		}
     }
- }
+}
 
- function getCancelacionComprobante(row,localidad,num_correlativo){
+function getCancelacionComprobante(row,localidad,num_correlativo){
  	var rows = $('#myTableComprobante tr').not(':first');
 	rows.removeClass('selected'); 
   	$(row).closest('tr').addClass('selected');
@@ -193,7 +193,7 @@ function mostrarBeneficiario(row,servicio,tipoDoc,numDoc,apePaterno,apeMaterno,n
         	
         }//succes
     });//ajax
- }
+}
 
 $("#cod_titular").change(function() {
     var cod_titular = $(this).val();
@@ -331,6 +331,36 @@ function getCancelacionPrincipal(row,localidad,numCor){
 	var rows = $('#myTableListadoComprobantes tr').not(':first');
 	rows.removeClass('selected'); 
   	$(row).closest('tr').addClass('selected');
+
+  	$("#tbodyCancelacionesPrincipal").empty();
+	$.ajax({
+        url: 'ajax/segCtt.ajax.php',
+        dataType: 'json',
+        method: "POST",
+        data: { 'accion' : 'getCancelacionPrincipal', 'cod_localidad' : localidad, 'num_correlativo' : numCor },
+        success : function(respuesta){
+        	$.each(respuesta,function(index,value){
+        		if (value['cod_moneda'] == 'SOL') {
+        			$moneda = 'S/.';
+        		}else{
+        			$moneda = value['cod_moneda'];
+        		}
+        		var filaCancelacion = '<tr>'+
+									'<td>'+value['cod_caja'] +'</td>'+
+									'<td>'+value['num_transaccion']+'</td>'+
+									'<td>'+value['cod_usuario']+'</td>'+
+									'<td>'+value['fch_registro']+'</td>'+
+									'<td>'+value['dsc_forma_pago']+'</td>'+
+									'<td>'+value['num_documento']+'</td>'+
+									'<td>'+value['dsc_forma_pago']+'</td>'+
+									'<td>'+moneda+'</td>'+
+									'<td>'+value['imp_operacion']+'</td>'+
+									'<td>'+value['imp_operacion_soles']+'</td>'+
+								'</tr>';
+				document.getElementById("tbodyCancelacionesPrincipal").insertAdjacentHTML("beforeEnd" ,filaCancelacion);
+        	});//each
+        }//success
+    });//ajax
 }
 
 function getDeudasCliente(cliente){
@@ -1241,7 +1271,7 @@ function getDatosServxRef(row,localidad,tasa,tipoCtt,tipoPro,codCtt,numRef,numSe
             }else{
             	var primeraAutorizacion = tAutorizacion.rows.item(0);
 	            primeraAutorizacion.click();
-            }     	
+            }
 		}//succes
 	});//ajaxGetAutorizacion
 

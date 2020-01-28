@@ -945,21 +945,7 @@
 																		<th>Importe</th>
 																		<th>Imp S/.</th>
 																	</thead>
-																	<tbody>
-																		<tr>
-																			<td></td>
-																			<td></td>
-																			<td></td>
-																			<td></td>
-																			<td></td>
-																			<td></td>
-																			<td></td>
-																			<td></td>
-																			<td></td>
-																		</tr>
-																		<tr>
-																			<td></td>
-																		</tr>
+																	<tbody id="tbodyCancelacionesPrincipal">
 																	</tbody>
 																</table>
 															</div>
