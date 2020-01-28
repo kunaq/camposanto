@@ -577,7 +577,7 @@
 												</div>
 											</div>
 											<div class="col-lg-12">
-												<div class="row form-group">
+												<div class="row">
 													<div class="col-lg-4">
 														<label>Fch. Nacimiento</label>
 														<div class="input-group date">
@@ -608,7 +608,7 @@
 														<input type="text" class="form-control form-control-sm m-input" name="razSocTitular" id="razSocTitular" disabled>
 													</div>
 												</div>
-												<div class="row form-group">
+												<div class="row">
 													<div class="col-lg-3">
 														<label>Tel. Celular 1</label>
 														<input type="text" class="form-control form-control-sm m-input" name="cel1Titular" id="cel1Titular" disabled>
@@ -658,7 +658,7 @@
 								<fieldset class="fieldFormHorizontal">
 									<legend class="tittle-box">Dirección</legend>
 									<div class="col-lg-12">
-										<div class="row form-group">
+										<div class="row">
 											<div class="col-lg-6">
 												<label>País</label>
 												<input type="text" class="form-control form-control-sm m-input" name="paisTitular" id="paisTitular" disabled>
@@ -687,7 +687,7 @@
 										<div class="row">
 											<div class="col-lg-12">
 												<label>Referencia</label>
-												<textarea class="form-control form-control-sm m-input" rows="1" name="refDirTitular" id="refDirTitular" disabled></textarea>
+												<textarea class="form-control form-control-sm m-input" rows="2" name="refDirTitular" id="refDirTitular" disabled></textarea>
 											</div>
 										</div>
 										<div class="row form-group">
