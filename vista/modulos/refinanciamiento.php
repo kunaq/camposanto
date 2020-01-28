@@ -70,6 +70,9 @@
 										<div class="col-lg-6">
 											<label>Motivo</label>
 											<select type="text" class="form-control form-control-sm m-input" id="">
+												<option value="" disabled>
+													Seleccione...
+												</option>
 												<?php
 													$tabla = "vtama_motivo_refinanciamiento";
 													$item1 = "cod_motivo_refinanciamiento";
