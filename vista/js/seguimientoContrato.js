@@ -341,9 +341,9 @@ function getCancelacionPrincipal(row,localidad,numCor){
         success : function(respuesta){
         	$.each(respuesta,function(index,value){
         		if (value['cod_moneda'] == 'SOL') {
-        			$moneda = 'S/.';
+        			var moneda = 'S/.';
         		}else{
-        			$moneda = value['cod_moneda'];
+        			var moneda = value['cod_moneda'];
         		}
         		var filaCancelacion = '<tr>'+
 									'<td>'+value['cod_caja'] +'</td>'+
