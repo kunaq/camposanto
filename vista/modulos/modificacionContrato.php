@@ -659,30 +659,38 @@
 									<legend class="tittle-box">Dirección</legend>
 									<div class="col-lg-12">
 										<div class="row form-group">
-											<div class="col-lg-3">
+											<div class="col-lg-6">
 												<label>País</label>
 												<input type="text" class="form-control form-control-sm m-input" name="paisTitular" id="paisTitular" disabled>
 											</div>
-											<div class="col-lg-3">
+											<div class="col-lg-6">
 												<label>Departamento</label>
 												<input type="text" class="form-control form-control-sm m-input" name="departamentoTitular" id="departamentoTitular" disabled>
 											</div>
-											<div class="col-lg-3">
+										</div>
+										<div class="row">
+											<div class="col-lg-6">
 												<label>Provincia</label>
 												<input type="text" class="form-control form-control-sm m-input" name="provinciaTitular" id="provinciaTitular" disabled>
 											</div>
-											<div class="col-lg-3">
+											<div class="col-lg-6">
 												<label>Distrito</label>
 												<input type="text" class="form-control form-control-sm m-input" name="distritoTitular" id="distritoTitular" disabled>
 											</div>
+										</div>
+										<div class="row">
 											<div class="col-lg-12">
 												<label>Dirección</label>
 												<input type="text" class="form-control form-control-sm m-input" name="direccionTitular" id="direccionTitular" disabled>
 											</div>
+										</div>
+										<div class="row">
 											<div class="col-lg-12">
 												<label>Referencia</label>
 												<textarea class="form-control form-control-sm m-input" rows="2" name="refDirTitular" id="refDirTitular" disabled></textarea>
 											</div>
+										</div>
+										<div class="row">
 											<div class="col-lg-12">
 												<label>Zona</label>
 												<textarea class="form-control form-control-sm m-input" rows="2" name="zonaDirTitular" id="zonaDirTitular" disabled></textarea>
