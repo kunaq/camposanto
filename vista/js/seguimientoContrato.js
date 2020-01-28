@@ -844,9 +844,13 @@ function getDatosServicioCtt(row,localidad,tasa,tipoCtt,tipoPro,codCtt,numRef,nu
 	       	var info = JSON.parse(respuesta);
 	       	$("#tbodyAutorizacion").html(info.tablaAutorizacion);
 	       	var tAutorizacion = document.getElementById('tbodyAutorizacion');
-            var primeraAutorizacion = tAutorizacion.rows.item(0);
-            primeraAutorizacion.click();
-		        	
+            var tAutorizacionLenght = tAutorizacion.rows.length;
+            if (tAutorizacionLenght == 0) {
+
+            }else{
+            	var primeraAutorizacion = tAutorizacion.rows.item(0);
+	            primeraAutorizacion.click();
+            }
 		}//succes
 	});//ajaxGetAutorizacion
 
@@ -1231,9 +1235,13 @@ function getDatosServxRef(row,localidad,tasa,tipoCtt,tipoPro,codCtt,numRef,numSe
 	       	var info = JSON.parse(respuesta);
 	       	$("#tbodyAutorizacion").html(info.tablaAutorizacion);
 	       	var tAutorizacion = document.getElementById('tbodyAutorizacion');
-            var primeraAutorizacion = tAutorizacion.rows.item(0);
-            primeraAutorizacion.click();
-		        	
+            var tAutorizacionLenght = tAutorizacion.rows.length;
+            if (tAutorizacionLenght == 0) {
+
+            }else{
+            	var primeraAutorizacion = tAutorizacion.rows.item(0);
+	            primeraAutorizacion.click();
+            }     	
 		}//succes
 	});//ajaxGetAutorizacion
 
