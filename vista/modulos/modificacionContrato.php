@@ -538,6 +538,7 @@
 							</div>
 						</div>
 						<div class="tab-pane" id="m_tabs_2_3" role="tabpanel">
+							<div class="row">
 							<div class="col-lg-6">
 								<fieldset class="fieldFormHorizontal">
 									<legend class="tittle-box">General</legend>
@@ -698,6 +699,7 @@
 										</div>
 									</div>
 								</fieldset>
+							</div>
 							</div>
 						</div>
 						<div class="tab-pane" id="m_tabs_2_4" role="tabpanel">
