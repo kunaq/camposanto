@@ -185,6 +185,15 @@ class ControladorSegContrato{
 		return $respuesta;
 	}//function ctrGetDeudasCliente
 	
+	static public function ctrGetCancelacionPrincipal(){
+
+		$cod_localidad = $_POST['cod_localidad'];
+		$num_correlativo = $_POST['num_correlativo'];
+
+		$respuesta = ModeloSegContrato::mdlGetCancelacionPrincipal($cod_localidad,$num_correlativo);
+		return $respuesta;
+	}//function ctrGetCancelacionPrincipal
+	
 	static public function ctrGetObservacionesCliente(){
 
 		$cod_cliente = $_POST['cod_cliente'];

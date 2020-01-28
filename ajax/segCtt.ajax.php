@@ -87,6 +87,11 @@ class AjaxSegCtt{
 		echo json_encode($respuesta,JSON_UNESCAPED_UNICODE);
 	}//function ajaxGetObservacionesCliente
 
+	public function ajaxGetCancelacionPrincipal(){
+		$respuesta = ControladorSegContrato::ctrGetCancelacionPrincipal();
+		echo json_encode($respuesta,JSON_UNESCAPED_UNICODE);
+	}//function ajaxGetCancelacionPrincipal
+
 	public function ajaxGetObservacionesContrato(){
 		$respuesta = ControladorSegContrato::ctrGetObservacionesContrato();	
 		echo json_encode($respuesta,JSON_UNESCAPED_UNICODE);
@@ -96,6 +101,7 @@ class AjaxSegCtt{
 		$respuesta = ControladorSegContrato::ctrGetGestionCartera();
 		echo json_encode($respuesta,JSON_UNESCAPED_UNICODE);
 	}//function ajaxGetGestionCartera
+	
 
 }//class AjaxWizard
 
@@ -178,6 +184,10 @@ else if(isset($_POST["accion"]) && $_POST["accion"] == 'getDeudasCliente'){
 else if(isset($_POST["accion"]) && $_POST["accion"] == 'getObservacionesCliente'){
 	$cliente = new AjaxSegCtt();
 	$cliente -> ajaxGetObservacionesCliente();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'getCancelacionPrincipal'){
+	$cliente = new AjaxSegCtt();
+	$cliente -> ajaxGetCancelacionPrincipal();
 }
 else if(isset($_POST["accion"]) && $_POST["accion"] == 'getObservacionesContrato'){
 	$cliente = new AjaxSegCtt();
