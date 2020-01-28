@@ -83,7 +83,7 @@
 										</div>
 										<div class="col-lg-6">
 											<label>Interés</label>
-											<select type="text" class="form-control form-control-sm m-input" id="">
+											<select type="text" class="form-control form-control-sm m-select2 m-select2-general" id="">
 												<option>
 													Seleccione...
 												</option>
