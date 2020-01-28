@@ -598,58 +598,57 @@
 														<input type="text" class="form-control form-control-sm m-input" name="apeMatTitular" id="apeMatTitular" disabled>
 													</div>
 												</div>
-													<div class="col-lg-12">
-														<div class="row">
-															<div class="col-lg-6">
-																<label>Nombre</label>
-																<input type="text" class="form-control form-control-sm m-input" name="nomTitular" id="nomTitular" disabled>
-															</div>
-															<div class="col-lg-6">
-																<label>Razon Social</label>
-																<input type="text" class="form-control form-control-sm m-input" name="razSocTitular" id="razSocTitular" disabled>
-															</div>
-														</div>
-														<div class="row">
-															<div class="col-lg-3">
-																<label>Tel. Celular 1</label>
-																<input type="text" class="form-control form-control-sm m-input" name="cel1Titular" id="cel1Titular" disabled>
-															</div>
-															<div class="col-lg-3">
-																<label>Tel. Cel 2</label>
-																<input type="text" class="form-control m-input" name="cel2Titular" id="cel2Titular" disabled>
-															</div>
-															<div class="col-lg-3">
-																<label>Estado Civil</label>
-																<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="edoCivilTitular" id="edoCivilTitular" disabled>
-																	<option value="">
-																		Seleccione
-																	</option>
-																	<?php
-							  										$prueba=controladorEmpresa::ctrestadocivil();
-																	?> 
-																</select>
-															</div>
-															<div class="col-lg-3">
-																<label>Sexo</label>
-																<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="sexoTitular" id="sexoTitular" disabled>
-																	<option value="">
-																		Seleccione
-																	</option>
-																	<option value="M">
-																		Masculino
-																	</option>
-																	<option value="F">
-																		Femenino
-																	</option>
-																</select>
-															</div>
-															<div class="col-lg-12">
-																<label>E-mail</label>
-																<input type="text" class="form-control form-control-sm m-input" name="emailTitular" id="emailTitular" disabled>
-															</div>
-														</div>
+												<div class="row">
+													<div class="col-lg-6">
+														<label>Nombre</label>
+														<input type="text" class="form-control form-control-sm m-input" name="nomTitular" id="nomTitular" disabled>
 													</div>
-
+													<div class="col-lg-6">
+														<label>Razon Social</label>
+														<input type="text" class="form-control form-control-sm m-input" name="razSocTitular" id="razSocTitular" disabled>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-lg-3">
+														<label>Tel. Celular 1</label>
+														<input type="text" class="form-control form-control-sm m-input" name="cel1Titular" id="cel1Titular" disabled>
+													</div>
+													<div class="col-lg-3">
+														<label>Tel. Cel 2</label>
+														<input type="text" class="form-control m-input" name="cel2Titular" id="cel2Titular" disabled>
+													</div>
+													<div class="col-lg-3">
+														<label>Estado Civil</label>
+														<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="edoCivilTitular" id="edoCivilTitular" disabled>
+															<option value="">
+																Seleccione
+															</option>
+															<?php
+					  										$prueba=controladorEmpresa::ctrestadocivil();
+															?> 
+														</select>
+													</div>
+													<div class="col-lg-3">
+														<label>Sexo</label>
+														<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="sexoTitular" id="sexoTitular" disabled>
+															<option value="">
+																Seleccione
+															</option>
+															<option value="M">
+																Masculino
+															</option>
+															<option value="F">
+																Femenino
+															</option>
+														</select>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-lg-12">
+														<label>E-mail</label>
+														<input type="text" class="form-control form-control-sm m-input" name="emailTitular" id="emailTitular" disabled>
+													</div>
+												</div>
 											</div>
 										</div>
 									</div>
