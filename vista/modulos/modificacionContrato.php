@@ -539,7 +539,7 @@
 						</div>
 						<div class="tab-pane" id="m_tabs_2_3" role="tabpanel">
 							<div class="row">
-							<div class="col-lg-6">
+							<div class="col-lg-7">
 								<fieldset class="fieldFormHorizontal">
 									<legend class="tittle-box">General</legend>
 									<div class="col-lg-12">
@@ -663,7 +663,7 @@
 									</div>
 								</fieldset>
 							</div>
-							<div class="col-lg-6">
+							<div class="col-lg-5">
 								<fieldset class="fieldFormHorizontal">
 									<legend class="tittle-box">Dirección</legend>
 									<div class="col-lg-12">
