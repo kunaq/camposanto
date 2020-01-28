@@ -1497,6 +1497,7 @@
 														<td style="text-align: right;" id="totalServicioVin">0,00</td>
 													</tfoot>
 												</table>
+											</div>
 									</fieldset>
 								</div>
 							</div>
