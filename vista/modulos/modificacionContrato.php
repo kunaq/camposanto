@@ -578,29 +578,26 @@
 											</div>
 											<div class="col-lg-12">
 												<div class="row">
-													<div class="col-lg-6 offset-lg-2">
-														<div class="row">
-															<div class="col-lg-4">
-																<label>Fch. Nacimiento</label>
-																<div class="input-group date">
-																	<input type="text" class="form-control form-control-sm m-input" name="fchNacTitular" id="fchNacTitular" data-date-format="mm/dd/yyyy" disabled />
-																	<div class="input-group-append">
-																		<span class="input-group-text">
-																			<i class="la la-calendar-check-o"></i>
-																		</span>
-																	</div>
-																</div>
-															</div>
-															<div class="col-lg-4">
-																<label>Ape. Paterno</label>
-																<input type="text" class="form-control form-control-sm m-input" name="apePatTitular" id="apePatTitular" disabled>
-															</div>
-															<div class="col-lg-4">
-																<label>Ape. Materno</label>
-																<input type="text" class="form-control form-control-sm m-input" name="apeMatTitular" id="apeMatTitular" disabled>
+													<div class="col-lg-4">
+														<label>Fch. Nacimiento</label>
+														<div class="input-group date">
+															<input type="text" class="form-control form-control-sm m-input" name="fchNacTitular" id="fchNacTitular" data-date-format="mm/dd/yyyy" disabled />
+															<div class="input-group-append">
+																<span class="input-group-text">
+																	<i class="la la-calendar-check-o"></i>
+																</span>
 															</div>
 														</div>
 													</div>
+													<div class="col-lg-4">
+														<label>Ape. Paterno</label>
+														<input type="text" class="form-control form-control-sm m-input" name="apePatTitular" id="apePatTitular" disabled>
+													</div>
+													<div class="col-lg-4">
+														<label>Ape. Materno</label>
+														<input type="text" class="form-control form-control-sm m-input" name="apeMatTitular" id="apeMatTitular" disabled>
+													</div>
+												</div>
 													<div class="col-lg-12">
 														<div class="row">
 															<div class="col-lg-6">
@@ -652,7 +649,7 @@
 															</div>
 														</div>
 													</div>
-												</div>
+
 											</div>
 										</div>
 									</div>
