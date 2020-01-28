@@ -327,6 +327,12 @@ function creaTablaComprobante(tipoComprobante,numComprobante,fchEmision,localida
 	$("#imp_total_footer").html(impTotal);
 }
 
+function getCancelacionPrincipal(row,localidad,numCor){
+	var rows = $('#myTableListadoComprobantes tr').not(':first');
+	rows.removeClass('selected'); 
+  	$(row).closest('tr').addClass('selected');
+}
+
 function getDeudasCliente(cliente){
 	
 	if (cliente == "titular") {

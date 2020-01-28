@@ -51845,3 +51845,8 @@ th{
     text-align: center;
     margin-bottom: 5px
 }
+
+.myTableListadoComprobantes tbody tr:hover{
+    background-color: #ddd;
+    cursor: pointer;
+}

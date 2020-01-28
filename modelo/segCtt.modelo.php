@@ -982,6 +982,7 @@ class ModeloSegContrato{
 
 		$datos = array();
     	while($key = $db->recorrer($sql)){
+			$key["fch_registro"] = ($key["fch_registro"] != '') ? dateTimeFormat($key["fch_registro"]) : '';
 	    	$datos[] = arrayMapUtf8Encode($key);
 		} 
 

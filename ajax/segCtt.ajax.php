@@ -88,10 +88,7 @@ class AjaxSegCtt{
 	}//function ajaxGetObservacionesCliente
 
 	public function ajaxGetObservacionesContrato(){
-		$respuesta = ControladorSegContrato::ctrGetObservacionesContrato();
-		foreach ($respuesta as $key => $value) {
-			$respuesta[$key]["fch_registro"] = ($respuesta[$key]["fch_registro"] != '') ? dateTimeFormat($respuesta[$key]["fch_registro"]) : '';
-		}	
+		$respuesta = ControladorSegContrato::ctrGetObservacionesContrato();	
 		echo json_encode($respuesta,JSON_UNESCAPED_UNICODE);
 	}//function ajaxGetObservacionesContrato
 	
