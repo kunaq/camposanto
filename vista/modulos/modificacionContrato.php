@@ -550,7 +550,7 @@
 												<input type="hidden"name="codAval" id="codAval" onchange="buscaDatosAval();">
 											</div>
 											<div class="col-lg-2">
-												<label>Doc. Identidad</label>
+												<label>&nbsp;</label>
 												<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="docIdeTitular" id="docIdeTitular" disabled>
 													<?php
 													$prueba = controladorEmpresa::ctrtipoDoc();
@@ -558,12 +558,12 @@
 												</select>
 											</div>
 											<div class="col-lg-4">
-												<label>&nbsp;</label>
+												<label>Doc. de identidad</label>
 												<input type="text" class="form-control form-control-sm m-input" name="numDocTitular" id="numDocTitular" disabled>
 											</div>
-											<div class="col-lg-2" style="margin-top: -18px;">
-												<div class="row form-group">
-													<div class="col-lg-6" style="padding-right: 0;">
+											<div class="col-lg-2">
+												<div class="row" style="margin-top:2rem;margin-left: 2rem; ">
+													<div class="col-lg-6">
 														<label>Jurídico</label>
 													</div>
 													<div class="col-lg-3">
