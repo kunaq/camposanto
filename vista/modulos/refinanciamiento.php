@@ -69,7 +69,14 @@
 									<div class="row form-group">
 										<div class="col-lg-6">
 											<label>Motivo</label>
-											<select type="text" class="form-control form-control-sm m-input" id=""></select>
+											<select type="text" class="form-control form-control-sm m-input" id="">
+												<?php
+													$tabla = "vtama_motivo_refinanciamiento";
+													$item1 = "cod_motivo_refinanciamiento";
+													$item2 = "dsc_motivo_refinanciamiento";
+													$prueba = controladorEmpresa::ctrSelects($tabla,$item1,$item2);
+												  ?>
+											</select>
 										</div>
 										<div class="col-lg-6">
 											<label>Interés</label>
