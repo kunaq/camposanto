@@ -70,7 +70,7 @@
 										<div class="col-lg-6">
 											<label>Motivo</label>
 											<select type="text" class="form-control form-control-sm m-input" id="">
-												<option value="" disabled>
+												<option value="">
 													Seleccione...
 												</option>
 												<?php
