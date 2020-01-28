@@ -965,7 +965,7 @@ function anulaCtto(){
 //----------------------------Anular contrato-----------------------------//
 // -- Detalle Servicios -- //
 function anularCtto(){
-    for(li_i = 1 To tab_1.tp_4.dw_servicio_vin.Rowcount()){
+    // for(li_i = 1 To tab_1.tp_4.dw_servicio_vin.Rowcount()){
     
     // ls_servicio = tab_1.tp_4.dw_servicio_vin.GetItemString(li_i, "num_servicio")
     // ls_det_servicios = ls_det_servicios + ls_servicio + " - "
@@ -994,7 +994,7 @@ function anularCtto(){
 //         Return
 //     End If
     
-    }
+    // }//for
 
 // ls_det_servicios = Trim(Mid(ls_det_servicios, 1, Len(Trim(ls_det_servicios)) - 1))
 
