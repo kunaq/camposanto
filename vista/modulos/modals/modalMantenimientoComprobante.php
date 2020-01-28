@@ -309,27 +309,83 @@
 									<div id="m_tabs_3_3" class="tab-pane" role="tabpanel">
 										<div class="col-lg-12">
 											<div class="row">
-												<div class="col-lg-4">
+												<div class="col-lg-5">
 													<div class="row">
 														<div class="col-lg-12">
 															<fieldset class="fieldFormHorizontal">
 																<legend class="tittle-box">&nbsp;</legend>
-																	<table class="table">
+																	<table class="table myTableEventos">
 																		<thead>
 																			<th>N°</th>
 																			<th>Fecha</th>
 																			<th>Evento</th>
 																		</thead>
-																		<tbody>
+																		<tbody class="tbodyEventos" id="tbodyEventos">
 																			<tr></tr>
 																		</tbody>
 																	</table>
+																	<div class="m-form__group row">
+										<div class="col-lg-4 div-btn_evt">
+											<button data-toggle="m-tooltip" data-container="body" data-placement="top" id="botonAgregarEvt" type="button" title="" data-original-title="Nuevo Evento" onclick="habilitaFormEvt();" class="btn btnGuardarKqPst m-btn m-btn m-btn--icon">
+												<span>
+													<span>&nbsp;</span>
+													<i class="la la-plus-square"></i>
+													<span>&nbsp;</span>
+												</span>
+											</button>
+											<button data-toggle="m-tooltip" data-container="body" data-placement="top" type="button" id="botonGuardar" title="" data-original-title="Guardar cambios" onclick="" class="btn btn-success m-btn m-btn m-btn--icon" hidden="hidden">
+												<span>
+													<span>&nbsp;</span>
+													<i class="la la-check"></i>
+													<span>&nbsp;</span>
+												</span>
+											</button>
+											<button data-toggle="m-tooltip" data-container="body" data-placement="top" type="button" id="botonGuardarB" title="" data-original-title="Guardar beneficiario" onclick="guardaBenef();" class="btn btnGuardarKqPst m-btn m-btn m-btn--icon" hidden="hidden">
+												<span>
+													<span>&nbsp;</span>
+													<i class="la la-check"></i>
+													<span>&nbsp;</span>
+												</span>
+											</button>	
+										</div>
+										<div class="col-lg-4 div-btn_evt">
+											<button data-toggle="m-tooltip" type="button" data-container="body" data-placement="top" title="" data-original-title="Editar beneficiario" id="botonEditaB" class="btn btnEditarKqPst2 m-btn m-btn m-btn--icon">
+												<span>
+													<span>&nbsp;</span>
+													<i class="flaticon-edit-1"></i>
+													<span>&nbsp;</span>
+												</span>
+											</button>	
+										</div>
+										<div class="col-lg-4 div-btn_evt">
+											<button data-toggle="m-tooltip" data-container="body" data-placement="top" title="" id="botonEliminarB" data-original-title="Eliminar Evento" class="btn btn-danger m-btn m-btn m-btn--icon">
+												<span>
+													<span>&nbsp;</span>
+													<i class="la la-trash"></i>
+													<span>&nbsp;</span>
+												</span>
+											</button>
+											<button data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Descartar cambios" id="botonDescartarB" onclick="limpiaydsi();" class="btn btn-danger btn-lg m-btn m-btn m-btn--icon" hidden="hidden">
+												<span>
+													<span>&nbsp;</span>
+													<i class="la la-remove"></i>
+													<span>&nbsp;</span>
+												</span>
+											</button>
+											<button data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Descartar cambios" id="botonCancelarEdicionB" class="btn btn-danger btn-lg m-btn m-btn m-btn--icon" hidden="hidden">
+												<span>
+													<span>&nbsp;</span>
+													<i class="la la-remove"></i>
+													<span>&nbsp;</span>
+												</span>
+											</button>
+										</div>
+									</div>
 															</fieldset>
 														</div>
 													</div>
-													
 												</div>
-												<div class="col-lg-8">
+												<div class="col-lg-7">
 													<div class="row">
 														<div class="col-lg-12">
 															<fieldset class="fieldFormHorizontal">

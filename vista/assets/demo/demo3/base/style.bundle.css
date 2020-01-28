@@ -51836,3 +51836,12 @@ th{
 .div-sunat{
     padding: 8px 15px;
 }
+
+.tbodyEventos{
+    height: 260px;
+}
+
+.div-btn_evt{
+    text-align: center;
+    margin-bottom: 5px
+}

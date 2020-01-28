@@ -192,6 +192,26 @@ class ControladorSegContrato{
 		$respuesta = ModeloSegContrato::mdlGetObservacionesCliente($cod_cliente);
 		return $respuesta;
 	}//function ctrGetObservacionesCliente
+	
+	static public function ctrGetObservacionesContrato(){
+
+		$cod_contrato = $_POST['cod_contrato'];
+		$num_servicio = $_POST['num_servicio'];
+
+		$respuesta = ModeloSegContrato::mdlGetObservacionesContrato($cod_contrato,$num_servicio);
+		return $respuesta;
+	}//function ctrGetObservacionesContrato
+	
+	static public function ctrGetGestionCartera(){
+
+		$cod_localidad = $_POST['cod_localidad'];
+		$cod_contrato = $_POST['cod_contrato'];
+		$num_servicio = $_POST['num_servicio'];
+		$num_refinanciamiento = $_POST['num_refinanciamiento'];
+
+		$respuesta = ModeloSegContrato::mdlGetGestionCartera($cod_localidad,$cod_contrato,$num_servicio,$num_refinanciamiento);
+		return $respuesta;
+	}//function ctrGetGestionCartera
 
 }//class ControladorWizard
 ?>

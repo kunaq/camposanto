@@ -972,6 +972,41 @@ class ModeloSegContrato{
         $db->cerrar();
 
 	}//function mdlGetBeneficiariosServ
+	
+	static public function mdlGetObservacionesContrato($contrato,$servicio){
 
+		$db = new Conexion();
+
+		$sql = $db->consulta("SELECT vtade_observacion_x_contrato.num_linea, vtade_observacion_x_contrato.dsc_observacion, vtade_observacion_x_contrato.cod_usuario, vtade_observacion_x_contrato.fch_registro, vtade_observacion_x_contrato.flg_automatico FROM vtade_observacion_x_contrato WHERE vtade_observacion_x_contrato.cod_contrato = '$contrato' AND vtade_observacion_x_contrato.num_servicio = '$servicio'"); 
+
+		$datos = array();
+    	while($key = $db->recorrer($sql)){
+	    	$datos[] = arrayMapUtf8Encode($key);
+		} 
+
+		return $datos;
+
+		$db->liberar($sql);
+        $db->cerrar();
+
+	}//function mdlGetObservacionesContrato
+	
+	static public function mdlGetGestionCartera($localidad,$contrato,$num_servicio,$num_refinanciamiento){
+
+		$db = new Conexion();
+
+		$sql = $db->consulta("SELECT vtavi_contrato_x_cobrador.cod_anno , vtavi_contrato_x_cobrador.cod_periodo, vtama_tipo_cartera.dsc_tipo_cartera, (SELECT (SUBSTRING(rhuma_trabajador.dsc_nombres,1,1)+ '. ' + rhuma_trabajador.dsc_apellido_paterno) FROM rhuma_trabajador WHERE rhuma_trabajador.cod_trabajador = vtavi_contrato_x_cobrador.cod_trabajador) AS dsc_gestor, vtavi_contrato_x_cobrador.dsc_cuotas, vtavi_contrato_x_cobrador.imp_deuda, vtavi_contrato_x_cobrador.imp_cobrado FROM vtavi_contrato_x_cobrador INNER JOIN vtama_tipo_cartera ON vtama_tipo_cartera.cod_tipo_cartera = vtavi_contrato_x_cobrador.cod_tipo_cartera WHERE vtavi_contrato_x_cobrador.cod_localidad = '$localidad' AND vtavi_contrato_x_cobrador.cod_contrato = '$contrato' AND vtavi_contrato_x_cobrador.num_servicio = '$num_servicio' AND vtavi_contrato_x_cobrador.num_refinanciamiento = '$num_refinanciamiento'"); 
+
+		$datos = array();
+    	while($key = $db->recorrer($sql)){
+	    	$datos[] = arrayMapUtf8Encode($key);
+		} 
+
+		return $datos;
+
+		$db->liberar($sql);
+        $db->cerrar();
+
+	}//function mdlGetGestionCartera
 }//class ModeloWizard
 ?>

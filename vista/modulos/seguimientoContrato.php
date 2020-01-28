@@ -1990,6 +1990,12 @@
 										</div>
 										<div class="col-lg-6"></div>
 										<div class="col-lg-2">
+											<div class="col-lg-1 offset-lg-6">
+												<button class="btn btnGuardarKqPst m-btn" type="button" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Añadir observación" onclick="agregarObsv('<?php echo $_SESSION['user']; ?>');">
+												<i class="fa fa-plus"></i></button>
+											</div>
+										</div>
+										<!-- <div class="col-lg-2">
 											<table>
 												<tbody>
 													<tr>
@@ -2007,7 +2013,7 @@
 													</tr>
 												</tbody>
 											</table>
-										</div>
+										</div> -->
 										<div class="col-lg-12">
 											<br>
 											<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="200">
@@ -2020,17 +2026,7 @@
 															<th>F. Registro</th>
 															<th>Auto</th>
 														</thead>
-														<tbody>
-															<tr>
-																<td></td>
-																<td></td>
-																<td></td>
-																<td></td>
-																<td></td>
-															</tr>
-															<tr>
-																<td></td>
-															</tr>
+														<tbody id="bodyObservacionesCtt">
 														</tbody>
 														<tfoot>
 															<td></td>
@@ -2102,13 +2098,7 @@
 													<th>Acción</th>
 													<th>Observaciones</th>
 												</thead>
-												<tbody>
-													<tr>
-														<td></td>
-													</tr>
-													<tr>
-														<td></td>
-													</tr>
+												<tbody id="tbodyGestionCartera">
 												</tbody>
 												<tfoot>
 													<td></td>

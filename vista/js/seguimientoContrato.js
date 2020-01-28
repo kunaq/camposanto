@@ -399,6 +399,82 @@ function getObservacionesCliente(cliente){
 	}
 }
 
+function cargaObservacionesCtt(codCtto,numServicio){
+	$("#bodyObservacionesCtt").empty();
+	$.ajax({
+        url: 'ajax/modifCtto.ajax.php',
+        dataType: 'json',
+        method: "POST",
+        data: { 'accion' : 'getObservacionesContrato', 'cod_contrato' : codCtto, 'num_servicio' : numServicio },
+        success : function(respuesta){
+        	$.each(respuesta,function(index,value){
+        		if(value['flg_automatico'] == 'SI'){
+        			auto = 'checked';
+        		}else if (value['flg_automatico'] == 'NO'){
+        			auto = '';
+        		}
+        		var filaObsv = '<tr>'+
+									'<td>'+value['num_linea']+'</td>'+
+									'<td style="text-align: left;">'+value['dsc_observacion']+'</td>'+
+									'<td>'+value['cod_usuario']+'</td>'+
+									'<td>'+value['fch_registro']+'</td>'+
+									'<td><span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger"><input type="checkbox" disabled '+auto+'><span></span></span></td>'+
+								'</tr>';
+				document.getElementById("bodyObservaciones").insertAdjacentHTML("beforeEnd" ,filaObsv);
+        	});//each
+        }//success
+    });//ajax
+}// function cargaObservaciones
+
+function cargaGestionCartera(localidad,contrato,servicio,refinanciamiento){
+	$("#tbodyGestionCartera").empty();
+	$.ajax({
+        url: 'ajax/segCtt.ajax.php',
+        dataType: 'json',
+        method: "POST",
+        data: { 'accion' : 'getGestionCartera', 'cod_localidad' : localidad, 'cod_contrato' : contrato, 'num_servicio' : servicio, 'num_refinanciamiento' : refinanciamiento },
+        success : function(respuesta){
+        	$.each(respuesta,function(index,value){
+        		var filaGstCartera = '<tr>'+
+									'<td>'+value['cod_anno'] + '-' + value['cod_periodo'] +'</td>'+
+									'<td>'+value['dsc_tipo_cartera']+'</td>'+
+									'<td>'+value['dsc_gestor']+'</td>'+
+									'<td>'+value['dsc_cuotas']+'</td>'+
+									'<td>'+Number(value['imp_deuda']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+									'<td>'+Number(value['imp_cobrado']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+									'<td>-</td>'+
+									'<td></td>'+
+									'<td></td>'+
+								'</tr>';
+				document.getElementById("tbodyGestionCartera").insertAdjacentHTML("beforeEnd" ,filaGstCartera);
+        	});//each
+        }//success
+    });//ajax
+}// function cargaObservaciones
+
+function agregarObsv(usuario){
+    var tablaObsv = document.getElementById("bodyObservacionesCtt");
+    var numFilas = tablaObsv.rows.length;
+    var fechaHoy = new Date();
+    var aux_dia = fechaHoy.getDate();
+    var aux_mes1 = fechaHoy.setMonth(fechaHoy.getMonth() + 1);
+    var aux_mes = fechaHoy.getMonth();
+    var aux_anio = fechaHoy.getFullYear();
+    if(aux_mes == '0'){
+        aux_mes = '12';
+        aux_anio = fechaHoy.getFullYear()-1;
+    }               
+    fechaFinal = aux_dia+'/'+aux_mes+'/'+aux_anio;
+    var filaObsv = '<tr>'+
+                        '<td>'+(numFilas+1)+'</td>'+
+                        '<td style="text-align: left;"><input type="text" class="form-control form-control-sm m-input" name="obsv'+numFilas+'" id="obsv'+numFilas+'"></td>'+
+                        '<td>'+usuario+'</td>'+
+                        '<td>'+fechaFinal+'</td>'+
+                        '<td><span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger"><input type="checkbox" disabled><span></span></span></td>'+
+                    '</tr>';
+    tablaObsv.insertAdjacentHTML("beforeEnd" ,filaObsv);
+}
+
 function getDatosServicioCtt(row,localidad,tasa,tipoCtt,tipoPro,codCtt,numRef,numSer,titular,titular_alterno,aval,canalVta,flgAgencia,cobrador,vendedor,grupo,tipoComisionista,supervisor,jefeVentas,agencia){
 	var rows = $('#myTableServicios tr').not(':first');
 	rows.removeClass('selected'); 
@@ -786,6 +862,9 @@ function getDatosServicioCtt(row,localidad,tasa,tipoCtt,tipoPro,codCtt,numRef,nu
             }
         }//succes
     });//ajaxGetBeneficiarios
+
+    cargaObservacionesCtt(codCtt,numSer);
+    cargaGestionCartera(localidad,codCtt,numSer,numRef);
 }
 
 function getDatosServxRef(row,localidad,tasa,tipoCtt,tipoPro,codCtt,numRef,numSer,titular,titular_alterno,aval,canalVta,flgAgencia,cobrador,vendedor,grupo,tipoComisionista,supervisor,jefeVentas,agencia){
@@ -1170,6 +1249,8 @@ function getDatosServxRef(row,localidad,tasa,tipoCtt,tipoPro,codCtt,numRef,numSe
             }
         }//succes
     });//ajaxGetBeneficiarios
+
+    cargaGestionCartera(localidad,codCtt,numSer,numRef);
 }
 
 

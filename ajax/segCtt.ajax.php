@@ -87,6 +87,18 @@ class AjaxSegCtt{
 		echo json_encode($respuesta,JSON_UNESCAPED_UNICODE);
 	}//function ajaxGetObservacionesCliente
 
+	public function ajaxGetObservacionesContrato(){
+		$respuesta = ControladorSegContrato::ctrGetObservacionesContrato();
+		foreach ($respuesta as $key => $value) {
+			$respuesta[$key]["fch_registro"] = ($respuesta[$key]["fch_registro"] != '') ? dateTimeFormat($respuesta[$key]["fch_registro"]) : '';
+		}	
+		echo json_encode($respuesta,JSON_UNESCAPED_UNICODE);
+	}//function ajaxGetObservacionesContrato
+	
+	public function ajaxGetGestionCartera(){
+		$respuesta = ControladorSegContrato::ctrGetGestionCartera();
+		echo json_encode($respuesta,JSON_UNESCAPED_UNICODE);
+	}//function ajaxGetGestionCartera
 
 }//class AjaxWizard
 
@@ -169,4 +181,12 @@ else if(isset($_POST["accion"]) && $_POST["accion"] == 'getDeudasCliente'){
 else if(isset($_POST["accion"]) && $_POST["accion"] == 'getObservacionesCliente'){
 	$cliente = new AjaxSegCtt();
 	$cliente -> ajaxGetObservacionesCliente();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'getObservacionesContrato'){
+	$cliente = new AjaxSegCtt();
+	$cliente -> ajaxGetObservacionesContrato();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'getGestionCartera'){
+	$cliente = new AjaxSegCtt();
+	$cliente -> ajaxGetGestionCartera();
 }
