@@ -549,56 +549,37 @@
 												<input type="text" class="form-control form-control-sm m-input" name="codCliTitular" id="codCliTitular" disabled onchange="buscaDatosTi();">
 												<input type="hidden"name="codAval" id="codAval" onchange="buscaDatosAval();">
 											</div>
-											<div class="col-lg-2 offset-lg-6" style="margin-top: -18px;">
+											<div class="col-lg-2">
+												<label>Doc. Identidad</label>
+												<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="docIdeTitular" id="docIdeTitular" disabled>
+													<?php
+													$prueba = controladorEmpresa::ctrtipoDoc();
+													?>
+												</select>
+											</div>
+											<div class="col-lg-4">
+												<label>&nbsp;</label>
+												<input type="text" class="form-control form-control-sm m-input" name="numDocTitular" id="numDocTitular" disabled>
+											</div>
+											<div class="col-lg-2" style="margin-top: -18px;">
 												<div class="row form-group">
-														<div class="col-lg-9" style="padding-right: 0;">
-															<label>Jurídico</label>
-														</div>
-														<div class="col-lg-3">
-															<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--yellow">
-																<label>
-																	<input type="checkbox" name="juridicoCheck" id="juridicoCheck" disabled>
-																	<span></span>
-																</label>
-															</span>
-														</div>
+													<div class="col-lg-6" style="padding-right: 0;">
+														<label>Jurídico</label>
 													</div>
-												<!-- <table>
-													<tbody>
-														<tr>
-															<td>
-																<label class="m-checkbox">
-																	Jurídico&nbsp;
-																</label>
-															</td>
-															<td>
-																<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
-																	<label>
-																		<input type="checkbox" name="juridicoCheck" id="juridicoCheck" disabled>
-																		<span></span>
-																	</label>
-																</span>
-															</td>
-														</tr>
-													</tbody>
-												</table> -->
+													<div class="col-lg-3">
+														<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--yellow">
+															<label>
+																<input type="checkbox" name="juridicoCheck" id="juridicoCheck" disabled>
+																<span></span>
+															</label>
+														</span>
+													</div>
+												</div>
 											</div>
 											<div class="col-lg-12">
 												<div class="row">
 													<div class="col-lg-6 offset-lg-2">
 														<div class="row">
-															<div class="col-lg-3">
-																<label>Doc. Identidad</label>
-																<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="docIdeTitular" id="docIdeTitular" disabled>
-																	<?php
-																	$prueba = controladorEmpresa::ctrtipoDoc();
-																	?>
-																</select>
-															</div>
-															<div class="col-lg-4">
-																<label>&nbsp;</label>
-																<input type="text" class="form-control form-control-sm m-input" name="numDocTitular" id="numDocTitular" disabled>
-															</div>
 															<div class="col-lg-5">
 																<label>Fch. Nacimiento</label>
 																<div class="input-group date">
