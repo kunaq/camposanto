@@ -687,10 +687,10 @@
 										<div class="row">
 											<div class="col-lg-12">
 												<label>Referencia</label>
-												<textarea class="form-control form-control-sm m-input" rows="2" name="refDirTitular" id="refDirTitular" disabled></textarea>
+												<textarea class="form-control form-control-sm m-input" rows="1" name="refDirTitular" id="refDirTitular" disabled></textarea>
 											</div>
 										</div>
-										<div class="row">
+										<div class="row form-group">
 											<div class="col-lg-12">
 												<label>Zona</label>
 												<textarea class="form-control form-control-sm m-input" rows="2" name="zonaDirTitular" id="zonaDirTitular" disabled></textarea>
