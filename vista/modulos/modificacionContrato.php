@@ -562,7 +562,7 @@
 												<input type="text" class="form-control form-control-sm m-input" name="numDocTitular" id="numDocTitular" disabled>
 											</div>
 											<div class="col-lg-2">
-												<div class="row" style="margin-top:2rem;margin-left: 2rem; ">
+												<div class="row" style="margin-top:2rem;margin-left: -2rem; ">
 													<div class="col-lg-6">
 														<label>Jurídico</label>
 													</div>
@@ -580,7 +580,7 @@
 												<div class="row">
 													<div class="col-lg-6 offset-lg-2">
 														<div class="row">
-															<div class="col-lg-5">
+															<div class="col-lg-4">
 																<label>Fch. Nacimiento</label>
 																<div class="input-group date">
 																	<input type="text" class="form-control form-control-sm m-input" name="fchNacTitular" id="fchNacTitular" data-date-format="mm/dd/yyyy" disabled />
@@ -591,10 +591,6 @@
 																	</div>
 																</div>
 															</div>
-														</div>
-													</div>
-													<div class="col-lg-12">
-														<div class="row">
 															<div class="col-lg-4">
 																<label>Ape. Paterno</label>
 																<input type="text" class="form-control form-control-sm m-input" name="apePatTitular" id="apePatTitular" disabled>
@@ -603,14 +599,20 @@
 																<label>Ape. Materno</label>
 																<input type="text" class="form-control form-control-sm m-input" name="apeMatTitular" id="apeMatTitular" disabled>
 															</div>
-															<div class="col-lg-4">
+														</div>
+													</div>
+													<div class="col-lg-12">
+														<div class="row">
+															<div class="col-lg-6">
 																<label>Nombre</label>
 																<input type="text" class="form-control form-control-sm m-input" name="nomTitular" id="nomTitular" disabled>
 															</div>
-															<div class="col-lg-12">
+															<div class="col-lg-6">
 																<label>Razon Social</label>
 																<input type="text" class="form-control form-control-sm m-input" name="razSocTitular" id="razSocTitular" disabled>
 															</div>
+														</div>
+														<div class="row">
 															<div class="col-lg-3">
 																<label>Tel. Celular 1</label>
 																<input type="text" class="form-control form-control-sm m-input" name="cel1Titular" id="cel1Titular" disabled>
