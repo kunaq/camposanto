@@ -63,7 +63,7 @@ function llenaDatos(codCtto){
         method: "POST",
         data: { 'accion' : 'conCodigo', 'codCtto' : codCtto },
         success : function(respuesta){
-        	console.log('respuesta',respuesta.length);
+        	//console.log('respuesta',respuesta.length);
         	document.getElementById("codContrato").value = respuesta[0]['cod_contrato'];
         	$("#tipoPrograma option[value='"+respuesta[0]['cod_tipo_programa']+"']").attr("selected",true);
         	if(respuesta[0]['cod_tipo_programa'] = 'TR000'){
@@ -127,7 +127,7 @@ function muestraInfo(id){
         method: "POST",
         data: { 'accion' : 'DetServ', 'codCtto' : codCtto, 'num_servicio' : id },
         success : function(respuesta){
-        	console.log('respuesta',respuesta);
+        	//console.log('respuesta',respuesta);
         	if(respuesta['cod_tipo_necesidad'] == 'NF'){
         		var tipoNec = 'NECESIDAD FUTURA';
         	}else{
@@ -533,6 +533,7 @@ function cargaCronograma(codCtto,numRefi){
         		totalIGV = totalIGV + parseFloat(value['imp_igv']);
         		totalTotal = totalTotal + parseFloat(value['imp_principal']);
         		totalSaldo = totalSaldo + parseFloat(value['imp_saldo']);
+                console.log(value['cod_estadocuota']);
         		if(value['cod_estadocuota'] == 'REG'){
         			edoCuota = 'REGISTRADO';
         		}else if (value['cod_estadocuota'] == 'CAN'){
@@ -569,7 +570,7 @@ function cargaFoma(codCtto,numRefi){
         method: "POST",
         data: { 'accion' : 'FOMA', 'codCtto' : codCtto, 'num_refinanciamiento' : numRefi },
         success : function(respuesta){
-        	console.log('respuesta',respuesta);
+        	//console.log('respuesta',respuesta);
         	$("#bodyCronogramaFomaModif").empty();
         	var numCuo = 0;
         	var totalTotal = 0;
@@ -932,7 +933,7 @@ function cargaObservaciones(codCtto,numServicio){
         method: "POST",
         data: { 'accion' : 'observaciones', 'codCtto' : codCtto, 'num_servicio' : numServicio },
         success : function(respuesta){
-        	console.log('respuesta',respuesta);
+        	//console.log('respuesta',respuesta);
         	$.each(respuesta,function(index,value){
         		if(value['flg_automatico'] == 'SI'){
         			auto = 'checked';
