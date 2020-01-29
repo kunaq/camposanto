@@ -174,7 +174,7 @@ function muestraInfo(id){
                     $("#bodyServicioVin").empty();
                     var fila2 = '<tr>'+
                         '<td class="text-center">'+respuesta['num_servicio']+
-                        '<td class="text-left">'+respuesta['imp_saldofinanciar']+'</td>'+
+                        '<td class="text-right">'+Number(respuesta['imp_saldofinanciar']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
                     '</tr>';
                     document.getElementById("bodyServicioVin").insertAdjacentHTML("beforeEnd" ,fila2);
                     document.getElementById("totalServicioVin").innerText = Number(respuesta['imp_saldofinanciar']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
