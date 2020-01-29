@@ -169,7 +169,7 @@ function muestraInfo(id){
         		cargaCronograma(codCtto,respuesta['num_refinanciamiento']);
         		cargaFoma(codCtto,respuesta['num_refinanciamiento']);
         	}
-            console.log($("#flg_ctt_integral").val());
+            // console.log($("#flg_ctt_integral").val());
             if ($("#flg_ctt_integral").val() == 'NO') {
                     $("#bodyServicioVin").empty();
                     var fila2 = '<tr>'+
@@ -996,8 +996,13 @@ function anulaCtto(){
 // -- Detalle Servicios -- //
 function anularCtto(){
     // for(li_i = 1 To tab_1.tp_4.dw_servicio_vin.Rowcount()){
-    
+     var container = document.querySelector('#bodyServicioVin');
+      container.querySelectorAll('tr').forEach(function (li_i) 
+      { 
+        console.log(li_i);
+       var ls_servicio = $(li_i).attr("name"); 
     // ls_servicio = tab_1.tp_4.dw_servicio_vin.GetItemString(li_i, "num_servicio")
+
     // ls_det_servicios = ls_det_servicios + ls_servicio + " - "
     // li_tot = li_tot + 1
     
@@ -1024,7 +1029,7 @@ function anularCtto(){
 //         Return
 //     End If
     
-    // }//for
+    });
 
 // ls_det_servicios = Trim(Mid(ls_det_servicios, 1, Len(Trim(ls_det_servicios)) - 1))
 
