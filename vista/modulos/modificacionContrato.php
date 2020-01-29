@@ -1484,20 +1484,22 @@
 									<fieldset class="fieldFormHorizontal">
 										<legend>Conformación de saldo</legend>
 											<div class="col-lg-12">
-												<div class="table-responsive">
-													<table class="table m-table" >
-														<thead>
-															<tr>
-																<th>Servcio</th>
-																<th>Saldo</th>
-															</tr>
-														</thead>
-														<tbody id="bodyServicioVin"></tbody>
-														<tfoot>
-															<td>Total:</td>
-															<td style="text-align: right;" id="totalServicioVin">0,00</td>
-														</tfoot>
-													</table>
+												<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="100">
+													<div class="table-responsive">
+														<table class="table m-table" >
+															<thead>
+																<tr>
+																	<th>Servcio</th>
+																	<th>Saldo</th>
+																</tr>
+															</thead>
+															<tbody id="bodyServicioVin"></tbody>
+															<tfoot>
+																<td>Total:</td>
+																<td style="text-align: right;" id="totalServicioVin">0,00</td>
+															</tfoot>
+														</table>
+													</div>
 												</div>
 											</div>
 									</fieldset>
