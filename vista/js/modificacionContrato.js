@@ -1014,8 +1014,31 @@ function resetForm(){
 //----------------------------Anular contrato-----------------------------//
 // -- Detalle Servicios -- //
 function anularCtto(){
-    alert('llego');
-    if($("#flg_activado").val() == 'SI')
+    alert('llego'); 
+    if($("#flg_activado").val() == 'SI'){
+        swal({
+            title: "",
+            text: "El contrato esta ACTIVADO no puede ser anulado.",
+            type: "success",
+            confirmButtonText: "Aceptar",
+        })
+    }
+    if($("#flg_resuelto").val() == 'SI'){
+        swal({
+            title: "",
+            text: "El contrato esta RESUELTO no puede ser anulado.",
+            type: "success",
+            confirmButtonText: "Aceptar",
+        })
+    }
+    if($("#flg_anulado").val() == 'SI'){
+        swal({
+            title: "",
+            text: "El contrato ya esta ANULADO.",
+            type: "success",
+            confirmButtonText: "Aceptar",
+        })
+    }
     // for(li_i = 1 To tab_1.tp_4.dw_servicio_vin.Rowcount()){
      var container = document.querySelector('#bodyServicioVin');
       container.querySelectorAll('tr').forEach(function (li_i) 
