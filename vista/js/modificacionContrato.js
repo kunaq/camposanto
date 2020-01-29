@@ -88,15 +88,13 @@ function llenaDatos(codCtto){
         	$("#espacioContrato").val(respuesta[0]['cod_espacio_actual']);
         	$("#flg_activado").val(respuesta[0]['flg_activado']);
             $("#flg_integral").val(respuesta[0]['flg_ctt_integral']);
-            if (respuesta[0]['flg_ctt_integral'] == 'SI') {
-                cargaConfSaldo('int');
-            }
         	document.getElementById("tipoEspModifContrato").value = respuesta[0]['dsc_tipo_espacio'];
         	$("#bodyDetCttoModif").empty();
+            var totalVin = 0;
         	$.each(respuesta,function(index,value){
+                totalVin = totalVin+value['imp_saldofinanciar'];
         		var fila ='<tr onclick="muestraInfo('+value['num_servicio']+');">'+
-					'<td class="text-center">'+value['num_servicio']+
-                    '<input type="hidden" value="'+value['imp_saldofinanciar']+'" id="saldoXservicio_'+value['num_servicio']+'"></td>'+
+					'<td class="text-center">'+value['num_servicio']+'</td>'+
 					'<td class="text-left">'+value['dsc_tipo_servicio']+'</td>'+
 					'<td class="text-center">'+value['fch_generacion']+'</td>'+
 					'<td class="text-center">'+value['fch_emision']+'</td>'+
@@ -106,7 +104,15 @@ function llenaDatos(codCtto){
 					'<td class="text-center">'+value['fch_transferencia']+'</td>'+
 				'</tr>';
 				document.getElementById("bodyDetCttoModif").insertAdjacentHTML("beforeEnd" ,fila);
-
+                if (respuesta[0]['flg_ctt_integral'] == 'SI') {
+                    $("#bodyServicioVin").empty();
+                    var fila2 = '<tr>'+
+                        '<td class="text-center">'+value['num_servicio']+
+                        '<td class="text-left">'+value['imp_saldofinanciar']+'</td>'+
+                    '</tr>';
+                    document.getElementById("bodyServicioVin").insertAdjacentHTML("beforeEnd" ,fila2);
+                    document.getElementById("totalServicioVin").innerText = Number(totalVin).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
+                }
 
         	});//each
         }//success
@@ -163,6 +169,15 @@ function muestraInfo(id){
         		cargaCronograma(codCtto,respuesta['num_refinanciamiento']);
         		cargaFoma(codCtto,respuesta['num_refinanciamiento']);
         	}
+            if ($("#flg_integral").val() == 'NO') {
+                    $("#bodyServicioVin").empty();
+                    var fila2 = '<tr>'+
+                        '<td class="text-center">'+respuesta['num_servicio']+
+                        '<td class="text-left">'+respuesta['imp_saldofinanciar']+'</td>'+
+                    '</tr>';
+                    document.getElementById("bodyServicioVin").insertAdjacentHTML("beforeEnd" ,fila2);
+                    document.getElementById("totalServicioVin").innerText = Number(respuesta['imp_saldofinanciar']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
+                }
         	$("#numCuoCronograma").val(respuesta['num_cuotas']);
         	$("#fchVenCronograma").val(respuesta['fch_primer_vencimiento']);
         	$("#interesCronograma").val(respuesta['imp_interes']);
@@ -543,13 +558,6 @@ function cargaCronograma(codCtto,numRefi){
         	});//each
         }//success
     });//ajax
-}
-
-function cargaConfSaldo(){
-    var cttoIntegral = $("#flg_integral").val();
-    if(cttoIntegral == 'SI'){
-
-    } 
 }
 
 function cargaFoma(codCtto,numRefi){
