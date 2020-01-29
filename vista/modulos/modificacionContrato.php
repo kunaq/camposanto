@@ -1483,20 +1483,22 @@
 								<div class="col-lg-4">
 									<fieldset class="fieldFormHorizontal">
 										<legend>Conformación de saldo</legend>
-											<div class="table-responsive">
-												<table class="table m-table" >
-													<thead>
-														<tr>
-															<th>Servcio</th>
-															<th>Saldo</th>
-														</tr>
-													</thead>
-													<tbody id="bodyServicioVin"></tbody>
-													<tfoot>
-														<td>Total:</td>
-														<td style="text-align: right;" id="totalServicioVin">0,00</td>
-													</tfoot>
-												</table>
+											<div class="col-lg-12">
+												<div class="table-responsive">
+													<table class="table m-table" >
+														<thead>
+															<tr>
+																<th>Servcio</th>
+																<th>Saldo</th>
+															</tr>
+														</thead>
+														<tbody id="bodyServicioVin"></tbody>
+														<tfoot>
+															<td>Total:</td>
+															<td style="text-align: right;" id="totalServicioVin">0,00</td>
+														</tfoot>
+													</table>
+												</div>
 											</div>
 									</fieldset>
 								</div>
@@ -1668,11 +1670,11 @@
 													<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="canalVentaModif" id="canalVentaModif">
 														<option>Selecciona</option>
 														<?php
-																$tabla = "vtama_canal_venta";
-																$item1 = "cod_canal_venta";
-																$item2 = "dsc_canal_venta";
-																$prueba = controladorEmpresa::
-																ctrSelects($tabla,$item1,$item2);
+															$tabla = "vtama_canal_venta";
+															$item1 = "cod_canal_venta";
+															$item2 = "dsc_canal_venta";
+															$prueba = controladorEmpresa::
+															ctrSelects($tabla,$item1,$item2);
 														?>
 													</select>
 												</div>
