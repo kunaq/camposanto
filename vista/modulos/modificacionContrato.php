@@ -92,6 +92,7 @@
 									<label>Cliente</label>
 									<input type="text" class="form-control form-control-sm m-input" name="nomCliContrato" id="nomCliContrato" disabled>
 									<input type="hidden" id="flg_activado" name="flg_activado">
+									<input type="hidden" name="flg_ctt_integral" id="flg_ctt_integral">
 								</div>
 							</div>
 						</div>
@@ -1484,7 +1485,7 @@
 									<fieldset class="fieldFormHorizontal">
 										<legend>Conformación de saldo</legend>
 											<div class="col-lg-12">
-												<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="100">
+												<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="160">
 													<div class="table-responsive">
 														<table class="table m-table" >
 															<thead>

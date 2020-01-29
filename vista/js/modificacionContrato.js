@@ -87,11 +87,13 @@ function llenaDatos(codCtto){
         	$("#ejeVContrato").val(respuesta[0]['cod_ejevertical_actual']);
         	$("#espacioContrato").val(respuesta[0]['cod_espacio_actual']);
         	$("#flg_activado").val(respuesta[0]['flg_activado']);
+            $("#flg_integral").val(respuesta[0]['flg_ctt_integral']);
         	document.getElementById("tipoEspModifContrato").value = respuesta[0]['dsc_tipo_espacio'];
         	$("#bodyDetCttoModif").empty();
         	$.each(respuesta,function(index,value){
         		var fila ='<tr onclick="muestraInfo('+value['num_servicio']+');">'+
-					'<td class="text-center">'+value['num_servicio']+'</td>'+
+					'<td class="text-center">'+value['num_servicio']+
+                    '<input type="hidden" value="'+value['imp_saldofinanciar']+'" id="saldoXservicio'+value['num_servicio']+'"></td>'+
 					'<td class="text-left">'+value['dsc_tipo_servicio']+'</td>'+
 					'<td class="text-center">'+value['fch_generacion']+'</td>'+
 					'<td class="text-center">'+value['fch_emision']+'</td>'+
@@ -101,6 +103,8 @@ function llenaDatos(codCtto){
 					'<td class="text-center">'+value['fch_transferencia']+'</td>'+
 				'</tr>';
 				document.getElementById("bodyDetCttoModif").insertAdjacentHTML("beforeEnd" ,fila);
+
+
         	});//each
         }//success
     });//ajax
@@ -536,6 +540,13 @@ function cargaCronograma(codCtto,numRefi){
         	});//each
         }//success
     });//ajax
+}
+
+function cargaConfSaldo(){
+    var cttoIntegral = $("#flg_integral").val();
+    if(cttoIntegral == 'SI'){
+
+    } 
 }
 
 function cargaFoma(codCtto,numRefi){
