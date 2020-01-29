@@ -169,8 +169,8 @@ function muestraInfo(id){
         		cargaCronograma(codCtto,respuesta['num_refinanciamiento']);
         		cargaFoma(codCtto,respuesta['num_refinanciamiento']);
         	}
-            console.log($("#flg_integral").val());
-            if ($("#flg_integral").val() == 'NO') {
+            console.log($("#flg_ctt_integral").val());
+            if ($("#flg_ctt_integral").val() == 'NO') {
                     $("#bodyServicioVin").empty();
                     var fila2 = '<tr>'+
                         '<td class="text-center">'+respuesta['num_servicio']+
