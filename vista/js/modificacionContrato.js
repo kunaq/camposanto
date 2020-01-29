@@ -63,7 +63,7 @@ function llenaDatos(codCtto){
         method: "POST",
         data: { 'accion' : 'conCodigo', 'codCtto' : codCtto },
         success : function(respuesta){
-        	//console.log('respuesta',respuesta.length);
+        	console.log('respuesta',respuesta);
         	document.getElementById("codContrato").value = respuesta[0]['cod_contrato'];
         	$("#tipoPrograma option[value='"+respuesta[0]['cod_tipo_programa']+"']").attr("selected",true);
         	if(respuesta[0]['cod_tipo_programa'] = 'TR000'){
@@ -86,7 +86,6 @@ function llenaDatos(codCtto){
         	$("#ejeHCotrato").val(respuesta[0]['cod_ejehorizontal_actual']);
         	$("#ejeVContrato").val(respuesta[0]['cod_ejevertical_actual']);
         	$("#espacioContrato").val(respuesta[0]['cod_espacio_actual']);
-        	$("#flg_activado").val(respuesta[0]['flg_activado']);
             $("#flg_ctt_integral").val(respuesta[0]['flg_ctt_integral']);
         	document.getElementById("tipoEspModifContrato").value = respuesta[0]['dsc_tipo_espacio'];
         	$("#bodyDetCttoModif").empty();
@@ -103,6 +102,9 @@ function llenaDatos(codCtto){
 					'<td class="text-center">'+value['fch_anulacion']+'</td>'+
 					'<td class="text-center">'+value['fch_resolucion']+'</td>'+
 					'<td class="text-center">'+value['fch_transferencia']+'</td>'+
+                    '<input type="hidden" id="flg_activado_'+value['num_servicio']+'" value="'+value['flg_activado']+'">'+
+                    '<input type="hidden" id="flg_anulado_'+value['num_servicio']+'" value="'+value['flg_anulado']+'">'+
+                    '<input type="hidden" id="flg_resuelto_'+value['num_servicio']+'" value="'+value['flg_resuelto']+'">'+
 				'</tr>';
 				document.getElementById("bodyDetCttoModif").insertAdjacentHTML("beforeEnd" ,fila);
                 if (respuesta[0]['flg_ctt_integral'] == 'SI') {
@@ -1013,6 +1015,7 @@ function resetForm(){
 // -- Detalle Servicios -- //
 function anularCtto(){
     alert('llego');
+    if($("#flg_activado").val() == 'SI')
     // for(li_i = 1 To tab_1.tp_4.dw_servicio_vin.Rowcount()){
      var container = document.querySelector('#bodyServicioVin');
       container.querySelectorAll('tr').forEach(function (li_i) 
