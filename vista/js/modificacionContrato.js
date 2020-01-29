@@ -537,7 +537,9 @@ function cargaCronograma(codCtto,numRefi){
         			edoCuota = 'REGISTRADO';
         		}else if (value['cod_estadocuota'] == 'CAN'){
         			edoCuota = 'CANCELADO';
-        		}
+        		}else{
+                    edoCuota = '';
+                }
         		var filaCrono = '<tr>'+
 									'<th scope="row">'+value['num_cuota']+'</th>'+
 									'<td>'+edoCuota+'</td>'+
