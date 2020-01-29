@@ -63,7 +63,7 @@ function llenaDatos(codCtto){
         method: "POST",
         data: { 'accion' : 'conCodigo', 'codCtto' : codCtto },
         success : function(respuesta){
-        	// console.log('respuesta',respuesta[1]);
+        	console.log('respuesta',respuesta.length);
         	document.getElementById("codContrato").value = respuesta[0]['cod_contrato'];
         	$("#tipoPrograma option[value='"+respuesta[0]['cod_tipo_programa']+"']").attr("selected",true);
         	if(respuesta[0]['cod_tipo_programa'] = 'TR000'){
@@ -88,12 +88,15 @@ function llenaDatos(codCtto){
         	$("#espacioContrato").val(respuesta[0]['cod_espacio_actual']);
         	$("#flg_activado").val(respuesta[0]['flg_activado']);
             $("#flg_integral").val(respuesta[0]['flg_ctt_integral']);
+            if (respuesta[0]['flg_ctt_integral'] == 'SI') {
+                cargaConfSaldo('int');
+            }
         	document.getElementById("tipoEspModifContrato").value = respuesta[0]['dsc_tipo_espacio'];
         	$("#bodyDetCttoModif").empty();
         	$.each(respuesta,function(index,value){
         		var fila ='<tr onclick="muestraInfo('+value['num_servicio']+');">'+
 					'<td class="text-center">'+value['num_servicio']+
-                    '<input type="hidden" value="'+value['imp_saldofinanciar']+'" id="saldoXservicio'+value['num_servicio']+'"></td>'+
+                    '<input type="hidden" value="'+value['imp_saldofinanciar']+'" id="saldoXservicio_'+value['num_servicio']+'"></td>'+
 					'<td class="text-left">'+value['dsc_tipo_servicio']+'</td>'+
 					'<td class="text-center">'+value['fch_generacion']+'</td>'+
 					'<td class="text-center">'+value['fch_emision']+'</td>'+
