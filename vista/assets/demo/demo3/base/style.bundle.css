@@ -51846,7 +51846,7 @@ th{
     margin-bottom: 5px
 }
 
-.myTableListadoComprobantes tbody tr:hover{
+.myTableComprobantesPrincipal tbody tr:hover{
     background-color: #ddd;
     cursor: pointer;
 }
