@@ -990,11 +990,29 @@ function anulaCtto(){
 	}
 }
 
+//---------------------------limpia formulario------------------------------//
+
+function resetForm(){
+    limpiaydsi();
+    document.getElementById("myForm").reset();
+    $("#bodyDetCttoModif").empty();
+    $("#bodyServicioVin").empty();
+    $("#bodyObservaciones").empty();
+    $("#bodyServiciosPpales").empty();
+    $("#bodyDsctoModif").empty();
+    $("#bodyEndosoModif").empty();
+    $("#bodyCronogramaModif").empty();
+    $("#bodyCronogramaFomaModif").empty();
+    $("#bodyBeneficiarioM").empty();
+    $("#bodyCronogramaFomaModif").empty();
+}
+
 
 
 //----------------------------Anular contrato-----------------------------//
 // -- Detalle Servicios -- //
 function anularCtto(){
+    alert('llego');
     // for(li_i = 1 To tab_1.tp_4.dw_servicio_vin.Rowcount()){
      var container = document.querySelector('#bodyServicioVin');
       container.querySelectorAll('tr').forEach(function (li_i) 

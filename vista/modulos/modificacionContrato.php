@@ -6,9 +6,9 @@
 		<div class="sidebar-wrapper stickButtons" id="container-button">
 			<ul>
 				<li style="list-style: none;">
-					<button type="reset" class="btn btn-metal m-btn--square m-btn m-btn--icon btn-lg m-btn--icon-only" style="border-top-left-radius: .25rem !important;" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Nueva busqueda" id="new-button">
+					<a href="#container" class="btn btn-metal m-btn--square m-btn m-btn--icon btn-lg m-btn--icon-only" style="border-top-left-radius: .25rem !important;" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Nueva busqueda" id="new-button" onclick="resetForm();">
 						<i class="fa fa-search"></i>
-					</button>
+					</a>
 				</li>
 				<li style="list-style: none;">
 					<a href="#container" class="btn btnGuardarKqPst m-btn--square m-btn m-btn--icon btn-lg m-btn--icon-only" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Guardar cambios" id="save-button">
