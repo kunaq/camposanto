@@ -90,9 +90,10 @@ function llenaDatos(codCtto){
             $("#flg_integral").val(respuesta[0]['flg_ctt_integral']);
         	document.getElementById("tipoEspModifContrato").value = respuesta[0]['dsc_tipo_espacio'];
         	$("#bodyDetCttoModif").empty();
+            $("#bodyServicioVin").empty();
             var totalVin = 0;
         	$.each(respuesta,function(index,value){
-                totalVin = totalVin+value['imp_saldofinanciar'];
+                totalVin = totalVin+parseFloat(value['imp_saldofinanciar']);
         		var fila ='<tr onclick="muestraInfo('+value['num_servicio']+');">'+
 					'<td class="text-center">'+value['num_servicio']+'</td>'+
 					'<td class="text-left">'+value['dsc_tipo_servicio']+'</td>'+
@@ -105,10 +106,9 @@ function llenaDatos(codCtto){
 				'</tr>';
 				document.getElementById("bodyDetCttoModif").insertAdjacentHTML("beforeEnd" ,fila);
                 if (respuesta[0]['flg_ctt_integral'] == 'SI') {
-                    $("#bodyServicioVin").empty();
                     var fila2 = '<tr>'+
                         '<td class="text-center">'+value['num_servicio']+
-                        '<td class="text-left">'+value['imp_saldofinanciar']+'</td>'+
+                        '<td class="text-right">'+Number(value['imp_saldofinanciar']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });+'</td>'+
                     '</tr>';
                     document.getElementById("bodyServicioVin").insertAdjacentHTML("beforeEnd" ,fila2);
                     document.getElementById("totalServicioVin").innerText = Number(totalVin).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
