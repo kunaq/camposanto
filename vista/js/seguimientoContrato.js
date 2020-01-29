@@ -352,7 +352,6 @@ function getCancelacionPrincipal(row,localidad,numCor){
 									'<td>'+value['fch_registro']+'</td>'+
 									'<td>'+value['dsc_forma_pago']+'</td>'+
 									'<td>'+value['num_documento']+'</td>'+
-									'<td>'+value['dsc_forma_pago']+'</td>'+
 									'<td>'+moneda+'</td>'+
 									'<td>'+value['imp_operacion']+'</td>'+
 									'<td>'+value['imp_operacion_soles']+'</td>'+
