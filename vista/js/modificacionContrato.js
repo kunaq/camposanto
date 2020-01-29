@@ -87,7 +87,7 @@ function llenaDatos(codCtto){
         	$("#ejeVContrato").val(respuesta[0]['cod_ejevertical_actual']);
         	$("#espacioContrato").val(respuesta[0]['cod_espacio_actual']);
         	$("#flg_activado").val(respuesta[0]['flg_activado']);
-            $("#flg_integral").val(respuesta[0]['flg_ctt_integral']);
+            $("#flg_ctt_integral").val(respuesta[0]['flg_ctt_integral']);
         	document.getElementById("tipoEspModifContrato").value = respuesta[0]['dsc_tipo_espacio'];
         	$("#bodyDetCttoModif").empty();
             $("#bodyServicioVin").empty();
