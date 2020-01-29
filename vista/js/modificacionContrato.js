@@ -169,6 +169,7 @@ function muestraInfo(id){
         		cargaCronograma(codCtto,respuesta['num_refinanciamiento']);
         		cargaFoma(codCtto,respuesta['num_refinanciamiento']);
         	}
+            console.log($("#flg_integral").val());
             if ($("#flg_integral").val() == 'NO') {
                     $("#bodyServicioVin").empty();
                     var fila2 = '<tr>'+
@@ -533,12 +534,16 @@ function cargaCronograma(codCtto,numRefi){
         		totalIGV = totalIGV + parseFloat(value['imp_igv']);
         		totalTotal = totalTotal + parseFloat(value['imp_principal']);
         		totalSaldo = totalSaldo + parseFloat(value['imp_saldo']);
-                console.log(value['cod_estadocuota']);
+                //console.log(value['cod_estadocuota']);
         		if(value['cod_estadocuota'] == 'REG'){
         			edoCuota = 'REGISTRADO';
         		}else if (value['cod_estadocuota'] == 'CAN'){
         			edoCuota = 'CANCELADO';
-        		}else{
+        		}else if(value['cod_estadocuota'] == 'ANU'){
+                    edoCuota = 'ANULADO';
+                }else if(value['cod_estadocuota'] == 'RES'){
+                    edoCuota = 'RESUELTO';
+                }else{
                     edoCuota = '';
                 }
         		var filaCrono = '<tr>'+
