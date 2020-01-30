@@ -43,6 +43,8 @@ require_once "../../modelo/conexion.php";
                         $funcion = '"cambiaDeudor('.$codcliente.')"';
                     }elseif ($tipobtn == "contrato"){
                         $funcion = '"cambiaCliCon('.$codcliente.')"';
+                    }elseif ($tipobtn == "nuevoTitular") {
+                        $funcion = '"getDatosNuevoTitular('.$codcliente.')"';
                     }
                     
                    echo 

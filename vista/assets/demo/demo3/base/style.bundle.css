@@ -51850,3 +51850,8 @@ th{
     background-color: #ddd;
     cursor: pointer;
 }
+
+.blue-text{
+    color: #0033cc;
+    font-weight: 400;
+}
