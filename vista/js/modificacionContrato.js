@@ -1024,7 +1024,7 @@ function anularCtto(numServ = null){
         })
         return;
     }
-    if($("#flg_activado_"+numServ).val() == 'SI'){
+    if($("#flg_activado_"+numServ).val() == 'SI' && $("#flg_resuelto_"+numServ).val() == 'NO'){
         swal({
             title: "",
             text: "El contrato esta ACTIVADO no puede ser anulado.",
@@ -1032,8 +1032,7 @@ function anularCtto(numServ = null){
             confirmButtonText: "Aceptar",
         })
         return;
-    }
-    if($("#flg_resuelto_"+numServ).val() == 'SI'){
+    }else if($("#flg_resuelto_"+numServ).val() == 'SI' && $("#flg_activado_"+numServ).val() == 'SI'){
         swal({
             title: "",
             text: "El contrato esta RESUELTO no puede ser anulado.",
@@ -1072,7 +1071,7 @@ function anularCtto(numServ = null){
             url: 'ajax/modifCtto.ajax.php',
             dataType: 'json',
             method: "POST",
-            data: { 'accion' : 'valUsoServ', 'ls_localidad' : ls_localidad, 'ls_contrato' : ls_contrato, 'ls_servicio' : ls_servicio, 'ls_tipo_programa' : ls_tipo_programa, 'ls_tipo_ctt' : ls_tipo_ctt },
+            data: { 'accion' : 'valUsoServ', 'ls_contrato' : $("#codContrato").val(), 'ls_servicio' : ls_servicio, 'ls_tipo_programa' : ls_tipo_programa, 'ls_tipo_ctt' : ls_tipo_ctt },
             success : function(respuesta){
                 li_valida = (respuesta == null) ? 0 : respuesta;
                 console.log(li_valida);
