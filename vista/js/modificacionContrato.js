@@ -174,7 +174,7 @@ function muestraInfo(id){
             // console.log($("#flg_ctt_integral").val());
             if ($("#flg_ctt_integral").val() == 'NO') {
                     $("#bodyServicioVin").empty();
-                    var fila2 = '<tr name="'+value['num_servicio']+'">'+
+                    var fila2 = '<tr name="'+respuesta['num_servicio']+'">'+
                         '<td class="text-center">'+respuesta['num_servicio']+
                         '<td class="text-right">'+Number(respuesta['imp_saldofinanciar']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
                     '</tr>';
@@ -1018,7 +1018,7 @@ function anularCtto(){
         swal({
             title: "",
             text: "Debe seleccionar el número de servicio que desea anular.",
-            type: "success",
+            type: "warning",
             confirmButtonText: "Aceptar",
         })
         return;
@@ -1027,7 +1027,7 @@ function anularCtto(){
         swal({
             title: "",
             text: "El contrato esta ACTIVADO no puede ser anulado.",
-            type: "success",
+            type: "warning",
             confirmButtonText: "Aceptar",
         })
         return;
@@ -1036,7 +1036,7 @@ function anularCtto(){
         swal({
             title: "",
             text: "El contrato esta RESUELTO no puede ser anulado.",
-            type: "success",
+            type: "warning",
             confirmButtonText: "Aceptar",
         })
         return;
@@ -1045,7 +1045,7 @@ function anularCtto(){
         swal({
             title: "",
             text: "El contrato ya esta ANULADO.",
-            type: "success",
+            type: "warning",
             confirmButtonText: "Aceptar",
         })
         return;
