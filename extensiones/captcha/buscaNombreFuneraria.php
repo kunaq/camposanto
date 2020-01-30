@@ -8,7 +8,7 @@ require_once "../../modelo/conexion.php";
     $sql = $db->consulta("SELECT dsc_agencia FROM vtama_agencia_funeraria WHERE cod_agencia = '$codFuneraria'");
 
 	while($key = $db->recorrer($sql)){
-    	$dsc_grupo = utf8_encode($key['dsc_agencia']);
+    	$dsc_grupo = $key['dsc_agencia'];
 	}        
 	echo $dsc_grupo;
     $db->liberar($sql);

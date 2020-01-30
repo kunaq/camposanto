@@ -2,29 +2,29 @@
 
 function arrayMapUtf8Decode($data){
     if($data != ''){
-        return array_map('utf8_decode', $data);
+        return $data;
     }else{
         return $data;
-    }
+    }   
 }//function arrayMapUtf8
 function arrayMapUtf8Encode($data){
     if($data != ''){
-        return array_map('utf8_encode', $data);
+        return $data;
     }else{
         return $data;
-    }
+    }   
 }//function arrayMapUtf8
 function Utf8Decode($data){
-    return utf8_decode($data);
+    return $data;
 }//function Utf8Decode
 function Utf8Encode($data){
-    return utf8_encode($data);
+    return $data;
 }//function Utf8Encode
 function dateFormat($data){
-	return date_format(new DateTime($data), 'd/m/Y');
+    return date_format($data, 'd/m/Y');
 }//function dateFormat
 function dateTimeFormat($data){
-    return date_format(new DateTime($data), 'd-m-Y H:i:s');
+    return date_format($data, 'd/m/Y H:i:s');
 }//function dateTimeFormat
 function escapeComillasJson($data){
 	$data = str_replace('"', '\\"', $data);

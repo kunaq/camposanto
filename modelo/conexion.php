@@ -1,52 +1,57 @@
 <?php
-class Conexion{
-  private $link;
-  public function __construct(){
-    define('DB_HOST','209.45.50.210');
-    define('DB_USER','userclient');
-    define('DB_PASS','asociados517');
-    define('DB_NAME','BDUS_CK000050_BE01');
-    //  $connection = array("Database"=>"BDUS_CK000050_PRE00","UID"=>"userclient","PWD"=>"asociados517",'CharacterSet' => 'UTF-8');
-    // $this->link = mssql_connect("209.45.50.210",$connection);
-    $this->link = mssql_connect(DB_HOST,DB_USER,DB_PASS);
-    if(!$this->link){
-          echo 'No se pudo conectar';
-          exit;
-      }
-      if(!mssql_select_db(DB_NAME, $this->link)){
-          echo 'No se pudo conectar';
-          exit;
-      }
-  }//function  __construct
-  public function consulta($query){
-    return mssql_query($query);
-  }
-  public function recorrer($query){
-    return mssql_fetch_array($query);
-  }
-  public function rows($query){
-      return mssql_num_rows($query);
-  }
-  public function liberar($query){
-     return mssql_free_result($query);;
-  }
-   public function cerrar(){
-    return mssql_close($this->link);
-  }
-  public function inicioTransaccion(){
-    return true;
-  }
-  public function beginTransaction(){
-    return true;
-  }
-  public function commit(){
-    return true;
-  }
-  public function rollback(){
-    return true;
-  }
-  public function validar($stmt){
 
-    return mssql_rows_affected($stmt);
+class Conexion{
+
+  private $link;
+
+  public function __construct(){
+    // define('DB_HOST','KQ_ANALISTA\SQLSERVER');
+    // define('DB_USER','userclient');
+    // define('DB_PASS','asociados517');
+    // define('DB_NAME','BDUS_CK000050_PRE00');
+
+    // $this->link = sqlsrv_connect("kunaqfactelec.cgjpxdkt8txc.sa-east-1.rds.amazonaws.com","sa_admin","asociados517");
+
+    // $this->nombreBD = $nombreBD;
+
+    $connection = array("Database"=>"BDUS_CK000050_0001_SAN_ANTONIO","UID"=>"userclient","PWD"=>"asociados517",'CharacterSet' => 'UTF-8');
+    $this->link = sqlsrv_connect("KQ_ANALISTA\SQLSERVER",$connection);
+    if (!$this->link) {
+        echo "Error: No se pudo conectar a Sql." . PHP_EOL;
+        //echo "errno de depuración: " . mysqli_connect_errno() . PHP_EOL;
+        echo ("error de depuración: " . sqlsrv_errors() . PHP_EOL);
+        exit;
+    }
+
+  }//function  __construct
+
+  public function consulta($query){
+
+    return sqlsrv_query($this->link,$query);
+
   }
+
+  public function recorrer($query){
+
+    return sqlsrv_fetch_array($query,SQLSRV_FETCH_ASSOC);
+
+  }
+
+  public function liberar($query){
+
+    return sqlsrv_free_stmt($query);
+
+  }
+
+  public function cerrar(){
+
+    return sqlsrv_close($this->link);
+
+  }
+
+  public function row($query){
+
+    return sqlsrv_has_rows($query);
+  }
+
 }
