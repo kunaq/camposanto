@@ -108,7 +108,7 @@ function llenaDatos(codCtto){
 				'</tr>';
 				document.getElementById("bodyDetCttoModif").insertAdjacentHTML("beforeEnd" ,fila);
                 if (respuesta[0]['flg_ctt_integral'] == 'SI') {
-                    var fila2 = '<tr>'+
+                    var fila2 = '<tr name="'+value['num_servicio']+'">'+
                         '<td class="text-center">'+value['num_servicio']+
                         '<td class="text-right">'+Number(value['imp_saldofinanciar']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });+'</td>'+
                     '</tr>';
@@ -174,7 +174,7 @@ function muestraInfo(id){
             // console.log($("#flg_ctt_integral").val());
             if ($("#flg_ctt_integral").val() == 'NO') {
                     $("#bodyServicioVin").empty();
-                    var fila2 = '<tr>'+
+                    var fila2 = '<tr name="'+value['num_servicio']+'">'+
                         '<td class="text-center">'+respuesta['num_servicio']+
                         '<td class="text-right">'+Number(respuesta['imp_saldofinanciar']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
                     '</tr>';
@@ -1014,7 +1014,15 @@ function resetForm(){
 //----------------------------Anular contrato-----------------------------//
 // -- Detalle Servicios -- //
 function anularCtto(){
-    alert('llego'); 
+    if($("#").val() == ''){
+        swal({
+            title: "",
+            text: "Debe seleccionar el número de servicio que desea anular.",
+            type: "success",
+            confirmButtonText: "Aceptar",
+        })
+        return;
+    }
     if($("#flg_activado").val() == 'SI'){
         swal({
             title: "",
@@ -1022,6 +1030,7 @@ function anularCtto(){
             type: "success",
             confirmButtonText: "Aceptar",
         })
+        return;
     }
     if($("#flg_resuelto").val() == 'SI'){
         swal({
@@ -1030,6 +1039,7 @@ function anularCtto(){
             type: "success",
             confirmButtonText: "Aceptar",
         })
+        return;
     }
     if($("#flg_anulado").val() == 'SI'){
         swal({
@@ -1038,21 +1048,24 @@ function anularCtto(){
             type: "success",
             confirmButtonText: "Aceptar",
         })
+        return;
     }
+
+    var li_tot = 0;
     // for(li_i = 1 To tab_1.tp_4.dw_servicio_vin.Rowcount()){
-     var container = document.querySelector('#bodyServicioVin');
-      container.querySelectorAll('tr').forEach(function (li_i) 
-      { 
-        console.log(li_i);
+    var container = document.querySelector('#bodyServicioVin');
+    container.querySelectorAll('tr').forEach(function (li_i) 
+    { 
        var ls_servicio = $(li_i).attr("name"); 
+       console.log(ls_servicio);
     // ls_servicio = tab_1.tp_4.dw_servicio_vin.GetItemString(li_i, "num_servicio")
 
     // ls_det_servicios = ls_det_servicios + ls_servicio + " - "
-    // li_tot = li_tot + 1
+        li_tot = li_tot + 1
     
-//     // -- Valida -- //
+    // -- Valida -- //
     
-//     li_valida = 0
+        var li_valida = 0
     
 //     SELECT  COUNT(1)
 //     INTO        :li_valida
