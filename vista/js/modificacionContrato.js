@@ -63,7 +63,7 @@ function llenaDatos(codCtto){
         method: "POST",
         data: { 'accion' : 'conCodigo', 'codCtto' : codCtto },
         success : function(respuesta){
-        	// console.log('respuesta',respuesta[1]);
+        	// console.log('respuesta',respuesta);
         	document.getElementById("codContrato").value = respuesta[0]['cod_contrato'];
         	$("#tipoPrograma option[value='"+respuesta[0]['cod_tipo_programa']+"']").attr("selected",true);
         	if(respuesta[0]['cod_tipo_programa'] = 'TR000'){
@@ -86,10 +86,13 @@ function llenaDatos(codCtto){
         	$("#ejeHCotrato").val(respuesta[0]['cod_ejehorizontal_actual']);
         	$("#ejeVContrato").val(respuesta[0]['cod_ejevertical_actual']);
         	$("#espacioContrato").val(respuesta[0]['cod_espacio_actual']);
-        	$("#flg_activado").val(respuesta[0]['flg_activado']);
+            $("#flg_ctt_integral").val(respuesta[0]['flg_ctt_integral']);
         	document.getElementById("tipoEspModifContrato").value = respuesta[0]['dsc_tipo_espacio'];
         	$("#bodyDetCttoModif").empty();
+            $("#bodyServicioVin").empty();
+            var totalVin = 0;
         	$.each(respuesta,function(index,value){
+                totalVin = totalVin+parseFloat(value['imp_saldofinanciar']);
         		var fila ='<tr onclick="muestraInfo('+value['num_servicio']+');">'+
 					'<td class="text-center">'+value['num_servicio']+'</td>'+
 					'<td class="text-left">'+value['dsc_tipo_servicio']+'</td>'+
@@ -99,8 +102,20 @@ function llenaDatos(codCtto){
 					'<td class="text-center">'+value['fch_anulacion']+'</td>'+
 					'<td class="text-center">'+value['fch_resolucion']+'</td>'+
 					'<td class="text-center">'+value['fch_transferencia']+'</td>'+
+                    '<input type="hidden" id="flg_activado_'+value['num_servicio']+'" value="'+value['flg_activado']+'">'+
+                    '<input type="hidden" id="flg_anulado_'+value['num_servicio']+'" value="'+value['flg_anulado']+'">'+
+                    '<input type="hidden" id="flg_resuelto_'+value['num_servicio']+'" value="'+value['flg_resuelto']+'">'+
 				'</tr>';
 				document.getElementById("bodyDetCttoModif").insertAdjacentHTML("beforeEnd" ,fila);
+                if (respuesta[0]['flg_ctt_integral'] == 'SI') {
+                    var fila2 = '<tr name="'+value['num_servicio']+'">'+
+                        '<td class="text-center">'+value['num_servicio']+
+                        '<td class="text-right">'+Number(value['imp_saldofinanciar']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });+'</td>'+
+                    '</tr>';
+                    document.getElementById("bodyServicioVin").insertAdjacentHTML("beforeEnd" ,fila2);
+                    document.getElementById("totalServicioVin").innerText = Number(totalVin).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
+                }
+
         	});//each
         }//success
     });//ajax
@@ -114,7 +129,7 @@ function muestraInfo(id){
         method: "POST",
         data: { 'accion' : 'DetServ', 'codCtto' : codCtto, 'num_servicio' : id },
         success : function(respuesta){
-        	console.log('respuesta',respuesta);
+        	//console.log('respuesta',respuesta);
         	if(respuesta['cod_tipo_necesidad'] == 'NF'){
         		var tipoNec = 'NECESIDAD FUTURA';
         	}else{
@@ -156,6 +171,17 @@ function muestraInfo(id){
         		cargaCronograma(codCtto,respuesta['num_refinanciamiento']);
         		cargaFoma(codCtto,respuesta['num_refinanciamiento']);
         	}
+            // console.log($("#flg_ctt_integral").val());
+            if ($("#flg_ctt_integral").val() == 'NO') {
+                    $("#bodyServicioVin").empty();
+                    var fila2 = '<tr name="'+respuesta['num_servicio']+'">'+
+                        '<td class="text-center">'+respuesta['num_servicio']+
+                        '<td class="text-right">'+Number(respuesta['imp_saldofinanciar']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+                    '</tr>';
+                    document.getElementById("bodyServicioVin").insertAdjacentHTML("beforeEnd" ,fila2);
+                    document.getElementById("totalServicioVin").innerText = Number(respuesta['imp_saldofinanciar']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
+                }
+            $("#anularBoton").attr('name',id);
         	$("#numCuoCronograma").val(respuesta['num_cuotas']);
         	$("#fchVenCronograma").val(respuesta['fch_primer_vencimiento']);
         	$("#interesCronograma").val(respuesta['imp_interes']);
@@ -511,11 +537,18 @@ function cargaCronograma(codCtto,numRefi){
         		totalIGV = totalIGV + parseFloat(value['imp_igv']);
         		totalTotal = totalTotal + parseFloat(value['imp_principal']);
         		totalSaldo = totalSaldo + parseFloat(value['imp_saldo']);
+                //console.log(value['cod_estadocuota']);
         		if(value['cod_estadocuota'] == 'REG'){
         			edoCuota = 'REGISTRADO';
         		}else if (value['cod_estadocuota'] == 'CAN'){
         			edoCuota = 'CANCELADO';
-        		}
+        		}else if(value['cod_estadocuota'] == 'ANU'){
+                    edoCuota = 'ANULADO';
+                }else if(value['cod_estadocuota'] == 'RES'){
+                    edoCuota = 'RESUELTO';
+                }else{
+                    edoCuota = '';
+                }
         		var filaCrono = '<tr>'+
 									'<th scope="row">'+value['num_cuota']+'</th>'+
 									'<td>'+edoCuota+'</td>'+
@@ -545,7 +578,7 @@ function cargaFoma(codCtto,numRefi){
         method: "POST",
         data: { 'accion' : 'FOMA', 'codCtto' : codCtto, 'num_refinanciamiento' : numRefi },
         success : function(respuesta){
-        	console.log('respuesta',respuesta);
+        	//console.log('respuesta',respuesta);
         	$("#bodyCronogramaFomaModif").empty();
         	var numCuo = 0;
         	var totalTotal = 0;
@@ -908,7 +941,7 @@ function cargaObservaciones(codCtto,numServicio){
         method: "POST",
         data: { 'accion' : 'observaciones', 'codCtto' : codCtto, 'num_servicio' : numServicio },
         success : function(respuesta){
-        	console.log('respuesta',respuesta);
+        	//console.log('respuesta',respuesta);
         	$.each(respuesta,function(index,value){
         		if(value['flg_automatico'] == 'SI'){
         			auto = 'checked';
@@ -960,31 +993,109 @@ function anulaCtto(){
 	}
 }
 
+//---------------------------limpia formulario------------------------------//
+
+function resetForm(){
+    limpiaydsi();
+    document.getElementById("myForm").reset();
+    $("#bodyDetCttoModif").empty();
+    $("#bodyServicioVin").empty();
+    $("#bodyObservaciones").empty();
+    $("#bodyServiciosPpales").empty();
+    $("#bodyDsctoModif").empty();
+    $("#bodyEndosoModif").empty();
+    $("#bodyCronogramaModif").empty();
+    $("#bodyCronogramaFomaModif").empty();
+    $("#bodyBeneficiarioM").empty();
+    $("#bodyCronogramaFomaModif").empty();
+}
+
 
 
 //----------------------------Anular contrato-----------------------------//
 // -- Detalle Servicios -- //
-function anularCtto(){
+function anularCtto(numServ = null){
+    if($("#codContrato").val() == ''){
+        swal({
+            title: "",
+            text: "Debe seleccionar el número de servicio que desea anular.",
+            type: "warning",
+            confirmButtonText: "Aceptar",
+        })
+        return;
+    }
+    if($("#flg_activado_"+numServ).val() == 'SI' && $("#flg_resuelto_"+numServ).val() == 'NO'){
+        swal({
+            title: "",
+            text: "El contrato esta ACTIVADO no puede ser anulado.",
+            type: "warning",
+            confirmButtonText: "Aceptar",
+        })
+        return;
+    }else if($("#flg_resuelto_"+numServ).val() == 'SI' && $("#flg_activado_"+numServ).val() == 'SI'){
+        swal({
+            title: "",
+            text: "El contrato esta RESUELTO no puede ser anulado.",
+            type: "warning",
+            confirmButtonText: "Aceptar",
+        })
+        return;
+    }
+    if($("#flg_anulado_"+numServ).val() == 'SI'){
+        swal({
+            title: "",
+            text: "El contrato ya esta ANULADO.",
+            type: "warning",
+            confirmButtonText: "Aceptar",
+        })
+        return;
+    }
+
+    var li_tot = 0;
     // for(li_i = 1 To tab_1.tp_4.dw_servicio_vin.Rowcount()){
-    
+    var container = document.querySelector('#bodyServicioVin');
+    container.querySelectorAll('tr').forEach(function (li_i) 
+    { 
+       var ls_servicio = $(li_i).attr("name"); 
     // ls_servicio = tab_1.tp_4.dw_servicio_vin.GetItemString(li_i, "num_servicio")
+
     // ls_det_servicios = ls_det_servicios + ls_servicio + " - "
-    // li_tot = li_tot + 1
+        var ls_det_servicios = ls_det_servicios + ls_servicio + ' - ';
+        li_tot = li_tot + 1
     
-//     // -- Valida -- //
+    // -- Valida -- //
     
-//     li_valida = 0
-    
-//     SELECT  COUNT(1)
-//     INTO        :li_valida
-//     FROM        vtaca_autorizacion
-//     INNER JOIN vtama_estado_autorizacion ON vtama_estado_autorizacion.cod_estado_autorizacion = vtaca_autorizacion.cod_estado_autorizacion
-//     WHERE   vtama_estado_autorizacion.flg_anulado = 'NO'
-//     AND     vtaca_autorizacion.cod_localidad_ctt = :ls_localidad
-//     AND     vtaca_autorizacion.cod_contrato = :ls_contrato
-//     AND     vtaca_autorizacion.num_servicio = :ls_servicio
-//     AND     vtaca_autorizacion.cod_tipo_programa = :ls_tipo_programa
-//     AND     vtaca_autorizacion.cod_tipo_ctt = :ls_tipo_ctt
+        var li_valida = 0
+
+        $.ajax({
+            url: 'ajax/modifCtto.ajax.php',
+            dataType: 'json',
+            method: "POST",
+            data: { 'accion' : 'valUsoServ', 'ls_contrato' : $("#codContrato").val(), 'ls_servicio' : ls_servicio, 'ls_tipo_programa' : ls_tipo_programa, 'ls_tipo_ctt' : ls_tipo_ctt },
+            success : function(respuesta){
+                li_valida = (respuesta == null) ? 0 : respuesta;
+                console.log(li_valida);
+                if(li_valida > 0){
+                    swal({
+                        title: "",
+                        text: "El contrato / servicio tiene usos de servicio registrados, no puede ser ANULADO.",
+                        type: "warning",
+                        confirmButtonText: "Aceptar",
+                    })
+                    return;
+                }//if
+            }//success
+        });//ajax
+    // SELECT  COUNT(1)
+    // INTO        :li_valida
+    // FROM        vtaca_autorizacion
+    // INNER JOIN vtama_estado_autorizacion ON vtama_estado_autorizacion.cod_estado_autorizacion = vtaca_autorizacion.cod_estado_autorizacion
+    // WHERE   vtama_estado_autorizacion.flg_anulado = 'NO'
+    // AND     vtaca_autorizacion.cod_localidad_ctt = :ls_localidad
+    // AND     vtaca_autorizacion.cod_contrato = :ls_contrato
+    // AND     vtaca_autorizacion.num_servicio = :ls_servicio
+    // AND     vtaca_autorizacion.cod_tipo_programa = :ls_tipo_programa
+    // AND     vtaca_autorizacion.cod_tipo_ctt = :ls_tipo_ctt
 //     USING SQLCA;
     
 //     If IsNull(li_valida) Then li_valida = 0
@@ -994,7 +1105,7 @@ function anularCtto(){
 //         Return
 //     End If
     
-    // }//for
+    });
 
 // ls_det_servicios = Trim(Mid(ls_det_servicios, 1, Len(Trim(ls_det_servicios)) - 1))
 

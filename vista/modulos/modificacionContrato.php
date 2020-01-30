@@ -6,7 +6,7 @@
 		<div class="sidebar-wrapper stickButtons" id="container-button">
 			<ul>
 				<li style="list-style: none;">
-					<a href="#container" class="btn btn-metal m-btn--square m-btn m-btn--icon btn-lg m-btn--icon-only" style="border-top-left-radius: .25rem !important;" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Nueva busqueda" id="new-button">
+					<a href="#container" class="btn btn-metal m-btn--square m-btn m-btn--icon btn-lg m-btn--icon-only" style="border-top-left-radius: .25rem !important;" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Nueva busqueda" id="new-button" onclick="resetForm();">
 						<i class="fa fa-search"></i>
 					</a>
 				</li>
@@ -16,7 +16,7 @@
 					</a>
 				</li>
 				<li style="list-style: none;" >
-					<a href="#container" class="btn btnEditarKqPst2 m-btn--square m-btn m-btn--icon btn-lg m-btn--icon-only" style="border-bottom-left-radius: .25rem !important;" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Anular contrato" id="null-button">
+					<a href="#container" class="btn btnEditarKqPst2 m-btn--square m-btn m-btn--icon btn-lg m-btn--icon-only" style="border-bottom-left-radius: .25rem !important;" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Anular contrato" id="anularBoton" onclick="anularCtto(this.name);">
 						<i class="fa fa-eraser"></i>
 					</a>
 				</li>
@@ -92,6 +92,7 @@
 									<label>Cliente</label>
 									<input type="text" class="form-control form-control-sm m-input" name="nomCliContrato" id="nomCliContrato" disabled>
 									<input type="hidden" id="flg_activado" name="flg_activado">
+									<input type="hidden" name="flg_ctt_integral" id="flg_ctt_integral">
 								</div>
 							</div>
 						</div>
@@ -1483,20 +1484,24 @@
 								<div class="col-lg-4">
 									<fieldset class="fieldFormHorizontal">
 										<legend>Conformación de saldo</legend>
-											<div class="table-responsive">
-												<table class="table m-table" >
-													<thead>
-														<tr>
-															<th>Servcio</th>
-															<th>Saldo</th>
-														</tr>
-													</thead>
-													<tbody id="bodyServicioVin"></tbody>
-													<tfoot>
-														<td>Total:</td>
-														<td style="text-align: right;" id="totalServicioVin">0,00</td>
-													</tfoot>
-												</table>
+											<div class="col-lg-12">
+												<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="160">
+													<div class="table-responsive">
+														<table class="table m-table" >
+															<thead>
+																<tr>
+																	<th>Servcio</th>
+																	<th>Saldo</th>
+																</tr>
+															</thead>
+															<tbody id="bodyServicioVin"></tbody>
+															<tfoot>
+																<td>Total:</td>
+																<td style="text-align: right;" id="totalServicioVin">0,00</td>
+															</tfoot>
+														</table>
+													</div>
+												</div>
 											</div>
 									</fieldset>
 								</div>
@@ -1668,11 +1673,11 @@
 													<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="canalVentaModif" id="canalVentaModif">
 														<option>Selecciona</option>
 														<?php
-																$tabla = "vtama_canal_venta";
-																$item1 = "cod_canal_venta";
-																$item2 = "dsc_canal_venta";
-																$prueba = controladorEmpresa::
-																ctrSelects($tabla,$item1,$item2);
+															$tabla = "vtama_canal_venta";
+															$item1 = "cod_canal_venta";
+															$item2 = "dsc_canal_venta";
+															$prueba = controladorEmpresa::
+															ctrSelects($tabla,$item1,$item2);
 														?>
 													</select>
 												</div>

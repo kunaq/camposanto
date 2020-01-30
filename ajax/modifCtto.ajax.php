@@ -76,6 +76,10 @@ class AjaxModifCtto{
 		}
 		echo json_encode($respuesta);
 	}//ajaxBuscaObservaciones
+	public function ajaxValUsoServ(){
+		$respuesta = ControladorModifCtto::ctrValUsoServ();
+		echo json_encode($respuesta);
+	}//ajaxValUsoServ
 }//class AjaxModifCtto
 /*=============================================
 ACCIONES
@@ -119,4 +123,8 @@ else if(isset($_POST["accion"]) && $_POST["accion"] == 'FOMA'){
 else if(isset($_POST["accion"]) && $_POST["accion"] == 'observaciones'){
 	$cliente = new AjaxModifCtto();
 	$cliente -> ajaxBuscaObservaciones();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'valUsoServ'){
+	$cliente = new AjaxModifCtto();
+	$cliente -> ajaxValUsoServ();
 }
