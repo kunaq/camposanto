@@ -1014,7 +1014,7 @@ function resetForm(){
 //----------------------------Anular contrato-----------------------------//
 // -- Detalle Servicios -- //
 function anularCtto(){
-    if($("#").val() == ''){
+    if($("#codContrato").val() == ''){
         swal({
             title: "",
             text: "Debe seleccionar el número de servicio que desea anular.",
