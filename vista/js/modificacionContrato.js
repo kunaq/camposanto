@@ -181,6 +181,7 @@ function muestraInfo(id){
                     document.getElementById("bodyServicioVin").insertAdjacentHTML("beforeEnd" ,fila2);
                     document.getElementById("totalServicioVin").innerText = Number(respuesta['imp_saldofinanciar']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
                 }
+            $("#anularBoton").attr('name',id);
         	$("#numCuoCronograma").val(respuesta['num_cuotas']);
         	$("#fchVenCronograma").val(respuesta['fch_primer_vencimiento']);
         	$("#interesCronograma").val(respuesta['imp_interes']);
@@ -1013,7 +1014,7 @@ function resetForm(){
 
 //----------------------------Anular contrato-----------------------------//
 // -- Detalle Servicios -- //
-function anularCtto(){
+function anularCtto(numServ = null){
     if($("#codContrato").val() == ''){
         swal({
             title: "",

@@ -16,7 +16,7 @@
 					</a>
 				</li>
 				<li style="list-style: none;" >
-					<a href="#container" class="btn btnEditarKqPst2 m-btn--square m-btn m-btn--icon btn-lg m-btn--icon-only" style="border-bottom-left-radius: .25rem !important;" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Anular contrato" id="null-button" onclick="anularCtto();">
+					<a href="#container" class="btn btnEditarKqPst2 m-btn--square m-btn m-btn--icon btn-lg m-btn--icon-only" style="border-bottom-left-radius: .25rem !important;" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Anular contrato" id="anularBoton" onclick="anularCtto(this.name);">
 						<i class="fa fa-eraser"></i>
 					</a>
 				</li>
