@@ -1072,7 +1072,7 @@ function anularCtto(numServ = null){
             url: 'ajax/modifCtto.ajax.php',
             dataType: 'json',
             method: "POST",
-            data: { 'accion' : 'valUsoServ', 'ls_localidad' : ls_localidad, 'ls_contrato', : ls_contrato, 'ls_servicio' : ls_servicio, 'ls_tipo_programa' : ls_tipo_programa, 'ls_tipo_ctt' : ls_tipo_ctt },
+            data: { 'accion' : 'valUsoServ', 'ls_localidad' : ls_localidad, 'ls_contrato' : ls_contrato, 'ls_servicio' : ls_servicio, 'ls_tipo_programa' : ls_tipo_programa, 'ls_tipo_ctt' : ls_tipo_ctt },
             success : function(respuesta){
                 li_valida = (respuesta == null) ? 0 : respuesta;
                 console.log(li_valida);
