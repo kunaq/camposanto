@@ -90,5 +90,20 @@ class ControladorModifCtto{
 		return $respuesta;
 	}//ctrBuscaObservaciones
 
+	static public function ctrValUsoServ(){
+		$tablaAut = 'vtaca_autorizacion';
+		$tablaEdo = 'vtama_estado_autorizacion';
+		$datos = array("ls_localidad" => $_POST['ls_localidad'],
+						"ls_contrato" => $_POST['ls_contrato'],
+						"ls_servicio" => $_POST['ls_servicio'],
+						"ls_tipo_programa" => $_POST['ls_tipo_programa'],
+						"ls_tipo_ctt" => $_POST['ls_tipo_ctt'],
+						"as_total" => "NO",
+					);
+		$respuesta = ModeloModifCtto::mdlValUsoServ($tablaAut,$tablaEdo,$datos);
+		return $respuesta;
+	}//ctrValUsoServ
+
+
 }//class ControladorModifCtto
 ?>

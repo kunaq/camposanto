@@ -63,7 +63,7 @@ function llenaDatos(codCtto){
         method: "POST",
         data: { 'accion' : 'conCodigo', 'codCtto' : codCtto },
         success : function(respuesta){
-        	console.log('respuesta',respuesta);
+        	// console.log('respuesta',respuesta);
         	document.getElementById("codContrato").value = respuesta[0]['cod_contrato'];
         	$("#tipoPrograma option[value='"+respuesta[0]['cod_tipo_programa']+"']").attr("selected",true);
         	if(respuesta[0]['cod_tipo_programa'] = 'TR000'){
@@ -1024,7 +1024,7 @@ function anularCtto(numServ = null){
         })
         return;
     }
-    if($("#flg_activado").val() == 'SI'){
+    if($("#flg_activado_"+numServ).val() == 'SI'){
         swal({
             title: "",
             text: "El contrato esta ACTIVADO no puede ser anulado.",
@@ -1033,7 +1033,7 @@ function anularCtto(numServ = null){
         })
         return;
     }
-    if($("#flg_resuelto").val() == 'SI'){
+    if($("#flg_resuelto_"+numServ).val() == 'SI'){
         swal({
             title: "",
             text: "El contrato esta RESUELTO no puede ser anulado.",
@@ -1042,7 +1042,7 @@ function anularCtto(numServ = null){
         })
         return;
     }
-    if($("#flg_anulado").val() == 'SI'){
+    if($("#flg_anulado_"+numServ).val() == 'SI'){
         swal({
             title: "",
             text: "El contrato ya esta ANULADO.",
@@ -1058,26 +1058,45 @@ function anularCtto(numServ = null){
     container.querySelectorAll('tr').forEach(function (li_i) 
     { 
        var ls_servicio = $(li_i).attr("name"); 
-       console.log(ls_servicio);
     // ls_servicio = tab_1.tp_4.dw_servicio_vin.GetItemString(li_i, "num_servicio")
 
     // ls_det_servicios = ls_det_servicios + ls_servicio + " - "
+        var ls_det_servicios = ls_det_servicios + ls_servicio + ' - ';
         li_tot = li_tot + 1
     
     // -- Valida -- //
     
         var li_valida = 0
-    
-//     SELECT  COUNT(1)
-//     INTO        :li_valida
-//     FROM        vtaca_autorizacion
-//     INNER JOIN vtama_estado_autorizacion ON vtama_estado_autorizacion.cod_estado_autorizacion = vtaca_autorizacion.cod_estado_autorizacion
-//     WHERE   vtama_estado_autorizacion.flg_anulado = 'NO'
-//     AND     vtaca_autorizacion.cod_localidad_ctt = :ls_localidad
-//     AND     vtaca_autorizacion.cod_contrato = :ls_contrato
-//     AND     vtaca_autorizacion.num_servicio = :ls_servicio
-//     AND     vtaca_autorizacion.cod_tipo_programa = :ls_tipo_programa
-//     AND     vtaca_autorizacion.cod_tipo_ctt = :ls_tipo_ctt
+
+        $.ajax({
+            url: 'ajax/modifCtto.ajax.php',
+            dataType: 'json',
+            method: "POST",
+            data: { 'accion' : 'valUsoServ', 'ls_localidad' : ls_localidad, 'ls_contrato', : ls_contrato, 'ls_servicio' : ls_servicio, 'ls_tipo_programa' : ls_tipo_programa, 'ls_tipo_ctt' : ls_tipo_ctt },
+            success : function(respuesta){
+                li_valida = (respuesta == null) ? 0 : respuesta;
+                console.log(li_valida);
+                if(li_valida > 0){
+                    swal({
+                        title: "",
+                        text: "El contrato / servicio tiene usos de servicio registrados, no puede ser ANULADO.",
+                        type: "warning",
+                        confirmButtonText: "Aceptar",
+                    })
+                    return;
+                }//if
+            }//success
+        });//ajax
+    // SELECT  COUNT(1)
+    // INTO        :li_valida
+    // FROM        vtaca_autorizacion
+    // INNER JOIN vtama_estado_autorizacion ON vtama_estado_autorizacion.cod_estado_autorizacion = vtaca_autorizacion.cod_estado_autorizacion
+    // WHERE   vtama_estado_autorizacion.flg_anulado = 'NO'
+    // AND     vtaca_autorizacion.cod_localidad_ctt = :ls_localidad
+    // AND     vtaca_autorizacion.cod_contrato = :ls_contrato
+    // AND     vtaca_autorizacion.num_servicio = :ls_servicio
+    // AND     vtaca_autorizacion.cod_tipo_programa = :ls_tipo_programa
+    // AND     vtaca_autorizacion.cod_tipo_ctt = :ls_tipo_ctt
 //     USING SQLCA;
     
 //     If IsNull(li_valida) Then li_valida = 0
