@@ -1051,6 +1051,10 @@ function anularCtto(numServ = null){
         return;
     }
 
+    var ls_tipo_programa = $("#tipoPrograma").val();
+    var ls_tipo_ctt = $("#modC").val();
+    var ls_contrato = $("#codContrato").val();
+
     var li_tot = 0;
     // for(li_i = 1 To tab_1.tp_4.dw_servicio_vin.Rowcount()){
     var container = document.querySelector('#bodyServicioVin');
@@ -1071,7 +1075,7 @@ function anularCtto(numServ = null){
             url: 'ajax/modifCtto.ajax.php',
             dataType: 'json',
             method: "POST",
-            data: { 'accion' : 'valUsoServ', 'ls_contrato' : $("#codContrato").val(), 'ls_servicio' : ls_servicio, 'ls_tipo_programa' : ls_tipo_programa, 'ls_tipo_ctt' : ls_tipo_ctt },
+            data: { 'accion' : 'valUsoServ', 'ls_contrato' : ls_contrato, 'ls_servicio' : ls_servicio, 'ls_tipo_programa' : ls_tipo_programa, 'ls_tipo_ctt' : ls_tipo_ctt },
             success : function(respuesta){
                 li_valida = (respuesta == null) ? 0 : respuesta;
                 console.log(li_valida);
