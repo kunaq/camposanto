@@ -107,7 +107,7 @@ class ModeloModifCtto{
 
 	static public function mdlValUsoServ($tablaAut,$tablaEdo,$datos){
 		$db = new Conexion();
-		$sql = $db->consulta("SELECT COUNT(1) FROM $tablaAut INNER JOIN $tablaEdo ON $tablaEdo.cod_estado_autorizacion = $tablaAut.cod_estado_autorizacion WHERE $tablaEdo.flg_anulado = 'NO' AND $tablaAut.cod_localidad_ctt = ".$datos['ls_localidad']." AND $tablaAut.cod_contrato = ".$datos['ls_contrato']." AND $tablaAut.num_servicio = ".$datos['ls_servicio']." AND $tablaAut.cod_tipo_programa = ".$datos['ls_tipo_programa']." AND $tablaAut.cod_tipo_ctt = ".$datos['ls_tipo_ctt']."");
+		$sql = $db->consulta("SELECT COUNT(1) FROM $tablaAut INNER JOIN $tablaEdo ON $tablaEdo.cod_estado_autorizacion = $tablaAut.cod_estado_autorizacion WHERE $tablaEdo.flg_anulado = 'NO' AND $tablaAut.cod_localidad_ctt = ".$datos['ls_localidad']." AND $tablaAut.cod_contrato = ".$datos['ls_contrato']." AND $tablaAut.num_servicio = ".$datos['ls_servicio']." AND $tablaAut.cod_tipo_programa = '".$datos['ls_tipo_programa']."'' AND $tablaAut.cod_tipo_ctt = '".$datos['ls_tipo_ctt']."'");
 		$datos = arrayMapUtf8Encode($db->recorrer($sql));
 		return $datos;
 		$db->liberar($sql);
