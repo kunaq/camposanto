@@ -225,7 +225,7 @@ function getDatosNuevoTitular(cod_cliente){
         	document.getElementById('edoCivilNuevoTitular').value = info[0].cod_estadocivil;
         	document.getElementById('sexoNuevoTitular').value = (info[0].cod_sexo).trim();
         	document.getElementById('emailNuevoTitular').value = info[0].dsc_email;
-        	document.getElementById('paisTitular').value = info[0].dsc_pais;
+        	document.getElementById('paisNuevoTitular').value = info[0].dsc_pais;
         	document.getElementById('departamentoNuevoTitular').value = info[0].dsc_departamento;
         	document.getElementById('provinciaNuevoTitular').value = info[0].dsc_provincia;
         	document.getElementById('distritoNuevoTitular').value = info[0].dsc_distrito;
