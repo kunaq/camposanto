@@ -1015,6 +1015,7 @@ function resetForm(){
 //----------------------------Anular contrato-----------------------------//
 // -- Detalle Servicios -- //
 function anularCtto(numServ = null){
+    console.log(numServ);
     if($("#codContrato").val() == ''){
         swal({
             title: "",
