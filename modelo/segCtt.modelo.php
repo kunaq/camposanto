@@ -685,7 +685,7 @@ class ModeloSegContrato{
 			$tbodyCancelaciones .= '<tr onclick="">
 									<td>'.$key['cod_caja'].'</td>
 									<td>'.$key['num_transaccion'].'</td>
-									<td>'.dateFormat($key['fch_transaccion']).'</td>
+									<td>'.dateFormat($key['fch_registro']).'</td>
 									<td>'.$key['dsc_forma_pago'].'</td>';
 			if ($key['cod_moneda'] == "SOL") {
 				$tbodyCancelaciones .= '<td>S/.</td>';
