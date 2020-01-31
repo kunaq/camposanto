@@ -402,8 +402,14 @@
 													Localidad:
 													</label>
 													<select class="form-control form-control-sm m-input m-select2 m-select2-general" disabled name="localidad" id="localidad">
-														<option value="00001">Empresa 1</option>
-														<option value="00002">Empresa 2</option>
+														<!-- <option value="">Seleccione</option> -->
+														<?php
+															$tabla = "vtama_localidad";
+															$item1 = "cod_localidad";
+															$item2 = "dsc_localidad";
+															$prueba = controladorEmpresa::
+															ctrSelects($tabla,$item1,$item2);
+														?>
 													</select>
 												</div>
 												<div class="col-lg-3">
