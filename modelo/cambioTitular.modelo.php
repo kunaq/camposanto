@@ -37,7 +37,7 @@ class ModeloCambioTitular{
 		$datos = array();
     	while($key = $db->recorrer($sql)){
 
-			$key["fch_nacimiento"] = ($key["fch_nacimiento"] != '') ? dateTimeFormat($key["fch_nacimiento"]) : '';
+			$key["fch_nacimiento"] = ($key["fch_nacimiento"] != '') ? dateFormat($key["fch_nacimiento"]) : '';
 
 	    	$datos[] = arrayMapUtf8Encode($key);
 
