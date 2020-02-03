@@ -998,7 +998,8 @@ function cronograma(){
         //ls_cod_servicio = tab_1.tp_1.dw_detalle.GetItemString(li_i, "cod_servicio")
         var  ls_cod_servicio = $(li_i).attr("name");          
         // lde_saldo_x_servicio = tab_1.tp_1.dw_detalle.GetItemDecimal(li_i, "compute_7") // saldo cada uno
-        var lde_saldo_x_servicio = document.getElementById("numH1_"+ls_cod_servicio).value;      
+        var lde_saldo_x_servicio = document.getElementById("numH1_"+ls_cod_servicio).value;
+        lde_saldo_x_servicio = pasaAnumero(lde_saldo_x_servicio);      
          
          // -- I.G.V. -- //
          
