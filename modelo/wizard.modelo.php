@@ -53,7 +53,7 @@ class ModeloWizard{
 	static public function ejecutaProcedureGeneraCtto($datos){
 		$db = new Conexion();
 		$sql = $db->consulta("EXEC usp_vta_prc_genera_contrato '".$datos['a_usuario']."', '".$datos['as_cliente']."', '".$datos['as_contrato_base']."', '".$datos['as_num_comprobante']."', '".$datos['as_contrato_reg']."', '".$datos['as_tipo_comprobante']."', '".$datos['as_localidad']."', '".$datos['as_tipo_recaudacion']."', '".$datos['as_localidad_base']."', '".$datos['as_servicio_base']."', '".$datos['as_tipo_ctt_base']."', '".$datos['as_camposanto']."', '".$datos['as_plataforma']."', '".$datos['as_area']."', '".$datos['as_eje_horizontal']."', '".$datos['as_eje_vertical']."', '".$datos['as_tipo_espacio']."', '".$datos['as_convenio']."', '".$datos['as_moneda']."', '".$datos['as_moneda_comprob']."', '".$datos['as_espacio']."', '".$datos['as_tipo_necesidad']."', '".$datos['adt_fch_emision']."', ".$datos['ade_imp_cuoi'].", ".$datos['ade_valor_igv'].", '".$datos['as_flg_nuevo']."', '".$datos['as_flg_comprobante']."', '".$datos['as_flg_modif']."', '".$datos['as_flg_regularizar']."', '".$datos['as_flg_ctt_x_tn']."', '".$datos['as_cod_empresa']."', '".$datos['as_tipo_programa_base']."', '".$datos['ai_nivel']."', '".$datos['as_flg_emitir_saldo']."', '".$datos['as_flg_integral']."', '".$datos['as_flg_cronograma_cuoi']."'");
-		
+
 		if($sql){
 			while($key = $db->recorrer($sql)){
 	    		$num_contrato = $key['num_contrato'];
@@ -156,6 +156,19 @@ class ModeloWizard{
 			return 0;
 		}
 	}//function mdlGeneraEspacio
+	
+	static public function mdlGetDatosContrato($cod_localidad,$cod_contrato){
+		$db = new Conexion();
+		$sql = $db->consulta("SELECT TOP 1 cod_contrato, cod_tipo_programa, cod_tipo_ctt, (SELECT vtama_cliente.dsc_documento FROM vtama_cliente WHERE vtama_cliente.cod_cliente = vtade_contrato.cod_cliente) AS dsc_documento FROM vtade_contrato WHERE cod_localidad = '$cod_localidad' AND cod_contrato  LIKE (RIGHT('0000000000'+'$cod_contrato',10))");
+
+		$datos = array();
+    	while($key = $db->recorrer($sql)){
+	    		$datos[] = arrayMapUtf8Encode($key);
+			}
+		return $datos;
+		$db->liberar($sql);
+        $db->cerrar();
+	}//function mdlGetDatosContrato
 
 }//class ModeloWizard
 ?>

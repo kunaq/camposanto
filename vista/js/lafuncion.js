@@ -2505,12 +2505,22 @@ function grabaTemporal(){
                 }else{
                   var flg_regularizacion = "SI"
                 }
+                var modificacion = document.getElementById('modificaCtt');
+                if (modificacion.checked != true){
+                  var flg_modificacion = "NO";
+                }else{
+                  var flg_modificacion = "SI"
+                }
+                var contrato_base = document.getElementById('ctt').value;
+                var localidad_base = pasaAnumero(document.getElementById('localidad').value);
+                var tipo_ctt_base = document.getElementById('tipo_ctt').value;
+                var tipo_programa_base = document.getElementById('tipo_programa').value;
 
                 $.ajax({
                    type: 'POST',
                    url: 'ajax/wizard.ajax.php',
                    dataType: 'json',
-                   data: {'accion' : 'ejecutaProcedure', 'cod_cliente' : cod_cliente, 'tipPro' : tipo_recaudacion, 'camposanto' : camposanto, 'plataforma' : plataforma, 'area' : area, 'ejex' : eje_x, 'ejey' : eje_y, 'tipoEspacio' : tipo_espacio, 'endoso' : endoso, 'espacio' : espacio, 'tipoNec' : tipo_necesidad, 'importeCUI' : imp_cuoi, 'flagNvoCtto' : nuevo_ctt, 'regularizacionCheck' : flg_regularizacion, 'flagIntegral' : flg_integral },
+                   data: {'accion' : 'ejecutaProcedure', 'cod_cliente' : cod_cliente, 'tipPro' : tipo_recaudacion, 'camposanto' : camposanto, 'plataforma' : plataforma, 'area' : area, 'ejex' : eje_x, 'ejey' : eje_y, 'tipoEspacio' : tipo_espacio, 'endoso' : endoso, 'espacio' : espacio, 'tipoNec' : tipo_necesidad, 'importeCUI' : imp_cuoi, 'flagNvoCtto' : nuevo_ctt, 'regularizacionCheck' : flg_regularizacion, 'flagIntegral' : flg_integral, 'flg_modificacion' : flg_modificacion, 'contrato_base' : contrato_base, 'localidad_base' : localidad_base, 'tipo_ctt_base' : tipo_ctt_base, 'tipo_programa_base' : tipo_programa_base },
                    success : function(respuesta){
                     if (respuesta['cod'] == 1) {
                       var dscTable = document.getElementById('bodyDscto');

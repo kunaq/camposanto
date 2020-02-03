@@ -622,6 +622,52 @@ $("#deuCom").change(function() {
     });
 });
 
+$("#ctt").change(function() {
+    var cod_localidad = document.getElementById('localidad').value;
+    var cod_contrato = $(this).val();
+
+    document.getElementById('tipoProgramaMod').value = '';
+    $('#nombreCliente').val('');
+    $("#cod_cliente").val('');
+    document.getElementById("TipoDcoCliente").value = '';
+    document.getElementById("numDocCliente").value = '';
+    document.getElementById('tipo_ctt').value = '';
+    document.getElementById('tipo_programa').value = '';
+
+    $.ajax({
+      type: 'POST',
+      url: 'ajax/wizard.ajax.php',
+      dataType: 'json',
+      data: { 'accion' : 'getDatosContrato', 'cod_localidad' : cod_localidad, 'cod_contrato' : cod_contrato },
+        success : function(respuesta){
+        if (respuesta.length == 0) {
+          swal({
+            title: "Error",
+            text: "El contrato ingresado no existe.",
+            type: "error",
+            confirmButtonText: "aceptar",
+          });
+          document.getElementById('ctt').value = '';
+        }else{
+          $.each(respuesta,function(index,value){
+            document.getElementById('ctt').value = value['cod_contrato'];
+            if (value['cod_tipo_programa'] == 'TR000') {
+              var tipoProg = 'CONTRATO DE SERVICIOS';
+            }else{
+              var tipoProg = '';
+            }
+            document.getElementById('tipoProgramaMod').value = tipoProg;
+            document.getElementById('tipo_ctt').value = value['cod_tipo_ctt'];
+            document.getElementById('tipo_programa').value = value['cod_tipo_programa'];
+            document.getElementById("numDocCliente").value = value['dsc_documento'];
+            $("#numDocCliente").change();
+          });//each
+        }
+        }
+    });
+    
+});
+
 function callProspecto(valor){
     $.ajax({
         type: 'GET',
