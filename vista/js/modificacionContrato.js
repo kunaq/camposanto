@@ -1016,33 +1016,33 @@ function resetForm(){
 // -- Detalle Servicios -- //
 function anularCtto(numServ = null){
     // console.log(numServ);
-    if($("#codContrato").val() == ''){
-        swal({
-            title: "",
-            text: "Debe seleccionar el número de servicio que desea anular.",
-            type: "warning",
-            confirmButtonText: "Aceptar",
-        })
-        return;
-    }
-    else if($("#flg_activado_"+numServ).val() == 'SI' && $("#flg_resuelto_"+numServ).val() == 'NO'){
-        swal({
-            title: "",
-            text: "El contrato esta ACTIVADO no puede ser anulado.",
-            type: "warning",
-            confirmButtonText: "Aceptar",
-        })
-        return;
-    }else if($("#flg_resuelto_"+numServ).val() == 'SI' && $("#flg_activado_"+numServ).val() == 'SI'){
-        swal({
-            title: "",
-            text: "El contrato esta RESUELTO no puede ser anulado.",
-            type: "warning",
-            confirmButtonText: "Aceptar",
-        })
-        return;
-    }
-    else if($("#flg_anulado_"+numServ).val() == 'SI'){
+    // if($("#codContrato").val() == ''){
+    //     swal({
+    //         title: "",
+    //         text: "Debe seleccionar el número de servicio que desea anular.",
+    //         type: "warning",
+    //         confirmButtonText: "Aceptar",
+    //     })
+    //     return;
+    // }
+    // else if($("#flg_activado_"+numServ).val() == 'SI' && $("#flg_resuelto_"+numServ).val() == 'NO'){
+    //     swal({
+    //         title: "",
+    //         text: "El contrato esta ACTIVADO no puede ser anulado.",
+    //         type: "warning",
+    //         confirmButtonText: "Aceptar",
+    //     })
+    //     return;
+    // }else if($("#flg_resuelto_"+numServ).val() == 'SI' && $("#flg_activado_"+numServ).val() == 'SI'){
+    //     swal({
+    //         title: "",
+    //         text: "El contrato esta RESUELTO no puede ser anulado.",
+    //         type: "warning",
+    //         confirmButtonText: "Aceptar",
+    //     })
+    //     return;
+    // }
+    /*else*/ if($("#flg_anulado_"+numServ).val() == 'SI'){
         swal({
             title: "",
             text: "El contrato ya esta ANULADO.",
