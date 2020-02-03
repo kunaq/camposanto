@@ -97,13 +97,23 @@ class ControladorModifCtto{
 						"ls_contrato" => $_POST['ls_contrato'],
 						"ls_servicio" => $_POST['ls_servicio'],
 						"ls_tipo_programa" => $_POST['ls_tipo_programa'],
-						"ls_tipo_ctt" => $_POST['ls_tipo_ctt'],
-						"as_total" => "NO",
+						"ls_tipo_ctt" => $_POST['ls_tipo_ctt']
 					);
 		$respuesta = ModeloModifCtto::mdlValUsoServ($tablaAut,$tablaEdo,$datos);
 		return $respuesta;
 	}//ctrValUsoServ
 
+	static public function ctrVerificaTrans(){
+		$tablaCtto = 'vtade_contrato';
+		$datos = array("ls_localidad" => $_SESSION['localidad'],
+						"ls_contrato" => $_POST['ls_contrato'],
+						"ls_servicio" => $_POST['ls_servicio'],
+						"ls_tipo_programa" => $_POST['ls_tipo_programa'],
+						"ls_tipo_ctt" => $_POST['ls_tipo_ctt']
+					);
+		$respuesta = ModeloModifCtto::mdlVerificaTrans($tablaCtto,,$datos);
+		return $respuesta;
+	}//ctrValUsoServ
 
 }//class ControladorModifCtto
 ?>

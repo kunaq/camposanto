@@ -1042,7 +1042,7 @@ function anularCtto(numServ = null){
     //     })
     //     return;
     // }
-    /*else*/ if($("#flg_anulado_"+numServ).val() == 'SI'){
+    /*else*/if($("#flg_anulado_"+numServ).val() == 'SI'){
         swal({
             title: "",
             text: "El contrato ya esta ANULADO.",
@@ -1060,17 +1060,16 @@ function anularCtto(numServ = null){
         var ls_det_servicios = '';
         // for(li_i = 1 To tab_1.tp_4.dw_servicio_vin.Rowcount()){
         var container = document.querySelector('#bodyServicioVin');
-        container.querySelectorAll('tr').forEach(function (li_i) 
-        { 
+        container.querySelectorAll('tr').forEach(function (li_i){ 
            var ls_servicio = $(li_i).attr("name"); 
-        // ls_servicio = tab_1.tp_4.dw_servicio_vin.GetItemString(li_i, "num_servicio")
+            // ls_servicio = tab_1.tp_4.dw_servicio_vin.GetItemString(li_i, "num_servicio")
 
-        // ls_det_servicios = ls_det_servicios + ls_servicio + " - "
+            // ls_det_servicios = ls_det_servicios + ls_servicio + " - "
             ls_det_servicios = ls_det_servicios + ls_servicio + '-';
             console.log(ls_det_servicios);
             li_tot = li_tot + 1
         
-        // -- Valida -- //
+            // -- Valida -- //
         
             var li_valida = 0
 
@@ -1095,58 +1094,85 @@ function anularCtto(numServ = null){
             });//ajax        
         });//container.querySelectorAll
 
-    // ls_det_servicios = Trim(Mid(ls_det_servicios, 1, Len(Trim(ls_det_servicios)) - 1))
-    ls_det_servicios1 = ls_det_servicios.split("-")[0];
+        // ls_det_servicios = Trim(Mid(ls_det_servicios, 1, Len(Trim(ls_det_servicios)) - 1))
+        ls_det_servicios1 = ls_det_servicios.split("-")[0];
 
-    if( li_tot > 1){
-        swal({
-            title: "",
-            text: "¿Seguro que desea ANULAR LOS SERVICIOS "+ls_det_servicios+"? Esta operación es irreversible",
-            type: "question",
-            showCancelButton:!0,
-            confirmButtonText: "Generar",
-            cancelButtonText:"Cancelar"
-        })
-    }
-    //If f_sys_mensaje_usuario(Title, "MSGLIB", "¿SEGURO QUE DESEA ANULAR LOS SERVICIOS [" + ls_det_servicios + "]?. ESTA OPERACIÓN ES IRREVERSIBLE.", "PRG") <> 1 Then Return
-    else{
-        swal({
-            title: "",
-            text: "¿Seguro que desea ANULAR el servicio "+ls_det_servicios1+"? Esta operación es irreversible",
-            type: "question",
-            showCancelButton:!0,
-            confirmButtonText: "Generar",
-            cancelButtonText:"Cancelar"
-        })
-    }
-    // Else
-    //     If f_sys_mensaje_usuario(Title, "MSGLIB", "¿SEGURO QUE DESEA ANULAR EL SERVICIO [" + ls_det_servicios + "]?. ESTA OPERACIÓN ES IRREVERSIBLE.", "PRG") <> 1 Then Return
-    // End If
+        if( li_tot > 1){
+            swal({
+                title: "",
+                text: "¿Seguro que desea ANULAR LOS SERVICIOS "+ls_det_servicios+"? Esta operación es irreversible",
+                type: "question",
+                showCancelButton:!0,
+                confirmButtonText: "Anular",
+                cancelButtonText:"Cancelar"
+            }).then(function(){
+                var anular = AnulaDefCtto();
+                if (anular == 1){
+                    swal({
+                        title: "",
+                        text: "Se ha Anulado el contrato con éxito.",
+                        type: "success",
+                        confirmButtonText: "Aceptar",
+                    })
+                }
+                else{
+                    swal("","El contrato no ha podido ser Anuladoado, por favor intente nuevamente.","warning")
+                }
+            }//then
+        }//li_tot > 1
+         //If f_sys_mensaje_usuario(Title, "MSGLIB", "¿SEGURO QUE DESEA ANULAR LOS SERVICIOS [" + ls_det_servicios + "]?. ESTA OPERACIÓN ES IRREVERSIBLE.", "PRG") <> 1 Then Return
+        else{
+            swal({
+                title: "",
+                text: "¿Seguro que desea ANULAR el servicio "+ls_det_servicios1+"? Esta operación es irreversible",
+                type: "question",
+                showCancelButton:!0,
+                confirmButtonText: "Anular",
+                cancelButtonText:"Cancelar"
+            }).then(function(){
+                var anular = AnulaDefCtto();
+                if (anular == 1){
+                    swal({
+                        title: "",
+                        text: "Se ha Anulado el contrato con éxito.",
+                        type: "success",
+                        confirmButtonText: "Aceptar",
+                    })
+                }
+                else{
+                    swal("","El contrato no ha podido ser Anuladoado, por favor intente nuevamente.","warning")
+                }
+            }//then
+        }// Else li_tot > 1
+            //     If f_sys_mensaje_usuario(Title, "MSGLIB", "¿SEGURO QUE DESEA ANULAR EL SERVICIO [" + ls_det_servicios + "]?. ESTA OPERACIÓN ES IRREVERSIBLE.", "PRG") <> 1 Then Return
+    }//if validaciones
+}// function anularCtto
 
-    // // -- Servicios Vinculados -- //
+function AnulaDefCtto(){
+    // -- Servicios Vinculados -- //
 
-    // ls_flg_ds_aux = 'NO'
+    var ls_flg_ds_aux = 'NO';
 
     // For li_i = 1 To tab_1.tp_4.dw_servicio_vin.Rowcount()
+    var container = document.querySelector('#bodyServicioVin');
+    container.querySelectorAll('tr').forEach(function (li_i){ 
+        var ls_servicio = $(li_i).attr("name");      
+        // ls_servicio = tab_1.tp_4.dw_servicio_vin.GetItemString(li_i, "num_servicio")
         
-    //     ls_servicio = tab_1.tp_4.dw_servicio_vin.GetItemString(li_i, "num_servicio")
+        // -- Flg DS -- //
         
-    //     // -- Flg DS -- //
-        
-    //     ls_flg_ds = 'NO'
-    //     ls_servicio_foma = ''
-        
-    //     SELECT  vtade_contrato.flg_derecho_sepultura, vtade_contrato.num_servicio_foma
-    //     INTO        :ls_flg_ds, :ls_servicio_foma
-    //     FROM        vtade_contrato
-    //     WHERE   vtade_contrato.cod_localidad = :ls_localidad
-    //     AND     vtade_contrato.cod_contrato = :ls_contrato
-    //     AND     vtade_contrato.num_servicio = :ls_servicio
-    //     AND     vtade_contrato.cod_tipo_programa = :ls_tipo_programa
-    //     AND     vtade_contrato.cod_tipo_ctt = :ls_tipo_ctt
-    //     USING SQLCA;
-        
-    //     f_verifica_transaccion(SQLCA)
+        ls_flg_ds = 'NO';
+        var ls_servicio_foma = '';
+
+        $.ajax({
+            url: 'ajax/modifCtto.ajax.php',
+            dataType: 'json',
+            method: "POST",
+            data: { 'accion' : 'verificaTrans', 'ls_contrato' : ls_contrato, 'ls_servicio' : ls_servicio, 'ls_tipo_programa' : ls_tipo_programa, 'ls_tipo_ctt' : ls_tipo_ctt },
+            success : function(respuesta){
+                console.log('respuesta',respuesta);
+            }//success
+        });//ajax
         
     //     If ls_flg_ds = 'SI' Then
             
@@ -1188,7 +1214,7 @@ function anularCtto(numServ = null){
             
     //     End If
         
-    // Next
+    });// container.querySelectorAll Next
 
     // // -- Actualiza Cronograma -- //
 
@@ -1253,6 +1279,4 @@ function anularCtto(numServ = null){
     //     If f_verifica_transaccion(SQLCA) = False Then Goto db_error
         
     // End If
-    }//if validaciones
-}
-
+}//function AnulaDefCtto

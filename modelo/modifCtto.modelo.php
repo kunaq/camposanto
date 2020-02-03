@@ -112,7 +112,16 @@ class ModeloModifCtto{
 		return $datos;
 		$db->liberar($sql);
         $db->cerrar();
-	}//mdlBuscaCliente
+	}//mdlValUsoServ
+
+	static public function mdlValUsoServ($tablaCtto,$datos){
+		$db = new Conexion();
+		$sql = $db->consulta("SELECT  $tablaCtto.flg_derecho_sepultura, $tablaCtto.num_servicio_foma FROM        $tablaCtto WHERE $tablaCtto.cod_localidad = '".$datos['ls_localidad']."' AND $tablaCtto.cod_contrato LIKE (RIGHT('0000000000'+'".$datos['ls_contrato']."',10)) AND $tablaCtto.num_servicio = ".$datos['ls_servicio']." AND $tablaCtto.cod_tipo_programa = '".$datos['ls_tipo_programa']."' AND $tablaCtto.cod_tipo_ctt = '".$datos['ls_tipo_ctt']."'");
+		$datos = arrayMapUtf8Encode($db->recorrer($sql));
+		return $datos;
+		$db->liberar($sql);
+        $db->cerrar();
+	}//mdlValUsoServ
 
 }//class ModeloModifCtto
 ?>

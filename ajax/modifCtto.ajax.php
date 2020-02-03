@@ -80,6 +80,10 @@ class AjaxModifCtto{
 		$respuesta = ControladorModifCtto::ctrValUsoServ();
 		echo json_encode($respuesta);
 	}//ajaxValUsoServ
+	public function ajaxVerificaTrans(){
+		$respuesta = ControladorModifCtto::ctrVerificaTrans();
+		echo json_encode($respuesta);
+	}//ajaxVerificaTrans
 }//class AjaxModifCtto
 /*=============================================
 ACCIONES
@@ -127,4 +131,8 @@ else if(isset($_POST["accion"]) && $_POST["accion"] == 'observaciones'){
 else if(isset($_POST["accion"]) && $_POST["accion"] == 'valUsoServ'){
 	$cliente = new AjaxModifCtto();
 	$cliente -> ajaxValUsoServ();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'verificaTrans'){
+	$cliente = new AjaxModifCtto();
+	$cliente -> ajaxVerificaTrans();
 }
