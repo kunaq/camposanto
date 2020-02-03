@@ -84,6 +84,26 @@ class AjaxModifCtto{
 		$respuesta = ControladorModifCtto::ctrVerificaTrans();
 		echo json_encode($respuesta);
 	}//ajaxVerificaTrans
+	public function ajaxReplicaDatos(){
+		$respuesta = ControladorModifCtto::ctrReplicaDatos();
+		echo json_encode($respuesta);
+	}//ajaxReplicaDatos
+	public function ajaxActualizaFoma(){
+		$respuesta = ControladorModifCtto::ctrActualizaFoma();
+		echo json_encode($respuesta);
+	}//ajaxActualizaFoma
+	public function ajaxActualizaCronograma(){
+		$respuesta = ControladorModifCtto::ctrActualizaCronograma();
+		echo json_encode($respuesta);
+	}//ajaxActualizaCronograma
+	public function ajaxModificado(){
+		$respuesta = ControladorModifCtto::ctrModificado();
+		echo json_encode($respuesta);
+	}//ajaxModificado
+	public function ajaxGeneraEspacio(){
+		$respuesta = ControladorModifCtto::ctrGeneraEspacio();
+		echo json_encode($respuesta);
+	}//ajaxGeneraEspacio
 }//class AjaxModifCtto
 /*=============================================
 ACCIONES
@@ -135,4 +155,24 @@ else if(isset($_POST["accion"]) && $_POST["accion"] == 'valUsoServ'){
 else if(isset($_POST["accion"]) && $_POST["accion"] == 'verificaTrans'){
 	$cliente = new AjaxModifCtto();
 	$cliente -> ajaxVerificaTrans();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'replicaDatos'){
+	$cliente = new AjaxModifCtto();
+	$cliente -> ajaxReplicaDatos();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'actualizaFoma'){
+	$cliente = new AjaxModifCtto();
+	$cliente -> ajaxActualizaFoma();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'actualizaCronograma'){
+	$cliente = new AjaxModifCtto();
+	$cliente -> ajaxActualizaCronograma();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'modificado'){
+	$cliente = new AjaxModifCtto();
+	$cliente -> ajaxModificado();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'generaEspacio'){
+	$cliente = new AjaxModifCtto();
+	$cliente -> ajaxGeneraEspacio();
 }

@@ -113,7 +113,78 @@ class ControladorModifCtto{
 					);
 		$respuesta = ModeloModifCtto::mdlVerificaTrans($tablaCtto,$datos);
 		return $respuesta;
-	}//ctrValUsoServ
+	}//ctrVerificaTrans
+
+	static public function ctrReplicaDatos(){
+		$tablaCtto = 'vtade_contrato';
+		$fecha = date('Y-m-d');
+		$hora = date('H:i:s');
+		$fechaActual = $fecha.' '.$hora;
+		$datos = array("ls_localidad" => $_SESSION['localidad'],
+						"ls_contrato" => $_POST['ls_contrato'],
+						"ls_servicio" => $_POST['ls_servicio'],
+						"ls_tipo_programa" => $_POST['ls_tipo_programa'],
+						"ls_tipo_ctt" => $_POST['ls_tipo_ctt'],
+						"gs_usuario" => $_SESSION['user'],
+						"ldt_fch_actual" => $fechaActual
+					);
+		$respuesta = ModeloModifCtto::mdlReplicaDatos($tablaCtto,$datos);
+		return $respuesta;
+	}//ctrReplicaDatos
+
+	static public function ctrActualizaFoma(){
+		$tablaCtto = 'vtade_contrato';
+		$fecha = date('Y-m-d');
+		$hora = date('H:i:s');
+		$fechaActual = $fecha.' '.$hora;
+		$datos = array("ls_localidad" => $_SESSION['localidad'],
+						"ls_contrato" => $_POST['ls_contrato'],
+						"ls_tipo_programa" => $_POST['ls_tipo_programa'],
+						"ls_tipo_ctt" => $_POST['ls_tipo_ctt'],
+						"gs_usuario" => $_SESSION['user'],
+						"ldt_fch_actual" => $fechaActual,
+						"ls_servicio_foma" => $_POST['ls_servicio_foma']
+					);
+		$respuesta = ModeloModifCtto::mdlActualizaFoma($tablaCtto,$datos);
+		return $respuesta;
+	}//ctrActualizaFoma
+
+	static public function ctrActualizaCronograma(){
+		$tablaCrono = 'vtade_cronograma';
+		$datos = array("ls_localidad" => $_SESSION['localidad'],
+						"ls_contrato" => $_POST['ls_contrato'],
+						"ls_tipo_programa" => $_POST['ls_tipo_programa'],
+						"ls_tipo_ctt" => $_POST['ls_tipo_ctt'],
+						"li_ref" => $_POST['li_ref']
+					);
+		$respuesta = ModeloModifCtto::mdlActualizaCronograma($tablaCrono,$datos);
+		return $respuesta;
+	}//ctrActualizaCronograma
+
+	static public function ctrModificado(){
+		$tablaResCrono = 'vtavi_resolucion_contrato';
+		$datos = array("ls_localidad" => $_SESSION['localidad'],
+						"ls_contrato" => $_POST['ls_contrato'],
+						"ls_tipo_programa" => $_POST['ls_tipo_programa'],
+						"ls_tipo_ctt" => $_POST['ls_tipo_ctt'],
+						"ls_item_servicio_getrow" => $_POST['ls_item_servicio_getrow']
+					);
+		$respuesta = ModeloModifCtto::mdlModificado($tablaResCrono,$datos);
+		return $respuesta;
+	}//ctrModificado
+
+	static public function ctrGeneraEspacio(){
+		$datos = array('as_camposanto' => $_POST['ls_camposanto'],
+					   'as_plataforma' => $_POST['ls_plataforma'],
+					   'as_area' => $_POST['ls_area'],
+					   'as_eje_horizontal' => $_POST['ls_eje_horizontal'],
+					   'as_eje_vertical' => $_POST['ls_eje_vertical'],
+					   'as_espacio' => $_POST['ls_espacio'],
+					   'as_tipo_espacio' => $_POST['ls_tipo_espacio']
+					  );
+		$respuesta = ModeloWizard::mdlGeneraEspacio($datos);
+		return $respuesta;
+	}// function ctrGeneraEspacio
 
 }//class ControladorModifCtto
 ?>

@@ -63,7 +63,7 @@ function llenaDatos(codCtto){
         method: "POST",
         data: { 'accion' : 'conCodigo', 'codCtto' : codCtto },
         success : function(respuesta){
-        	// console.log('respuesta',respuesta);
+        	console.log('respuesta',respuesta);
         	document.getElementById("codContrato").value = respuesta[0]['cod_contrato'];
         	$("#tipoPrograma option[value='"+respuesta[0]['cod_tipo_programa']+"']").attr("selected",true);
         	if(respuesta[0]['cod_tipo_programa'] = 'TR000'){
@@ -81,13 +81,17 @@ function llenaDatos(codCtto){
         	$("#modC").val(respuesta[0]['cod_tipo_ctt']);
         	$("#nomCliContrato").val(respuesta[0]['dsc_cliente']);
         	$("#campoContrato").val(respuesta[0]['dsc_camposanto']);
+            $("#codCampoContrato").val(respuesta[0]['cod_camposanto_actual']);
         	$("#platContrato").val(respuesta[0]['dsc_plataforma']);
+            $("#codPlatContrato").val(respuesta[0]['cod_plataforma_actual']);
         	$("#areaContrato").val(respuesta[0]['dsc_area']);
+            $("#codAreaContrato").val(respuesta[0]['cod_areaplataforma_actual']);
         	$("#ejeHCotrato").val(respuesta[0]['cod_ejehorizontal_actual']);
         	$("#ejeVContrato").val(respuesta[0]['cod_ejevertical_actual']);
         	$("#espacioContrato").val(respuesta[0]['cod_espacio_actual']);
             $("#flg_ctt_integral").val(respuesta[0]['flg_ctt_integral']);
         	document.getElementById("tipoEspModifContrato").value = respuesta[0]['dsc_tipo_espacio'];
+            $("#codTipoEspModifContrato").val(respuesta[0]['cod_tipoespacio_actual']);
         	$("#bodyDetCttoModif").empty();
             $("#bodyServicioVin").empty();
             var totalVin = 0;
@@ -167,6 +171,7 @@ function muestraInfo(id){
         		$("#codAval").trigger('change');
         	}
         	$("#saldoFinCronograma").val(respuesta['imp_saldofinanciar']);
+            $("#numRefinanciamiento").val(respuesta['num_refinanciamiento']);
         	if(respuesta['imp_saldofinanciar'] != 0){
         		cargaCronograma(codCtto,respuesta['num_refinanciamiento']);
         		cargaFoma(codCtto,respuesta['num_refinanciamiento']);
@@ -1086,7 +1091,7 @@ function anularCtto(numServ = null){
                             title: "",
                             text: "El contrato / servicio tiene usos de servicio registrados, no puede ser ANULADO.",
                             type: "warning",
-                            confirmButtonText: "Aceptar",
+                            confirmButtonText: "Aceptar"
                         })
                         return;
                     }//if
@@ -1112,11 +1117,11 @@ function anularCtto(numServ = null){
                         title: "",
                         text: "Se ha Anulado el contrato con éxito.",
                         type: "success",
-                        confirmButtonText: "Aceptar",
+                        confirmButtonText: "Aceptar"
                     })
                 }
                 else{
-                    swal("","El contrato no ha podido ser Anuladoado, por favor intente nuevamente.","warning")
+                    swal("","El contrato no ha podido ser Anulado, por favor intente nuevamente.","warning")
                 }
             })//then
         }//li_tot > 1
@@ -1136,11 +1141,11 @@ function anularCtto(numServ = null){
                         title: "",
                         text: "Se ha Anulado el contrato con éxito.",
                         type: "success",
-                        confirmButtonText: "Aceptar",
+                        confirmButtonText: "Aceptar"
                     })
                 }
                 else{
-                    swal("","El contrato no ha podido ser Anuladoado, por favor intente nuevamente.","warning")
+                    swal("","El contrato no ha podido ser Anulado, por favor intente nuevamente.","warning")
                 }
             })//then
         }// Else li_tot > 1
@@ -1154,6 +1159,8 @@ function AnulaDefCtto(){
     var ls_tipo_ctt = $("#modC").val();
     var ls_contrato = $("#codContrato").val();
     var ls_flg_ds_aux = 'NO';
+    var li_ref = $("#numRefinanciamiento").val();
+    var ls_item_servicio_getrow = $("#numServicio").val();
 
     // For li_i = 1 To tab_1.tp_4.dw_servicio_vin.Rowcount()
     var container = document.querySelector('#bodyServicioVin');
@@ -1172,113 +1179,126 @@ function AnulaDefCtto(){
             method: "POST",
             data: { 'accion' : 'verificaTrans', 'ls_contrato' : ls_contrato, 'ls_servicio' : ls_servicio, 'ls_tipo_programa' : ls_tipo_programa, 'ls_tipo_ctt' : ls_tipo_ctt },
             success : function(respuesta){
-                console.log('respuesta',respuesta);
+                // console.log('respuesta',respuesta);
+                if(respuesta['flg_derecho_sepultura'] == 'SI'){
+                    ls_flg_ds_aux = 'SI';
+                }
+                ls_servicio_foma = respuesta['num_servicio_foma'];
             }//success
         });//ajax
         
-    //     If ls_flg_ds = 'SI' Then
-            
-    //         ls_flg_ds_aux = 'SI'
-            
-    //     End If
+        // -- Replica Datos -- //
+
+        $.ajax({
+            url: 'ajax/modifCtto.ajax.php',
+            dataType: 'json',
+            method: "POST",
+            data: { 'accion' : 'replicaDatos', 'ls_contrato' : ls_contrato, 'ls_servicio' : ls_servicio, 'ls_tipo_programa' : ls_tipo_programa, 'ls_tipo_ctt' : ls_tipo_ctt },
+            success : function(respuesta){
+                console.log('respuesta',respuesta);
+                if(respuesta == false){
+                   swal({
+                        title: "",
+                        text: "El contrato no ha podido ser Anulado, por favor intente nuevamente.",
+                        type: "error",
+                        confirmButtonText: "Aceptar",
+                    }) 
+                }//if
+            }//success
+        });//ajax
         
-    //     // -- Replica Datos -- //
+        // -- Actualiza FOMA -- //
         
-    //     UPDATE  vtade_contrato
-    //     SET     vtade_contrato.fch_anulacion = :ldt_fch_actual,
-    //                 vtade_contrato.flg_anulado = 'SI',
-    //                 vtade_contrato.cod_usuario_anulacion = :gs_usuario
-    //     WHERE   vtade_contrato.cod_localidad = :ls_localidad
-    //     AND     vtade_contrato.cod_contrato = :ls_contrato
-    //     AND     vtade_contrato.num_servicio = :ls_servicio
-    //     AND     vtade_contrato.cod_tipo_programa = :ls_tipo_programa
-    //     AND     vtade_contrato.cod_tipo_ctt = :ls_tipo_ctt
-    //     USING SQLCA;
-        
-    //     If f_verifica_transaccion(SQLCA) = False Then Goto db_error
-        
-    //     // -- Actualiza FOMA -- //
-        
-    //     If IsNull(ls_servicio_foma) = False And Trim(ls_servicio_foma) <> '' Then
-        
-    //         UPDATE  vtade_contrato
-    //         SET     vtade_contrato.fch_anulacion = :ldt_fch_actual,
-    //                     vtade_contrato.flg_anulado = 'SI',
-    //                     vtade_contrato.cod_usuario_anulacion = :gs_usuario
-    //         WHERE   vtade_contrato.cod_localidad = :ls_localidad
-    //         AND     vtade_contrato.cod_contrato = :ls_contrato
-    //         AND     vtade_contrato.num_servicio = :ls_servicio_foma
-    //         AND     vtade_contrato.cod_tipo_programa = :ls_tipo_programa
-    //         AND     vtade_contrato.cod_tipo_ctt = :ls_tipo_ctt
-    //         USING SQLCA;
-            
-    //         If f_verifica_transaccion(SQLCA) = False Then Goto db_error
-            
-    //     End If
-        
+        if( ls_servicio_foma != null && ls_servicio_foma.trim() != ''){
+
+            $.ajax({
+                url: 'ajax/modifCtto.ajax.php',
+                dataType: 'json',
+                method: "POST",
+                data: { 'accion' : 'actualizaFoma', 'ls_contrato' : ls_contrato, 'ls_tipo_programa' : ls_tipo_programa, 'ls_tipo_ctt' : ls_tipo_ctt, 'ls_servicio_foma' : ls_servicio_foma },
+                success : function(respuesta){
+                    console.log('respuestaFoma',respuesta);
+                    if(respuesta == false){
+                       swal({
+                            title: "",
+                            text: "El contrato no ha podido ser Anulado, por favor intente nuevamente.",
+                            type: "error",
+                            confirmButtonText: "Aceptar"
+                        }) 
+                    }//if
+                }//success
+            });//ajax            
+        }//End If
     });// container.querySelectorAll Next
 
-    // // -- Actualiza Cronograma -- //
+    // -- Actualiza Cronograma -- //
 
-    // UPDATE  vtade_cronograma
-    // SET     vtade_cronograma.cod_estadocuota_ant = vtade_cronograma.cod_estadocuota
-    // WHERE   vtade_cronograma.cod_localidad = :ls_localidad
-    // AND     vtade_cronograma.cod_contrato = :ls_contrato
-    // AND     vtade_cronograma.num_refinanciamiento = :li_ref
-    // AND     vtade_cronograma.cod_tipo_programa = :ls_tipo_programa
-    // AND     vtade_cronograma.cod_tipo_ctt = :ls_tipo_ctt
-    // USING SQLCA;
+    $.ajax({
+        url: 'ajax/modifCtto.ajax.php',
+        dataType: 'json',
+        method: "POST",
+        data: { 'accion' : 'actualizaCronograma', 'ls_contrato' : ls_contrato, 'ls_tipo_programa' : ls_tipo_programa, 'ls_tipo_ctt' : ls_tipo_ctt, 'li_ref' : li_ref },
+        success : function(respuesta){
+            console.log('respuestaCrono',respuesta);
+            if(respuesta == false){
+               swal({
+                    title: "",
+                    text: "El contrato no ha podido ser Anulado, por favor intente nuevamente.",
+                    type: "error",
+                    confirmButtonText: "Aceptar"
+                }) 
+            }//if
+        }//success
+    });//ajax    
 
-    // If f_verifica_transaccion(SQLCA) = False Then Goto db_error
+    // -- Modificado -- //
 
-    // UPDATE  vtade_cronograma
-    // SET     vtade_cronograma.cod_estadocuota = 'ANU'
-    // WHERE   vtade_cronograma.cod_localidad = :ls_localidad
-    // AND     vtade_cronograma.cod_tipo_programa = :ls_tipo_programa
-    // AND     vtade_cronograma.cod_tipo_ctt = :ls_tipo_ctt
-    // AND     vtade_cronograma.cod_contrato = :ls_contrato
-    // AND     vtade_cronograma.num_refinanciamiento = :li_ref
-    // AND     vtade_cronograma.cod_estadocuota IN ('REG', 'EMI')
-    // USING SQLCA;
+    $.ajax({
+        url: 'ajax/modifCtto.ajax.php',
+        dataType: 'json',
+        method: "POST",
+        data: { 'accion' : 'modificado', 'ls_contrato' : ls_contrato, 'ls_tipo_programa' : ls_tipo_programa, 'ls_tipo_ctt' : ls_tipo_ctt, 'ls_item_servicio_getrow' : ls_item_servicio_getrow },
+        success : function(respuesta){
+            console.log('respuestaModif',respuesta);
+            if(respuesta == false){
+               swal({
+                    title: "",
+                    text: "El contrato no ha podido ser Anulado, por favor intente nuevamente.",
+                    type: "error",
+                    confirmButtonText: "Aceptar"
+                }) 
+            }//if
+        }//success
+    });//ajax   
 
-    // If f_verifica_transaccion(SQLCA) = False Then Goto db_error
-
-    // // -- Modificado -- //
-
-    // UPDATE  vtavi_resolucion_contrato
-    // SET     vtavi_resolucion_contrato.cod_localidad_nuevo = vtavi_resolucion_contrato.cod_localidad,
-    //             vtavi_resolucion_contrato.cod_contrato_nuevo = vtavi_resolucion_contrato.cod_contrato,
-    //             vtavi_resolucion_contrato.num_servicio_nuevo = vtavi_resolucion_contrato.num_servicio,
-    //             vtavi_resolucion_contrato.cod_tipo_programa_nuevo = vtavi_resolucion_contrato.cod_tipo_programa,
-    //             vtavi_resolucion_contrato.cod_tipo_ctt_nuevo = vtavi_resolucion_contrato.cod_tipo_ctt
-                
-    // WHERE   vtavi_resolucion_contrato.cod_localidad_nuevo = :ls_localidad
-    // AND     vtavi_resolucion_contrato.cod_tipo_programa_nuevo = :ls_tipo_programa
-    // AND     vtavi_resolucion_contrato.cod_tipo_ctt_nuevo = :ls_tipo_ctt
-    // AND     vtavi_resolucion_contrato.cod_contrato_nuevo = :ls_contrato
-    // AND     vtavi_resolucion_contrato.num_servicio_nuevo = :ls_item_servicio_getrow
-    // USING SQLCA;
-
-    // If f_verifica_transaccion(SQLCA) = False Then Goto db_error
-
-    // // -- Genera Espacio -- //
+    // -- Genera Espacio -- //
      
-    // If ls_flg_ds_aux = 'SI' Then
+    if( ls_flg_ds_aux == 'SI'){
 
-    //     DECLARE sp_genera_espacio PROCEDURE FOR usp_vta_prc_genera_espacio
-            
-    //         @as_camposanto      = :ls_camposanto,
-    //         @as_plataforma      = :ls_plataforma,
-    //         @as_area                = :ls_area,
-    //         @as_eje_horizontal  = :ls_eje_horizontal,
-    //         @as_eje_vertical        = :ls_eje_vertical,
-    //         @as_espacio         = :ls_espacio,
-    //         @as_tipo_espacio        = :ls_tipo_espacio
-            
-    //     USING SQLCA;
-    //     EXECUTE sp_genera_espacio;
-        
-    //     If f_verifica_transaccion(SQLCA) = False Then Goto db_error
-        
-    // End If
+        var ls_camposanto = $("#codCampoContrato").val();
+        var ls_plataforma = $("#codPlatContrato").val();
+        var ls_area = $("#codAreaContrato").val();
+        var ls_eje_horizontal = $("#ejeHCotrato").val();
+        var ls_eje_vertical = $("#ejeVContrato").val();
+        var ls_espacio = $("#espacioContrato").val();
+        var ls_tipo_espacio = $("#codTipoEspModifContrato").val(); 
+
+        $.ajax({
+            url: 'ajax/modifCtto.ajax.php',
+            dataType: 'json',
+            method: "POST",
+            data: { 'accion' : 'generaEspacio', 'ls_camposanto' : ls_camposanto, 'ls_plataforma' : ls_plataforma, 'ls_area' : ls_area, 'ls_eje_horizontal' : ls_eje_horizontal, 'ls_eje_vertical' : ls_eje_vertical, 'ls_espacio' : ls_espacio, 'ls_tipo_espacio' : ls_tipo_espacio },
+            success : function(respuesta){
+                console.log('respuestaEspacio',respuesta);
+                if(respuesta == false){
+                   swal({
+                        title: "",
+                        text: "El contrato no ha podido ser Anulado, por favor intente nuevamente.",
+                        type: "error",
+                        confirmButtonText: "Aceptar"
+                    }) 
+                }//if
+            }//success
+        });//ajax         
+    }// End If
 }//function AnulaDefCtto
