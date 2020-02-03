@@ -1196,6 +1196,7 @@ function AnulaDefCtto(){
             data: { 'accion' : 'replicaDatos', 'ls_contrato' : ls_contrato, 'ls_servicio' : ls_servicio, 'ls_tipo_programa' : ls_tipo_programa, 'ls_tipo_ctt' : ls_tipo_ctt },
             success : function(respuesta){
                 console.log('respuesta',respuesta);
+                var flg_rep_datos = respuesta;
                 if(respuesta == false){
                    swal({
                         title: "",
@@ -1218,6 +1219,7 @@ function AnulaDefCtto(){
                 data: { 'accion' : 'actualizaFoma', 'ls_contrato' : ls_contrato, 'ls_tipo_programa' : ls_tipo_programa, 'ls_tipo_ctt' : ls_tipo_ctt, 'ls_servicio_foma' : ls_servicio_foma },
                 success : function(respuesta){
                     console.log('respuestaFoma',respuesta);
+                    var flg_foma = respuesta;
                     if(respuesta == false){
                        swal({
                             title: "",
@@ -1240,6 +1242,7 @@ function AnulaDefCtto(){
         data: { 'accion' : 'actualizaCronograma', 'ls_contrato' : ls_contrato, 'ls_tipo_programa' : ls_tipo_programa, 'ls_tipo_ctt' : ls_tipo_ctt, 'li_ref' : li_ref },
         success : function(respuesta){
             console.log('respuestaCrono',respuesta);
+            var flg_act_crono = respuesta;
             if(respuesta == false){
                swal({
                     title: "",
@@ -1259,6 +1262,7 @@ function AnulaDefCtto(){
         method: "POST",
         data: { 'accion' : 'modificado', 'ls_contrato' : ls_contrato, 'ls_tipo_programa' : ls_tipo_programa, 'ls_tipo_ctt' : ls_tipo_ctt, 'ls_item_servicio_getrow' : ls_item_servicio_getrow },
         success : function(respuesta){
+            var flg_modificado = respuesta;
             console.log('respuestaModif',respuesta);
             if(respuesta == false){
                swal({
@@ -1290,8 +1294,9 @@ function AnulaDefCtto(){
             data: { 'accion' : 'generaEspacio', 'ls_camposanto' : ls_camposanto, 'ls_plataforma' : ls_plataforma, 'ls_area' : ls_area, 'ls_eje_horizontal' : ls_eje_horizontal, 'ls_eje_vertical' : ls_eje_vertical, 'ls_espacio' : ls_espacio, 'ls_tipo_espacio' : ls_tipo_espacio },
             success : function(respuesta){
                 console.log('respuestaEspacio',respuesta);
+                var flg_genera_espacio = respuesta;
                 if(respuesta == false){
-                   swal({
+                    swal({
                         title: "",
                         text: "El contrato no ha podido ser Anulado, por favor intente nuevamente.",
                         type: "error",
@@ -1301,4 +1306,34 @@ function AnulaDefCtto(){
             }//success
         });//ajax         
     }// End If
+
+    if(ls_flg_ds_aux == 'SI' && ls_servicio_foma == null){
+        if(flg_genera_espacio && flg_modificado && flg_act_crono && flg_rep_datos){
+            swal({
+                title: "",
+                text: "El contrato se ha ANULADO exitosamente.",
+                type: "error",
+                confirmButtonText: "Aceptar"
+            }) 
+        }
+    }else if(ls_flg_ds_aux == 'SI' && ls_servicio_foma == null){
+        if(flg_genera_espacio && flg_modificado && flg_act_crono && flg_rep_datos && flg_foma){
+            swal({
+                title: "",
+                text: "El contrato se ha ANULADO exitosamente.",
+                type: "error",
+                confirmButtonText: "Aceptar"
+            }) 
+        }
+    }else{
+        if(flg_modificado && flg_act_crono && flg_rep_datos){
+            swal({
+                title: "",
+                text: "El contrato se ha ANULADO exitosamente.",
+                type: "error",
+                confirmButtonText: "Aceptar"
+            }) 
+        }
+    }
+
 }//function AnulaDefCtto
