@@ -1118,7 +1118,7 @@ function anularCtto(numServ = null){
                 else{
                     swal("","El contrato no ha podido ser Anuladoado, por favor intente nuevamente.","warning")
                 }
-            }//then
+            })//then
         }//li_tot > 1
          //If f_sys_mensaje_usuario(Title, "MSGLIB", "¿SEGURO QUE DESEA ANULAR LOS SERVICIOS [" + ls_det_servicios + "]?. ESTA OPERACIÓN ES IRREVERSIBLE.", "PRG") <> 1 Then Return
         else{
@@ -1142,7 +1142,7 @@ function anularCtto(numServ = null){
                 else{
                     swal("","El contrato no ha podido ser Anuladoado, por favor intente nuevamente.","warning")
                 }
-            }//then
+            })//then
         }// Else li_tot > 1
             //     If f_sys_mensaje_usuario(Title, "MSGLIB", "¿SEGURO QUE DESEA ANULAR EL SERVICIO [" + ls_det_servicios + "]?. ESTA OPERACIÓN ES IRREVERSIBLE.", "PRG") <> 1 Then Return
     }//if validaciones
