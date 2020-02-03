@@ -1015,34 +1015,34 @@ function resetForm(){
 //----------------------------Anular contrato-----------------------------//
 // -- Detalle Servicios -- //
 function anularCtto(numServ = null){
-    console.log(numServ);
-    // if($("#codContrato").val() == ''){
-    //     swal({
-    //         title: "",
-    //         text: "Debe seleccionar el número de servicio que desea anular.",
-    //         type: "warning",
-    //         confirmButtonText: "Aceptar",
-    //     })
-    //     return;
-    // }
-    // else if($("#flg_activado_"+numServ).val() == 'SI' && $("#flg_resuelto_"+numServ).val() == 'NO'){
-    //     swal({
-    //         title: "",
-    //         text: "El contrato esta ACTIVADO no puede ser anulado.",
-    //         type: "warning",
-    //         confirmButtonText: "Aceptar",
-    //     })
-    //     return;
-    // }else if($("#flg_resuelto_"+numServ).val() == 'SI' && $("#flg_activado_"+numServ).val() == 'SI'){
-    //     swal({
-    //         title: "",
-    //         text: "El contrato esta RESUELTO no puede ser anulado.",
-    //         type: "warning",
-    //         confirmButtonText: "Aceptar",
-    //     })
-    //     return;
-    // }
-    /* else*/ if($("#flg_anulado_"+numServ).val() == 'SI'){
+    // console.log(numServ);
+    if($("#codContrato").val() == ''){
+        swal({
+            title: "",
+            text: "Debe seleccionar el número de servicio que desea anular.",
+            type: "warning",
+            confirmButtonText: "Aceptar",
+        })
+        return;
+    }
+    else if($("#flg_activado_"+numServ).val() == 'SI' && $("#flg_resuelto_"+numServ).val() == 'NO'){
+        swal({
+            title: "",
+            text: "El contrato esta ACTIVADO no puede ser anulado.",
+            type: "warning",
+            confirmButtonText: "Aceptar",
+        })
+        return;
+    }else if($("#flg_resuelto_"+numServ).val() == 'SI' && $("#flg_activado_"+numServ).val() == 'SI'){
+        swal({
+            title: "",
+            text: "El contrato esta RESUELTO no puede ser anulado.",
+            type: "warning",
+            confirmButtonText: "Aceptar",
+        })
+        return;
+    }
+    else if($("#flg_anulado_"+numServ).val() == 'SI'){
         swal({
             title: "",
             text: "El contrato ya esta ANULADO.",
@@ -1066,6 +1066,7 @@ function anularCtto(numServ = null){
 
         // ls_det_servicios = ls_det_servicios + ls_servicio + " - "
             var ls_det_servicios = ls_det_servicios + ls_servicio + ' - ';
+            console.log(ls_det_servicios);
             li_tot = li_tot + 1
         
         // -- Valida -- //
@@ -1079,7 +1080,7 @@ function anularCtto(numServ = null){
                 data: { 'accion' : 'valUsoServ', 'ls_contrato' : ls_contrato, 'ls_servicio' : ls_servicio, 'ls_tipo_programa' : ls_tipo_programa, 'ls_tipo_ctt' : ls_tipo_ctt },
                 success : function(respuesta){
                     li_valida = (respuesta['computed'] == null) ? 0 : respuesta['computed'];
-                    console.log(li_valida);
+                    // console.log(li_valida);
                     if(li_valida > 0){
                         swal({
                             title: "",
@@ -1090,27 +1091,8 @@ function anularCtto(numServ = null){
                         return;
                     }//if
                 }//success
-            });//ajax
-        // SELECT  COUNT(1)
-        // INTO        :li_valida
-        // FROM        vtaca_autorizacion
-        // INNER JOIN vtama_estado_autorizacion ON vtama_estado_autorizacion.cod_estado_autorizacion = vtaca_autorizacion.cod_estado_autorizacion
-        // WHERE   vtama_estado_autorizacion.flg_anulado = 'NO'
-        // AND     vtaca_autorizacion.cod_localidad_ctt = :ls_localidad
-        // AND     vtaca_autorizacion.cod_contrato = :ls_contrato
-        // AND     vtaca_autorizacion.num_servicio = :ls_servicio
-        // AND     vtaca_autorizacion.cod_tipo_programa = :ls_tipo_programa
-        // AND     vtaca_autorizacion.cod_tipo_ctt = :ls_tipo_ctt
-    //     USING SQLCA;
-        
-    //     If IsNull(li_valida) Then li_valida = 0
-        
-    //     If li_valida > 0 Then
-    //         f_sys_mensaje_usuario(Title, "MSGLIB", "EL CONTRATO / SERVICIO TIENE USOS DE SERVICIO REGISTRADOS, NO PUEDE SER ANULADO.", "PRV")
-    //         Return
-    //     End If
-        
-        });
+            });//ajax        
+        });//container.querySelectorAll
 
     // ls_det_servicios = Trim(Mid(ls_det_servicios, 1, Len(Trim(ls_det_servicios)) - 1))
 
