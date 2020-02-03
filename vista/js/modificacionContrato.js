@@ -1078,7 +1078,7 @@ function anularCtto(numServ = null){
                 method: "POST",
                 data: { 'accion' : 'valUsoServ', 'ls_contrato' : ls_contrato, 'ls_servicio' : ls_servicio, 'ls_tipo_programa' : ls_tipo_programa, 'ls_tipo_ctt' : ls_tipo_ctt },
                 success : function(respuesta){
-                    li_valida = (respuesta == null) ? 0 : respuesta;
+                    li_valida = (respuesta['computed'] == null) ? 0 : respuesta['computed'];
                     console.log(li_valida);
                     if(li_valida > 0){
                         swal({
