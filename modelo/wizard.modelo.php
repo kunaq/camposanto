@@ -156,6 +156,19 @@ class ModeloWizard{
 			return 0;
 		}
 	}//function mdlGeneraEspacio
+	
+	static public function mdlGetDatosContrato($cod_localidad,$cod_contrato){
+		$db = new Conexion();
+		$sql = $db->consulta("SELECT TOP 1 cod_contrato, cod_tipo_programa, cod_tipo_ctt, (SELECT vtama_cliente.dsc_documento FROM vtama_cliente WHERE vtama_cliente.cod_cliente = vtade_contrato.cod_cliente) AS dsc_documento FROM vtade_contrato WHERE cod_localidad = '$cod_localidad' AND cod_contrato  LIKE (RIGHT('0000000000'+'$cod_contrato',10))");
+
+		$datos = array();
+    	while($key = $db->recorrer($sql)){
+	    		$datos[] = arrayMapUtf8Encode($key);
+			}
+		return $datos;
+		$db->liberar($sql);
+        $db->cerrar();
+	}//function mdlGetDatosContrato
 
 }//class ModeloWizard
 ?>

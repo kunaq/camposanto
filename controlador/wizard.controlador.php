@@ -47,17 +47,29 @@ class ControladorWizard{
 		$fecha = date('Y-m-d');
 		$hora = date('H:i:s');
 		$fechaActual = $fecha.' '.$hora;
+		if ($_POST['contrato_base'] == '') {
+			$as_contrato_base = NULL;
+			$as_localidad_base = NULL;
+			$as_tipo_ctt_base = NULL;
+			$as_tipo_programa_base = NULL;
+		}else{
+			$as_contrato_base = $_POST['contrato_base'];
+			$as_localidad_base = $_POST['localidad_base'];
+			$as_tipo_ctt_base = $_POST['tipo_ctt_base'];
+			$as_tipo_programa_base = $_POST['tipo_programa_base'];
+		}
+
 		$datos = array("a_usuario" => $_SESSION["user"],
 						"as_cliente" => $_POST['cod_cliente'],
-						"as_contrato_base" => NULL,
+						"as_contrato_base" => $as_contrato_base,
 						"as_num_comprobante" => NULL,
 						"as_contrato_reg" => NULL,
 						"as_tipo_comprobante" => NULL,
 						"as_localidad" => $_SESSION['localidad'],
 						"as_tipo_recaudacion" => $_POST['tipPro'],
-						"as_localidad_base" => NULL,
+						"as_localidad_base" => $as_localidad_base,
 						"as_servicio_base" => NULL,
-						"as_tipo_ctt_base" => NULL,
+						"as_tipo_ctt_base" => $as_tipo_ctt_base,
 						"as_camposanto" => $_POST['camposanto'],
 						"as_plataforma" => $_POST['plataforma'],
 						"as_area" => $_POST['area'],
@@ -74,11 +86,11 @@ class ControladorWizard{
 						"ade_valor_igv" => 0.18,
 						"as_flg_nuevo" => $_POST['flagNvoCtto'],
 						"as_flg_comprobante" => 'NO',
-						"as_flg_modif" => 'NO',
+						"as_flg_modif" => $_POST['flg_modificacion'],
 						"as_flg_regularizar" => $_POST['regularizacionCheck'],
 						"as_flg_ctt_x_tn" => 'NO',
 						"as_cod_empresa" => $_SESSION['codEmpresa'],
-						"as_tipo_programa_base" => NULL,
+						"as_tipo_programa_base" => $as_tipo_programa_base,
 						"ai_nivel" => NULL,
 						"as_flg_emitir_saldo" => 'NO',
 						"as_flg_integral" => $_POST['flagIntegral'],
@@ -203,6 +215,15 @@ class ControladorWizard{
 		$respuesta = ModeloWizard::mdlGeneraEspacio($datos);
 		return $respuesta;
 	}// function ctrGuardaCronograma
+	
+	static public function ctrGetDatosContrato(){
+
+		$cod_localidad = $_POST['cod_localidad'];
+		$cod_contrato = $_POST['cod_contrato'];
+
+		$respuesta = ModeloWizard::mdlGetDatosContrato($cod_localidad,$cod_contrato);
+		return $respuesta;
+	}//function ctrGetDatosContrato
 
 }//class ControladorWizard
 ?>

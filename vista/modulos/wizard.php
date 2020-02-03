@@ -423,7 +423,9 @@
 														Programa:
 													</label>
 													<div class="input-group">
-														<input type="text" class="form-control form-control-sm m-input" placeholder="Programa" disabled>
+														<input type="text" class="form-control form-control-sm m-input" placeholder="Programa" disabled id="tipoProgramaMod">
+														<input type="hidden" class="form-control form-control-sm m-input" id="tipo_programa">
+														<input type="hidden" class="form-control form-control-sm m-input" id="tipo_ctt">
 													</div>
 												</div>
 												<div class="col-lg-3" style="margin-top: 2rem;">
