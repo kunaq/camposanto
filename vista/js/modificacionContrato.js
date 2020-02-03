@@ -1057,6 +1057,7 @@ function anularCtto(numServ = null){
         var ls_contrato = $("#codContrato").val();
 
         var li_tot = 0;
+        var ls_det_servicios = '';
         // for(li_i = 1 To tab_1.tp_4.dw_servicio_vin.Rowcount()){
         var container = document.querySelector('#bodyServicioVin');
         container.querySelectorAll('tr').forEach(function (li_i) 
@@ -1065,7 +1066,7 @@ function anularCtto(numServ = null){
         // ls_servicio = tab_1.tp_4.dw_servicio_vin.GetItemString(li_i, "num_servicio")
 
         // ls_det_servicios = ls_det_servicios + ls_servicio + " - "
-            var ls_det_servicios = ls_det_servicios + ls_servicio + ' - ';
+            ls_det_servicios = ls_det_servicios + ls_servicio + '-';
             console.log(ls_det_servicios);
             li_tot = li_tot + 1
         
@@ -1095,9 +1096,29 @@ function anularCtto(numServ = null){
         });//container.querySelectorAll
 
     // ls_det_servicios = Trim(Mid(ls_det_servicios, 1, Len(Trim(ls_det_servicios)) - 1))
+    ls_det_servicios1 = ls_det_servicios.split("-")[0];
 
-    // If li_tot > 1 Then
-    //     If f_sys_mensaje_usuario(Title, "MSGLIB", "¿SEGURO QUE DESEA ANULAR LOS SERVICIOS [" + ls_det_servicios + "]?. ESTA OPERACIÓN ES IRREVERSIBLE.", "PRG") <> 1 Then Return
+    if( li_tot > 1){
+        swal({
+            title: "",
+            text: "¿Seguro que desea ANULAR LOS SERVICIOS "+ls_det_servicios+"? Esta operación es irreversible",
+            type: "question",
+            showCancelButton:!0,
+            confirmButtonText: "Generar",
+            cancelButtonText:"Cancelar"
+        })
+    }
+    //If f_sys_mensaje_usuario(Title, "MSGLIB", "¿SEGURO QUE DESEA ANULAR LOS SERVICIOS [" + ls_det_servicios + "]?. ESTA OPERACIÓN ES IRREVERSIBLE.", "PRG") <> 1 Then Return
+    else{
+        swal({
+            title: "",
+            text: "¿Seguro que desea ANULAR el servicio "+ls_det_servicios1+"? Esta operación es irreversible",
+            type: "question",
+            showCancelButton:!0,
+            confirmButtonText: "Generar",
+            cancelButtonText:"Cancelar"
+        })
+    }
     // Else
     //     If f_sys_mensaje_usuario(Title, "MSGLIB", "¿SEGURO QUE DESEA ANULAR EL SERVICIO [" + ls_det_servicios + "]?. ESTA OPERACIÓN ES IRREVERSIBLE.", "PRG") <> 1 Then Return
     // End If
