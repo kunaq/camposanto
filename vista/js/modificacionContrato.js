@@ -1150,7 +1150,9 @@ function anularCtto(numServ = null){
 
 function AnulaDefCtto(){
     // -- Servicios Vinculados -- //
-
+    var ls_tipo_programa = $("#tipoPrograma").val();
+    var ls_tipo_ctt = $("#modC").val();
+    var ls_contrato = $("#codContrato").val();
     var ls_flg_ds_aux = 'NO';
 
     // For li_i = 1 To tab_1.tp_4.dw_servicio_vin.Rowcount()
