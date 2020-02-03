@@ -111,7 +111,7 @@ class ControladorModifCtto{
 						"ls_tipo_programa" => $_POST['ls_tipo_programa'],
 						"ls_tipo_ctt" => $_POST['ls_tipo_ctt']
 					);
-		$respuesta = ModeloModifCtto::mdlVerificaTrans($tablaCtto,,$datos);
+		$respuesta = ModeloModifCtto::mdlVerificaTrans($tablaCtto,$datos);
 		return $respuesta;
 	}//ctrValUsoServ
 
