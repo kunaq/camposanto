@@ -1071,7 +1071,7 @@ function anularCtto(numServ = null){
 
             // ls_det_servicios = ls_det_servicios + ls_servicio + " - "
             ls_det_servicios = ls_det_servicios + ls_servicio + '-';
-            console.log(ls_det_servicios);
+            // console.log(ls_det_servicios);
             li_tot = li_tot + 1
         
             // -- Valida -- //
@@ -1149,7 +1149,6 @@ function anularCtto(numServ = null){
                 // }
             })//then
         }// Else li_tot > 1
-            //     If f_sys_mensaje_usuario(Title, "MSGLIB", "¿SEGURO QUE DESEA ANULAR EL SERVICIO [" + ls_det_servicios + "]?. ESTA OPERACIÓN ES IRREVERSIBLE.", "PRG") <> 1 Then Return
     }//if validaciones
 }// function anularCtto
 
@@ -1195,7 +1194,7 @@ function AnulaDefCtto(){
                         method: "POST",
                         data: { 'accion' : 'actualizaFoma', 'ls_contrato' : ls_contrato, 'ls_tipo_programa' : ls_tipo_programa, 'ls_tipo_ctt' : ls_tipo_ctt, 'ls_servicio_foma' : ls_servicio_foma },
                         success : function(respuesta){
-                            console.log('respuestaFoma',respuesta);
+                            // console.log('respuestaFoma',respuesta);
                             var flg_foma = respuesta;
                             if(respuesta == false){
                                swal({
@@ -1206,29 +1205,28 @@ function AnulaDefCtto(){
                                 }) 
                             }//if
                         }//success
-                    });//ajax            
+                    });//ajax foma            
                 }//End If
-            }//success
-        });//ajax
-        
-        // -- Replica Datos -- //
 
-        $.ajax({
-            url: 'ajax/modifCtto.ajax.php',
-            dataType: 'json',
-            method: "POST",
-            data: { 'accion' : 'replicaDatos', 'ls_contrato' : ls_contrato, 'ls_servicio' : ls_servicio, 'ls_tipo_programa' : ls_tipo_programa, 'ls_tipo_ctt' : ls_tipo_ctt },
-            success : function(respuesta){
-                // console.log('respuesta',respuesta);
-                var flg_rep_datos = respuesta;
-                if(respuesta == false){
-                   swal({
-                        title: "",
-                        text: "El contrato no ha podido ser Anulado, por favor intente nuevamente.",
-                        type: "error",
-                        confirmButtonText: "Aceptar",
-                    }) 
-                }//if
+                // -- Replica Datos -- //
+                $.ajax({
+                    url: 'ajax/modifCtto.ajax.php',
+                    dataType: 'json',
+                    method: "POST",
+                    data: { 'accion' : 'replicaDatos', 'ls_contrato' : ls_contrato, 'ls_servicio' : ls_servicio, 'ls_tipo_programa' : ls_tipo_programa, 'ls_tipo_ctt' : ls_tipo_ctt },
+                    success : function(respuesta){
+                        // console.log('respuesta',respuesta);
+                        var flg_rep_datos = respuesta;
+                        if(respuesta == false){
+                           swal({
+                                title: "",
+                                text: "El contrato no ha podido ser Anulado, por favor intente nuevamente.",
+                                type: "error",
+                                confirmButtonText: "Aceptar",
+                            }) 
+                        }//if
+                    }//success
+                });//ajax replica datos
             }//success
         });//ajax
     });// container.querySelectorAll
