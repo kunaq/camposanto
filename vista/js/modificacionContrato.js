@@ -97,7 +97,8 @@ function llenaDatos(codCtto){
             var totalVin = 0;
         	$.each(respuesta,function(index,value){
                 totalVin = totalVin+parseFloat(value['imp_saldofinanciar']);
-        		var fila ='<tr class="listaServicio inactivo" onclick="muestraInfo('+value['num_servicio']+');">'+
+                var id = "filaServ_"+value['num_servicio'];
+        		var fila ='<tr class="listaServicio inactivo" id="'+id+'" onclick="muestraInfo('+value['num_servicio']+');">'+
 					'<td class="text-center">'+value['num_servicio']+'</td>'+
 					'<td class="text-left">'+value['dsc_tipo_servicio']+'</td>'+
 					'<td class="text-center">'+value['fch_generacion']+'</td>'+
@@ -127,7 +128,7 @@ function llenaDatos(codCtto){
 
 function muestraInfo(id){
     $(".listaServicio tr").removeClass('activoListaServicioModif'); 
-    $(this).parent('tr').addClass('activoListaServicioModif');
+    $("#filaServ_"+id).addClass('activoListaServicioModif');
 	var codCtto = $("#codContrato").val();
 	$.ajax({
         url: 'ajax/modifCtto.ajax.php',
