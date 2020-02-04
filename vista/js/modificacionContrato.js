@@ -1071,7 +1071,7 @@ function anularCtto(numServ = null){
 
             // ls_det_servicios = ls_det_servicios + ls_servicio + " - "
             ls_det_servicios = ls_det_servicios + ls_servicio + '-';
-            // console.log(ls_det_servicios);
+            console.log(ls_det_servicios);
             li_tot = li_tot + 1
         
             // -- Valida -- //
@@ -1136,18 +1136,17 @@ function anularCtto(numServ = null){
                 cancelButtonText:"Cancelar"
             }).then(function(){
                 var anular = AnulaDefCtto();
-                console.log(anular);
-                if (anular == 1){
-                    swal({
-                        title: "",
-                        text: "Se ha Anulado el contrato con éxito.",
-                        type: "success",
-                        confirmButtonText: "Aceptar"
-                    })
-                }
-                else{
-                    swal("","El contrato no ha podido ser Anulado, por favor intente nuevamente.","warning")
-                }
+                // if (anular == 1){
+                //     swal({
+                //         title: "",
+                //         text: "Se ha Anulado el contrato con éxito.",
+                //         type: "success",
+                //         confirmButtonText: "Aceptar"
+                //     })
+                // }
+                // else{
+                //     swal("","El contrato no ha podido ser Anulado, por favor intente nuevamente.","warning")
+                // }
             })//then
         }// Else li_tot > 1
             //     If f_sys_mensaje_usuario(Title, "MSGLIB", "¿SEGURO QUE DESEA ANULAR EL SERVICIO [" + ls_det_servicios + "]?. ESTA OPERACIÓN ES IRREVERSIBLE.", "PRG") <> 1 Then Return
@@ -1310,15 +1309,30 @@ function AnulaDefCtto(){
 
     if(ls_flg_ds_aux == 'SI' && ls_servicio_foma == null){
         if(flg_genera_espacio && flg_modificado && flg_act_crono && flg_rep_datos){
-           return 1;
+            swal({
+                title: "",
+                text: "El contrato se ha ANULADO exitosamente.",
+                type: "error",
+                confirmButtonText: "Aceptar"
+            }) 
         }
     }else if(ls_flg_ds_aux == 'SI' && ls_servicio_foma == null){
         if(flg_genera_espacio && flg_modificado && flg_act_crono && flg_rep_datos && flg_foma){
-           return 1;
+            swal({
+                title: "",
+                text: "El contrato se ha ANULADO exitosamente.",
+                type: "error",
+                confirmButtonText: "Aceptar"
+            }) 
         }
     }else{
         if(flg_modificado && flg_act_crono && flg_rep_datos){
-           return 1;
+            swal({
+                title: "",
+                text: "El contrato se ha ANULADO exitosamente.",
+                type: "error",
+                confirmButtonText: "Aceptar"
+            }) 
         }
     }
 
