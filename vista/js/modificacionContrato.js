@@ -1225,44 +1225,43 @@ function AnulaDefCtto(){
                                 confirmButtonText: "Aceptar",
                             }) 
                         }//if
+                        var flg_act_crono = actualizaCrono();
+                        var flg_modificado = modificado();
+                        var flg_genera_espacio = generaEspacio(ls_flg_ds_aux);
+
+                        if(ls_flg_ds_aux == 'SI' && ls_servicio_foma == null){
+                            if(flg_genera_espacio && flg_modificado && flg_act_crono && flg_rep_datos){
+                                swal({
+                                    title: "",
+                                    text: "El contrato se ha ANULADO exitosamente.",
+                                    type: "error",
+                                    confirmButtonText: "Aceptar"
+                                }) 
+                            }
+                        }else if(ls_flg_ds_aux == 'SI' && ls_servicio_foma == null){
+                            if(flg_genera_espacio && flg_modificado && flg_act_crono && flg_rep_datos && flg_foma){
+                                swal({
+                                    title: "",
+                                    text: "El contrato se ha ANULADO exitosamente.",
+                                    type: "error",
+                                    confirmButtonText: "Aceptar"
+                                }) 
+                            }
+                        }else{
+                            if(flg_modificado && flg_act_crono && flg_rep_datos){
+                                swal({
+                                    title: "",
+                                    text: "El contrato se ha ANULADO exitosamente.",
+                                    type: "error",
+                                    confirmButtonText: "Aceptar"
+                                }) 
+                            }
+                        }
                     }//success
                 });//ajax replica datos
             }//success
-        });//ajax
+        });//ajax verifica
     });// container.querySelectorAll
-
-    var flg_act_crono = actualizaCrono();
-    var flg_modificado = modificado();
-    var flg_genera_espacio = generaEspacio(ls_flg_ds_aux);
-
-    if(ls_flg_ds_aux == 'SI' && ls_servicio_foma == null){
-        if(flg_genera_espacio && flg_modificado && flg_act_crono && flg_rep_datos){
-            swal({
-                title: "",
-                text: "El contrato se ha ANULADO exitosamente.",
-                type: "error",
-                confirmButtonText: "Aceptar"
-            }) 
-        }
-    }else if(ls_flg_ds_aux == 'SI' && ls_servicio_foma == null){
-        if(flg_genera_espacio && flg_modificado && flg_act_crono && flg_rep_datos && flg_foma){
-            swal({
-                title: "",
-                text: "El contrato se ha ANULADO exitosamente.",
-                type: "error",
-                confirmButtonText: "Aceptar"
-            }) 
-        }
-    }else{
-        if(flg_modificado && flg_act_crono && flg_rep_datos){
-            swal({
-                title: "",
-                text: "El contrato se ha ANULADO exitosamente.",
-                type: "error",
-                confirmButtonText: "Aceptar"
-            }) 
-        }
-    }
 }//function AnulaDefCtto
 
 
