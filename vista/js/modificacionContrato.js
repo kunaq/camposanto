@@ -63,7 +63,7 @@ function llenaDatos(codCtto){
         method: "POST",
         data: { 'accion' : 'conCodigo', 'codCtto' : codCtto },
         success : function(respuesta){
-        	console.log('respuesta',respuesta);
+        	// console.log('respuesta',respuesta);
         	document.getElementById("codContrato").value = respuesta[0]['cod_contrato'];
         	$("#tipoPrograma option[value='"+respuesta[0]['cod_tipo_programa']+"']").attr("selected",true);
         	if(respuesta[0]['cod_tipo_programa'] = 'TR000'){
@@ -1071,7 +1071,7 @@ function anularCtto(numServ = null){
 
             // ls_det_servicios = ls_det_servicios + ls_servicio + " - "
             ls_det_servicios = ls_det_servicios + ls_servicio + '-';
-            console.log(ls_det_servicios);
+            // console.log(ls_det_servicios);
             li_tot = li_tot + 1
         
             // -- Valida -- //
@@ -1136,6 +1136,7 @@ function anularCtto(numServ = null){
                 cancelButtonText:"Cancelar"
             }).then(function(){
                 var anular = AnulaDefCtto();
+                console.log(anular);
                 if (anular == 1){
                     swal({
                         title: "",
@@ -1309,30 +1310,15 @@ function AnulaDefCtto(){
 
     if(ls_flg_ds_aux == 'SI' && ls_servicio_foma == null){
         if(flg_genera_espacio && flg_modificado && flg_act_crono && flg_rep_datos){
-            swal({
-                title: "",
-                text: "El contrato se ha ANULADO exitosamente.",
-                type: "error",
-                confirmButtonText: "Aceptar"
-            }) 
+           return 1;
         }
     }else if(ls_flg_ds_aux == 'SI' && ls_servicio_foma == null){
         if(flg_genera_espacio && flg_modificado && flg_act_crono && flg_rep_datos && flg_foma){
-            swal({
-                title: "",
-                text: "El contrato se ha ANULADO exitosamente.",
-                type: "error",
-                confirmButtonText: "Aceptar"
-            }) 
+           return 1;
         }
     }else{
         if(flg_modificado && flg_act_crono && flg_rep_datos){
-            swal({
-                title: "",
-                text: "El contrato se ha ANULADO exitosamente.",
-                type: "error",
-                confirmButtonText: "Aceptar"
-            }) 
+           return 1;
         }
     }
 
