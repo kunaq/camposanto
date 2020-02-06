@@ -5,7 +5,7 @@ class ModeloModifCtto{
 
 	static public function mdlBuscaCttos($tabla,$tabla2,$tabla3,$tabla4,$tabla5,$tabla6,$tabla7,$tabla8,$codCtto){
 		$db = new Conexion();
-		$sql = $db->consulta("SELECT $tabla.cod_contrato,$tabla.imp_saldofinanciar,$tabla.flg_activado,$tabla.flg_resuelto,$tabla.flg_anulado,$tabla.flg_ctt_integral,$tabla.num_servicio,$tabla.cod_tipo_programa,$tabla.flg_ctt_modif, $tabla.cod_tipo_ctt, $tabla.fch_generacion,$tabla.fch_emision, $tabla.fch_activacion, $tabla.fch_anulacion, $tabla.fch_resolucion, $tabla.fch_transferencia, $tabla2.dsc_cliente, $tabla3.*, $tabla4.dsc_camposanto, $tabla5.dsc_area, $tabla6.dsc_plataforma, $tabla7.dsc_tipo_espacio, $tabla8.dsc_tipo_servicio, $tabla.cod_empresa, $tabla.cod_titular_alterno, $tabla.cod_aval FROM $tabla INNER JOIN $tabla2 ON $tabla.cod_cliente = $tabla2.cod_cliente INNER JOIN $tabla3 ON $tabla.cod_contrato = $tabla3.cod_contrato LEFT JOIN $tabla4 ON $tabla4.cod_camposanto = $tabla.cod_empresa INNER JOIN $tabla5 ON $tabla5.cod_area_plataforma = $tabla3.cod_areaplataforma_actual INNER JOIN  $tabla6 ON $tabla6.cod_plataforma = $tabla3.cod_plataforma_actual INNER JOIN $tabla7 ON $tabla7.cod_tipo_espacio = $tabla3.cod_tipoespacio_actual INNER JOIN $tabla8 ON $tabla8.cod_tipo_servicio = $tabla.cod_tipo_servicio WHERE $tabla.cod_contrato LIKE (RIGHT('0000000000'+'$codCtto',10)) AND $tabla.flg_fondo_mantenimiento = 'NO'");
+		$sql = $db->consulta("SELECT $tabla.cod_contrato,$tabla.imp_saldofinanciar,$tabla.flg_activado,$tabla.flg_resuelto,$tabla.flg_anulado,$tabla.flg_ctt_integral,$tabla.num_servicio,$tabla.cod_tipo_programa,$tabla.flg_ctt_modif, $tabla.cod_tipo_ctt, $tabla.fch_generacion,$tabla.fch_emision, $tabla.fch_activacion, $tabla.fch_anulacion, $tabla.fch_resolucion, $tabla.fch_transferencia, $tabla2.dsc_cliente, $tabla3.*, $tabla4.dsc_camposanto, $tabla5.dsc_area, $tabla6.dsc_plataforma, $tabla7.dsc_tipo_espacio, $tabla8.dsc_tipo_servicio, $tabla.cod_empresa, $tabla.cod_titular_alterno, $tabla.cod_aval, $tabla3.cod_camposanto_actual, $tabla3.cod_plataforma_actual, $tabla3.cod_areaplataforma_actual, $tabla3.cod_tipoespacio_actual FROM $tabla INNER JOIN $tabla2 ON $tabla.cod_cliente = $tabla2.cod_cliente INNER JOIN $tabla3 ON $tabla.cod_contrato = $tabla3.cod_contrato LEFT JOIN $tabla4 ON $tabla4.cod_camposanto = $tabla.cod_empresa INNER JOIN $tabla5 ON $tabla5.cod_area_plataforma = $tabla3.cod_areaplataforma_actual INNER JOIN  $tabla6 ON $tabla6.cod_plataforma = $tabla3.cod_plataforma_actual INNER JOIN $tabla7 ON $tabla7.cod_tipo_espacio = $tabla3.cod_tipoespacio_actual INNER JOIN $tabla8 ON $tabla8.cod_tipo_servicio = $tabla.cod_tipo_servicio WHERE $tabla.cod_contrato LIKE (RIGHT('0000000000'+'$codCtto',10)) AND $tabla.flg_fondo_mantenimiento = 'NO'");
 		$datos = array();
     	while($key = $db->recorrer($sql)){
 	    		$datos[] = arrayMapUtf8Encode($key);
@@ -122,6 +122,65 @@ class ModeloModifCtto{
 		$db->liberar($sql);
         $db->cerrar();
 	}//mdlVerificaTrans
+
+	static public function mdlReplicaDatos($tablaCtto,$datos){
+		$db = new Conexion();
+		$sql = $db->consulta("UPDATE $tablaCtto SET $tablaCtto.fch_anulacion = '".$datos['ldt_fch_actual']."', $tablaCtto.flg_anulado = 'SI', $tablaCtto.cod_usuario_anulacion = '".$datos['gs_usuario']."' WHERE $tablaCtto.cod_localidad = '".$datos['ls_localidad']."' AND $tablaCtto.cod_contrato LIKE (RIGHT('0000000000'+'".$datos['ls_contrato']."',10)) AND $tablaCtto.num_servicio = ".$datos['ls_servicio']." AND $tablaCtto.cod_tipo_programa = '".$datos['ls_tipo_programa']."' AND $tablaCtto.cod_tipo_ctt = '".$datos['ls_tipo_ctt']."'");
+		if($sql){
+			return true;
+		}else{
+			return false;
+		}
+		$db->liberar($sql);
+        $db->cerrar();
+	}//mdlReplicaDatos
+
+	static public function mdlActualizaFoma($tablaCtto,$datos){
+		$db = new Conexion();
+		$sql = $db->consulta("UPDATE  $tablaCtto SET $tablaCtto.fch_anulacion = '".$datos['ldt_fch_actual']."', $tablaCtto.flg_anulado = 'SI', $tablaCtto.cod_usuario_anulacion = '".$datos['gs_usuario']."' WHERE $tablaCtto.cod_localidad = '".$datos['ls_localidad']."' AND $tablaCtto.cod_contrato LIKE (RIGHT('0000000000'+'".$datos['ls_contrato']."',10)) AND $tablaCtto.num_servicio = ".$datos['ls_servicio_foma']." AND $tablaCtto.cod_tipo_programa = '".$datos['ls_tipo_programa']."' AND $tablaCtto.cod_tipo_ctt = '".$datos['ls_tipo_ctt']."'");
+		if($sql){
+			return true;
+		}else{
+			return false;
+		}
+		$db->liberar($sql);
+        $db->cerrar();
+	}//mdlActualizaFoma
+
+	static public function mdlActualizaCronograma($tablaCrono,$datos){
+		$db = new Conexion();
+		$sql = $db->consulta("UPDATE  $tablaCrono SET $tablaCrono.cod_estadocuota_ant = $tablaCrono.cod_estadocuota WHERE $tablaCrono.cod_localidad = '".$datos['ls_localidad']."' AND $tablaCrono.cod_contrato LIKE (RIGHT('0000000000'+'".$datos['ls_contrato']."',10)) AND $tablaCrono.num_refinanciamiento = ".$datos['li_ref']." AND $tablaCrono.cod_tipo_programa = '".$datos['ls_tipo_programa']."' AND $tablaCrono.cod_tipo_ctt = '".$datos['ls_tipo_ctt']."'");
+		$sql1 = $db->consulta("UPDATE $tablaCrono SET $tablaCrono.cod_estadocuota = 'ANU' WHERE $tablaCrono.cod_localidad = '".$datos['ls_localidad']."' AND $tablaCrono.cod_tipo_programa = '".$datos['ls_tipo_programa']."' AND $tablaCrono.cod_tipo_ctt = '".$datos['ls_tipo_ctt']."' AND $tablaCrono.cod_contrato LIKE (RIGHT('0000000000'+'".$datos['ls_contrato']."',10)) AND $tablaCrono.num_refinanciamiento = ".$datos['li_ref']." AND $tablaCrono.cod_estadocuota IN ('REG', 'EMI')");
+		if($sql && $sql1){
+			return true;
+		}else{
+			return false;
+		}
+		$db->liberar($sql);
+        $db->cerrar();
+	}//mdlActualizaCronograma
+
+	static public function mdlModificado($tablaResCtto,$datos){
+		$db = new Conexion();
+		$sql = $db->consulta("UPDATE $tablaResCtto SET $tablaResCtto.cod_localidad_nuevo = $tablaResCtto.cod_localidad, $tablaResCtto.cod_contrato_nuevo = $tablaResCtto.cod_contrato, $tablaResCtto.num_servicio_nuevo = $tablaResCtto.num_servicio, $tablaResCtto.cod_tipo_programa_nuevo = $tablaResCtto.cod_tipo_programa, $tablaResCtto.cod_tipo_ctt_nuevo = $tablaResCtto.cod_tipo_ctt WHERE $tablaResCtto.cod_localidad_nuevo = '".$datos['ls_localidad']."' AND $tablaResCtto.cod_tipo_programa_nuevo = '".$datos['ls_tipo_programa']."' AND $tablaResCtto.cod_tipo_ctt_nuevo = '".$datos['ls_tipo_ctt']."' AND $tablaResCtto.cod_contrato_nuevo LIKE (RIGHT('0000000000'+'".$datos['ls_contrato']."',10)) AND $tablaResCtto.num_servicio_nuevo = ".$datos['ls_item_servicio_getrow']);
+		if($sql){
+			return true;
+		}else{
+			return false;
+		}
+		$db->liberar($sql);
+        $db->cerrar();
+	}//mdlModificado
+
+	static public function mdlGeneraEspacio($datos){
+		$db = new Conexion();
+		$sql = $db->consulta("EXEC usp_vta_prc_genera_espacio '".$datos['as_camposanto']."', '".$datos['as_plataforma']."', '".$datos['as_area']."', '".$datos['as_eje_horizontal']."', '".$datos['as_eje_vertical']."', '".$datos['as_espacio']."', '".$datos['as_tipo_espacio']."'");
+		if ($sql) {
+			return true;
+		}else{
+			return false;
+		}
+	}//function mdlGeneraEspacio
 
 }//class ModeloModifCtto
 ?>

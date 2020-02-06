@@ -214,7 +214,7 @@ class ControladorWizard{
 					  );
 		$respuesta = ModeloWizard::mdlGeneraEspacio($datos);
 		return $respuesta;
-	}// function ctrGuardaCronograma
+	}// function ctrGeneraEspacio
 	
 	static public function ctrGetDatosContrato(){
 

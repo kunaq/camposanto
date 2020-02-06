@@ -93,6 +93,7 @@
 									<input type="text" class="form-control form-control-sm m-input" name="nomCliContrato" id="nomCliContrato" disabled>
 									<input type="hidden" id="flg_activado" name="flg_activado">
 									<input type="hidden" name="flg_ctt_integral" id="flg_ctt_integral">
+									<input type="hidden" name="numRefinanciamiento" id="numRefinanciamiento">
 								</div>
 							</div>
 						</div>
@@ -136,14 +137,17 @@
 								<div class="col-lg-4">
 										<label>Camposanto</label>
 										<input type="text" class="form-control form-control-sm m-input" name="campoContrato" id="campoContrato" disabled>
+										<input type="hidden" id="codCampoContrato" name="codCampoContrato">
 									</div>
 									<div class="col-lg-4">
 										<label>Plataforma</label>
 										<input type="text" class="form-control form-control-sm m-input" name="platContrato" id="platContrato" disabled>
+										<input type="hidden" id="codPlatContrato" name="codPlatContrato">
 									</div>
 									<div class="col-lg-4">
 										<label>Área plataforma</label>
 										<input type="text" class="form-control form-control-sm m-input" name="areaContrato" id="areaContrato" disabled>
+										<input type="hidden" id="codAreaContrato" name="codAreaContrato">
 									</div>
 									<div class="col-lg-2">
 										<label>Eje Horiz.</label>
@@ -169,6 +173,7 @@
 									<div class="col-lg-4">
 										<label>Tipo Espacio</label>
 										<input type="text" class="form-control form-control-sm m-input" name="tipoEspModifContrato" id="tipoEspModifContrato" disabled>
+										<input type="hidden" id="codTipoEspModifContrato" name="codTipoEspModifContrato">
 									</div>
 							</div>
 						</div>
