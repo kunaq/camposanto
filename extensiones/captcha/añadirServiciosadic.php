@@ -6,7 +6,7 @@ require_once "../../modelo/conexion.php";
    $cod1='"'.$cod.'"';
     $db = new Conexion();                                             
 
-       	$sql = $db->consulta("SELECT vtade_servicio_precio.*, vtama_servicio.* , vtama_tipo_servicio.flg_dsepultura, vtama_tipo_servicio.flg_sfunerario,
+       	$sql = $db->consulta("SELECT TOP 1 vtade_servicio_precio.*, vtama_servicio.* , vtama_tipo_servicio.flg_dsepultura, vtama_tipo_servicio.flg_sfunerario,
           vtama_tipo_servicio.flg_tipo_plan, vtama_tipo_servicio.flg_cremacion, vtama_tipo_servicio.flg_sfunerario, vtama_tipo_servicio.flg_sadicional,vtama_tipo_servicio.flg_afecto_igv
           FROM  vtade_servicio_precio 
           INNER JOIN vtama_servicio ON vtama_servicio.cod_servicio = vtade_servicio_precio.cod_servicio 
@@ -36,6 +36,7 @@ require_once "../../modelo/conexion.php";
             echo "<tr height='60' name='".$cod."' id='".$cod."' >
                     <td class='tdDscServicioAdd'>
                       ".$key['dsc_servicio']."
+                      <input type='hidden' value='".$key['dsc_servicio']."' id='dsc_servicio_".$cod."'>
                       <input type='hidden' value='".$key['flg_afecto_igv']."' id='flg_afecto_igv_".$cod."'>
                       <input type='hidden' value='".$key['flg_sadicional']."' id='flg_sadicional_".$cod."'>
                       <input type='hidden' value='".$key['flg_contado']."' id='ls_flg_contado_".$cod."'>

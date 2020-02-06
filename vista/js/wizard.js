@@ -1111,9 +1111,17 @@ function cargaCui(){
         aux.push(num);
     });
     var min = Math.min.apply(null, aux);
-     valor = Number(min).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
-    document.getElementById("importeCUI").value = valor;
     document.getElementById("cuitotal").value = valor;
+
+    var val_cuoi = document.getElementById("importeCUI").value;
+    if (val_cuoi == '') {
+      cuoi_ini = 0;
+    }else{
+      cuoi_ini = pasaAnumero(val_cuoi);
+    }
+    var suma = cuoi_ini + min;
+    valor = Number(suma).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
+    document.getElementById("importeCUI").value = valor;
 }
 
 function sumatabla(){
@@ -1457,16 +1465,897 @@ function DocLengthBenef(tipo){
     }
 }
 
+function verificarEspacio(){
+
+  var tipoPrograma = document.getElementById('tipPro').value;
+  var camposanto = document.getElementById('camposanto').value;
+  var tipoPlat = document.getElementById('tipoPlat').value;
+  var plataforma = document.getElementById('plataforma').value;
+  var area = document.getElementById('area').value;
+  var ejehor = document.getElementById('ejex').value;
+  var ejever = document.getElementById('ejey').value;
+  var aux = document.getElementById('espacio').value;
+  var estado = aux.split("/")[1];
+
+  var tablaServicios = document.getElementById('bodyServicio');
+  var tablaServLenght = tablaServicios.rows.length;
+
+  var tablaCronograma = document.getElementById('bodyCronograma');
+  var tablaCronLenght = tablaCronograma.rows.length;
+
+  var saldoFinanciar = pasaAnumero(document.getElementById('saldoFinanciar').value);
+
+  var ctt_base = document.getElementById('ctt').value;
+
+  if (tipoPrograma == 'TR001' || tipoPrograma == 'TR002' || tipoPrograma == 'TR009' || tipoPrograma == 'TR010' || tipoPrograma == 'TR013' || tipoPrograma == 'TR006' || tipoPrograma == 'TR008') {
+
+    if (camposanto == '') {
+      swal({
+        title:"",
+        text:"Debe seleccionar el camposanto.",
+        type:"error",
+        confirmButtonText:"Aceptar"
+      })
+    }else if (tipoPlat == '') {
+      swal({
+        title:"",
+        text:"Debe seleccionar el tipo de plataforma.",
+        type:"error",
+        confirmButtonText:"Aceptar"
+      })
+    }else if (plataforma == '0') {
+      swal({
+        title:"",
+        text:"Debe seleccionar la plataforma.",
+        type:"error",
+        confirmButtonText:"Aceptar"
+      })
+    }else if (area == '0') {
+      swal({
+        title:"",
+        text:"Debe seleccionar el área de la plataforma.",
+        type:"warning",
+        confirmButtonText:"Aceptar"
+      })
+    }else if (ejehor == '0') {
+      swal({
+        title:"",
+        text:"Debe seleccionar el eje horizontal.",
+        type:"error",
+        confirmButtonText:"Aceptar"
+      })
+    }else if (ejever == '0') {
+      swal({
+        title:"",
+        text:"Debe seleccionar el eje vertical.",
+        type:"error",
+        confirmButtonText:"Aceptar"
+      })
+    }else if (aux == '0') {
+      swal({
+        title:"",
+        text:"Debe seleccionar el espacio.",
+        type:"error",
+        confirmButtonText:"Aceptar"
+      })
+    }else if (estado == 'E02') {
+      swal({
+        title:"",
+        text:"El espacio seleccionado se encuentra ocupado.",
+        type:"error",
+        confirmButtonText:"Aceptar"
+      })
+    }else if (tablaServLenght == 0){
+      swal({
+        title:"",
+        text:'Step 2 - "Detalle de la venta", debe ingresar los registros.',
+        type:"error",
+        confirmButtonText:"Aceptar"
+      })
+    }else if (tablaServLenght >= 1) {
+      var j  = 0;
+      for (i = 0; i < tablaServLenght; i++){
+        var servFila = tablaServicios.rows.item(i);
+        var codSer = servFila.id;
+
+        var cuoi = pasaAnumero(document.getElementById("numF_"+codSer).value);
+        var cuoi_min = pasaAnumero(document.getElementById("cui_std_"+codSer).value);
+        var dsc_servicio = document.getElementById("dsc_servicio_"+codSer).value;
+        
+        if (cuoi < cuoi_min) {
+          swal({
+            title:"",
+            text:'Step 2 - "Detalle de la venta", linea ('+(i+1)+'): El valor de la cuoi del servicio "'+dsc_servicio+'" S/.'+cuoi+' debe ser igual o mayor a la configurada S/.'+cuoi_min+'.',
+            type:"error",
+            confirmButtonText:"Aceptar"
+          })
+        }else{
+          j++;
+          if (j == tablaServLenght) {
+            var cui_footer = document.getElementsByClassName("Total F")[0].innerHTML;
+            var imp_cui = document.getElementById('importeCUI').value;
+            if (cui_footer != imp_cui) {
+              swal({
+                title:"",
+                type:"error",
+                text:'El valor de la CUOI distribuida entre los servicios debe ser igual al total ingresado.',
+                confirmButtonText:"Aceptar"
+              })
+            }else if (saldoFinanciar > 0 && tablaCronLenght == 0) {
+              swal({
+                title:"",
+                text:"El contrato tiene saldo a financiar, ¿Esta seguro de que no desea generar el cronograma de pagos?",
+                type:"question",
+                showCancelButton:!0,
+                confirmButtonText:"Aceptar"
+              }).then(function(e){
+                  e.value&&swal({
+                  title:"",
+                  text:"Esta generando el contrato de servicio, ¿Esta seguro de continuar?",
+                  type:"question",
+                  showCancelButton:!0,
+                  confirmButtonText:"Aceptar"
+                }).then(function(e){
+                  e.value&&grabaTemporal()
+                })
+              })
+            }else{
+              swal({
+                title:"",
+                text:"Esta generando el contrato de servicio, ¿Esta seguro de continuar?",
+                type:"question",
+                showCancelButton:!0,
+                confirmButtonText:"Aceptar"
+              }).then(function(e){
+                e.value&&grabaTemporal()
+              })
+            }
+          }
+        }
+      }
+    }
+  }
+
+  if (tipoPrograma == 'TR007' || tipoPrograma == 'TR004' || tipoPrograma == 'TR003') {
+
+    if (ctt_base == '') {
+      swal({
+        title:"",
+        text:"Debe ingresar el contrato base.",
+        type:"error",
+        confirmButtonText:"Aceptar"
+      })
+    }else if (camposanto == '') {
+      swal({
+        title:"",
+        text:"Debe seleccionar el camposanto.",
+        type:"error",
+        confirmButtonText:"Aceptar"
+      })
+    }else if (tipoPlat == '') {
+      swal({
+        title:"",
+        text:"Debe seleccionar el tipo de plataforma.",
+        type:"error",
+        confirmButtonText:"Aceptar"
+      })
+    }else if (plataforma == '0') {
+      swal({
+        title:"",
+        text:"Debe seleccionar la plataforma.",
+        type:"error",
+        confirmButtonText:"Aceptar"
+      })
+    }else if (area == '0') {
+      swal({
+        title:"",
+        text:"Debe seleccionar el área de la plataforma.",
+        type:"warning",
+        confirmButtonText:"Aceptar"
+      })
+    }else if (ejehor == '0') {
+      swal({
+        title:"",
+        text:"Debe seleccionar el eje horizontal.",
+        type:"error",
+        confirmButtonText:"Aceptar"
+      })
+    }else if (ejever == '0') {
+      swal({
+        title:"",
+        text:"Debe seleccionar el eje vertical.",
+        type:"error",
+        confirmButtonText:"Aceptar"
+      })
+    }else if (aux == '0') {
+      swal({
+        title:"",
+        text:"Debe seleccionar el espacio.",
+        type:"error",
+        confirmButtonText:"Aceptar"
+      })
+    }else if (tablaServLenght == 0){
+      swal({
+        title:"",
+        text:'Step 2 - "Detalle de la venta", debe ingresar los registros.',
+        type:"error",
+        confirmButtonText:"Aceptar"
+      })
+    }else if (tablaServLenght >= 1) {
+      var j  = 0;
+      for (i = 0; i < tablaServLenght; i++){
+        var servFila = tablaServicios.rows.item(i);
+        var codSer = servFila.id;
+
+        var cuoi = pasaAnumero(document.getElementById("numF_"+codSer).value);
+        var cuoi_min = pasaAnumero(document.getElementById("cui_std_"+codSer).value);
+        var dsc_servicio = document.getElementById("dsc_servicio_"+codSer).value;
+        
+        if (cuoi < cuoi_min) {
+          swal({
+            title:"",
+            text:'Step 2 - "Detalle de la venta", linea ('+(i+1)+'): El valor de la cuoi del servicio "'+dsc_servicio+'" S/.'+cuoi+' debe ser igual o mayor a la configurada S/.'+cuoi_min+'.',
+            type:"error",
+            confirmButtonText:"Aceptar"
+          })
+        }else{
+          j++;
+          if (j == tablaServLenght) {
+            var cui_footer = document.getElementsByClassName("Total F")[0].innerHTML;
+            var imp_cui = document.getElementById('importeCUI').value;
+            if (cui_footer != imp_cui) {
+              swal({
+                title:"",
+                type:"error",
+                text:'El valor de la CUOI distribuida entre los servicios debe ser igual al total ingresado.',
+                confirmButtonText:"Aceptar"
+              })
+            }else if (saldoFinanciar > 0 && tablaCronLenght == 0) {
+              swal({
+                title:"",
+                text:"El contrato tiene saldo a financiar, ¿Esta seguro de que no desea generar el cronograma de pagos?",
+                type:"question",
+                showCancelButton:!0,
+                confirmButtonText:"Aceptar"
+              }).then(function(e){
+                  e.value&&swal({
+                  title:"",
+                  text:"Esta generando el contrato de servicio, ¿Esta seguro de continuar?",
+                  type:"question",
+                  showCancelButton:!0,
+                  confirmButtonText:"Aceptar"
+                }).then(function(e){
+                  e.value&&grabaTemporal()
+                })
+              })
+            }else{
+              swal({
+                title:"",
+                text:"Esta generando el contrato de servicio, ¿Esta seguro de continuar?",
+                type:"question",
+                showCancelButton:!0,
+                confirmButtonText:"Aceptar"
+              }).then(function(e){
+                e.value&&grabaTemporal()
+              })
+            }
+          }
+        }
+      }
+    }
+  }
+
+  if (tipoPrograma == 'TR014' || tipoPrograma == 'TR011') {
+
+    if (tablaServLenght == 0){
+      swal({
+        title:"",
+        text:'Step 2 - "Detalle de la venta", debe ingresar los registros.',
+        type:"error",
+        confirmButtonText:"Aceptar"
+      })
+    }else if (tablaServLenght >= 1) {
+      var j  = 0;
+      for (i = 0; i < tablaServLenght; i++){
+        var servFila = tablaServicios.rows.item(i);
+        var codSer = servFila.id;
+
+        var cuoi = pasaAnumero(document.getElementById("numF_"+codSer).value);
+        var cuoi_min = pasaAnumero(document.getElementById("cui_std_"+codSer).value);
+        var dsc_servicio = document.getElementById("dsc_servicio_"+codSer).value;
+        
+        if (cuoi < cuoi_min) {
+          swal({
+            title:"",
+            text:'Step 2 - "Detalle de la venta", linea ('+(i+1)+'): El valor de la cuoi del servicio "'+dsc_servicio+'" S/.'+cuoi+' debe ser igual o mayor a la configurada S/.'+cuoi_min+'.',
+            type:"error",
+            confirmButtonText:"Aceptar"
+          })
+        }else{
+          j++;
+          if (j == tablaServLenght) {
+            var cui_footer = document.getElementsByClassName("Total F")[0].innerHTML;
+            var imp_cui = document.getElementById('importeCUI').value;
+            if (cui_footer != imp_cui) {
+              swal({
+                title:"",
+                type:"error",
+                text:'El valor de la CUOI distribuida entre los servicios debe ser igual al total ingresado.',
+                confirmButtonText:"Aceptar"
+              })
+            }else if (saldoFinanciar > 0 && tablaCronLenght == 0) {
+              swal({
+                title:"",
+                text:"El contrato tiene saldo a financiar, ¿Esta seguro de que no desea generar el cronograma de pagos?",
+                type:"question",
+                showCancelButton:!0,
+                confirmButtonText:"Aceptar"
+              }).then(function(e){
+                  e.value&&swal({
+                  title:"",
+                  text:"Esta generando el contrato de servicio, ¿Esta seguro de continuar?",
+                  type:"question",
+                  showCancelButton:!0,
+                  confirmButtonText:"Aceptar"
+                }).then(function(e){
+                  e.value&&grabaTemporal()
+                })
+              })
+            }else{
+              swal({
+                title:"",
+                text:"Esta generando el contrato de servicio, ¿Esta seguro de continuar?",
+                type:"question",
+                showCancelButton:!0,
+                confirmButtonText:"Aceptar"
+              }).then(function(e){
+                e.value&&grabaTemporal()
+              })
+            }
+          }
+        }
+      }
+    }
+  }
+
+  if (tipoPrograma == 'TR012' || tipoPrograma == 'TR005') {
+
+    if (ctt_base == '') {
+      swal({
+        title:"",
+        text:"Debe ingresar el contrato base.",
+        type:"error",
+        confirmButtonText:"Aceptar"
+      })
+    }else if (tablaServLenght == 0){
+      swal({
+        title:"",
+        text:'Step 2 - "Detalle de la venta", debe ingresar los registros.',
+        type:"error",
+        confirmButtonText:"Aceptar"
+      })
+    }else if (tablaServLenght >= 1) {
+      var j  = 0;
+      for (i = 0; i < tablaServLenght; i++){
+        var servFila = tablaServicios.rows.item(i);
+        var codSer = servFila.id;
+
+        var cuoi = pasaAnumero(document.getElementById("numF_"+codSer).value);
+        var cuoi_min = pasaAnumero(document.getElementById("cui_std_"+codSer).value);
+        var dsc_servicio = document.getElementById("dsc_servicio_"+codSer).value;
+        
+        if (cuoi < cuoi_min) {
+          swal({
+            title:"",
+            text:'Step 2 - "Detalle de la venta", linea ('+(i+1)+'): El valor de la cuoi del servicio "'+dsc_servicio+'" S/.'+cuoi+' debe ser igual o mayor a la configurada S/.'+cuoi_min+'.',
+            type:"error",
+            confirmButtonText:"Aceptar"
+          })
+        }else{
+          j++;
+          if (j == tablaServLenght) {
+            var cui_footer = document.getElementsByClassName("Total F")[0].innerHTML;
+            var imp_cui = document.getElementById('importeCUI').value;
+            if (cui_footer != imp_cui) {
+              swal({
+                title:"",
+                type:"error",
+                text:'El valor de la CUOI distribuida entre los servicios debe ser igual al total ingresado.',
+                confirmButtonText:"Aceptar"
+              })
+            }else if (saldoFinanciar > 0 && tablaCronLenght == 0) {
+              swal({
+                title:"",
+                text:"El contrato tiene saldo a financiar, ¿Esta seguro de que no desea generar el cronograma de pagos?",
+                type:"question",
+                showCancelButton:!0,
+                confirmButtonText:"Aceptar"
+              }).then(function(e){
+                  e.value&&swal({
+                  title:"",
+                  text:"Esta generando el contrato de servicio, ¿Esta seguro de continuar?",
+                  type:"question",
+                  showCancelButton:!0,
+                  confirmButtonText:"Aceptar"
+                }).then(function(e){
+                  e.value&&grabaTemporal()
+                })
+              })
+            }else{
+              swal({
+                title:"",
+                text:"Esta generando el contrato de servicio, ¿Esta seguro de continuar?",
+                type:"question",
+                showCancelButton:!0,
+                confirmButtonText:"Aceptar"
+              }).then(function(e){
+                e.value&&grabaTemporal()
+              })
+            }
+          }
+        }
+      }
+    }
+  }
+}
 
 function generarCtt(){
-                        swal({
-                            title: "",
-                            text: "¿Esta seguro de generar este contrato?",
-                            type: "question",
-                            showCancelButton:!0,
-                            confirmButtonText: "Generar",
-                            cancelButtonText:"Cancelar"
-                        }).then(function(){
-                          grabaTemporal();
-                        })
+  var vendedor = document.getElementById('codVendedor').value;
+  var cliente = document.getElementById('numDocCliente').value;
+  var tipoPrograma = document.getElementById('tipPro').value;
+
+  var camposanto = document.getElementById('camposanto').value;
+  var tipoPlat = document.getElementById('tipoPlat').value;
+  var plataforma = document.getElementById('plataforma').value;
+  var area = document.getElementById('area').value;
+  var ejehor = document.getElementById('ejex').value;
+  var ejever = document.getElementById('ejey').value;
+  var aux = document.getElementById('espacio').value;
+  var estado = aux.split("/")[1];
+
+  var tablaServicios = document.getElementById('bodyServicio');
+  var tablaServLenght = tablaServicios.rows.length;
+
+  var tablaCronograma = document.getElementById('bodyCronograma');
+  var tablaCronLenght = tablaCronograma.rows.length;
+
+  var saldoFinanciar = pasaAnumero(document.getElementById('saldoFinanciar').value);
+
+  var ctt_base = document.getElementById('ctt').value;
+
+  if (tipoPrograma == '') {
+    swal({
+      title:"",
+      text:"Debe seleccionar el tipo de programa(recaudación).",
+      type:"error",
+      confirmButtonText:"Aceptar"
+    })
+  }else if (cliente == '') {
+    swal({
+      title:"",
+      text:"Debe seleccionar o registrar el cliente / prospecto de venta.",
+      type:"error",
+      confirmButtonText:"Aceptar"
+    })
+  }else if (vendedor == '') {
+    swal({
+      title:"",
+      text:"No esta ingresando el representante de ventas(vendedor), ¿desea continuar?",
+      type:"question",
+      showCancelButton:!0,
+      confirmButtonText:"Aceptar"
+    }).then(function(e) {
+        e.value&&verificarEspacio()
+    })
+  }else if (tipoPrograma == 'TR001' || tipoPrograma == 'TR002' || tipoPrograma == 'TR009' || tipoPrograma == 'TR010' || tipoPrograma == 'TR013' || tipoPrograma == 'TR006' || tipoPrograma == 'TR008') {
+    if (camposanto == '') {
+      swal({
+        title:"",
+        text:"Debe seleccionar el camposanto.",
+        type:"error",
+        confirmButtonText:"Aceptar"
+      })
+    }else if (tipoPlat == '') {
+      swal({
+        title:"",
+        text:"Debe seleccionar el tipo de plataforma.",
+        type:"error",
+        confirmButtonText:"Aceptar"
+      })
+    }else if (plataforma == '0') {
+      swal({
+        title:"",
+        text:"Debe seleccionar la plataforma.",
+        type:"error",
+        confirmButtonText:"Aceptar"
+      })
+    }else if (area == '0') {
+      swal({
+        title:"",
+        text:"Debe seleccionar el área de la plataforma.",
+        type:"warning",
+        confirmButtonText:"Aceptar"
+      })
+    }else if (ejehor == '0') {
+      swal({
+        title:"",
+        text:"Debe seleccionar el eje horizontal.",
+        type:"error",
+        confirmButtonText:"Aceptar"
+      })
+    }else if (ejever == '0') {
+      swal({
+        title:"",
+        text:"Debe seleccionar el eje vertical.",
+        type:"error",
+        confirmButtonText:"Aceptar"
+      })
+    }else if (aux == '0') {
+      swal({
+        title:"",
+        text:"Debe seleccionar el espacio.",
+        type:"error",
+        confirmButtonText:"Aceptar"
+      })
+    }else if (estado == 'E02') {
+      swal({
+        title:"",
+        text:"El espacio seleccionado se encuentra ocupado.",
+        type:"error",
+        confirmButtonText:"Aceptar"
+      })
+    }else if (tablaServLenght == 0){
+      swal({
+        title:"",
+        text:'Step 2 - "Detalle de la venta", debe ingresar los registros.',
+        type:"error",
+        confirmButtonText:"Aceptar"
+      })
+    }else if (tablaServLenght >= 1) {
+      var j  = 0;
+      for (i = 0; i < tablaServLenght; i++){
+        var servFila = tablaServicios.rows.item(i);
+        var codSer = servFila.id;
+
+        var cuoi = pasaAnumero(document.getElementById("numF_"+codSer).value);
+        var cuoi_min = pasaAnumero(document.getElementById("cui_std_"+codSer).value);
+        var dsc_servicio = document.getElementById("dsc_servicio_"+codSer).value;
+        
+        if (cuoi < cuoi_min) {
+          swal({
+            title:"",
+            text:'Step 2 - "Detalle de la venta", linea ('+(i+1)+'): El valor de la cuoi del servicio "'+dsc_servicio+'" S/.'+cuoi+' debe ser igual o mayor a la configurada S/.'+cuoi_min+'.',
+            type:"error",
+            confirmButtonText:"Aceptar"
+          })
+        }else{
+          j++;
+          if (j == tablaServLenght) {
+            var cui_footer = document.getElementsByClassName("Total F")[0].innerHTML;
+            var imp_cui = document.getElementById('importeCUI').value;
+            if (cui_footer != imp_cui) {
+              swal({
+                title:"",
+                type:"error",
+                text:'El valor de la CUOI distribuida entre los servicios debe ser igual al total ingresado.',
+                confirmButtonText:"Aceptar"
+              })
+            }else if (saldoFinanciar > 0 && tablaCronLenght == 0) {
+              swal({
+                title:"",
+                text:"El contrato tiene saldo a financiar, ¿Esta seguro de que no desea generar el cronograma de pagos?",
+                type:"question",
+                showCancelButton:!0,
+                confirmButtonText:"Aceptar"
+              }).then(function(e){
+                  e.value&&swal({
+                  title:"",
+                  text:"Esta generando el contrato de servicio, ¿Esta seguro de continuar?",
+                  type:"question",
+                  showCancelButton:!0,
+                  confirmButtonText:"Aceptar"
+                }).then(function(e){
+                  e.value&&grabaTemporal()
+                })
+              })
+            }else{
+              swal({
+                title:"",
+                text:"Esta generando el contrato de servicio, ¿Esta seguro de continuar?",
+                type:"question",
+                showCancelButton:!0,
+                confirmButtonText:"Aceptar"
+              }).then(function(e){
+                e.value&&grabaTemporal()
+              })
+            }
+          }
+        }
+      }
+    }
+  }else if (tipoPrograma == 'TR007' || tipoPrograma == 'TR004' || tipoPrograma == 'TR003') {
+    if (ctt_base == '') {
+      swal({
+        title:"",
+        text:"Debe ingresar el contrato base.",
+        type:"error",
+        confirmButtonText:"Aceptar"
+      })
+    }else if (camposanto == '') {
+      swal({
+        title:"",
+        text:"Debe seleccionar el camposanto.",
+        type:"error",
+        confirmButtonText:"Aceptar"
+      })
+      console.log(tipoPlat);
+    }else if (tipoPlat == '') {
+      swal({
+        title:"",
+        text:"Debe seleccionar el tipo de plataforma.",
+        type:"error",
+        confirmButtonText:"Aceptar"
+      })
+    }else if (plataforma == '0') {
+      swal({
+        title:"",
+        text:"Debe seleccionar la plataforma.",
+        type:"error",
+        confirmButtonText:"Aceptar"
+      })
+    }else if (area == '0') {
+      swal({
+        title:"",
+        text:"Debe seleccionar el área de la plataforma.",
+        type:"warning",
+        confirmButtonText:"Aceptar"
+      })
+    }else if (ejehor == '0') {
+      swal({
+        title:"",
+        text:"Debe seleccionar el eje horizontal.",
+        type:"error",
+        confirmButtonText:"Aceptar"
+      })
+    }else if (ejever == '0') {
+      swal({
+        title:"",
+        text:"Debe seleccionar el eje vertical.",
+        type:"error",
+        confirmButtonText:"Aceptar"
+      })
+    }else if (aux == '0') {
+      swal({
+        title:"",
+        text:"Debe seleccionar el espacio.",
+        type:"error",
+        confirmButtonText:"Aceptar"
+      })
+    }else if (tablaServLenght == 0){
+      swal({
+        title:"",
+        text:'Step 2 - "Detalle de la venta", debe ingresar los registros.',
+        type:"error",
+        confirmButtonText:"Aceptar"
+      })
+    }else if (tablaServLenght >= 1) {
+      var j  = 0;
+      for (i = 0; i < tablaServLenght; i++){
+        var servFila = tablaServicios.rows.item(i);
+        var codSer = servFila.id;
+
+        var cuoi = pasaAnumero(document.getElementById("numF_"+codSer).value);
+        var cuoi_min = pasaAnumero(document.getElementById("cui_std_"+codSer).value);
+        var dsc_servicio = document.getElementById("dsc_servicio_"+codSer).value;
+        
+        if (cuoi < cuoi_min) {
+          swal({
+            title:"",
+            text:'Step 2 - "Detalle de la venta", linea ('+(i+1)+'): El valor de la cuoi del servicio "'+dsc_servicio+'" S/.'+cuoi+' debe ser igual o mayor a la configurada S/.'+cuoi_min+'.',
+            type:"error",
+            confirmButtonText:"Aceptar"
+          })
+        }else{
+          j++;
+          if (j == tablaServLenght) {
+            var cui_footer = document.getElementsByClassName("Total F")[0].innerHTML;
+            var imp_cui = document.getElementById('importeCUI').value;
+            if (cui_footer != imp_cui) {
+              swal({
+                title:"",
+                type:"error",
+                text:'El valor de la CUOI distribuida entre los servicios debe ser igual al total ingresado.',
+                confirmButtonText:"Aceptar"
+              })
+            }else if (saldoFinanciar > 0 && tablaCronLenght == 0) {
+              swal({
+                title:"",
+                text:"El contrato tiene saldo a financiar, ¿Esta seguro de que no desea generar el cronograma de pagos?",
+                type:"question",
+                showCancelButton:!0,
+                confirmButtonText:"Aceptar"
+              }).then(function(e){
+                  e.value&&swal({
+                  title:"",
+                  text:"Esta generando el contrato de servicio, ¿Esta seguro de continuar?",
+                  type:"question",
+                  showCancelButton:!0,
+                  confirmButtonText:"Aceptar"
+                }).then(function(e){
+                  e.value&&grabaTemporal()
+                })
+              })
+            }else{
+              swal({
+                title:"",
+                text:"Esta generando el contrato de servicio, ¿Esta seguro de continuar?",
+                type:"question",
+                showCancelButton:!0,
+                confirmButtonText:"Aceptar"
+              }).then(function(e){
+                e.value&&grabaTemporal()
+              })
+            }
+          }
+        }
+      }
+    }
+  }else if (tipoPrograma == 'TR014' || tipoPrograma == 'TR011') {
+    if (tablaServLenght == 0){
+      swal({
+        title:"",
+        text:'Step 2 - "Detalle de la venta", debe ingresar los registros.',
+        type:"error",
+        confirmButtonText:"Aceptar"
+      })
+    }else if (tablaServLenght >= 1) {
+      var j  = 0;
+      for (i = 0; i < tablaServLenght; i++){
+        var servFila = tablaServicios.rows.item(i);
+        var codSer = servFila.id;
+
+        var cuoi = pasaAnumero(document.getElementById("numF_"+codSer).value);
+        var cuoi_min = pasaAnumero(document.getElementById("cui_std_"+codSer).value);
+        var dsc_servicio = document.getElementById("dsc_servicio_"+codSer).value;
+        
+        if (cuoi < cuoi_min) {
+          swal({
+            title:"",
+            text:'Step 2 - "Detalle de la venta", linea ('+(i+1)+'): El valor de la cuoi del servicio "'+dsc_servicio+'" S/.'+cuoi+' debe ser igual o mayor a la configurada S/.'+cuoi_min+'.',
+            type:"error",
+            confirmButtonText:"Aceptar"
+          })
+        }else{
+          j++;
+          if (j == tablaServLenght) {
+            var cui_footer = document.getElementsByClassName("Total F")[0].innerHTML;
+            var imp_cui = document.getElementById('importeCUI').value;
+            if (cui_footer != imp_cui) {
+              swal({
+                title:"",
+                type:"error",
+                text:'El valor de la CUOI distribuida entre los servicios debe ser igual al total ingresado.',
+                confirmButtonText:"Aceptar"
+              })
+            }else if (saldoFinanciar > 0 && tablaCronLenght == 0) {
+              swal({
+                title:"",
+                text:"El contrato tiene saldo a financiar, ¿Esta seguro de que no desea generar el cronograma de pagos?",
+                type:"question",
+                showCancelButton:!0,
+                confirmButtonText:"Aceptar"
+              }).then(function(e){
+                  e.value&&swal({
+                  title:"",
+                  text:"Esta generando el contrato de servicio, ¿Esta seguro de continuar?",
+                  type:"question",
+                  showCancelButton:!0,
+                  confirmButtonText:"Aceptar"
+                }).then(function(e){
+                  e.value&&grabaTemporal()
+                })
+              })
+            }else{
+              swal({
+                title:"",
+                text:"Esta generando el contrato de servicio, ¿Esta seguro de continuar?",
+                type:"question",
+                showCancelButton:!0,
+                confirmButtonText:"Aceptar"
+              }).then(function(e){
+                e.value&&grabaTemporal()
+              })
+            }
+          }
+        }
+      }
+    }
+  }else if (tipoPrograma == 'TR012' || tipoPrograma == 'TR005') {
+    if (ctt_base == '') {
+      swal({
+        title:"",
+        text:"Debe ingresar el contrato base.",
+        type:"error",
+        confirmButtonText:"Aceptar"
+      })
+    }else if (tablaServLenght == 0){
+      swal({
+        title:"",
+        text:'Step 2 - "Detalle de la venta", debe ingresar los registros.',
+        type:"error",
+        confirmButtonText:"Aceptar"
+      })
+    }else if (tablaServLenght >= 1) {
+      var j  = 0;
+      for (i = 0; i < tablaServLenght; i++){
+        var servFila = tablaServicios.rows.item(i);
+        var codSer = servFila.id;
+
+        var cuoi = pasaAnumero(document.getElementById("numF_"+codSer).value);
+        var cuoi_min = pasaAnumero(document.getElementById("cui_std_"+codSer).value);
+        var dsc_servicio = document.getElementById("dsc_servicio_"+codSer).value;
+        
+        if (cuoi < cuoi_min) {
+          swal({
+            title:"",
+            text:'Step 2 - "Detalle de la venta", linea ('+(i+1)+'): El valor de la cuoi del servicio "'+dsc_servicio+'" S/.'+cuoi+' debe ser igual o mayor a la configurada S/.'+cuoi_min+'.',
+            type:"error",
+            confirmButtonText:"Aceptar"
+          })
+        }else{
+          j++;
+          if (j == tablaServLenght) {
+            var cui_footer = document.getElementsByClassName("Total F")[0].innerHTML;
+            var imp_cui = document.getElementById('importeCUI').value;
+            if (cui_footer != imp_cui) {
+              swal({
+                title:"",
+                type:"error",
+                text:'El valor de la CUOI distribuida entre los servicios debe ser igual al total ingresado.',
+                confirmButtonText:"Aceptar"
+              })
+            }else if (saldoFinanciar > 0 && tablaCronLenght == 0) {
+              swal({
+                title:"",
+                text:"El contrato tiene saldo a financiar, ¿Esta seguro de que no desea generar el cronograma de pagos?",
+                type:"question",
+                showCancelButton:!0,
+                confirmButtonText:"Aceptar"
+              }).then(function(e){
+                  e.value&&swal({
+                  title:"",
+                  text:"Esta generando el contrato de servicio, ¿Esta seguro de continuar?",
+                  type:"question",
+                  showCancelButton:!0,
+                  confirmButtonText:"Aceptar"
+                }).then(function(e){
+                  e.value&&grabaTemporal()
+                })
+              })
+            }else{
+              swal({
+                title:"",
+                text:"Esta generando el contrato de servicio, ¿Esta seguro de continuar?",
+                type:"question",
+                showCancelButton:!0,
+                confirmButtonText:"Aceptar"
+              }).then(function(e){
+                e.value&&grabaTemporal()
+              })
+            }
+          }
+        }
+      }
+    }
+  }else{
+    swal({
+      title:"",
+      text:"Esta generando el contrato de servicio, ¿Esta seguro de continuar?",
+      type:"question",
+      showCancelButton:!0,
+      confirmButtonText:"Aceptar"
+    }).then(function(e){
+      e.value&&grabaTemporal()
+    })
+  }
 }

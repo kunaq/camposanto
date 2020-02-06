@@ -173,7 +173,7 @@
 													</label>
 													<div class="input-group m-input-group input-group-sm">
 														<select class="form-control form-control-sm m-select2 m-select2-general" id="codVendedor" name="codVendedor">
-															<option>
+															<option value="">
 																Código
 															</option>
 															<?php
@@ -281,7 +281,7 @@
 														&nbsp;
 													</label>
 													<select class="form-control form-control-sm m-select2 m-select2-general" id="numDocCliente" name="numDocCliente" >
-														<option>
+														<option value="">
 															Número de documento *
 														</option>
 														<?php
@@ -328,6 +328,7 @@
 												<div class="col-lg-3">
 													<label>Camposanto *</label>
 													<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="camposanto" required id="camposanto" disabled="disabled">
+														<option value="">Seleccione</option>
 														<?php
 														  $tabla = "vtama_camposanto";
 														  $item1 = "cod_camposanto";

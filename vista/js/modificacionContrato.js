@@ -35,6 +35,19 @@ $("#fchDecBenef").datepicker({
 	autoclose: true
 });//datepicker
 
+function getParameterByName() {
+    var query = window.location.search.substring(1);
+    if (query == "" ) {
+    }else{
+        var pair = query.split("&");
+        var localidad = pair[0].split("=");
+        var contrato = pair[1].split("=");
+        $("#sedeContrato").val(localidad[1]);
+        $("#codContrato").val(contrato[1]);
+        buscaCtto();
+    }
+}
+
 function buscaCtto(){
 	var codCtto = document.getElementById("codContrato").value;
 	if(codCtto != '' || codCtto != null){
@@ -1282,3 +1295,5 @@ function AnulaDefCtto(){
         
     // End If
 }//function AnulaDefCtto
+
+getParameterByName();

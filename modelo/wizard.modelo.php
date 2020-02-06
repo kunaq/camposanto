@@ -159,7 +159,7 @@ class ModeloWizard{
 	
 	static public function mdlGetDatosContrato($cod_localidad,$cod_contrato){
 		$db = new Conexion();
-		$sql = $db->consulta("SELECT TOP 1 cod_contrato, cod_tipo_programa, cod_tipo_ctt, (SELECT vtama_cliente.dsc_documento FROM vtama_cliente WHERE vtama_cliente.cod_cliente = vtade_contrato.cod_cliente) AS dsc_documento FROM vtade_contrato WHERE cod_localidad = '$cod_localidad' AND cod_contrato  LIKE (RIGHT('0000000000'+'$cod_contrato',10))");
+		$sql = $db->consulta("SELECT DISTINCT vtade_contrato.cod_contrato, vtade_contrato.cod_tipo_programa, vtade_contrato.cod_tipo_ctt, (SELECT vtama_cliente.dsc_documento FROM vtama_cliente WHERE vtama_cliente.cod_cliente = vtade_contrato.cod_cliente) AS dsc_documento, vtaca_contrato.cod_camposanto_actual, (SELECT vtama_plataforma.cod_tipo_plataforma FROM vtama_plataforma WHERE vtama_plataforma.cod_camposanto = vtaca_contrato.cod_camposanto_actual AND vtama_plataforma.cod_plataforma = vtaca_contrato.cod_plataforma_actual) AS cod_tipo_plataforma, vtaca_contrato.cod_plataforma_actual, vtaca_contrato.cod_areaplataforma_actual, vtaca_contrato.cod_ejehorizontal_actual, vtaca_contrato.cod_ejevertical_actual, vtaca_contrato.cod_espacio_actual FROM vtade_contrato INNER JOIN vtaca_contrato ON vtaca_contrato.cod_contrato = vtade_contrato.cod_contrato WHERE vtade_contrato.cod_localidad = '$cod_localidad' AND vtade_contrato.cod_contrato  LIKE (RIGHT('0000000000'+'$cod_contrato',10))");
 
 		$datos = array();
     	while($key = $db->recorrer($sql)){

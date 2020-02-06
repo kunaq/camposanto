@@ -9,6 +9,7 @@ require_once "../../modelo/conexion.php";
        	$sql = $db->consulta("SELECT cod_entidad, dsc_entidad, dsc_direccion, flg_activo FROM vtama_entidad WHERE cod_entidad = '$cod'");
        // var_dump($db->recorrer($sql));
         $datos = array();
+        $fch_actual = date("d-m-Y");
         while($key = $db->recorrer($sql)){
           $datos[] =  $key; 
           echo "<tr height='50' name='".$cod."' id='".$cod."' >
@@ -16,7 +17,8 @@ require_once "../../modelo/conexion.php";
                     ".$nombre."
                   </td>
                   <td class='tdEndFchVen'>
-                    <input type='text' class='form-control m-input' id='m_datepicker_4_".$cod."' data-date-format='dd/mm/yyyy'>
+                    <input type='text' class='form-control form-control-sm m-input'  id='m_datepicker_4_".$cod."' data-date-format='dd/mm/yyyy' value='".date("d-m-Y",strtotime($fch_actual."+ 1 month"))."'/>
+
                   </td>
                   <td class='tdEndMon'>
                     <select class='form-control m-input' name='mon_".$cod."' id='mon_".$cod."' disabled style='padding-right:1rem;'>

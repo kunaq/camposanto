@@ -726,7 +726,7 @@ var seleccionados = new Array();
    container.querySelectorAll('tr').forEach(function (li_i) 
     {
       var ls_servicio = $(li_i).attr("name"); //codigo de servicio 
-      document.getElementById("numF_"+ls_servicio).value = '';
+      document.getElementById("numF_"+ls_servicio).value = 0;
       document.getElementById("numF_"+ls_servicio).placeholder = '0.00';
     });
 
@@ -2648,19 +2648,32 @@ function grabaTemporal(){
                           dataType: 'text',
                           data: {'accion' : 'generaEspacio', 'ls_tipo_recaudacion' : tipo_recaudacion, 'as_camposanto' : camposanto, 'as_plataforma' : plataforma, 'as_area' : area, 'as_eje_horizontal' : eje_x, 'as_eje_vertical' : eje_y, 'as_espacio' : espacio, 'as_tipo_espacio' : tipo_espacio},
                           success : function(respuesta){
-                            if(respuesta == 1){
-                              console.log("espacio generado");
-                            }
+                            // if(respuesta == 1){
+                            //   console.log("espacio generado");
+                            // }
                           }//success Generar Espacio
                       });
 
-                      $(".loader").fadeOut("slow");
-                      swal({
-                          title: "",
-                          text: "Se ha generado el contrato "+respuesta['num_contrato']+" con éxito.",
-                          type: "success",
-                          confirmButtonText: "Aceptar",
+                      var tipo_servicio = document.getElementById('tipPro').value;
+                      if (tipo_servicio == 'TR005') {
+                        $(".loader").fadeOut("slow");
+                        swal({
+                            title: "",
+                            // text: "Se ha generado el servicio con éxito.",
+                            html: '<h6>Se ha generado el servicio con éxito.</h6><br><a href="ModificacionContrato" type="button" id="btn2Com" class="btn btn-sm btnEditarKqPst2 mt25" target="_blank">Abrir Contrato</a>',
+                            type: "success",
+                            confirmButtonText: "Aceptar",
                         })
+                      }else{
+                        $(".loader").fadeOut("slow");
+                        swal({
+                            title: "",
+                            text: "Se ha generado el contrato "+respuesta['num_contrato']+" con éxito.",
+                            html: '<h6>Se ha generado el contrato '+respuesta['num_contrato']+' con éxito.</h6><br><a href="modificacionContrato?localidad='+respuesta['cod_localidad']+'&contrato='+respuesta['num_contrato']+'" target="_blank">Ir a Modificación</a>',
+                            type: "success",
+                            confirmButtonText: "Aceptar",
+                        })
+                      }
 
                       // setTimeout(function(){ 
                       //   $(".loader").fadeIn("slow");
