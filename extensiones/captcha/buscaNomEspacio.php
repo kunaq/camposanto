@@ -12,7 +12,7 @@ require_once "../../modelo/conexion.php";
 		while($key = $db->recorrer($sql)){
 
             $datos[] =  $key;
-            echo $respuesta =  $key['dsc_tipo_espacio'];    
+            echo $respuesta =  $key['dsc_tipo_espacio'];
              
 		}        
 		//echo $respuesta;

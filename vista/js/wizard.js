@@ -606,7 +606,6 @@ $("#deuCom").change(function() {
         dataType: 'text',
         data: { 'value' : valor },
         success : function(respuesta){
-            //console.log(respuesta);
             var nombre = respuesta.split("/")[0];
             var tipodoc = respuesta.split("/")[1];
             var numdoc = respuesta.split("/")[2];
@@ -625,6 +624,7 @@ $("#deuCom").change(function() {
 $("#ctt").change(function() {
     var cod_localidad = document.getElementById('localidad').value;
     var cod_contrato = $(this).val();
+    var tipoPrograma = document.getElementById('tipPro').value;
 
     document.getElementById('tipoProgramaMod').value = '';
     $('#nombreCliente').val('');
@@ -660,10 +660,92 @@ $("#ctt").change(function() {
             document.getElementById('tipo_ctt').value = value['cod_tipo_ctt'];
             document.getElementById('tipo_programa').value = value['cod_tipo_programa'];
             document.getElementById("numDocCliente").value = value['dsc_documento'];
-            $("#numDocCliente").change();
+            // $("#numDocCliente").change();
+            if (tipoPrograma == 'TR007' || tipoPrograma == 'TR004' || tipoPrograma == 'TR003') {
+              document.getElementById('camposanto').value = value['cod_camposanto_actual'];
+              $("#camposanto").change();
+              document.getElementById('tipoPlat').value = value['cod_tipo_plataforma'];
+              $("#tipoPlat").change();
+              $.ajax({
+                  type: 'GET',
+                  url: 'extensiones/captcha/buscaPlataforma.php',
+                  dataType: 'text',
+                  data: { 'value' : value['cod_tipo_plataforma'] },
+                  success : function(respuesta){
+                    $("#plataforma").html(respuesta);
+                    document.getElementById('plataforma').value = value['cod_plataforma_actual'];
+                  }
+              });
+
+              $.ajax({
+                  type: 'GET',
+                  url: 'extensiones/captcha/buscaArea.php',
+                  dataType: 'text',
+                  data: { 'value' : value['cod_plataforma_actual'] },
+                  success : function(respuesta){
+                      $("#area").html(respuesta);
+                      document.getElementById('area').value = value['cod_areaplataforma_actual'];
+                  }
+              });
+
+              $.ajax({
+                  type: 'GET',
+                  url: 'extensiones/captcha/buscaEjex.php',
+                  dataType: 'text',
+                  data: { 'value' : value['cod_areaplataforma_actual'], 'plat' : value['cod_plataforma_actual'], 'campo' : value['cod_camposanto_actual'] },
+                  success : function(respuesta){
+                    $("#ejex").html(respuesta);
+                    document.getElementById('ejex').value = value['cod_ejehorizontal_actual'];
+                  }
+              });
+
+              $.ajax({
+                  type: 'GET',
+                  url: 'extensiones/captcha/buscaEjey.php',
+                  dataType: 'text',
+                  data: { 'value' : value['cod_ejehorizontal_actual'], 'plat' : value['cod_plataforma_actual'], 'campo' : value['cod_camposanto_actual'], 'area' : value['cod_areaplataforma_actual'] },
+                  success : function(respuesta){
+                      $("#ejey").html(respuesta);
+                      document.getElementById('ejey').value = value['cod_ejevertical_actual'];
+                  }
+              });
+
+              var plat = value['cod_plataforma_actual'];
+              var campo = value['cod_camposanto_actual'];
+              var area = value['cod_areaplataforma_actual'];
+              var ejex = value['cod_ejehorizontal_actual'];
+              var valor = value['cod_ejevertical_actual'];
+              var espacio_actual = value['cod_espacio_actual'];
+              var dsc_espacio = value['cod_tipo_espacio_actual']+"/"+value['cod_estado_actual']+"/"+value['cod_espacio_actual'];
+              console.log(dsc_espacio);
+              $.ajax({
+                  type: 'POST',
+                  url: 'ajax/wizard.ajax.php',
+                  dataType: 'json',
+                  data:{'value' : valor, 'plat' : plat, 'campo' : campo, 'area' : area, 'ejex' : ejex, 'edoEspacio' : 'mostrar'},
+                  success : function(respuesta){
+                      var edo = '';
+                      var texto = '"<option value = 0>Espacio.  </option>"';
+                      $.each(respuesta, function(key,value){
+                          if(value.cod_estado == 'E01'){
+                              edo = 'LIBRE';
+                          }else if(value.cod_estado == 'E04'){
+                              edo = 'BLOQUEADO';
+                          }else{
+                              edo = 'OCUPADO';
+                          }
+                            texto += '<option value="'+value.cod_tipo_espacio+'/'+value.cod_estado+'/'+value.cod_espacio+'">'+value.cod_espacio+' '+edo+'</option>';
+                      });//each  
+                      $("#espacio").html(texto);
+                      document.getElementById('espacio').value = dsc_espacio;
+                      $("#espacio").change();
+                  }//success
+              });
+
+            }
           });//each
         }
-        }
+      }
     });
     
 });

@@ -341,8 +341,8 @@
 													<label> Tipo plataforma:</label>
 													<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="tipoPlat" disabled="disabled" id="tipoPlat" onchange="buscaPlataforma(this.value);">
 														<option value="">Tipo de plataforma</option>
-														<option value="TP001">NICHO</option>
-														<option value="TP002">PLATAFORMA</option>
+														<option value="TP002">NICHOS</option>
+														<option value="TP001">PLATAFORMA</option>
 													</select>
 												</div>
 												<div class="col-lg-4">
@@ -371,7 +371,7 @@
 												</div>
 												<div class="col-lg-3">
 													<label>Espacio:</label>
-													<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="espacio" id="espacio" disabled onchange="buscanomEspacio(this.value);">
+													<select class="form-control form-control-sm m-input" name="espacio" id="espacio" disabled onchange="buscanomEspacio(this.value);">
 													</select>
 												</div>
 												<div class="col-lg-3">
