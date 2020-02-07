@@ -114,6 +114,15 @@ class ModeloModifCtto{
         $db->cerrar();
 	}//mdlValUsoServ
 
+	static public function mdlVerificaComprobante($tablaCtto,$tablaComp,$tablaCuotas,$datos){
+		$db = new Conexion();
+		$sql = $db->consulta("SELECT $tablaCtto.cod_contrato, $tablaCtto.num_servicio, $tablaCtto.num_cuotas, $tablaCtto.cod_cuota, vtavi_cuotas_x_comprobante.*, vtavi_cronograma_x_servicio.* FROM $tablaCtto INNER JOIN vtavi_cuotas_x_comprobante ON ($tablaCtto.cod_contrato = vtavi_cuotas_x_comprobante.cod_contrato AND $tablaCtto.num_refinanciamiento = vtavi_cuotas_x_comprobante.num_refinanciamiento) INNER JOIN vtavi_cronograma_x_servicio ON ($tablaCtto.cod_contrato = vtavi_cronograma_x_servicio.cod_contrato AND $tablaCtto.num_servicio = vtavi_cronograma_x_servicio.num_servicio) WHERE $tablaCtto.cod_contrato = LIKE (RIGHT('0000000000'+'".$datos['ls_contrato']."',10)) AND $tablaCtto.num_servicio = ".$datos['ls_servicio']);
+		$datos = arrayMapUtf8Encode($db->recorrer($sql));
+		return $datos;
+		$db->liberar($sql);
+        $db->cerrar();
+	}//mdlVerificaTrans
+
 	static public function mdlVerificaTrans($tablaCtto,$datos){
 		$db = new Conexion();
 		$sql = $db->consulta("SELECT  $tablaCtto.flg_derecho_sepultura, $tablaCtto.num_servicio_foma FROM        $tablaCtto WHERE $tablaCtto.cod_localidad = '".$datos['ls_localidad']."' AND $tablaCtto.cod_contrato LIKE (RIGHT('0000000000'+'".$datos['ls_contrato']."',10)) AND $tablaCtto.num_servicio = ".$datos['ls_servicio']." AND $tablaCtto.cod_tipo_programa = '".$datos['ls_tipo_programa']."' AND $tablaCtto.cod_tipo_ctt = '".$datos['ls_tipo_ctt']."'");
