@@ -112,6 +112,7 @@ function mostrarSidebar(numContrato,codServicio){
             document.getElementById('fchResSideBar').innerText = info.fch_resolucion;
             document.getElementById('fchAnuSideBar').innerText = info.fch_anulacion;
             $("#buttons-box").html(info.buttons);
+            $("#action-buttons").html(info.actions);
             document.getElementById('clienteSideBar').innerText = info.dsc_cliente;
             document.getElementById('tipoNecSideBar').innerText = info.tipo_necesidad;
             document.getElementById('vendedorSideBar').innerText = info.dsc_vendedor;
