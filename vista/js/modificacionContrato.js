@@ -136,6 +136,8 @@ function llenaDatos(codCtto){
 
 function muestraInfo(id){
 	var codCtto = $("#codContrato").val();
+    $(".listaServicio").removeClass('activoListaServicioModif'); 
+    $("#filaServ_"+id).addClass('activoListaServicioModif');
 	$.ajax({
         url: 'ajax/modifCtto.ajax.php',
         dataType: 'json',
@@ -180,6 +182,7 @@ function muestraInfo(id){
         		$("#codAval").trigger('change');
         	}
         	$("#saldoFinCronograma").val(respuesta['imp_saldofinanciar']);
+            $("#numRefinanciamiento").val(respuesta['num_refinanciamiento']);
         	if(respuesta['imp_saldofinanciar'] != 0){
         		cargaCronograma(codCtto,respuesta['num_refinanciamiento']);
         		cargaFoma(codCtto,respuesta['num_refinanciamiento']);
@@ -1023,39 +1026,53 @@ function resetForm(){
     $("#bodyCronogramaFomaModif").empty();
 }
 
-
+function buscaCuotasPag(){
+    var li_ref = $("#numRefinanciamiento").val();
+    var ls_contrato = $("#codContrato").val();
+     $.ajax({
+        url: 'ajax/modifCtto.ajax.php',
+        dataType: 'json',
+        method: "POST",
+        data: { 'accion' : 'cuotasPagadas', 'ls_contrato' : ls_contrato, 'li_ref' : li_ref },
+        success : function(respuesta){
+            console.log(respuesta);
+            return respuesta;
+        }
+    });
+}
 
 //----------------------------Anular contrato-----------------------------//
 // -- Detalle Servicios -- //
 function anularCtto(numServ = null){
     // console.log(numServ);
-    // if($("#codContrato").val() == ''){
-    //     swal({
-    //         title: "",
-    //         text: "Debe seleccionar el número de servicio que desea anular.",
-    //         type: "warning",
-    //         confirmButtonText: "Aceptar",
-    //     })
-    //     return;
-    // }
-    // else if($("#flg_activado_"+numServ).val() == 'SI' && $("#flg_resuelto_"+numServ).val() == 'NO'){
-    //     swal({
-    //         title: "",
-    //         text: "El contrato esta ACTIVADO no puede ser anulado.",
-    //         type: "warning",
-    //         confirmButtonText: "Aceptar",
-    //     })
-    //     return;
-    // }else if($("#flg_resuelto_"+numServ).val() == 'SI' && $("#flg_activado_"+numServ).val() == 'SI'){
-    //     swal({
-    //         title: "",
-    //         text: "El contrato esta RESUELTO no puede ser anulado.",
-    //         type: "warning",
-    //         confirmButtonText: "Aceptar",
-    //     })
-    //     return;
-    // }
-    /*else*/if($("#flg_anulado_"+numServ).val() == 'SI'){
+    var validaPago = buscaCuotasPag();
+    if($("#codContrato").val() == ''){
+        swal({
+            title: "",
+            text: "Debe seleccionar el número de servicio que desea anular.",
+            type: "warning",
+            confirmButtonText: "Aceptar",
+        })
+        return;
+    }
+    else if($("#flg_activado_"+numServ).val() == 'SI' && $("#flg_resuelto_"+numServ).val() == 'NO'){
+        swal({
+            title: "",
+            text: "El contrato esta ACTIVADO no puede ser anulado.",
+            type: "warning",
+            confirmButtonText: "Aceptar",
+        })
+        return;
+    }else if($("#flg_resuelto_"+numServ).val() == 'SI' && $("#flg_activado_"+numServ).val() == 'SI'){
+        swal({
+            title: "",
+            text: "El contrato esta RESUELTO no puede ser anulado.",
+            type: "warning",
+            confirmButtonText: "Aceptar",
+        })
+        return;
+    }
+    else if($("#flg_anulado_"+numServ).val() == 'SI'){
         swal({
             title: "",
             text: "El contrato ya esta ANULADO.",
@@ -1063,8 +1080,15 @@ function anularCtto(numServ = null){
             confirmButtonText: "Aceptar",
         })
         return;
-    }
-    else{
+    }else if(validaPago){
+        swal({
+            title: "",
+            text: "El contrato / número de servicio tiene cuotas canceladas total o parcialmente, NO puede ser anulado.",
+            type: "warning",
+            confirmButtonText: "Aceptar",
+        })
+        return;
+    }else{
         var ls_tipo_programa = $("#tipoPrograma").val();
         var ls_tipo_ctt = $("#modC").val();
         var ls_contrato = $("#codContrato").val();
@@ -1295,5 +1319,3 @@ function AnulaDefCtto(){
         
     // End If
 }//function AnulaDefCtto
-
-getParameterByName();

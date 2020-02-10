@@ -186,5 +186,13 @@ class ControladorModifCtto{
 		return $respuesta;
 	}// function ctrGeneraEspacio
 
+	static public function ctrValidaPagos(){
+		$datos = array("ls_contrato" => $_POST['ls_contrato'],
+						"li_ref" => $_POST['li_ref']
+					  );
+		$respuesta = ModeloWizard::mdlValidaPagos($datos);
+		return $respuesta;
+	}// function ctrValidaPagos
+
 }//class ControladorModifCtto
 ?>

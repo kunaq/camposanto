@@ -191,5 +191,15 @@ class ModeloModifCtto{
 		}
 	}//function mdlGeneraEspacio
 
+	static public function mdlValidaPagos($datos){
+		$db = new Conexion();
+		$sql = $db->consulta("SELECT  vtavi_cuotas_x_comprobante.* FROM vtavi_cuotas_x_comprobante INNER JOIN vtade_comprobante ON vtade_comprobante.num_correlativo = vtavi_cuotas_x_comprobante.num_correlativo INNER JOIN vtade_contrato ON (vtade_contrato.cod_contrato = vtavi_cuotas_x_comprobante.cod_contrato AND vtade_contrato.num_refinanciamiento = vtavi_cuotas_x_comprobante.num_refinanciamiento) WHERE (vtade_contrato.cod_contrato LIKE (RIGHT('0000000000'+'".$datos['ls_contrato']."',10)) AND vtade_contrato.num_refinanciamiento = ".$datos['li_ref'].")");
+		if ($sql) {
+			return true;
+		}else{
+			return false;
+		}
+	}//function mdlValidaPagos
+
 }//class ModeloModifCtto
 ?>
