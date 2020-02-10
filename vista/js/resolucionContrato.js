@@ -5,8 +5,10 @@ $("#m_datepicker_4_3").datepicker({
 $("#m_datepicker_4_3").datepicker("setDate", new Date());
 function setPeriod(){
     var fechaRes = ($('#m_datepicker_4_3').datepicker("getDate")).toLocaleDateString();
-    console.log(fechaRes);
-    $.ajax({
+    var cod_ctt = document.getElementById('numConResolucion').value;
+    var cod_consejero = document.getElementById('codVenResolucion').value;
+    if (cod_ctt != '' && cod_consejero != '') {
+        $.ajax({
         type:'GET',
         url: 'extensiones/captcha/getPeriod.php',
         dataType: 'text',
@@ -23,10 +25,50 @@ function setPeriod(){
                 success : function(response){
                     $("#perResolucion").html(response);
                     $('#perResolucion').val(info.periodo);
+                    var cod_consejero = document.getElementById('codVenResolucion').value;
+                    var num_anno = document.getElementById('annoPerResolucion').value;
+                    var cod_tipo_periodo = document.getElementById('tipoPerResolucion').value;
+                    var cod_periodo = document.getElementById('perResolucion').value;
+                    $.ajax({
+                        type:'POST',
+                        url: 'ajax/resCtto.ajax.php',
+                        dataType: 'json',
+                        data: {'accion':'getHisTrabajador', 'cod_consejero':cod_consejero, 'num_anno':num_anno, 'cod_tipo_periodo':cod_tipo_periodo, 'cod_periodo':cod_periodo},
+                        success : function(response){
+                            if (response.length == 0) {
+                                swal({
+                                    title: "",
+                                    text: 'El consejero ['+consejero+'] no esta activo para el período seleccionado ['+num_anno+'-'+cod_tipo_periodo+'-'+cod_periodo+'].',
+                                    type: "warning",
+                                    confirmButtonText: "Aceptar",
+                                });
+                            }else{
+                                $.each(response,function(index,value){
+                                    document.getElementById('codVenComResolucion').value = value['cod_trabajador'];
+                                    if (value['cod_trabajador'] != '') {
+                                        nombreTrabajador(value['cod_trabajador'],'dscVenComResolucion');
+                                    }
+                                    document.getElementById('codSupComResolucion').value = value['cod_supervisor'];
+                                    if (value['cod_supervisor'] != '') {
+                                        nombreTrabajador(value['cod_supervisor'],'dscSupComResolucion');
+                                    }
+                                    document.getElementById('codGruComResolucion').value = value['cod_grupo'];
+                                    if (value['cod_grupo'] != '') {
+                                        nombreGrupoVenta(value['cod_grupo'],'dscGruComResolucion');
+                                    }
+                                    document.getElementById('codJVenComResolucion').value = value['cod_jefeventas'];
+                                    if (value['cod_jefeventas'] != '') {
+                                        nombreTrabajador(value['cod_jefeventas'],'dscJVenCoResolucion');
+                                    }
+                                });//each 
+                            }
+                        }//success
+                    });//ajax interno
                  }//success
-            });//ajax interno   
+            });//ajax interno
          }//success
     });//ajax
+    }
 }//setPeriod
 
 function buscaPeriodo(){
@@ -70,6 +112,48 @@ function buscaMotivo(tipo){
             });//each
          }//success
     });//ajax
+
+    var cod_consejero = document.getElementById('codVenResolucion').value;
+    var num_anno = document.getElementById('annoPerResolucion').value;
+    var cod_tipo_periodo = document.getElementById('tipoPerResolucion').value;
+    var cod_periodo = document.getElementById('perResolucion').value;
+    var consejero = document.getElementById('dscVenResolucion').value;
+    $.ajax({
+        type:'POST',
+        url: 'ajax/resCtto.ajax.php',
+        dataType: 'json',
+        data: {'accion':'getHisTrabajador', 'cod_consejero':cod_consejero, 'num_anno':num_anno, 'cod_tipo_periodo':cod_tipo_periodo, 'cod_periodo':cod_periodo},
+        success : function(respuesta){
+            if (respuesta.length == 0) {
+                swal({
+                    title: "",
+                    text: 'El consejero ['+consejero+'] no esta activo para el período seleccionado ['+num_anno+'-'+cod_tipo_periodo+'-'+cod_periodo+'].',
+                    type: "warning",
+                    confirmButtonText: "Aceptar",
+                });
+            }else{
+                $.each(respuesta,function(index,value){
+                    document.getElementById('codVenComResolucion').value = value['cod_trabajador'];
+                    if (value['cod_trabajador'] != '') {
+                        nombreTrabajador(value['cod_trabajador'],'dscVenComResolucion');
+                    }
+                    document.getElementById('codSupComResolucion').value = value['cod_supervisor'];
+                    if (value['cod_supervisor'] != '') {
+                        nombreTrabajador(value['cod_supervisor'],'dscSupComResolucion');
+                    }
+                    document.getElementById('codGruComResolucion').value = value['cod_grupo'];
+                    if (value['cod_grupo'] != '') {
+                        nombreGrupoVenta(value['cod_grupo'],'dscGruComResolucion');
+                    }
+                    document.getElementById('codJVenComResolucion').value = value['cod_jefeventas'];
+                    if (value['cod_jefeventas'] != '') {
+                        nombreTrabajador(value['cod_jefeventas'],'dscJVenCoResolucion');
+                    }
+                });//each 
+            }
+        }//success
+    });//ajax interno
+
 }//buscaMotivo
 
 function buscaNumServicio(){
@@ -91,7 +175,7 @@ function buscaNumServicio(){
             $("#numSerResolucion").empty();
             var option = '';
             $.each(response,function(index,value){
-                option = '<option value="'+value['num_servicio']+'/'+value['flg_resuelto']+'/'+value['flg_anulado']+'">'+value['num_servicio']+'</option>';
+                option = '<option value="'+value['num_servicio']+'/'+value['flg_resuelto']+'/'+value['flg_anulado']+'/'+value['num_refinanciamiento']+'">'+value['num_servicio']+'</option>';
                 document.getElementById("numSerResolucion").insertAdjacentHTML("beforeEnd" ,option);
             });//each
             $("#numSerResolucion").change();
@@ -138,14 +222,15 @@ $("#numSerResolucion").change(function(){
 function buscaDetalles(value,accion){
     // console.log(value);
     var numServicio = value.split("/")[0];
+    var localidad = $("#localidadResolucion").val();
     var ctto = $("#numConResolucion").val();
+    var num_refinanciamiento = value.split("/")[3];
     $.ajax({
         type:'POST',
         url: 'ajax/resCtto.ajax.php',
         dataType: 'json',
         data: {'accion': accion, 'codCtto':ctto, 'numServicio' : numServicio},
         success : function(response){
-            console.log(response);
             if(response['cod_tipo_programa'] = 'TR000'){
                 $("#dscProgResolucion").val('CONTRATO DE SERVICIO');
             }
@@ -159,7 +244,7 @@ function buscaDetalles(value,accion){
                 $("#m_datepicker_4_3").val(response['fch_resolucion']);
             }
             $("#tipoResolucion").val(response['cod_tipo_resolucion']);
-            $("#tipoResolucion").change();
+            // $("#tipoResolucion").change();
             $("#motivoResolucion").val(response['cod_motivo_resolucion']);
             $("#detalleResolucion").val(response['dsc_motivo_usuario']);
             if(response['cod_tipo_necesidad'] == 'NF'){
@@ -169,13 +254,12 @@ function buscaDetalles(value,accion){
             }
             $("#codCliResolucion").val(response['cod_cliente']);
             $.ajax({
-                url: 'ajax/modifCtto.ajax.php',
+                url: 'ajax/resCtto.ajax.php',
                 dataType: 'json',
                 method: "POST",
                 data: { 'accion' : 'buscaCli', 'codCliente' : response['cod_cliente'] },
                 success : function(respuesta){
-
-                    document.getElementById("tipoDocResolucion").setAttribute('value',respuesta['cod_tipo_documento']);
+                    document.getElementById('tipoDocResolucion').value = respuesta['cod_tipo_documento'];
                     $("#numDocResolucion").val(respuesta['dsc_documento']);
                     if(respuesta['flg_juridico'] == 'NO'){
                         nombre = respuesta['dsc_apellido_paterno']+' '+respuesta['dsc_apellido_materno']+', '+respuesta['dsc_nombre'];
@@ -189,13 +273,21 @@ function buscaDetalles(value,accion){
                 }//success
             });//ajax cliente
             $("#codJVenResolucion").val(response['cod_jefeventas']);
-            nombreTrabajador(response['cod_jefeventas'],'dscJVenResolucion1s');
+            if (response['cod_jefeventas'] != '') {
+                nombreTrabajador(response['cod_jefeventas'],'dscJVenResolucion1s');
+            }
             $("#codVenResolucion").val(response['cod_vendedor']);
-            nombreTrabajador(response['cod_vendedor'],'dscVenResolucion');
+            if (response['cod_vendedor'] != '') {
+                nombreTrabajador(response['cod_vendedor'],'dscVenResolucion');
+            }
             $("#codGruResolucion").val(response['cod_grupo']);
-            nombreGrupoVenta(response['cod_grupo'],'dscGruResolucion');
+            if (response['cod_grupo'] != '') {
+                nombreGrupoVenta(response['cod_grupo'],'dscGruResolucion');
+            }
             $("#codSupResolucion").val(response['cod_supervisor']);
-            nombreTrabajador(response['cod_supervisor'],'dscSupResolucion');
+            if (response['cod_supervisor']) {
+                nombreTrabajador(response['cod_supervisor'],'dscSupResolucion');
+            }
             $("#annoPerResolucion").val(response['num_anno_afecto']);
             $("#annoPerResolucion").change();
             $("#tipoPerResolucion").val(response['cod_tipo_periodo_afecto']);
@@ -208,30 +300,26 @@ function buscaDetalles(value,accion){
             }else if(response['flg_afecta_comision'] == 'NO'){
                 $("#check-comision").prop('checked',false);
             }
-            $("#codVenComResolucion").val(response['codVenRes']);
-            nombreTrabajador(response['codVenRes'],'dscVenComResolucion');
-            $("#codSupComResolucion").val(response['codSupRes']);
-            nombreTrabajador(response['codSupRes'],'dscSupComResolucion');
-            $("#codGruComResolucion").val(response['codGruRes']);
-            nombreGrupoVenta(response['codGruRes'],'dscGruComResolucion');
-            $("#codJVenComResolucion").val(response['codJventasRes']);
-            nombreTrabajador(response['codJventasRes'],'dscJVenCoResolucion');
-            $("#bodyResolucion").empty();
-            var fila = '<tr>'+
-                        '<td>'+numServicio+'</td>'+
-                        '<td>'+response['dsc_tipo_servicio']+'</td>'+
-                        '<td>'+Number(response['imp_saldofinanciar']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
-                    '</tr>';
-                    // console.log(fila);
-            document.getElementById("bodyResolucion").insertAdjacentHTML("beforeEnd" ,fila);
-            document.getElementById("totalServPpalRes").innerText = Number(response['imp_saldofinanciar']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
+            // Conformacion de Refinanciamiento
+            $.ajax({
+                type:'POST',
+                url: 'ajax/resCtto.ajax.php',
+                dataType: 'text',
+                data: {'accion': 'getConformacion', 'cod_localidad':localidad, 'cod_contrato' : ctto, 'num_refinanciamiento':num_refinanciamiento},
+                success : function(response){
+                    $("#bodyResolucion").empty();
+                    var info = JSON.parse(response);
+                    $("#bodyResolucion").html(info.tableDetFinanciamiento);
+                    document.getElementById("totalServPpalRes").innerText = info.saldoTotal;
+                 }//success
+            });//ajax
+
             $.ajax({
                 type:'POST',
                 url: 'ajax/resCtto.ajax.php',
                 dataType: 'json',
                 data: {'accion': 'buscaResumen', 'as_contrato':ctto, 'as_servicio' : numServicio, 'as_localidad':response['cod_localidad'], 'as_tipo_ctt': response['cod_tipo_ctt'], 'ai_ref':response['num_refinanciamiento'], 'as_tipo_programa':response['cod_tipo_programa']},
                 success : function(response){
-                    console.log(response);
                     $("#estadoConResolucion").val(response['dsc_estado']);
                     $("#monedaConResolucion").val(response['cod_moneda']);
                     $("#cuoTotReg").val(response['ctd_total']);
@@ -315,7 +403,7 @@ function desbloquea(){
 }//desbloquea
 
 function limpia(){
-    $("#m_datepicker_4_3").val('');
+    // $("#m_datepicker_4_3").val('');
     $("#tipoResolucion").val('');
     $("#motivoResolucion").val('');
     $("#detalleResolucion").val('');
@@ -342,9 +430,9 @@ function limpia(){
     $("#cuoPenFOMA").val('');
     $("#estadoConResolucion").val('');
     $("#monedaConResolucion").val('');
-    $("#annoPerResolucion").val('');
-    $("#tipoPerResolucion").val('');
-    $("#perResolucion").val('');
+    // $("#annoPerResolucion").val('');
+    // $("#tipoPerResolucion").val('');
+    // $("#perResolucion").val('');
     $("#saldoInsResolucion").val('');
     $("#porcResolucion").val('');
     $("#check-comision").prop('checked',false);

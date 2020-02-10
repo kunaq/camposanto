@@ -41,5 +41,28 @@ class ControladorResCtto{
 		return $respuesta;
 	}//function ctrEjecutaProcedureResumenCtt
 
+	static public function ctrGetHisTrabajador(){
+		$cod_consejero = $_POST['cod_consejero'];
+		$num_anno = $_POST['num_anno'];
+		$cod_tipo_periodo = $_POST['cod_tipo_periodo'];
+		$cod_periodo = $_POST['cod_periodo'];
+		$respuesta = ModeloResCtto::mdlGetHisTrabajador($cod_consejero,$num_anno,$cod_tipo_periodo,$cod_periodo);
+		return $respuesta;
+	}//ctrGetHisTrabajador
+
+	static public function ctrGetDatosCliente(){
+		$cod_cliente = $_POST['codCliente'];
+		$respuesta = ModeloResCtto::mdlGetDatosCliente($cod_cliente);
+		return $respuesta;
+	}//ctrGetDatosCliente
+	
+	static public function ctrGetConformacion(){
+		$cod_localidad = $_POST['cod_localidad'];
+		$cod_contrato = $_POST['cod_contrato'];
+		$num_refinanciamiento = $_POST['num_refinanciamiento'];
+		$respuesta = ModeloResCtto::mdlGetConformacion($cod_localidad,$cod_contrato,$num_refinanciamiento);
+		return $respuesta;
+	}//ctrGetConformacion
+
 }//class ControladorResCtto
 ?>

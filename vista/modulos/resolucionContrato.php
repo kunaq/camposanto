@@ -116,6 +116,13 @@
 									<label>Motivo</label>
 									<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="motivoResolucion" id="motivoResolucion" onchange="">
 										<option value="">Seleccione</option>
+										<?php
+											$tabla = "vtama_motivo_resolucion";
+											$item1 = "cod_motivo_resolucion";
+											$item2 = "dsc_motivo_resolucion";
+											$prueba = controladorEmpresa::
+											ctrSelects($tabla,$item1,$item2);
+										?>
 									</select>
 								</div>
 								<div class="col-lg-12">

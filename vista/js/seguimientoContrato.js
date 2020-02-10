@@ -150,10 +150,10 @@ function getComprobantes(){
     document.getElementById('num_comprobante').value = "";
     if (localidad == "" || cod_contrato == "" || num_refinanciamiento == "") {
     	swal({
-	        title: "",
-	        text: "Ingresa un numero de contrato.",
-	        type: "error",
-	        confirmButtonText: "Aceptar",
+	      title: "",
+	      text: "Ingresa un numero de contrato.",
+	      type: "error",
+	      confirmButtonText: "Aceptar",
 	    });
 	    $('#mostrarTodos').prop("checked", false);
     }else{
