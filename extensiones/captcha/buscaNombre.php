@@ -16,7 +16,7 @@ require_once "../../funciones.php";
 		}    
 		//print_r($db);     
 		echo $respuesta;
-        $db->liberar($sql);
+    $db->liberar($sql);
  		$db->cerrar();
 
         //return $respuesta;

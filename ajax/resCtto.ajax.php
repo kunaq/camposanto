@@ -18,8 +18,22 @@ class AjaxResCtto{
 	}//ajaxBuscaDetCttoRes
 	public function ajaxEjecutaProcedureResumenCtt(){
 		$respuesta = ControladorResCtto::ctrEjecutaProcedureResumenCtt();
-	echo json_encode($respuesta,JSON_UNESCAPED_UNICODE);
+		echo json_encode($respuesta,JSON_UNESCAPED_UNICODE);
 	}//function ajaxEjecutaProcedureResumenCtt
+	public function ajaxGetHisTrabajador(){
+		$respuesta = ControladorResCtto::ctrGetHisTrabajador();
+		echo json_encode($respuesta);
+	}//ajaxGetHisTrabajador
+	
+	public function ajaxGetDatosCliente(){
+		$respuesta = ControladorResCtto::ctrGetDatosCliente();
+		echo json_encode($respuesta);
+	}//ajaxGetDatosCliente
+
+	public function ajaxGetConformacion(){
+		$respuesta = ControladorResCtto::ctrGetConformacion();
+		echo json_encode($respuesta);
+	}//ajaxGetConformacion
 }//class AjaxResCtto
 /*=============================================
 ACCIONES
@@ -43,4 +57,16 @@ else if(isset($_POST["accion"]) && $_POST["accion"] == 'buscaResumen' ){
 else if(isset($_POST["accion"]) && $_POST["accion"] == 'condicionRegular'){
 	$cliente = new AjaxResCtto();
 	$cliente -> ajaxBuscaDetCttoRes();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'getHisTrabajador'){
+	$cliente = new AjaxResCtto();
+	$cliente -> ajaxGetHisTrabajador();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'buscaCli'){
+	$cliente = new AjaxResCtto();
+	$cliente -> ajaxGetDatosCliente();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'getConformacion'){
+	$cliente = new AjaxResCtto();
+	$cliente -> ajaxGetConformacion();
 }

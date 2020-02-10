@@ -17,7 +17,7 @@ class ModeloResCtto{
 
 	static public function mdlBuscaNumServicio($tablaCtto,$codCtto){
 		$db = new Conexion();
-		$sql = $db->consulta("SELECT num_servicio, cod_contrato, flg_resuelto, flg_anulado, cod_tipo_ctt, cod_tipo_programa FROM $tablaCtto WHERE cod_contrato LIKE (RIGHT('0000000000'+'$codCtto',10)) AND flg_fondo_mantenimiento = 'NO' ORDER BY num_servicio ASC");
+		$sql = $db->consulta("SELECT num_servicio, cod_contrato, flg_resuelto, flg_anulado, cod_tipo_ctt, cod_tipo_programa, num_refinanciamiento FROM $tablaCtto WHERE cod_contrato LIKE (RIGHT('0000000000'+'$codCtto',10)) AND flg_fondo_mantenimiento = 'NO' AND flg_cambio_titular = 'NO' ORDER BY num_servicio ASC");
 		$datos = array();
     	while($key = $db->recorrer($sql)){
 	    		$datos[] = arrayMapUtf8Encode($key);
@@ -29,9 +29,12 @@ class ModeloResCtto{
 
 	static public function mdlBuscaDetCttoRes($tablaCtto,$tablaResolucion,$tablaMaTipSer,$codCtto,$numServicio){
 		$db = new Conexion();
-		$sql = $db->consulta("SELECT $tablaCtto.cod_tipo_ctt, $tablaCtto.cod_tipo_programa, $tablaCtto.fch_resolucion, $tablaCtto.cod_jefeventas, $tablaCtto.cod_supervisor, $tablaCtto.cod_vendedor, $tablaCtto.cod_grupo, $tablaCtto.cod_tipo_servicio, $tablaCtto.cod_tipo_necesidad, $tablaCtto.cod_tipo_ctt, $tablaCtto.cod_cliente, $tablaCtto.imp_saldofinanciar, $tablaResolucion.num_anno_afecto, $tablaResolucion.cod_tipo_periodo_afecto, $tablaResolucion.cod_periodo_afecto, $tablaResolucion.cod_jefe_ventas AS codJventasRes, $tablaResolucion.cod_supervisor AS codSupRes, $tablaResolucion.cod_vendedor AS codVenRes, $tablaResolucion.cod_grupo AS codGruRes, $tablaResolucion.imp_porc_afecto, $tablaResolucion.imp_afecto, $tablaResolucion.cod_tipo_resolucion, $tablaResolucion.cod_motivo_resolucion, $tablaResolucion.dsc_motivo_usuario, $tablaResolucion.flg_afecta_comision, $tablaMaTipSer.dsc_tipo_servicio, $tablaCtto.num_refinanciamiento,$tablaCtto.cod_localidad FROM $tablaCtto LEFT JOIN $tablaResolucion ON ($tablaResolucion.cod_contrato = $tablaCtto.cod_contrato AND $tablaCtto.num_servicio = $tablaResolucion.num_servicio) LEFT JOIN $tablaMaTipSer ON $tablaCtto.cod_tipo_servicio = $tablaMaTipSer.cod_tipo_servicio WHERE $tablaCtto.cod_contrato LIKE (RIGHT('0000000000'+'$codCtto',10)) AND $tablaCtto.num_servicio = $numServicio");	
+		$sql = $db->consulta("SELECT $tablaCtto.cod_tipo_ctt, $tablaCtto.cod_tipo_programa, $tablaCtto.fch_resolucion, $tablaCtto.cod_jefeventas, $tablaCtto.cod_supervisor, $tablaCtto.cod_vendedor, $tablaCtto.cod_grupo, $tablaCtto.cod_tipo_servicio, $tablaCtto.cod_tipo_necesidad, $tablaCtto.cod_tipo_ctt, $tablaCtto.cod_cliente, $tablaCtto.imp_saldofinanciar, $tablaResolucion.num_anno_afecto, $tablaResolucion.cod_tipo_periodo_afecto, $tablaResolucion.cod_periodo_afecto, $tablaResolucion.cod_jefe_ventas AS codJventasRes, $tablaResolucion.cod_supervisor AS codSupRes, $tablaResolucion.cod_vendedor AS codVenRes, $tablaResolucion.cod_grupo AS codGruRes, $tablaResolucion.imp_porc_afecto, $tablaResolucion.imp_afecto, $tablaResolucion.cod_tipo_resolucion, $tablaResolucion.cod_motivo_resolucion, $tablaResolucion.dsc_motivo_usuario, $tablaResolucion.flg_afecta_comision, $tablaMaTipSer.dsc_tipo_servicio, $tablaCtto.num_refinanciamiento,$tablaCtto.cod_localidad FROM $tablaCtto LEFT JOIN $tablaResolucion ON ($tablaResolucion.cod_contrato = $tablaCtto.cod_contrato AND $tablaCtto.num_servicio = $tablaResolucion.num_servicio) LEFT JOIN $tablaMaTipSer ON $tablaCtto.cod_tipo_servicio = $tablaMaTipSer.cod_tipo_servicio WHERE $tablaCtto.cod_contrato LIKE (RIGHT('0000000000'+'$codCtto',10)) AND $tablaCtto.num_servicio = $numServicio");
+
 		$datos = arrayMapUtf8Encode($db->recorrer($sql));
+
 		return $datos;
+
 		$db->liberar($sql);
         $db->cerrar();
 	}//mdlBuscaNumServicio
@@ -80,6 +83,59 @@ class ModeloResCtto{
         $db->cerrar();
 
 	}//function mdlEjecutaProcedureResumenCtt
+	
+	static public function mdlGetHisTrabajador($cod_consejero,$num_anno,$cod_tipo_periodo,$cod_periodo){
+		$db = new Conexion();
+		$sql = $db->consulta("SELECT * FROM vtama_historico_vendedor WHERE cod_trabajador = '$cod_consejero' AND num_anno = '$num_anno' AND cod_tipo_periodo = '$cod_tipo_periodo' AND cod_periodo = '$cod_periodo'");
+
+		$datos = array();
+    	while($key = $db->recorrer($sql)){
+	    	$datos[] = arrayMapUtf8Encode($key);
+		} 
+
+		return $datos;
+		$db->liberar($sql);
+        $db->cerrar();
+	}//mdlGetHisTrabajador
+	
+	static public function mdlGetDatosCliente($cod_cliente){
+		$db = new Conexion();
+		$sql = $db->consulta("SELECT vtama_cliente.dsc_razon_social, vtama_cliente.dsc_apellido_paterno, vtama_cliente.dsc_apellido_materno, vtama_cliente.dsc_nombre, vtama_cliente.flg_juridico, vtama_cliente.cod_tipo_documento, vtama_cliente.dsc_documento, vtama_cliente.dsc_telefono_1, vtade_cliente_direccion.dsc_direccion FROM vtama_cliente INNER JOIN vtade_cliente_direccion ON vtade_cliente_direccion.cod_cliente = vtama_cliente.cod_cliente WHERE vtama_cliente.cod_cliente = '$cod_cliente'");
+
+		$datos = arrayMapUtf8Encode($db->recorrer($sql));
+
+		return $datos;
+		$db->liberar($sql);
+        $db->cerrar();
+	}//mdlGetHisTrabajador
+
+	static public function mdlGetConformacion($cod_localidad,$cod_contrato,$num_refinanciamiento){
+
+		$db = new Conexion();
+
+		$sql = $db->consulta("SELECT num_servicio, (SELECT vtama_tipo_servicio.dsc_tipo_servicio FROM vtama_tipo_servicio WHERE vtama_tipo_servicio.cod_tipo_servicio = vtade_contrato.cod_tipo_servicio)AS dsc_tipo_servicio, imp_saldofinanciar FROM vtade_contrato WHERE cod_localidad = '$cod_localidad' AND cod_contrato = '$cod_contrato' AND num_refinanciamiento = '$num_refinanciamiento' AND flg_fondo_mantenimiento = 'NO'");
+
+		$tableDetFinanciamiento = "";
+		$saldoTotal = 0;
+
+		while($key = $db->recorrer($sql)){
+
+			$tableDetFinanciamiento .='<tr>
+									<td>'.$key['num_servicio'].'</td>
+									<td>'.$key['dsc_tipo_servicio'].'</td>
+									<td>'.number_format(round($key['imp_saldofinanciar'], 2),2,',','.').'</td>';
+
+
+			$saldoTotal += $key["imp_saldofinanciar"];
+		}
+		$arrData = array('tableDetFinanciamiento'=> $tableDetFinanciamiento, 'saldoTotal' => number_format(round($saldoTotal, 2),2,',','.')); 
+
+		return $arrData;
+
+		$db->liberar($sql);
+        $db->cerrar();
+
+	}//function mdlGetDetFinanciamiento
 
 }//class ModeloResCtto
 ?>
