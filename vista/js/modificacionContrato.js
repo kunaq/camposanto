@@ -1302,8 +1302,3 @@ function AnulaDefCtto(){
         }//success
     });//ajax replicaDatos  
 }//function AnulaDefCtto
-
-
-
-
-
