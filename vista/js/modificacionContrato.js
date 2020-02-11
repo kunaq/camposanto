@@ -91,6 +91,10 @@ function llenaDatos(codCtto){
         	else{
         		$("#checkModif").prop("checked", true);
         	}
+            $("#codCampoContrato").val(respuesta[0]['cod_camposanto_actual']);
+            $("#codPlatContrato").val(respuesta[0]['cod_plataforma_actual']);
+            $("#codAreaContrato").val(respuesta[0]['cod_areaplataforma_actual']);
+            $("#codTipoEspModifContrato").val(respuesta[0]['cod_tipoespacio_actual']);
         	$("#modC").val(respuesta[0]['cod_tipo_ctt']);
         	$("#nomCliContrato").val(respuesta[0]['dsc_cliente']);
         	$("#campoContrato").val(respuesta[0]['dsc_camposanto']);
