@@ -1104,7 +1104,11 @@ function anularCtto(numServ = null){
         // for(li_i = 1 To tab_1.tp_4.dw_servicio_vin.Rowcount()){
         var container = document.querySelector('#bodyServicioVin');
         container.querySelectorAll('tr').forEach(function (li_i){ 
-           var ls_servicio = $(li_i).attr("name"); 
+           var ls_servicio = $(li_i).attr("name");
+           console.log('ls_servicio',ls_servicio);
+           if(ls_servicio == ''){
+                ls_servicio = 0;
+           } 
             // ls_servicio = tab_1.tp_4.dw_servicio_vin.GetItemString(li_i, "num_servicio")
 
             // ls_det_servicios = ls_det_servicios + ls_servicio + " - "
