@@ -1159,7 +1159,7 @@ function anularCtto(numServ = null){
                     })
                 }
                 else{
-                    swal("","El contrato no ha podido ser Anuladoado, por favor intente nuevamente.","warning")
+                    swal("","El contrato no ha podido ser Anulado, por favor intente nuevamente.","warning")
                 }
             })//then
         }//li_tot > 1
@@ -1183,7 +1183,7 @@ function anularCtto(numServ = null){
                     })
                 }
                 else{
-                    swal("","El contrato no ha podido ser Anuladoado, por favor intente nuevamente.","warning")
+                    swal("","El contrato no ha podido ser Anulado, por favor intente nuevamente.","warning")
                 }
             })//then
         }// Else li_tot > 1
@@ -1294,6 +1294,9 @@ function AnulaDefCtto(){
                             data: { 'accion' : 'generaEspacio', 'ls_camposanto' : ls_camposanto, 'ls_plataforma' : ls_plataforma, 'ls_area' : ls_area, 'ls_eje_horizontal' : ls_eje_horizontal, 'ls_eje_vertical' : ls_eje_vertical, 'ls_espacio' : ls_espacio, 'ls_tipo_espacio' : ls_tipo_espacio },
                             success : function(respuesta){
                                 var generaEspacio = respuesta;
+                                if(generaEspacio && modificado && replicaDatos){
+                                    return 1;
+                                }
                             }//success
                         });//ajax generaEspacio                        
                     }//End If
