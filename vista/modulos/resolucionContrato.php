@@ -10,7 +10,7 @@
 					</a>
 				</li>
 				<li style="list-style: none;">
-					<a href="#container" class="btn btnGuardarKqPst m-btn--square m-btn m-btn--icon btn-lg m-btn--icon-only" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Guardar cambios" id="save-button">
+					<a href="#container" class="btn btnGuardarKqPst m-btn--square m-btn m-btn--icon btn-lg m-btn--icon-only" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Guardar cambios" id="save-button" onclick="preResolucion()">
 						<i class="fa fa-save"></i>
 					</a>
 				</li>
@@ -68,6 +68,7 @@
 								<div class="col-lg-4">
 									<label>Programa</label>
 									<input type="text" class="form-control form-control-sm m-input" name="dscProgResolucion" id="dscProgResolucion" disabled>
+									<input type="hidden" class="form-control form-control-sm m-input" id="codTipoProgResolucion">
 								</div>
 								<div class="col-lg-1">
 									<label>&nbsp;</label>

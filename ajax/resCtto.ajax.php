@@ -34,6 +34,31 @@ class AjaxResCtto{
 		$respuesta = ControladorResCtto::ctrGetConformacion();
 		echo json_encode($respuesta);
 	}//ajaxGetConformacion
+	
+	public function ajaxVerificaContado(){
+		$respuesta = ControladorResCtto::ctrVerificaContado();
+		echo json_encode($respuesta);
+	}//ajaxVerificaContado
+	
+	public function ajaxActualizaVtadeCtt(){
+		$respuesta = ControladorResCtto::ctrActualizaVtadeCtt();
+		echo json_encode($respuesta);
+	}//ajaxActualizaVtadeCtt
+	
+	public function ajaxInsertaResolucion(){
+		$respuesta = ControladorResCtto::ctrInsertaResolucion();
+		echo json_encode($respuesta);
+	}//ajaxInsertaResolucion
+	
+	public function ajaxVerificaFoma(){
+		$respuesta = ControladorResCtto::ctrVerificaFoma();
+		echo json_encode($respuesta);
+	}//ajaxVerificaFoma
+	
+	public function ajaxGuardaObservacion(){
+		$respuesta = ControladorResCtto::ctrGuardaObservacion();
+		echo json_encode($respuesta);
+	}//ajaxGuardaObservacion
 }//class AjaxResCtto
 /*=============================================
 ACCIONES
@@ -69,4 +94,28 @@ else if(isset($_POST["accion"]) && $_POST["accion"] == 'buscaCli'){
 else if(isset($_POST["accion"]) && $_POST["accion"] == 'getConformacion'){
 	$cliente = new AjaxResCtto();
 	$cliente -> ajaxGetConformacion();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'getConformacion'){
+	$cliente = new AjaxResCtto();
+	$cliente -> ajaxGetConformacion();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'verificaContado'){
+	$cliente = new AjaxResCtto();
+	$cliente -> ajaxVerificaContado();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'actualizavtadeCtt'){
+	$cliente = new AjaxResCtto();
+	$cliente -> ajaxActualizaVtadeCtt();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'insertarResolucion'){
+	$cliente = new AjaxResCtto();
+	$cliente -> ajaxInsertaResolucion();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'verificaFoma'){
+	$cliente = new AjaxResCtto();
+	$cliente -> ajaxVerificaFoma();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'guardaObsevacion'){
+	$cliente = new AjaxResCtto();
+	$cliente -> ajaxGuardaObservacion();
 }

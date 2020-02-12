@@ -151,7 +151,7 @@ class ModeloEmpresa{
 
  				while($key = $db->recorrer($sql)){
                     $datos[] =  $key;
-                    echo 'S/. '.$key['imp_cambio_compra'];
+                    echo $key['imp_cambio_compra'];
                 }
 
         $db->liberar($sql);
