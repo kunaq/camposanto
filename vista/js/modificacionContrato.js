@@ -44,7 +44,7 @@ function getParameterByName() {
         var contrato = pair[1].split("=");
         $("#sedeContrato").val(localidad[1]);
         $("#codContrato").val(contrato[1]);
-        buscaCtto();
+        llenaDatos(contrato);
     }
 }
 
