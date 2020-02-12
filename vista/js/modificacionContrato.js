@@ -1153,18 +1153,20 @@ function anularCtto(numServ = null){
                 confirmButtonText: "Anular",
                 cancelButtonText:"Cancelar"
             }).then(function(){
-                var anular = AnulaDefCtto();
-                if (anular == 1){
-                    swal({
-                        title: "",
-                        text: "Se ha Anulado el contrato con éxito.",
-                        type: "success",
-                        confirmButtonText: "Aceptar",
-                    })
-                }
-                else{
-                    swal("","El contrato no ha podido ser Anulado, por favor intente nuevamente.","warning")
-                }
+                setTimeout(function () { 
+                    var anular = AnulaDefCtto();
+                    if (anular == 1){
+                        swal({
+                            title: "",
+                            text: "Se ha Anulado el contrato con éxito.",
+                            type: "success",
+                            confirmButtonText: "Aceptar",
+                        })
+                    }
+                    else{
+                        swal("","El contrato no ha podido ser Anulado, por favor intente nuevamente.","warning")
+                    }
+                },1000);
             })//then
         }//li_tot > 1
          //If f_sys_mensaje_usuario(Title, "MSGLIB", "¿SEGURO QUE DESEA ANULAR LOS SERVICIOS [" + ls_det_servicios + "]?. ESTA OPERACIÓN ES IRREVERSIBLE.", "PRG") <> 1 Then Return
@@ -1177,19 +1179,21 @@ function anularCtto(numServ = null){
                 confirmButtonText: "Anular",
                 cancelButtonText:"Cancelar"
             }).then(function(){
-                var anular = AnulaDefCtto();
-                console.log('anular',anular);
-                if (anular == 1){
-                    swal({
-                        title: "",
-                        text: "Se ha Anulado el contrato "+ls_contrato+" con éxito.",
-                        type: "success",
-                        confirmButtonText: "Aceptar",
-                    })
-                }
-                else{
-                    swal("","El contrato no ha podido ser Anulado, por favor intente nuevamente.","warning")
-                }
+                setTimeout(function () { 
+                    var anular = AnulaDefCtto();
+                    console.log('anular',anular);
+                    if (anular == 1){
+                        swal({
+                            title: "",
+                            text: "Se ha Anulado el contrato "+ls_contrato+" con éxito.",
+                            type: "success",
+                            confirmButtonText: "Aceptar",
+                        })
+                    }
+                    else{
+                        swal("","El contrato no ha podido ser Anulado, por favor intente nuevamente.","warning")
+                    }
+                },1000);
             })//then
         }// Else li_tot > 1
             //     If f_sys_mensaje_usuario(Title, "MSGLIB", "¿SEGURO QUE DESEA ANULAR EL SERVICIO [" + ls_det_servicios + "]?. ESTA OPERACIÓN ES IRREVERSIBLE.", "PRG") <> 1 Then Return
@@ -1304,12 +1308,10 @@ function AnulaDefCtto(){
                             data: { 'accion' : 'generaEspacio', 'ls_camposanto' : ls_camposanto, 'ls_plataforma' : ls_plataforma, 'ls_area' : ls_area, 'ls_eje_horizontal' : ls_eje_horizontal, 'ls_eje_vertical' : ls_eje_vertical, 'ls_espacio' : ls_espacio, 'ls_tipo_espacio' : ls_tipo_espacio },
                             success : function(respuesta){
                                 var generaEspacio = respuesta;
-                                setTimeout(function () { 
-                                    if(generaEspacio && modificado && replicaDatos){
-                                        llenaDatos(ls_contrato);
-                                        return 1;
-                                    }
-                                },1000);
+                                if(generaEspacio && modificado && replicaDatos){
+                                    llenaDatos(ls_contrato);
+                                    return 1;
+                                }
                             }//success
                         });//ajax generaEspacio                        
                     }//End If
