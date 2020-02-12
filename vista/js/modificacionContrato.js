@@ -48,6 +48,8 @@ function getParameterByName() {
     }
 }
 
+getParameterByName();
+
 function buscaCtto(){
 	var codCtto = document.getElementById("codContrato").value;
 	if(codCtto != '' || codCtto != null){
