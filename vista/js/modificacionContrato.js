@@ -1312,6 +1312,7 @@ function AnulaDefCtto(){
         });//ajax replicaDatos 
     setTimeout(function () { 
         if(generaEspacio && modificado && replicaDatos){
+            llenaDatos(ls_contrato);
             return 1;
         }
     },2000);
