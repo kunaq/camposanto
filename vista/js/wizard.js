@@ -1,4 +1,8 @@
-// $("#tipoCamb").number(true,2);
+$("#m_datepicker_1").datepicker({
+  format: 'dd-mm-yyyy',
+  setDate: "+1m",
+  autoclose: true
+});//datepicker
 var WizardDemo = function() {
     $("#m_wizard");
     var i, e, n = $("#m_form");
