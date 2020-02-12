@@ -182,9 +182,17 @@ class ControladorModifCtto{
 					   'as_espacio' => $_POST['ls_espacio'],
 					   'as_tipo_espacio' => $_POST['ls_tipo_espacio']
 					  );
-		$respuesta = ModeloWizard::mdlGeneraEspacio($datos);
+		$respuesta = ModeloModifCtto::mdlGeneraEspacio($datos);
 		return $respuesta;
 	}// function ctrGeneraEspacio
+
+	static public function ctrValidaPagos(){
+		$datos = array("ls_contrato" => $_POST['ls_contrato'],
+						"li_ref" => $_POST['li_ref']
+					  );
+		$respuesta = ModeloModifCtto::mdlValidaPagos($datos);
+		return $respuesta;
+	}// function ctrValidaPagos
 
 }//class ControladorModifCtto
 ?>

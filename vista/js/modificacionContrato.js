@@ -91,6 +91,10 @@ function llenaDatos(codCtto){
         	else{
         		$("#checkModif").prop("checked", true);
         	}
+            $("#codCampoContrato").val(respuesta[0]['cod_camposanto_actual']);
+            $("#codPlatContrato").val(respuesta[0]['cod_plataforma_actual']);
+            $("#codAreaContrato").val(respuesta[0]['cod_areaplataforma_actual']);
+            $("#codTipoEspModifContrato").val(respuesta[0]['cod_tipoespacio_actual']);
         	$("#modC").val(respuesta[0]['cod_tipo_ctt']);
         	$("#nomCliContrato").val(respuesta[0]['dsc_cliente']);
         	$("#campoContrato").val(respuesta[0]['dsc_camposanto']);
@@ -106,7 +110,8 @@ function llenaDatos(codCtto){
             var totalVin = 0;
         	$.each(respuesta,function(index,value){
                 totalVin = totalVin+parseFloat(value['imp_saldofinanciar']);
-        		var fila ='<tr onclick="muestraInfo('+value['num_servicio']+');">'+
+        		var id = "filaServ_"+value['num_servicio'];
+                var fila ='<tr class="listaServicio inactivo" id="'+id+'" onclick="muestraInfo('+value['num_servicio']+');">'+
 					'<td class="text-center">'+value['num_servicio']+'</td>'+
 					'<td class="text-left">'+value['dsc_tipo_servicio']+'</td>'+
 					'<td class="text-center">'+value['fch_generacion']+'</td>'+
@@ -136,6 +141,9 @@ function llenaDatos(codCtto){
 
 function muestraInfo(id){
 	var codCtto = $("#codContrato").val();
+    $("#numServicioSeleccionado").val(id);
+    $(".listaServicio").removeClass('activoListaServicioModif'); 
+    $("#filaServ_"+id).addClass('activoListaServicioModif');
 	$.ajax({
         url: 'ajax/modifCtto.ajax.php',
         dataType: 'json',
@@ -180,6 +188,7 @@ function muestraInfo(id){
         		$("#codAval").trigger('change');
         	}
         	$("#saldoFinCronograma").val(respuesta['imp_saldofinanciar']);
+            $("#numRefinanciamiento").val(respuesta['num_refinanciamiento']);
         	if(respuesta['imp_saldofinanciar'] != 0){
         		cargaCronograma(codCtto,respuesta['num_refinanciamiento']);
         		cargaFoma(codCtto,respuesta['num_refinanciamiento']);
@@ -1023,39 +1032,53 @@ function resetForm(){
     $("#bodyCronogramaFomaModif").empty();
 }
 
-
+function buscaCuotasPag(){
+    var li_ref = $("#numRefinanciamiento").val();
+    var ls_contrato = $("#codContrato").val();
+     $.ajax({
+        url: 'ajax/modifCtto.ajax.php',
+        dataType: 'json',
+        method: "POST",
+        data: { 'accion' : 'cuotasPagadas', 'ls_contrato' : ls_contrato, 'li_ref' : li_ref },
+        success : function(respuesta){
+            console.log(respuesta);
+            return respuesta;
+        }
+    });
+}
 
 //----------------------------Anular contrato-----------------------------//
 // -- Detalle Servicios -- //
 function anularCtto(numServ = null){
     // console.log(numServ);
-    // if($("#codContrato").val() == ''){
-    //     swal({
-    //         title: "",
-    //         text: "Debe seleccionar el número de servicio que desea anular.",
-    //         type: "warning",
-    //         confirmButtonText: "Aceptar",
-    //     })
-    //     return;
-    // }
-    // else if($("#flg_activado_"+numServ).val() == 'SI' && $("#flg_resuelto_"+numServ).val() == 'NO'){
-    //     swal({
-    //         title: "",
-    //         text: "El contrato esta ACTIVADO no puede ser anulado.",
-    //         type: "warning",
-    //         confirmButtonText: "Aceptar",
-    //     })
-    //     return;
-    // }else if($("#flg_resuelto_"+numServ).val() == 'SI' && $("#flg_activado_"+numServ).val() == 'SI'){
-    //     swal({
-    //         title: "",
-    //         text: "El contrato esta RESUELTO no puede ser anulado.",
-    //         type: "warning",
-    //         confirmButtonText: "Aceptar",
-    //     })
-    //     return;
-    // }
-    /*else*/if($("#flg_anulado_"+numServ).val() == 'SI'){
+    var validaPago = buscaCuotasPag();
+    if($("#codContrato").val() == ''){
+        swal({
+            title: "",
+            text: "Debe seleccionar el número de servicio que desea anular.",
+            type: "warning",
+            confirmButtonText: "Aceptar",
+        })
+        return;
+    }
+    else if($("#flg_activado_"+numServ).val() == 'SI' && $("#flg_resuelto_"+numServ).val() == 'NO'){
+        swal({
+            title: "",
+            text: "El contrato esta ACTIVADO no puede ser anulado.",
+            type: "warning",
+            confirmButtonText: "Aceptar",
+        })
+        return;
+    }else if($("#flg_resuelto_"+numServ).val() == 'SI' && $("#flg_activado_"+numServ).val() == 'SI'){
+        swal({
+            title: "",
+            text: "El contrato esta RESUELTO no puede ser anulado.",
+            type: "warning",
+            confirmButtonText: "Aceptar",
+        })
+        return;
+    }
+    else if($("#flg_anulado_"+numServ).val() == 'SI'){
         swal({
             title: "",
             text: "El contrato ya esta ANULADO.",
@@ -1063,8 +1086,15 @@ function anularCtto(numServ = null){
             confirmButtonText: "Aceptar",
         })
         return;
-    }
-    else{
+    }else if(validaPago){
+        swal({
+            title: "",
+            text: "El contrato / número de servicio tiene cuotas canceladas total o parcialmente, NO puede ser anulado.",
+            type: "warning",
+            confirmButtonText: "Aceptar",
+        })
+        return;
+    }else{
         var ls_tipo_programa = $("#tipoPrograma").val();
         var ls_tipo_ctt = $("#modC").val();
         var ls_contrato = $("#codContrato").val();
@@ -1074,7 +1104,11 @@ function anularCtto(numServ = null){
         // for(li_i = 1 To tab_1.tp_4.dw_servicio_vin.Rowcount()){
         var container = document.querySelector('#bodyServicioVin');
         container.querySelectorAll('tr').forEach(function (li_i){ 
-           var ls_servicio = $(li_i).attr("name"); 
+           var ls_servicio = $(li_i).attr("name");
+           console.log('ls_servicio',ls_servicio);
+           if(ls_servicio == ''){
+                ls_servicio = 0;
+           } 
             // ls_servicio = tab_1.tp_4.dw_servicio_vin.GetItemString(li_i, "num_servicio")
 
             // ls_det_servicios = ls_det_servicios + ls_servicio + " - "
@@ -1129,7 +1163,7 @@ function anularCtto(numServ = null){
                     })
                 }
                 else{
-                    swal("","El contrato no ha podido ser Anuladoado, por favor intente nuevamente.","warning")
+                    swal("","El contrato no ha podido ser Anulado, por favor intente nuevamente.","warning")
                 }
             })//then
         }//li_tot > 1
@@ -1147,13 +1181,13 @@ function anularCtto(numServ = null){
                 if (anular == 1){
                     swal({
                         title: "",
-                        text: "Se ha Anulado el contrato con éxito.",
+                        text: "Se ha Anulado el contrato "+ls_contrato+" con éxito.",
                         type: "success",
                         confirmButtonText: "Aceptar",
                     })
                 }
                 else{
-                    swal("","El contrato no ha podido ser Anuladoado, por favor intente nuevamente.","warning")
+                    swal("","El contrato no ha podido ser Anulado, por favor intente nuevamente.","warning")
                 }
             })//then
         }// Else li_tot > 1
@@ -1167,16 +1201,29 @@ function AnulaDefCtto(){
     var ls_tipo_ctt = $("#modC").val();
     var ls_contrato = $("#codContrato").val();
     var ls_flg_ds_aux = 'NO';
+    var li_ref = $("#numRefinanciamiento").val();
+    var ls_item_servicio_getrow = $("#numServicioSeleccionado").val();
+    var ls_camposanto = $("#codCampoContrato").val();
+    var ls_plataforma = $("#codPlatContrato").val();
+    var ls_area = $("#codAreaContrato").val();
+    var ls_eje_horizontal = $("#ejeHCotrato").val();
+    var ls_eje_vertical = $("#ejeVContrato").val();
+    var ls_espacio = $("#espacioContrato").val();
+    var ls_tipo_espacio = $("#codTipoEspModifContrato").val();
 
     // For li_i = 1 To tab_1.tp_4.dw_servicio_vin.Rowcount()
     var container = document.querySelector('#bodyServicioVin');
     container.querySelectorAll('tr').forEach(function (li_i){ 
         var ls_servicio = $(li_i).attr("name");      
         // ls_servicio = tab_1.tp_4.dw_servicio_vin.GetItemString(li_i, "num_servicio")
+            console.log('ls_servicio',ls_servicio);
+           if(ls_servicio == ''){
+                ls_servicio = 0;
+           } 
         
         // -- Flg DS -- //
         
-        ls_flg_ds = 'NO';
+        var ls_flg_ds = 'NO';
         var ls_servicio_foma = '';
 
         $.ajax({
@@ -1185,115 +1232,85 @@ function AnulaDefCtto(){
             method: "POST",
             data: { 'accion' : 'verificaTrans', 'ls_contrato' : ls_contrato, 'ls_servicio' : ls_servicio, 'ls_tipo_programa' : ls_tipo_programa, 'ls_tipo_ctt' : ls_tipo_ctt },
             success : function(respuesta){
-                console.log('respuesta',respuesta);
-            }//success
-        });//ajax
+                // console.log('respuesta',respuesta);
+                ls_flg_ds = respuesta['flg_derecho_sepultura'];
+                ls_servicio_foma = respuesta['num_servicio_foma'];
         
-    //     If ls_flg_ds = 'SI' Then
-            
-    //         ls_flg_ds_aux = 'SI'
-            
-    //     End If
+                if(ls_flg_ds == 'SI'){            
+                    ls_flg_ds_aux = 'SI';
+                }
         
-    //     // -- Replica Datos -- //
-        
-    //     UPDATE  vtade_contrato
-    //     SET     vtade_contrato.fch_anulacion = :ldt_fch_actual,
-    //                 vtade_contrato.flg_anulado = 'SI',
-    //                 vtade_contrato.cod_usuario_anulacion = :gs_usuario
-    //     WHERE   vtade_contrato.cod_localidad = :ls_localidad
-    //     AND     vtade_contrato.cod_contrato = :ls_contrato
-    //     AND     vtade_contrato.num_servicio = :ls_servicio
-    //     AND     vtade_contrato.cod_tipo_programa = :ls_tipo_programa
-    //     AND     vtade_contrato.cod_tipo_ctt = :ls_tipo_ctt
-    //     USING SQLCA;
-        
-    //     If f_verifica_transaccion(SQLCA) = False Then Goto db_error
-        
-    //     // -- Actualiza FOMA -- //
-        
-    //     If IsNull(ls_servicio_foma) = False And Trim(ls_servicio_foma) <> '' Then
-        
-    //         UPDATE  vtade_contrato
-    //         SET     vtade_contrato.fch_anulacion = :ldt_fch_actual,
-    //                     vtade_contrato.flg_anulado = 'SI',
-    //                     vtade_contrato.cod_usuario_anulacion = :gs_usuario
-    //         WHERE   vtade_contrato.cod_localidad = :ls_localidad
-    //         AND     vtade_contrato.cod_contrato = :ls_contrato
-    //         AND     vtade_contrato.num_servicio = :ls_servicio_foma
-    //         AND     vtade_contrato.cod_tipo_programa = :ls_tipo_programa
-    //         AND     vtade_contrato.cod_tipo_ctt = :ls_tipo_ctt
-    //         USING SQLCA;
-            
-    //         If f_verifica_transaccion(SQLCA) = False Then Goto db_error
-            
-    //     End If
-        
-    });// container.querySelectorAll Next
+                // -- Replica Datos -- //
 
-    // // -- Actualiza Cronograma -- //
-
-    // UPDATE  vtade_cronograma
-    // SET     vtade_cronograma.cod_estadocuota_ant = vtade_cronograma.cod_estadocuota
-    // WHERE   vtade_cronograma.cod_localidad = :ls_localidad
-    // AND     vtade_cronograma.cod_contrato = :ls_contrato
-    // AND     vtade_cronograma.num_refinanciamiento = :li_ref
-    // AND     vtade_cronograma.cod_tipo_programa = :ls_tipo_programa
-    // AND     vtade_cronograma.cod_tipo_ctt = :ls_tipo_ctt
-    // USING SQLCA;
-
-    // If f_verifica_transaccion(SQLCA) = False Then Goto db_error
-
-    // UPDATE  vtade_cronograma
-    // SET     vtade_cronograma.cod_estadocuota = 'ANU'
-    // WHERE   vtade_cronograma.cod_localidad = :ls_localidad
-    // AND     vtade_cronograma.cod_tipo_programa = :ls_tipo_programa
-    // AND     vtade_cronograma.cod_tipo_ctt = :ls_tipo_ctt
-    // AND     vtade_cronograma.cod_contrato = :ls_contrato
-    // AND     vtade_cronograma.num_refinanciamiento = :li_ref
-    // AND     vtade_cronograma.cod_estadocuota IN ('REG', 'EMI')
-    // USING SQLCA;
-
-    // If f_verifica_transaccion(SQLCA) = False Then Goto db_error
-
-    // // -- Modificado -- //
-
-    // UPDATE  vtavi_resolucion_contrato
-    // SET     vtavi_resolucion_contrato.cod_localidad_nuevo = vtavi_resolucion_contrato.cod_localidad,
-    //             vtavi_resolucion_contrato.cod_contrato_nuevo = vtavi_resolucion_contrato.cod_contrato,
-    //             vtavi_resolucion_contrato.num_servicio_nuevo = vtavi_resolucion_contrato.num_servicio,
-    //             vtavi_resolucion_contrato.cod_tipo_programa_nuevo = vtavi_resolucion_contrato.cod_tipo_programa,
-    //             vtavi_resolucion_contrato.cod_tipo_ctt_nuevo = vtavi_resolucion_contrato.cod_tipo_ctt
+                $.ajax({
+                    url: 'ajax/modifCtto.ajax.php',
+                    dataType: 'json',
+                    method: "POST",
+                    data: { 'accion' : 'replicaDatos', 'ls_contrato' : ls_contrato, 'ls_servicio' : ls_servicio, 'ls_tipo_programa' : ls_tipo_programa, 'ls_tipo_ctt' : ls_tipo_ctt },
+                    success : function(respuesta){
+                        var replicaDatos = respuesta;
+                    }//success
+                });//ajax replicaDatos
+        
+                // -- Actualiza FOMA -- //
+        
+                if(ls_servicio_foma != null && ls_servicio_foma != ''){
                 
-    // WHERE   vtavi_resolucion_contrato.cod_localidad_nuevo = :ls_localidad
-    // AND     vtavi_resolucion_contrato.cod_tipo_programa_nuevo = :ls_tipo_programa
-    // AND     vtavi_resolucion_contrato.cod_tipo_ctt_nuevo = :ls_tipo_ctt
-    // AND     vtavi_resolucion_contrato.cod_contrato_nuevo = :ls_contrato
-    // AND     vtavi_resolucion_contrato.num_servicio_nuevo = :ls_item_servicio_getrow
-    // USING SQLCA;
+                    $.ajax({
+                        url: 'ajax/modifCtto.ajax.php',
+                        dataType: 'json',
+                        method: "POST",
+                        data: { 'accion' : 'actualizaFoma', 'ls_contrato' : ls_contrato, 'ls_servicio' : ls_servicio, 'ls_tipo_programa' : ls_tipo_programa, 'ls_tipo_ctt' : ls_tipo_ctt },
+                        success : function(respuesta){
+                            var actualizaFoma = respuesta;
+                        }//success
+                    });//ajax actualizaFoma|           
+            
+                }
+            }//success
+        });//ajax verificaTrans
+        
+    });// container.querySelectorAll foreach
 
-    // If f_verifica_transaccion(SQLCA) = False Then Goto db_error
+    // -- Actualiza Cronograma -- //
 
-    // // -- Genera Espacio -- //
+    ls_servicioC = $("#numServicioSeleccionado").val();
+    $.ajax({
+        url: 'ajax/modifCtto.ajax.php',
+        dataType: 'json',
+        method: "POST",
+        data: { 'accion' : 'actualizaCronograma', 'ls_contrato' : ls_contrato, 'ls_servicio' : ls_servicioC, 'ls_tipo_programa' : ls_tipo_programa, 'ls_tipo_ctt' : ls_tipo_ctt, 'li_ref' : li_ref },
+        success : function(respuesta){
+            var actualizaCronograma = respuesta;
+
+            // -- Modificado -- //
+
+            $.ajax({
+                url: 'ajax/modifCtto.ajax.php',
+                dataType: 'json',
+                method: "POST",
+                data: { 'accion' : 'modificado', 'ls_contrato' : ls_contrato, 'ls_servicio' : ls_servicioC, 'ls_tipo_programa' : ls_tipo_programa, 'ls_tipo_ctt' : ls_tipo_ctt, 'ls_item_servicio_getrow' : ls_item_servicio_getrow },
+                success : function(respuesta){
+                    var modificado = respuesta;
+
+                    // -- Genera Espacio -- //
      
-    // If ls_flg_ds_aux = 'SI' Then
-
-    //     DECLARE sp_genera_espacio PROCEDURE FOR usp_vta_prc_genera_espacio
-            
-    //         @as_camposanto      = :ls_camposanto,
-    //         @as_plataforma      = :ls_plataforma,
-    //         @as_area                = :ls_area,
-    //         @as_eje_horizontal  = :ls_eje_horizontal,
-    //         @as_eje_vertical        = :ls_eje_vertical,
-    //         @as_espacio         = :ls_espacio,
-    //         @as_tipo_espacio        = :ls_tipo_espacio
-            
-    //     USING SQLCA;
-    //     EXECUTE sp_genera_espacio;
-        
-    //     If f_verifica_transaccion(SQLCA) = False Then Goto db_error
-        
-    // End If
+                    if( ls_flg_ds_aux == 'SI'){
+                        $.ajax({
+                            url: 'ajax/modifCtto.ajax.php',
+                            dataType: 'json',
+                            method: "POST",
+                            data: { 'accion' : 'generaEspacio', 'ls_camposanto' : ls_camposanto, 'ls_plataforma' : ls_plataforma, 'ls_area' : ls_area, 'ls_eje_horizontal' : ls_eje_horizontal, 'ls_eje_vertical' : ls_eje_vertical, 'ls_espacio' : ls_espacio, 'ls_tipo_espacio' : ls_tipo_espacio },
+                            success : function(respuesta){
+                                var generaEspacio = respuesta;
+                                if(generaEspacio && modificado && replicaDatos){
+                                    return 1;
+                                }
+                            }//success
+                        });//ajax generaEspacio                        
+                    }//End If
+                }//success
+            });//ajax modificado
+        }//success
+    });//ajax replicaDatos  
 }//function AnulaDefCtto
-
-getParameterByName();

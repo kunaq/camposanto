@@ -147,6 +147,7 @@ class ModeloModifCtto{
 	static public function mdlActualizaFoma($tablaCtto,$datos){
 		$db = new Conexion();
 		$sql = $db->consulta("UPDATE  $tablaCtto SET $tablaCtto.fch_anulacion = '".$datos['ldt_fch_actual']."', $tablaCtto.flg_anulado = 'SI', $tablaCtto.cod_usuario_anulacion = '".$datos['gs_usuario']."' WHERE $tablaCtto.cod_localidad = '".$datos['ls_localidad']."' AND $tablaCtto.cod_contrato LIKE (RIGHT('0000000000'+'".$datos['ls_contrato']."',10)) AND $tablaCtto.num_servicio = ".$datos['ls_servicio_foma']." AND $tablaCtto.cod_tipo_programa = '".$datos['ls_tipo_programa']."' AND $tablaCtto.cod_tipo_ctt = '".$datos['ls_tipo_ctt']."'");
+			echo "UPDATE  $tablaCtto SET $tablaCtto.fch_anulacion = '".$datos['ldt_fch_actual']."', $tablaCtto.flg_anulado = 'SI', $tablaCtto.cod_usuario_anulacion = '".$datos['gs_usuario']."' WHERE $tablaCtto.cod_localidad = '".$datos['ls_localidad']."' AND $tablaCtto.cod_contrato LIKE (RIGHT('0000000000'+'".$datos['ls_contrato']."',10)) AND $tablaCtto.num_servicio = ".$datos['ls_servicio_foma']." AND $tablaCtto.cod_tipo_programa = '".$datos['ls_tipo_programa']."' AND $tablaCtto.cod_tipo_ctt = '".$datos['ls_tipo_ctt']."'";
 		if($sql){
 			return true;
 		}else{
@@ -190,6 +191,16 @@ class ModeloModifCtto{
 			return false;
 		}
 	}//function mdlGeneraEspacio
+
+	static public function mdlValidaPagos($datos){
+		$db = new Conexion();
+		$sql = $db->consulta("SELECT  vtavi_cuotas_x_comprobante.* FROM vtavi_cuotas_x_comprobante INNER JOIN vtade_comprobante ON vtade_comprobante.num_correlativo = vtavi_cuotas_x_comprobante.num_correlativo INNER JOIN vtade_contrato ON (vtade_contrato.cod_contrato = vtavi_cuotas_x_comprobante.cod_contrato AND vtade_contrato.num_refinanciamiento = vtavi_cuotas_x_comprobante.num_refinanciamiento) WHERE (vtade_contrato.cod_contrato LIKE (RIGHT('0000000000'+'".$datos['ls_contrato']."',10)) AND vtade_contrato.num_refinanciamiento = ".$datos['li_ref'].")");
+		if ($sql) {
+			return true;
+		}else{
+			return false;
+		}
+	}//function mdlValidaPagos
 
 }//class ModeloModifCtto
 ?>
