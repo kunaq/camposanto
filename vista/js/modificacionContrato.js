@@ -1178,6 +1178,7 @@ function anularCtto(numServ = null){
                 cancelButtonText:"Cancelar"
             }).then(function(){
                 var anular = AnulaDefCtto();
+                console.log('anular',anulars);
                 if (anular == 1){
                     swal({
                         title: "",
@@ -1308,7 +1309,7 @@ function AnulaDefCtto(){
                                         llenaDatos(ls_contrato);
                                         return 1;
                                     }
-                                },2000);
+                                },5000);
                             }//success
                         });//ajax generaEspacio                        
                     }//End If
