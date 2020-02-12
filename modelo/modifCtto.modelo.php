@@ -147,6 +147,7 @@ class ModeloModifCtto{
 	static public function mdlActualizaFoma($tablaCtto,$datos){
 		$db = new Conexion();
 		$sql = $db->consulta("UPDATE  $tablaCtto SET $tablaCtto.fch_anulacion = '".$datos['ldt_fch_actual']."', $tablaCtto.flg_anulado = 'SI', $tablaCtto.cod_usuario_anulacion = '".$datos['gs_usuario']."' WHERE $tablaCtto.cod_localidad = '".$datos['ls_localidad']."' AND $tablaCtto.cod_contrato LIKE (RIGHT('0000000000'+'".$datos['ls_contrato']."',10)) AND $tablaCtto.num_servicio = ".$datos['ls_servicio_foma']." AND $tablaCtto.cod_tipo_programa = '".$datos['ls_tipo_programa']."' AND $tablaCtto.cod_tipo_ctt = '".$datos['ls_tipo_ctt']."'");
+			echo "UPDATE  $tablaCtto SET $tablaCtto.fch_anulacion = '".$datos['ldt_fch_actual']."', $tablaCtto.flg_anulado = 'SI', $tablaCtto.cod_usuario_anulacion = '".$datos['gs_usuario']."' WHERE $tablaCtto.cod_localidad = '".$datos['ls_localidad']."' AND $tablaCtto.cod_contrato LIKE (RIGHT('0000000000'+'".$datos['ls_contrato']."',10)) AND $tablaCtto.num_servicio = ".$datos['ls_servicio_foma']." AND $tablaCtto.cod_tipo_programa = '".$datos['ls_tipo_programa']."' AND $tablaCtto.cod_tipo_ctt = '".$datos['ls_tipo_ctt']."'";
 		if($sql){
 			return true;
 		}else{
