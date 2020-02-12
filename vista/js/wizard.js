@@ -1,6 +1,6 @@
 $("#m_datepicker_1").datepicker({
   format: 'dd-mm-yyyy',
-  setDate: "+1m",
+  defaultDate: "+1m",
   autoclose: true
 });//datepicker
 var WizardDemo = function() {
