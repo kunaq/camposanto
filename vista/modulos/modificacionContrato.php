@@ -345,37 +345,37 @@
 											<div class="row form-group">
 												<div class="col-lg-4">
 											<div class="row">
-												<div class="col-lg-12">
+												<div class="col-lg-6">
 													<label>Interés</label>
 													<input type="text" class="form-control form-control-sm m-input" name="interes" id="interes" disabled>
 												</div>
-												<div class="col-lg-12">
+												<div class="col-lg-6">
 													<label>Saldo a Financiar</label>
-													<input type="text" class="form-control form-control-sm m-input" name="saldoFinanciar" id="saldoFinanciar" disabled>
+													<input type="text" class="form-control form-control-sm m-input" style="text-align: right" name="saldoFinanciar" id="saldoFinanciar" disabled>
 												</div>
 											</div>
 										</div>
 										<div class="col-lg-4">
 											<div class="row">
-												<div class="col-lg-12">
+												<div class="col-lg-6">
 													<label>Cuota Inicial</label>
-													<input type="text" class="form-control form-control-sm m-input" name="cuotaInicial" id="cuotaInicial" disabled>
+													<input type="text" class="form-control form-control-sm m-input" style="text-align: right" name="cuotaInicial" id="cuotaInicial" disabled>
 												</div>
-												<div class="col-lg-12">
+												<div class="col-lg-6">
 													<label>I.G.V.</label>
-													<input type="text" class="form-control form-control-sm m-input" name="igv" id="igv" disabled>
+													<input type="text" class="form-control form-control-sm m-input" style="text-align: right" name="igv" id="igv" disabled>
 												</div>
 											</div>
 										</div>
 										<div class="col-lg-4">
 											<div class="row">
-												<div class="col-lg-12">
+												<div class="col-lg-6">
 													<label>Subtotal</label>
-													<input type="text" class="form-control form-control-sm m-input" name="subtotal" id="subtotal" disabled>
+													<input type="text" class="form-control form-control-sm m-input" style="text-align: right" name="subtotal" id="subtotal" disabled>
 												</div>
-												<div class="col-lg-12">
+												<div class="col-lg-6">
 													<label>Total</label>
-													<input type="text" class="form-control form-control-sm m-input" name="total" id="total" disabled>
+													<input type="text" class="form-control form-control-sm m-input" style="text-align: right" name="total" id="total" disabled>
 												</div>
 											</div>
 										</div>
