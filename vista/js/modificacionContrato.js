@@ -1104,11 +1104,7 @@ function anularCtto(numServ = null){
         // for(li_i = 1 To tab_1.tp_4.dw_servicio_vin.Rowcount()){
         var container = document.querySelector('#bodyServicioVin');
         container.querySelectorAll('tr').forEach(function (li_i){ 
-           var ls_servicio = $(li_i).attr("name");
-           console.log('ls_servicio',ls_servicio);
-           if(ls_servicio == ''){
-                ls_servicio = 0;
-           } 
+           var ls_servicio = $(li_i).attr("name"); 
             // ls_servicio = tab_1.tp_4.dw_servicio_vin.GetItemString(li_i, "num_servicio")
 
             // ls_det_servicios = ls_det_servicios + ls_servicio + " - "
@@ -1216,6 +1212,10 @@ function AnulaDefCtto(){
     container.querySelectorAll('tr').forEach(function (li_i){ 
         var ls_servicio = $(li_i).attr("name");      
         // ls_servicio = tab_1.tp_4.dw_servicio_vin.GetItemString(li_i, "num_servicio")
+            console.log('ls_servicio',ls_servicio);
+           if(ls_servicio == ''){
+                ls_servicio = 0;
+           } 
         
         // -- Flg DS -- //
         
@@ -1228,7 +1228,7 @@ function AnulaDefCtto(){
             method: "POST",
             data: { 'accion' : 'verificaTrans', 'ls_contrato' : ls_contrato, 'ls_servicio' : ls_servicio, 'ls_tipo_programa' : ls_tipo_programa, 'ls_tipo_ctt' : ls_tipo_ctt },
             success : function(respuesta){
-                console.log('respuesta',respuesta);
+                // console.log('respuesta',respuesta);
                 ls_flg_ds = respuesta['flg_derecho_sepultura'];
                 ls_servicio_foma = respuesta['num_servicio_foma'];
         
@@ -1270,11 +1270,12 @@ function AnulaDefCtto(){
 
     // -- Actualiza Cronograma -- //
 
+    ls_servicioC = $("#numServicioSeleccionado").val();
     $.ajax({
         url: 'ajax/modifCtto.ajax.php',
         dataType: 'json',
         method: "POST",
-        data: { 'accion' : 'actualizaCronograma', 'ls_contrato' : ls_contrato, 'ls_servicio' : ls_servicio, 'ls_tipo_programa' : ls_tipo_programa, 'ls_tipo_ctt' : ls_tipo_ctt, 'li_ref' : li_ref },
+        data: { 'accion' : 'actualizaCronograma', 'ls_contrato' : ls_contrato, 'ls_servicio' : ls_servicioC, 'ls_tipo_programa' : ls_tipo_programa, 'ls_tipo_ctt' : ls_tipo_ctt, 'li_ref' : li_ref },
         success : function(respuesta){
             var actualizaCronograma = respuesta;
 
