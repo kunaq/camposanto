@@ -1272,45 +1272,48 @@ function AnulaDefCtto(){
         
     });// container.querySelectorAll foreach
 
+    setTimeout(function () {
+
     // -- Actualiza Cronograma -- //
 
-    ls_servicioC = $("#numServicioSeleccionado").val();
-    $.ajax({
-        url: 'ajax/modifCtto.ajax.php',
-        dataType: 'json',
-        method: "POST",
-        data: { 'accion' : 'actualizaCronograma', 'ls_contrato' : ls_contrato, 'ls_servicio' : ls_servicioC, 'ls_tipo_programa' : ls_tipo_programa, 'ls_tipo_ctt' : ls_tipo_ctt, 'li_ref' : li_ref },
-        success : function(respuesta){
-            var actualizaCronograma = respuesta;
+        ls_servicioC = $("#numServicioSeleccionado").val();
+        $.ajax({
+            url: 'ajax/modifCtto.ajax.php',
+            dataType: 'json',
+            method: "POST",
+            data: { 'accion' : 'actualizaCronograma', 'ls_contrato' : ls_contrato, 'ls_servicio' : ls_servicioC, 'ls_tipo_programa' : ls_tipo_programa, 'ls_tipo_ctt' : ls_tipo_ctt, 'li_ref' : li_ref },
+            success : function(respuesta){
+                var actualizaCronograma = respuesta;
 
-            // -- Modificado -- //
+                // -- Modificado -- //
 
-            $.ajax({
-                url: 'ajax/modifCtto.ajax.php',
-                dataType: 'json',
-                method: "POST",
-                data: { 'accion' : 'modificado', 'ls_contrato' : ls_contrato, 'ls_servicio' : ls_servicioC, 'ls_tipo_programa' : ls_tipo_programa, 'ls_tipo_ctt' : ls_tipo_ctt, 'ls_item_servicio_getrow' : ls_item_servicio_getrow },
-                success : function(respuesta){
-                    var modificado = respuesta;
+                $.ajax({
+                    url: 'ajax/modifCtto.ajax.php',
+                    dataType: 'json',
+                    method: "POST",
+                    data: { 'accion' : 'modificado', 'ls_contrato' : ls_contrato, 'ls_servicio' : ls_servicioC, 'ls_tipo_programa' : ls_tipo_programa, 'ls_tipo_ctt' : ls_tipo_ctt, 'ls_item_servicio_getrow' : ls_item_servicio_getrow },
+                    success : function(respuesta){
+                        var modificado = respuesta;
 
-                    // -- Genera Espacio -- //
-     
-                    if( ls_flg_ds_aux == 'SI'){
-                        $.ajax({
-                            url: 'ajax/modifCtto.ajax.php',
-                            dataType: 'json',
-                            method: "POST",
-                            data: { 'accion' : 'generaEspacio', 'ls_camposanto' : ls_camposanto, 'ls_plataforma' : ls_plataforma, 'ls_area' : ls_area, 'ls_eje_horizontal' : ls_eje_horizontal, 'ls_eje_vertical' : ls_eje_vertical, 'ls_espacio' : ls_espacio, 'ls_tipo_espacio' : ls_tipo_espacio },
-                            success : function(respuesta){
-                                var generaEspacio = respuesta;
-                                if(generaEspacio && modificado && replicaDatos){
-                                    return 1;
-                                }
-                            }//success
-                        });//ajax generaEspacio                        
-                    }//End If
-                }//success
-            });//ajax modificado
-        }//success
-    });//ajax replicaDatos  
+                        // -- Genera Espacio -- //
+         
+                        if( ls_flg_ds_aux == 'SI'){
+                            $.ajax({
+                                url: 'ajax/modifCtto.ajax.php',
+                                dataType: 'json',
+                                method: "POST",
+                                data: { 'accion' : 'generaEspacio', 'ls_camposanto' : ls_camposanto, 'ls_plataforma' : ls_plataforma, 'ls_area' : ls_area, 'ls_eje_horizontal' : ls_eje_horizontal, 'ls_eje_vertical' : ls_eje_vertical, 'ls_espacio' : ls_espacio, 'ls_tipo_espacio' : ls_tipo_espacio },
+                                success : function(respuesta){
+                                    var generaEspacio = respuesta;
+                                    if(generaEspacio && modificado && replicaDatos){
+                                        return 1;
+                                    }
+                                }//success
+                            });//ajax generaEspacio                        
+                        }//End If
+                    }//success
+                });//ajax modificado
+            }//success
+        });//ajax replicaDatos  
+    },1000);
 }//function AnulaDefCtto
