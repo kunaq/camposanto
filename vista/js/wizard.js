@@ -1,8 +1,8 @@
-$("#m_datepicker_1").datepicker({
-  format: 'dd-mm-yyyy',
-  defaultDate: "+1m",
-  autoclose: true
-});//datepicker
+// $("#m_datepicker_1").datepicker({
+//   format: 'dd-mm-yyyy',
+//   defaultDate: "+1m",
+//   autoclose: true
+// });//datepicker
 var WizardDemo = function() {
     $("#m_wizard");
     var i, e, n = $("#m_form");
