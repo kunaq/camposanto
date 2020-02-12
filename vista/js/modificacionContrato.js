@@ -1177,7 +1177,7 @@ function anularCtto(numServ = null){
                 if (anular == 1){
                     swal({
                         title: "",
-                        text: "Se ha Anulado el contrato con éxito.",
+                        text: "Se ha Anulado el contrato "+ls_contrato+" con éxito.",
                         type: "success",
                         confirmButtonText: "Aceptar",
                     })
