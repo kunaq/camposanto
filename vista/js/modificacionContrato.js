@@ -1272,8 +1272,6 @@ function AnulaDefCtto(){
         
     });// container.querySelectorAll foreach
 
-    setTimeout(function () {
-
     // -- Actualiza Cronograma -- //
 
         ls_servicioC = $("#numServicioSeleccionado").val();
@@ -1305,15 +1303,16 @@ function AnulaDefCtto(){
                                 data: { 'accion' : 'generaEspacio', 'ls_camposanto' : ls_camposanto, 'ls_plataforma' : ls_plataforma, 'ls_area' : ls_area, 'ls_eje_horizontal' : ls_eje_horizontal, 'ls_eje_vertical' : ls_eje_vertical, 'ls_espacio' : ls_espacio, 'ls_tipo_espacio' : ls_tipo_espacio },
                                 success : function(respuesta){
                                     var generaEspacio = respuesta;
-                                    if(generaEspacio && modificado && replicaDatos){
-                                        return 1;
-                                    }
                                 }//success
                             });//ajax generaEspacio                        
                         }//End If
                     }//success
                 });//ajax modificado
             }//success
-        });//ajax replicaDatos  
-    },1000);
+        });//ajax replicaDatos 
+    setTimeout(function () { 
+        if(generaEspacio && modificado && replicaDatos){
+            return 1;
+        }
+    },2000);
 }//function AnulaDefCtto
