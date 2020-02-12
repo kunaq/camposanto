@@ -1246,7 +1246,7 @@ function AnulaDefCtto(){
         
                 // -- Actualiza FOMA -- //
         
-                if(ls_servicio_foma != null && trim(ls_servicio_foma) != ''){
+                if(ls_servicio_foma != null && ls_servicio_foma != ''){
                 
                     $.ajax({
                         url: 'ajax/modifCtto.ajax.php',
