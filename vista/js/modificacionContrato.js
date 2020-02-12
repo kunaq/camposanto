@@ -1105,6 +1105,7 @@ function anularCtto(numServ = null){
         var container = document.querySelector('#bodyServicioVin');
         container.querySelectorAll('tr').forEach(function (li_i){ 
            var ls_servicio = $(li_i).attr("name");
+           console.log('ls_servicio',ls_servicio);
            if(ls_servicio = ''){
                 ls_servicio = 0;
            } 
