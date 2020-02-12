@@ -1286,7 +1286,7 @@ function AnulaDefCtto(){
 
                     // -- Genera Espacio -- //
      
-                    is( ls_flg_ds_aux == 'SI'){
+                    if( ls_flg_ds_aux == 'SI'){
                         $.ajax({
                             url: 'ajax/modifCtto.ajax.php',
                             dataType: 'json',
