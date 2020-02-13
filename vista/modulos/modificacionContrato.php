@@ -283,7 +283,7 @@
 														</div>
 														<div class="col-lg-4">
 															<span data-toggle="modal" data-target="#m_modal_auditoria_contrato">
-																<button type="button" id="btn2Com" class="btn btn-sm btnGuardarKqPst mt25">
+																<button type="button" id="btn2Com" class="btn btn-sm btnGuardarKqPst mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Auditoria del contrato">
 																	<i class="fa fa-eye"></i>
 																</button>
 															</span>
@@ -652,7 +652,7 @@
 														<input type="text" class="form-control form-control-sm m-input" name="emailTitular" id="emailTitular" disabled>
 													</div>
 													<div class="col-lg-3" style="text-align: center;">
-														<button type="button" id="btn2Com" class="btn btn-sm btnEditarKqPst2 mt25"data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Datos del cliente" onclick="">
+														<button type="button" id="btn2Com" class="btn btn-sm btnEditarKqPst2 mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Datos del cliente" onclick="">
 															<i class="fa fa-user-o"></i>
 														</button>
 														<span data-toggle="modal" data-target="#m_modal_2">
@@ -753,14 +753,8 @@
 														<input type="text" class="form-control form-control-sm m-input" name="codCliTitular2" id="codCliTitular2" disabled onchange="buscaDatos2Ti(this.value);">
 													</div>
 													<div class="col-lg-5">
-														<button type="button" id="btn2Com" class="btn btn-sm btnEditarKqPst2 mt25">
-															<i class="fa fa-user-o"></i>
-														</button>
-														<button type="button" id="btn2Com" class="btn btn-sm btnGuardarKqPst mt25">
+														<button type="button" id="btn2Com" class="btn btn-sm btnGuardarKqPst mt25" onclick="creaTablaCliente('Titular2');">
 															<i class="fa fa-search"></i>
-														</button>
-														<button type="button" id="btn2Com" class="btn btn-sm btnThird mt25">
-															<i class="fa fa-exchange"></i>
 														</button>
 													</div>
 												</div>
@@ -923,6 +917,9 @@
 														<input type="text" class="form-control form-control-sm m-input" name="codAval" id="codAval" disabled onchange="buscaDatosAval(this.value);">
 													</div>
 													<div class="col-lg-5">
+														<button type="button" id="btn2Com" class="btn btn-sm btnGuardarKqPst mt25" onclick="creaTablaCliente('Aval');">
+															<i class="fa fa-search"></i>
+														</button>
 													</div>
 												</div>
 											</div>
