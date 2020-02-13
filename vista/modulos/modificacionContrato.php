@@ -657,12 +657,10 @@
 														<input type="text" class="form-control form-control-sm m-input" name="emailTitular" id="emailTitular" disabled>
 													</div>
 													<div class="col-lg-3" style="text-align: center;">
-														<span data-toggle="modal" data-target="#m_modal_1">
 														<button type="button" id="btn2Com" class="btn btn-sm btnEditarKqPst2 mt25"data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Datos del cliente" onclick="">
 															<i class="fa fa-user-o"></i>
 														</button>
-														</span>
-														<button type="button" id="btn2Com" class="btn btn-sm btnGuardarKqPst mt25"data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar cliente" onclick="">
+														<button type="button" id="btn2Com" class="btn btn-sm btnGuardarKqPst mt25"data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar cliente" onclick="listaClientes();">
 															<i class="fa fa-search"></i>
 														</button>
 														<button type="button" id="btn2Com" class="btn btn-sm btnThird mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Cambiar titular" onclick="">
@@ -755,7 +753,7 @@
 												<div class="row">
 													<div class="col-lg-7">
 														<label>Codigo Cliente</label>
-														<input type="text" class="form-control form-control-sm m-input" name="codCliTitular2" id="codCliTitular2" disabled onchange="buscaDatos2Ti();">
+														<input type="text" class="form-control form-control-sm m-input" name="codCliTitular2" id="codCliTitular2" disabled onchange="creaTablaCliente(titularModif);">
 													</div>
 													<div class="col-lg-5">
 														<button type="button" id="btn2Com" class="btn btn-sm btnEditarKqPst2 mt25">
@@ -1922,5 +1920,5 @@
 <?php
 include "modals/modalObservacionCliente.php";
 include "modals/modalTablaDeuda.php";
-include "modals/modalRegCliente.php";
+include "modals/modalTablaClientes.php";
  ?>

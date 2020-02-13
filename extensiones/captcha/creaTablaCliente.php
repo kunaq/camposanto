@@ -45,6 +45,12 @@ require_once "../../modelo/conexion.php";
                         $funcion = '"cambiaCliCon('.$codcliente.')"';
                     }elseif ($tipobtn == "nuevoTitular") {
                         $funcion = '"getDatosNuevoTitular('.$codcliente.')"';
+                    }elseif($tipobtn == "titularModif"){
+                        $funcion = '"llenaDatosCliente('.$codcliente.','."titular".')"';
+                    }elseif($tipobtn == "segTitularModif"){
+                        $funcion = '"llenaDatosCliente('.$codcliente.','."2doTitular".')"';
+                    }elseif($tipobtn == "avalModif"){
+                        $funcion = '"llenaDatosCliente('.$codcliente.','."aval".')"';
                     }
                     
                    echo 

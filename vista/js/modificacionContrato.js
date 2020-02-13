@@ -1322,3 +1322,6 @@ function AnulaDefCtto(){
 }//function AnulaDefCtto
 
 //----------------------------tab Titulares-----------------------------//
+function llenaDatosCliente(tab){
+    alert(tab);
+}
