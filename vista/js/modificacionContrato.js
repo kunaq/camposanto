@@ -370,6 +370,7 @@ function buscaDatosTi(codCliente){
         data: { 'accion' : 'buscaCli', 'codCliente' : codCliente },
         success : function(respuesta){
         	// console.log('respuesta',respuesta);
+            $("#codCliTitular").val(codCliente);
         	var juridico = false;
         	$("#numDocTitular").val(respuesta['dsc_documento']);
 			document.getElementById("docIdeTitular").setAttribute('value',respuesta['cod_tipo_documento']);
@@ -412,6 +413,7 @@ function buscaDatos2Ti(codCliente){
         data: { 'accion' : 'buscaCli', 'codCliente' : codCliente },
         success : function(respuesta){
         	// console.log('respuesta',respuesta);
+            $("#codCliTitular2").val(codCliente);
         	var juridico = false;
         	$("#numDocTitular2").val(respuesta['dsc_documento']);
 			document.getElementById("docIdeTitular2").setAttribute('value',respuesta['cod_tipo_documento']);
@@ -454,6 +456,7 @@ function buscaDatosAval(codCliente){
         data: { 'accion' : 'buscaCli', 'codCliente' : codCliente },
         success : function(respuesta){
         	// console.log('respuesta',respuesta);
+            $("#codAval").val(codCliente);
         	var juridico = false;
         	$("#numDocAval").val(respuesta['dsc_documento']);
 			document.getElementById("docIdeAval").setAttribute('value',respuesta['cod_tipo_documento']);
