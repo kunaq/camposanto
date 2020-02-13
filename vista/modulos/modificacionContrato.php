@@ -753,7 +753,7 @@
 														<input type="text" class="form-control form-control-sm m-input" name="codCliTitular2" id="codCliTitular2" disabled onchange="buscaDatos2Ti(this.value);">
 													</div>
 													<div class="col-lg-5">
-														<button type="button" id="btn2Com" class="btn btn-sm btnGuardarKqPst mt25" onclick="creaTablaCliente('Titular2');">
+														<button type="button" id="btn2Com" class="btn btn-sm btnGuardarKqPst mt25" onclick="creaTablaCliente('segTitularModif');">
 															<i class="fa fa-search"></i>
 														</button>
 													</div>
@@ -917,7 +917,7 @@
 														<input type="text" class="form-control form-control-sm m-input" name="codAval" id="codAval" disabled onchange="buscaDatosAval(this.value);">
 													</div>
 													<div class="col-lg-5">
-														<button type="button" id="btn2Com" class="btn btn-sm btnGuardarKqPst mt25" onclick="creaTablaCliente('Aval');">
+														<button type="button" id="btn2Com" class="btn btn-sm btnGuardarKqPst mt25" onclick="creaTablaCliente('avalModif');">
 															<i class="fa fa-search"></i>
 														</button>
 													</div>
