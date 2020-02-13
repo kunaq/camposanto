@@ -660,7 +660,7 @@
 														<button type="button" id="btn2Com" class="btn btn-sm btnEditarKqPst2 mt25"data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Datos del cliente" onclick="">
 															<i class="fa fa-user-o"></i>
 														</button>
-														<button type="button" id="btn2Com" class="btn btn-sm btnGuardarKqPst mt25"data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar cliente" onclick="listaClientes();">
+														<button type="button" id="btn2Com" class="btn btn-sm btnGuardarKqPst mt25"data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar cliente" onclick="creaTablaCliente('titularModif');">
 															<i class="fa fa-search"></i>
 														</button>
 														<button type="button" id="btn2Com" class="btn btn-sm btnThird mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Cambiar titular" onclick="">
@@ -753,7 +753,7 @@
 												<div class="row">
 													<div class="col-lg-7">
 														<label>Codigo Cliente</label>
-														<input type="text" class="form-control form-control-sm m-input" name="codCliTitular2" id="codCliTitular2" disabled onchange="creaTablaCliente(titularModif);">
+														<input type="text" class="form-control form-control-sm m-input" name="codCliTitular2" id="codCliTitular2" disabled onchange="buscaDatos2Ti();">
 													</div>
 													<div class="col-lg-5">
 														<button type="button" id="btn2Com" class="btn btn-sm btnEditarKqPst2 mt25">
