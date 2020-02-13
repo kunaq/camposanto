@@ -124,8 +124,15 @@ function llenaDatos(codCtto){
             var totalVin = 0;
         	$.each(respuesta,function(index,value){
                 totalVin = totalVin+parseFloat(value['imp_saldofinanciar']);
+                if(value['flg_anulado'] == 'SI'){
+                    color = 'red';
+                }else if(value['flg_resuelto'] == 'SI'){
+                    color = 'blue';
+                }else{
+                    color = '#575962';
+                }
         		var id = "filaServ_"+value['num_servicio'];
-                var fila ='<tr class="listaServicio inactivo" id="'+id+'" onclick="muestraInfo('+value['num_servicio']+');">'+
+                var fila ='<tr class="listaServicio inactivo" style="color:'+color+'" id="'+id+'" onclick="muestraInfo('+value['num_servicio']+');">'+
 					'<td class="text-center">'+value['num_servicio']+'</td>'+
 					'<td class="text-left">'+value['dsc_tipo_servicio']+'</td>'+
 					'<td class="text-center">'+value['fch_generacion']+'</td>'+
