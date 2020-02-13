@@ -456,7 +456,7 @@ function buscaDatosAval(codCliente){
         data: { 'accion' : 'buscaCli', 'codCliente' : codCliente },
         success : function(respuesta){
         	// console.log('respuesta',respuesta);
-            
+            $("#codAval").val(codCliente);
         	var juridico = false;
         	$("#numDocAval").val(respuesta['dsc_documento']);
 			document.getElementById("docIdeAval").setAttribute('value',respuesta['cod_tipo_documento']);
@@ -1330,10 +1330,6 @@ function AnulaDefCtto(){
 
 //----------------------------tab Titulares-----------------------------//
 function creaTablaCliente(tipo){
-    //if ($('#myTableCliente').length) {
-    //    $('#myTableCliente').DataTable();
-    // }
-    // else{
         $('#tablaCliente').html('<div class="loader"></div>');
         $.ajax({
             url: 'extensiones/captcha/creaTablaCliente.php',
@@ -1355,6 +1351,6 @@ function llenaDatosCliente(codCli,tab){
         buscaDatos2Ti(codCli);
     }
     else if(tab == 'Aval'){
-        $("#codAval").val(codCliente);
+        buscaDatosAval(codCli);
     }
 }
