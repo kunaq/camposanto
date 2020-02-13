@@ -1312,3 +1312,12 @@ function AnulaDefCtto(){
         }//success
     });//ajax replicaDatos 
 }//function AnulaDefCtto
+
+//----------------------------tab Titulares-----------------------------//
+if($("#tipoNecesidad") == 'NI'){
+    $("#m_tabs_2_3").attr('hidden',false);
+    $("#m_tabs_2_2").attr('hidden',true);
+}else if($("#tipoNecesidad") == 'NF'){
+    $("#m_tabs_2_3").attr('hidden',true);
+    $("#m_tabs_2_2").attr('hidden',false);
+}
