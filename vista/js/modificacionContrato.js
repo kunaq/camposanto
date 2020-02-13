@@ -106,6 +106,7 @@ function llenaDatos(codCtto){
         	$("#ejeVContrato").val(respuesta[0]['cod_ejevertical_actual']);
         	$("#espacioContrato").val(respuesta[0]['cod_espacio_actual']);
             $("#flg_ctt_integral").val(respuesta[0]['flg_ctt_integral']);
+            $("#tipoNecCtto").val(respuesta[0]['cod_tipo_necesidad']);
         	document.getElementById("tipoEspModifContrato").value = respuesta[0]['dsc_tipo_espacio'];
         	$("#bodyDetCttoModif").empty();
             $("#bodyServicioVin").empty();
@@ -1314,10 +1315,10 @@ function AnulaDefCtto(){
 }//function AnulaDefCtto
 
 //----------------------------tab Titulares-----------------------------//
-if($("#tipoNecesidad") == 'NI'){
+if($("#tipoNecCtto") == 'NI'){
     $("#m_tabs_2_3").attr('hidden',false);
     $("#m_tabs_2_2").attr('hidden',true);
-}else if($("#tipoNecesidad") == 'NF'){
+}else if($("#tipoNecCtto") == 'NF'){
     $("#m_tabs_2_3").attr('hidden',true);
     $("#m_tabs_2_2").attr('hidden',false);
 }

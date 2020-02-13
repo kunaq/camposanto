@@ -95,6 +95,7 @@
 									<input type="hidden" name="flg_ctt_integral" id="flg_ctt_integral">
 									<input type="hidden" name="numRefinanciamiento" id="numRefinanciamiento">
 									<input type="hidden" id="numServicioSeleccionado" name="numServicioSeleccionado">
+									<input type="hidden" id="tipoNecCtto" name="tipoNecCtto">
 								</div>
 							</div>
 						</div>
