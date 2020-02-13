@@ -1316,9 +1316,9 @@ function AnulaDefCtto(){
 
 //----------------------------tab Titulares-----------------------------//
 if($("#tipoNecCtto") == 'NI'){
-    $("#m_tabs_2_3").attr('hidden',false);
-    $("#m_tabs_2_2").attr('hidden',true);
+    $("#tabAval").attr('hidden',false);
+    $("#tab2doTitular").attr('hidden',true);
 }else if($("#tipoNecCtto") == 'NF'){
-    $("#m_tabs_2_3").attr('hidden',true);
-    $("#m_tabs_2_2").attr('hidden',false);
+    $("#tabAval").attr('hidden',true);
+    $("#tab2doTitular").attr('hidden',false);
 }

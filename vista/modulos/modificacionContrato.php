@@ -203,11 +203,11 @@
 								<a class="dropdown-item" data-toggle="tab" href="#m_tabs_2_3">
 									Titular
 								</a>
-								<a class="dropdown-item" data-toggle="tab" href="#m_tabs_2_4">
+								<a class="dropdown-item" data-toggle="tab" id="tab2doTitular" href="#m_tabs_2_4">
 									Segundo Titular
 								</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" data-toggle="tab" href="#m_tabs_2_5">
+								<a class="dropdown-item" data-toggle="tab" id="tabAval" href="#m_tabs_2_5">
 									Aval
 								</a>
 							</div>
