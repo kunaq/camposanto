@@ -1157,17 +1157,12 @@ function anularCtto(numServ = null){
             }).then(function(){
                 setTimeout(function () { 
                     var anular = AnulaDefCtto();
-                    if (anular == 1){
-                        swal({
-                            title: "",
-                            text: "Se ha Anulado el contrato con éxito.",
-                            type: "success",
-                            confirmButtonText: "Aceptar",
-                        })
-                    }
-                    else{
-                        swal("","El contrato no ha podido ser Anulado, por favor intente nuevamente.","warning")
-                    }
+                    swal({
+                        title: "",
+                        text: "Se ha Anulado el contrato "+ls_contrato+" con éxito.",
+                        type: "success",
+                        confirmButtonText: "Aceptar",
+                    })
                 },1000);
             })//then
         }//li_tot > 1
@@ -1184,17 +1179,12 @@ function anularCtto(numServ = null){
                 setTimeout(function () { 
                     var anular = AnulaDefCtto();
                     console.log('anular',anular);
-                    if (anular == 1){
-                        swal({
-                            title: "",
-                            text: "Se ha Anulado el contrato "+ls_contrato+" con éxito.",
-                            type: "success",
-                            confirmButtonText: "Aceptar",
-                        })
-                    }
-                    else{
-                        swal("","El contrato no ha podido ser Anulado, por favor intente nuevamente.","warning")
-                    }
+                    swal({
+                        title: "",
+                        text: "Se ha Anulado el contrato "+ls_contrato+" con éxito.",
+                        type: "success",
+                        confirmButtonText: "Aceptar",
+                    })
                 },1000);
             })//then
         }// Else li_tot > 1
