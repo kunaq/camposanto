@@ -46,11 +46,11 @@ require_once "../../modelo/conexion.php";
                     }elseif ($tipobtn == "nuevoTitular") {
                         $funcion = '"getDatosNuevoTitular('.$codcliente.')"';
                     }elseif($tipobtn == "titularModif"){
-                        $funcion = '"llenaDatosCliente('.$codcliente.','."'titular'".')"';
+                        $funcion = '"llenaDatosCliente('.$codcliente.','."'Titular'".')"';
                     }elseif($tipobtn == "segTitularModif"){
-                        $funcion = '"llenaDatosCliente('.$codcliente.','."'2doTitular'".')"';
+                        $funcion = '"llenaDatosCliente('.$codcliente.','."'Titular2'".')"';
                     }elseif($tipobtn == "avalModif"){
-                        $funcion = '"llenaDatosCliente('.$codcliente.','."'aval'".')"';
+                        $funcion = '"llenaDatosCliente('.$codcliente.','."'Aval'".')"';
                     }
                     
                    echo 

@@ -14,7 +14,11 @@ $("#fchNacTitular").datepicker({
   format: 'dd-mm-yyyy',
   autoclose: true
 });//datepicker
-$("#fchNac2doTitular").datepicker({
+$("#fchNacTitular2").datepicker({
+  format: 'dd-mm-yyyy',
+  autoclose: true
+});//datepicker
+$("#fchNacAval").datepicker({
   format: 'dd-mm-yyyy',
   autoclose: true
 });//datepicker
@@ -357,8 +361,8 @@ function buscaEndoso(){
 
 //-------------------pestaña titulares
 
-function buscaDatosTi(){
-	var codCliente = $("#codCliTitular").val();
+function buscaDatosTi(codCliente){
+	// var codCliente = $("#codCliTitular").val();
 	$.ajax({
         url: 'ajax/modifCtto.ajax.php',
         dataType: 'json',
@@ -399,8 +403,8 @@ function buscaDatosTi(){
     });//ajax
 }//buscaDatosTi
 
-function buscaDatos2Ti(){
-	var codCliente = $("#codCliTitular2").val();
+function buscaDatos2Ti(codCliente){
+	// var codCliente = $("#codCliTitular2").val();
 	$.ajax({
         url: 'ajax/modifCtto.ajax.php',
         dataType: 'json',
@@ -414,8 +418,8 @@ function buscaDatos2Ti(){
             if(respuesta['flg_juridico'] == 'SI'){
             	juridico = true;
             }
-            $("#juridico2doCheck").prop("checked", juridico);
-            $("#fchNac2doTitular").datepicker('setDate', respuesta['fch_nacimiento']);
+            $("#juridicoCheckTitular2").prop("checked", juridico);
+            $("#fchNacTitular2").datepicker('setDate', respuesta['fch_nacimiento']);
             $("#apePatTitular2").val(respuesta['dsc_apellido_paterno']);
             $("#apeMatTitular2").val(respuesta['dsc_apellido_materno']);
             $("#nomTitular2").val(respuesta['dsc_nombre']);
@@ -441,8 +445,8 @@ function buscaDatos2Ti(){
     });//ajax
 }//buscaDatos2Ti
 
-function buscaDatosAval(){
-	var codCliente = $("#codAval").val();
+function buscaDatosAval(codCliente){
+	//var codCliente = $("#codAval").val();
 	$.ajax({
         url: 'ajax/modifCtto.ajax.php',
         dataType: 'json',
@@ -456,8 +460,8 @@ function buscaDatosAval(){
             if(respuesta['flg_juridico'] == 'SI'){
             	juridico = true;
             }
-            $("#juridico2doCheck").prop("checked", juridico);
-            $("#fchNac2doTitular").datepicker('setDate', respuesta['fch_nacimiento']);
+            $("#juridicoCheckAval").prop("checked", juridico);
+            $("#fchNacAval").datepicker('setDate', respuesta['fch_nacimiento']);
             $("#apePatAval").val(respuesta['dsc_apellido_paterno']);
             $("#apeMatAval").val(respuesta['dsc_apellido_materno']);
             $("#nomAval").val(respuesta['dsc_nombre']);
@@ -1340,6 +1344,14 @@ function creaTablaCliente(tipo){
         });
     // }
 }
-function llenaDatosCliente(tab){
-    alert(tab);
+function llenaDatosCliente(codCli,tab){
+    if(tab == 'Titular'){
+        buscaDatosTi(codCli);
+    }
+    else if(tab == 'Titular2'){
+        buscaDatos2Ti(codCli);
+    }
+    else if(tab == 'Aval'){
+        buscaDatosAval(codCli);
+    }
 }

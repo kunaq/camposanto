@@ -284,7 +284,7 @@
 														<div class="col-lg-4">
 															<span data-toggle="modal" data-target="#m_modal_auditoria_contrato">
 																<button type="button" id="btn2Com" class="btn btn-sm btnGuardarKqPst mt25">
-																	<i class="fa fa-search"></i>
+																	<i class="fa fa-eye"></i>
 																</button>
 															</span>
 														</div>
@@ -293,11 +293,6 @@
 														<div class="col-lg-8">
 															<label>Convenio</label>
 															<input type="text" class="form-control form-control-sm m-input" name="convenio" id="convenio" disabled>
-														</div>
-														<div class="col-lg-4">
-															<button type="button" id="btn2Com" class="btn btn-sm btnEditarKqPst2 mt25">
-																<i class="fa fa-exchange"></i>
-															</button>
 														</div>
 													</div>
 													<div class="row">
@@ -554,8 +549,8 @@
 										<div class="row form-group">
 											<div class="col-lg-4">
 												<label>Codigo Cliente</label>
-												<input type="text" class="form-control form-control-sm m-input" name="codCliTitular" id="codCliTitular" disabled onchange="buscaDatosTi();">
-												<input type="hidden"name="codAval" id="codAval" onchange="buscaDatosAval();">
+												<input type="text" class="form-control form-control-sm m-input" name="codCliTitular" id="codCliTitular" disabled onchange="buscaDatosTi(this.value);">
+												<input type="hidden"name="codAval" id="codAval" onchange="buscaDatosAval(this.value);">
 											</div>
 											<div class="col-lg-2">
 												<label>&nbsp;</label>
@@ -742,7 +737,7 @@
 															<td>
 																<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
 																	<label>
-																		<input type="checkbox" name="juridico2doCheck" id="juridico2doCheck" disabled>
+																		<input type="checkbox" name="juridicoCheckTitular2" id="juridicoCheckTitular2" disabled>
 																		<span></span>
 																	</label>
 																</span>
@@ -755,7 +750,7 @@
 												<div class="row">
 													<div class="col-lg-7">
 														<label>Codigo Cliente</label>
-														<input type="text" class="form-control form-control-sm m-input" name="codCliTitular2" id="codCliTitular2" disabled onchange="buscaDatos2Ti();">
+														<input type="text" class="form-control form-control-sm m-input" name="codCliTitular2" id="codCliTitular2" disabled onchange="buscaDatos2Ti(this.value);">
 													</div>
 													<div class="col-lg-5">
 														<button type="button" id="btn2Com" class="btn btn-sm btnEditarKqPst2 mt25">
@@ -787,7 +782,7 @@
 													<div class="col-lg-5">
 														<label>Fch. Nacimiento</label>
 														<div class="input-group date">
-															<input type="text" class="form-control form-control-sm m-input" name="fchNac2doTitular" id="fchNac2doTitular" data-date-format="mm/dd/yyyy" disabled />
+															<input type="text" class="form-control form-control-sm m-input" name="fchNacTitular2" id="fchNacTitular2" data-date-format="mm/dd/yyyy" disabled />
 															<div class="input-group-append">
 																<span class="input-group-text">
 																	<i class="la la-calendar-check-o"></i>
@@ -912,7 +907,7 @@
 															<td>
 																<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
 																	<label>
-																		<input type="checkbox" name="" id="personaCheck" disabled>
+																		<input type="checkbox" name="juridicoCheckAval" id="juridicoCheckAval" disabled>
 																		<span></span>
 																	</label>
 																</span>
@@ -925,7 +920,7 @@
 												<div class="row">
 													<div class="col-lg-7">
 														<label>Codigo Cliente</label>
-														<input type="text" class="form-control form-control-sm m-input" name="codAval" id="codAval" disabled onchange="buscaDatosAval();">
+														<input type="text" class="form-control form-control-sm m-input" name="codAval" id="codAval" disabled onchange="buscaDatosAval(this.value);">
 													</div>
 													<div class="col-lg-5">
 													</div>
@@ -948,7 +943,7 @@
 													<div class="col-lg-5">
 														<label>Fch. Nacimiento</label>
 														<div class="input-group date">
-															<input type="text" class="form-control form-control-sm m-input"  id="m_datepicker_5" data-date-format="mm/dd/yyyy" disabled />
+															<input type="text" class="form-control form-control-sm m-input"  id="fchNacAval" data-date-format="mm/dd/yyyy" disabled />
 															<div class="input-group-append">
 																<span class="input-group-text">
 																	<i class="la la-calendar-check-o"></i>
