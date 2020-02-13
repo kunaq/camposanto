@@ -1315,10 +1315,10 @@ function AnulaDefCtto(){
 }//function AnulaDefCtto
 
 //----------------------------tab Titulares-----------------------------//
-if($("#tipoNecCtto") == 'NI'){
+if($("#tipoNecCtto").val() == 'NI'){
     $("#tabAval").attr('hidden',false);
     $("#tab2doTitular").attr('hidden',true);
-}else if($("#tipoNecCtto") == 'NF'){
+}else if($("#tipoNecCtto").val() == 'NF'){
     $("#tabAval").attr('hidden',true);
     $("#tab2doTitular").attr('hidden',false);
 }
