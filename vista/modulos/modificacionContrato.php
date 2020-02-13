@@ -660,9 +660,11 @@
 														<button type="button" id="btn2Com" class="btn btn-sm btnEditarKqPst2 mt25"data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Datos del cliente" onclick="">
 															<i class="fa fa-user-o"></i>
 														</button>
-														<button type="button" id="btn2Com" class="btn btn-sm btnGuardarKqPst mt25"data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar cliente" onclick="creaTablaCliente('titularModif');">
-															<i class="fa fa-search"></i>
-														</button>
+														<span data-toggle="modal" data-target="#m_modal_2">
+															<button type="button" id="btn2Com" class="btn btn-sm btnGuardarKqPst mt25"data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar cliente" onclick="creaTablaCliente('titularModif');">
+																<i class="fa fa-search"></i>
+															</button>
+														</span>
 														<button type="button" id="btn2Com" class="btn btn-sm btnThird mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Cambiar titular" onclick="">
 															<i class="fa fa-exchange"></i>
 														</button>
