@@ -657,9 +657,11 @@
 														<input type="text" class="form-control form-control-sm m-input" name="emailTitular" id="emailTitular" disabled>
 													</div>
 													<div class="col-lg-3" style="text-align: center;">
+														<span data-toggle="modal" data-target="#m_modal_1">
 														<button type="button" id="btn2Com" class="btn btn-sm btnEditarKqPst2 mt25"data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Datos del cliente" onclick="">
 															<i class="fa fa-user-o"></i>
 														</button>
+														</span>
 														<button type="button" id="btn2Com" class="btn btn-sm btnGuardarKqPst mt25"data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar cliente" onclick="">
 															<i class="fa fa-search"></i>
 														</button>
@@ -1920,4 +1922,5 @@
 <?php
 include "modals/modalObservacionCliente.php";
 include "modals/modalTablaDeuda.php";
+include "modals/modalRegCliente.php";
  ?>
