@@ -456,7 +456,7 @@ function buscaDatosAval(codCliente){
         data: { 'accion' : 'buscaCli', 'codCliente' : codCliente },
         success : function(respuesta){
         	// console.log('respuesta',respuesta);
-            $("#codAval").val(codCliente);
+            
         	var juridico = false;
         	$("#numDocAval").val(respuesta['dsc_documento']);
 			document.getElementById("docIdeAval").setAttribute('value',respuesta['cod_tipo_documento']);
@@ -1355,6 +1355,6 @@ function llenaDatosCliente(codCli,tab){
         buscaDatos2Ti(codCli);
     }
     else if(tab == 'Aval'){
-        buscaDatosAval(codCli);
+        $("#codAval").val(codCliente);
     }
 }
