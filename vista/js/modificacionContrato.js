@@ -1322,6 +1322,24 @@ function AnulaDefCtto(){
 }//function AnulaDefCtto
 
 //----------------------------tab Titulares-----------------------------//
+function creaTablaCliente(tipo){
+    //if ($('#myTableCliente').length) {
+    //    $('#myTableCliente').DataTable();
+    // }
+    // else{
+        $('#tablaCliente').html('<div class="loader"></div>');
+        $.ajax({
+            url: 'extensiones/captcha/creaTablaCliente.php',
+            dataType: 'text',
+            data: { 'tipo' : tipo },
+            success : function(respuesta){
+                $('#tablaCliente').html('')
+                $("#tablaCliente").html(respuesta);
+                $('#myTableCliente').DataTable();
+            }
+        });
+    // }
+}
 function llenaDatosCliente(tab){
     alert(tab);
 }
