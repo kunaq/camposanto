@@ -107,6 +107,13 @@ function llenaDatos(codCtto){
         	$("#espacioContrato").val(respuesta[0]['cod_espacio_actual']);
             $("#flg_ctt_integral").val(respuesta[0]['flg_ctt_integral']);
             $("#tipoNecCtto").val(respuesta[0]['cod_tipo_necesidad']);
+            if(respuesta[0]['cod_tipo_necesidad'] == 'NI'){
+                $("#tabAval").attr('hidden',false);
+                $("#tab2doTitular").attr('hidden',true);
+            }else if(respuesta[0]['cod_tipo_necesidad'] == 'NF'){
+                $("#tabAval").attr('hidden',true);
+                $("#tab2doTitular").attr('hidden',false);
+            }
         	document.getElementById("tipoEspModifContrato").value = respuesta[0]['dsc_tipo_espacio'];
         	$("#bodyDetCttoModif").empty();
             $("#bodyServicioVin").empty();
@@ -1315,10 +1322,3 @@ function AnulaDefCtto(){
 }//function AnulaDefCtto
 
 //----------------------------tab Titulares-----------------------------//
-if($("#tipoNecCtto").val() == 'NI'){
-    $("#tabAval").attr('hidden',false);
-    $("#tab2doTitular").attr('hidden',true);
-}else if($("#tipoNecCtto").val() == 'NF'){
-    $("#tabAval").attr('hidden',true);
-    $("#tab2doTitular").attr('hidden',false);
-}
