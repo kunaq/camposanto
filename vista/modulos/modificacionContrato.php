@@ -549,7 +549,7 @@
 							<div class="row">
 							<div class="col-lg-7">
 								<fieldset class="fieldFormHorizontal">
-									<legend class="tittle-box">General</legend>
+									<legend class="tittle-box">General (Aval)</legend>
 									<div class="col-lg-12">
 										<div class="row form-group">
 											<div class="col-lg-4">
@@ -712,7 +712,7 @@
 						<div class="tab-pane" id="m_tabs_2_4" role="tabpanel">
 							<div class="col-lg-12">
 								<fieldset class="fieldFormHorizontal">
-									<legend class="tittle-box">General</legend>
+									<legend class="tittle-box">General (2do Titular)</legend>
 									<div class="col-lg-12">
 										<div class="row form-group">
 											<div class="col-lg-9">
@@ -915,6 +915,15 @@
 														<input type="text" class="form-control form-control-sm m-input" name="codAval" id="codAval" disabled onchange="buscaDatosAval();">
 													</div>
 													<div class="col-lg-5">
+														<button type="button" id="btn2Com" class="btn btn-sm btnEditarKqPst2 mt25">
+															<i class="fa fa-user-o"></i>
+														</button>
+														<button type="button" id="btn2Com" class="btn btn-sm btnGuardarKqPst mt25">
+															<i class="fa fa-search"></i>
+														</button>
+														<button type="button" id="btn2Com" class="btn btn-sm btnThird mt25">
+															<i class="fa fa-exchange"></i>
+														</button>
 													</div>
 												</div>
 											</div>
