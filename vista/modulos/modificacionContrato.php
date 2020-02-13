@@ -652,9 +652,20 @@
 													</div>
 												</div>
 												<div class="row">
-													<div class="col-lg-12">
+													<div class="col-lg-8">
 														<label>E-mail</label>
 														<input type="text" class="form-control form-control-sm m-input" name="emailTitular" id="emailTitular" disabled>
+													</div>
+													<div class="col-lg-4">
+														<button type="button" id="btn2Com" class="btn btn-sm btnEditarKqPst2 mt25">
+															<i class="fa fa-user-o"></i>
+														</button>
+														<button type="button" id="btn2Com" class="btn btn-sm btnGuardarKqPst mt25">
+															<i class="fa fa-search"></i>
+														</button>
+														<button type="button" id="btn2Com" class="btn btn-sm btnThird mt25">
+															<i class="fa fa-exchange"></i>
+														</button>
 													</div>
 												</div>
 											</div>
