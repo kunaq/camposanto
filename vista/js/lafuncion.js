@@ -201,6 +201,12 @@ function cambiaTodo()
   if(lde_afecto_dscto == null)
   {
     lde_afecto_dscto = 0.00;
+    swal({
+        title: "",
+        text: "El servicio no aplica para este descuento.",
+        type: "warnig",
+        confirmButtonText: "Aceptar",
+    })
   }
 
   /* -- Prevensión (eliminado) -- //
