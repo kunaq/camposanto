@@ -1369,7 +1369,7 @@ function creaTablaVendedor(tipo){
     // if ($('#myTableVendedor').length) {
     //     $('#myTableVendedor').DataTable();
     // }
-    else{
+    // else{
         $('#tablaVendedor').html('<div class="loader"></div>');
         $.ajax({
             url: 'extensiones/captcha/creaTablaVendedor.php',
@@ -1383,7 +1383,7 @@ function creaTablaVendedor(tipo){
             }
         });
     }
-}
+// }
 
 function llamaDatosVendedor(codVendedor,boton){
     if(boton == 'cobrador'){
