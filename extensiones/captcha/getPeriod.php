@@ -14,7 +14,7 @@ require_once "../../funciones.php";
 		// while($key = $db->recorrer($sql)){
   //           $arrData = array('num_anno'=> $key['num_anno'], 'tipo_periodo'=> $key['cod_tipo_periodo'], 'periodo'=> $key['cod_periodo']);        
 		// }        
-		echo json_encode($arrData);
+		print_r(json_encode($arrData));
     	$db->liberar($sql);
  		$db->cerrar();  
 ?>
