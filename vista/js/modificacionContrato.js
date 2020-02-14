@@ -1366,25 +1366,20 @@ function llenaDatosCliente(codCli,tab){
 
 
 function creaTablaVendedor(tipo){
-    alert(tipo);
-    // if ($('#myTableVendedor').length) {
-    //     $('#myTableVendedor').DataTable();
-    // }
-    // else{
-        // $('#tablaVendedor').html('<div class="loader"></div>');
-        // $.ajax({
-        //     url: 'extensiones/captcha/creaTablaVendedor.php',
-        //     dataType: 'text',
-        //     data: { 'tipo' : tipo },
-        //     success : function(respuesta){
-        //         console.log(respuesta);
-        //         $('#tablaVendedor').html('')
-        //         $("#tablaVendedor").html(respuesta);
-        //         $('#myTableVendedor').DataTable();
-        //     }
-        // });
-    }
-// }
+    $('#tablaVendedor').html('<div class="loader"></div>');
+    $.ajax({
+        url: 'extensiones/captcha/creaTablaVendedor.php',
+        dataType: 'text',
+        data: { 'tipo' : tipo },
+        success : function(respuesta){
+            console.log(respuesta);
+            $('#tablaVendedor').html('')
+            $("#tablaVendedor").html(respuesta);
+            $('#myTableVendedor').DataTable();
+        }
+    });
+}
+
 
 function llamaDatosVendedor(codVendedor,boton){
     if(boton == 'cobrador'){
