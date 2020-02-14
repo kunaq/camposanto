@@ -59,6 +59,11 @@ class AjaxResCtto{
 		$respuesta = ControladorResCtto::ctrGuardaObservacion();
 		echo json_encode($respuesta);
 	}//ajaxGuardaObservacion
+	
+	public function ajaxActualizaConograma(){
+		$respuesta = ControladorResCtto::ctrActualizaConograma();
+		echo json_encode($respuesta);
+	}//ajaxActualizaConograma
 }//class AjaxResCtto
 /*=============================================
 ACCIONES
@@ -118,4 +123,8 @@ else if(isset($_POST["accion"]) && $_POST["accion"] == 'verificaFoma'){
 else if(isset($_POST["accion"]) && $_POST["accion"] == 'guardaObsevacion'){
 	$cliente = new AjaxResCtto();
 	$cliente -> ajaxGuardaObservacion();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'actualizaCronograma'){
+	$cliente = new AjaxResCtto();
+	$cliente -> ajaxActualizaConograma();
 }

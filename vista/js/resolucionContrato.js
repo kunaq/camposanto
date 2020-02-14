@@ -98,6 +98,28 @@ function buscaServicios(){
     });//ajax
 }//buscaServicios
 
+function pasaAnumero(string){
+    if(string == parseFloat(string)){
+        valor = parseFloat(string);
+    }
+    else if(string.indexOf('.') != -1){
+        var mil = string.split('.')[0];
+        var cien = string.split('.')[1];
+        var decenas = cien.split(',')[0];
+        var decimal = cien.split(',')[1];
+        valor = (parseInt(mil)*1000)+(parseInt(decenas))+(parseFloat(decimal)*0.01);
+    }
+    else if(string.indexOf('.') != -1){
+        var decenas = string.split(',')[0];
+        var decimal = string.split(',')[1];
+        valor = (parseInt(decenas))+(parseFloat(decimal)*0.01);
+    }
+    else{
+        valor = parseFloat(string);
+    }
+    return valor;
+ }
+
 function buscaMotivo(tipo){
     $.ajax({
         type:'POST',
@@ -154,6 +176,22 @@ function buscaMotivo(tipo){
             }
         }//success
     });//ajax interno
+
+    var cuoi_total = pasaAnumero(document.getElementById('totalCuoi').innerText);
+    var financiado_total = pasaAnumero(document.getElementById('totalfin').innerText);
+    var cuoi_cancelado = pasaAnumero(document.getElementById('canCuoi').innerText);
+    var financiado_cancelado = pasaAnumero(document.getElementById('canFin').innerText);
+    var cuoi_saldo = pasaAnumero(document.getElementById('salCuoi').innerText);
+    var financiado_saldo = pasaAnumero(document.getElementById('salFin').innerText);
+
+    var saldo_insoluto = (cuoi_saldo + financiado_saldo);
+    var total = (cuoi_total + financiado_total);
+    var cancelado = (cuoi_cancelado + financiado_cancelado);
+    var porcentaje = ((cuoi_cancelado + financiado_cancelado)/(cuoi_total + financiado_total))*100;
+
+    $("#saldoInsResolucion").val(Number(saldo_insoluto).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 }));
+    $("#porcResolucion").val(Number(porcentaje).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 }));
+    $("#check-comision").prop('checked',true);
 
 }//buscaMotivo
 
@@ -254,6 +292,7 @@ function buscaDetalles(value,accion){
             }else if (response['cod_tipo_necesidad'] == 'NI'){
                 $("#tipoNecResolucion").val('NECESIDAD INMEDIATA');
             }
+            $("#numRefinanciamiento").val(response['num_refinanciamiento']);
             $("#codCliResolucion").val(response['cod_cliente']);
             $.ajax({
                 url: 'ajax/resCtto.ajax.php',
@@ -295,8 +334,6 @@ function buscaDetalles(value,accion){
             $("#tipoPerResolucion").val(response['cod_tipo_periodo_afecto']);
             $("#tipoPerResolucion").change();
             $("#perResolucion").val(response['cod_periodo_afecto']);
-            $("#saldoInsResolucion").val(Number(response['imp_afecto']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 }));
-            $("#porcResolucion").val(Number(response['imp_porc_afecto']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 }));
             if(response['flg_afecta_comision'] == 'SI'){
                 $("#check-comision").prop('checked',true);
             }else if(response['flg_afecta_comision'] == 'NO'){
@@ -487,12 +524,14 @@ function preResolucion(){
 }
 
 function resolverContrato(){
+    $(".loader").fadeIn("slow");
     var localidad = document.getElementById('localidadResolucion').value;
     var ctt = document.getElementById('numConResolucion').value;
     var auxsrv = document.getElementById('numSerResolucion').value;
     var srv = auxsrv.split("/")[0];
     var codTipoPrograma = document.getElementById('codTipoProgResolucion').value;
     var tipoCtt = document.getElementById('tipoProgResolucion').value;
+    var numRef = document.getElementById('numRefinanciamiento').value;
     var fch_registro = ($('#m_datepicker_4_3') .datepicker("getDate")).toLocaleDateString();
     var num_anno = document.getElementById('annoPerResolucion').value;
     var cod_tipo_periodo = document.getElementById('tipoPerResolucion').value;
@@ -501,8 +540,10 @@ function resolverContrato(){
     var cod_supervisor = document.getElementById('codSupComResolucion').value;
     var cod_vendedor = document.getElementById('codVenComResolucion').value;
     var cod_grupo = document.getElementById('codGruComResolucion').value;
-    var imp_porc_afecto = document.getElementById('porcResolucion').value;
-    var imp_afecto = document.getElementById('saldoInsResolucion').value;
+    var imp_porc_afecto = pasaAnumero(document.getElementById('porcResolucion').value);
+    var cuoi_saldo = pasaAnumero(document.getElementById('salCuoi').innerText);
+    var financiado_saldo = pasaAnumero(document.getElementById('salFin').innerText);
+    var imp_afecto = (cuoi_saldo + financiado_saldo);
     var cod_tipo_resolucion = document.getElementById('tipoResolucion').value;
     if (cod_tipo_resolucion == '00006' || cod_tipo_resolucion == '00001' || cod_tipo_resolucion == '00007') {
         var cod_tipo_movimiento = 'RES';
@@ -510,15 +551,19 @@ function resolverContrato(){
         var cod_tipo_movimiento = 'MOD';
     }
     var cod_motivo_resolucion = document.getElementById('motivoResolucion').value;
+    var dsc_motivo_resolucion = $("#motivoResolucion option:selected").text();
     var dsc_motivo_usuario = document.getElementById('detalleResolucion').value;
-    var imp_tc = document.getElementById('tCambioResolucion').value;
+    var imp_tc = pasaAnumero(document.getElementById('tCambioResolucion').value);
     var afecta_comision = document.getElementById('check-comision').value;
     if (afecta_comision.checked != true){
         var flg_afecta_comision = 'NO';
     }else{
         var flg_afecta_comision = 'SI';
     }
-    var imp_pagado = '0,00';
+    var cuoi_cancelado = pasaAnumero(document.getElementById('canCuoi').innerText);
+    var financiado_cancelado = pasaAnumero(document.getElementById('canFin').innerText);
+    var imp_pagado = (cuoi_cancelado + financiado_cancelado);
+    var cod_area = '';
 
     $.ajax({
         type:'POST',
@@ -548,22 +593,39 @@ function resolverContrato(){
                                             dataType: 'text',
                                             data: {'accion': 'verificaFoma', 'cod_localidad':localidad, 'cod_contrato' : ctt, 'cod_tipo_programa':codTipoPrograma, 'cod_tipo_ctt':tipoCtt, 'num_servicio':srv},
                                             success : function(response){
-                                                console.log(response);
                                             }//successServicioFoma
                                         });//ajaxServicioFoma
+
+                                        $.ajax({
+                                            type:'POST',
+                                            url: 'ajax/resCtto.ajax.php',
+                                            dataType: 'text',
+                                            data: {'accion': 'guardaObsevacion', 'cod_localidad':localidad, 'cod_contrato' : ctt, 'cod_tipo_programa':codTipoPrograma, 'cod_tipo_ctt':tipoCtt, 'num_servicio':srv, 'cod_motivo_resolucion' : cod_motivo_resolucion, 'dsc_motivo_resolucion':dsc_motivo_resolucion, 'cod_area':cod_area},
+                                            success : function(respuesta){
+                                                if (respuesta == 1) {
+                                                    $.ajax({
+                                                        type:'POST',
+                                                        url: 'ajax/resCtto.ajax.php',
+                                                        dataType: 'text',
+                                                        data: {'accion': 'actualizaCronograma', 'cod_localidad':localidad, 'cod_contrato' : ctt, 'cod_tipo_programa':codTipoPrograma, 'cod_tipo_ctt':tipoCtt, 'num_refinanciamiento':numRef},
+                                                        success : function(response){
+                                                            if (response == 1) {
+                                                                $(".loader").fadeOut("slow");
+                                                                swal({
+                                                                  title:"",
+                                                                  text:'Se resolvio el contrato con exito',
+                                                                  type:"success",
+                                                                  confirmButtonText:"Aceptar"
+                                                                })
+                                                            }
+                                                         }//success
+                                                    });//ajax
+                                                }
+                                            }//successGuardaObsevacion
+                                        });//ajaxGuardaObsevacion
                                     }
                                 }//successInsertaResolucion
                             });//ajaxInsertaResolucion
-
-                            // $.ajax({
-                            //     type:'POST',
-                            //     url: 'ajax/resCtto.ajax.php',
-                            //     dataType: 'text',
-                            //     data: {'accion': 'insertarResolucion', 'cod_localidad':localidad, 'cod_contrato' : ctt, 'cod_tipo_programa':codTipoPrograma, 'cod_tipo_ctt':tipoCtt, 'num_servicio':srv, 'fch_registro':fch_registro, 'cod_tipo_movimiento':cod_tipo_movimiento, 'num_anno' : num_anno, 'cod_tipo_periodo':cod_tipo_periodo, 'cod_periodo':cod_periodo, 'cod_jefe_ventas':cod_jefe_ventas, 'cod_supervisor':cod_supervisor, 'cod_vendedor' : cod_vendedor, 'cod_grupo':cod_grupo, 'imp_porc_afecto':imp_porc_afecto, 'imp_afecto':imp_afecto, 'cod_tipo_resolucion':cod_tipo_resolucion, 'cod_motivo_resolucion' : cod_motivo_resolucion, 'dsc_motivo_usuario':dsc_motivo_usuario, 'imp_tc':imp_tc, 'flg_afecta_comision':flg_afecta_comision, 'imp_pagado':imp_pagado},
-                            //     success : function(respuesta){
-                            //         if (respuesta == 1) {}
-                            //     }//successInsertaResolucion
-                            // });//ajaxInsertaResolucion
                         }else{
                             swal({
                               title:"",

@@ -76,7 +76,7 @@ class ControladorResCtto{
 	}//ctrVerificaContado
 	
 	static public function ctrActualizaVtadeCtt(){
-		$fecha = date('Y-m-d');
+		$fecha = date('Y-d-m');
 		$hora = date('H:i:s');
 		$fechaActual = $fecha.' '.$hora;
 		$datos = array("fch_actual" => $fechaActual,
@@ -92,13 +92,16 @@ class ControladorResCtto{
 	}//ctrActualizaVtadeCtt
 	
 	static public function ctrInsertaResolucion(){
+		$fecha = date('Y-d-m');
+		$hora = date('H:i:s');
+		$fechaActual = $fecha.' '.$hora;
 		$datos = array("usuario" => $_SESSION["user"],
 						"cod_localidad" => $_POST['cod_localidad'],
 						"cod_tipo_ctt" => $_POST['cod_tipo_ctt'],
 						"cod_tipo_programa" => $_POST['cod_tipo_programa'],
 						"cod_contrato" => $_POST['cod_contrato'],
 						"num_servicio" => $_POST['num_servicio'],
-						"fch_registro" => $_POST['fch_registro'],
+						"fch_actual" => $fechaActual,
 						"cod_tipo_movimiento" => $_POST['cod_tipo_movimiento'],
 						"num_anno" => $_POST['num_anno'],
 						"cod_tipo_periodo" => $_POST['cod_tipo_periodo'],
@@ -121,7 +124,7 @@ class ControladorResCtto{
 	}//ctrInsertaResolucion
 	
 	static public function ctrVerificaFoma(){
-		$fecha = date('Y-m-d');
+		$fecha = date('Y-d-m');
 		$hora = date('H:i:s');
 		$fechaActual = $fecha.' '.$hora;
 		$datos = array("fch_actual" => $fechaActual,
@@ -137,7 +140,28 @@ class ControladorResCtto{
 	}//ctrVerificaFoma
 
 	static public function ctrGuardaObservacion(){
-		$fecha = date('Y-m-d');
+		$fecha = date('Y-d-m');
+		$fechaf = date('Y-m-d');
+		$hora = date('H:i:s');
+		$fechaActual = $fecha.' '.$hora;
+		$datos = array("fch_format" => $fechaf,
+						"fch_actual" => $fechaActual,
+						"usuario" => $_SESSION["user"],
+						"cod_area" => $_POST['cod_area'],
+						"cod_localidad" => $_POST['cod_localidad'],
+						"cod_tipo_ctt" => $_POST['cod_tipo_ctt'],
+						"cod_tipo_programa" => $_POST['cod_tipo_programa'],
+						"cod_contrato" => $_POST['cod_contrato'],
+						"num_servicio" => $_POST['num_servicio'],
+						"cod_motivo_resolucion" => $_POST['cod_motivo_resolucion'],
+						"dsc_motivo_resolucion" => $_POST['dsc_motivo_resolucion']
+					);
+		$respuesta = ModeloResCtto::mdlGuardaObservacion($datos);
+		return $respuesta;
+	}//ctrGuardaObservacion
+	
+	static public function ctrActualizaConograma(){
+		$fecha = date('Y-d-m');
 		$hora = date('H:i:s');
 		$fechaActual = $fecha.' '.$hora;
 		$datos = array("fch_actual" => $fechaActual,
@@ -146,11 +170,11 @@ class ControladorResCtto{
 						"cod_tipo_ctt" => $_POST['cod_tipo_ctt'],
 						"cod_tipo_programa" => $_POST['cod_tipo_programa'],
 						"cod_contrato" => $_POST['cod_contrato'],
-						"num_servicio" => $_POST['num_servicio']
+						"num_refinanciamiento" => $_POST['num_refinanciamiento']
 					);
-		$respuesta = ModeloResCtto::mdlVerificaFoma($datos);
+		$respuesta = ModeloResCtto::mdlActualizaConograma($datos);
 		return $respuesta;
-	}//ctrGuardaObservacion
+	}//ctrActualizaConograma
 
 }//class ControladorResCtto
 ?>
