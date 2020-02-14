@@ -82,7 +82,7 @@ function llenaDatos(codCtto){
         method: "POST",
         data: { 'accion' : 'conCodigo', 'codCtto' : codCtto },
         success : function(respuesta){
-        	console.log('respuesta',respuesta);
+        	// console.log('respuesta',respuesta);
         	document.getElementById("codContrato").value = respuesta[0]['cod_contrato'];
         	$("#tipoPrograma option[value='"+respuesta[0]['cod_tipo_programa']+"']").attr("selected",true);
         	if(respuesta[0]['cod_tipo_programa'] = 'TR000'){
@@ -1065,7 +1065,7 @@ function buscaCuotasPag(){
         method: "POST",
         data: { 'accion' : 'cuotasPagadas', 'ls_contrato' : ls_contrato, 'li_ref' : li_ref },
         success : function(respuesta){
-            console.log(respuesta);
+            // console.log(respuesta);
             return respuesta;
         }
     });
@@ -1129,7 +1129,7 @@ function anularCtto(numServ = null){
         var container = document.querySelector('#bodyServicioVin');
         container.querySelectorAll('tr').forEach(function (li_i){ 
            var ls_servicio = $(li_i).attr("name");
-           console.log('ls_servicio',ls_servicio);
+           // console.log('ls_servicio',ls_servicio);
            if(ls_servicio == ''){
                 ls_servicio = 0;
            } 
@@ -1137,7 +1137,7 @@ function anularCtto(numServ = null){
 
             // ls_det_servicios = ls_det_servicios + ls_servicio + " - "
             ls_det_servicios = ls_det_servicios + ls_servicio + '-';
-            console.log(ls_det_servicios);
+            // console.log(ls_det_servicios);
             li_tot = li_tot + 1
         
             // -- Valida -- //
@@ -1200,7 +1200,7 @@ function anularCtto(numServ = null){
             }).then(function(){
                 setTimeout(function () { 
                     var anular = AnulaDefCtto();
-                    console.log('anular',anular);
+                    // console.log('anular',anular);
                     swal({
                         title: "",
                         text: "Se ha Anulado el contrato "+ls_contrato+" con éxito.",
@@ -1235,7 +1235,7 @@ function AnulaDefCtto(){
     container.querySelectorAll('tr').forEach(function (li_i){ 
         var ls_servicio = $(li_i).attr("name");      
         // ls_servicio = tab_1.tp_4.dw_servicio_vin.GetItemString(li_i, "num_servicio")
-            console.log('ls_servicio',ls_servicio);
+            // console.log('ls_servicio',ls_servicio);
            if(ls_servicio == ''){
                 ls_servicio = 0;
            } 
@@ -1372,7 +1372,7 @@ function creaTablaVendedor(tipo){
         dataType: 'text',
         data: { 'tipo' : tipo },
         success : function(respuesta){
-            console.log(respuesta);
+            // console.log(respuesta);
             $('#tablaVendedor').html('')
             $("#tablaVendedor").html(respuesta);
             $('#myTableVendedor').DataTable();
@@ -1404,12 +1404,14 @@ function llamaDatosVendedor(codVendedor,boton){
         dataType: 'text',
         data: {'fechaRes':fechaRes},
             success : function(response){
+                console.log(response);
                 $.ajax({
                     type:'POST',
                     url: 'ajax/resCtto.ajax.php',
                     dataType: 'json',
                     data: {'accion':'getHisTrabajador', 'cod_consejero':cod_consejero, 'num_anno':num_anno, 'cod_tipo_periodo':cod_tipo_periodo, 'cod_periodo':cod_periodo},
                     success : function(response){
+                        console.log(response);
                         if (response.length == 0) {
                             swal({
                                 title: "",
