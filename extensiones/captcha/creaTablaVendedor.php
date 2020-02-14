@@ -86,7 +86,7 @@ require_once "../../modelo/conexion.php";
                 '.$key['flg_activo'].'
             </td>
             <td>
-                <button type="button" onclick = '.$funcion.' class="m-btn btn btn-danger" data-dismiss="modal">
+                <button type="button" onclick = "'.$funcion.'" class="m-btn btn btn-danger" data-dismiss="modal">
                     <i class="la la-plus"></i>
                 </button>
             </td>
