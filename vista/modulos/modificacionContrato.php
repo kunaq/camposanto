@@ -1754,9 +1754,9 @@
 												</div>
 												<div class="col-lg-1"  style="margin-top: 1.7rem;">
 													<label>&nbsp;</label>
-													<span data-toggle="modal" data-target="#m_modal_4">
+													<!-- <span data-toggle="modal" data-target="#m_modal_4"> -->
 														<button class="btn btn-sm btnGuardarKqPst"><i class="fa fa-search" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar vendedor" onclick="creaTablaVendedor('vendedor');"></i></button>
-													</span>
+													<!-- </span> -->
 												</div>
 												<div class="col-lg-8">
 													<label>&nbsp;&nbsp;</label>
