@@ -1361,3 +1361,25 @@ function llenaDatosCliente(codCli,tab){
         buscaDatosAval(codCli);
     }
 }
+
+//------------------------Tab gestion---------------------------//
+
+
+function creaTablaVendedor(tipo){
+    if ($('#myTableVendedor').length) {
+        $('#myTableVendedor').DataTable();
+    }
+    else{
+        $('#tablaVendedor').html('<div class="loader"></div>');
+        $.ajax({
+            url: 'extensiones/captcha/creaTablaVendedor.php',
+            dataType: 'text',
+            data: { 'tipo' : tipo },
+            success : function(respuesta){
+                $('#tablaVendedor').html('')
+                $("#tablaVendedor").html(respuesta);
+                $('#myTableVendedor').DataTable();
+            }
+        });
+    }
+}
