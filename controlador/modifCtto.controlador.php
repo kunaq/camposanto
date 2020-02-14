@@ -194,5 +194,14 @@ class ControladorModifCtto{
 		return $respuesta;
 	}// function ctrValidaPagos
 
+	static public function ctrBuscaGrupo(){
+		$tablaHist = 'vtama_historico_vendedor';
+		$datos = array("codVendedor" => $_POST['ls_contrato'],
+						"li_ref" => $_POST['li_ref']
+					  );
+		$respuesta = ModeloModifCtto::mdlBuscaGrupo($datos);
+		return $respuesta;
+	}// function ctrBuscaGrupo
+
 }//class ControladorModifCtto
 ?>

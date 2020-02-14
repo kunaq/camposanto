@@ -1389,12 +1389,48 @@ function llamaDatosVendedor(codVendedor,boton){
         $("#codVendedor").val(codVendedor);
         nombreTrabajador(codVendedor,'nombreVendedor');
         $.ajax({
-            url: 'ajax/modifCtto.ajax.php',
-            dataType: 'text',
-            data: { 'accion' : 'buscaGrupo', 'codVendedor' : codVendedor },
-            success : function(respuesta){
-                console.log(respuesta);
-            }
-        });
-    }
-}
+        type:'GET',
+        url: 'extensiones/captcha/getPeriod.php',
+        dataType: 'text',
+        data: {'fechaRes':fechaRes},
+            success : function(response){
+                $.ajax({
+                    type:'POST',
+                    url: 'ajax/resCtto.ajax.php',
+                    dataType: 'json',
+                    data: {'accion':'getHisTrabajador', 'cod_consejero':cod_consejero, 'num_anno':num_anno, 'cod_tipo_periodo':cod_tipo_periodo, 'cod_periodo':cod_periodo},
+                    success : function(response){
+                        if (response.length == 0) {
+                            swal({
+                                title: "",
+                                text: 'El consejero ['+consejero+'] no esta activo para el período seleccionado ['+num_anno+'-'+cod_tipo_periodo+'-'+cod_periodo+'].',
+                                type: "warning",
+                                confirmButtonText: "Aceptar",
+                            });
+                        }else{
+                            console.log(response);
+                            // $.each(response,function(index,value){
+                            //     // document.getElementById('codVenComResolucion').value = value['cod_trabajador'];
+                            //     // if (value['cod_trabajador'] != '') {
+                            //     //     nombreTrabajador(value['cod_trabajador'],'dscVenComResolucion');
+                            //     // }
+                            //     // document.getElementById('codSupComResolucion').value = value['cod_supervisor'];
+                            //     // if (value['cod_supervisor'] != '') {
+                            //     //     nombreTrabajador(value['cod_supervisor'],'dscSupComResolucion');
+                            //     // }
+                            //     // document.getElementById('codGruComResolucion').value = value['cod_grupo'];
+                            //     // if (value['cod_grupo'] != '') {
+                            //     //     nombreGrupoVenta(value['cod_grupo'],'dscGruComResolucion');
+                            //     // }
+                            //     // document.getElementById('codJVenComResolucion').value = value['cod_jefeventas'];
+                            //     // if (value['cod_jefeventas'] != '') {
+                            //     //     nombreTrabajador(value['cod_jefeventas'],'dscJVenCoResolucion');
+                            //     // }
+                            // });//each 
+                        }
+                    }//success
+                });//ajax trabajador
+            }//success
+        });//ajax periodo
+    }//boton vendedor
+}//function llamaDatosVendedor
