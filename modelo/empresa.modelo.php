@@ -131,7 +131,7 @@ class ModeloEmpresa{
 
                 while($key = $db->recorrer($sql)){
                     $datos[] =  $key;
-                    echo '<option value="'.$key['cod_camposanto'].'">'.$key['dsc_camposanto'].'</option>';
+                    echo '<option value="'.$key['cod_camposanto'].'" selected>'.$key['dsc_camposanto'].'</option>';
                 }
 
         $db->liberar($sql);

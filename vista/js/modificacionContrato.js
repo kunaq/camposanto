@@ -14,7 +14,11 @@ $("#fchNacTitular").datepicker({
   format: 'dd-mm-yyyy',
   autoclose: true
 });//datepicker
-$("#fchNac2doTitular").datepicker({
+$("#fchNacTitular2").datepicker({
+  format: 'dd-mm-yyyy',
+  autoclose: true
+});//datepicker
+$("#fchNacAval").datepicker({
   format: 'dd-mm-yyyy',
   autoclose: true
 });//datepicker
@@ -120,8 +124,15 @@ function llenaDatos(codCtto){
             var totalVin = 0;
         	$.each(respuesta,function(index,value){
                 totalVin = totalVin+parseFloat(value['imp_saldofinanciar']);
+                if(value['flg_anulado'] == 'SI'){
+                    color = 'red';
+                }else if(value['flg_resuelto'] == 'SI'){
+                    color = 'blue';
+                }else{
+                    color = '#575962';
+                }
         		var id = "filaServ_"+value['num_servicio'];
-                var fila ='<tr class="listaServicio inactivo" id="'+id+'" onclick="muestraInfo('+value['num_servicio']+');">'+
+                var fila ='<tr class="listaServicio inactivo" style="color:'+color+'" id="'+id+'" onclick="muestraInfo('+value['num_servicio']+');">'+
 					'<td class="text-center">'+value['num_servicio']+'</td>'+
 					'<td class="text-left">'+value['dsc_tipo_servicio']+'</td>'+
 					'<td class="text-center">'+value['fch_generacion']+'</td>'+
@@ -357,8 +368,8 @@ function buscaEndoso(){
 
 //-------------------pestaña titulares
 
-function buscaDatosTi(){
-	var codCliente = $("#codCliTitular").val();
+function buscaDatosTi(codCliente){
+	// var codCliente = $("#codCliTitular").val();
 	$.ajax({
         url: 'ajax/modifCtto.ajax.php',
         dataType: 'json',
@@ -366,6 +377,7 @@ function buscaDatosTi(){
         data: { 'accion' : 'buscaCli', 'codCliente' : codCliente },
         success : function(respuesta){
         	// console.log('respuesta',respuesta);
+            $("#codCliTitular").val(codCliente);
         	var juridico = false;
         	$("#numDocTitular").val(respuesta['dsc_documento']);
 			document.getElementById("docIdeTitular").setAttribute('value',respuesta['cod_tipo_documento']);
@@ -399,8 +411,8 @@ function buscaDatosTi(){
     });//ajax
 }//buscaDatosTi
 
-function buscaDatos2Ti(){
-	var codCliente = $("#codCliTitular2").val();
+function buscaDatos2Ti(codCliente){
+	// var codCliente = $("#codCliTitular2").val();
 	$.ajax({
         url: 'ajax/modifCtto.ajax.php',
         dataType: 'json',
@@ -408,14 +420,15 @@ function buscaDatos2Ti(){
         data: { 'accion' : 'buscaCli', 'codCliente' : codCliente },
         success : function(respuesta){
         	// console.log('respuesta',respuesta);
+            $("#codCliTitular2").val(codCliente);
         	var juridico = false;
         	$("#numDocTitular2").val(respuesta['dsc_documento']);
 			document.getElementById("docIdeTitular2").setAttribute('value',respuesta['cod_tipo_documento']);
             if(respuesta['flg_juridico'] == 'SI'){
             	juridico = true;
             }
-            $("#juridico2doCheck").prop("checked", juridico);
-            $("#fchNac2doTitular").datepicker('setDate', respuesta['fch_nacimiento']);
+            $("#juridicoCheckTitular2").prop("checked", juridico);
+            $("#fchNacTitular2").datepicker('setDate', respuesta['fch_nacimiento']);
             $("#apePatTitular2").val(respuesta['dsc_apellido_paterno']);
             $("#apeMatTitular2").val(respuesta['dsc_apellido_materno']);
             $("#nomTitular2").val(respuesta['dsc_nombre']);
@@ -441,8 +454,8 @@ function buscaDatos2Ti(){
     });//ajax
 }//buscaDatos2Ti
 
-function buscaDatosAval(){
-	var codCliente = $("#codAval").val();
+function buscaDatosAval(codCliente){
+	//var codCliente = $("#codAval").val();
 	$.ajax({
         url: 'ajax/modifCtto.ajax.php',
         dataType: 'json',
@@ -450,14 +463,15 @@ function buscaDatosAval(){
         data: { 'accion' : 'buscaCli', 'codCliente' : codCliente },
         success : function(respuesta){
         	// console.log('respuesta',respuesta);
+            $("#codAval").val(codCliente);
         	var juridico = false;
         	$("#numDocAval").val(respuesta['dsc_documento']);
 			document.getElementById("docIdeAval").setAttribute('value',respuesta['cod_tipo_documento']);
             if(respuesta['flg_juridico'] == 'SI'){
             	juridico = true;
             }
-            $("#juridico2doCheck").prop("checked", juridico);
-            $("#fchNac2doTitular").datepicker('setDate', respuesta['fch_nacimiento']);
+            $("#juridicoCheckAval").prop("checked", juridico);
+            $("#fchNacAval").datepicker('setDate', respuesta['fch_nacimiento']);
             $("#apePatAval").val(respuesta['dsc_apellido_paterno']);
             $("#apeMatAval").val(respuesta['dsc_apellido_materno']);
             $("#nomAval").val(respuesta['dsc_nombre']);
@@ -1323,10 +1337,6 @@ function AnulaDefCtto(){
 
 //----------------------------tab Titulares-----------------------------//
 function creaTablaCliente(tipo){
-    //if ($('#myTableCliente').length) {
-    //    $('#myTableCliente').DataTable();
-    // }
-    // else{
         $('#tablaCliente').html('<div class="loader"></div>');
         $.ajax({
             url: 'extensiones/captcha/creaTablaCliente.php',
@@ -1340,6 +1350,46 @@ function creaTablaCliente(tipo){
         });
     // }
 }
-function llenaDatosCliente(tab){
-    alert(tab);
+function llenaDatosCliente(codCli,tab){
+    if(tab == 'Titular'){
+        buscaDatosTi(codCli);
+    }
+    else if(tab == 'Titular2'){
+        buscaDatos2Ti(codCli);
+    }
+    else if(tab == 'Aval'){
+        buscaDatosAval(codCli);
+    }
+}
+
+//------------------------Tab gestion---------------------------//
+
+
+function creaTablaVendedor(tipo){
+    alert(tipo);
+    // if ($('#myTableVendedor').length) {
+    //     $('#myTableVendedor').DataTable();
+    // }
+    // else{
+        // $('#tablaVendedor').html('<div class="loader"></div>');
+        // $.ajax({
+        //     url: 'extensiones/captcha/creaTablaVendedor.php',
+        //     dataType: 'text',
+        //     data: { 'tipo' : tipo },
+        //     success : function(respuesta){
+        //         console.log(respuesta);
+        //         $('#tablaVendedor').html('')
+        //         $("#tablaVendedor").html(respuesta);
+        //         $('#myTableVendedor').DataTable();
+        //     }
+        // });
+    }
+// }
+
+function llamaDatosVendedor(codVendedor,boton){
+    if(boton == 'cobrador'){
+         nombreTrabajador(codVendedor,'nombreCobrador');
+    }else if(boton == 'vendedor'){
+        nombreTrabajador(codVendedor,'nombreVendedor');
+    }
 }

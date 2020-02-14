@@ -1,5 +1,6 @@
 <?php
 require_once "../../modelo/conexion.php";
+    $tipobtn = $_GET['tipo'];
 	$db = new Conexion(); 
 	$sql = $db->consulta("SELECT cod_trabajador,cod_tipo_documento, dsc_nombres,dsc_apellido_paterno, dsc_apellido_materno, dsc_documento, flg_activo  FROM rhuma_trabajador");
 
@@ -57,6 +58,13 @@ require_once "../../modelo/conexion.php";
             $tipoDoc = 'LIBERTA ELECTORAL';
         }
         $cod = "'".$key['cod_trabajador']."'";
+        if ($tipobtn == "vendedor") {
+            $funcion = '"llamaDatosVendedor('.$cod.','."'vendedor'".')"';
+        }elseif ($tipobtn == "cobrador"){
+           $funcion = '"llamaDatosVendedor('.$cod.','."'cobrador'".')"';
+        }elseif ($tipobtn == "generaComprobante"){
+            $funcion = '"cambiaCodigo('.$cod.')"';
+        }
        echo 
        '<tr>
             <td>
@@ -78,7 +86,7 @@ require_once "../../modelo/conexion.php";
                 '.$key['flg_activo'].'
             </td>
             <td>
-                <button type="button" onclick = "cambiaCodigo('.$cod.')" class="m-btn btn btn-danger" data-dismiss="modal">
+                <button type="button" onclick = "'.$funcion.'" class="m-btn btn btn-danger" data-dismiss="modal">
                     <i class="la la-plus"></i>
                 </button>
             </td>

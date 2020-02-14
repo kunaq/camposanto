@@ -192,7 +192,7 @@
 														<input type="text" class="form-control form-control-sm m-input" name="nomVendedor" disabled id="nomVendedor" placeholder="">
 														<div class="input-group-append">
 															<span data-toggle="modal" data-target="#m_modal_4">
-																<button type="button" class="btn btnGuardarKqPst btn-sm" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar vendedor" onclick="creaTablaVendedor();">
+																<button type="button" class="btn btnGuardarKqPst btn-sm" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar vendedor" onclick="creaTablaVendedor('generaComprobante');">
 																	<i class="la la-search"></i>
 																</button>
 															</span>
