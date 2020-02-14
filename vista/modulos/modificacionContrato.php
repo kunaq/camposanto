@@ -1730,7 +1730,7 @@
 												</div>
 												<div class="col-lg-1" style="margin-top: 1.7rem;">
 													<label>&nbsp;</label>
-													<button class="btn btn-sm btnGuardarKqPst"><i class="fa fa-search"></i></button>
+													<button class="btn btn-sm btnGuardarKqPst"><i class="fa fa-search" onclick="creaTablaVendedor('cobrador');"></i></button>
 												</div>
 												<div class="col-lg-8">
 													<label>&nbsp;&nbsp;</label>
@@ -1749,7 +1749,7 @@
 												</div>
 												<div class="col-lg-1"  style="margin-top: 1.7rem;">
 													<label>&nbsp;</label>
-													<button class="btn btn-sm btnGuardarKqPst"><i class="fa fa-search"></i></button>
+													<button class="btn btn-sm btnGuardarKqPst"><i class="fa fa-search" onclick="creaTablaVendedor('vendedor');"></i></button>
 												</div>
 												<div class="col-lg-8">
 													<label>&nbsp;&nbsp;</label>

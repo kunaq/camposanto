@@ -1383,3 +1383,11 @@ function creaTablaVendedor(tipo){
         });
     }
 }
+
+function llamaDatosVendedor(codVendedor,boton){
+    if(boton == 'cobrador'){
+         nombreTrabajador(codVendedor,'nombreCobrador');
+    }else if(boton == 'vendedor'){
+        nombreTrabajador(codVendedor,'nombreVendedor');
+    }
+}
