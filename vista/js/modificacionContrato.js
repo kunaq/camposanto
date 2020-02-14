@@ -1383,8 +1383,10 @@ function creaTablaVendedor(tipo){
 
 function llamaDatosVendedor(codVendedor,boton){
     if(boton == 'cobrador'){
-         nombreTrabajador(codVendedor,'nombreCobrador');
+        $("#codCobrador").val(codVendedor);
+        nombreTrabajador(codVendedor,'nombreCobrador');
     }else if(boton == 'vendedor'){
+        $("#codVendedor").val(codVendedor);
         nombreTrabajador(codVendedor,'nombreVendedor');
     }
 }
