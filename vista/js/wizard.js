@@ -811,21 +811,18 @@ function creaTablaProspecto(){
     }
 }
 
-function creaTablaVendedor(){
-    if ($('#myTableVendedor').length) {
-        $('#myTableVendedor').DataTable();
-    }
-    else{
-        $('#tablaVendedor').html('<div class="loader"></div>');
-        $.ajax({
-            url: 'extensiones/captcha/creaTablaVendedor.php',
-            success : function(respuesta){
-                $('#tablaVendedor').html('')
-                $("#tablaVendedor").html(respuesta);
-                $('#myTableVendedor').DataTable();
-            }
-        });
-    }
+function creaTablaVendedor(tipo){
+      $('#tablaVendedor').html('<div class="loader"></div>');
+      $.ajax({
+          url: 'extensiones/captcha/creaTablaVendedor.php',
+          dataType: 'text',
+          data: { 'tipo' : tipo },
+          success : function(respuesta){
+              $('#tablaVendedor').html('')
+              $("#tablaVendedor").html(respuesta);
+              $('#myTableVendedor').DataTable();
+          }
+      });
 }
 
 function validaEspacio(valor){
