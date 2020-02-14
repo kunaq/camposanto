@@ -1926,4 +1926,5 @@
 include "modals/modalObservacionCliente.php";
 include "modals/modalTablaDeuda.php";
 include "modals/modalTablaClientes.php";
+include "modals/modalTablaTrabajadores.php";
  ?>
