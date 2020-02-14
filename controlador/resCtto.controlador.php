@@ -76,7 +76,7 @@ class ControladorResCtto{
 	}//ctrVerificaContado
 	
 	static public function ctrActualizaVtadeCtt(){
-		$fecha = date('Y-d-m');
+		$fecha = date('Y-m-d');
 		$hora = date('H:i:s');
 		$fechaActual = $fecha.' '.$hora;
 		$datos = array("fch_actual" => $fechaActual,
@@ -92,7 +92,7 @@ class ControladorResCtto{
 	}//ctrActualizaVtadeCtt
 	
 	static public function ctrInsertaResolucion(){
-		$fecha = date('Y-d-m');
+		$fecha = date('Y-m-d');
 		$hora = date('H:i:s');
 		$fechaActual = $fecha.' '.$hora;
 		$datos = array("usuario" => $_SESSION["user"],
@@ -124,7 +124,7 @@ class ControladorResCtto{
 	}//ctrInsertaResolucion
 	
 	static public function ctrVerificaFoma(){
-		$fecha = date('Y-d-m');
+		$fecha = date('Y-m-d');
 		$hora = date('H:i:s');
 		$fechaActual = $fecha.' '.$hora;
 		$datos = array("fch_actual" => $fechaActual,
@@ -140,7 +140,7 @@ class ControladorResCtto{
 	}//ctrVerificaFoma
 
 	static public function ctrGuardaObservacion(){
-		$fecha = date('Y-d-m');
+		$fecha = date('Y-m-d');
 		$fechaf = date('Y-m-d');
 		$hora = date('H:i:s');
 		$fechaActual = $fecha.' '.$hora;
@@ -164,9 +164,7 @@ class ControladorResCtto{
 		$fecha = date('Y-d-m');
 		$hora = date('H:i:s');
 		$fechaActual = $fecha.' '.$hora;
-		$datos = array("fch_actual" => $fechaActual,
-						"usuario" => $_SESSION["user"],
-						"cod_localidad" => $_POST['cod_localidad'],
+		$datos = array("cod_localidad" => $_POST['cod_localidad'],
 						"cod_tipo_ctt" => $_POST['cod_tipo_ctt'],
 						"cod_tipo_programa" => $_POST['cod_tipo_programa'],
 						"cod_contrato" => $_POST['cod_contrato'],
