@@ -1404,7 +1404,7 @@ function llamaDatosVendedor(codVendedor,boton){
         dataType: 'text',
         data: {'fechaRes':fechaRes},
             success : function(response){
-                console.log(response);
+                console.log(JSON.parse(response));
             //     $.ajax({
             //         type:'POST',
             //         url: 'ajax/resCtto.ajax.php',
