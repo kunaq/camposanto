@@ -1376,6 +1376,7 @@ function creaTablaVendedor(tipo){
             dataType: 'text',
             data: { 'tipo' : tipo },
             success : function(respuesta){
+                console.log(respuesta);
                 $('#tablaVendedor').html('')
                 $("#tablaVendedor").html(respuesta);
                 $('#myTableVendedor').DataTable();
