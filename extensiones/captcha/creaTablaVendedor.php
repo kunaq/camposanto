@@ -63,7 +63,7 @@ require_once "../../modelo/conexion.php";
         }elseif ($tipobtn == "cobrador"){
            $funcion = '"llamaDatosVendedor('.$cod.','."'cobrador'".')"';
         }elseif ($tipobtn == "generaComprobante"){
-            $funcion = '"cambiaCodigo('.$cod.')"';
+            $funcion = "cambiaCodigo(".$cod.");";
         }
        echo 
        '<tr>
