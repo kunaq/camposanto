@@ -1388,6 +1388,16 @@ function llamaDatosVendedor(codVendedor,boton){
     }else if(boton == 'vendedor'){
         $("#codVendedor").val(codVendedor);
         nombreTrabajador(codVendedor,'nombreVendedor');
+        var fechaHoy = new Date();
+        var aux_dia = fechaHoy.getDate();
+        var aux_mes1 = fechaHoy.setMonth(fechaHoy.getMonth() + 1);
+        var aux_mes = fechaHoy.getMonth();
+        var aux_anio = fechaHoy.getFullYear();
+        if(aux_mes == '0'){
+            aux_mes = '12';
+            aux_anio = fechaHoy.getFullYear()-1;
+        }               
+        fechaRes = aux_dia+'/'+aux_mes+'/'+aux_anio;
         $.ajax({
         type:'GET',
         url: 'extensiones/captcha/getPeriod.php',
