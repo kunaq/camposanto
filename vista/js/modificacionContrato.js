@@ -1366,30 +1366,27 @@ function llenaDatosCliente(codCli,tab){
 
 
 function creaTablaVendedor(tipo){
-    alert(tipo);
-    // if ($('#myTableVendedor').length) {
-    //     $('#myTableVendedor').DataTable();
-    // }
-    // else{
-        // $('#tablaVendedor').html('<div class="loader"></div>');
-        // $.ajax({
-        //     url: 'extensiones/captcha/creaTablaVendedor.php',
-        //     dataType: 'text',
-        //     data: { 'tipo' : tipo },
-        //     success : function(respuesta){
-        //         console.log(respuesta);
-        //         $('#tablaVendedor').html('')
-        //         $("#tablaVendedor").html(respuesta);
-        //         $('#myTableVendedor').DataTable();
-        //     }
-        // });
-    }
-// }
+    $('#tablaVendedor').html('<div class="loader"></div>');
+    $.ajax({
+        url: 'extensiones/captcha/creaTablaVendedor.php',
+        dataType: 'text',
+        data: { 'tipo' : tipo },
+        success : function(respuesta){
+            console.log(respuesta);
+            $('#tablaVendedor').html('')
+            $("#tablaVendedor").html(respuesta);
+            $('#myTableVendedor').DataTable();
+        }
+    });
+}
+
 
 function llamaDatosVendedor(codVendedor,boton){
     if(boton == 'cobrador'){
-         nombreTrabajador(codVendedor,'nombreCobrador');
+        $("#codCobrador").val(codVendedor);
+        nombreTrabajador(codVendedor,'nombreCobrador');
     }else if(boton == 'vendedor'){
+        $("#codVendedor").val(codVendedor);
         nombreTrabajador(codVendedor,'nombreVendedor');
     }
 }

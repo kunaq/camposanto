@@ -59,11 +59,11 @@ require_once "../../modelo/conexion.php";
         }
         $cod = "'".$key['cod_trabajador']."'";
         if ($tipobtn == "vendedor") {
-            $funcion = '"llamaDatosVendedor('.$cod.','."'vendedor'".')"';
+            $funcion = 'llamaDatosVendedor('.$cod.','."'vendedor'".')';
         }elseif ($tipobtn == "cobrador"){
-           $funcion = '"llamaDatosVendedor('.$cod.','."'cobrador'".')"';
+           $funcion = 'llamaDatosVendedor('.$cod.','."'cobrador'".')';
         }elseif ($tipobtn == "generaComprobante"){
-            $funcion = '"cambiaCodigo('.$cod.')"';
+            $funcion = "cambiaCodigo(".$cod.");";
         }
        echo 
        '<tr>
