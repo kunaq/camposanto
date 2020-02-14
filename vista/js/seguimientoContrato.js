@@ -716,30 +716,30 @@ function getDatosServicioCtt(row,localidad,tasa,tipoCtt,tipoPro,codCtt,numRef,nu
         	document.getElementById('cuoPenFOMA').value = info.ctd_foma - info.ctd_can_foma;
 
         	document.getElementById("imp_sub_cui").innerHTML = info.imp_sub_cui;
-		    document.getElementById("imp_int_cui").innerHTML = info.imp_int_cui;
-		    document.getElementById("imp_igv_cui").innerHTML = info.imp_igv_cui;
-		    document.getElementById("imp_tot_cui").innerHTML = info.imp_tot_cui;
-		    document.getElementById("imp_emi_cui").innerHTML = info.imp_emi_cui;
-		    document.getElementById("imp_can_cui").innerHTML = info.imp_can_cui;
-		    document.getElementById("imp_sal_cui").innerHTML = info.imp_sal_cui;
+  		    document.getElementById("imp_int_cui").innerHTML = info.imp_int_cui;
+  		    document.getElementById("imp_igv_cui").innerHTML = info.imp_igv_cui;
+  		    document.getElementById("imp_tot_cui").innerHTML = info.imp_tot_cui;
+  		    document.getElementById("imp_emi_cui").innerHTML = info.imp_emi_cui;
+  		    document.getElementById("imp_can_cui").innerHTML = info.imp_can_cui;
+  		    document.getElementById("imp_sal_cui").innerHTML = info.imp_sal_cui;
 
-		    document.getElementById("imp_sub_reg").innerHTML = info.imp_sub_reg;
-		    document.getElementById("imp_int_reg").innerHTML = info.imp_int_reg;
-		    document.getElementById("imp_igv_reg").innerHTML = info.imp_igv_reg;
-		    document.getElementById("imp_tot_reg").innerHTML = info.imp_total_reg;
-		    document.getElementById("imp_emi_reg").innerHTML = info.imp_emi_reg;
-		    document.getElementById("imp_can_reg").innerHTML = info.imp_can_reg;
-		    document.getElementById("imp_sal_reg").innerHTML = info.imp_sal_reg;
+  		    document.getElementById("imp_sub_reg").innerHTML = info.imp_sub_reg;
+  		    document.getElementById("imp_int_reg").innerHTML = info.imp_int_reg;
+  		    document.getElementById("imp_igv_reg").innerHTML = info.imp_igv_reg;
+  		    document.getElementById("imp_tot_reg").innerHTML = info.imp_total_reg;
+  		    document.getElementById("imp_emi_reg").innerHTML = info.imp_emi_reg;
+  		    document.getElementById("imp_can_reg").innerHTML = info.imp_can_reg;
+  		    document.getElementById("imp_sal_reg").innerHTML = info.imp_sal_reg;
 
-		    document.getElementById("imp_sub_foma").innerHTML = info.imp_sub_foma;
-		    document.getElementById("imp_int_foma").innerHTML = info.imp_int_foma;
-		    document.getElementById("imp_igv_foma").innerHTML = info.imp_igv_foma;
-		    document.getElementById("imp_tot_foma").innerHTML = info.imp_tot_foma;
-		    document.getElementById("imp_emi_foma").innerHTML = info.imp_emi_foma;
-		    document.getElementById("imp_can_foma").innerHTML = info.imp_can_fma;
-		    document.getElementById("imp_sal_foma").innerHTML = info.imp_sal_foma;
+  		    document.getElementById("imp_sub_foma").innerHTML = info.imp_sub_foma;
+  		    document.getElementById("imp_int_foma").innerHTML = info.imp_int_foma;
+  		    document.getElementById("imp_igv_foma").innerHTML = info.imp_igv_foma;
+  		    document.getElementById("imp_tot_foma").innerHTML = info.imp_tot_foma;
+  		    document.getElementById("imp_emi_foma").innerHTML = info.imp_emi_foma;
+  		    document.getElementById("imp_can_foma").innerHTML = info.imp_can_fma;
+  		    document.getElementById("imp_sal_foma").innerHTML = info.imp_sal_foma;
 
-		    document.getElementById('estadoSaldos').value = info.dsc_estado;
+  		    document.getElementById('estadoSaldos').value = info.dsc_estado;
         	document.getElementById('monedaSaldos').value = info.cod_moneda;
         }//succes
     });//ajaxgetResumenCtt

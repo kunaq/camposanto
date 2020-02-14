@@ -64,6 +64,7 @@
 									<label>Servicio</label>
 									<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="numSerResolucion" id="numSerResolucion" onchange="buscaDetalles(this.value);">
 									</select>
+									<input type="hidden" class="form-control form-control-sm m-input" id="numRefinanciamiento">
 								</div>
 								<div class="col-lg-4">
 									<label>Programa</label>
