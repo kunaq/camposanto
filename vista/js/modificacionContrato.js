@@ -1366,9 +1366,9 @@ function llenaDatosCliente(codCli,tab){
 
 
 function creaTablaVendedor(tipo){
-    if ($('#myTableVendedor').length) {
-        $('#myTableVendedor').DataTable();
-    }
+    // if ($('#myTableVendedor').length) {
+    //     $('#myTableVendedor').DataTable();
+    // }
     else{
         $('#tablaVendedor').html('<div class="loader"></div>');
         $.ajax({
