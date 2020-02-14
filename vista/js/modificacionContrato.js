@@ -1388,5 +1388,13 @@ function llamaDatosVendedor(codVendedor,boton){
     }else if(boton == 'vendedor'){
         $("#codVendedor").val(codVendedor);
         nombreTrabajador(codVendedor,'nombreVendedor');
+        $.ajax({
+            url: 'ajax/modifCtto.ajax.php',
+            dataType: 'text',
+            data: { 'accion' : 'buscaGrupo', 'codVendedor' : codVendedor },
+            success : function(respuesta){
+                console.log(respuesta);
+            }
+        });
     }
 }

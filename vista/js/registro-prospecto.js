@@ -264,8 +264,11 @@ function creaTablaVendedor(){
     }
     else{
         $('#tablaVendedor').html('<div class="loader"></div>');
+        var tipo = 'registro';
         $.ajax({
             url: 'extensiones/captcha/creaTablaVendedor.php',
+            dataType: 'text',
+            data: { 'tipo' : tipo },
             success : function(respuesta){
                 $('#tablaVendedor').html('')
                 $("#tablaVendedor").html(respuesta);

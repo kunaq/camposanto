@@ -108,6 +108,10 @@ class AjaxModifCtto{
 		$respuesta = ControladorModifCtto::ctrValidaPagos();
 		echo json_encode($respuesta);
 	}//ajaxValidaPagos
+	public function ajaxBuscaGrupo(){
+		$respuesta = ControladorModifCtto::ctrBuscaGrupo();
+		echo json_encode($respuesta);
+	}//ajaxBuscaGrupo
 }//class AjaxModifCtto
 /*=============================================
 ACCIONES
@@ -183,4 +187,8 @@ else if(isset($_POST["accion"]) && $_POST["accion"] == 'generaEspacio'){
 else if(isset($_POST["accion"]) && $_POST["accion"] == 'cuotasPagadas'){
 	$cliente = new AjaxModifCtto();
 	$cliente -> ajaxValidaPagos();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'buscaGrupo'){
+	$cliente = new AjaxModifCtto();
+	$cliente -> ajaxBuscaGrupo();
 }
