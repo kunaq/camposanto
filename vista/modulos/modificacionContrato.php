@@ -1814,7 +1814,7 @@
 												</div>
 												<div class="col-lg-1" style="margin-top: 1.7rem;">
 													<label>&nbsp;</label>
-													<button class="btn btn-sm btnGuardarKqPst" type="button" id="btnAgFun"><i class="fa fa-search" disabled></i></button>
+													<button class="btn btn-sm btnGuardarKqPst" type="button" id="btnAgFun" disabled><i class="fa fa-search" ></i></button>
 												</div>
 												<div class="col-lg-8">
 													<label>&nbsp;&nbsp;</label>
