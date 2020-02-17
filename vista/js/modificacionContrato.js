@@ -1386,8 +1386,6 @@ function llamaDatosVendedor(codVendedor,boton){
         $("#codCobrador").val(codVendedor);
         nombreTrabajador(codVendedor,'nombreCobrador');
     }else if(boton == 'vendedor'){
-        $("#codVendedor").val(codVendedor);
-        nombreTrabajador(codVendedor,'nombreVendedor');
         var fechaHoy = new Date();
         var aux_dia = fechaHoy.getDate();
         var aux_mes1 = fechaHoy.setMonth(fechaHoy.getMonth() + 1);
@@ -1424,11 +1422,11 @@ function llamaDatosVendedor(codVendedor,boton){
                                 confirmButtonText: "Aceptar",
                             });
                         }else{
-                            console.log(response);
+                            // console.log(response);
                             $.each(response,function(index,value){
                                 $("#codVendedor").val(value['cod_trabajador']);
                                 nombreTrabajador(value['cod_trabajador'],'nombreVendedor');
-                                $("#nombreGrupo").val(value['cod_grupo']);
+                                $("#codGrupo").val(value['cod_grupo']);
                                 nombreGrupoVenta(value['cod_grupo'],'nombreGrupo');
                                 $("#codSupervisor").val(value['cod_supervisor']);
                                 nombreTrabajador(value['cod_supervisor'],'nombreSupervisor');
