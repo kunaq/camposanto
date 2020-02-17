@@ -54,6 +54,18 @@ function getParameterByName() {
 
 getParameterByName();
 
+function fechaParaConsulta(fecha){
+    var aux_dia = fecha.getDate();
+    var aux_mes1 = fecha.setMonth(fecha.getMonth() + 1);
+    var aux_mes = fecha.getMonth();
+    var  aux_anio = fecha.getFullYear();
+    if(aux_mes == '0'){
+        aux_mes = '12';
+        aux_anio = fecha.getFullYear()-1;
+    }               
+    var fechaConsulta = aux_mes+'/'+aux_dia+'/'+aux_anio;
+    return fechaConsulta;
+}
 function buscaDatosPeriodo(fechaRes,campo){
     $.ajax({
         type:'GET',
@@ -122,19 +134,12 @@ function llenaDatos(codCtto){
             $("#contAnuFecha").val(respuesta[0]['fch_anulacion']);
             $("#contResVendedor").val(respuesta[0]['cod_usuario_resolucion']);
             $("#contResFecha").val(respuesta[0]['fch_resolucion']);
-
-            var auditEmi = buscaDatosPeriodo('2/17/2020','Emi');
-            // $("#anioEmiAud").val(auditEmi);
-            // $("#tipoPerEmiAud").val(respuesta[0]['']);
-            // $("#perEmiAud").val(respuesta[0]['']);
-            var auditAct = buscaDatosPeriodo(respuesta[0]['fch_activacion'],'Act');
-            // $("#anioActAud").val(respuesta[0]['']);
-            // $("#tipoPerActAud").val(respuesta[0]['']);
-            // $("#perActAud").val(respuesta[0]['']);
-            var auditRes = buscaDatosPeriodo(respuesta[0]['fch_resolucion'],'Res');
-            // $("#anioResAud").val(respuesta[0]['']);
-            // $("#tipoPerResAud").val(respuesta[0]['']);
-            // $("#perResAud").val(respuesta[0]['']);
+            var fch_emision = fechaParaConsulta(respuesta[0]['fch_emision']);
+            var auditEmi = buscaDatosPeriodo(fch_emision,'Emi');
+            var fch_activacion = fechaParaConsulta(respuesta[0]['fch_activacion']);
+            var auditAct = buscaDatosPeriodo(fch_activacion,'Act');
+            var fch_resolucion = fechaParaConsulta(respuesta[0]['fch_resolucion']);
+            var auditRes = buscaDatosPeriodo(fch_resolucion,'Res');
             $("#codCampoContrato").val(respuesta[0]['cod_camposanto_actual']);
             $("#codPlatContrato").val(respuesta[0]['cod_plataforma_actual']);
             $("#codAreaContrato").val(respuesta[0]['cod_areaplataforma_actual']);
