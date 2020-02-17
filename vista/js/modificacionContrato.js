@@ -1409,13 +1409,13 @@ function llamaDatosVendedor(codVendedor,boton){
                 var num_anno = info.num_anno;
                 var cod_tipo_periodo = info.tipo_periodo;
                 var cod_periodo = info.periodo;
-            //     $.ajax({
-            //         type:'POST',
-            //         url: 'ajax/resCtto.ajax.php',
-            //         dataType: 'json',
-            //         data: {'accion':'getHisTrabajador', 'cod_consejero':codVendedor, 'num_anno':num_anno, 'cod_tipo_periodo':cod_tipo_periodo, 'cod_periodo':cod_periodo},
-            //         success : function(response){
-            //             console.log(response);
+                $.ajax({
+                    type:'POST',
+                    url: 'ajax/resCtto.ajax.php',
+                    dataType: 'json',
+                    data: {'accion':'getHisTrabajador', 'cod_consejero':codVendedor, 'num_anno':num_anno, 'cod_tipo_periodo':cod_tipo_periodo, 'cod_periodo':cod_periodo},
+                    success : function(response){
+                        console.log(response);
             //             if (response.length == 0) {
             //                 swal({
             //                     title: "",
@@ -1444,8 +1444,8 @@ function llamaDatosVendedor(codVendedor,boton){
             //                 //     // }
             //                 // });//each 
             //             }
-            //         }//success
-            //     });//ajax trabajador
+                    }//success
+                });//ajax trabajador
             }//success
         });//ajax periodo
     }//boton vendedor
