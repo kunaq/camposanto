@@ -1929,4 +1929,5 @@ include "modals/modalTablaDeuda.php";
 include "modals/modalTablaClientes.php";
 include "modals/modalTablaTrabajadores.php";
 include "modals/modalTablaAgencias.php";
+include "modals/modalAuditoriaContrato.php";
  ?>

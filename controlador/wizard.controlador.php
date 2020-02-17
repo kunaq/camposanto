@@ -89,7 +89,7 @@ class ControladorWizard{
 						"as_flg_modif" => $_POST['flg_modificacion'],
 						"as_flg_regularizar" => $_POST['regularizacionCheck'],
 						"as_flg_ctt_x_tn" => 'NO',
-						"as_cod_empresa" => $_SESSION['codEmpresa'],
+						"as_cod_empresa" => $_POST['camposanto'],
 						"as_tipo_programa_base" => $as_tipo_programa_base,
 						"ai_nivel" => NULL,
 						"as_flg_emitir_saldo" => 'NO',
