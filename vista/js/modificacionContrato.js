@@ -1405,7 +1405,7 @@ function llamaDatosVendedor(codVendedor,boton){
         data: {'fechaRes':fechaRes},
             success : function(response){
                 var info = JSON.parse(response);
-                console.log(info);
+                // console.log(info);
                 var num_anno = info.num_anno;
                 var cod_tipo_periodo = info.tipo_periodo;
                 var cod_periodo = info.periodo;
@@ -1416,14 +1416,14 @@ function llamaDatosVendedor(codVendedor,boton){
                     data: {'accion':'getHisTrabajador', 'cod_consejero':codVendedor, 'num_anno':num_anno, 'cod_tipo_periodo':cod_tipo_periodo, 'cod_periodo':cod_periodo},
                     success : function(response){
                         console.log(response);
-            //             if (response.length == 0) {
-            //                 swal({
-            //                     title: "",
-            //                     text: 'El consejero ['+consejero+'] no esta activo para el período seleccionado ['+num_anno+'-'+cod_tipo_periodo+'-'+cod_periodo+'].',
-            //                     type: "warning",
-            //                     confirmButtonText: "Aceptar",
-            //                 });
-            //             }else{
+                        if (response.length == 0) {
+                            swal({
+                                title: "",
+                                text: 'El consejero ['+consejero+'] no esta activo para el período seleccionado ['+num_anno+'-'+cod_tipo_periodo+'-'+cod_periodo+'].',
+                                type: "warning",
+                                confirmButtonText: "Aceptar",
+                            });
+                        }else{
             //                 console.log(response);
             //                 // $.each(response,function(index,value){
             //                 //     // document.getElementById('codVenComResolucion').value = value['cod_trabajador'];
@@ -1443,7 +1443,7 @@ function llamaDatosVendedor(codVendedor,boton){
             //                 //     //     nombreTrabajador(value['cod_jefeventas'],'dscJVenCoResolucion');
             //                 //     // }
             //                 // });//each 
-            //             }
+                        }//else length = 0
                     }//success
                 });//ajax trabajador
             }//success
