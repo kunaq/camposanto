@@ -167,7 +167,7 @@
 									<label>Año:</label>
 								</div>
 								<div class="col-lg-8">
-									<input type="text" class="form-control form-control-sm m-input" id="">
+									<input type="text" class="form-control form-control-sm m-input" id="anioEmiAud">
 								</div>
 							</div>
 						</div>
@@ -179,7 +179,7 @@
 									<label>Tipo:</label>
 								</div>
 								<div class="col-lg-8">
-									<input type="text" class="form-control form-control-sm m-input" id="">
+									<input type="text" class="form-control form-control-sm m-input" id="tipoPerEmiAud">
 								</div>
 							</div>
 						</div>
@@ -191,7 +191,7 @@
 									<label>Periodo:</label>
 								</div>
 								<div class="col-lg-8">
-									<input type="text" class="form-control form-control-sm m-input" id="">
+									<input type="text" class="form-control form-control-sm m-input" id="perEmiAud">
 								</div>
 							</div>
 						</div>
@@ -208,7 +208,7 @@
 									<label>Año:</label>
 								</div>
 								<div class="col-lg-8">
-									<input type="text" class="form-control form-control-sm m-input" id="">
+									<input type="text" class="form-control form-control-sm m-input" id="anioActAud">
 								</div>
 							</div>
 						</div>
@@ -220,7 +220,7 @@
 									<label>Tipo:</label>
 								</div>
 								<div class="col-lg-8">
-									<input type="text" class="form-control form-control-sm m-input" id="">
+									<input type="text" class="form-control form-control-sm m-input" id="tipoPerActAud">
 								</div>
 							</div>
 						</div>
@@ -232,7 +232,7 @@
 									<label>Periodo:</label>
 								</div>
 								<div class="col-lg-8">
-									<input type="text" class="form-control form-control-sm m-input" id="">
+									<input type="text" class="form-control form-control-sm m-input" id="perActAud">
 								</div>
 							</div>
 						</div>
@@ -249,7 +249,7 @@
 									<label>Año:</label>
 								</div>
 								<div class="col-lg-8">
-									<input type="text" class="form-control form-control-sm m-input" id="">
+									<input type="text" class="form-control form-control-sm m-input" id="anioResAud">
 								</div>
 							</div>
 						</div>
@@ -261,7 +261,7 @@
 									<label>Tipo:</label>
 								</div>
 								<div class="col-lg-8">
-									<input type="text" class="form-control form-control-sm m-input" id="">
+									<input type="text" class="form-control form-control-sm m-input" id="tipoPerResAud">
 								</div>
 							</div>
 						</div>
@@ -273,7 +273,7 @@
 									<label>Periodo:</label>
 								</div>
 								<div class="col-lg-8">
-									<input type="text" class="form-control form-control-sm m-input" id="">
+									<input type="text" class="form-control form-control-sm m-input" id="perResAud">
 								</div>
 							</div>
 						</div>
