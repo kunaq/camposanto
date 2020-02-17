@@ -561,6 +561,89 @@ function nombreFuneraria(valor,campo){
     });
 }//nombreGrupoVenta
 
+$("#btnAgFun").on('click',function(){
+    alert('llego');
+});
+
+
+function creaTablaVendedor(tipo){
+    $('#tablaVendedor').html('<div class="loader"></div>');
+    $.ajax({
+        url: 'extensiones/captcha/creaTablaVendedor.php',
+        dataType: 'text',
+        data: { 'tipo' : tipo },
+        success : function(respuesta){
+            // console.log(respuesta);
+            $('#tablaVendedor').html('')
+            $("#tablaVendedor").html(respuesta);
+            $('#myTableVendedor').DataTable();
+        }
+    });
+}
+
+
+function llamaDatosVendedor(codVendedor,boton){
+    if(boton == 'cobrador'){
+        $("#codCobrador").val(codVendedor);
+        nombreTrabajador(codVendedor,'nombreCobrador');
+    }else if(boton == 'vendedor'){
+        var fechaHoy = new Date();
+        var aux_dia = fechaHoy.getDate();
+        var aux_mes1 = fechaHoy.setMonth(fechaHoy.getMonth() + 1);
+        var aux_mes = fechaHoy.getMonth();
+        var aux_anio = fechaHoy.getFullYear();
+        if(aux_mes == '0'){
+            aux_mes = '12';
+            aux_anio = fechaHoy.getFullYear()-1;
+        }               
+        fechaRes = aux_mes+'/'+aux_dia+'/'+aux_anio;
+        $.ajax({
+        type:'GET',
+        url: 'extensiones/captcha/getPeriod.php',
+        dataType: 'text',
+        data: {'fechaRes':fechaRes},
+            success : function(response){
+                var info = JSON.parse(response);
+                // console.log(info);
+                var num_anno = info.num_anno;
+                var cod_tipo_periodo = info.tipo_periodo;
+                var cod_periodo = info.periodo;
+                $.ajax({
+                    type:'POST',
+                    url: 'ajax/resCtto.ajax.php',
+                    dataType: 'json',
+                    data: {'accion':'getHisTrabajador', 'cod_consejero':codVendedor, 'num_anno':num_anno, 'cod_tipo_periodo':cod_tipo_periodo, 'cod_periodo':cod_periodo},
+                    success : function(response){
+                        // console.log(response);
+                        if (response.length == 0) {
+                            swal({
+                                title: "",
+                                text: 'El consejero no esta activo para el período seleccionado ['+num_anno+'-'+cod_tipo_periodo+'-'+cod_periodo+'].',
+                                type: "warning",
+                                confirmButtonText: "Aceptar",
+                            });
+                        }else{
+                            // console.log(response);
+                            $.each(response,function(index,value){
+                                $("#codVendedor").val(value['cod_trabajador']);
+                                nombreTrabajador(value['cod_trabajador'],'nombreVendedor');
+                                $("#codGrupo").val(value['cod_grupo']);
+                                nombreGrupoVenta(value['cod_grupo'],'nombreGrupo');
+                                $("#codSupervisor").val(value['cod_supervisor']);
+                                nombreTrabajador(value['cod_supervisor'],'nombreSupervisor');
+                                $("#codJefeVentas").val(value['cod_jefeventas']);
+                                nombreTrabajador(value['cod_jefeventas'],'nombreJefeVentas');
+                                $("#codTipoComisionista").val(value['cod_tipo_comisionista']);
+                                nombreComisionista(value['cod_tipo_comisionista'],'nombreTipoComisionista');
+                            });//each 
+                        }//else length = 0
+                    }//success
+                });//ajax trabajador
+            }//success
+        });//ajax periodo
+    }//boton vendedor
+}//function llamaDatosVendedor
+
 //-------------------------cronograma y foma------------------------
 
 function cargaCronograma(codCtto,numRefi){
@@ -1361,84 +1444,3 @@ function llenaDatosCliente(codCli,tab){
         buscaDatosAval(codCli);
     }
 }
-
-//------------------------Tab gestion---------------------------//
-
-
-function creaTablaVendedor(tipo){
-    $('#tablaVendedor').html('<div class="loader"></div>');
-    $.ajax({
-        url: 'extensiones/captcha/creaTablaVendedor.php',
-        dataType: 'text',
-        data: { 'tipo' : tipo },
-        success : function(respuesta){
-            // console.log(respuesta);
-            $('#tablaVendedor').html('')
-            $("#tablaVendedor").html(respuesta);
-            $('#myTableVendedor').DataTable();
-        }
-    });
-}
-
-
-function llamaDatosVendedor(codVendedor,boton){
-    if(boton == 'cobrador'){
-        $("#codCobrador").val(codVendedor);
-        nombreTrabajador(codVendedor,'nombreCobrador');
-    }else if(boton == 'vendedor'){
-        var fechaHoy = new Date();
-        var aux_dia = fechaHoy.getDate();
-        var aux_mes1 = fechaHoy.setMonth(fechaHoy.getMonth() + 1);
-        var aux_mes = fechaHoy.getMonth();
-        var aux_anio = fechaHoy.getFullYear();
-        if(aux_mes == '0'){
-            aux_mes = '12';
-            aux_anio = fechaHoy.getFullYear()-1;
-        }               
-        fechaRes = aux_mes+'/'+aux_dia+'/'+aux_anio;
-        $.ajax({
-        type:'GET',
-        url: 'extensiones/captcha/getPeriod.php',
-        dataType: 'text',
-        data: {'fechaRes':fechaRes},
-            success : function(response){
-                var info = JSON.parse(response);
-                // console.log(info);
-                var num_anno = info.num_anno;
-                var cod_tipo_periodo = info.tipo_periodo;
-                var cod_periodo = info.periodo;
-                $.ajax({
-                    type:'POST',
-                    url: 'ajax/resCtto.ajax.php',
-                    dataType: 'json',
-                    data: {'accion':'getHisTrabajador', 'cod_consejero':codVendedor, 'num_anno':num_anno, 'cod_tipo_periodo':cod_tipo_periodo, 'cod_periodo':cod_periodo},
-                    success : function(response){
-                        // console.log(response);
-                        if (response.length == 0) {
-                            swal({
-                                title: "",
-                                text: 'El consejero no esta activo para el período seleccionado ['+num_anno+'-'+cod_tipo_periodo+'-'+cod_periodo+'].',
-                                type: "warning",
-                                confirmButtonText: "Aceptar",
-                            });
-                        }else{
-                            // console.log(response);
-                            $.each(response,function(index,value){
-                                $("#codVendedor").val(value['cod_trabajador']);
-                                nombreTrabajador(value['cod_trabajador'],'nombreVendedor');
-                                $("#codGrupo").val(value['cod_grupo']);
-                                nombreGrupoVenta(value['cod_grupo'],'nombreGrupo');
-                                $("#codSupervisor").val(value['cod_supervisor']);
-                                nombreTrabajador(value['cod_supervisor'],'nombreSupervisor');
-                                $("#codJefeVentas").val(value['cod_jefeventas']);
-                                nombreTrabajador(value['cod_jefeventas'],'nombreJefeVentas');
-                                $("#codTipoComisionista").val(value['cod_tipo_comisionista']);
-                                nombreComisionista(value['cod_tipo_comisionista'],'nombreTipoComisionista');
-                            });//each 
-                        }//else length = 0
-                    }//success
-                });//ajax trabajador
-            }//success
-        });//ajax periodo
-    }//boton vendedor
-}//function llamaDatosVendedor
