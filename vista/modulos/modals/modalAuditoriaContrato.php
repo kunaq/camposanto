@@ -1,7 +1,7 @@
 <div class="modal fade" id="m_modal_auditoria_contrato" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" style="padding-right: 17px;">
 	<div class="modal-dialog modal-dialog-centered" role="document">
 		<div class="modal-content">
-			<!-- <div class="modal-header">
+			<div class="modal-header">
 				<h5 class="modal-title" id="exampleModalLongTitle">
 					Control de Auditoría
 				</h5>
@@ -10,7 +10,7 @@
 						×
 					</span>
 				</button>
-			</div> -->
+			</div>
 			<div class="modal-body">
 				<div class="row">
 					<div class="col-lg-12">
