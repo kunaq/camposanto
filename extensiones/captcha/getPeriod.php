@@ -3,7 +3,8 @@ require_once "../../modelo/conexion.php";
 
    $fechaRes = date($_GET['fechaRes']);
 
-    $db = new Conexion();                                             
+    $db = new Conexion();
+    require_once "../../funciones.php";                                             
 
     $sql = $db->consulta("SELECT num_anno, cod_tipo_periodo, cod_periodo, fch_inicio, fch_fin FROM vtama_periodo where num_anno = 2020");
     // echo  "SELECT num_anno, cod_tipo_periodo, cod_periodo, fch_inicio, fch_fin FROM vtama_periodo where num_anno = 2020";
