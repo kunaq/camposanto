@@ -508,8 +508,10 @@ function apagar(){
   }
   else{
   	$('#codFuneraria').prop('disabled',true);
+    $('#codFuneraria').val();
   	$('#btnAgFun').attr('disabled',true);
   	$('#dscFuneraria').prop('disabled',true);
+    $('#dscFuneraria').val();
   }
 }  
 
