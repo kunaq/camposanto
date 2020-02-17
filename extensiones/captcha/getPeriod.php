@@ -6,7 +6,7 @@ require_once "../../modelo/conexion.php";
     $db = new Conexion();
     require_once "../../funciones.php";                                             
 
-    $sql = $db->consulta("SELECT num_anno, cod_tipo_periodo, cod_periodo, fch_inicio, fch_fin FROM vtama_periodo where num_anno = 2020");
+    $sql = $db->consulta("SELECT num_anno, cod_tipo_periodo, cod_periodo, fch_inicio, fch_fin FROM vtama_periodo WHERE fch_inicio <='$fechaRes' AND fch_fin >='$fechaRes'");
     // echo  "SELECT num_anno, cod_tipo_periodo, cod_periodo, fch_inicio, fch_fin FROM vtama_periodo where num_anno = 2020";
 
     // $datos = array();
