@@ -1,6 +1,7 @@
 <?php
 @session_start();
 require_once "../../modelo/conexion.php";
+require_once "../../funciones.php";
 
  $db = new Conexion();                                             
 
@@ -30,7 +31,7 @@ require_once "../../modelo/conexion.php";
                             '.$key['cod_agencia'].'
                         </td>
                         <td>
-                            '.$key['dsc_agencia'].'
+                            '.Utf8Encode($key['dsc_agencia']).'
                         </td>
                         <td style="text-align: center;">
                             <button type="button" onclick = "anadeAgencia('.$cod.');" class="m-btn btn btn-danger" data-dismiss="modal">
