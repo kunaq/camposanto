@@ -122,7 +122,8 @@ function llenaDatos(codCtto){
             $("#contAnuFecha").val(respuesta[0]['fch_anulacion']);
             $("#contResVendedor").val(respuesta[0]['cod_usuario_resolucion']);
             $("#contResFecha").val(respuesta[0]['fch_resolucion']);
-            var auditEmi = buscaDatosPeriodo(respuesta[0]['fch_emision'],'Emi');
+
+            var auditEmi = buscaDatosPeriodo('2/17/2020','Emi');
             // $("#anioEmiAud").val(auditEmi);
             // $("#tipoPerEmiAud").val(respuesta[0]['']);
             // $("#perEmiAud").val(respuesta[0]['']);
