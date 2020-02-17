@@ -54,14 +54,17 @@ function getParameterByName() {
 
 getParameterByName();
 
-function buscaDatosPeriodo(fechaRes){
+function buscaDatosPeriodo(fechaRes,campo){
     $.ajax({
         type:'GET',
         url: 'extensiones/captcha/getPeriod.php',
         dataType: 'text',
         data: {'fechaRes':fechaRes},
             success : function(response){
-                return JSON.parse(response);
+                var info = JSON.parse(response);
+                $("#anio"+campo+"Aud").val(info.num_anno);
+                $("#tipoPer"+campo+"Aud").val(info.tipo_periodo);
+                $("#per"+campo+"Aud").val(info.periodo);
             }//success
         });//ajax
 }//buscaDatosPeriodo
@@ -119,15 +122,15 @@ function llenaDatos(codCtto){
             $("#contAnuFecha").val(respuesta[0]['fch_anulacion']);
             $("#contResVendedor").val(respuesta[0]['cod_usuario_resolucion']);
             $("#contResFecha").val(respuesta[0]['fch_resolucion']);
-            var auditEmi = buscaDatosPeriodo(respuesta[0]['fch_emision']);
-            $("#anioEmiAud").val(auditEmi);
+            var auditEmi = buscaDatosPeriodo(respuesta[0]['fch_emision'],'Emi');
+            // $("#anioEmiAud").val(auditEmi);
             // $("#tipoPerEmiAud").val(respuesta[0]['']);
             // $("#perEmiAud").val(respuesta[0]['']);
-            var auditAct = buscaDatosPeriodo(respuesta[0]['fch_activacion']);
+            var auditAct = buscaDatosPeriodo(respuesta[0]['fch_activacion'],'Act');
             // $("#anioActAud").val(respuesta[0]['']);
             // $("#tipoPerActAud").val(respuesta[0]['']);
             // $("#perActAud").val(respuesta[0]['']);
-            var auditRes = buscaDatosPeriodo(respuesta[0]['fch_resolucion']);
+            var auditRes = buscaDatosPeriodo(respuesta[0]['fch_resolucion'],'Res');
             // $("#anioResAud").val(respuesta[0]['']);
             // $("#tipoPerResAud").val(respuesta[0]['']);
             // $("#perResAud").val(respuesta[0]['']);
