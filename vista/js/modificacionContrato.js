@@ -574,6 +574,11 @@ $("#btnAgFun").on('click',function(){
     });
 });
 
+function anadeAgencia(cod){
+    $("#codFuneraria").val(cod);
+    nombreFuneraria(cod,'dscFuneraria');
+}
+
 
 function creaTablaVendedor(tipo){
     $('#tablaVendedor').html('<div class="loader"></div>');
