@@ -1814,7 +1814,8 @@
 												</div>
 												<div class="col-lg-1" style="margin-top: 1.7rem;">
 													<label>&nbsp;</label>
-													<button class="btn btn-sm btnGuardarKqPst" type="button" id="btnAgFun" disabled><i class="fa fa-search" ></i></button>
+													<span data-toggle="modal" data-target="#m_modal_Agencias">
+													<button class="btn btn-sm btnGuardarKqPst" type="button" id="btnAgFun" disabled><i class="fa fa-search" ></i></button></span>
 												</div>
 												<div class="col-lg-8">
 													<label>&nbsp;&nbsp;</label>
@@ -1927,4 +1928,5 @@ include "modals/modalObservacionCliente.php";
 include "modals/modalTablaDeuda.php";
 include "modals/modalTablaClientes.php";
 include "modals/modalTablaTrabajadores.php";
+include "modals/modalTablaAgencias.php";
  ?>
