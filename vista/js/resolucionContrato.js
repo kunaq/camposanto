@@ -4,7 +4,7 @@ $("#m_datepicker_4_3").datepicker({
 });//datepicker
 $("#m_datepicker_4_3").datepicker("setDate", new Date());
 function setPeriod(){
-    var fechaRes = ($('#m_datepicker_4_3').datepicker("getDate")).toLocaleDateString();
+    var fechaRes = ($('#m_datepicker_4_3').datepicker("getDate")).toLocaleDateString('en-US');
     var cod_ctt = document.getElementById('numConResolucion').value;
     var cod_consejero = document.getElementById('codVenResolucion').value;
     if (cod_ctt != '' && cod_consejero != '') {
