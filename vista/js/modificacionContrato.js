@@ -503,12 +503,12 @@ function apagar(){
     var checkbox = document.getElementById('AgFunCheck');
   if (checkbox.checked == true){
   	$("#codFuneraria").prop('disabled',false);
-  	$("#btnAgFun").prop('disabled',false);
+  	$("#btnAgFun").attr('disabled',false);
   	$("#dscFuneraria").prop('disabled',false); 	
   }
   else{
   	$('#codFuneraria').prop('disabled',true);
-  	$('#btnAgFun').prop('disabled',true);
+  	$('#btnAgFun').attr('disabled',true);
   	$('#dscFuneraria').prop('disabled',true);
   }
 }  
