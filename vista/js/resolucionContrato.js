@@ -512,15 +512,105 @@ function preResolucion(){
     var ctt = document.getElementById('numConResolucion').value;
     var auxsrv = document.getElementById('numSerResolucion').value;
     var srv = auxsrv.split("/")[0];
-    swal({
-      title:"",
-      text:'Esta resolviendo el contrato["'+ctt+' - '+srv+'"]. ¿Esta seguro de continuar?',
-      type:"question",
-      showCancelButton:!0,
-      confirmButtonText:"Aceptar"
-    }).then(function(e){
-      e.value&&resolverContrato()
-    })
+    var cod_tipo_resolucion = document.getElementById('tipoResolucion').value;
+    var cod_motivo_resolucion = document.getElementById('motivoResolucion').value;
+    var dsc_motivo_usuario = document.getElementById('detalleResolucion').value;
+    var num_anno = document.getElementById('annoPerResolucion').value;
+    var cod_tipo_periodo = document.getElementById('tipoPerResolucion').value;
+    var cod_periodo = document.getElementById('perResolucion').value;
+    var cod_jefe_ventas = document.getElementById('codJVenComResolucion').value;
+    var cod_supervisor = document.getElementById('codSupComResolucion').value;
+    var cod_vendedor = document.getElementById('codVenComResolucion').value;
+    var cod_grupo = document.getElementById('codGruComResolucion').value;
+
+    if (ctt == '') {
+        swal({
+          title:"",
+          text:'Debe ingresar el contrato.',
+          type:"warning",
+          confirmButtonText:"Aceptar"
+        })
+    }else if (cod_tipo_resolucion == '') {
+        swal({
+          title:"",
+          text:'Debe seleccionar el tipo de resolución.',
+          type:"warning",
+          confirmButtonText:"Aceptar"
+        })
+    }else if (cod_motivo_resolucion == '') {
+        swal({
+          title:"",
+          text:'Debe seleccionar el motivo de resolución.',
+          type:"warning",
+          confirmButtonText:"Aceptar"
+        })
+    }else if (dsc_motivo_usuario == '') {
+        swal({
+          title:"",
+          text:'Debe ingresar el detalle del motivo.',
+          type:"warning",
+          confirmButtonText:"Aceptar"
+        })
+    }else if (num_anno == '') {
+        swal({
+          title:"",
+          text:'Debe seleccionar el año.',
+          type:"warning",
+          confirmButtonText:"Aceptar"
+        })
+    }else if (cod_tipo_periodo == '') {
+        swal({
+          title:"",
+          text:'Debe seleccionar el tipo de período de ventas.',
+          type:"warning",
+          confirmButtonText:"Aceptar"
+        })
+    }else if (cod_periodo == '') {
+        swal({
+          title:"",
+          text:'Debe seleccionar el período de ventas.',
+          type:"warning",
+          confirmButtonText:"Aceptar"
+        })
+    }else if (cod_jefe_ventas == '') {
+        swal({
+          title:"",
+          text:'Debe seleccionar el jefe de ventas.',
+          type:"warning",
+          confirmButtonText:"Aceptar"
+        })
+    }else if (cod_supervisor == '') {
+        swal({
+          title:"",
+          text:'Debe seleccionar el supervisor.',
+          type:"warning",
+          confirmButtonText:"Aceptar"
+        })
+    }else if (cod_grupo == '') {
+        swal({
+          title:"",
+          text:'Debe seleccionar el grupo de ventas.',
+          type:"warning",
+          confirmButtonText:"Aceptar"
+        })
+    }else if (cod_vendedor == '') {
+        swal({
+          title:"",
+          text:'Debe seleccionar el vendedor.',
+          type:"warning",
+          confirmButtonText:"Aceptar"
+        })
+    }else{
+        swal({
+          title:"",
+          text:'Esta resolviendo el contrato["'+ctt+' - '+srv+'"]. ¿Esta seguro de continuar?',
+          type:"question",
+          showCancelButton:!0,
+          confirmButtonText:"Aceptar"
+        }).then(function(e){
+          e.value&&resolverContrato()
+        })
+    }
 }
 
 function resolverContrato(){
