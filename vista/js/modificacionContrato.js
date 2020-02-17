@@ -1425,24 +1425,18 @@ function llamaDatosVendedor(codVendedor,boton){
                             });
                         }else{
                             console.log(response);
-            //                 // $.each(response,function(index,value){
-            //                 //     // document.getElementById('codVenComResolucion').value = value['cod_trabajador'];
-            //                 //     // if (value['cod_trabajador'] != '') {
-            //                 //     //     nombreTrabajador(value['cod_trabajador'],'dscVenComResolucion');
-            //                 //     // }
-            //                 //     // document.getElementById('codSupComResolucion').value = value['cod_supervisor'];
-            //                 //     // if (value['cod_supervisor'] != '') {
-            //                 //     //     nombreTrabajador(value['cod_supervisor'],'dscSupComResolucion');
-            //                 //     // }
-            //                 //     // document.getElementById('codGruComResolucion').value = value['cod_grupo'];
-            //                 //     // if (value['cod_grupo'] != '') {
-            //                 //     //     nombreGrupoVenta(value['cod_grupo'],'dscGruComResolucion');
-            //                 //     // }
-            //                 //     // document.getElementById('codJVenComResolucion').value = value['cod_jefeventas'];
-            //                 //     // if (value['cod_jefeventas'] != '') {
-            //                 //     //     nombreTrabajador(value['cod_jefeventas'],'dscJVenCoResolucion');
-            //                 //     // }
-            //                 // });//each 
+                            $.each(response,function(index,value){
+                                $("#codVendedor").val(value['cod_trabajador']);
+                                nombreTrabajador(value['cod_trabajador'],'nombreVendedor');
+                                $("#nombreGrupo").val(value['cod_grupo']);
+                                nombreGrupoVenta(value['cod_grupo'],'nombreGrupo');
+                                $("#codSupervisor").val(value['cod_supervisor']);
+                                nombreTrabajador(value['cod_supervisor'],'nombreSupervisor');
+                                $("#codJefeVentas").val(value['cod_jefeventas']);
+                                nombreTrabajador(value['cod_jefeventas'],'nombreJefeVentas');
+                                $("#codTipoComisionista").val(value['cod_tipo_comisionista']);
+                                nombreComisionista(value['cod_tipo_comisionista'],'nombreTipoComisionista');
+                            });//each 
                         }//else length = 0
                     }//success
                 });//ajax trabajador
