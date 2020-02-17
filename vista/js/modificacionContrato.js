@@ -1397,7 +1397,7 @@ function llamaDatosVendedor(codVendedor,boton){
             aux_mes = '12';
             aux_anio = fechaHoy.getFullYear()-1;
         }               
-        fechaRes = aux_dia+'/'+aux_mes+'/'+aux_anio;
+        fechaRes = aux_mes+'/'+aux_dia+'/'+aux_anio;
         $.ajax({
         type:'GET',
         url: 'extensiones/captcha/getPeriod.php',
