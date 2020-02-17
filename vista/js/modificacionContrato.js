@@ -61,7 +61,7 @@ function buscaDatosPeriodo(fechaRes){
         dataType: 'text',
         data: {'fechaRes':fechaRes},
             success : function(response){
-                return response;
+                return JSON.parse(response);
             }//success
         });//ajax
 }//buscaDatosPeriodo
@@ -120,7 +120,7 @@ function llenaDatos(codCtto){
             $("#contResVendedor").val(respuesta[0]['cod_usuario_resolucion']);
             $("#contResFecha").val(respuesta[0]['fch_resolucion']);
             var auditEmi = buscaDatosPeriodo(respuesta[0]['fch_emision']);
-            // $("#anioEmiAud").val(respuesta[0]['']);
+            $("#anioEmiAud").val(auditEmi.num_anno);
             // $("#tipoPerEmiAud").val(respuesta[0]['']);
             // $("#perEmiAud").val(respuesta[0]['']);
             var auditAct = buscaDatosPeriodo(respuesta[0]['fch_activacion']);
