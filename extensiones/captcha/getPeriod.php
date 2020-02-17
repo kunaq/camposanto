@@ -6,6 +6,7 @@ require_once "../../modelo/conexion.php";
     $db = new Conexion();                                             
 
     $sql = $db->consulta("SELECT num_anno, cod_tipo_periodo, cod_periodo FROM vtama_periodo where fch_inicio <='$fechaRes' AND fch_fin >='$fechaRes'");
+    echo  "SELECT num_anno, cod_tipo_periodo, cod_periodo FROM vtama_periodo where fch_inicio <='$fechaRes' AND fch_fin >='$fechaRes'";
 
     // $datos = array();
 
