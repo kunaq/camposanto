@@ -1404,7 +1404,11 @@ function llamaDatosVendedor(codVendedor,boton){
         dataType: 'text',
         data: {'fechaRes':fechaRes},
             success : function(response){
-                console.log(JSON.parse(response));
+                var info = JSON.parse(response);
+                console.log(info);
+                var num_anno = info.num_anno;
+                var cod_tipo_periodo = info.tipo_periodo;
+                var cod_periodo = info.periodo;
             //     $.ajax({
             //         type:'POST',
             //         url: 'ajax/resCtto.ajax.php',
