@@ -1415,16 +1415,16 @@ function llamaDatosVendedor(codVendedor,boton){
                     dataType: 'json',
                     data: {'accion':'getHisTrabajador', 'cod_consejero':codVendedor, 'num_anno':num_anno, 'cod_tipo_periodo':cod_tipo_periodo, 'cod_periodo':cod_periodo},
                     success : function(response){
-                        console.log(response);
+                        // console.log(response);
                         if (response.length == 0) {
                             swal({
                                 title: "",
-                                text: 'El consejero ['+consejero+'] no esta activo para el período seleccionado ['+num_anno+'-'+cod_tipo_periodo+'-'+cod_periodo+'].',
+                                text: 'El consejero no esta activo para el período seleccionado ['+num_anno+'-'+cod_tipo_periodo+'-'+cod_periodo+'].',
                                 type: "warning",
                                 confirmButtonText: "Aceptar",
                             });
                         }else{
-            //                 console.log(response);
+                            console.log(response);
             //                 // $.each(response,function(index,value){
             //                 //     // document.getElementById('codVenComResolucion').value = value['cod_trabajador'];
             //                 //     // if (value['cod_trabajador'] != '') {
