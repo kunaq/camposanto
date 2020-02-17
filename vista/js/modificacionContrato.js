@@ -54,7 +54,8 @@ function getParameterByName() {
 
 getParameterByName();
 
-function fechaParaConsulta(fecha){
+function fechaParaConsulta(dato){
+    fecha = new Date(dato);
     var aux_dia = fecha.getDate();
     var aux_mes1 = fecha.setMonth(fecha.getMonth() + 1);
     var aux_mes = fecha.getMonth();
