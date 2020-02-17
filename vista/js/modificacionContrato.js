@@ -565,8 +565,6 @@ $("#btnAgFun").on('click',function(){
     $('#tablaAgencias').html('<div class="loader"></div>');
     $.ajax({
         url: 'extensiones/captcha/creaTablaAgencias.php',
-        dataType: 'text',
-        data: { 'tipo' : tipo },
         success : function(respuesta){
             // console.log(respuesta);
             $('#tablaAgencias').html('')
