@@ -800,7 +800,40 @@ function cargaFoma(codCtto,numRefi){
 }
 
 //----------------------------pestaña beneficiarios-----------------------------
+function validaDocLenght(tipo){
+    if (tipo == "DI001") {
+      $('#numDocBenef').val('');
+      document.getElementById("numDocBenef").setAttribute('maxlength',8);
+      document.getElementById("numDocBenef").setAttribute('onkeypress',"return justNumbers(event);");
+    }else if(tipo == "DI002"){
+      $('#numDocBenef').val('');
+      document.getElementById("numDocBenef").setAttribute('maxlength',12);
+      $("#numDocBenef").removeAttr("onkeypress");
+    }else if(tipo == "DI003"){
+      $('#numDocBenef').val('');
+      document.getElementById("numDocBenef").setAttribute('maxlength',12);
+      $("#numDocBenef").removeAttr("onkeypress");
+    }else if(tipo == "DI004"){
+      $('#numDocBenef').val('');
+      document.getElementById("numDocBenef").setAttribute('maxlength',11)
+      document.getElementById("numDocBenef").setAttribute('onkeypress',"return justNumbers(event);");
+    }else if(tipo == "DI005"){
+      $('#numDocBenef').val('');
+      $("#numDocBenef").removeAttr("maxlength");
+      $("#numDocBenef").removeAttr("onkeypress");
+    }
+}
+function buscaBeneficiarios(codCtto){
+    $.ajax({
+        url: 'ajax/modifCtto.ajax.php',
+        dataType: 'json',
+        method: "POST",
+        data: { 'accion' : 'beneficiarios', 'codCtto' : codCtto },
+        success : function(respuesta){
 
+        }//success
+    });//ajax
+}//buscaBeneficiarios
 function cargaFormBenefModif(){
 
       //---------habilita-------//

@@ -1157,7 +1157,7 @@
 																<label>Tipo Doc:</label>
 															</div>
 															<div class="col-lg-8">
-																<select class="form-control form-control-sm m-input custom-select custom-select-danger selectTipoDoc" id="tipoDocBenef" disabled name="tipoDocBenef">
+																<select class="form-control form-control-sm m-input custom-select custom-select-danger selectTipoDoc" id="tipoDocBenef" disabled name="tipoDocBenef" onchange="validaDocLenght(this.value);">
 																	<option value="vacio">
 																		Seleccione
 																	</option>
