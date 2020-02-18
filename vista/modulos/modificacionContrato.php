@@ -1386,7 +1386,7 @@
 															<div class="col-lg-6">
 																<div class="row">
 																	<div class="col-lg-4">
-																		<label>Fecha de entierro:</label>
+																		<label>Fecha Entierro:</label>
 																	</div>
 																	<div class="col-lg-8">
 																		<div class="input-group date">
