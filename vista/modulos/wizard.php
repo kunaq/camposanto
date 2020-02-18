@@ -816,7 +816,7 @@
 										<legend class="tittle-box">
 											<table>
 												<tbody>
-														<td>Cuotas Definidas</td>
+													<td>Cuotas Definidas</td>
 														<td>
 															<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--yellow">
 																<label class="cb">

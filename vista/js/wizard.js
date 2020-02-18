@@ -2646,6 +2646,8 @@ function registrarCliente(){
     success : function(response){
       var info = JSON.parse(response);
       if (info.cod == 1) {
+        var option = '<option value="'+numDoc+'" data-select2-id="43">'+numDoc+'</option>'
+        document.getElementById("numDocCliente").insertAdjacentHTML("beforeEnd" ,option);
         $.ajax({
           type:'POST',
           url: 'ajax/cliente.ajax.php',
@@ -2653,6 +2655,8 @@ function registrarCliente(){
           data: {'accion': 'guardaDireccion', 'cod_cliente':info.cod_cliente, 'cod_pais' : pais, 'cod_departamento':departamento, 'cod_provincia':provincia, 'dsc_direccion':direccion, 'cod_distrito':distrito, 'dsc_referencia' : referencia, 'dsc_telefono_1':telefono1, 'dsc_telefono_2':telefono2, 'cod_numero':numero, 'cod_interior':interior, 'cod_manzana' : manzana, 'cod_lote':lote, 'dsc_urbanizacion':urbanizacion, 'dsc_cadena_direccion':cadena},
           success : function(respuesta){
             if (respuesta == 1) {
+              $('#m_modal_1').modal('hide');
+              cambiaDocumento(numDoc);
               swal({
                 title:"",
                 text:"Esta grabo el registro satisfactoriamente",
