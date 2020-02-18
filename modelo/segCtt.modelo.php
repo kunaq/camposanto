@@ -676,7 +676,10 @@ class ModeloSegContrato{
 
 		$db = new Conexion();
 
-		$sql = $db->consulta("SELECT vtavi_caja_x_comprobante.cod_caja, vtavi_caja_x_comprobante.num_transaccion, (SELECT vtama_forma_pago.dsc_forma_pago FROM vtama_forma_pago WHERE vtama_forma_pago.cod_forma_pago = vtade_caja.cod_forma_pago) AS dsc_forma_pago, (SELECT vtaca_caja.fch_transaccion FROM vtaca_caja WHERE vtaca_caja.cod_caja = vtade_caja.cod_caja AND vtaca_caja.num_transaccion = vtade_caja.num_transaccion) AS fch_registro, vtade_caja.cod_moneda, vtade_caja.imp_operacion, vtade_caja.imp_operacion_soles FROM vtavi_caja_x_comprobante INNER JOIN vtade_caja ON vtade_caja.num_transaccion = vtavi_caja_x_comprobante.num_transaccion WHERE vtavi_caja_x_comprobante.cod_localidad = '".$datos['localidad']."' AND vtavi_caja_x_comprobante.num_correlativo = '".$datos['num_correlativo']."'");
+		$sql = $db->consulta("SELECT vtavi_caja_x_comprobante.cod_caja, vtavi_caja_x_comprobante.num_transaccion, (SELECT vtama_forma_pago.dsc_forma_pago FROM vtama_forma_pago WHERE vtama_forma_pago.cod_forma_pago = vtade_caja.cod_forma_pago) AS dsc_forma_pago, (SELECT vtaca_caja.fch_transaccion FROM vtaca_caja WHERE vtaca_caja.cod_caja = vtade_caja.cod_caja AND vtaca_caja.num_transaccion = vtade_caja.num_transaccion) AS fch_registro, vtade_caja.cod_moneda, vtade_caja.imp_operacion, vtade_caja.imp_operacion_soles FROM vtavi_caja_x_comprobante INNER JOIN vtade_caja ON vtade_caja.num_transaccion = vtavi_caja_x_comprobante.num_transaccion
+			AND vtade_caja.cod_caja = vtavi_caja_x_comprobante.cod_caja
+			AND vtade_caja.num_linea = vtavi_caja_x_comprobante.num_linea
+		 WHERE vtavi_caja_x_comprobante.cod_localidad = '".$datos['localidad']."' AND vtavi_caja_x_comprobante.num_correlativo = '".$datos['num_correlativo']."'");
 
 		$tbodyCancelaciones = "";
 
