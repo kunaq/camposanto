@@ -833,7 +833,7 @@ function buscaBeneficiarios(codCtto){
         success : function(respuesta){
             console.log(respuesta);
             $.each(respuesta,function(index,value){
-                var registro = [value['cod_tipo_documento'],value['dsc_documento'],value['dsc_apellidopaterno'],value['dsc_apellidomaterno'],value['dsc_nombre'],value['fch_nacimiento'],value['fch_deceso'],value['cod_religion'],value['cod_estado_civil'],value['cod_sexo'],value['cod_parentesco'],value['cod_lugar_deceso'],value['cod_motivo_deceso'],value['num_peso'],value['num_talla'],value['flg_autopsia']];
+                var registro = [value['cod_tipo_documento'],value['dsc_documento'],value['dsc_apellidopaterno'],value['dsc_apellidomaterno'],value['dsc_nombre'],value['fch_nacimiento'],value['fch_deceso'],value['cod_religion'],value['cod_estado_civil'],value['cod_sexo'],value['cod_parentesco'],value['cod_lugar_deceso'],value['cod_motivo_deceso'],value['num_peso'],value['num_talla'],value['flg_autopsia'],value['num_item'],value['num_servicio'],value['fch_deceso'],value['fch_entierro'],value['num_nivel']];
                  var muestra = '<tr onclick="verDetalles(event)" id="'+value['dsc_documento']+'">'+
                         '<td class="'+value['dsc_documento']+'">'+value['dsc_apellidopaterno']+' '+value['dsc_apellidomaterno']+', '+value['dsc_nombre']+
                         '<input type="hidden" id="idBenef" value="'+value['dsc_documento']+'"><input type="hidden" id="registro_'+value['dsc_documento']+'" value="'+registro+'">'+
@@ -933,7 +933,12 @@ function guardaBenef(){
   var peso = document.getElementById("pesoBenef").value;
   var talla = document.getElementById("tallaBenef").value;
   var autopsia = $("#autopsiaBenefM").checked;
-  var registro = [tipoDoc,numDoc,apellPaterno,apellMaterno,nombre,fechNac,fechDec,religion,edoCivil,sexo,parentesco,lugarDeceso,motivoDeceso,peso,talla,autopsia];
+  var numItem = $("#numItemBenef").val();
+  var numServ = $("#numServBenef").val();
+  var fchDec = $("#fchDecBenef").val();
+  var fchEnt = $("#fchEntBenef").val();
+  var nivel = $("#nivelBenef").val();
+  var registro = [tipoDoc,numDoc,apellPaterno,apellMaterno,nombre,fechNac,fechDec,religion,edoCivil,sexo,parentesco,lugarDeceso,motivoDeceso,peso,talla,autopsia,numItem,numServ,fchDec,fchEnt,nivel];
   var muestra = '<tr onclick="verDetalles(event)" id="'+numDoc+'">'+
   					'<td class="'+numDoc+'">'+apellPaterno+' '+apellMaterno+', '+nombre+
   					'<input type="hidden" id="idBenef" value="'+numDoc+'"><input type="hidden" id="registro_'+numDoc+'" value="'+registro+'">'+
@@ -990,6 +995,11 @@ function activaEditaBenef(id){
   $('#pesoBenef').prop('disabled',false);
   $('#tallaBenef').prop('disabled',false);
   $('#autopsiaBenefM').prop('disabled',false);
+  $("#numItemBenef").prop('disabled',false);
+  $("#numServBenef").prop('disabled',false);
+  $("#fchDecBenef").prop('disabled',false);
+  $("#fchEntBenef").prop('disabled',false);
+  $("#nivelBenef").prop('disabled',false);
 
   //----------cambia los botones a editar y cancelar-------//
 
@@ -1023,7 +1033,12 @@ function guardaEdicionB(id){
   var peso = document.getElementById("pesoBenef").value;
   var talla = document.getElementById("tallaBenef").value;
   var autopsia = $("#autopsiaBenefM").checked;
-  var registro = [tipoDoc,numDoc,apellPaterno,apellMaterno,nombre,fechNac,fechDec,religion,edoCivil,sexo,parentesco,lugarDeceso,motivoDeceso,peso,talla,autopsia];
+  var numItem = $("#numItemBenef").val();
+  var numServ = $("#numServBenef").val();
+  var fchDec = $("#fchDecBenef").val();
+  var fchEnt = $("#fchEntBenef").val();
+  var nivel = $("#nivelBenef").val();
+  var registro = [tipoDoc,numDoc,apellPaterno,apellMaterno,nombre,fechNac,fechDec,religion,edoCivil,sexo,parentesco,lugarDeceso,motivoDeceso,peso,talla,autopsia,numItem,numServ,fchDec,fchEnt,nivel];
   var muestra = '<tr onclick="verDetalles(event)" id="'+numDoc+'"><td class="'+numDoc+'">'+numDoc+'</td><td class="'+numDoc+'">'+nombre+'</td><td class="'+numDoc+'">'+apellPaterno+' '+apellMaterno+'<input type="hidden" id="idBenef" value="'+numDoc+'"><input type="hidden" id="registro_'+numDoc+'" value="'+registro+'"></td></tr>';
   document.getElementById(id).remove();
   document.getElementById("bodyBeneficiarioM").insertAdjacentHTML("beforeEnd" ,muestra);
@@ -1058,6 +1073,11 @@ function limpiaydsi(){
   document.getElementById("pesoBenef").value = '';
   document.getElementById("tallaBenef").value = '';
   $('#autopsiaBenefM').prop("checked", false);
+  $("#numItemBenef").val();
+  $("#numServBenef").val();
+  $("#fchDecBenef").datepicker('setDate', null);
+  $("#fchEntBenef").datepicker('setDate', null);
+  $("#nivelBenef").val();
 
         //------------deshabilita---------------//
 
@@ -1077,6 +1097,12 @@ function limpiaydsi(){
   $('#pesoBenef').prop('disabled',true);
   $('#tallaBenef').prop('disabled',true);
   $('#autopsiaBenefM').prop('disabled',true);
+  $('#autopsiaBenefM').prop("checked", false);
+  $("#numItemBenef").prop('disabled',true);
+  $("#numServBenef").prop('disabled',true);
+  $("#fchDecBenef").prop('disabled',true);
+  $("#fchEntBenef").prop('disabled',true);
+  $("#nivelBenef").prop('disabled',true);
 
   //----------cabia a los botones originales-----------//
 
@@ -1110,6 +1136,11 @@ function verDetalles(evt) {
   var peso = respuesta.split(",")[13];
   var talla = respuesta.split(",")[14];
   var autopsia = respuesta.split(",")[15];
+  var numItem = respuesta.split(",")[16];
+  var numServ = respuesta.split(",")[17];
+  var fchDec = respuesta.split(",")[18];
+  var fchEnt = respuesta.split(",")[19];
+  var nivel = respuesta.split(",")[20];
 
   document.getElementById("tipoDocBenef").setAttribute('value',tipoDoc);
   document.getElementById("tipoDocBenef").value = tipoDoc;
@@ -1156,6 +1187,16 @@ function verDetalles(evt) {
   $('#tallaBenef').prop('disabled',true);
   $('#autopsiaBenefM').prop("checked", autopsia);
   $('#autopsiaBenefM').prop('disabled',true);
+  $("#numItemBenef").prop('disabled',true);
+  $("#numItemBenef").val(numItem);
+  $("#numServBenef").val(numServ);
+  $("#numServBenef").prop('disabled',true);
+  $("#fchDecBenef").datepicker('setDate', fchDec);
+  $("#fchDecBenef").prop('disabled',true);
+  $("#fchEntBenef").datepicker('setDate', fchEnt);
+  $("#fchEntBenef").prop('disabled',true);
+  $("#nivelBenef").val(nivel);
+  $("#nivelBenef").prop('disabled',true);
   boton = document.getElementById("botonEditaB");
   boton.addEventListener("click", function(){activaEditaBenef(numDoc)}, false);
   boton2 = document.getElementById("botonEliminarB");
