@@ -163,6 +163,7 @@ function llenaDatos(codCtto){
                 $("#tab2doTitular").attr('hidden',false);
             }
         	document.getElementById("tipoEspModifContrato").value = respuesta[0]['dsc_tipo_espacio'];
+            buscaBeneficiarios(codCtto);
         	$("#bodyDetCttoModif").empty();
             $("#bodyServicioVin").empty();
             var totalVin = 0;
@@ -830,7 +831,7 @@ function buscaBeneficiarios(codCtto){
         method: "POST",
         data: { 'accion' : 'beneficiarios', 'codCtto' : codCtto },
         success : function(respuesta){
-
+            console.log(respuesta);
         }//success
     });//ajax
 }//buscaBeneficiarios

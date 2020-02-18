@@ -203,5 +203,24 @@ class ControladorModifCtto{
 		return $respuesta;
 	}// function ctrBuscaGrupo
 
+	static public function ctrBuscaBeneficiario(){
+		$tablaBen = 'vtade_beneficiario_x_contrato';
+		$datos = array("codCtto" => $_POST['codCtto'],
+						"localidad" => $_SESSION['localidad']
+					  );
+		$respuesta = ModeloModifCtto::mdlBuscaBeneficiario($tablaBen,$datos);
+		return $respuesta;
+	}// function ctrBuscaBeneficiario
+
+	static public function ctrBuscaObsrvXBeneficiario(){
+		$tablaBen = 'vtade_observacion_x_beneficiario';
+		$datos = array("codCtto" => $_POST['codCtto'],
+						"localidad" => $_SESSION['localidad'],
+						"num_item" => $_POST['num_item']
+					  );
+		$respuesta = ModeloModifCtto::mdlBuscaObsrvXBeneficiario($tablaObsrv,$datos);
+		return $respuesta;
+	}// function ctrBuscaObsrvXBeneficiario
+
 }//class ControladorModifCtto
 ?>
