@@ -3,7 +3,7 @@
 class ControladorCliente{
 
 	static public function ctrInsertaCliente(){
-		$fecha = date('Y-d-m');
+		$fecha = date('Y-m-d');
 		$hora = date('H:i:s');
 		$fechaActual = $fecha.' '.$hora;
 		if ($_POST['flg_juridico'] == 'SI') {
