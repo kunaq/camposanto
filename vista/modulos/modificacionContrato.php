@@ -1121,21 +1121,21 @@
 											</button>	
 										</div>
 										<div class="col-lg-2 offset-lg-1">
-											<button data-toggle="m-tooltip" data-container="body" data-placement="top" title="" id="botonEliminarB" data-original-title="Eliminar beneficiario" class="btn btn-danger btn-lg m-btn m-btn m-btn--icon">
+											<button type="button" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" id="botonEliminarB" data-original-title="Eliminar beneficiario" class="btn btn-danger btn-lg m-btn m-btn m-btn--icon">
 												<span>
 													<span>&nbsp;</span>
 													<i class="la la-user-times"></i>
 													<span>&nbsp;</span>
 												</span>
 											</button>
-											<button data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Descartar cambios" id="botonDescartarB" onclick="limpiaydsi();" hidden="hidden" class="btn btn-danger btn-lg m-btn m-btn m-btn--icon">
+											<button type="button" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Descartar cambios" id="botonDescartarB" onclick="limpiaydsi();" hidden="hidden" class="btn btn-danger btn-lg m-btn m-btn m-btn--icon">
 												<span>
 													<span>&nbsp;</span>
 													<i class="la la-remove"></i>
 													<span>&nbsp;</span>
 												</span>
 											</button>
-											<button data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Descartar cambios" id="botonCancelarEdicionB" hidden="hidden" class="btn btn-danger btn-lg m-btn m-btn m-btn--icon">
+											<button type="button" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Descartar cambios" id="botonCancelarEdicionB" hidden="hidden" class="btn btn-danger btn-lg m-btn m-btn m-btn--icon">
 												<span>
 													<span>&nbsp;</span>
 													<i class="la la-remove"></i>

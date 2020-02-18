@@ -1230,6 +1230,7 @@ function resetForm(){
     $("#bodyCronogramaFomaModif").empty();
     $("#bodyBeneficiarioM").empty();
     $("#bodyCronogramaFomaModif").empty();
+    #("#codContrato").focus();
 }
 
 function buscaCuotasPag(){
