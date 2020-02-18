@@ -1220,7 +1220,7 @@ function anulaCtto(){
 
 function resetForm(){
     limpiaydsi();
-    document.getElementById("myForm").reset();
+    document.getElementById("formModifCtto").reset();
     $("#bodyDetCttoModif").empty();
     $("#bodyServicioVin").empty();
     $("#bodyObservaciones").empty();
