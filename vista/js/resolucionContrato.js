@@ -644,7 +644,7 @@ function resolverContrato(){
     var dsc_motivo_resolucion = $("#motivoResolucion option:selected").text();
     var dsc_motivo_usuario = document.getElementById('detalleResolucion').value;
     var imp_tc = pasaAnumero(document.getElementById('tCambioResolucion').value);
-    var afecta_comision = document.getElementById('check-comision').value;
+    var afecta_comision = document.getElementById('check-comision');
     if (afecta_comision.checked != true){
         var flg_afecta_comision = 'NO';
     }else{
