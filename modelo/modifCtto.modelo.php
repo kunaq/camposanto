@@ -205,8 +205,6 @@ class ModeloModifCtto{
 	static public function mdlBuscaBeneficiario($tablaBen,$datos){
 		$db = new Conexion();
 		$sql = $db->consulta("SELECT * FROM $tablaBen WHERE (cod_contrato LIKE (RIGHT('0000000000'+'".$datos['codCtto']."',10)) AND cod_localidad = ".$datos['localidad'].")");
-		echo "SELECT * FROM $tablaBen WHERE (cod_contrato LIKE (RIGHT('0000000000'+'".$datos['codCtto']."',10)) AND cod_localidad = ".$datos['localidad'].")";
-		$datos = array();
     	while($key = $db->recorrer($sql)){
 	    		$datos[] = arrayMapUtf8Encode($key);
 			}
