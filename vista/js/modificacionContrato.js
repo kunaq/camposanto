@@ -38,6 +38,10 @@ $("#fchDecBenef").datepicker({
 	format : 'dd-mm-yyyy',
 	autoclose: true
 });//datepicker
+$("#fchEntBenef").datepicker({
+    format : 'dd-mm-yyyy',
+    autoclose: true
+});//datepicker
 
 function getParameterByName() {
     var query = window.location.search.substring(1);
