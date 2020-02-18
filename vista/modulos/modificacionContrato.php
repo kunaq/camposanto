@@ -1146,266 +1146,297 @@
 									</div>
 								</div>
 								<div class="col-lg-6">
-									<fieldset class="fieldFormHorizontal">
-										<legend class="tittle-box">N° Servicio</legend>
+									<div class="row">
 										<div class="col-lg-12">
-											<div class="row form-group">
-												<div class="col-lg-6">
-													<div class="">
-														<div class="row">
-															<div class="col-lg-4">
-																<label>Tipo Doc:</label>
-															</div>
-															<div class="col-lg-8">
-																<select class="form-control form-control-sm m-input custom-select custom-select-danger selectTipoDoc" id="tipoDocBenef" disabled name="tipoDocBenef" onchange="validaDocLenght(this.value);">
-																	<option value="vacio">
-																		Seleccione
-																	</option>
-																	<?php
-																		$prueba = controladorEmpresa::
-																		ctrtipoDoc();
-																 		?> 		
-																</select>
-															</div>
-														</div>
-													</div>
-												</div>
-												<div class="col-lg-6">
-													<div class="">
-														<div class="row">
-															<div class="col-lg-4">
-																<label>
-																	N° Doc:
-																</label>
-															</div>
-															<div class="col-lg-8">
-																<input type="text" class="form-control form-control-sm m-input" disabled id="numDocBenef" name="numDocBenef">
-															</div>
-														</div>	
-													</div>
-												</div>
-												<div class="col-lg-6">
-													<div class="row">
-														<div class="col-lg-4">
-															<label>Apellido Paterno</label>
-														</div>
-														<div class="col-lg-8">
-															<input type="text" class="form-control form-control-sm m-input" disabled id="apePatBenef">
-														</div>
-													</div>
-												</div>
-												<div class="col-lg-6">
-													<div class="row">
-														<div class="col-lg-4">
-															<label>Apellido Materno</label>
-														</div>
-														<div class="col-lg-8">
-															<input type="text" class="form-control form-control-sm m-input" disabled id="apeMatBenef">
-														</div>
-													</div>
-												</div>
-												<div class="col-lg-12">
-													<div class="row">
-														<div class="col-lg-2">
-															<label>Nombres:</label>
-														</div>
-														<div class="col-lg-10">
-															<input type="text" disabled class="form-control form-control-sm m-input" id="nombreBenef" name="nombreBenef">
-														</div>
-													</div>
-												</div>
-												<div class="col-lg-6">
-													<div class="row">
-														<div class="col-lg-4">
-															<label>Fecha Nacimiento</label>
-														</div>
-														<div class="col-lg-8">
-															<div class="input-group date">
-																<input type="text" class="form-control form-control-sm m-input" disabled readonly="" placeholder="Seleccionar fecha" id="fchNacBenef">
-																<div class="input-group-append">
-																	<span class="input-group-text">
-																		<i class="la la-calendar-check-o"></i>
-																	</span>
+											<ul class="nav nav-tabs  m-tabs-line m-tabs-line--danger" role="tablist">
+												<li class="nav-item m-tabs__item">
+													<a class="nav-link m-tabs__link active" data-toggle="tab" href="#m_tabs_2_1" role="tab">
+														General
+													</a>
+												</li>
+												<li class="nav-item m-tabs__item">
+													<a class="nav-link m-tabs__link" data-toggle="tab" href="#m_tabs_2_2" role="tab">
+														Observaciones
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<div class="tab-content">
+										<div class="tab-pane active" id="m_tabs_2_1" role="tabpanel">
+											<div class="row">
+												<fieldset class="fieldFormHorizontal">
+													<legend class="tittle-box">N° Servicio</legend>
+													<div class="col-lg-12">
+														<div class="row form-group">
+															<div class="col-lg-6">
+																<div class="">
+																	<div class="row">
+																		<div class="col-lg-4">
+																			<label>Tipo Doc:</label>
+																		</div>
+																		<div class="col-lg-8">
+																			<select class="form-control form-control-sm m-input custom-select custom-select-danger selectTipoDoc" id="tipoDocBenef" disabled name="tipoDocBenef" onchange="validaDocLenght(this.value);">
+																				<option value="vacio">
+																					Seleccione
+																				</option>
+																				<?php
+																					$prueba = controladorEmpresa::
+																					ctrtipoDoc();
+																			 		?> 		
+																			</select>
+																		</div>
+																	</div>
 																</div>
 															</div>
-														</div>
-													</div>
-												</div>
-												<div class="col-lg-6">
-													<div class="row">
-														<div class="col-lg-4">
-															<label>Fecha Deceso:</label>
-														</div>
-														<div class="col-lg-8">
-															<div class="input-group date">
-																<input type="text" class="form-control form-control-sm m-input" disabled readonly="" placeholder="Seleccionar fecha" id="fchDecBenef">
-																<div class="input-group-append">
-																	<span class="input-group-text">
-																		<i class="la la-calendar-check-o"></i>
-																	</span>
+															<div class="col-lg-6">
+																<div class="">
+																	<div class="row">
+																		<div class="col-lg-4">
+																			<label>
+																				N° Doc:
+																			</label>
+																		</div>
+																		<div class="col-lg-8">
+																			<input type="text" class="form-control form-control-sm m-input" disabled id="numDocBenef" name="numDocBenef">
+																		</div>
+																	</div>	
 																</div>
+															</div>
+															<div class="col-lg-6">
+																<div class="row">
+																	<div class="col-lg-4">
+																		<label>Apellido Paterno</label>
+																	</div>
+																	<div class="col-lg-8">
+																		<input type="text" class="form-control form-control-sm m-input" disabled id="apePatBenef">
+																	</div>
+																</div>
+															</div>
+															<div class="col-lg-6">
+																<div class="row">
+																	<div class="col-lg-4">
+																		<label>Apellido Materno</label>
+																	</div>
+																	<div class="col-lg-8">
+																		<input type="text" class="form-control form-control-sm m-input" disabled id="apeMatBenef">
+																	</div>
+																</div>
+															</div>
+															<div class="col-lg-12">
+																<div class="row">
+																	<div class="col-lg-2">
+																		<label>Nombres:</label>
+																	</div>
+																	<div class="col-lg-10">
+																		<input type="text" disabled class="form-control form-control-sm m-input" id="nombreBenef" name="nombreBenef">
+																	</div>
+																</div>
+															</div>
+															<div class="col-lg-6">
+																<div class="row">
+																	<div class="col-lg-4">
+																		<label>Fecha Nacimiento</label>
+																	</div>
+																	<div class="col-lg-8">
+																		<div class="input-group date">
+																			<input type="text" class="form-control form-control-sm m-input" disabled readonly="" placeholder="Seleccionar fecha" id="fchNacBenef">
+																			<div class="input-group-append">
+																				<span class="input-group-text">
+																					<i class="la la-calendar-check-o"></i>
+																				</span>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="col-lg-6">
+																<div class="row">
+																	<div class="col-lg-4">
+																		<label>Fecha Deceso:</label>
+																	</div>
+																	<div class="col-lg-8">
+																		<div class="input-group date">
+																			<input type="text" class="form-control form-control-sm m-input" disabled readonly="" placeholder="Seleccionar fecha" id="fchDecBenef">
+																			<div class="input-group-append">
+																				<span class="input-group-text">
+																					<i class="la la-calendar-check-o"></i>
+																				</span>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="col-lg-6">
+																<div class="row">
+																	<div class="col-lg-4">
+																		<label>Religión</label>
+																	</div>
+																	<div class="col-lg-8">
+																		<select class="form-control form-control-sm m-input custom-select custom-select-danger" disabled name="religionBenef" id="religionBenef">
+																			<option value="">
+																				Seleccione
+																			</option>
+																			<?php
+																 		 		$tabla="vtama_religion";
+																 		 		$item1="cod_religion";
+																 			 	$item2="dsc_religion";
+								 								 				$prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
+																			?> 
+																		</select>
+																	</div>
+																</div>
+															</div>
+															<div class="col-lg-6">
+																<div class="row">
+																	<div class="col-lg-4">
+																		<label>Estado Civil</label>
+																	</div>
+																	<div class="col-lg-8">
+																		<select class="form-control form-control-sm m-input custom-select custom-select-danger" disabled id="edoCivilBenef" name="edoCivilBenef">
+																			<option value="">
+																				Seleccione
+																			</option>
+																			<?php
+												  							$prueba=controladorEmpresa::ctrestadocivil();
+																		 	?> 
+																		</select>
+																	</div>
+																</div>
+															</div>
+															<div class="col-lg-6">
+																<div class="row">
+																	<div class="col-lg-4">
+																		<label>Sexo:</label>
+																	</div>
+																	<div class="col-lg-8">
+																		<select class="form-control form-control-sm m-input custom-select custom-select-danger" disabled id="sexoBenef" name="sexoBenef">
+																			<option value="M">
+																				Masculino
+																			</option>
+																			<option value="F">
+																				Femenino
+																			</option>
+																		</select>
+																	</div>
+																</div>
+															</div>
+															<div class="col-lg-6">
+																<div class="row">
+																	<div class="col-lg-4">
+																		<label>Parentesco</label>
+																	</div>
+																	<div class="col-lg-8">
+																		<select class="form-control form-control-sm m-input custom-select custom-select-danger" disabled id="parentescoBenef" name="parentescoBenef">
+																			<option value="">
+																				Seleccione
+																			</option>
+																			<?php
+																			  $tabla="vtama_parentesco";
+																			  $item1="cod_parentesco";
+																			  $item2="dsc_parentesco";
+											 									$prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
+																			?> 
+																		</select>
+																	</div>
+																</div>
+															</div>
+															<div class="col-lg-6">
+																<div class="row">
+																	<div class="col-lg-4">
+																		<label>Lugar Deceso:</label>
+																	</div>
+																	<div class="col-lg-8">
+																		<select class="form-control form-control-sm m-input custom-select custom-select-danger" disabled id="lugarDecesoBenef" name="lugarDecesoBenef">
+																			<option value="">
+																				Seleccione
+																			</option>
+																			<?php
+																			  $tabla="vtama_lugar_deceso";
+																			  $item1="cod_lugar_deceso";
+																			  $item2="dsc_lugar_deceso";
+											 						          $prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
+																			?>
+																		</select>
+																	</div>
+																</div>
+															</div>
+															<div class="col-lg-6">
+																<div class="row">
+																	<div class="col-lg-4">
+																		<label>Motivo Deceso</label>
+																	</div>
+																	<div class="col-lg-8">
+																		<select class="form-control form-control-sm m-input custom-select custom-select-danger" id="motivoDecesoBenef" disabled name="motivoDecesoBenef">
+																			<option value="">
+																				Seleccione
+																			</option>
+																			<?php
+																			  $tabla="vtama_motivo_deceso";
+																			  $item1="cod_motivo_deceso";
+																			  $item2="dsc_motivo_deceso";
+											 						          $prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
+																			?>
+																		</select>
+																	</div>
+																</div>
+															</div>
+															<div class="col-lg-3">
+																<div class="row">
+																	<div class="col-lg-4">
+																		<label>Peso</label>
+																	</div>
+																	<div class="col-lg-8">
+																		<input type="text" class="form-control form-control-sm m-input" id="pesoBenef" name="pesoBenef" disabled placeholder="">
+																	</div>
+																</div>
+															</div>
+															<div class="col-lg-3">
+																<div class="row">
+																	<div class="col-lg-4">
+																		<label>Talla</label>
+																	</div>
+																	<div class="col-lg-8">
+																		<input type="text" class="form-control form-control-sm m-input" id="tallaBenef" name="tallaBenef" disabled placeholder="">
+																	</div>
+																</div>
+															</div>
+															<div class="col-lg-6">
+																<table>
+																	<tbody>
+																		<tr>
+																			<td>
+																				<label class="m-checkbox">
+																					¿Pasó autopsia?&nbsp;&nbsp;
+																				</label>
+																			</td>
+																			<td>
+																				<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
+																					<label>
+																						<input type="checkbox" name="autopsiaBenefM" name="autopsiaBenefM">
+																						<span></span>
+																					</label>
+																				</span>
+																			</td>
+																		</tr>
+																	</tbody>
+																</table>
 															</div>
 														</div>
 													</div>
-												</div>
-												<div class="col-lg-6">
-													<div class="row">
-														<div class="col-lg-4">
-															<label>Religión</label>
-														</div>
-														<div class="col-lg-8">
-															<select class="form-control form-control-sm m-input custom-select custom-select-danger" disabled name="religionBenef" id="religionBenef">
-																<option value="">
-																	Seleccione
-																</option>
-																<?php
-													 		 		$tabla="vtama_religion";
-													 		 		$item1="cod_religion";
-													 			 	$item2="dsc_religion";
-					 								 				$prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
-																?> 
-															</select>
-														</div>
-													</div>
-												</div>
-												<div class="col-lg-6">
-													<div class="row">
-														<div class="col-lg-4">
-															<label>Estado Civil</label>
-														</div>
-														<div class="col-lg-8">
-															<select class="form-control form-control-sm m-input custom-select custom-select-danger" disabled id="edoCivilBenef" name="edoCivilBenef">
-																<option value="">
-																	Seleccione
-																</option>
-																<?php
-									  							$prueba=controladorEmpresa::ctrestadocivil();
-															 	?> 
-															</select>
-														</div>
-													</div>
-												</div>
-												<div class="col-lg-6">
-													<div class="row">
-														<div class="col-lg-4">
-															<label>Sexo:</label>
-														</div>
-														<div class="col-lg-8">
-															<select class="form-control form-control-sm m-input custom-select custom-select-danger" disabled id="sexoBenef" name="sexoBenef">
-																<option value="M">
-																	Masculino
-																</option>
-																<option value="F">
-																	Femenino
-																</option>
-															</select>
-														</div>
-													</div>
-												</div>
-												<div class="col-lg-6">
-													<div class="row">
-														<div class="col-lg-4">
-															<label>Parentesco</label>
-														</div>
-														<div class="col-lg-8">
-															<select class="form-control form-control-sm m-input custom-select custom-select-danger" disabled id="parentescoBenef" name="parentescoBenef">
-																<option value="">
-																	Seleccione
-																</option>
-																<?php
-																  $tabla="vtama_parentesco";
-																  $item1="cod_parentesco";
-																  $item2="dsc_parentesco";
-								 									$prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
-																?> 
-															</select>
-														</div>
-													</div>
-												</div>
-												<div class="col-lg-6">
-													<div class="row">
-														<div class="col-lg-4">
-															<label>Lugar Deceso:</label>
-														</div>
-														<div class="col-lg-8">
-															<select class="form-control form-control-sm m-input custom-select custom-select-danger" disabled id="lugarDecesoBenef" name="lugarDecesoBenef">
-																<option value="">
-																	Seleccione
-																</option>
-																<?php
-																  $tabla="vtama_lugar_deceso";
-																  $item1="cod_lugar_deceso";
-																  $item2="dsc_lugar_deceso";
-								 						          $prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
-																?>
-															</select>
-														</div>
-													</div>
-												</div>
-												<div class="col-lg-6">
-													<div class="row">
-														<div class="col-lg-4">
-															<label>Motivo Deceso</label>
-														</div>
-														<div class="col-lg-8">
-															<select class="form-control form-control-sm m-input custom-select custom-select-danger" id="motivoDecesoBenef" disabled name="motivoDecesoBenef">
-																<option value="">
-																	Seleccione
-																</option>
-																<?php
-																  $tabla="vtama_motivo_deceso";
-																  $item1="cod_motivo_deceso";
-																  $item2="dsc_motivo_deceso";
-								 						          $prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
-																?>
-															</select>
-														</div>
-													</div>
-												</div>
-												<div class="col-lg-3">
-													<div class="row">
-														<div class="col-lg-4">
-															<label>Peso</label>
-														</div>
-														<div class="col-lg-8">
-															<input type="text" class="form-control form-control-sm m-input" id="pesoBenef" name="pesoBenef" disabled placeholder="">
-														</div>
-													</div>
-												</div>
-												<div class="col-lg-3">
-													<div class="row">
-														<div class="col-lg-4">
-															<label>Talla</label>
-														</div>
-														<div class="col-lg-8">
-															<input type="text" class="form-control form-control-sm m-input" id="tallaBenef" name="tallaBenef" disabled placeholder="">
-														</div>
-													</div>
-												</div>
-												<div class="col-lg-6">
-													<table>
-														<tbody>
-															<tr>
-																<td>
-																	<label class="m-checkbox">
-																		¿Pasó autopsia?&nbsp;&nbsp;
-																	</label>
-																</td>
-																<td>
-																	<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
-																		<label>
-																			<input type="checkbox" name="autopsiaBenefM" name="autopsiaBenefM">
-																			<span></span>
-																		</label>
-																	</span>
-																</td>
-															</tr>
-														</tbody>
-													</table>
-												</div>
+												</fieldset>
 											</div>
 										</div>
-									</fieldset>
+										<div class="tab-pane" id="m_tabs_2_2" role="tabpanel">
+											<div class="row">
+												<fieldset class="fieldFormHorizontal">
+													<legend class="tittle-box">Observaciones</legend>
+													<div class="col-lg-12">
+													</div>
+												</fieldset>
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
