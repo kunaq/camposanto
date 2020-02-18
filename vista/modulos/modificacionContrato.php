@@ -1201,6 +1201,8 @@
 																			<input type="text" class="form-control form-control-sm m-input" disabled id="numDocBenef" name="numDocBenef">
 																		</div>
 																	</div>	
+																	<input type="hidden" id="numItemBenef" name="numItemBenef">
+																	<input type="hidden" id="numServBenef" name="numServBenef">
 																</div>
 															</div>
 															<div class="col-lg-6">
@@ -1223,12 +1225,12 @@
 																	</div>
 																</div>
 															</div>
-															<div class="col-lg-12">
+															<div class="col-lg-6">
 																<div class="row">
-																	<div class="col-lg-2">
+																	<div class="col-lg-4">
 																		<label>Nombres:</label>
 																	</div>
-																	<div class="col-lg-10">
+																	<div class="col-lg-8">
 																		<input type="text" disabled class="form-control form-control-sm m-input" id="nombreBenef" name="nombreBenef">
 																	</div>
 																</div>
@@ -1381,10 +1383,27 @@
 																	</div>
 																</div>
 															</div>
+															<div class="col-lg-6">
+																<div class="row">
+																	<div class="col-lg-4">
+																		<label>Fecha de entierro:</label>
+																	</div>
+																	<div class="col-lg-8">
+																		<div class="input-group date">
+																			<input type="text" class="form-control form-control-sm m-input" disabled readonly="" placeholder="Seleccionar fecha" id="fchEntBenef">
+																			<div class="input-group-append">
+																				<span class="input-group-text">
+																					<i class="la la-calendar-check-o"></i>
+																				</span>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
 															<div class="col-lg-3">
 																<div class="row">
 																	<div class="col-lg-4">
-																		<label>Peso</label>
+																		<label>Peso:</label>
 																	</div>
 																	<div class="col-lg-8">
 																		<input type="text" class="form-control form-control-sm m-input" id="pesoBenef" name="pesoBenef" disabled placeholder="">
@@ -1394,10 +1413,29 @@
 															<div class="col-lg-3">
 																<div class="row">
 																	<div class="col-lg-4">
-																		<label>Talla</label>
+																		<label>Talla:</label>
 																	</div>
 																	<div class="col-lg-8">
 																		<input type="text" class="form-control form-control-sm m-input" id="tallaBenef" name="tallaBenef" disabled placeholder="">
+																	</div>
+																</div>
+															</div>
+															<div class="col-lg-3">
+																<div class="row">
+																	<div class="col-lg-4">
+																		<label>Nivel:</label>
+																	</div>
+																	<div class="col-lg-8">
+																		<select class="form-control form-control-sm m-input custom-select custom-select-danger" disabled id="nivelBenef" name="nivelBenef">
+																			<option value="">
+																				Seleccione
+																			</option>
+																			<option value="1">I</option>
+																			<option value="2">II</option>
+																			<option value="3">III</option>
+																			<option value="4">IV</option>
+																			<option value="5">V</option>
+																		</select>
 																	</div>
 																</div>
 															</div>

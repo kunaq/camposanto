@@ -833,7 +833,7 @@ function buscaBeneficiarios(codCtto){
         success : function(respuesta){
             console.log(respuesta);
             $.each(respuesta,function(index,value){
-                var registro = [value['cod_tipo_documento'],value['dsc_documento'],value['dsc_apellidopaterno'],value['dsc_apellidomaterno'],value['dsc_nombre'],value['fch_nacimiento'],value['fch_deceso'],value['cod_religion'],value['cod_estado_civil'],value['cod_sexo'],value['cod_parentesco'],value['cod_lugar_deceso'],value['cod_motivo_deceso'],value['num_peso'],value['num_talla'],value['flg_autopsia'],value['num_item'],value['num_servicio'],value['fch_deceso'],value['fch_entierro'],value['num_nivel']];
+                var registro = [value['cod_tipo_documento'],value['dsc_documento'],value['dsc_apellidopaterno'],value['dsc_apellidomaterno'],value['dsc_nombre'],value['fch_nacimiento'],value['fch_deceso'],value['cod_religion'],value['cod_estado_civil'],value['cod_sexo'],value['cod_parentesco'],value['cod_lugar_deceso'],value['cod_motivo_deceso'],value['num_peso'],value['num_talla'],value['flg_autopsia'],value['num_item'],value['num_servicio'],value['fch_entierro'],value['num_nivel']];
                  var muestra = '<tr onclick="verDetalles(event)" id="'+value['dsc_documento']+'">'+
                         '<td class="'+value['dsc_documento']+'">'+value['dsc_apellidopaterno']+' '+value['dsc_apellidomaterno']+', '+value['dsc_nombre']+
                         '<input type="hidden" id="idBenef" value="'+value['dsc_documento']+'"><input type="hidden" id="registro_'+value['dsc_documento']+'" value="'+registro+'">'+
@@ -863,6 +863,10 @@ function cargaFormBenefModif(){
   $('#pesoBenef').prop('disabled',false);
   $('#tallaBenef').prop('disabled',false);
   $('#autopsiaBenefM').prop('disabled',false);
+  $("#numItemBenef").prop('disabled',false);
+  $("#numServBenef").prop('disabled',false);
+  $("#fchEntBenef").prop('disabled',false);
+  $("#nivelBenef").prop('disabled',false);
   
   //---------------limpia--------//
 
@@ -882,6 +886,10 @@ function cargaFormBenefModif(){
   document.getElementById("pesoBenef").value = '';
   document.getElementById("tallaBenef").value = '';
   $("#autopsiaBenefM").prop('checked',false); 
+  $("#numItemBenef").val();
+  $("#numServBenef").val();
+  $("#fchEntBenef").val();
+  $("#nivelBenef").val();
 
   //---------cambia los botones a guardar y cancelar-----//
 
@@ -916,6 +924,7 @@ function verificaBenef(val){
 }
 
 function guardaBenef(){
+  var filas = length("#bodyBeneficiarioM tr");
   var tipoDoc = document.getElementById("tipoDocBenef").value;
   var numDoc = document.getElementById("numDocBenef").value;
   var aux = verificaBenef(numDoc);
@@ -933,12 +942,11 @@ function guardaBenef(){
   var peso = document.getElementById("pesoBenef").value;
   var talla = document.getElementById("tallaBenef").value;
   var autopsia = $("#autopsiaBenefM").checked;
-  var numItem = $("#numItemBenef").val();
-  var numServ = $("#numServBenef").val();
-  var fchDec = $("#fchDecBenef").val();
+  var numItem = filas+1;
+  var numServ = 0;
   var fchEnt = $("#fchEntBenef").val();
   var nivel = $("#nivelBenef").val();
-  var registro = [tipoDoc,numDoc,apellPaterno,apellMaterno,nombre,fechNac,fechDec,religion,edoCivil,sexo,parentesco,lugarDeceso,motivoDeceso,peso,talla,autopsia,numItem,numServ,fchDec,fchEnt,nivel];
+  var registro = [tipoDoc,numDoc,apellPaterno,apellMaterno,nombre,fechNac,fechDec,religion,edoCivil,sexo,parentesco,lugarDeceso,motivoDeceso,peso,talla,autopsia,numItem,numServ,fchEnt,nivel];
   var muestra = '<tr onclick="verDetalles(event)" id="'+numDoc+'">'+
   					'<td class="'+numDoc+'">'+apellPaterno+' '+apellMaterno+', '+nombre+
   					'<input type="hidden" id="idBenef" value="'+numDoc+'"><input type="hidden" id="registro_'+numDoc+'" value="'+registro+'">'+
@@ -997,7 +1005,6 @@ function activaEditaBenef(id){
   $('#autopsiaBenefM').prop('disabled',false);
   $("#numItemBenef").prop('disabled',false);
   $("#numServBenef").prop('disabled',false);
-  $("#fchDecBenef").prop('disabled',false);
   $("#fchEntBenef").prop('disabled',false);
   $("#nivelBenef").prop('disabled',false);
 
@@ -1035,10 +1042,9 @@ function guardaEdicionB(id){
   var autopsia = $("#autopsiaBenefM").checked;
   var numItem = $("#numItemBenef").val();
   var numServ = $("#numServBenef").val();
-  var fchDec = $("#fchDecBenef").val();
   var fchEnt = $("#fchEntBenef").val();
   var nivel = $("#nivelBenef").val();
-  var registro = [tipoDoc,numDoc,apellPaterno,apellMaterno,nombre,fechNac,fechDec,religion,edoCivil,sexo,parentesco,lugarDeceso,motivoDeceso,peso,talla,autopsia,numItem,numServ,fchDec,fchEnt,nivel];
+  var registro = [tipoDoc,numDoc,apellPaterno,apellMaterno,nombre,fechNac,fechDec,religion,edoCivil,sexo,parentesco,lugarDeceso,motivoDeceso,peso,talla,autopsia,numItem,numServ,fchEnt,nivel];
   var muestra = '<tr onclick="verDetalles(event)" id="'+numDoc+'"><td class="'+numDoc+'">'+numDoc+'</td><td class="'+numDoc+'">'+nombre+'</td><td class="'+numDoc+'">'+apellPaterno+' '+apellMaterno+'<input type="hidden" id="idBenef" value="'+numDoc+'"><input type="hidden" id="registro_'+numDoc+'" value="'+registro+'"></td></tr>';
   document.getElementById(id).remove();
   document.getElementById("bodyBeneficiarioM").insertAdjacentHTML("beforeEnd" ,muestra);
@@ -1075,7 +1081,6 @@ function limpiaydsi(){
   $('#autopsiaBenefM').prop("checked", false);
   $("#numItemBenef").val();
   $("#numServBenef").val();
-  $("#fchDecBenef").datepicker('setDate', null);
   $("#fchEntBenef").datepicker('setDate', null);
   $("#nivelBenef").val();
 
@@ -1100,7 +1105,6 @@ function limpiaydsi(){
   $('#autopsiaBenefM').prop("checked", false);
   $("#numItemBenef").prop('disabled',true);
   $("#numServBenef").prop('disabled',true);
-  $("#fchDecBenef").prop('disabled',true);
   $("#fchEntBenef").prop('disabled',true);
   $("#nivelBenef").prop('disabled',true);
 
@@ -1138,9 +1142,8 @@ function verDetalles(evt) {
   var autopsia = respuesta.split(",")[15];
   var numItem = respuesta.split(",")[16];
   var numServ = respuesta.split(",")[17];
-  var fchDec = respuesta.split(",")[18];
-  var fchEnt = respuesta.split(",")[19];
-  var nivel = respuesta.split(",")[20];
+  var fchEnt = respuesta.split(",")[18];
+  var nivel = respuesta.split(",")[19];
 
   document.getElementById("tipoDocBenef").setAttribute('value',tipoDoc);
   document.getElementById("tipoDocBenef").value = tipoDoc;
@@ -1191,8 +1194,6 @@ function verDetalles(evt) {
   $("#numItemBenef").val(numItem);
   $("#numServBenef").val(numServ);
   $("#numServBenef").prop('disabled',true);
-  $("#fchDecBenef").datepicker('setDate', fchDec);
-  $("#fchDecBenef").prop('disabled',true);
   $("#fchEntBenef").datepicker('setDate', fchEnt);
   $("#fchEntBenef").prop('disabled',true);
   $("#nivelBenef").val(nivel);
