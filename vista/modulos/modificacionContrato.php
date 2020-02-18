@@ -1150,12 +1150,12 @@
 										<div class="col-lg-12">
 											<ul class="nav nav-tabs  m-tabs-line m-tabs-line--danger" role="tablist">
 												<li class="nav-item m-tabs__item">
-													<a class="nav-link m-tabs__link active" data-toggle="tab" href="#m_tabs_2_1" role="tab">
+													<a class="nav-link m-tabs__link active" data-toggle="tab" href="#m_tabs_Ben_1" role="tab">
 														General
 													</a>
 												</li>
 												<li class="nav-item m-tabs__item">
-													<a class="nav-link m-tabs__link" data-toggle="tab" href="#m_tabs_2_2" role="tab">
+													<a class="nav-link m-tabs__link" data-toggle="tab" href="#m_tabs_Ben_2" role="tab">
 														Observaciones
 													</a>
 												</li>
@@ -1163,7 +1163,7 @@
 										</div>
 									</div>
 									<div class="tab-content">
-										<div class="tab-pane active" id="m_tabs_2_1" role="tabpanel">
+										<div class="tab-pane active" id="m_tabs_Ben_1" role="tabpanel">
 											<div class="row">
 												<fieldset class="fieldFormHorizontal">
 													<legend class="tittle-box">N° Servicio</legend>
@@ -1427,7 +1427,7 @@
 												</fieldset>
 											</div>
 										</div>
-										<div class="tab-pane" id="m_tabs_2_2" role="tabpanel">
+										<div class="tab-pane" id="m_tabs_Ben_2" role="tabpanel">
 											<div class="row">
 												<fieldset class="fieldFormHorizontal">
 													<legend class="tittle-box">Observaciones</legend>
