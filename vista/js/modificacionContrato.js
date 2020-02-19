@@ -357,21 +357,22 @@ $("#numCuoCronograma").on('change',function(){
         method: "POST",
         data: { 'accion' : 'codCuotas', 'num_cuotas' : num },
         success : function(respuesta){
-            $("#codCuotaModif").val(respuesta);
+            $("#codCuotaModif").val(respuesta['cod_cuota']);
         }//success
     });//ajax
 });
-// $("#nCuotasFOMA").on('change',function(){
-//     $.ajax({
-//         url: 'ajax/modifCtto.ajax.php',
-//         dataType: 'json',
-//         method: "POST",
-//         data: { 'accion' : 'codCuotas', 'num_cuotas' : $(this).value },
-//         success : function(respuesta){
-//             $("#codCuotaFOMAModif").val(respuesta);
-//         }//success
-//     });//ajax
-// });
+$("#nCuotasFOMA").on('change',function(){
+    var num = $(this).val();
+    $.ajax({
+        url: 'ajax/modifCtto.ajax.php',
+        dataType: 'json',
+        method: "POST",
+        data: { 'accion' : 'codCuotas', 'num_cuotas' : num },
+        success : function(respuesta){
+            $("#codCuotaFOMAModif").val(respuesta['cod_cuota']);
+        }//success
+    });//ajax
+});
 
 function buscaDscto(){
 	var codCtto = $("#codContrato").val();
