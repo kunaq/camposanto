@@ -908,7 +908,7 @@ function buscaBeneficiarios(codCtto){
                 var registro = [value['cod_tipo_documento'],value['dsc_documento'],value['dsc_apellidopaterno'],value['dsc_apellidomaterno'],value['dsc_nombre'],value['fch_nacimiento'],value['fch_deceso'],value['cod_religion'],value['cod_estado_civil'],value['cod_sexo'],value['cod_parentesco'],value['cod_lugar_deceso'],value['cod_motivo_deceso'],value['num_peso'],value['num_talla'],value['flg_autopsia'],value['num_item'],value['num_servicio'],value['fch_entierro'],value['num_nivel']];
                  var muestra = '<tr onclick="verDetalles(event)" id="'+value['dsc_documento']+'">'+
                         '<td class="'+value['dsc_documento']+'">'+value['dsc_apellidopaterno']+' '+value['dsc_apellidomaterno']+', '+value['dsc_nombre']+
-                        '<input type="hidden" id="idBenef_'+numDoc+'" value="'+value['dsc_documento']+'"><input type="hidden" id="registro_'+value['dsc_documento']+'" value="'+registro+'">'+
+                        '<input type="hidden" id="idBenef_'+value['dsc_documento']+'" value="'+value['dsc_documento']+'"><input type="hidden" id="registro_'+value['dsc_documento']+'" value="'+registro+'">'+
                         '</td></tr>';
                 document.getElementById("bodyBeneficiarioM").insertAdjacentHTML("beforeEnd" ,muestra);
             });//each
