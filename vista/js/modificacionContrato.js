@@ -376,15 +376,19 @@ $("#nCuotasFOMA").on('change',function(){
 
 $("#interesCronograma").on('change',function(){
     var num = $(this).val();
-    $.ajax({
-        url: 'ajax/modifCtto.ajax.php',
-        dataType: 'json',
-        method: "POST",
-        data: { 'accion' : 'codInteres', 'num_valor' : num },
-        success : function(respuesta){
-            $("#codInteresModif").val(respuesta['cod_interes']);
-        }//success
-    });//ajax
+    if(num == '' || num == null){
+         $("#codInteresModif").val('');
+    }else{
+        $.ajax({
+            url: 'ajax/modifCtto.ajax.php',
+            dataType: 'json',
+            method: "POST",
+            data: { 'accion' : 'codInteres', 'num_valor' : num },
+            success : function(respuesta){
+                $("#codInteresModif").val(respuesta['cod_interes']);
+            }//success
+        });//ajax
+    }
 });
 
 function cantidadBeneficiario(codCtto,tipoCtto,tipoProg){
