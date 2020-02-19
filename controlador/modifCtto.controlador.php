@@ -238,5 +238,15 @@ class ControladorModifCtto{
 		return $respuesta;
 	}// function ctrBuscaCodInteres
 
+	static public function ctrBuscaCtdBenef(){
+		$tabla = 'vtade_beneficiario_x_contrato';
+		$localidad = $_SESSION['localidad'];
+		$codCtto =  $_POST['num_valor'];
+		$tipoCtto = $_POST['ls_tipo_ctt'];
+		$tipoProg = $_POST['ls_tipo_programa'];
+		$respuesta = ModeloModifCtto::mdlBuscaCtdBenef($tabla,$localidad,$codCtto,$tipoCtto,$tipoProg);
+		return $respuesta;
+	}// function ctrBuscaCtdBenef
+
 }//class ControladorModifCtto
 ?>
