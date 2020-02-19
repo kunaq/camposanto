@@ -139,7 +139,7 @@ function llenaDatos(codCtto){
             $("#contAnuFecha").val(respuesta[0]['fch_anulacion']);
             $("#contResVendedor").val(respuesta[0]['cod_usuario_resolucion']);
             $("#contResFecha").val(respuesta[0]['fch_resolucion']);
-            $("#codTipoContrato").val(respuesta[0]['cod_tipo_contrato']),
+            $("#codTipoContrato").val(respuesta[0]['cod_tipo_contrato']);
             var fch_emision = fechaParaConsulta(respuesta[0]['fch_emision']);
             var auditEmi = buscaDatosPeriodo(fch_emision,'Emi');
             var fch_activacion = fechaParaConsulta(respuesta[0]['fch_activacion']);
