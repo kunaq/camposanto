@@ -97,9 +97,12 @@
 									<input type="hidden" name="flg_ctt_integral" id="flg_ctt_integral">
 									<input type="hidden" name="numRefinanciamiento" id="numRefinanciamiento">
 									<input type="hidden" id="numServicioSeleccionado" name="numServicioSeleccionado">
+									<input type="hidden" id="cdServicioSeleccionado" name="cdServicioSeleccionado">
 									<input type="hidden" id="tipoNecCtto" name="tipoNecCtto">
 									<input type="hidden" id="fchEmision" name="fchEmision">
 									<input type="hidden" id="fchActivacion" name="fchActivacion">
+									<input type="hidden" id="flgCambioTitular" name="flgCambioTitular">
+									<input type="hidden" id="numServFoma" name="numServFoma">
 								</div>
 							</div>
 						</div>
@@ -1208,6 +1211,8 @@
 																	<input type="hidden" id="numServBenef" name="numServBenef">
 																</div>
 															</div>
+														</div>
+														<div class="row form-group">
 															<div class="col-lg-6">
 																<div class="row">
 																	<div class="col-lg-4">
@@ -1228,6 +1233,8 @@
 																	</div>
 																</div>
 															</div>
+														</div>
+														<div class="row form-group">
 															<div class="col-lg-6">
 																<div class="row">
 																	<div class="col-lg-4">
@@ -1255,6 +1262,8 @@
 																	</div>
 																</div>
 															</div>
+														</div>
+														<div class="row form-group">
 															<div class="col-lg-6">
 																<div class="row">
 																	<div class="col-lg-4">
@@ -1292,6 +1301,8 @@
 																	</div>
 																</div>
 															</div>
+														</div>
+														<div class="row form-group">
 															<div class="col-lg-6">
 																<div class="row">
 																	<div class="col-lg-4">
@@ -1326,6 +1337,8 @@
 																	</div>
 																</div>
 															</div>
+														</div>
+														<div class="row form-group">
 															<div class="col-lg-6">
 																<div class="row">
 																	<div class="col-lg-4">
@@ -1366,6 +1379,8 @@
 																	</div>
 																</div>
 															</div>
+														</div>
+														<div class="row form-group">
 															<div class="col-lg-6">
 																<div class="row">
 																	<div class="col-lg-4">
@@ -1403,6 +1418,8 @@
 																	</div>
 																</div>
 															</div>
+														</div>
+														<div class="row form-group">
 															<div class="col-lg-3">
 																<div class="row">
 																	<div class="col-lg-4">
@@ -1464,6 +1481,7 @@
 																</table>
 															</div>
 														</div>
+														</div>
 													</div>
 												</fieldset>
 											</div>
@@ -1522,12 +1540,13 @@
 															Seleccione...
 														</option>
 														<?php
-															 $tabla="vtama_interes";
+															$tabla="vtama_interes";
 														  $item1="num_valor";
 														  $item2="dsc_interes";
 						 								 $prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
 														  ?>
 													</select>
+													<input type="hidden" id="codInteresModif" name="codInteresModif">
 												</div>
 												<div class="col-lg-12">
 													<button type="reset" class="btn btn-sm btnGuardarKqPst mt25">

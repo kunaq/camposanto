@@ -120,6 +120,10 @@ class AjaxModifCtto{
 		$respuesta = ControladorModifCtto::ctrBuscaCodCuotas();
 		echo json_encode($respuesta);
 	}//ajaxBuscaCodCuotas
+	public function ajaxBuscaCodInteres(){
+		$respuesta = ControladorModifCtto::ctrBuscaCodInteres();
+		echo json_encode($respuesta);
+	}//ajaxBuscaCodInteres
 }//class AjaxModifCtto
 /*=============================================
 ACCIONES
@@ -207,4 +211,8 @@ else if(isset($_POST["accion"]) && $_POST["accion"] == 'beneficiarios'){
 else if(isset($_POST["accion"]) && $_POST["accion"] == 'codCuotas'){
 	$cliente = new AjaxModifCtto();
 	$cliente -> ajaxBuscaCodCuotas();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'codInteres'){
+	$cliente = new AjaxModifCtto();
+	$cliente -> ajaxBuscaCodInteres();
 }

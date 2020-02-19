@@ -223,5 +223,14 @@ class ModeloModifCtto{
         $db->cerrar();
 	}//function mdlBuscaCodCuotas
 
+	static public function mdlBuscaCodInteres($tablaInt,$datos){
+		$db = new Conexion();
+		$sql = $db->consulta("SELECT cod_interes FROM $tablaInt WHERE num_valor = $datos");
+		$datos = arrayMapUtf8Encode($db->recorrer($sql));
+		return $datos;
+		$db->liberar($sql);
+        $db->cerrar();
+	}//function mdlBuscaCodInteres
+
 }//class ModeloModifCtto
 ?>

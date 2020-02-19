@@ -231,5 +231,12 @@ class ControladorModifCtto{
 		return $respuesta;
 	}// function ctrBuscaCodCuotas
 
+	static public function ctrBuscaCodInteres(){
+		$tablaInt = 'vtama_interes';
+		$datos =  $_POST['num_valor'];
+		$respuesta = ModeloModifCtto::mdlBuscaCodInteres($tablaInt,$datos);
+		return $respuesta;
+	}// function ctrBuscaCodInteres
+
 }//class ControladorModifCtto
 ?>
