@@ -1494,7 +1494,7 @@
 												</div>
 												<div class="col-lg-6">
 													<label> N° de cuotas:</label>
-													<select class="form-control form-control-sm m-select2 m-select2-general" name="numCuoCronograma" id="numCuoCronograma" style="width: 100%">
+													<select  data-tags="true" class="form-control form-control-sm m-select2 m-select2-general" name="numCuoCronograma" id="numCuoCronograma" style="width: 100%">
 														<option>
 															Seleccione... 
 														</option>
@@ -1661,7 +1661,7 @@
 												</div>
 												<div class="col-lg-4">
 													<label>N° Cuotas</label>
-													<select class="form-control form-control-sm m-select2 m-select2-general" name="nCuotasFOMA" id="nCuotasFOMA" style="width: 100%">
+													<select  data-tags="true" class="form-control form-control-sm m-select2 m-select2-general" name="nCuotasFOMA" id="nCuotasFOMA" style="width: 100%">
 														<option>
 														Seleccione... 
 														</option>
