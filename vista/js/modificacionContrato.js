@@ -350,27 +350,28 @@ function muestraInfo(id){
 }//muestraInfo
 
 $("#numCuoCronograma").on('change',function(){
+    var num = $(this).value;
     $.ajax({
         url: 'ajax/modifCtto.ajax.php',
         dataType: 'json',
         method: "POST",
-        data: { 'accion' : 'codCuotas', 'num_cuotas' : $(this).value },
+        data: { 'accion' : 'codCuotas', 'num_cuotas' : num },
         success : function(respuesta){
             $("#codCuotaModif").val(respuesta);
         }//success
     });//ajax
 });
-$("#nCuotasFOMA").on('change',function(){
-    $.ajax({
-        url: 'ajax/modifCtto.ajax.php',
-        dataType: 'json',
-        method: "POST",
-        data: { 'accion' : 'codCuotas', 'num_cuotas' : $(this).value },
-        success : function(respuesta){
-            $("#codCuotaFOMAModif").val(respuesta);
-        }//success
-    });//ajax
-});
+// $("#nCuotasFOMA").on('change',function(){
+//     $.ajax({
+//         url: 'ajax/modifCtto.ajax.php',
+//         dataType: 'json',
+//         method: "POST",
+//         data: { 'accion' : 'codCuotas', 'num_cuotas' : $(this).value },
+//         success : function(respuesta){
+//             $("#codCuotaFOMAModif").val(respuesta);
+//         }//success
+//     });//ajax
+// });
 
 function buscaDscto(){
 	var codCtto = $("#codContrato").val();
@@ -1902,9 +1903,9 @@ function llenaDatosCliente(codCli,tab){
 
 //     });
 
-//     // ls_det_servicios = Trim(Mid(ls_det_servicios, 1, Len(Trim(ls_det_servicios)) - 1))
-//     // ls_num_servicio_getrow = dw_det_num_servicio.GetItemString(dw_det_num_servicio.GetRow(), "num_servicio")
-//     // ls_tipo_servicio_getrow = dw_det_num_servicio.GetItemString(dw_det_num_servicio.GetRow(), "cod_tipo_servicio")
+    // ls_det_servicios = Trim(Mid(ls_det_servicios, 1, Len(Trim(ls_det_servicios)) - 1))
+    // ls_num_servicio_getrow = dw_det_num_servicio.GetItemString(dw_det_num_servicio.GetRow(), "num_servicio")
+    // ls_tipo_servicio_getrow = dw_det_num_servicio.GetItemString(dw_det_num_servicio.GetRow(), "cod_tipo_servicio")
      
 //     // // -- Cambio Titular ?? -- //
 
