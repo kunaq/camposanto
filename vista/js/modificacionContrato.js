@@ -294,7 +294,7 @@ function muestraInfo(id){
             $("#numCuoCronograma").trigger('change');
         	$("#fchVenCronograma").val(respuesta['fch_primer_vencimiento']);
         	$("#interesCronograma").val(respuesta['imp_interes']);
-            $("#interesCronograma")trigger('change');
+            $("#interesCronograma").trigger('change');
         	$("#codCobrador").val(respuesta['cod_cobrador']).trigger('change');
         	$("#codSupervisor").val(respuesta['cod_supervisor']).trigger('change');
         	$("#codJefeVentas").val(respuesta['cod_jefeventas']).trigger('change');
