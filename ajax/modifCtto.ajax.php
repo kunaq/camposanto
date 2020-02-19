@@ -52,7 +52,11 @@ class AjaxModifCtto{
 	}//ajaxBuscaEndXCtto
 	public function ajaxBuscaCliente(){
 		$respuesta = ControladorModifCtto::ctrBuscaCliente();
-		$respuesta["fch_nacimiento"] = ($respuesta["fch_nacimiento"] != '') ? dateFormat($respuesta["fch_nacimiento"]) : '';
+		if($respuesta["fch_nacimiento"] != ''){
+			$respuesta["fch_nacimiento"] = dateFormat($respuesta["fch_nacimiento"]);
+		}else{
+			$respuesta["fch_nacimiento"] = '';
+		}
 		echo json_encode($respuesta);
 	}//ajaxBuscaCliente
 	public function ajaxBuscaCronograma(){
