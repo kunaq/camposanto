@@ -1765,8 +1765,8 @@ function modificaCtto(){
     var ls_cliente = $("#codCliTitular").val();
     var ls_cliente_alterno = $("#codCliTitular2").val();
     var ls_aval = $("#codAval").val();
-    var is_principal = ;
-    var is_ds = ;
+    var is_principal = $("#is_principal_"+ls_num_servicio_det).val();
+    var is_ds = $("#is_ds_"+ls_num_servicio_det).val();
 
     // -- Inicializar -- // 
 
