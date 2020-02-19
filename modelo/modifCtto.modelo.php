@@ -18,7 +18,6 @@ class ModeloModifCtto{
 	static public function mdlBuscaDatosServicio($tablaCtto,$tablaEnt,$tablaTipoSvcio,$tablaViServ,$codCtto,$num_servicio){
 		$db = new Conexion();
 		$sql = $db->consulta("SELECT $tablaCtto.*, $tablaEnt.dsc_entidad, $tablaTipoSvcio.dsc_tipo_servicio, $tablaTipoSvcio.cod_tipo_servicio, $tablaViServ.flg_principal FROM $tablaCtto LEFT JOIN $tablaEnt ON $tablaEnt.cod_entidad = $tablaCtto.cod_convenio INNER JOIN $tablaTipoSvcio ON $tablaTipoSvcio.cod_tipo_servicio = $tablaCtto.cod_tipo_servicio LEFT JOIN $tablaViServ ON ($tablaViServ.cod_contrato = $tablaCtto.cod_contrato AND $tablaViServ.num_servicio = $tablaCtto.num_servicio) WHERE $tablaCtto.cod_contrato LIKE (RIGHT('0000000000'+'$codCtto',10)) AND $tablaCtto.num_servicio = $num_servicio");
-		echo "SELECT $tablaCtto.*, $tablaEnt.dsc_entidad, $tablaTipoSvcio.dsc_tipo_servicio, $tablaTipoSvcio.cod_tipo_servicio, $tablaViServ.flg_principal FROM $tablaCtto LEFT JOIN $tablaEnt ON $tablaEnt.cod_entidad = $tablaCtto.cod_convenio INNER JOIN $tablaTipoSvcio ON $tablaTipoSvcio.cod_tipo_servicio = $tablaCtto.cod_tipo_servicio LEFT JOIN $tablaViServ ON ($tablaViServ.cod_contrato = $tablaCtto.cod_contrato AND $tablaViServ.num_servicio = $tablaCtto.num_servicio) WHERE $tablaCtto.cod_contrato LIKE (RIGHT('0000000000'+'$codCtto',10)) AND $tablaCtto.num_servicio = $num_servicio";
 		$datos = arrayMapUtf8Encode($db->recorrer($sql));
 		return $datos;
 		$db->liberar($sql);
