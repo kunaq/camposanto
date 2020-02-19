@@ -235,6 +235,7 @@ class ModeloModifCtto{
 	static public function mdlBuscaCtdBenef($tabla,$localidad,$codCtto,$tipoCtto,$tipoProg){
 		$db = new Conexion();
 		$sql = $db->rows("SELECT * FROM $tabla WHERE cod_localidad = $localidad AND cod_tipo_ctt = $tipoCtto AND cod_tipo_programa = $tipoProg AND cod_contrato = $codCtto");
+		echo "SELECT * FROM $tabla WHERE cod_localidad = $localidad AND cod_tipo_ctt = $tipoCtto AND cod_tipo_programa = $tipoProg AND cod_contrato = $codCtto";
 		return $sql;
 		$db->liberar($sql);
         $db->cerrar();
