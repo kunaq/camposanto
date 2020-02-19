@@ -284,7 +284,7 @@ function muestraInfo(id){
                     }
                     var fila2 = '<tr name="'+respuesta['num_servicio']+'" style="'+color+'">'+
                         '<td class="text-center">'+respuesta['num_servicio']+
-                        '<td class="text-right">'+Number(respuesta['imp_saldofinanciar']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'<input type="hidden" id="is_principal_'+respuesta['num_servicio']+'" value="'+value['flg_principal']+'"><input type="hidden" id="is_ds_'+respuesta['num_servicio']+'" value="'+value['flg_derecho_sepultura']+'"></td>'+
+                        '<td class="text-right">'+Number(respuesta['imp_saldofinanciar']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'<input type="hidden" id="is_principal_'+respuesta['num_servicio']+'" value="'+respuesta['flg_principal']+'"><input type="hidden" id="is_ds_'+respuesta['num_servicio']+'" value="'+respuesta['flg_derecho_sepultura']+'"></td>'+
                     '</tr>';
                     document.getElementById("bodyServicioVin").insertAdjacentHTML("beforeEnd" ,fila2);
                     document.getElementById("totalServicioVin").innerText = Number(respuesta['imp_saldofinanciar']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
