@@ -1481,7 +1481,6 @@
 																</table>
 															</div>
 														</div>
-														</div>
 													</div>
 												</fieldset>
 											</div>
