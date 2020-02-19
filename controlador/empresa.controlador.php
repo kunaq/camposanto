@@ -86,4 +86,9 @@ class ControladorEmpresa{
 		return $respuesta;
 	}
 
+	static public function ctrnumCuotas(){
+		$respuesta = ModeloEmpresa::mdlnumCuotas();
+		return $respuesta;
+	}
+
 }//class ControladorPlantilla

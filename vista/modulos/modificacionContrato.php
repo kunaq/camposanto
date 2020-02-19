@@ -1499,7 +1499,7 @@
 															Seleccione... 
 														</option>
 														<?php
-						 						 			$prueba=controladorEmpresa::mdlnumCuotas();
+						 						 			$prueba=controladorEmpresa::ctrnumCuotas();
 														  ?> 
 													</select>
 												</div>
