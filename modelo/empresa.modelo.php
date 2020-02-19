@@ -165,7 +165,7 @@ class ModeloEmpresa{
 
         $db = new Conexion();                                             
 
-                $sql = $db->consulta("SELECT * FROM vtama_cuota WHERE flg_activo = 'SI");
+                $sql = $db->consulta("SELECT * FROM vtama_cuota WHERE flg_activo = 'SI'");
 
                 $datos = array();
 
