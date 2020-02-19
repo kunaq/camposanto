@@ -124,7 +124,7 @@ class AjaxModifCtto{
 		$respuesta = ControladorModifCtto::ctrBuscaCodInteres();
 		echo json_encode($respuesta);
 	}//ajaxBuscaCtdBenef
-	public function ajaxBuscaCodInteres(){
+	public function ajaxBuscaCtdBenef(){
 		$respuesta = ControladorModifCtto::ctrBuscaCtdBenef();
 		echo json_encode($respuesta);
 	}//ajaxBuscaCtdBenef
