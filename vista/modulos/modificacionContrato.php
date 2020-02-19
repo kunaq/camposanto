@@ -287,7 +287,7 @@
 														</div>
 														<div class="col-lg-4">
 															<span data-toggle="modal" data-target="#m_modal_auditoria_contrato">
-																<button type="button" id="btn2Com" class="btn btn-sm btnGuardarKqPst mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Auditoria del contrato">
+																<button type="button" class="btn btn-sm btnGuardarKqPst mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Auditoria del contrato">
 																	<i class="fa fa-eye"></i>
 																</button>
 															</span>
@@ -655,15 +655,15 @@
 														<input type="text" class="form-control form-control-sm m-input" name="emailTitular" id="emailTitular" disabled>
 													</div>
 													<div class="col-lg-3" style="text-align: center;">
-														<button type="button" id="btn2Com" class="btn btn-sm btnEditarKqPst2 mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Datos del cliente" onclick="">
+														<button type="button" class="btn btn-sm btnEditarKqPst2 mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Datos del cliente" onclick="">
 															<i class="fa fa-user-o"></i>
 														</button>
 														<span data-toggle="modal" data-target="#m_modal_2">
-															<button type="button" id="btn2Com" class="btn btn-sm btnGuardarKqPst mt25"data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar cliente" onclick="creaTablaCliente('titularModif');">
+															<button type="button" class="btn btn-sm btnGuardarKqPst mt25"data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar cliente" onclick="creaTablaCliente('titularModif');">
 																<i class="fa fa-search"></i>
 															</button>
 														</span>
-														<button type="button" id="btn2Com" class="btn btn-sm btnThird mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Cambiar titular" onclick="">
+														<button type="button" class="btn btn-sm btnThird mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Cambiar titular" onclick="">
 															<i class="fa fa-exchange"></i>
 														</button>
 													</div>
@@ -757,7 +757,7 @@
 													</div>
 													<div class="col-lg-5">
 														<span data-toggle="modal" data-target="#m_modal_2">
-															<button type="button" id="btn2Com" class="btn btn-sm btnGuardarKqPst mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar cliente" onclick="creaTablaCliente('segTitularModif');">
+															<button type="button" class="btn btn-sm btnGuardarKqPst mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar cliente" onclick="creaTablaCliente('segTitularModif');">
 																<i class="fa fa-search"></i>
 															</button>
 														</span>
@@ -923,7 +923,7 @@
 													</div>
 													<div class="col-lg-5">
 														<span data-toggle="modal" data-target="#m_modal_2">
-															<button type="button" id="btn2Com" class="btn btn-sm btnGuardarKqPst mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar aval" onclick="creaTablaCliente('avalModif');">
+															<button type="button" class="btn btn-sm btnGuardarKqPst mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar aval" onclick="creaTablaCliente('avalModif');">
 																<i class="fa fa-search"></i>
 															</button>
 														</span>

@@ -139,12 +139,15 @@ function llenaDatos(codCtto){
             $("#contAnuFecha").val(respuesta[0]['fch_anulacion']);
             $("#contResVendedor").val(respuesta[0]['cod_usuario_resolucion']);
             $("#contResFecha").val(respuesta[0]['fch_resolucion']);
+            $("#codTipoContrato").val(respuesta[0]['cod_tipo_contrato']),
             var fch_emision = fechaParaConsulta(respuesta[0]['fch_emision']);
             var auditEmi = buscaDatosPeriodo(fch_emision,'Emi');
             var fch_activacion = fechaParaConsulta(respuesta[0]['fch_activacion']);
             var auditAct = buscaDatosPeriodo(fch_activacion,'Act');
             var fch_resolucion = fechaParaConsulta(respuesta[0]['fch_resolucion']);
             var auditRes = buscaDatosPeriodo(fch_resolucion,'Res');
+            $("#fchEmision").val(respuesta[0]['fch_emision']);
+            $("#fchActivacion").val(respuesta[0]['fch_activacion']);
             $("#codCampoContrato").val(respuesta[0]['cod_camposanto_actual']);
             $("#codPlatContrato").val(respuesta[0]['cod_plataforma_actual']);
             $("#codAreaContrato").val(respuesta[0]['cod_areaplataforma_actual']);
@@ -158,6 +161,8 @@ function llenaDatos(codCtto){
         	$("#ejeVContrato").val(respuesta[0]['cod_ejevertical_actual']);
         	$("#espacioContrato").val(respuesta[0]['cod_espacio_actual']);
             $("#flg_ctt_integral").val(respuesta[0]['flg_ctt_integral']);
+            $("#flgResuelto").val(respuesta[0]['flg_resuelto']);
+            $("#flg_activado").val(respuesta[0]['flg_activado']);
             $("#tipoNecCtto").val(respuesta[0]['cod_tipo_necesidad']);
             if(respuesta[0]['cod_tipo_necesidad'] == 'NI'){
                 $("#tabAval").attr('hidden',false);
@@ -193,12 +198,18 @@ function llenaDatos(codCtto){
                     '<input type="hidden" id="flg_activado_'+value['num_servicio']+'" value="'+value['flg_activado']+'">'+
                     '<input type="hidden" id="flg_anulado_'+value['num_servicio']+'" value="'+value['flg_anulado']+'">'+
                     '<input type="hidden" id="flg_resuelto_'+value['num_servicio']+'" value="'+value['flg_resuelto']+'">'+
+                    '<input type="hidden" id="cod_tipo_servicio_'+value['num_servicio']+'" value="'+value['cod_tipo_servicio']+'">'+
 				'</tr>';
 				document.getElementById("bodyDetCttoModif").insertAdjacentHTML("beforeEnd" ,fila);
                 if (respuesta[0]['flg_ctt_integral'] == 'SI') {
-                    var fila2 = '<tr name="'+value['num_servicio']+'">'+
+                    if(value['flg_principal'] == 'SI'){
+                        color = 'blue';
+                    }else{
+                        color = 'black';
+                    }
+                    var fila2 = '<tr name="'+value['num_servicio']+'" style="'+color+'">'+
                         '<td class="text-center">'+value['num_servicio']+
-                        '<td class="text-right">'+Number(value['imp_saldofinanciar']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });+'</td>'+
+                        '<td class="text-right">'+Number(value['imp_saldofinanciar']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });+'<input type="hidden" id="is_principal_'+value['num_servicio']+'" value="'+value['flg_principal']+'"><input type="hidden" id="is_ds_'+value['num_servicio']+'" value="'+value['flg_derecho_sepultura']+'"></td>'+
                     '</tr>';
                     document.getElementById("bodyServicioVin").insertAdjacentHTML("beforeEnd" ,fila2);
                     document.getElementById("totalServicioVin").innerText = Number(totalVin).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
@@ -266,9 +277,14 @@ function muestraInfo(id){
             // console.log($("#flg_ctt_integral").val());
             if ($("#flg_ctt_integral").val() == 'NO') {
                     $("#bodyServicioVin").empty();
-                    var fila2 = '<tr name="'+respuesta['num_servicio']+'">'+
+                    if(value['flg_principal'] == 'SI'){
+                        color = 'blue';
+                    }else{
+                        color = 'black';
+                    }
+                    var fila2 = '<tr name="'+respuesta['num_servicio']+'" style="'+color+'">'+
                         '<td class="text-center">'+respuesta['num_servicio']+
-                        '<td class="text-right">'+Number(respuesta['imp_saldofinanciar']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+                        '<td class="text-right">'+Number(respuesta['imp_saldofinanciar']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'<input type="hidden" id="is_principal_'+respuesta['num_servicio']+'" value="'+value['flg_principal']+'"><input type="hidden" id="is_ds_'+respuesta['num_servicio']+'" value="'+value['flg_derecho_sepultura']+'"></td>'+
                     '</tr>';
                     document.getElementById("bodyServicioVin").insertAdjacentHTML("beforeEnd" ,fila2);
                     document.getElementById("totalServicioVin").innerText = Number(respuesta['imp_saldofinanciar']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
@@ -956,13 +972,15 @@ function guardaBenef(){
   					'<input type="hidden" id="idBenef" value="'+numDoc+'"><input type="hidden" id="registro_'+numDoc+'" value="'+registro+'">'+
   					'</td></tr>';
   document.getElementById("bodyBeneficiarioM").insertAdjacentHTML("beforeEnd" ,muestra);
-
-  swal({
-        title: "",
-        text: "Beneficiario añadido.",
-        type: "success",
-        confirmButtonText: "Aceptar",
-    })
+  var valida = validaCamposBeneficiario();
+  if(valida == 1){
+      swal({
+            title: "",
+            text: "Beneficiario añadido.",
+            type: "success",
+            confirmButtonText: "Aceptar",
+        })
+    }
 
   limpiaydsi(); 
 }
@@ -987,6 +1005,77 @@ function eliminaBenef(id){
 function borrarBenef(id){
   document.getElementById(id).remove();
   limpiaydsi();
+}
+
+function validaCamposBeneficiario(){
+
+    var ls_ape_paterno = $("#apePatBenef").val();
+    var ls_ape_materno = $("#apeMatBenef").val();
+    var ls_nombre = $("#nombreBenef").val();
+    var ls_tipo_doc = $("#tipoDocBenef").val();
+    var ls_num_doc = $("#numDocBenef").val();
+    var ldt_fch_nac = $("#fchNacBenef").datepicker("getDate");
+    if( ls_ape_paterno == null || ls_ape_paterno == ''){
+            swal({
+                title: "",
+                text: "Debe ingresar el apellido paterno del beneficiario ",
+                type: "warning",
+                confirmButtonText: "Aceptar",
+            })
+           return;
+        }
+                   
+
+        if( ls_ape_materno == null || ls_ape_materno == ''){
+            swal({
+                title: "",
+                text: "Debe ingresar el apellido materno del beneficiario ",
+                type: "warning",
+                confirmButtonText: "Aceptar",
+            })
+           return;
+        }
+
+        if( ls_nombre == null || ls_nombre == ''){
+            swal({
+                title: "",
+                text: "Debe ingresar el nombre del beneficiario ",
+                type: "warning",
+                confirmButtonText: "Aceptar",
+            })
+           return;
+        }
+
+
+        if( ls_tipo_doc == null || ls_tipo_doc == ''){
+            swal({
+                title: "",
+                text: "Debe seleccionar el tipo de documento del beneficiario ",
+                type: "warning",
+                confirmButtonText: "Aceptar",
+            })
+           return;
+        }
+
+        if( ls_num_doc == null || ls_num_doc == ''){
+            swal({
+                title: "",
+                text: "Debe ingresar número de documento del beneficiario ",
+                type: "warning",
+                confirmButtonText: "Aceptar",
+            })
+           return;
+        }
+       
+        if( ldt_fch_nac == null || ldt_fch_nac == '' || ldt_fch_nac == '00/00/0000'){
+            swal({
+                title: "",
+                text: "Debe ingresar la fecha de nacimiento del beneficiario ",
+                type: "warning",
+                confirmButtonText: "Aceptar",
+            })
+           return;
+        }
 }
 
 function activaEditaBenef(id){
@@ -1052,14 +1141,15 @@ function guardaEdicionB(id){
   var muestra = '<tr onclick="verDetalles(event)" id="'+numDoc+'"><td class="'+numDoc+'">'+numDoc+'</td><td class="'+numDoc+'">'+nombre+'</td><td class="'+numDoc+'">'+apellPaterno+' '+apellMaterno+'<input type="hidden" id="idBenef" value="'+numDoc+'"><input type="hidden" id="registro_'+numDoc+'" value="'+registro+'"></td></tr>';
   document.getElementById(id).remove();
   document.getElementById("bodyBeneficiarioM").insertAdjacentHTML("beforeEnd" ,muestra);
-
-  swal({
-        title: "",
-        text: "Beneficiario modificado.",
-        type: "success",
-        confirmButtonText: "Aceptar",
-    })
-
+  var valida = validaCamposBeneficiario();
+  if(valida == 1){
+      swal({
+            title: "",
+            text: "Beneficiario modificado.",
+            type: "success",
+            confirmButtonText: "Aceptar",
+        })
+    }
   limpiaydsi();
 }
 
@@ -1259,15 +1349,6 @@ function masObsv(usuario){
                         '<td><span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger"><input type="checkbox" disabled><span></span></span></td>'+
                     '</tr>';
     tablaObsv.insertAdjacentHTML("beforeEnd" ,filaObsv);
-}
-
-//-------------------------------botones---------------------------------
-
-function anulaCtto(){
-	var activado = $("#flg_activado").val();
-	if (activado == 'SI') {
-		alert('paso');
-	}
 }
 
 //---------------------------limpia formulario------------------------------//
@@ -1593,3 +1674,1080 @@ function llenaDatosCliente(codCli,tab){
         buscaDatosAval(codCli);
     }
 }
+
+
+//-----------------------------------------------------------------------------------------------------//
+//-------------------------------------------Modificacion----------------------------------------------//
+//-----------------------------------------------------------------------------------------------------//
+
+function modificaCtto(){
+
+    var li_valida = 0;
+    var ls_localidad = $("#sedeContrato").val();
+    var ls_contrato = $("#codContrato").val();
+    var ls_tipo_contrato = $("#codTipoContrato").val();
+    var ls_tipo_ctt = $("#modC").val();
+    var ls_tipo_programa = $("#tipoPrograma").val();
+    var ls_num_servicio_det = $("#numServicioSeleccionado").val();
+    var ls_flg_resuelto = $("#flg_resuelto_"+ls_num_servicio_det).val();
+    
+    // -- Otros Datos -- //
+
+    var lde_saldo_financiar_foma = $("#saldoFOMA").val();
+    var lde_saldo_financiar = $("#saldoFinanciar").val();
+    var ldt_fch_emision = $("#fchEmision").val();
+    var ldt_fch_activacion = $("#fchActivacion").val();
+    var aux_dia = fechaHoy.getDate();
+    var aux_mes1 = fechaHoy.setMonth(fechaHoy.getMonth() + 1);
+    var aux_mes = fechaHoy.getMonth();
+    var aux_anio = fechaHoy.getFullYear();
+    if(aux_mes == '0'){
+        aux_mes = '12';
+        aux_anio = fechaHoy.getFullYear()-1;
+    }               
+    var ldt_fch_actual = aux_dia+'/'+aux_mes+'/'+aux_anio;
+    var lde_tot_interes = 0;
+    var li_total_cuotas = 0;
+
+    var ls_cliente = $("#codCliTitular").val();
+    var ls_cliente_alterno = $("#codCliTitular2").val();
+    var ls_aval = $("#codAval").val();
+    var is_principal = ;
+    var is_ds = ;
+
+    // -- Inicializar -- // 
+
+    if(lde_saldo_financiar_foma == null){
+        lde_saldo_financiar_foma = 0;
+    }
+    if(lde_saldo_financiar == null){
+        lde_saldo_financiar = 0;
+    }
+     
+    // -- Valida Datos -- //
+
+    if(ls_localidad == '' || ls_localidad == null){
+
+        swal({
+            title: "",
+            text: "Debe seleccionar la localidad",
+            type: "warning",
+            confirmButtonText: "Aceptar",
+        })
+        document.getElementById("sedeContrato").focus();
+        return;
+
+    }
+
+    if(ls_contrato == '' || ls_contrato == null){
+
+        swal({
+            title: "",
+            text: "Debe ingresar el contrato",
+            type: "warning",
+            confirmButtonText: "Aceptar",
+        })
+        document.getElementById("codContrato").focus();
+        return;
+
+    }
+
+    // -- No dejar modificar contratos resueltos o retirados -- //
+
+    if(ls_flg_resuelto == '' || ls_flg_resuelto == null){
+        ls_flg_resuelto = 'NO';
+    }
+
+    if(ls_flg_resuelto == 'SI'){
+        swal({
+            title: "",
+            text: "No puede hacer cambios en el contrato y servicio seleccionado, esta resuelto o retirado",
+            type: "warning",
+            confirmButtonText: "Aceptar",
+        })
+        return;
+    } 
+
+    if(ls_num_servicio_det == null || ls_num_servicio_det == ''){
+        swal({
+            title: "",
+            text: "Debe seleccionar el servicio",
+            type: "warning",
+            confirmButtonText: "Aceptar",
+        })
+        $('.nav-tabs a[href="#' + tab + '"]').tab('show');
+       return;
+    }
+
+    // -- Valida Cronograma y FOMA -- //
+
+    if( is_principal == 'SI'){ 
+
+        if(document.getElementById("bodyCronogramaModif").rows.length<= 0 && lde_saldo_financiar >= 0.01){
+
+            swal({
+                title: "",
+                text: "Debe generar el cronograma de pagos del contrato",
+                type: "warning",
+                confirmButtonText: "Aceptar",
+            })
+            return;
+
+        }else{
+
+           if( is_ds == 'SI' ){                                            
+
+               if( document.getElementById("bodyCronogramaFomaModif").rows.length < 1 && lde_saldo_financiar_foma >= 0.01){ 
+
+                    swal({
+                        title: "",
+                        text: "Debe generar el cronograma de pagos del FOMA",
+                        type: "warning",
+                        confirmButtonText: "Aceptar",
+                    })                  
+                   return;
+                            
+               }
+                        
+           }
+                      
+        }
+    }
+
+    largoObsv = document.getElementById("bodyObservaciones").rows.length;
+    for(li_i = 0; li_i < largoObsv ; li_i++){         
+        ls_observacion = $("#obsv"+li_i).val();
+        if( ls_observacion == null || ls_observacion == ''){
+            swal({
+                title: "",
+                text: "Debe ingresar las observaciones",
+                type: "warning",
+                confirmButtonText: "Aceptar",
+            })
+           return;
+        }
+    }
+
+    // -- Datos -- //
+
+    var ls_convenio = $("#convenio").val(); 
+    var ls_interes = $("#interesCronograma").val();
+    var ls_cuota = $("#numCuoCronograma").val();
+    var ldt_fch_venc = $("#fchVenCronograma").val();
+    var ls_cuota_foma = $("#nCuotasFOMA").val();
+    var ldt_fch_venc_foma = $("#fchVenCronoFOMA").datepicker("getDate");
+    var ls_flg_agencia = $("#AgFunCheck").prop('checked');
+    if(ls_flg_agencia){
+        ls_flg_agencia = 'SI';
+    }else{
+        ls_flg_agencia = 'NO';
+    }
+    var ls_agencia =  $("#codFuneraria").val();
+    var ls_vendedor = $("#codVendedor").val();
+    var ls_supervisor = $("#codSupervisor").val();
+    var ls_jefe = $("#codJefeVentas").val();
+    var ls_grupo = $("#codGrupo").val();
+    var ls_canal = $("#canalVentaModif").val();
+    var ls_tipo_comisionista = $("#codTipoComisionista").val();
+    var ls_cod_cobrador =$("#codCobrador").val();
+    var ls_zona = ''; //--------------------------------------------------------------??
+
+    if(ls_flg_agencia == 'SI'){
+        if(ls_agencia == null || ls_agencia == ''){}
+            swal({
+                title: "",
+                text: "Debe seleccionar la agencia funeraria.",
+                type: "warning",
+                confirmButtonText: "Aceptar",
+            })
+            return;
+            $("#codFuneraria").focus();
+        }
+    }
+
+    // -- Detalle de Servicios -- // 
+
+    var li_tot = 0;
+    var container = document.querySelector('#bodyServicioVin');
+    container.querySelectorAll('tr').forEach(function (li_i) 
+    {            
+        var ls_servicio_add = $(li_i).attr("name");
+        ls_det_servicios = ls_det_servicios + ls_servicio_add + " - ";
+        li_tot = li_tot + 1;
+
+    });
+
+    // ls_det_servicios = Trim(Mid(ls_det_servicios, 1, Len(Trim(ls_det_servicios)) - 1))
+    // ls_num_servicio_getrow = dw_det_num_servicio.GetItemString(dw_det_num_servicio.GetRow(), "num_servicio")
+    // ls_tipo_servicio_getrow = dw_det_num_servicio.GetItemString(dw_det_num_servicio.GetRow(), "cod_tipo_servicio")
+     
+    // // -- Cambio Titular ?? -- //
+
+    // SELECT  vtama_tipo_servicio.flg_cambio_titular
+    // INTO                     :ls_cambio_titular
+    // FROM                   vtama_tipo_servicio
+    // WHERE vtama_tipo_servicio.cod_tipo_servicio = :ls_tipo_servicio_getrow 
+
+    if( ls_cambio_titular == null || ls_cambio_titular == '' ){
+        ls_cambio_titular = 'NO';
+    }
+
+    if( ls_cambio_titular == 'SI'){
+
+        swal({
+            title: "",
+            text: "El servicio por cambio de titular no puede ser emitido desde esta opción. <br><a href='cambioTitular' type='button' class='btn btn-sm btnEditarKqPst2 mt25' target='_blank'>Cambio de titular</a>",
+            type: "warning",
+            confirmButtonText: "Aceptar",
+        })
+        return;
+
+    }
+
+    // -- Emisión -- //
+
+    if( ldt_fch_emision == null || ldt_fch_emision = ''){               
+
+        if( li_tot > 1){
+
+            swal({
+                title: "",
+                text: "¿Seguro que desea emitir los servicios ["+ls_det_servicios+"]?",
+                type: "warning",
+                confirmButtonText: "Aceptar",
+                showCancelButton: true,
+                cancelButtonText: 'Cancelar',
+                reverseButtons: true
+            }).then((result) => {
+              if (result.value) {
+                continue;
+              } else if (
+                result.dismiss === Swal.DismissReason.cancel
+              ) {
+                return;
+              }
+            })
+
+        }else{
+
+            swal({
+                title: "",
+                text: "¿Seguro que desea emitir el servicio ["+ls_det_servicios+"]?",
+                type: "warning",
+                confirmButtonText: "Aceptar",
+                showCancelButton: true,
+                cancelButtonText: 'Cancelar',
+                reverseButtons: true
+            }).then((result) => {
+              if (result.value) {
+                continue;
+              } else if (
+                result.dismiss === Swal.DismissReason.cancel
+              ) {
+                return;
+              }
+            })
+
+        }
+
+    }else{
+
+        swal({
+                title: "",
+                text: "¿Seguro que desea modificar los datos del contrato?",
+                type: "warning",
+                confirmButtonText: "Aceptar",
+                showCancelButton: true,
+                cancelButtonText: 'Cancelar',
+                reverseButtons: true
+            }).then((result) => {
+              if (result.value) {
+                continue;
+              } else if (
+                result.dismiss === Swal.DismissReason.cancel
+              ) {
+                return;
+              }
+            })
+    }
+
+    // -- Numero de Cuotas -- //
+
+
+    // SELECT  vtama_cuota.num_cuotas
+    // INTO                     :li_cuotas
+    // FROM                   vtama_cuota
+    // WHERE vtama_cuota.cod_cuota = :ls_cuota
+    // USING SQLCA;
+
+    // f_verifica_transaccion(SQLCA)
+
+    // SELECT  vtama_cuota.num_cuotas
+    // INTO                     :li_cuotas_foma
+    // FROM                   vtama_cuota
+    // WHERE vtama_cuota.cod_cuota = :ls_cuota_foma
+    // USING SQLCA;
+
+    // f_verifica_transaccion(SQLCA) 
+
+    // // -- Valor Interes -- // 
+
+    // SELECT  vtama_interes.num_valor
+    // INTO                     :lde_tasa
+    // FROM                   vtama_interes
+    // WHERE vtama_interes.cod_interes = :ls_interes
+    // USING SQLCA;
+
+    // f_verifica_transaccion(SQLCA)
+
+    // // -- Num Ref -- //
+
+    // SELECT  vtade_contrato.num_refinanciamiento, vtade_contrato.num_servicio_foma
+    // INTO                     :li_ref, :ls_servicio_foma
+    // FROM                   vtade_contrato
+    // WHERE vtade_contrato.cod_localidad = :ls_localidad
+    // AND                      vtade_contrato.cod_tipo_ctt = :ls_tipo_ctt
+    // AND                      vtade_contrato.cod_tipo_programa = :ls_tipo_programa
+    // AND                      vtade_contrato.cod_contrato = :ls_contrato
+    // AND                      vtade_contrato.num_servicio = :ls_num_servicio_getrow
+    // USING SQLCA; 
+
+    // f_verifica_transaccion(SQLCA)
+
+    // // -- Tipo Observ -- //
+
+    // SELECT  vtama_tipo_observacion.cod_tipo_observacion
+    // INTO                     :ls_tipo
+    // FROM                   vtama_tipo_observacion
+    // WHERE vtama_tipo_observacion.flg_default = 'SI'
+    // USING SQLCA; 
+
+    // // -- Max -- //
+
+    // li_max_item = 0
+
+    // SELECT  COUNT(1)
+    // INTO                     :li_max_item
+    // FROM                   vtade_beneficiario_x_contrato
+    // WHERE vtade_beneficiario_x_contrato.cod_localidad = :ls_localidad
+    // AND                      vtade_beneficiario_x_contrato.cod_tipo_ctt = :ls_tipo_ctt
+    // AND                      vtade_beneficiario_x_contrato.cod_tipo_programa = :ls_tipo_programa
+    // AND                      vtade_beneficiario_x_contrato.cod_contrato = :ls_contrato
+    // USING SQLCA;
+
+    // f_verifica_transaccion(SQLCA)
+
+    // If IsNull(li_max_item) Then li_max_item = 0 
+
+    // // -- Seteo -- // 
+
+    // For li_i = 1 To tab_1.tp_3.dw_det_beneficiarios.Rowcount()
+
+    //     li_num_item = tab_1.tp_3.dw_det_beneficiarios.GetItemNumber(li_i, "num_item")
+    //     ls_tipo_doc_b = tab_1.tp_3.dw_det_beneficiarios.GetItemString(li_i, "cod_tipo_documento")
+    //     ls_num_doc_b = tab_1.tp_3.dw_det_beneficiarios.GetItemString(li_i, "dsc_documento")
+    //     ls_estado = tab_1.tp_3.dw_det_beneficiarios.GetItemString(li_i, "cod_estado")
+    //     ls_estado_bd = tab_1.tp_3.dw_det_beneficiarios.GetItemString(li_i, "cod_estado_bd")
+    //     ldt_fch_baja = tab_1.tp_3.dw_det_beneficiarios.GetItemDatetime(li_i, "fch_baja")
+    //     ldt_fch_baja_bd = tab_1.tp_3.dw_det_beneficiarios.GetItemDatetime(li_i, "fch_baja_bd")
+    //     ldt_fch_alta = tab_1.tp_3.dw_det_beneficiarios.GetItemDatetime(li_i, "fch_alta")
+    //     ldt_fch_alta_bd = tab_1.tp_3.dw_det_beneficiarios.GetItemDatetime(li_i, "fch_alta_bd")
+
+    //     // -- Ingreso de observaciones automaticas -- //            
+
+    //     If f_sys_valida_ingreso_datos(String(li_num_item), "NUM") = False Then
+
+    //        ls_texto = "SE INGRESA EL BENEFICIARIO, CON FECHA DE ALTA " + String(ldt_fch_alta, "DD/MM/YYYY")
+
+    //        li_fila = tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.InsertRow(0)
+    //        tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "cod_usuario", gs_usuario)
+    //        tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "fch_registro", ldt_fch_actual)
+    //        tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "cod_tipo_observacion", ls_tipo)
+    //        tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "dsc_observacion", ls_texto)
+    //        tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "cod_tipo_documento", ls_tipo_doc_b)
+    //        tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "dsc_documento", ls_num_doc_b)
+    //        tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "flg_ineditable", "SI")                              
+    //     End If
+
+    //     If f_sys_valida_ingreso_datos(String(ldt_fch_baja_bd), "FEC") = False Then
+
+    //        If f_sys_valida_ingreso_datos(String(ldt_fch_baja), "FEC") Then
+
+    //            ls_texto = "SE INGRESA LA FECHA DE BAJA PARA EL BENEFICIARIO, DE " + String(ldt_fch_baja, "DD/MM/YYYY")                                              
+    //            li_fila = tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.InsertRow(0)
+    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "cod_usuario", gs_usuario)
+    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "fch_registro", ldt_fch_actual)
+    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "cod_tipo_observacion", ls_tipo)
+    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "dsc_observacion", ls_texto)
+    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "cod_tipo_documento", ls_tipo_doc_b)
+    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "dsc_documento", ls_num_doc_b)
+    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "flg_ineditable", "SI")
+
+    //        End If
+
+    //     End If
+       
+    //     If f_sys_valida_ingreso_datos(String(ldt_fch_baja_bd), "FEC") Then
+
+    //        If ldt_fch_baja <> ldt_fch_baja_bd Then
+
+    //            ls_texto = "SE CAMBIA LA FECHA DE BAJA DE " + String(ldt_fch_baja_bd, "DD/MM/YYYY") + " A " + String(ldt_fch_baja, "DD/MM/YYYY")                                              
+    //            li_fila = tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.InsertRow(0)
+    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "cod_usuario", gs_usuario)
+    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "fch_registro", ldt_fch_actual)
+    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "cod_tipo_observacion", ls_tipo)
+    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "dsc_observacion", ls_texto)
+    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "cod_tipo_documento", ls_tipo_doc_b)
+    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "dsc_documento", ls_num_doc_b)
+    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "flg_ineditable", "SI")
+                          
+    //        End If
+                      
+    //     End If
+                
+    //     If f_sys_valida_ingreso_datos(String(ldt_fch_alta_bd), "FEC") Then
+                      
+    //        If ldt_fch_alta <> ldt_fch_alta_bd Then
+
+    //            ls_texto = "SE CAMBIA LA FECHA DE ALTA DE " + String(ldt_fch_alta_bd, "DD/MM/YYYY") + " A " + String(ldt_fch_alta, "DD/MM/YYYY")
+              
+    //            li_fila = tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.InsertRow(0)
+    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "cod_usuario", gs_usuario)
+    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "fch_registro", ldt_fch_actual)
+    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "cod_tipo_observacion", ls_tipo)
+    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "dsc_observacion", ls_texto)
+    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "cod_tipo_documento", ls_tipo_doc_b)
+    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "dsc_documento", ls_num_doc_b)
+    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "flg_ineditable", "SI")
+                          
+    //        End If
+                      
+    //     End If
+
+    //     If f_sys_valida_ingreso_datos(ls_estado_bd, "TEX") Then
+                      
+    //        If ls_estado <> ls_estado_bd Then
+                          
+    //            If ls_estado_bd = 'VIG' Then ls_dsc_estado_bd = 'VIGENTE'
+    //            If ls_estado_bd = 'BAJ' Then ls_dsc_estado_bd = 'BAJA'
+    //            If ls_estado = 'VIG' Then ls_dsc_estado = 'VIGENTE'
+    //            If ls_estado = 'BAJ' Then ls_dsc_estado = 'BAJA'
+              
+    //            ls_texto = 'SE CAMBIA EL ESTADO DEL BENEFICIARIO DE "' + ls_dsc_estado_bd + '" A "' + ls_dsc_estado + "'"
+              
+    //            li_fila = tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.InsertRow(0)
+    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "cod_usuario", gs_usuario)
+    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "fch_registro", ldt_fch_actual)
+    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "cod_tipo_observacion", ls_tipo)
+    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "dsc_observacion", ls_texto)
+    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "cod_tipo_documento", ls_tipo_doc_b)
+    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "dsc_documento", ls_num_doc_b)
+    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "flg_ineditable", "SI")
+                          
+    //        End If
+                      
+    //     End If
+
+    //     // -- Llave -- //
+       
+    //     If IsNull(li_num_item) Or li_num_item = 0 Then
+
+    //        li_max_item = li_max_item + 1
+    //        tab_1.tp_3.dw_det_beneficiarios.SetItem(li_i, "cod_localidad", ls_localidad)
+    //        tab_1.tp_3.dw_det_beneficiarios.SetItem(li_i, "cod_contrato", ls_contrato)
+    //        tab_1.tp_3.dw_det_beneficiarios.SetItem(li_i, "cod_tipo_ctt", ls_tipo_ctt)
+    //        tab_1.tp_3.dw_det_beneficiarios.SetItem(li_i, "cod_tipo_programa", ls_tipo_programa)
+    //        tab_1.tp_3.dw_det_beneficiarios.SetItem(li_i, "num_item", li_max_item)
+    //     End If
+       
+    //     // -- Inicializa -- //
+       
+    //     tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetFilter("")
+    //     tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.Filter()
+       
+    //     // -- Filtrar -- //
+       
+    //     tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetFilter("cod_tipo_documento = '" + ls_tipo_doc_b + "' AND dsc_documento = '" + ls_num_doc_b + "'" )
+    //     tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.Filter()
+                   
+    //     For li_j = 1 To tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.RowCount()
+                      
+    //        // -- Valor -- //
+          
+    //        li_item = tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.GetItemNumber(li_j, "num_item")
+          
+    //        // -- Setea -- //
+          
+    //        tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_j, "cod_localidad", ls_localidad)
+    //        tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_j, "cod_tipo_ctt", ls_tipo_ctt)
+    //        tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_j, "cod_tipo_programa", ls_tipo_programa)
+    //        tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_j, "cod_contrato", ls_contrato)
+    //        tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_j, "num_item", tab_1.tp_3.dw_det_beneficiarios.GetItemNumber(li_i, "num_item"))
+    //        tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_j, "num_linea", li_j)
+                      
+    //        // -- Usuario y fecha -- //
+          
+    //        If f_sys_valida_ingreso_datos(String(li_item), "NUM") = False Then
+          
+    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_j, "cod_usuario", gs_usuario)
+    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_j, "fch_registro", ldt_fch_actual)
+                          
+    //        End If
+                      
+    //     Next
+
+    //     // -- Inicializa -- //
+       
+    //     tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetFilter("")
+    //     tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.Filter()
+                   
+    // Next
+     
+    // // -- Ref -- //
+                   
+    // SELECT  vtade_contrato.num_refinanciamiento
+    // INTO                     :li_ref_aux
+    // FROM                   vtade_contrato
+    // WHERE vtade_contrato.cod_localidad = :ls_localidad
+    // AND                      vtade_contrato.cod_tipo_ctt = :ls_tipo_ctt
+    // AND                      vtade_contrato.cod_tipo_programa = :ls_tipo_programa
+    // AND                      vtade_contrato.cod_contrato = :ls_contrato
+    // AND                      vtade_contrato.num_servicio = :ls_num_servicio_getrow
+    // USING SQLCA;
+     
+    // // -- Cuotas -- //
+
+    // If is_cronograma = 'SI' Then
+                   
+    //     // -- Retorno -- //
+       
+    //     dw_aux.SetTransObject(SQLCA)
+    //     dw_aux.Retrieve(ls_localidad, ls_contrato, ls_num_servicio_getrow, li_ref_aux, ls_tipo_ctt, ls_tipo_programa)
+       
+    //     // -- Borrar -- //
+       
+    //     For li_i = dw_aux.RowCount() To 1 Step -1
+
+    //        ls_tipo_cuota = dw_aux.GetItemString(li_i, "cod_tipo_cuota")
+    //        li_num_cuota = dw_aux.GetItemNumber(li_i, "num_cuota")
+    //        If ls_tipo_cuota + String(li_num_cuota) <> 'CUI0' Then dw_aux.DeleteRow(li_i)
+    //     Next
+                
+    //     // -- Cuotas Ordinarias -- //
+       
+    //     li_tot_cronograma = 0
+       
+    //     For li_i = 1 To tab_1.tp_4.dw_det_cuotas.Rowcount()
+                                      
+    //        li_row = dw_aux.InsertRow(0)
+          
+    //        dw_aux.SetItem(li_row, "cod_localidad", ls_localidad)
+    //        dw_aux.SetItem(li_row, "cod_tipo_ctt", ls_tipo_ctt)
+    //        dw_aux.SetItem(li_row, "cod_tipo_programa", ls_tipo_programa)
+    //        dw_aux.SetItem(li_row, "cod_contrato", ls_contrato)
+    //        dw_aux.SetItem(li_row, "num_refinanciamiento", li_ref)
+    //        dw_aux.SetItem(li_row, "cod_estadocuota", tab_1.tp_4.dw_det_cuotas.GetItemString(li_i, "cod_estadocuota"))
+    //        dw_aux.SetItem(li_row, "cod_tipo_cuota", tab_1.tp_4.dw_det_cuotas.GetItemString(li_i, "cod_tipo_cuota"))
+    //        dw_aux.SetItem(li_row, "fch_vencimiento", tab_1.tp_4.dw_det_cuotas.GetItemDatetime(li_i, "fch_vencimiento"))
+    //        dw_aux.SetItem(li_row, "imp_igv", tab_1.tp_4.dw_det_cuotas.GetItemDecimal(li_i, "imp_igv"))
+    //        dw_aux.SetItem(li_row, "imp_interes", tab_1.tp_4.dw_det_cuotas.GetItemDecimal(li_i, "imp_interes"))
+    //        dw_aux.SetItem(li_row, "imp_principal", tab_1.tp_4.dw_det_cuotas.GetItemDecimal(li_i, "imp_principal"))
+    //        dw_aux.SetItem(li_row, "imp_saldo", tab_1.tp_4.dw_det_cuotas.GetItemDecimal(li_i, "imp_saldo"))
+    //        dw_aux.SetItem(li_row, "imp_total", tab_1.tp_4.dw_det_cuotas.GetItemDecimal(li_i, "imp_total"))
+    //        dw_aux.SetItem(li_row, "num_cuota", tab_1.tp_4.dw_det_cuotas.GetItemNumber(li_i, "num_cuota"))
+    //        dw_aux.SetItem(li_row, "flg_generar_mora", is_flg_generar_moras)
+          
+    //        // -- Total Interes -- //
+          
+    //        lde_tot_interes = lde_tot_interes + tab_1.tp_4.dw_det_cuotas.GetItemDecimal(li_i, "imp_interes")
+          
+    //        // -- Total -- //
+          
+    //        li_tot_cronograma = li_tot_cronograma + 1
+    //        li_total_cuotas = li_total_cuotas + 1
+                      
+    //     Next
+                   
+    //     // -- Inicializa Variables -- //
+       
+    //     ls_localidad_det = ''
+       
+    //     // -- Cronograma FOMA -- //
+
+    //     If IsNull(ls_servicio_foma) = False And Trim(ls_servicio_foma) <> '' Then
+       
+    //        For li_i = 1 To tab_1.tp_5.dw_detalle_cuotas_foma.Rowcount()
+                          
+    //            ls_localidad_det = tab_1.tp_5.dw_detalle_cuotas_foma.GetItemString(li_i, "cod_localidad")
+              
+    //            If IsNull(ls_localidad_det) Or Trim(ls_localidad_det) = '' Then
+                              
+    //                li_row = dw_aux.InsertRow(0)
+                  
+    //                dw_aux.SetItem(li_row, "cod_localidad", ls_localidad)
+    //                dw_aux.SetItem(li_row, "cod_tipo_ctt", ls_tipo_ctt)
+    //                dw_aux.SetItem(li_row, "cod_tipo_programa", ls_tipo_programa)
+    //                dw_aux.SetItem(li_row, "cod_contrato", ls_contrato)
+    //                dw_aux.SetItem(li_row, "num_refinanciamiento", li_ref)
+    //                dw_aux.SetItem(li_row, "cod_estadocuota", tab_1.tp_5.dw_detalle_cuotas_foma.GetItemString(li_i, "cod_estadocuota"))
+    //                dw_aux.SetItem(li_row, "cod_tipo_cuota", tab_1.tp_5.dw_detalle_cuotas_foma.GetItemString(li_i, "cod_tipo_cuota"))
+    //                dw_aux.SetItem(li_row, "fch_vencimiento", tab_1.tp_5.dw_detalle_cuotas_foma.GetItemDatetime(li_i, "fch_vencimiento"))
+    //                dw_aux.SetItem(li_row, "imp_principal", tab_1.tp_5.dw_detalle_cuotas_foma.GetItemDecimal(li_i, "imp_principal"))
+    //                dw_aux.SetItem(li_row, "imp_saldo", tab_1.tp_5.dw_detalle_cuotas_foma.GetItemDecimal(li_i, "imp_saldo"))
+    //                dw_aux.SetItem(li_row, "imp_total", tab_1.tp_5.dw_detalle_cuotas_foma.GetItemDecimal(li_i, "imp_total"))
+    //                dw_aux.SetItem(li_row, "num_cuota", tab_1.tp_5.dw_detalle_cuotas_foma.GetItemDecimal(li_i, "num_cuota") + li_tot_cronograma)
+                  
+    //                li_total_cuotas = li_total_cuotas + 1
+                              
+    //            End If
+                          
+    //        Next
+                      
+    //     End If
+                   
+    // Else
+                   
+    //     dw_aux.SetTransObject(SQLCA)
+    //     dw_aux.Retrieve(ls_localidad, ls_contrato, ls_num_servicio_getrow, li_ref_aux, ls_tipo_ctt, ls_tipo_programa)
+
+    //     // -- FOMA -- //
+       
+    //     If is_cronograma_foma = 'SI' Then
+                      
+    //        // -- Borrar -- //
+
+    //        For li_i = dw_aux.RowCount() To 1 Step -1
+
+    //            ls_tipo_cuota = dw_aux.GetItemString(li_i, "cod_tipo_cuota")
+    //            If ls_tipo_cuota = 'FMA' Then dw_aux.DeleteRow(li_i)
+
+    //        Next
+                      
+    //        li_tot_cronograma = dw_aux.GetItemNumber(dw_aux.Rowcount(), "num_cuota")
+          
+    //        // -- FOMA -- //
+          
+    //        If IsNull(ls_servicio_foma) = False And Trim(ls_servicio_foma) <> '' Then
+
+    //            For li_i = 1 To tab_1.tp_5.dw_detalle_cuotas_foma.Rowcount()
+                              
+    //                ls_localidad_det = tab_1.tp_5.dw_detalle_cuotas_foma.GetItemString(li_i, "cod_localidad")
+                            
+    //                // -- Crea -- //
+                 
+    //                If IsNull(ls_localidad_det) Or Trim(ls_localidad_det) = '' Then
+                                 
+    //                   li_row = dw_aux.InsertRow(0)
+                     
+    //                   dw_aux.SetItem(li_row, "cod_localidad", ls_localidad)
+    //                   dw_aux.SetItem(li_row, "cod_tipo_ctt", ls_tipo_ctt)
+    //                   dw_aux.SetItem(li_row, "cod_tipo_programa", ls_tipo_programa)
+    //                   dw_aux.SetItem(li_row, "cod_contrato", ls_contrato)
+    //                   dw_aux.SetItem(li_row, "num_refinanciamiento", li_ref)
+    //                   dw_aux.SetItem(li_row, "cod_estadocuota", tab_1.tp_5.dw_detalle_cuotas_foma.GetItemString(li_i, "cod_estadocuota"))
+    //                   dw_aux.SetItem(li_row, "cod_tipo_cuota", tab_1.tp_5.dw_detalle_cuotas_foma.GetItemString(li_i, "cod_tipo_cuota"))
+    //                   dw_aux.SetItem(li_row, "fch_vencimiento", tab_1.tp_5.dw_detalle_cuotas_foma.GetItemDatetime(li_i, "fch_vencimiento"))
+    //                   dw_aux.SetItem(li_row, "imp_principal", tab_1.tp_5.dw_detalle_cuotas_foma.GetItemDecimal(li_i, "imp_principal"))
+    //                   dw_aux.SetItem(li_row, "imp_saldo", tab_1.tp_5.dw_detalle_cuotas_foma.GetItemDecimal(li_i, "imp_saldo"))
+    //                   dw_aux.SetItem(li_row, "imp_total", tab_1.tp_5.dw_detalle_cuotas_foma.GetItemDecimal(li_i, "imp_total"))
+    //                   dw_aux.SetItem(li_row, "num_cuota", tab_1.tp_5.dw_detalle_cuotas_foma.GetItemDecimal(li_i, "num_cuota") + li_tot_cronograma)
+                                 
+    //                End If
+                              
+    //            Next
+              
+    //        End If
+                      
+    //     End If
+                   
+    //     // -- Total -- //
+       
+    //     SELECT  MAX(vtade_cronograma.num_cuota)
+    //     INTO                     :li_total_cuotas
+    //     FROM                   vtade_cronograma
+    //     WHERE vtade_cronograma.cod_localidad = :ls_localidad
+    //     AND                      vtade_cronograma.cod_tipo_ctt = :ls_tipo_ctt
+    //     AND                      vtade_cronograma.cod_tipo_programa = :ls_tipo_programa
+    //     AND                      vtade_cronograma.cod_contrato = :ls_contrato
+    //     AND                      vtade_cronograma.num_refinanciamiento = :li_ref
+    //     USING SQLCA;
+       
+    //     If IsNull(li_total_cuotas) Then li_total_cuotas = 0
+                   
+    // End If
+     
+    // // -- Inicializa -- //
+     
+    // lde_tot_interes = 0
+     
+    // // -- Interes -- //
+     
+    // For li_i = 1 To tab_1.tp_4.dw_det_cuotas.Rowcount()                
+
+    //     lde_tot_interes = lde_tot_interes + tab_1.tp_4.dw_det_cuotas.GetItemDecimal(li_i, "imp_interes")
+
+    // Next
+     
+    // // -- Ref -- //
+     
+    // If dw_aux.Rowcount() > 0 Then
+                   
+    //     For li_i = 1 To tab_1.tp_4.dw_det_cuotas.RowCount()
+
+    //        ls_estado = tab_1.tp_4.dw_det_cuotas.GetItemString(li_i, "cod_estadocuota")
+    //        If ls_estado <> 'REG' Then li_valida = li_valida + 1
+
+    //     Next
+       
+    //     // -- Borrar cuota "0" en caso de existir -- //
+                   
+    //     If is_cronograma = 'SI' Then
+
+    //        If is_flg_cronograma_cuoi = 'SI' Then                                            
+    //            DELETE vtade_cronograma
+    //            WHERE vtade_cronograma.cod_localidad = :ls_localidad
+    //            AND                      vtade_cronograma.cod_tipo_ctt = :ls_tipo_ctt
+    //            AND                      vtade_cronograma.cod_tipo_programa = :ls_tipo_programa
+    //            AND                      vtade_cronograma.cod_contrato = :ls_contrato
+    //            AND                      vtade_cronograma.num_refinanciamiento = :li_ref
+    //            AND                      vtade_cronograma.num_cuota <= 0
+    //            AND                      vtade_cronograma.cod_tipo_cuota = 'CUI'
+    //            USING SQLCA;
+            
+    //            If f_verifica_transaccion(SQLCA) = False Then Goto db_error
+                        
+    //        End If
+    //     End If
+       
+    //     If dw_aux.UpDate() <> 1 Then Goto db_error
+                     
+    // End If
+     
+    // // -- Cuota -- //
+     
+    // SELECT  MAX(vtade_cronograma.imp_total)
+    // INTO                     :lde_valor_cuota
+    // FROM                   vtade_cronograma
+    // WHERE vtade_cronograma.cod_localidad = :ls_localidad
+    // AND                      vtade_cronograma.cod_tipo_ctt = :ls_tipo_ctt
+    // AND                      vtade_cronograma.cod_tipo_programa = :ls_tipo_programa
+    // AND                      vtade_cronograma.cod_contrato = :ls_contrato
+    // AND                      vtade_cronograma.num_refinanciamiento = :li_ref
+    // AND                      vtade_cronograma.cod_tipo_cuota = 'ARM'
+    // USING SQLCA;
+     
+    // // -- N° de servicios -- //
+     
+    // For li_i = 1 To tab_1.tp_4.dw_servicio_vin.Rowcount()
+                   
+    //     ls_servicio = tab_1.tp_4.dw_servicio_vin.GetItemString(li_i, "num_servicio")
+       
+    //     // -- Inicializar -- //
+       
+    //     lde_costo_carencia = 0
+       
+    //     // -- Servicio principal -- //               
+
+    //     SELECT  vtade_contrato_servicio.imp_costo_carencia
+    //     INTO                     :lde_costo_carencia
+    //     FROM                   vtade_contrato_servicio
+    //     WHERE vtade_contrato_servicio.cod_localidad = :ls_localidad
+    //     AND                      vtade_contrato_servicio.cod_tipo_ctt = :ls_tipo_ctt
+    //     AND                      vtade_contrato_servicio.cod_tipo_programa = :ls_tipo_programa
+    //     AND                      vtade_contrato_servicio.cod_contrato = :ls_contrato
+    //     AND                      vtade_contrato_servicio.num_servicio = :ls_servicio
+    //     AND                      vtade_contrato_servicio.flg_servicio_principal = 'SI'
+    //     USING SQLCA;
+                   
+    //     // -- Replica Datos -- //
+       
+    //     UPDATE  vtade_contrato
+    //     SET  vtade_contrato.cod_vendedor = :ls_vendedor,
+    //        vtade_contrato.cod_supervisor = :ls_supervisor,
+    //        vtade_contrato.cod_jefeventas = :ls_jefe,
+    //        vtade_contrato.cod_grupo = :ls_grupo,
+    //        vtade_contrato.cod_canal_venta = :ls_canal,
+    //        vtade_contrato.cod_tipo_comisionista = :ls_tipo_comisionista,
+    //        vtade_contrato.cod_cuota = :ls_cuota,
+    //        vtade_contrato.num_cuotas = :li_cuotas,
+    //        vtade_contrato.cod_interes = :ls_interes,
+    //        vtade_contrato.fch_primer_vencimiento = :ldt_fch_venc,
+    //        vtade_contrato.imp_tasa_interes = :lde_tasa,
+    //        vtade_contrato.fch_emision = ( CASE WHEN vtade_contrato.fch_emision IS NULL THEN :ldt_fch_actual ELSE vtade_contrato.fch_emision END ),
+    //        vtade_contrato.flg_emitido = 'SI',
+    //        vtade_contrato.cod_usuario_emision = :gs_usuario,
+    //        vtade_contrato.flg_agencia = :ls_flg_agencia,
+    //        vtade_contrato.cod_agencia = :ls_agencia,
+    //        vtade_contrato.cod_convenio = :ls_convenio,
+    //        vtade_contrato.cod_titular_alterno = :ls_cliente_alterno,
+    //        vtade_contrato.cod_aval = :ls_aval,                           
+    //        vtade_contrato.cod_empresa = :gs_empresa,
+    //        vtade_contrato.cod_cobrador = :ls_cod_cobrador,
+    //        vtade_contrato.imp_valor_cuota = :lde_valor_cuota,
+    //        vtade_contrato.imp_interes = :lde_tot_interes,
+    //        vtade_contrato.cod_zona = :ls_zona,
+    //        vtade_contrato.imp_costo_carencia = :lde_costo_carencia 
+    //     WHERE vtade_contrato.cod_localidad = :ls_localidad
+    //     AND                      vtade_contrato.cod_tipo_ctt = :ls_tipo_ctt
+    //     AND                      vtade_contrato.cod_tipo_programa = :ls_tipo_programa
+    //     AND                      vtade_contrato.cod_contrato = :ls_contrato
+    //     AND                      vtade_contrato.num_servicio = :ls_servicio
+    //     USING SQLCA;
+                   
+    //     If f_verifica_transaccion(SQLCA) = False Then Goto db_error
+       
+    //     // -- DS -- //
+
+    //     ls_servicio_foma = ""
+       
+    //     SELECT  vtade_contrato.num_servicio_foma
+    //     INTO                     :ls_servicio_foma
+    //     FROM                   vtade_contrato
+    //     WHERE vtade_contrato.cod_localidad = :ls_localidad
+    //     AND                      vtade_contrato.cod_tipo_ctt = :ls_tipo_ctt
+    //     AND                      vtade_contrato.cod_tipo_programa = :ls_tipo_programa
+    //     AND                      vtade_contrato.cod_contrato = :ls_contrato
+    //     AND                      vtade_contrato.num_servicio = :ls_servicio
+    //     USING SQLCA;
+                   
+    //     If IsNull(ls_servicio_foma) Then ls_servicio_foma = ""
+                   
+    //     // -- Actualiza FOMA -- //
+
+    //     If IsNull(ls_servicio_foma) = False And Trim(ls_servicio_foma) <> "" Then
+                      
+    //        UPDATE  vtade_contrato
+    //        SET  vtade_contrato.cod_vendedor = :ls_vendedor,
+    //           vtade_contrato.cod_supervisor = :ls_supervisor,
+    //           vtade_contrato.cod_jefeventas = :ls_jefe,
+    //           vtade_contrato.cod_grupo = :ls_grupo,
+    //           vtade_contrato.cod_canal_venta = :ls_canal,
+    //           vtade_contrato.cod_tipo_comisionista = :ls_tipo_comisionista,
+    //           vtade_contrato.cod_cuota = :ls_cuota_foma,
+    //           vtade_contrato.num_cuotas = :li_cuotas_foma,
+    //           vtade_contrato.fch_primer_vencimiento = :ldt_fch_venc_foma,
+    //           vtade_contrato.fch_emision = ( CASE WHEN vtade_contrato.fch_emision IS NULL THEN :ldt_fch_actual ELSE vtade_contrato.fch_emision END ),
+    //           vtade_contrato.flg_emitido = 'SI',
+    //           vtade_contrato.cod_usuario_emision = :gs_usuario,
+    //           vtade_contrato.cod_titular_alterno = :ls_cliente_alterno,
+    //           vtade_contrato.cod_aval = :ls_aval,
+    //           vtade_contrato.cod_cobrador = :ls_cod_cobrador,
+    //           vtade_contrato.cod_zona = :ls_zona
+    //        WHERE vtade_contrato.cod_localidad = :ls_localidad
+    //        AND      vtade_contrato.cod_tipo_ctt = :ls_tipo_ctt
+    //        AND      vtade_contrato.cod_tipo_programa = :ls_tipo_programa
+    //        AND                      vtade_contrato.cod_contrato = :ls_contrato
+    //        AND                      vtade_contrato.num_servicio = :ls_servicio_foma
+    //        USING SQLCA;
+
+    //        If f_verifica_transaccion(SQLCA) = False Then Goto db_error
+                      
+    //     End If
+                   
+    // Next
+     
+    // // -- UpDate Dw -- //
+     
+    // If tab_1.tp_3.dw_det_beneficiarios.UpDate() <> 1 Then Goto db_error
+    // If tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.UpDate() <> 1 Then Goto db_error
+     
+    // // -- Actualiza Resumen Cronograma -- //
+     
+    // UPDATE               vtaca_cronograma
+    // SET                        vtaca_cronograma.num_cuotas = :li_total_cuotas,
+    //                            vtaca_cronograma.cod_interes = :ls_interes,
+    //                            vtaca_cronograma.imp_tasainteres = :lde_tasa,
+    //                            vtaca_cronograma.imp_interes = :lde_tot_interes
+    // WHERE vtaca_cronograma.cod_localidad = :ls_localidad
+    // AND                      vtaca_cronograma.cod_tipo_ctt = :ls_tipo_ctt
+    // AND                      vtaca_cronograma.cod_tipo_programa = :ls_tipo_programa
+    // AND                      vtaca_cronograma.cod_contrato = :ls_contrato
+    // AND                      vtaca_cronograma.num_refinanciamiento = :li_ref
+    // USING SQLCA;
+     
+    // If f_verifica_transaccion(SQLCA) = False Then Goto db_error
+     
+    // // -- Cabecera -- //
+     
+    // UPDATE               vtaca_contrato
+    // SET                        vtaca_contrato.cod_tipo_contrato = :ls_tipo_contrato
+    // WHERE vtaca_contrato.cod_localidad = :ls_localidad
+    // AND                      vtaca_contrato.cod_tipo_ctt = :ls_tipo_ctt
+    // AND                      vtaca_contrato.cod_tipo_programa = :ls_tipo_programa
+    // AND                      vtaca_contrato.cod_contrato = :ls_contrato
+    // USING SQLCA;
+     
+    // If f_verifica_transaccion(SQLCA) = False Then Goto db_error
+     
+    // // -- Max -- //
+     
+    // li_linea = 0
+     
+    // SELECT  MAX(vtade_observacion_x_contrato.num_linea)
+    // INTO                     :li_linea
+    // FROM                   vtade_observacion_x_contrato
+    // WHERE vtade_observacion_x_contrato.cod_localidad = :ls_localidad
+    // AND                      vtade_observacion_x_contrato.cod_tipo_ctt = :ls_tipo_ctt
+    // AND                      vtade_observacion_x_contrato.cod_tipo_programa = :ls_tipo_programa
+    // AND                      vtade_observacion_x_contrato.cod_contrato = :ls_contrato
+    // AND                      vtade_observacion_x_contrato.num_servicio = :ls_num_servicio_getrow
+    // USING SQLCA;
+     
+    // If f_verifica_transaccion(SQLCA) = False Then Goto db_error
+     
+    // If IsNull(li_linea) Then li_linea = 0
+     
+    // // -- Observaciones -- //
+     
+    // For li_i = 1 To tab_1.tp_10.dw_observacion.Rowcount()
+                   
+    //     li_row =  tab_1.tp_10.dw_observacion.GetItemNumber(li_i, "num_linea")
+       
+    //     If IsNull(li_row) Or li_row = 0 Then
+                      
+    //        li_linea = li_linea + 1
+    //        tab_1.tp_10.dw_observacion.SetItem(li_i, "cod_localidad", ls_localidad)
+    //        tab_1.tp_10.dw_observacion.SetItem(li_i, "cod_tipo_ctt", ls_tipo_ctt)
+    //        tab_1.tp_10.dw_observacion.SetItem(li_i, "cod_tipo_programa", ls_tipo_programa)
+    //        tab_1.tp_10.dw_observacion.SetItem(li_i, "cod_contrato", ls_contrato)
+    //        tab_1.tp_10.dw_observacion.SetItem(li_i, "num_servicio", ls_num_servicio_getrow)
+    //        tab_1.tp_10.dw_observacion.SetItem(li_i, "num_linea", li_linea)
+                      
+    //     End If               
+
+    // Next
+
+
+    // If tab_1.tp_10.dw_observacion.Update() <> 1 Then Goto db_error
+    // If tab_1.tp_12.dw_condicion.Update() <> 1 Then Goto db_error
+     
+    // Commit;
+    // f_sys_mensaje_usuario(Title, "MSGLIB", "SE GRABO EL REGISTRO SATISFACTORIAMENTE.", "MSG")
+    // TriggerEvent("ue_limpiar")
+     
+    // // -- Replicar ERP (Contrato) -- //
+     
+    // If gs_flg_replicar_erp = 'SI' Then
+                   
+    //     // -- Servicio -- //
+                     
+    //     soapconnection onn_ctt
+    //     ws_integrens_ext servicio_ctt               
+    //     onn_ctt = CREATE soapconnection
+    //     li_instancia = onn_ctt.CreateInstance(servicio_ctt, "ws_integrens_ext", gs_dsc_webservice_erp)
+       
+    //     If li_instancia <> 0 Then
+
+    //        f_sys_mensaje_usuario(Title, "MSGLIB", "ERROR DE CONEXIÓN AL SERVICIO WEB.", "ERR")
+
+    //     Else
+     
+    //        // -- Inicializa -- //
+
+    //        ls_flg_respuesta = 'NO'
+
+    //        // -- Replica contrato -- //
+          
+    //        lb_contrato = f_vta_xml_contrato(ls_localidad, ls_tipo_ctt, ls_tipo_programa, ls_contrato, ls_xml_cabecera, ls_xml_detalle, ls_xml_cronograma)
+          
+    //        // -- Genera XML -- //
+                                  
+    //            If gs_flg_replicar_erp = 'SI' Then
+                                                                     
+    //                If ii_acceso > 0 Then
+                                          
+    //                    If f_sys_mensaje_usuario(Title, "MSGLIB", "DESEA GENERAR LOS ARCHIVOS XML CORRESPONDIENTES AL CONTRATO [" + ls_contrato + "]?", "PRG") = 1 Then
+                                             
+    //                       // -- Crea directorio -- //
+
+    //                       If DirectoryExists ("C:\UmayuxSoftware\XML") = False Then CreateDirectory ("C:\UmayuxSoftware\XML")
+                         
+    //                       If FileExists("C:\UmayuxSoftware\XML\" + ls_contrato + "_Cabecera.txt") Then FileDelete("C:\UmayuxSoftware\XML\" + ls_contrato + "_Cabecera.txt")
+
+    //                       If FileExists("C:\UmayuxSoftware\XML\" + ls_contrato + "_Detalle.txt") Then FileDelete("C:\UmayuxSoftware\XML\" + ls_contrato + "_Detalle.txt")
+
+    //                       If FileExists("C:\UmayuxSoftware\XML\" + ls_contrato + "_Cronograma.txt") Then FileDelete("C:\UmayuxSoftware\XML\" + ls_contrato + "_Cronograma.txt")
+
+    //                       li_open = FileOpen("C:\UmayuxSoftware\XML\" + ls_contrato + "_Cabecera.xml", TextMode!, Write!)
+
+    //                       FileWriteEx(li_open, ls_xml_cabecera)
+
+    //                       FileClose(li_open)
+                         
+    //                       li_open = FileOpen("C:\UmayuxSoftware\XML\" + ls_contrato + "_Detalle.xml", TextMode!, Write!)
+
+    //                       FileWriteEx(li_open, ls_xml_detalle)
+
+    //                       FileClose(li_open)
+                                 
+    //                       li_open = FileOpen("C:\UmayuxSoftware\XML\" + ls_contrato + "_Cronograma.xml", TextMode!, Write!)
+
+    //                       FileWriteEx(li_open, ls_xml_cronograma)
+
+    //                       FileClose(li_open)
+                         
+    //                       f_sys_mensaje_usuario(Title, "MSGLIB", "SE GENERO LOS ARCHIVOS XML SATISFACTORIAMENTE POR FAVOR VERIFIQUE LA RUTA: C:\UMAYUXSOFTWARE\XML.", "MSG")
+                                             
+    //                    End If
+                                  
+    //                End If
+                              
+    //            End If
+     
+    //            // -- Envio -- //
+
+    //            ls_flg_respuesta = servicio_ctt.ws_cmrext_externo_importa_contratos_xml(ls_xml_cabecera, ls_xml_detalle, ls_xml_cronograma, 'A00', gs_usuario)
+    //            ls_flg_respuesta = UPPER(ls_flg_respuesta)
+
+    //            li_pos = Pos(ls_flg_respuesta, "<ESTADO>") + 8
+    //            ls_flg_correcto = Mid(ls_flg_respuesta, li_pos, 2)
+
+    //            If ls_flg_correcto <> 'CO' Then
+
+    //                f_sys_mensaje_usuario(Title, "MSGLIB", "PROBLEMAS AL HACER EL ENVIO AL ERP INTEGRENS [" + ls_flg_respuesta + "].", "ERR")
+
+    //                Return
+
+    //            Else
+
+    //                UPDATE               vtaca_contrato
+    //                SET                  vtaca_contrato.flg_replicado = 'SI'
+    //                WHERE vtaca_contrato.cod_localidad = :ls_localidad
+    //                AND   vtaca_contrato.cod_tipo_ctt = :ls_tipo_ctt
+    //                AND   vtaca_contrato.cod_tipo_programa = :ls_tipo_programa
+    //                AND   vtaca_contrato.cod_contrato = :ls_contrato
+    //                USING SQLCA;
+
+    //                If f_verifica_transaccion(SQLCA) = False Then
+
+    //                    RollBack;
+
+    //                   f_sys_mensaje_usuario(Title, "MSGLIB", "[2] ERROR EN LA ACTUALIZACIÓN DE LA BASE DE DATOS.", "ERR")
+
+    //                Else
+
+    //                     Commit;
+
+    //                End If
+                              
+    //            End If
+                          
+    //     End If
+
+    // End If
+     
+    // dw_cab.SetItem(1, "cod_localidad", ls_localidad)
+    // dw_cab.SetItem(1, "cod_tipo_ctt", ls_tipo_ctt)
+    // dw_cab.SetItem(1, "cod_tipo_programa", ls_tipo_programa)
+     
+    // is_flg_recupera = 'SI'
+    // f_sys_dw_ubica_cursor(dw_cab, "cod_contrato", "FREE", 0)
+    // dw_cab.SetItem(1, "cod_contrato", ls_contrato)
+    // dw_cab.TriggerEvent(Itemchanged!)
+     
+    // Return
+     
+    // db_error:
+    // RollBack;
+    // f_sys_mensaje_usuario(Title, "MSGLIB", "ERROR EN LA ACTUALIZACION DE LA BASE DE DATOS.", "ERR")
+}//function modificaCtto
