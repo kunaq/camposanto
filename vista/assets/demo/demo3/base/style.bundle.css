@@ -50956,7 +50956,7 @@ body {
     list-style: none;
     padding: 5px 0;
     margin: 0;
-    z-index: 110;
+    z-index: 80;
 }
 
 .toggle-collapse-resumen{

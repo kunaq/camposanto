@@ -22,7 +22,7 @@ $("#codCtt").change(function() {
         data: {'accion' : 'getServiciosCtt', 'cod_localidad' : localidad, 'cod_contrato' : codCtt},
         success: function(respuesta){
         	$.each(respuesta,function(index,value){
-        		var filaServicio = "<tr onclick=mostrarServicio('"+value['cod_localidad']+"','"+value['cod_contrato']+"','"+value['num_refinanciamiento']+"','"+value['num_servicio']+"','"+value['cod_tipo_ctt']+"','"+value['cod_tipo_programa']+"','"+value['cod_cliente']+"','"+value['cod_cliente_anterior']+"')>"+
+        		var filaServicio = "<tr onclick=mostrarServicio(this,'"+value['cod_localidad']+"','"+value['cod_contrato']+"','"+value['num_refinanciamiento']+"','"+value['num_servicio']+"','"+value['cod_tipo_ctt']+"','"+value['cod_tipo_programa']+"','"+value['cod_cliente']+"','"+value['cod_cliente_anterior']+"')>"+
         								"<td>"+value['num_servicio']+"</td>"+
         								"<td>"+value['dsc_tipo_servicio']+"</td>"+
         								"<td>"+value['fch_generacion']+"</td>"+
@@ -30,7 +30,7 @@ $("#codCtt").change(function() {
         								"<td>"+value['fch_activacion']+"</td>"+
         								"<td>"+value['fch_anulacion']+"</td>"+
         								"<td>"+value['fch_resolucion']+"</td>"+
-        								"<td>"+value['fch_transferencia']+"</td>"+
+        								"<td>"+value['fch_transferencia']+"<input type='hidden' class='form-control form-control-sm m-input' id='flg_"+value['num_servicio']+"'></td>"+
         							"</td>";
 
 				document.getElementById("tbodyServicios").insertAdjacentHTML("beforeEnd" ,filaServicio);
@@ -42,8 +42,10 @@ $("#codCtt").change(function() {
     });//ajax
 });
 
-function mostrarServicio(localidad,contrato,refinanciamiento,servicio,tipoCtt,tipoProg,codTitular,codTitularAnt){
-	limpiarNuevoTitular();
+function mostrarServicio(row,localidad,contrato,refinanciamiento,servicio,tipoCtt,tipoProg,codTitular,codTitularAnt){
+    var rows = $('#myTableServicios tr').not(':first');
+    rows.removeClass('selected'); 
+    $(row).closest('tr').addClass('selected');
 	$("#tbodyRefinanciamiento").empty();
 	document.getElementById('codCtt').value = contrato;
 	document.getElementById('tipoCtt').value = tipoCtt;
@@ -105,13 +107,27 @@ $("#codCliente").change(function() {
         	document.getElementById('edoCivilTitular').value = info[0].cod_estadocivil;
         	document.getElementById('sexoTitular').value = (info[0].cod_sexo).trim();
         	document.getElementById('emailTitular').value = info[0].dsc_email;
-        	document.getElementById('paisTitular').value = info[0].dsc_pais;
-        	document.getElementById('depTitular').value = info[0].dsc_departamento;
-        	document.getElementById('provTitular').value = info[0].dsc_provincia;
-        	document.getElementById('distTitular').value = info[0].dsc_distrito;
-        	document.getElementById('direccionTitular').value = info[0].dsc_direccion;
-        	document.getElementById('refDirTitular').value = info[0].dsc_referencia;
 
+        }//succes
+    });//ajax
+
+    $.ajax({
+        type: 'POST',
+        url:"ajax/cambioTitular.ajax.php",
+        dataType: 'text',
+        data: {'accion' : 'getDireccionCliente', 'cod_cliente' : cod_titular},
+        success: function(respuesta){
+
+            var info = JSON.parse(respuesta);
+            if (info.length == 0) {
+            }else{
+                document.getElementById('paisTitular').value = info[0].dsc_pais;
+                document.getElementById('depTitular').value = info[0].dsc_departamento;
+                document.getElementById('provTitular').value = info[0].dsc_provincia;
+                document.getElementById('distTitular').value = info[0].dsc_distrito;
+                document.getElementById('direccionTitular').value = info[0].dsc_direccion;
+                document.getElementById('refDirTitular').value = info[0].dsc_referencia;
+            }
         }//succes
     });//ajax
 });
@@ -225,15 +241,203 @@ function getDatosNuevoTitular(cod_cliente){
         	document.getElementById('edoCivilNuevoTitular').value = info[0].cod_estadocivil;
         	document.getElementById('sexoNuevoTitular').value = (info[0].cod_sexo).trim();
         	document.getElementById('emailNuevoTitular').value = info[0].dsc_email;
-        	document.getElementById('paisNuevoTitular').value = info[0].dsc_pais;
-        	document.getElementById('departamentoNuevoTitular').value = info[0].dsc_departamento;
-        	document.getElementById('provinciaNuevoTitular').value = info[0].dsc_provincia;
-        	document.getElementById('distritoNuevoTitular').value = info[0].dsc_distrito;
-        	document.getElementById('direccionNuevoTitular').value = info[0].dsc_direccion;
-        	document.getElementById('refDirNuevoTitular').value = info[0].dsc_referencia;
-
         }//succes
     });//ajax
+
+    $.ajax({
+        type: 'POST',
+        url:"ajax/cambioTitular.ajax.php",
+        dataType: 'text',
+        data: {'accion' : 'getDireccionCliente', 'cod_cliente' : cod_cliente},
+        success: function(respuesta){
+            var info = JSON.parse(respuesta);
+            if (info.length == 0) {
+            }else{
+                document.getElementById('paisNuevoTitular').value = info[0].dsc_pais;
+                document.getElementById('departamentoNuevoTitular').value = info[0].dsc_departamento;
+                document.getElementById('provinciaNuevoTitular').value = info[0].dsc_provincia;
+                document.getElementById('distritoNuevoTitular').value = info[0].dsc_distrito;
+                document.getElementById('direccionNuevoTitular').value = info[0].dsc_direccion;
+                document.getElementById('refDirNuevoTitular').value = info[0].dsc_referencia;
+            }
+        }//succes
+    });//ajax
+}
+
+function preCambioTitular(){
+    var localidad = document.getElementById('localidadCamTit').value;
+    var contrato = document.getElementById('codCtt').value;
+    var titularNvo = document.getElementById('codNuevoTitular').value;
+    var tipo_ctt = document.getElementById('tipoCtt').value;
+    var tipo_programa = document.getElementById('progCtt').value;
+    var servicioTable = document.getElementById('tbodyServicios');
+    var stLength = servicioTable.rows.length;
+
+    var j = 0;
+
+    if (localidad == '') {
+        swal({
+            title: "",
+            text: 'Debe seleccionar la localidad.',
+            type: "warning",
+            confirmButtonText: "Aceptar",
+        });
+    }else if (contrato == '') {
+        swal({
+            title: "",
+            text: 'Debe seleccionar el contrato.',
+            type: "warning",
+            confirmButtonText: "Aceptar",
+        });
+    }else if (titularNvo == '') {
+        swal({
+            title: "",
+            text: 'Debe seleccionar el titular nuevo.',
+            type: "warning",
+            confirmButtonText: "Aceptar",
+        });
+    }else if (stLength > 0) {
+        for (i = 0; i < stLength; i++){
+            var oCells = servicioTable.rows.item(i).cells;
+            var servicio = oCells.item(0).innerHTML.trim();
+            $.ajax({
+                type: 'POST',
+                url:"ajax/cambioTitular.ajax.php",
+                dataType: 'text',
+                data: {'accion' : 'flags', 'localidad' : localidad, 'cod_contrato' : contrato, 'cod_servicio' : servicio, 'cod_tipo_ctt' : tipo_ctt, 'cod_tipo_programa' : tipo_programa},
+                success: function(respuesta){
+                    j = j + 1;
+                    var info = JSON.parse(respuesta);
+                    if (info.flg_cambio_titular == 'SI') {
+                        document.getElementById('flg_'+info.num_servicio).value = "false";
+                    }else if (info.flg_anulado == 'SI' || info.flg_resuelto == 'SI') {
+                        document.getElementById('flg_'+info.num_servicio).value = "false";
+                    }else{
+                        document.getElementById('flg_'+info.num_servicio).value = "true";
+                    }
+                    if (j == stLength) {
+                        $.ajax({
+                            type: 'POST',
+                            url:"ajax/cambioTitular.ajax.php",
+                            dataType: 'text',
+                            data: {'accion' : 'getCambioTitular', 'localidad' : localidad, 'cod_contrato' : contrato, 'cod_tipo_ctt' : tipo_ctt, 'cod_tipo_programa' : tipo_programa},
+                            success: function(respuesta){
+                                var info = JSON.parse(respuesta);
+                                if (info.cod == 0) {
+                                    swal({
+                                        title: "",
+                                        text: 'Debe generar el servicio por cambio de titula, revise la ruta gestión de contratos.',
+                                        type: "warning",
+                                        confirmButtonText: "Aceptar",
+                                    });
+                                }else{
+                                    $.ajax({
+                                        type: 'POST',
+                                        url:"ajax/cambioTitular.ajax.php",
+                                        dataType: 'text',
+                                        data: {'accion' : 'getEstadoCambioTitular', 'localidad' : localidad, 'cod_contrato' : contrato, 'num_servicio' : info.num_servicio, 'cod_tipo_ctt' : tipo_ctt, 'cod_tipo_programa' : tipo_programa},
+                                        success: function(respuesta){
+                                            var resp = JSON.parse(respuesta);
+                                            if (resp.existe_cancelacion == 0) {
+                                                swal({
+                                                    title: "",
+                                                    text: 'El servicio por cambio de titular debe estar cancelado',
+                                                    type: "warning",
+                                                    confirmButtonText: "Aceptar",
+                                                });
+                                            }else{
+                                                swal({
+                                                  title:"",
+                                                  text:'Esta generando el cambio de titular del servicio ["'+info.num_servicio+'"]. ¿Esta seguro de continuar?',
+                                                  type:"question",
+                                                  showCancelButton:!0,
+                                                  confirmButtonText:"Aceptar"
+                                                }).then(function(e){
+                                                  e.value&&cambiarTitular(info.num_servicio)
+                                                })
+                                            }
+                                        }
+                                    });
+                                }
+                            }
+                        });
+                    }
+                }//succes
+            });//ajax
+        }
+    }
+}
+
+function cambiarTitular(servicio_ct){
+    var localidad = document.getElementById('localidadCamTit').value;
+    var contrato = document.getElementById('codCtt').value;
+    var titularNvo = document.getElementById('codNuevoTitular').value;
+    var tipo_ctt = document.getElementById('tipoCtt').value;
+    var tipo_programa = document.getElementById('progCtt').value;
+    var servicioTable = document.getElementById('tbodyServicios');
+    var stLength = servicioTable.rows.length;
+    var cod_titular_nuevo = document.getElementById('codNuevoTitular').value;
+    var cod_titular = document.getElementById('codCliente').value;
+    var rowsTrue = 0;
+    var uptades = 0;
+
+    for (i = 0; i < stLength; i++){
+        var oCells = servicioTable.rows.item(i).cells;
+        var servicio = oCells.item(0).innerHTML.trim();
+        if (document.getElementById('flg_'+servicio).value == "false") {
+        }else{
+            rowsTrue = rowsTrue + 1;
+            $.ajax({
+                type: 'POST',
+                url:"ajax/cambioTitular.ajax.php",
+                dataType: 'text',
+                data: {'accion' : 'getFoma', 'localidad' : localidad, 'cod_contrato' : contrato, 'num_servicio' : servicio, 'cod_tipo_ctt' : tipo_ctt, 'cod_tipo_programa' : tipo_programa},
+                success: function(respuesta){
+                    var info = JSON.parse(respuesta);
+                    if (info.num_servicio_foma == '' || info.num_servicio_foma == null) {
+                    }else{
+                        $.ajax({
+                            type: 'POST',
+                            url:"ajax/cambioTitular.ajax.php",
+                            dataType: 'text',
+                            data: {'accion' : 'updateServicio', 'localidad' : localidad, 'cod_contrato' : contrato, 'num_servicio' : info.num_servicio_foma, 'cod_tipo_ctt' : tipo_ctt, 'cod_tipo_programa' : tipo_programa, 'cod_titular_nuevo' : cod_titular_nuevo, 'num_servicio_cambio' : servicio_ct},
+                            success: function(respuesta){
+                            }
+                        });
+                    }
+                }
+            });
+
+            $.ajax({
+                type: 'POST',
+                url:"ajax/cambioTitular.ajax.php",
+                dataType: 'text',
+                data: {'accion' : 'updateServicio', 'localidad' : localidad, 'cod_contrato' : contrato, 'num_servicio' : servicio, 'cod_tipo_ctt' : tipo_ctt, 'cod_tipo_programa' : tipo_programa, 'cod_titular_nuevo' : cod_titular_nuevo, 'num_servicio_cambio' : servicio_ct},
+                success: function(respuesta){
+                    uptades = uptades + 1;
+                    if (uptades == rowsTrue) {
+                        $.ajax({
+                            type: 'POST',
+                            url:"ajax/cambioTitular.ajax.php",
+                            dataType: 'text',
+                            data: {'accion' : 'updateCambioTitular', 'localidad' : localidad, 'cod_contrato' : contrato, 'num_servicio' : servicio_ct, 'cod_tipo_ctt' : tipo_ctt, 'cod_tipo_programa' : tipo_programa, 'cod_titular' : cod_titular},
+                            success: function(respuesta){
+                                if (respuesta == 1) {
+                                    swal({
+                                        title: "",
+                                        text: 'Se grabo el registro satisfactoriamente.',
+                                        type: "success",
+                                        confirmButtonText: "Aceptar",
+                                    });
+                                }
+                            }
+                        });
+                    }
+                }
+            });
+            console.log(rowsTrue);
+        }
+    }
 }
 
 getParameterByName();
