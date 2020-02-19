@@ -385,7 +385,8 @@ $("#interesCronograma").on('change',function(){
             method: "POST",
             data: { 'accion' : 'codInteres', 'num_valor' : num },
             success : function(respuesta){
-                $("#codInteresModif").val(respuesta['cod_interes']);
+                console.log(respuesta.length);
+                // $("#codInteresModif").val(respuesta['cod_interes']);
             }//success
         });//ajax
     }
@@ -601,7 +602,7 @@ function buscaDatosAval(codCliente){
             $("#cel2Aval").val(respuesta['dsc_telefono_2']);
             $("#edoCivilAval").val(respuesta['cod_estadocivil']);
              if(respuesta['cod_sexo'] != '' || respuesta['cod_sexo'] != null || respuesta['cod_sexo'] != 'undefinied'){
-            	sexo = respuesta['cod_sexo'].trim();
+            	sexo = respuesta['cod_sexo'];
             }else{
             	sexo = '';
             }

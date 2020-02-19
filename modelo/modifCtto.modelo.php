@@ -235,12 +235,11 @@ class ModeloModifCtto{
 	static public function mdlBuscaCtdBenef($tabla,$localidad,$codCtto,$tipoCtto,$tipoProg){
 		$db = new Conexion();
 		$sql = $db->consulta("SELECT * FROM $tabla WHERE cod_localidad = '$localidad' AND cod_tipo_ctt = '$tipoCtto' AND cod_tipo_programa = '$tipoProg' AND cod_contrato = '$codCtto'");
-		$ctd = 0;
+		$datos = array();
     	while($key = $db->recorrer($sql)){
-	    		$ctd++;
+	    		$datos[] = arrayMapUtf8Encode($key);
 			}
-		return $ctd;
-		return $sql;
+		return $datos;
 		$db->liberar($sql);
         $db->cerrar();
 	}//function mdlBuscaCtdBenef
