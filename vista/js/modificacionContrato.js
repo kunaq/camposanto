@@ -277,7 +277,7 @@ function muestraInfo(id){
             // console.log($("#flg_ctt_integral").val());
             if ($("#flg_ctt_integral").val() == 'NO') {
                     $("#bodyServicioVin").empty();
-                    if(value['flg_principal'] == 'SI'){
+                    if(respuesta['flg_principal'] == 'SI'){
                         color = 'blue';
                     }else{
                         color = 'black';
