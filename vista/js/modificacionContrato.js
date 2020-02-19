@@ -350,7 +350,7 @@ function muestraInfo(id){
 }//muestraInfo
 
 $("#numCuoCronograma").on('change',function(){
-    var num = $(this).value;
+    var num = $(this).val();
     $.ajax({
         url: 'ajax/modifCtto.ajax.php',
         dataType: 'json',
