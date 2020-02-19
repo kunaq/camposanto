@@ -1957,7 +1957,7 @@ function modificaCtto(){
 
     // -- Emisión -- //
 
-    if( ldt_fch_emision == null || ldt_fch_emision = ''){               
+    if( ldt_fch_emision == null || ldt_fch_emision == ''){               
 
         if( li_tot > 1){
 
