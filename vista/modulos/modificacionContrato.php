@@ -1502,6 +1502,7 @@
 						 						 			$prueba=controladorEmpresa::ctrnumCuotas();
 														  ?> 
 													</select>
+													<input type="hidden" id="codCuotaModif" name="codCuotaModif">
 												</div>
 												<div class="col-lg-6">
 													<label>1er vencimiento:</label>
@@ -1669,6 +1670,7 @@
 						 						 		$prueba=controladorEmpresa::ctrnumCuotas();
 														  ?> 
 													</select>
+													<input type="hidden" id="codCuotaFOMAModif" name="codCuotaFOMAModif">
 												</div>
 												<div class="col-lg-4">
 													<label>1er Vencimiento</label>

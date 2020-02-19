@@ -214,5 +214,14 @@ class ModeloModifCtto{
         $db->cerrar();
 	}//function mdlBuscaBeneficiario
 
+	static public function mdlBuscaCodCuotas($tablaCuo,$datos){
+		$db = new Conexion();
+		$sql = $db->consulta("SELECT cod_cuota FROM $tablaCuo WHERE num_cuotas = $datos");
+		$datos = arrayMapUtf8Encode($db->recorrer($sql));
+		return $datos;
+		$db->liberar($sql);
+        $db->cerrar();
+	}//function mdlBuscaCodCuotas
+
 }//class ModeloModifCtto
 ?>

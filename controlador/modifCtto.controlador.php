@@ -215,7 +215,7 @@ class ControladorModifCtto{
 	}// function ctrBuscaBeneficiario
 
 	static public function ctrBuscaObsrvXBeneficiario(){
-		$tablaBen = 'vtade_observacion_x_beneficiario';
+		$tablaObsrv = 'vtade_observacion_x_beneficiario';
 		$datos = array("codCtto" => $_POST['codCtto'],
 						"localidad" => $_SESSION['localidad'],
 						"num_item" => $_POST['num_item']
@@ -223,6 +223,13 @@ class ControladorModifCtto{
 		$respuesta = ModeloModifCtto::mdlBuscaObsrvXBeneficiario($tablaObsrv,$datos);
 		return $respuesta;
 	}// function ctrBuscaObsrvXBeneficiario
+
+	static public function ctrBuscaCodCuotas(){
+		$tablaCuo = 'vtama_cuota';
+		$datos =  $_POST['num_cuotas'];
+		$respuesta = ModeloModifCtto::mdlBuscaCodCuotas($tablaCuo,$datos);
+		return $respuesta;
+	}// function ctrBuscaCodCuotas
 
 }//class ControladorModifCtto
 ?>

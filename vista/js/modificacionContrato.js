@@ -349,6 +349,29 @@ function muestraInfo(id){
     });//ajax
 }//muestraInfo
 
+$("#numCuoCronograma").on('change',function(){
+    $.ajax({
+        url: 'ajax/modifCtto.ajax.php',
+        dataType: 'json',
+        method: "POST",
+        data: { 'accion' : 'codCuotas', 'num_cuotas' : $(this).value },
+        success : function(respuesta){
+            $("#codCuotaModif").val(respuesta);
+        }//success
+    });//ajax
+});
+$("#nCuotasFOMA").on('change',function(){
+    $.ajax({
+        url: 'ajax/modifCtto.ajax.php',
+        dataType: 'json',
+        method: "POST",
+        data: { 'accion' : 'codCuotas', 'num_cuotas' : $(this).value },
+        success : function(respuesta){
+            $("#codCuotaFOMAModif").val(respuesta);
+        }//success
+    });//ajax
+});
+
 function buscaDscto(){
 	var codCtto = $("#codContrato").val();
 	var numServicio = $("#numServicio").val();
