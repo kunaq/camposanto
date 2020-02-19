@@ -11,8 +11,9 @@ class ControladorModifCtto{
 		$tabla6 = 'vtama_plataforma';
 		$tabla7 = 'vtama_tipo_espacio';
 		$tabla8 = 'vtama_tipo_servicio';
+		$tablaViServ = 'vtavi_cronograma_x_servicio';
 		$codCtto = $_POST['codCtto'];
-		$respuesta = ModeloModifCtto::mdlBuscaCttos($tabla,$tabla2,$tabla3,$tabla4,$tabla5,$tabla6,$tabla7,$tabla8,$codCtto);
+		$respuesta = ModeloModifCtto::mdlBuscaCttos($tabla,$tabla2,$tabla3,$tabla4,$tabla5,$tabla6,$tabla7,$tabla8,$tablaViServ,$codCtto);
 		return $respuesta;
 	}//function ctrBuscaCtto
 
@@ -20,9 +21,10 @@ class ControladorModifCtto{
 		$tablaCtto = 'vtade_contrato';
 		$tablaEnt = 'vtama_entidad';
 		$tablaTipoSvcio = 'vtama_tipo_servicio';
+		$tablaViServ = 'vtavi_cronograma_x_servicio';
 		$codCtto = $_POST['codCtto'];
 		$num_servicio = $_POST['num_servicio'];
-		$respuesta = ModeloModifCtto::mdlBuscaDatosServicio($tablaCtto,$tablaEnt,$tablaTipoSvcio,$codCtto,$num_servicio);
+		$respuesta = ModeloModifCtto::mdlBuscaDatosServicio($tablaCtto,$tablaEnt,$tablaTipoSvcio,$tablaViServ,$codCtto,$num_servicio);
 		return $respuesta;
 	}//ctrBuscaDatosServicio
 

@@ -91,11 +91,15 @@
 								<div class="col-lg-12">
 									<label>Cliente</label>
 									<input type="text" class="form-control form-control-sm m-input" name="nomCliContrato" id="nomCliContrato" disabled>
+									<input type="hidden" id="codTipoContrato" name="codTipoContrato">
 									<input type="hidden" id="flg_activado" name="flg_activado">
+									<input type="hidden" id="flgResuelto" name="flgResuelto">
 									<input type="hidden" name="flg_ctt_integral" id="flg_ctt_integral">
 									<input type="hidden" name="numRefinanciamiento" id="numRefinanciamiento">
 									<input type="hidden" id="numServicioSeleccionado" name="numServicioSeleccionado">
 									<input type="hidden" id="tipoNecCtto" name="tipoNecCtto">
+									<input type="hidden" id="fchEmision" name="fchEmision">
+									<input type="hidden" id="fchActivacion" name="fchActivacion">
 								</div>
 							</div>
 						</div>
@@ -550,7 +554,6 @@
 											<div class="col-lg-4">
 												<label>Codigo Cliente</label>
 												<input type="text" class="form-control form-control-sm m-input" name="codCliTitular" id="codCliTitular" disabled onchange="buscaDatosTi(this.value);">
-												<input type="hidden"name="codAval" id="codAval" onchange="buscaDatosAval(this.value);">
 											</div>
 											<div class="col-lg-2">
 												<label>&nbsp;</label>
@@ -1491,7 +1494,14 @@
 												</div>
 												<div class="col-lg-6">
 													<label> N° de cuotas:</label>
-													<input type="text" class="form-control form-control-sm m-input" placeholder="0" id="numCuoCronograma" name="numCuoCronograma">
+													<select class="form-control form-control-sm m-select2 m-select2-general" name="numCuoCronograma" id="numCuoCronograma" style="width: 100%">
+														<option>
+															Seleccione... 
+														</option>
+														<?php
+						 						 			$prueba=controladorEmpresa::mdlnumCuotas();
+														  ?> 
+													</select>
 												</div>
 												<div class="col-lg-6">
 													<label>1er vencimiento:</label>
@@ -1506,7 +1516,17 @@
 												</div>
 												<div class="col-lg-6">
 													<label>Interes:</label>
-													<input type="text" class="form-control form-control-sm m-input" placeholder="0" id="interesCronograma" name="interesCronograma">
+													<select class="form-control form-control-sm m-select2 m-select2-general" id="interesCronograma" name="interesCronograma" style="width: 100%">
+														<option>
+															Seleccione...
+														</option>
+														<?php
+															 $tabla="vtama_interes";
+														  $item1="num_valor";
+														  $item2="dsc_interes";
+						 								 $prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
+														  ?>
+													</select>
 												</div>
 												<div class="col-lg-12">
 													<button type="reset" class="btn btn-sm btnGuardarKqPst mt25">
@@ -1641,7 +1661,14 @@
 												</div>
 												<div class="col-lg-4">
 													<label>N° Cuotas</label>
-													<input type="text" class="form-control form-control-sm m-input" placeholder="0" name="nCuotasFOMA" id="nCuotasFOMA">
+													<select class="form-control form-control-sm m-select2 m-select2-general" name="nCuotasFOMA" id="nCuotasFOMA" style="width: 100%">
+														<option>
+														Seleccione... 
+														</option>
+														<?php
+						 						 		$prueba=controladorEmpresa::mdlnumCuotas();
+														  ?> 
+													</select>
 												</div>
 												<div class="col-lg-4">
 													<label>1er Vencimiento</label>
