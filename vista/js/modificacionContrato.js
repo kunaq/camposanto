@@ -1814,7 +1814,7 @@ function modificaCtto(){
         }
     }
 
-    largoObsv = document.getElementById("bodyObservaciones").rows.length;
+    var largoObsv = document.getElementById("bodyObservaciones").rows.length;
     for(li_i = 0; li_i < largoObsv ; li_i++){         
         ls_observacion = $("#obsv"+li_i).val();
         if( ls_observacion == null || ls_observacion == ''){
@@ -1853,7 +1853,7 @@ function modificaCtto(){
     var ls_zona = ''; //--------------------------------------------------------------??
 
     if(ls_flg_agencia == 'SI'){
-        if(ls_agencia == null || ls_agencia == ''){}
+        if(ls_agencia == null || ls_agencia == ''){
             swal({
                 title: "",
                 text: "Debe seleccionar la agencia funeraria.",
@@ -1970,6 +1970,7 @@ function modificaCtto(){
               }
             })
     }
+}//borrar
 
     // -- Numero de Cuotas -- //
 
@@ -2750,4 +2751,4 @@ function modificaCtto(){
     // db_error:
     // RollBack;
     // f_sys_mensaje_usuario(Title, "MSGLIB", "ERROR EN LA ACTUALIZACION DE LA BASE DE DATOS.", "ERR")
-}//function modificaCtto
+// }//function modificaCtto
