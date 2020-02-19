@@ -1680,297 +1680,297 @@ function llenaDatosCliente(codCli,tab){
 //-------------------------------------------Modificacion----------------------------------------------//
 //-----------------------------------------------------------------------------------------------------//
 
-function modificaCtto(){
+// function modificaCtto(){
 
-    var li_valida = 0;
-    var ls_localidad = $("#sedeContrato").val();
-    var ls_contrato = $("#codContrato").val();
-    var ls_tipo_contrato = $("#codTipoContrato").val();
-    var ls_tipo_ctt = $("#modC").val();
-    var ls_tipo_programa = $("#tipoPrograma").val();
-    var ls_num_servicio_det = $("#numServicioSeleccionado").val();
-    var ls_flg_resuelto = $("#flg_resuelto_"+ls_num_servicio_det).val();
+//     var li_valida = 0;
+//     var ls_localidad = $("#sedeContrato").val();
+//     var ls_contrato = $("#codContrato").val();
+//     var ls_tipo_contrato = $("#codTipoContrato").val();
+//     var ls_tipo_ctt = $("#modC").val();
+//     var ls_tipo_programa = $("#tipoPrograma").val();
+//     var ls_num_servicio_det = $("#numServicioSeleccionado").val();
+//     var ls_flg_resuelto = $("#flg_resuelto_"+ls_num_servicio_det).val();
     
-    // -- Otros Datos -- //
+//     // -- Otros Datos -- //
 
-    var lde_saldo_financiar_foma = $("#saldoFOMA").val();
-    var lde_saldo_financiar = $("#saldoFinanciar").val();
-    var ldt_fch_emision = $("#fchEmision").val();
-    var ldt_fch_activacion = $("#fchActivacion").val();
-    var aux_dia = fechaHoy.getDate();
-    var aux_mes1 = fechaHoy.setMonth(fechaHoy.getMonth() + 1);
-    var aux_mes = fechaHoy.getMonth();
-    var aux_anio = fechaHoy.getFullYear();
-    if(aux_mes == '0'){
-        aux_mes = '12';
-        aux_anio = fechaHoy.getFullYear()-1;
-    }               
-    var ldt_fch_actual = aux_dia+'/'+aux_mes+'/'+aux_anio;
-    var lde_tot_interes = 0;
-    var li_total_cuotas = 0;
+//     var lde_saldo_financiar_foma = $("#saldoFOMA").val();
+//     var lde_saldo_financiar = $("#saldoFinanciar").val();
+//     var ldt_fch_emision = $("#fchEmision").val();
+//     var ldt_fch_activacion = $("#fchActivacion").val();
+//     var aux_dia = fechaHoy.getDate();
+//     var aux_mes1 = fechaHoy.setMonth(fechaHoy.getMonth() + 1);
+//     var aux_mes = fechaHoy.getMonth();
+//     var aux_anio = fechaHoy.getFullYear();
+//     if(aux_mes == '0'){
+//         aux_mes = '12';
+//         aux_anio = fechaHoy.getFullYear()-1;
+//     }               
+//     var ldt_fch_actual = aux_dia+'/'+aux_mes+'/'+aux_anio;
+//     var lde_tot_interes = 0;
+//     var li_total_cuotas = 0;
 
-    var ls_cliente = $("#codCliTitular").val();
-    var ls_cliente_alterno = $("#codCliTitular2").val();
-    var ls_aval = $("#codAval").val();
-    var is_principal = ;
-    var is_ds = ;
+//     var ls_cliente = $("#codCliTitular").val();
+//     var ls_cliente_alterno = $("#codCliTitular2").val();
+//     var ls_aval = $("#codAval").val();
+//     var is_principal = ;
+//     var is_ds = ;
 
-    // -- Inicializar -- // 
+//     // -- Inicializar -- // 
 
-    if(lde_saldo_financiar_foma == null){
-        lde_saldo_financiar_foma = 0;
-    }
-    if(lde_saldo_financiar == null){
-        lde_saldo_financiar = 0;
-    }
+//     if(lde_saldo_financiar_foma == null){
+//         lde_saldo_financiar_foma = 0;
+//     }
+//     if(lde_saldo_financiar == null){
+//         lde_saldo_financiar = 0;
+//     }
      
-    // -- Valida Datos -- //
+//     // -- Valida Datos -- //
 
-    if(ls_localidad == '' || ls_localidad == null){
+//     if(ls_localidad == '' || ls_localidad == null){
 
-        swal({
-            title: "",
-            text: "Debe seleccionar la localidad",
-            type: "warning",
-            confirmButtonText: "Aceptar",
-        })
-        document.getElementById("sedeContrato").focus();
-        return;
+//         swal({
+//             title: "",
+//             text: "Debe seleccionar la localidad",
+//             type: "warning",
+//             confirmButtonText: "Aceptar",
+//         })
+//         document.getElementById("sedeContrato").focus();
+//         return;
 
-    }
+//     }
 
-    if(ls_contrato == '' || ls_contrato == null){
+//     if(ls_contrato == '' || ls_contrato == null){
 
-        swal({
-            title: "",
-            text: "Debe ingresar el contrato",
-            type: "warning",
-            confirmButtonText: "Aceptar",
-        })
-        document.getElementById("codContrato").focus();
-        return;
+//         swal({
+//             title: "",
+//             text: "Debe ingresar el contrato",
+//             type: "warning",
+//             confirmButtonText: "Aceptar",
+//         })
+//         document.getElementById("codContrato").focus();
+//         return;
 
-    }
+//     }
 
-    // -- No dejar modificar contratos resueltos o retirados -- //
+//     // -- No dejar modificar contratos resueltos o retirados -- //
 
-    if(ls_flg_resuelto == '' || ls_flg_resuelto == null){
-        ls_flg_resuelto = 'NO';
-    }
+//     if(ls_flg_resuelto == '' || ls_flg_resuelto == null){
+//         ls_flg_resuelto = 'NO';
+//     }
 
-    if(ls_flg_resuelto == 'SI'){
-        swal({
-            title: "",
-            text: "No puede hacer cambios en el contrato y servicio seleccionado, esta resuelto o retirado",
-            type: "warning",
-            confirmButtonText: "Aceptar",
-        })
-        return;
-    } 
+//     if(ls_flg_resuelto == 'SI'){
+//         swal({
+//             title: "",
+//             text: "No puede hacer cambios en el contrato y servicio seleccionado, esta resuelto o retirado",
+//             type: "warning",
+//             confirmButtonText: "Aceptar",
+//         })
+//         return;
+//     } 
 
-    if(ls_num_servicio_det == null || ls_num_servicio_det == ''){
-        swal({
-            title: "",
-            text: "Debe seleccionar el servicio",
-            type: "warning",
-            confirmButtonText: "Aceptar",
-        })
-        $('.nav-tabs a[href="#' + tab + '"]').tab('show');
-       return;
-    }
+//     if(ls_num_servicio_det == null || ls_num_servicio_det == ''){
+//         swal({
+//             title: "",
+//             text: "Debe seleccionar el servicio",
+//             type: "warning",
+//             confirmButtonText: "Aceptar",
+//         })
+//         $('.nav-tabs a[href="#' + tab + '"]').tab('show');
+//        return;
+//     }
 
-    // -- Valida Cronograma y FOMA -- //
+//     // -- Valida Cronograma y FOMA -- //
 
-    if( is_principal == 'SI'){ 
+//     if( is_principal == 'SI'){ 
 
-        if(document.getElementById("bodyCronogramaModif").rows.length<= 0 && lde_saldo_financiar >= 0.01){
+//         if(document.getElementById("bodyCronogramaModif").rows.length<= 0 && lde_saldo_financiar >= 0.01){
 
-            swal({
-                title: "",
-                text: "Debe generar el cronograma de pagos del contrato",
-                type: "warning",
-                confirmButtonText: "Aceptar",
-            })
-            return;
+//             swal({
+//                 title: "",
+//                 text: "Debe generar el cronograma de pagos del contrato",
+//                 type: "warning",
+//                 confirmButtonText: "Aceptar",
+//             })
+//             return;
 
-        }else{
+//         }else{
 
-           if( is_ds == 'SI' ){                                            
+//            if( is_ds == 'SI' ){                                            
 
-               if( document.getElementById("bodyCronogramaFomaModif").rows.length < 1 && lde_saldo_financiar_foma >= 0.01){ 
+//                if( document.getElementById("bodyCronogramaFomaModif").rows.length < 1 && lde_saldo_financiar_foma >= 0.01){ 
 
-                    swal({
-                        title: "",
-                        text: "Debe generar el cronograma de pagos del FOMA",
-                        type: "warning",
-                        confirmButtonText: "Aceptar",
-                    })                  
-                   return;
+//                     swal({
+//                         title: "",
+//                         text: "Debe generar el cronograma de pagos del FOMA",
+//                         type: "warning",
+//                         confirmButtonText: "Aceptar",
+//                     })                  
+//                    return;
                             
-               }
+//                }
                         
-           }
+//            }
                       
-        }
-    }
+//         }
+//     }
 
-    var largoObsv = document.getElementById("bodyObservaciones").rows.length;
-    for(li_i = 0; li_i < largoObsv ; li_i++){         
-        ls_observacion = $("#obsv"+li_i).val();
-        if( ls_observacion == null || ls_observacion == ''){
-            swal({
-                title: "",
-                text: "Debe ingresar las observaciones",
-                type: "warning",
-                confirmButtonText: "Aceptar",
-            })
-           return;
-        }
-    }
+//     var largoObsv = document.getElementById("bodyObservaciones").rows.length;
+//     for(li_i = 0; li_i < largoObsv ; li_i++){         
+//         ls_observacion = $("#obsv"+li_i).val();
+//         if( ls_observacion == null || ls_observacion == ''){
+//             swal({
+//                 title: "",
+//                 text: "Debe ingresar las observaciones",
+//                 type: "warning",
+//                 confirmButtonText: "Aceptar",
+//             })
+//            return;
+//         }
+//     }
 
-    // -- Datos -- //
+//     // -- Datos -- //
 
-    var ls_convenio = $("#convenio").val(); 
-    var ls_interes = $("#interesCronograma").val();
-    var ls_cuota = $("#numCuoCronograma").val();
-    var ldt_fch_venc = $("#fchVenCronograma").val();
-    var ls_cuota_foma = $("#nCuotasFOMA").val();
-    var ldt_fch_venc_foma = $("#fchVenCronoFOMA").datepicker("getDate");
-    var ls_flg_agencia = $("#AgFunCheck").prop('checked');
-    if(ls_flg_agencia){
-        ls_flg_agencia = 'SI';
-    }else{
-        ls_flg_agencia = 'NO';
-    }
-    var ls_agencia =  $("#codFuneraria").val();
-    var ls_vendedor = $("#codVendedor").val();
-    var ls_supervisor = $("#codSupervisor").val();
-    var ls_jefe = $("#codJefeVentas").val();
-    var ls_grupo = $("#codGrupo").val();
-    var ls_canal = $("#canalVentaModif").val();
-    var ls_tipo_comisionista = $("#codTipoComisionista").val();
-    var ls_cod_cobrador =$("#codCobrador").val();
-    var ls_zona = ''; //--------------------------------------------------------------??
+//     var ls_convenio = $("#convenio").val(); 
+//     var ls_interes = $("#interesCronograma").val();
+//     var ls_cuota = $("#numCuoCronograma").val();
+//     var ldt_fch_venc = $("#fchVenCronograma").val();
+//     var ls_cuota_foma = $("#nCuotasFOMA").val();
+//     var ldt_fch_venc_foma = $("#fchVenCronoFOMA").datepicker("getDate");
+//     var ls_flg_agencia = $("#AgFunCheck").prop('checked');
+//     if(ls_flg_agencia){
+//         ls_flg_agencia = 'SI';
+//     }else{
+//         ls_flg_agencia = 'NO';
+//     }
+//     var ls_agencia =  $("#codFuneraria").val();
+//     var ls_vendedor = $("#codVendedor").val();
+//     var ls_supervisor = $("#codSupervisor").val();
+//     var ls_jefe = $("#codJefeVentas").val();
+//     var ls_grupo = $("#codGrupo").val();
+//     var ls_canal = $("#canalVentaModif").val();
+//     var ls_tipo_comisionista = $("#codTipoComisionista").val();
+//     var ls_cod_cobrador =$("#codCobrador").val();
+//     var ls_zona = ''; //--------------------------------------------------------------??
 
-    if(ls_flg_agencia == 'SI'){
-        if(ls_agencia == null || ls_agencia == ''){
-            swal({
-                title: "",
-                text: "Debe seleccionar la agencia funeraria.",
-                type: "warning",
-                confirmButtonText: "Aceptar",
-            })
-            return;
-            $("#codFuneraria").focus();
-        }
-    }
+//     if(ls_flg_agencia == 'SI'){
+//         if(ls_agencia == null || ls_agencia == ''){
+//             swal({
+//                 title: "",
+//                 text: "Debe seleccionar la agencia funeraria.",
+//                 type: "warning",
+//                 confirmButtonText: "Aceptar",
+//             })
+//             return;
+//             $("#codFuneraria").focus();
+//         }
+//     }
 
-    // -- Detalle de Servicios -- // 
+//     // -- Detalle de Servicios -- // 
 
-    var li_tot = 0;
-    var container = document.querySelector('#bodyServicioVin');
-    container.querySelectorAll('tr').forEach(function (li_i) 
-    {            
-        var ls_servicio_add = $(li_i).attr("name");
-        ls_det_servicios = ls_det_servicios + ls_servicio_add + " - ";
-        li_tot = li_tot + 1;
+//     var li_tot = 0;
+//     var container = document.querySelector('#bodyServicioVin');
+//     container.querySelectorAll('tr').forEach(function (li_i) 
+//     {            
+//         var ls_servicio_add = $(li_i).attr("name");
+//         ls_det_servicios = ls_det_servicios + ls_servicio_add + " - ";
+//         li_tot = li_tot + 1;
 
-    });
+//     });
 
-    // ls_det_servicios = Trim(Mid(ls_det_servicios, 1, Len(Trim(ls_det_servicios)) - 1))
-    // ls_num_servicio_getrow = dw_det_num_servicio.GetItemString(dw_det_num_servicio.GetRow(), "num_servicio")
-    // ls_tipo_servicio_getrow = dw_det_num_servicio.GetItemString(dw_det_num_servicio.GetRow(), "cod_tipo_servicio")
+//     // ls_det_servicios = Trim(Mid(ls_det_servicios, 1, Len(Trim(ls_det_servicios)) - 1))
+//     // ls_num_servicio_getrow = dw_det_num_servicio.GetItemString(dw_det_num_servicio.GetRow(), "num_servicio")
+//     // ls_tipo_servicio_getrow = dw_det_num_servicio.GetItemString(dw_det_num_servicio.GetRow(), "cod_tipo_servicio")
      
-    // // -- Cambio Titular ?? -- //
+//     // // -- Cambio Titular ?? -- //
 
-    // SELECT  vtama_tipo_servicio.flg_cambio_titular
-    // INTO                     :ls_cambio_titular
-    // FROM                   vtama_tipo_servicio
-    // WHERE vtama_tipo_servicio.cod_tipo_servicio = :ls_tipo_servicio_getrow 
+//     // SELECT  vtama_tipo_servicio.flg_cambio_titular
+//     // INTO                     :ls_cambio_titular
+//     // FROM                   vtama_tipo_servicio
+//     // WHERE vtama_tipo_servicio.cod_tipo_servicio = :ls_tipo_servicio_getrow 
 
-    if( ls_cambio_titular == null || ls_cambio_titular == '' ){
-        ls_cambio_titular = 'NO';
-    }
+//     if( ls_cambio_titular == null || ls_cambio_titular == '' ){
+//         ls_cambio_titular = 'NO';
+//     }
 
-    if( ls_cambio_titular == 'SI'){
+//     if( ls_cambio_titular == 'SI'){
 
-        swal({
-            title: "",
-            text: "El servicio por cambio de titular no puede ser emitido desde esta opción. <br><a href='cambioTitular' type='button' class='btn btn-sm btnEditarKqPst2 mt25' target='_blank'>Cambio de titular</a>",
-            type: "warning",
-            confirmButtonText: "Aceptar",
-        })
-        return;
+//         swal({
+//             title: "",
+//             text: "El servicio por cambio de titular no puede ser emitido desde esta opción. <br><a href='cambioTitular' type='button' class='btn btn-sm btnEditarKqPst2 mt25' target='_blank'>Cambio de titular</a>",
+//             type: "warning",
+//             confirmButtonText: "Aceptar",
+//         })
+//         return;
 
-    }
+//     }
 
-    // -- Emisión -- //
+//     // -- Emisión -- //
 
-    if( ldt_fch_emision == null || ldt_fch_emision = ''){               
+//     if( ldt_fch_emision == null || ldt_fch_emision = ''){               
 
-        if( li_tot > 1){
+//         if( li_tot > 1){
 
-            swal({
-                title: "",
-                text: "¿Seguro que desea emitir los servicios ["+ls_det_servicios+"]?",
-                type: "warning",
-                confirmButtonText: "Aceptar",
-                showCancelButton: true,
-                cancelButtonText: 'Cancelar',
-                reverseButtons: true
-            }).then((result) => {
-              if (result.value) {
-                continue;
-              } else if (
-                result.dismiss === Swal.DismissReason.cancel
-              ) {
-                return;
-              }
-            })
+//             swal({
+//                 title: "",
+//                 text: "¿Seguro que desea emitir los servicios ["+ls_det_servicios+"]?",
+//                 type: "warning",
+//                 confirmButtonText: "Aceptar",
+//                 showCancelButton: true,
+//                 cancelButtonText: 'Cancelar',
+//                 reverseButtons: true
+//             }).then((result) => {
+//               if (result.value) {
+//                 continue;
+//               } else if (
+//                 result.dismiss === Swal.DismissReason.cancel
+//               ) {
+//                 return;
+//               }
+//             })
 
-        }else{
+//         }else{
 
-            swal({
-                title: "",
-                text: "¿Seguro que desea emitir el servicio ["+ls_det_servicios+"]?",
-                type: "warning",
-                confirmButtonText: "Aceptar",
-                showCancelButton: true,
-                cancelButtonText: 'Cancelar',
-                reverseButtons: true
-            }).then((result) => {
-              if (result.value) {
-                continue;
-              } else if (
-                result.dismiss === Swal.DismissReason.cancel
-              ) {
-                return;
-              }
-            })
+//             swal({
+//                 title: "",
+//                 text: "¿Seguro que desea emitir el servicio ["+ls_det_servicios+"]?",
+//                 type: "warning",
+//                 confirmButtonText: "Aceptar",
+//                 showCancelButton: true,
+//                 cancelButtonText: 'Cancelar',
+//                 reverseButtons: true
+//             }).then((result) => {
+//               if (result.value) {
+//                 continue;
+//               } else if (
+//                 result.dismiss === Swal.DismissReason.cancel
+//               ) {
+//                 return;
+//               }
+//             })
 
-        }
+//         }
 
-    }else{
+//     }else{
 
-        swal({
-                title: "",
-                text: "¿Seguro que desea modificar los datos del contrato?",
-                type: "warning",
-                confirmButtonText: "Aceptar",
-                showCancelButton: true,
-                cancelButtonText: 'Cancelar',
-                reverseButtons: true
-            }).then((result) => {
-              if (result.value) {
-                continue;
-              } else if (
-                result.dismiss === Swal.DismissReason.cancel
-              ) {
-                return;
-              }
-            })
-    }
-}//borrar
+//         swal({
+//                 title: "",
+//                 text: "¿Seguro que desea modificar los datos del contrato?",
+//                 type: "warning",
+//                 confirmButtonText: "Aceptar",
+//                 showCancelButton: true,
+//                 cancelButtonText: 'Cancelar',
+//                 reverseButtons: true
+//             }).then((result) => {
+//               if (result.value) {
+//                 continue;
+//               } else if (
+//                 result.dismiss === Swal.DismissReason.cancel
+//               ) {
+//                 return;
+//               }
+//             })
+//     }
+// }//borrar
 
     // -- Numero de Cuotas -- //
 
