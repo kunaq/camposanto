@@ -22,8 +22,8 @@
 																	Tipo de doc.:
 																</label>
 															</div>
-															<div class="col-lg-2">
-																<select class="form-control m-input custom-select custom-select-danger selectTipoDoc" id="tipoDocNvoCliWiz" name="tipoDocNvoCliWiz" onchange="DocLenghtCliente(this.value);">
+															<div class="col-lg-4">
+																<select class="form-control form-control-sm m-input custom-select custom-select-danger selectTipoDoc" id="tipoDocNvoCliWiz" name="tipoDocNvoCliWiz" onchange="DocLenghtCliente(this.value);">
 																	<option value="vacio">
 																		Seleccione
 																	</option>
@@ -33,14 +33,7 @@
 																	  ?> 		
 																</select>
 															</div>
-															<div class="col-lg-2">
-																<label class="">
-																	N° de doc.:
-																</label>
-															</div>
-															<div class="col-lg-3">
-																<input type="text" class="form-control m-input nvoRegistroUser input2Decimales" id="nvoClienteWiz" name="nvoClienteWiz" >
-															</div>
+															<div class="col-lg-3"></div>
 															<div class="col-lg-3">
 																<table>
 																	<tr>
@@ -65,11 +58,33 @@
 														<div class="row">
 															<div class="col-lg-2">
 																<label class="">
+																	N° de doc.:
+																</label>
+															</div>
+															<div class="col-lg-4">
+																<input type="text" class="form-control form-control-sm m-input nvoRegistroUser input2Decimales" id="nvoClienteWiz" name="nvoClienteWiz" >
+															</div>
+															<div class="col-lg-2">
+																<label class="">
+																	Tipo de cliente:
+																</label>
+															</div>
+															<div class="col-lg-4">
+																<select class="form-control form-control-sm m-input custom-select custom-select-danger" id="tipoClienteNvo">
+																	<option value="DIS">EXTERNO - DISTRIBUIDOR</option>
+																	<option value="GEN" selected>GENERAL</option>
+																</select>
+															</div>
+														</div>
+														<br>
+														<div class="row">
+															<div class="col-lg-2">
+																<label class="">
 																	Razón social:
 																</label>
 															</div>
 															<div class="col-lg-10">
-																<input type="text" id="razonSocNvoCliWiz" class="form-control m-input" disabled placeholder="">
+																<input type="text" id="razonSocNvoCliWiz" class="form-control form-control-sm m-input" disabled placeholder="">
 															</div>
 														</div>
 														<br>
@@ -80,7 +95,7 @@
 																</label>
 															</div>
 															<div class="col-lg-4">
-																<input type="text" class="form-control m-input" id="apelPatNvoCliWiz">
+																<input type="text" class="form-control form-control-sm m-input" id="apelPatNvoCliWiz">
 															</div>
 															<div class="col-lg-2">
 																<label class="">
@@ -88,7 +103,7 @@
 																</label>
 															</div>
 															<div class="col-lg-4">
-																<input type="text" class="form-control m-input" id="apelMatNvoCliWiz">
+																<input type="text" class="form-control form-control-sm m-input" id="apelMatNvoCliWiz">
 															</div>
 														</div>
 														<br>
@@ -99,7 +114,7 @@
 																</label>
 															</div>
 															<div class="col-lg-10">
-																<input type="text" class="form-control m-input" id="nombresNvoCliWiz">
+																<input type="text" class="form-control form-control-sm m-input" id="nombresNvoCliWiz">
 															</div>
 														</div>
 														<br>
@@ -110,7 +125,7 @@
 																</label>
 															</div>
 															<div class="col-lg-4">
-																<select class="form-control m-input custom-select custom-select-danger validaDNI" id="sexoNvoCliWiz" name="option">
+																<select class="form-control form-control-sm m-input custom-select custom-select-danger validaDNI" id="sexoNvoCliWiz" name="option">
 																	<option value="">
 																		Seleccione
 																	</option>
@@ -129,7 +144,7 @@
 															</div>
 															<div class="col-lg-4">
 																<div class="input-group date">
-																	<input type="text" class="form-control m-input validaDNI" placeholder="Seleccionar fecha" id="m_datepicker_2_modal" data-date-format="dd/mm/yyyy"/>
+																	<input type="text" class="form-control form-control-sm m-input validaDNI" placeholder="Seleccionar fecha" id="m_datepicker_2_modal" data-date-format="dd/mm/yyyy" value="<?php echo date('d/m/Y', strtotime(date('m/d/Y'))); ?>"/>
 																	<div class="input-group-append">
 																		<span class="input-group-text">
 																			<i class="la la-calendar-check-o"></i>
@@ -146,7 +161,7 @@
 																</label>
 															</div>
 															<div class="col-lg-4">
-																<select class="form-control m-input custom-select custom-select-danger" id="ecivilNvoCliWiz" name="option">
+																<select class="form-control form-control-sm m-input custom-select custom-select-danger" id="ecivilNvoCliWiz" name="option">
 																	<option value="">
 																		Seleccione
 																	</option>
@@ -160,8 +175,11 @@
 																	Celular:
 																</label>
 															</div>
-															<div class="col-lg-4">
-																<input type="text" id="celNvoCliWiz" class="form-control m-input" placeholder="">
+															<div class="col-lg-2">
+																<input type="text" id="celNvoCliWiz" class="form-control form-control-sm m-input" placeholder="">
+															</div>
+															<div class="col-lg-2">
+																<input type="text" id="celNvo2CliWiz" class="form-control form-control-sm m-input" placeholder="">
 															</div>
 														</div>
 														<br>
@@ -172,7 +190,7 @@
 																</label>
 															</div>
 															<div class="col-lg-4">
-																<input type="text" id="tarjetaNvoCliWiz" class="form-control m-input" placeholder="">
+																<input type="text" id="tarjetaNvoCliWiz" class="form-control form-control-sm m-input" placeholder="">
 															</div>
 															<div class="col-lg-2">
 																<label class="">
@@ -180,7 +198,7 @@
 																</label>
 															</div>
 															<div class="col-lg-4">
-																<input type="text" class="form-control m-input" id="emailNvoCliWiz" onchange="pasaCorreo();">
+																<input type="text" class="form-control form-control-sm m-input" id="emailNvoCliWiz" onchange="pasaCorreo();">
 															</div>
 														</div>
 														<br>
@@ -191,7 +209,7 @@
 																</label>
 															</div>
 															<div class="col-lg-4">
-																<input type="text" class="form-control m-input" id="emailfeNvoCliWiz">
+																<input type="text" class="form-control form-control-sm m-input" id="emailfeNvoCliWiz">
 															</div>
 															<div class="col-lg-2">
 																<label class="">
@@ -199,7 +217,7 @@
 																</label>
 															</div>
 															<div class="col-lg-4">
-																<select class="form-control m-input custom-select custom-select-danger" id="contactoNvoCliWiz" name="option">
+																<select class="form-control form-control-sm m-input custom-select custom-select-danger" id="contactoNvoCliWiz" name="option">
 																	<option value="">
 																		Seleccione
 																	</option>
@@ -220,7 +238,7 @@
 																</label>
 															</div>
 															<div class="col-lg-4">
-																<select class="form-control m-input custom-select custom-select-danger" id="categoriaNvoCliWiz" name="option">
+																<select class="form-control form-control-sm m-input custom-select custom-select-danger" id="categoriaNvoCliWiz" name="option">
 																	<option value="">
 																		Seleccione
 																	</option>
@@ -238,7 +256,7 @@
 																</label>
 															</div>
 															<div class="col-lg-4">
-																<select class="form-control m-input custom-select custom-select-danger" id="calificacionNvoCliWiz" name="option">
+																<select class="form-control form-control-sm m-input custom-select custom-select-danger" id="calificacionNvoCliWiz" name="option">
 																	<option value="">
 																		Seleccione
 																	</option>
@@ -262,13 +280,13 @@
 																</label>
 															</div>
 															<div class="col-lg-6">
-																<input type="text" id="dirNvoCliWiz" class="form-control m-input" placeholder="Dirección">
+																<input type="text" id="dirNvoCliWiz" class="form-control form-control-sm m-input" placeholder="Dirección">
 															</div>
 															<div class="col-lg-2">
-																<input type="text" id="ndirNvoCliWiz" class="form-control m-input" placeholder="N°">
+																<input type="text" id="ndirNvoCliWiz" class="form-control form-control-sm m-input" placeholder="N°">
 															</div>
 															<div class="col-lg-2">
-																<input type="text" id="intNvoCliWiz" class="form-control m-input" placeholder="Int">
+																<input type="text" id="intNvoCliWiz" class="form-control form-control-sm m-input" placeholder="Int">
 															</div>
 														</div>
 														<br>
@@ -279,13 +297,13 @@
 																</label>
 															</div>
 															<div class="col-lg-6">
-																<input type="text" id="urbNvoCliWiz" class="form-control m-input" placeholder="Urbanización">
+																<input type="text" id="urbNvoCliWiz" class="form-control form-control-sm m-input" placeholder="Urbanización">
 															</div>
 															<div class="col-lg-2">
-																<input type="text" id="mzaNvoCliWiz" class="form-control m-input" placeholder="Mza">
+																<input type="text" id="mzaNvoCliWiz" class="form-control form-control-sm m-input" placeholder="Mza">
 															</div>
 															<div class="col-lg-2">
-																<input type="text" id="ltNvoCliWiz" class="form-control m-input" placeholder="Lt">
+																<input type="text" id="ltNvoCliWiz" class="form-control form-control-sm m-input" placeholder="Lt">
 															</div>
 														</div>
 														<br>
@@ -296,7 +314,7 @@
 																</label>
 															</div>
 															<div class="col-lg-4">
-																<select class="form-control m-input custom-select custom-select-danger" id="paisNvoCliWiz" name="pais" onchange="buscaDepartamento(this.value);">
+																<select class="form-control form-control-sm m-input custom-select custom-select-danger" id="paisNvoCliWiz" name="pais" onchange="buscaDepartamento(this.value);">
 																	<option value="0">
 																		Seleccione el país
 																	</option>
@@ -312,7 +330,7 @@
 																</label>
 															</div>
 															<div class="col-lg-4">
-																<select class="form-control m-input custom-select custom-select-danger" name="departamento" id="depaNvoCliWiz" onchange="buscaProvincia(this.value);">
+																<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="departamento" id="depaNvoCliWiz" onchange="buscaProvincia(this.value);">
 																	<option value="">
 																		Seleccione
 																	</option>
@@ -327,7 +345,7 @@
 																</label>
 															</div>
 															<div class="col-lg-4">
-																<select class="form-control m-input custom-select custom-select-danger" name="provincia" id="provNvoCliWiz" onchange="buscaDistrito(this.value);">
+																<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="provincia" id="provNvoCliWiz" onchange="buscaDistrito(this.value);">
 																	<option value="">
 																		Seleccione
 																	</option>
@@ -339,7 +357,7 @@
 																</label>
 															</div>
 															<div class="col-lg-4">
-																<select class="form-control m-input custom-select custom-select-danger" name="distrito" id="distNvoCliWiz">
+																<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="distrito" id="distNvoCliWiz">
 																	<option value="">
 																		Seleccione
 																	</option>
@@ -354,7 +372,7 @@
 																</label>
 															</div>
 															<div class="col-lg-4">
-																<input type="text" class="form-control m-input" id="telNvoCliWiz" placeholder="">
+																<input type="text" class="form-control form-control-sm m-input" id="telNvoCliWiz" placeholder="">
 															</div>
 															<div class="col-lg-2">
 																<label class="">
@@ -362,7 +380,7 @@
 																</label>
 															</div>
 															<div class="col-lg-4">
-																<input type="text" class="form-control m-input" id="tel2NvoCliWiz" placeholder="">
+																<input type="text" class="form-control form-control-sm m-input" id="tel2NvoCliWiz" placeholder="">
 															</div>
 														</div>
 														<br>
@@ -373,7 +391,18 @@
 																</label>
 															</div>
 															<div class="col-lg-10">
-																<textarea class="form-control m-input" id="refNvoCliWiz" rows="3"></textarea>
+																<textarea class="form-control form-control-sm m-input" id="refNvoCliWiz" rows="1"></textarea>
+															</div>
+														</div>
+														<br>
+														<div class="row">
+															<div class="col-lg-2">
+																<label class="">
+																	Dirección Completa:
+																</label>
+															</div>
+															<div class="col-lg-10">
+																<textarea class="form-control form-control-sm m-input" id="dirCompletaNvoCliWiz" rows="1" disabled></textarea>
 															</div>
 														</div>
 													</form>
@@ -383,7 +412,7 @@
 												<button type="button" class="btn btn-secondary" data-dismiss="modal">
 													Cerrar
 												</button>
-												<button type="button" class="btn btn-danger" onclick="registrarcliente();">
+												<button type="button" class="btn btn-danger" onclick="verificarCamposCLiente();">
 													Guardar
 												</button>
 											</div>

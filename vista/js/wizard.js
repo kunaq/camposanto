@@ -1392,7 +1392,6 @@ function esJuridica(){
     $('#sexoNvoCliWiz').prop('disabled', true);
     $('#sexoNvoCliWiz').val('');
     $('#m_datepicker_2_modal').prop('disabled', true);
-    $('#m_datepicker_2_modal').val('');
     $('#ecivilNvoCliWiz').prop('disabled', true);
     $('#ecivilNvoCliWiz').val('');
   }
@@ -2436,4 +2435,252 @@ function generarCtt(){
       e.value&&grabaTemporal()
     })
   }
+}
+
+function verificarCamposCLiente(){
+  var tipoDoc = document.getElementById('tipoDocNvoCliWiz').value;
+  var numDoc = document.getElementById('nvoClienteWiz').value;
+  var juridico = document.getElementById('personaCheck');
+  if (juridico.checked != true){
+    var flg_juridico = 'NO';
+  }
+  else{
+    var flg_juridico = 'SI';
+  }
+  var razon = document.getElementById('razonSocNvoCliWiz').value;
+  var apePaterno = document.getElementById('apelPatNvoCliWiz').value;
+  var apeMaterno = document.getElementById('apelMatNvoCliWiz').value;
+  var nombre = document.getElementById('nombresNvoCliWiz').value;
+  var sexo = document.getElementById('sexoNvoCliWiz').value;
+  var edoCivil = document.getElementById('ecivilNvoCliWiz').value;
+  // var fechNac = $('#m_datepicker_2_modal').datepicker("getDate").toLocaleDateString();
+  var celular1 = document.getElementById('celNvoCliWiz').value;
+  var celular2 = document.getElementById('celNvo2CliWiz').value;
+  var idTarjeta = document.getElementById('tarjetaNvoCliWiz').value;
+  var email = document.getElementById('emailNvoCliWiz').value;
+  var emailFe = document.getElementById('emailfeNvoCliWiz').value;
+  var contacto = document.getElementById('contactoNvoCliWiz').value;
+  var categoria = document.getElementById('categoriaNvoCliWiz').value;
+  var calificacion = document.getElementById('calificacionNvoCliWiz').value;
+  var tipoCliente = document.getElementById('tipoClienteNvo').value;
+
+  var direccion = document.getElementById('dirNvoCliWiz').value;
+  var numero = document.getElementById('ndirNvoCliWiz').value;
+  var interior = document.getElementById('intNvoCliWiz').value;
+  var urbanizacion = document.getElementById('urbNvoCliWiz').value;
+  var manzana = document.getElementById('mzaNvoCliWiz').value;
+  var lote = document.getElementById('ltNvoCliWiz').value;
+  var pais = document.getElementById('paisNvoCliWiz').value;
+  var departamento = document.getElementById('depaNvoCliWiz').value;
+  var provincia = document.getElementById('provNvoCliWiz').value;
+  var distrito = document.getElementById('distNvoCliWiz').value;
+  var telefono1 = document.getElementById('telNvoCliWiz').value;
+  var telefono2 = document.getElementById('tel2NvoCliWiz').value;
+  var referencia = document.getElementById('refNvoCliWiz').value;
+  var cadena = document.getElementById('dirCompletaNvoCliWiz').value;
+  if (tipoDoc == 'vacio') {
+    swal({
+      title:"",
+      text:"Debe selccionar el tipo de documento.",
+      type:"warning",
+      confirmButtonText:"Aceptar"
+    })
+  }else if (numDoc == '') {
+    swal({
+      title:"",
+      text:"Debe ingresar el número de documento.",
+      type:"warning",
+      confirmButtonText:"Aceptar"
+    })
+  }else if (tipoDoc == 'DI001' && numDoc.length < 8) {
+    swal({
+      title:"",
+      text:"El numero del documento ingresado no tiene la cantidad digitos configuarada (8) para el tipo de documento.",
+      type:"warning",
+      confirmButtonText:"Aceptar"
+    })
+  }else if (tipoDoc == 'DI002' && numDoc.length < 9) {
+    swal({
+      title:"",
+      text:"El numero del documento ingresado no tiene la cantidad digitos configuarada (9) para el tipo de documento.",
+      type:"warning",
+      confirmButtonText:"Aceptar"
+    })
+  }else if (tipoDoc == 'DI003' && numDoc.length < 12) {
+    swal({
+      title:"",
+      text:"El numero del documento ingresado no tiene la cantidad digitos configuarada (12) para el tipo de documento.",
+      type:"warning",
+      confirmButtonText:"Aceptar"
+    })
+  }else if (tipoDoc == 'DI004' && numDoc.length < 11) {
+    swal({
+      title:"",
+      text:"El numero del documento ingresado no tiene la cantidad digitos configuarada (11) para el tipo de documento.",
+      type:"warning",
+      confirmButtonText:"Aceptar"
+    })
+  }else if (tipoDoc == 'DI005' && numDoc.length < 8) {
+    swal({
+      title:"",
+      text:"El numero del documento ingresado no tiene la cantidad digitos configuarada (8) para el tipo de documento.",
+      type:"warning",
+      confirmButtonText:"Aceptar"
+    })
+  }else if (flg_juridico == 'NO' && apePaterno == '') {
+    swal({
+      title:"",
+      text:"Debe ingresar el apellido paterno del cliente.",
+      type:"warning",
+      confirmButtonText:"Aceptar"
+    })
+  }else if (flg_juridico == 'NO' && apeMaterno == '') {
+    swal({
+      title:"",
+      text:"Debe ingresar el apellido materno del cliente.",
+      type:"warning",
+      confirmButtonText:"Aceptar"
+    })
+  }else if (flg_juridico == 'NO' && nombre == '') {
+    swal({
+      title:"",
+      text:"Debe ingresar los nombres del cliente.",
+      type:"warning",
+      confirmButtonText:"Aceptar"
+    })
+  }else if (flg_juridico == 'SI' && razon == '') {
+    swal({
+      title:"",
+      text:"Debe ingresar la razón social del cliente.",
+      type:"warning",
+      confirmButtonText:"Aceptar"
+    })
+  }else if (pais == '0') {
+    swal({
+      title:"",
+      text:"Debe seleccionar el pais.",
+      type:"warning",
+      confirmButtonText:"Aceptar"
+    })
+  }else if (departamento == '0' || departamento == '') {
+    swal({
+      title:"",
+      text:"Debe seleccionar el departamento.",
+      type:"warning",
+      confirmButtonText:"Aceptar"
+    })
+  }else if (provincia == '0' || provincia == '') {
+    swal({
+      title:"",
+      text:"Debe seleccionar la provincia.",
+      type:"warning",
+      confirmButtonText:"Aceptar"
+    })
+  }else if (distrito == '0' || distrito == '') {
+    swal({
+      title:"",
+      text:"Debe seleccionar el distrito.",
+      type:"warning",
+      confirmButtonText:"Aceptar"
+    })
+  }else{
+    swal({
+      title:"",
+      text:"Esta registrando el cliente bajo los datos ingresados, esta seguro de continuar?",
+      type:"question",
+      showCancelButton:!0,
+      confirmButtonText:"Aceptar"
+    }).then(function(e){
+      e.value&&registrarCliente()
+    })
+  }
+}
+
+function registrarCliente(){
+  var tipoDoc = document.getElementById('tipoDocNvoCliWiz').value;
+  var numDoc = document.getElementById('nvoClienteWiz').value;
+  var juridico = document.getElementById('personaCheck');
+  if (juridico.checked != true){
+    var flg_juridico = 'NO';
+  }
+  else{
+    var flg_juridico = 'SI';
+  }
+  var razon = document.getElementById('razonSocNvoCliWiz').value;
+  var apePaterno = document.getElementById('apelPatNvoCliWiz').value;
+  var apeMaterno = document.getElementById('apelMatNvoCliWiz').value;
+  var nombre = document.getElementById('nombresNvoCliWiz').value;
+  var sexo = document.getElementById('sexoNvoCliWiz').value;
+  var edoCivil = document.getElementById('ecivilNvoCliWiz').value;
+  var fechNac = $('#m_datepicker_2_modal').datepicker("getDate").toLocaleDateString();
+  var celular1 = document.getElementById('celNvoCliWiz').value;
+  var celular2 = document.getElementById('celNvo2CliWiz').value;
+  var idTarjeta = document.getElementById('tarjetaNvoCliWiz').value;
+  var email = document.getElementById('emailNvoCliWiz').value;
+  var emailFe = document.getElementById('emailfeNvoCliWiz').value;
+  var contacto = document.getElementById('contactoNvoCliWiz').value;
+  var categoria = document.getElementById('categoriaNvoCliWiz').value;
+  var calificacion = document.getElementById('calificacionNvoCliWiz').value;
+  var tipoCliente = document.getElementById('tipoClienteNvo').value;
+
+  var direccion = document.getElementById('dirNvoCliWiz').value;
+  var numero = document.getElementById('ndirNvoCliWiz').value;
+  var interior = document.getElementById('intNvoCliWiz').value;
+  var urbanizacion = document.getElementById('urbNvoCliWiz').value;
+  var manzana = document.getElementById('mzaNvoCliWiz').value;
+  var lote = document.getElementById('ltNvoCliWiz').value;
+  var pais = document.getElementById('paisNvoCliWiz').value;
+  var departamento = document.getElementById('depaNvoCliWiz').value;
+  var provincia = document.getElementById('provNvoCliWiz').value;
+  var distrito = document.getElementById('distNvoCliWiz').value;
+  var telefono1 = document.getElementById('telNvoCliWiz').value;
+  var telefono2 = document.getElementById('tel2NvoCliWiz').value;
+  var referencia = document.getElementById('refNvoCliWiz').value;
+  var cadena = document.getElementById('dirCompletaNvoCliWiz').value;
+
+  $.ajax({
+    type:'POST',
+    url: 'ajax/cliente.ajax.php',
+    dataType: 'text',
+    data: {'accion': 'guardaCliente', 'dsc_razon_social':razon, 'dsc_apellido_paterno' : apePaterno, 'dsc_apellido_materno':apeMaterno, 'dsc_nombre':nombre, 'flg_juridico':flg_juridico, 'cod_tipo_documento':tipoDoc, 'dsc_documento' : numDoc, 'cod_calificacion':calificacion, 'dsc_mail_fe':emailFe, 'dsc_telefono_1':celular1, 'dsc_telefono_2':celular2, 'cod_tipo_contacto' : contacto, 'cod_sexo':sexo, 'cod_estadocivil':edoCivil, 'cod_categoria':categoria, 'fch_nacimiento':fechNac, 'dsc_email_trabajo' : email, 'cod_tipo_cliente':tipoCliente, 'cod_tarjeta_cliente':idTarjeta},
+    success : function(response){
+      var info = JSON.parse(response);
+      if (info.cod == 1) {
+        var option = '<option value="'+numDoc+'" data-select2-id="43">'+numDoc+'</option>'
+        document.getElementById("numDocCliente").insertAdjacentHTML("beforeEnd" ,option);
+        $.ajax({
+          type:'POST',
+          url: 'ajax/cliente.ajax.php',
+          dataType: 'text',
+          data: {'accion': 'guardaDireccion', 'cod_cliente':info.cod_cliente, 'cod_pais' : pais, 'cod_departamento':departamento, 'cod_provincia':provincia, 'dsc_direccion':direccion, 'cod_distrito':distrito, 'dsc_referencia' : referencia, 'dsc_telefono_1':telefono1, 'dsc_telefono_2':telefono2, 'cod_numero':numero, 'cod_interior':interior, 'cod_manzana' : manzana, 'cod_lote':lote, 'dsc_urbanizacion':urbanizacion, 'dsc_cadena_direccion':cadena},
+          success : function(respuesta){
+            if (respuesta == 1) {
+              $('#m_modal_1').modal('hide');
+              cambiaDocumento(numDoc);
+              swal({
+                title:"",
+                text:"Esta grabo el registro satisfactoriamente",
+                type:"success",
+                confirmButtonText:"Aceptar"
+              })
+            }else{
+              swal({
+                title:"",
+                text:"Ocurrio un error al grabar la direccion del cliente",
+                type:"error",
+                confirmButtonText:"Aceptar"
+              })
+            }
+          }//success
+        });//ajax
+      }else{
+        swal({
+          title:"",
+          text:"Ocurrio un error al grabar el cliente",
+          type:"error",
+          confirmButtonText:"Aceptar"
+        })
+      }
+    }//success
+  });//ajax
 }
