@@ -171,7 +171,7 @@ class ModeloEmpresa{
 
                 while($key = $db->recorrer($sql)){
                     $datos[] =  $key;
-                    echo '<option value="'.$key['num_cuotas'].'" codCuota="'.$key['cod_cuota'].'" >'.$key['dsc_cuota'].'</option>';
+                    echo '<option value="'.$key['num_cuotas'].'/'.$key['cod_cuota'].'" >'.$key['dsc_cuota'].'</option>';
                 }
 
         $db->liberar($sql);
