@@ -516,7 +516,7 @@ function buscaDatosTi(codCliente){
             $("#cel2Titular").val(respuesta['dsc_telefono_2']);
             $("#edoCivilTitular").val(respuesta['cod_estadocivil']);
              if(respuesta['cod_sexo'] != '' || respuesta['cod_sexo'] != null || respuesta['cod_sexo'] != 'undefinied'){
-            	sexo = respuesta['cod_sexo'].trim();
+            	sexo = respuesta['cod_sexo'];
             }else{
             	sexo = '';
             }
@@ -1733,7 +1733,78 @@ function llenaDatosCliente(codCli,tab){
     }
 }
 
+function pasaAnumero(string){
+    if(string == parseFloat(string)){
+        valor = parseFloat(string);
+    }
+    else if(string.indexOf(',') != -1){
+        var mil = string.split(',')[0];
+        var cien = string.split(',')[1];
+        var decenas = cien.split('.')[0];
+        var decimal = cien.split('.')[1];
+        valor = (parseInt(mil)*1000)+(parseInt(decenas))+(parseFloat(decimal)*0.01);
+    }
+    else if(string.indexOf('.') != -1){
+        var decenas = string.split('.')[0];
+        var decimal = string.split('.')[1];
+        valor = (parseInt(decenas))+(parseFloat(decimal)*0.01);
+    }
+    else{
+        valor = parseFloat(string);
+    }
+    return valor;
+}
 
+function buscaMaxCuotas(ls_tipo_ctt,ls_tipo_programa,ls_contrato,li_ref){
+    $.ajax({
+        url: 'ajax/modifCtto.ajax.php',
+        dataType: 'json',
+        method: "POST",
+        data: { 'accion' : 'maxCuotas', 'ls_tipo_ctt' : ls_tipo_ctt, 'ls_tipo_programa' : ls_tipo_programa, 'ls_contrato' : ls_contrato, 'li_ref' : li_ref },
+        success : function(respuesta){
+              if(respuesta == '' || respuesta == null){
+                return 0;
+              }else{
+                return respuesta;
+              }
+        }
+    });
+} 
+
+function buscaMaxValor(ls_tipo_ctt,ls_tipo_programa,ls_contrato,li_ref){
+    $.ajax({
+        url: 'ajax/modifCtto.ajax.php',
+        dataType: 'json',
+        method: "POST",
+        data: { 'accion' : 'maxValorCuotas', 'ls_tipo_ctt' : ls_tipo_ctt, 'ls_tipo_programa' : ls_tipo_programa, 'ls_contrato' : ls_contrato, 'li_ref' : li_ref },
+        success : function(respuesta){
+              if(respuesta == '' || respuesta == null){
+                return 0;
+              }else{
+                return respuesta;
+              }
+        }
+    });
+}
+
+ function buscaCostoCarencia(ls_tipo_ctt,ls_tipo_programa,ls_contrato,ls_servicio){
+    $.ajax({
+        url: 'ajax/modifCtto.ajax.php',
+        dataType: 'json',
+        method: "POST",
+        data: { 'accion' : 'costoCarencia', 'ls_tipo_ctt' : ls_tipo_ctt, 'ls_tipo_programa' : ls_tipo_programa, 'ls_contrato' : ls_contrato, 'ls_servicio' : ls_servicio },
+        success : function(respuesta){
+              if(respuesta == '' || respuesta == null){
+                return 0;
+              }else{
+                return respuesta;
+              }
+        }
+    });
+ }             
+
+       
+     
 //-----------------------------------------------------------------------------------------------------//
 //-------------------------------------------Modificacion----------------------------------------------//
 //-----------------------------------------------------------------------------------------------------//
@@ -1764,6 +1835,7 @@ function modificaCtto(){
         aux_anio = fechaHoy.getFullYear()-1;
     }               
     var ldt_fch_actual = aux_dia+'/'+aux_mes+'/'+aux_anio;
+    var fch_actual_consulta = aux_mes+'/'+aux_dia+'/'+aux_anio;
     var lde_tot_interes = 0;
     var li_total_cuotas = 0;
 
@@ -1785,7 +1857,6 @@ function modificaCtto(){
     // -- Valida Datos -- //
 
     if(ls_localidad == '' || ls_localidad == null){
-
         swal({
             title: "",
             text: "Debe seleccionar la localidad",
@@ -1794,11 +1865,9 @@ function modificaCtto(){
         })
         document.getElementById("sedeContrato").focus();
         return;
-
     }
 
     if(ls_contrato == '' || ls_contrato == null){
-
         swal({
             title: "",
             text: "Debe ingresar el contrato",
@@ -1807,7 +1876,6 @@ function modificaCtto(){
         })
         document.getElementById("codContrato").focus();
         return;
-
     }
 
     // -- No dejar modificar contratos resueltos o retirados -- //
@@ -1840,9 +1908,7 @@ function modificaCtto(){
     // -- Valida Cronograma y FOMA -- //
 
     if( is_principal == 'SI'){ 
-
         if(document.getElementById("bodyCronogramaModif").rows.length<= 0 && lde_saldo_financiar >= 0.01){
-
             swal({
                 title: "",
                 text: "Debe generar el cronograma de pagos del contrato",
@@ -1850,25 +1916,18 @@ function modificaCtto(){
                 confirmButtonText: "Aceptar",
             })
             return;
-
         }else{
-
            if( is_ds == 'SI' ){                                            
-
                if( document.getElementById("bodyCronogramaFomaModif").rows.length < 1 && lde_saldo_financiar_foma >= 0.01){ 
-
                     swal({
                         title: "",
                         text: "Debe generar el cronograma de pagos del FOMA",
                         type: "warning",
                         confirmButtonText: "Aceptar",
                     })                  
-                   return;
-                            
-               }
-                        
-           }
-                      
+                   return;         
+               }         
+           }           
         }
     }
 
@@ -1932,7 +1991,6 @@ function modificaCtto(){
         var ls_servicio_add = $(li_i).attr("name");
         ls_det_servicios = ls_det_servicios + ls_servicio_add + " - ";
         li_tot = li_tot + 1;
-
     });
 
     // ls_det_servicios = Trim(Mid(ls_det_servicios, 1, Len(Trim(ls_det_servicios)) - 1))
@@ -1943,13 +2001,10 @@ function modificaCtto(){
     // -- Cambio Titular ?? -- //
 
     var ls_cambio_titular = $("#flgCambioTitular").val(); 
-
     if( ls_cambio_titular == null || ls_cambio_titular == '' ){
         ls_cambio_titular = 'NO';
     }
-
     if( ls_cambio_titular == 'SI'){
-
         swal({
             title: "",
             text: "El servicio por cambio de titular no puede ser emitido desde esta opción. <br><a href='cambioTitular' type='button' class='btn btn-sm btnEditarKqPst2 mt25' target='_blank'>Cambio de titular</a>",
@@ -1957,15 +2012,12 @@ function modificaCtto(){
             confirmButtonText: "Aceptar",
         })
         return;
-
     }
 
     // -- Emisión -- //
 
     if( ldt_fch_emision == null || ldt_fch_emision == ''){               
-
         if( li_tot > 1){
-
             swal({
                 title: "",
                 text: "¿Seguro que desea emitir los servicios ["+ls_det_servicios+"]?",
@@ -1985,7 +2037,6 @@ function modificaCtto(){
             })
 
         }else{
-
             swal({
                 title: "",
                 text: "¿Seguro que desea emitir el servicio ["+ls_det_servicios+"]?",
@@ -2003,30 +2054,26 @@ function modificaCtto(){
                 return;
               }
             })
-
         }
-
     }else{
-
         swal({
-                title: "",
-                text: "¿Seguro que desea modificar los datos del contrato?",
-                type: "warning",
-                confirmButtonText: "Aceptar",
-                showCancelButton: true,
-                cancelButtonText: 'Cancelar',
-                reverseButtons: true
-            }).then((result) => {
-              if (result.value) {
-                continue;
-              } else if (
-                result.dismiss === Swal.DismissReason.cancel
-              ) {
-                return;
-              }
-            })
+            title: "",
+            text: "¿Seguro que desea modificar los datos del contrato?",
+            type: "warning",
+            confirmButtonText: "Aceptar",
+            showCancelButton: true,
+            cancelButtonText: 'Cancelar',
+            reverseButtons: true
+        }).then((result) => {
+          if (result.value) {
+            continue;
+          } else if (
+            result.dismiss === Swal.DismissReason.cancel
+          ) {
+            return;
+          }
+        })
     }
-
 
     // -- Numero de Cuotas -- //
 
@@ -2060,16 +2107,17 @@ function modificaCtto(){
     if(li_max_item == null || li_max_item == ''){
         li_max_item = 0;
     }
-}//borrar
+
     // -- Seteo -- // 
 
-    // For li_i = 1 To tab_1.tp_3.dw_det_beneficiarios.Rowcount()
+    // var largoTabBenef = document.getElementById("bodyBeneficiarioM").rows.length;
+    // for( li_i = 0 ; li_i <= largoTabBenef ; li_i++){
 
     //     li_num_item = tab_1.tp_3.dw_det_beneficiarios.GetItemNumber(li_i, "num_item")
     //     ls_tipo_doc_b = tab_1.tp_3.dw_det_beneficiarios.GetItemString(li_i, "cod_tipo_documento")
     //     ls_num_doc_b = tab_1.tp_3.dw_det_beneficiarios.GetItemString(li_i, "dsc_documento")
-    //     ls_estado = tab_1.tp_3.dw_det_beneficiarios.GetItemString(li_i, "cod_estado")
-    //     ls_estado_bd = tab_1.tp_3.dw_det_beneficiarios.GetItemString(li_i, "cod_estado_bd")
+        // ls_estado = tab_1.tp_3.dw_det_beneficiarios.GetItemString(li_i, "cod_estado")
+        // ls_estado_bd = tab_1.tp_3.dw_det_beneficiarios.GetItemString(li_i, "cod_estado_bd")
     //     ldt_fch_baja = tab_1.tp_3.dw_det_beneficiarios.GetItemDatetime(li_i, "fch_baja")
     //     ldt_fch_baja_bd = tab_1.tp_3.dw_det_beneficiarios.GetItemDatetime(li_i, "fch_baja_bd")
     //     ldt_fch_alta = tab_1.tp_3.dw_det_beneficiarios.GetItemDatetime(li_i, "fch_alta")
@@ -2170,7 +2218,7 @@ function modificaCtto(){
                       
     //     End If
 
-    //     // -- Llave -- //
+    //     // -- Llave -- //---------------------------------------AQUI!!!!!
        
     //     If IsNull(li_num_item) Or li_num_item = 0 Then
 
@@ -2223,30 +2271,23 @@ function modificaCtto(){
     //     tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetFilter("")
     //     tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.Filter()
                    
-    // Next
+    //Next for obsv beneficiarios Next
      
-    // // -- Ref -- //
-                   
-    // SELECT  vtade_contrato.num_refinanciamiento
-    // INTO                     :li_ref_aux
-    // FROM                   vtade_contrato
-    // WHERE vtade_contrato.cod_localidad = :ls_localidad
-    // AND                      vtade_contrato.cod_tipo_ctt = :ls_tipo_ctt
-    // AND                      vtade_contrato.cod_tipo_programa = :ls_tipo_programa
-    // AND                      vtade_contrato.cod_contrato = :ls_contrato
-    // AND                      vtade_contrato.num_servicio = :ls_num_servicio_getrow
-    // USING SQLCA;
-     
-    // // -- Cuotas -- //
+    // -- Ref -- //
 
-    // If is_cronograma = 'SI' Then
+    var li_ref_aux = $("#numRefinanciamiento").val();
+     
+    // -- Cuotas -- //
+
+    var is_cronograma = 'SI';//-----------------de donde sale??
+    if( is_cronograma == 'SI'){
                    
-    //     // -- Retorno -- //
+        // -- Retorno -- //-----------------------------------????
        
     //     dw_aux.SetTransObject(SQLCA)
     //     dw_aux.Retrieve(ls_localidad, ls_contrato, ls_num_servicio_getrow, li_ref_aux, ls_tipo_ctt, ls_tipo_programa)
        
-    //     // -- Borrar -- //
+        // -- Borrar -- //
        
     //     For li_i = dw_aux.RowCount() To 1 Step -1
 
@@ -2255,13 +2296,15 @@ function modificaCtto(){
     //        If ls_tipo_cuota + String(li_num_cuota) <> 'CUI0' Then dw_aux.DeleteRow(li_i)
     //     Next
                 
-    //     // -- Cuotas Ordinarias -- //
+        // -- Cuotas Ordinarias -- //
        
-    //     li_tot_cronograma = 0
+        var li_tot_cronograma = 0;
+        var cronograma = document.getElementById('bodyCronogramaModif');
+        var cronogramaLenght = cronograma.rows.length;
        
-    //     For li_i = 1 To tab_1.tp_4.dw_det_cuotas.Rowcount()
+        for( li_i = 1 ; li_i <= cronogramaLenght ; li_i++ ){
                                       
-    //        li_row = dw_aux.InsertRow(0)
+    //        li_row = dw_aux.InsertRow(0)   -----------------------------cual es esa tabla??
           
     //        dw_aux.SetItem(li_row, "cod_localidad", ls_localidad)
     //        dw_aux.SetItem(li_row, "cod_tipo_ctt", ls_tipo_ctt)
@@ -2280,25 +2323,26 @@ function modificaCtto(){
     //        dw_aux.SetItem(li_row, "flg_generar_mora", is_flg_generar_moras)
           
     //        // -- Total Interes -- //
-          
-    //        lde_tot_interes = lde_tot_interes + tab_1.tp_4.dw_det_cuotas.GetItemDecimal(li_i, "imp_interes")
+            
+            var oCells = croTable.rows.item(li_i).cells;
+            lde_tot_interes = lde_tot_interes + pasaAnumero(oCells.item(4).innerHTML.trim());
           
     //        // -- Total -- //
           
-    //        li_tot_cronograma = li_tot_cronograma + 1
-    //        li_total_cuotas = li_total_cuotas + 1
+           li_tot_cronograma = li_tot_cronograma + 1;
+           li_total_cuotas = li_total_cuotas + 1;
                       
-    //     Next
+        }//for cronogramalength
                    
-    //     // -- Inicializa Variables -- //
+        // -- Inicializa Variables -- //
        
-    //     ls_localidad_det = ''
+        var ls_localidad_det = '';
        
-    //     // -- Cronograma FOMA -- //
+        // -- Cronograma FOMA -- //
 
-    //     If IsNull(ls_servicio_foma) = False And Trim(ls_servicio_foma) <> '' Then
-       
-    //        For li_i = 1 To tab_1.tp_5.dw_detalle_cuotas_foma.Rowcount()
+        if(ls_servicio_foma != null && ls_servicio_foma != ''){
+           var fomaLength = document.getElementById("bodyCronogramaFomaModif").rows.length;
+           for( li_i = 1 ; li_i <= fomaLength ; li_i++){
                           
     //            ls_localidad_det = tab_1.tp_5.dw_detalle_cuotas_foma.GetItemString(li_i, "cod_localidad")
               
@@ -2319,24 +2363,25 @@ function modificaCtto(){
     //                dw_aux.SetItem(li_row, "imp_total", tab_1.tp_5.dw_detalle_cuotas_foma.GetItemDecimal(li_i, "imp_total"))
     //                dw_aux.SetItem(li_row, "num_cuota", tab_1.tp_5.dw_detalle_cuotas_foma.GetItemDecimal(li_i, "num_cuota") + li_tot_cronograma)
                   
-    //                li_total_cuotas = li_total_cuotas + 1
+                   li_total_cuotas = li_total_cuotas + 1;
                               
     //            End If
                           
-    //        Next
+           }//Next tablafoma
                       
-    //     End If
+        }//End If ls_servicio_foma
                    
-    // Else
+    }else{
                    
     //     dw_aux.SetTransObject(SQLCA)
     //     dw_aux.Retrieve(ls_localidad, ls_contrato, ls_num_servicio_getrow, li_ref_aux, ls_tipo_ctt, ls_tipo_programa)
 
-    //     // -- FOMA -- //
+        // -- FOMA -- //
        
-    //     If is_cronograma_foma = 'SI' Then
+       var is_cronograma_foma = 'SI';
+        if( is_cronograma_foma == 'SI'){
                       
-    //        // -- Borrar -- //
+           // -- Borrar -- //
 
     //        For li_i = dw_aux.RowCount() To 1 Step -1
 
@@ -2345,7 +2390,7 @@ function modificaCtto(){
 
     //        Next
                       
-    //        li_tot_cronograma = dw_aux.GetItemNumber(dw_aux.Rowcount(), "num_cuota")
+           // li_tot_cronograma = dw_aux.GetItemNumber(dw_aux.Rowcount(), "num_cuota")
           
     //        // -- FOMA -- //
           
@@ -2380,37 +2425,31 @@ function modificaCtto(){
               
     //        End If
                       
-    //     End If
+        }//End If is_cronograma_foma
                    
-    //     // -- Total -- //
-       
-    //     SELECT  MAX(vtade_cronograma.num_cuota)
-    //     INTO                     :li_total_cuotas
-    //     FROM                   vtade_cronograma
-    //     WHERE vtade_cronograma.cod_localidad = :ls_localidad
-    //     AND                      vtade_cronograma.cod_tipo_ctt = :ls_tipo_ctt
-    //     AND                      vtade_cronograma.cod_tipo_programa = :ls_tipo_programa
-    //     AND                      vtade_cronograma.cod_contrato = :ls_contrato
-    //     AND                      vtade_cronograma.num_refinanciamiento = :li_ref
-    //     USING SQLCA;
-       
-    //     If IsNull(li_total_cuotas) Then li_total_cuotas = 0
+        // -- Total -- //
+
+        var li_total_cuotas = buscaMaxCuotas(ls_tipo_ctt,ls_tipo_programa,ls_contrato,li_ref);
                    
-    // End If
+    }// End If is_cronograma
      
-    // // -- Inicializa -- //
+    // -- Inicializa -- //
      
-    // lde_tot_interes = 0
+    var lde_tot_interes = 0;
      
-    // // -- Interes -- //
+    // -- Interes -- //
      
-    // For li_i = 1 To tab_1.tp_4.dw_det_cuotas.Rowcount()                
+    var cronograma = document.getElementById('bodyCronogramaModif');
+    var cronogramaLenght = cronograma.rows.length;
+   
+    for( li_i = 1 ; li_i <= cronogramaLenght ; li_i++ ){
 
-    //     lde_tot_interes = lde_tot_interes + tab_1.tp_4.dw_det_cuotas.GetItemDecimal(li_i, "imp_interes")
+        var oCells = croTable.rows.item(li_i).cells;
+        lde_tot_interes = lde_tot_interes + pasaAnumero(oCells.item(4).innerHTML.trim());               
 
-    // Next
+    }// Next
      
-    // // -- Ref -- //
+    // -- Ref -- //
      
     // If dw_aux.Rowcount() > 0 Then
                    
@@ -2445,96 +2484,51 @@ function modificaCtto(){
                      
     // End If
      
-    // // -- Cuota -- //
-     
-    // SELECT  MAX(vtade_cronograma.imp_total)
-    // INTO                     :lde_valor_cuota
-    // FROM                   vtade_cronograma
-    // WHERE vtade_cronograma.cod_localidad = :ls_localidad
-    // AND                      vtade_cronograma.cod_tipo_ctt = :ls_tipo_ctt
-    // AND                      vtade_cronograma.cod_tipo_programa = :ls_tipo_programa
-    // AND                      vtade_cronograma.cod_contrato = :ls_contrato
-    // AND                      vtade_cronograma.num_refinanciamiento = :li_ref
-    // AND                      vtade_cronograma.cod_tipo_cuota = 'ARM'
-    // USING SQLCA;
-     
-    // // -- N° de servicios -- //
-     
-    // For li_i = 1 To tab_1.tp_4.dw_servicio_vin.Rowcount()
-                   
-    //     ls_servicio = tab_1.tp_4.dw_servicio_vin.GetItemString(li_i, "num_servicio")
-       
-    //     // -- Inicializar -- //
-       
-    //     lde_costo_carencia = 0
-       
-    //     // -- Servicio principal -- //               
+    // -- Cuota -- //
 
-    //     SELECT  vtade_contrato_servicio.imp_costo_carencia
-    //     INTO                     :lde_costo_carencia
-    //     FROM                   vtade_contrato_servicio
-    //     WHERE vtade_contrato_servicio.cod_localidad = :ls_localidad
-    //     AND                      vtade_contrato_servicio.cod_tipo_ctt = :ls_tipo_ctt
-    //     AND                      vtade_contrato_servicio.cod_tipo_programa = :ls_tipo_programa
-    //     AND                      vtade_contrato_servicio.cod_contrato = :ls_contrato
-    //     AND                      vtade_contrato_servicio.num_servicio = :ls_servicio
-    //     AND                      vtade_contrato_servicio.flg_servicio_principal = 'SI'
-    //     USING SQLCA;
-                   
-    //     // -- Replica Datos -- //
-       
-    //     UPDATE  vtade_contrato
-    //     SET  vtade_contrato.cod_vendedor = :ls_vendedor,
-    //        vtade_contrato.cod_supervisor = :ls_supervisor,
-    //        vtade_contrato.cod_jefeventas = :ls_jefe,
-    //        vtade_contrato.cod_grupo = :ls_grupo,
-    //        vtade_contrato.cod_canal_venta = :ls_canal,
-    //        vtade_contrato.cod_tipo_comisionista = :ls_tipo_comisionista,
-    //        vtade_contrato.cod_cuota = :ls_cuota,
-    //        vtade_contrato.num_cuotas = :li_cuotas,
-    //        vtade_contrato.cod_interes = :ls_interes,
-    //        vtade_contrato.fch_primer_vencimiento = :ldt_fch_venc,
-    //        vtade_contrato.imp_tasa_interes = :lde_tasa,
-    //        vtade_contrato.fch_emision = ( CASE WHEN vtade_contrato.fch_emision IS NULL THEN :ldt_fch_actual ELSE vtade_contrato.fch_emision END ),
-    //        vtade_contrato.flg_emitido = 'SI',
-    //        vtade_contrato.cod_usuario_emision = :gs_usuario,
-    //        vtade_contrato.flg_agencia = :ls_flg_agencia,
-    //        vtade_contrato.cod_agencia = :ls_agencia,
-    //        vtade_contrato.cod_convenio = :ls_convenio,
-    //        vtade_contrato.cod_titular_alterno = :ls_cliente_alterno,
-    //        vtade_contrato.cod_aval = :ls_aval,                           
-    //        vtade_contrato.cod_empresa = :gs_empresa,
-    //        vtade_contrato.cod_cobrador = :ls_cod_cobrador,
-    //        vtade_contrato.imp_valor_cuota = :lde_valor_cuota,
-    //        vtade_contrato.imp_interes = :lde_tot_interes,
-    //        vtade_contrato.cod_zona = :ls_zona,
-    //        vtade_contrato.imp_costo_carencia = :lde_costo_carencia 
-    //     WHERE vtade_contrato.cod_localidad = :ls_localidad
-    //     AND                      vtade_contrato.cod_tipo_ctt = :ls_tipo_ctt
-    //     AND                      vtade_contrato.cod_tipo_programa = :ls_tipo_programa
-    //     AND                      vtade_contrato.cod_contrato = :ls_contrato
-    //     AND                      vtade_contrato.num_servicio = :ls_servicio
-    //     USING SQLCA;
-                   
-    //     If f_verifica_transaccion(SQLCA) = False Then Goto db_error
-       
-    //     // -- DS -- //
+    var lde_valor_cuota = buscaMaxValor(ls_tipo_ctt,ls_tipo_programa,ls_contrato,li_ref);
 
-    //     ls_servicio_foma = ""
+    
+    // -- N° de servicios -- //
+     
+    var tablaVin = document.getElementById('bodyServicioVin');
+    var tablaVinLenght = tablaVin.rows.length;
+    var gs_empresa = $("#idPropietario").val();
+    for( li_i = 1 ; li_i <= tablaVinLenght ; li_i++ ){
+                   
+        var oCells = croTable.rows.item(li_i).cells;
+        var ls_servicio = oCells.item(0).innerHTML.trim();
        
-    //     SELECT  vtade_contrato.num_servicio_foma
-    //     INTO                     :ls_servicio_foma
-    //     FROM                   vtade_contrato
-    //     WHERE vtade_contrato.cod_localidad = :ls_localidad
-    //     AND                      vtade_contrato.cod_tipo_ctt = :ls_tipo_ctt
-    //     AND                      vtade_contrato.cod_tipo_programa = :ls_tipo_programa
-    //     AND                      vtade_contrato.cod_contrato = :ls_contrato
-    //     AND                      vtade_contrato.num_servicio = :ls_servicio
-    //     USING SQLCA;
+        // -- Inicializar -- //
+       
+        // var lde_costo_carencia = 0;
+       
+        // -- Servicio principal -- //
+
+        var lde_costo_carencia = buscaCostoCarencia(ls_tipo_ctt,ls_tipo_programa,ls_contrato,ls_servicio);
                    
-    //     If IsNull(ls_servicio_foma) Then ls_servicio_foma = ""
+        // -- Replica Datos -- //
+
+        $.ajax({
+            url: 'ajax/modifCtto.ajax.php',
+            dataType: 'json',
+            method: "POST",
+            data: { 'accion' : 'RpDatosMod', 'ls_vendedor' : ls_vendedor, 'ls_supervisor' : ls_supervisor, 'ls_jefe' : ls_jefe, 'ls_grupo' : ls_grupo, 'ls_canal' : ls_canal, 'ls_tipo_comisionista' : ls_tipo_comisionista, 'ls_cuota' : ls_cuota, 'li_cuotas' : li_cuotas, 'ls_interes' : ls_interes, 'ldt_fch_venc' : ldt_fch_venc, 'lde_tasa' : lde_tasa, 'fch_actual_consulta' : fch_actual_consulta, 'ls_flg_agencia' : ls_flg_agencia, 'ls_convenio' : ls_convenio, 'ls_cliente_alterno' : ls_cliente_alterno, 'ls_aval' : ls_aval, 'gs_empresa' : gs_empresa, 'ls_cod_cobrador' : ls_cod_cobrador, 'lde_valor_cuota' : lde_valor_cuota, 'lde_tot_interes' : lde_tot_interes, 'ls_zona' : ls_zona, 'lde_costo_carencia' : lde_costo_carencia, 'ls_tipo_ctt' : ls_tipo_ctt, 'ls_tipo_programa' : ls_tipo_programa, 'ls_contrato' : ls_contrato, 'ls_servicio' : ls_servicio},
+            success : function(respuesta){
+                  
+            }
+        });
+                            
+        // -- DS -- //
+
+        ls_servicio_foma = $("#numServFoma").val();
+
                    
-    //     // -- Actualiza FOMA -- //
+        if(ls_servicio_foma == '' || ls_servicio_foma == null){
+            ls_servicio_foma = "";
+        }
+                   
+        // -- Actualiza FOMA -- //
 
     //     If IsNull(ls_servicio_foma) = False And Trim(ls_servicio_foma) <> "" Then
                       
@@ -2566,8 +2560,8 @@ function modificaCtto(){
                       
     //     End If
                    
-    // Next
-     
+    }//Next tabla vin
+}//borrar   
     // // -- UpDate Dw -- //
      
     // If tab_1.tp_3.dw_det_beneficiarios.UpDate() <> 1 Then Goto db_error
