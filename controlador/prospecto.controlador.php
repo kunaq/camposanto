@@ -21,7 +21,7 @@ class ControladorProspecto{
 						"distrito" => $_POST['distrito'],
 						"telefono1" => $_POST['telefono1'],
 						"telefono2" => $_POST['telefono2'],
-						"fchRegistro" => $fechaActual,
+						"fchRegistro" => $_POST['fchRegistro'],
 						"usuario" => $_SESSION['user'],
 						"origen" => $_POST['origen'],
 						"calificacion" => $_POST['calificacion'],
