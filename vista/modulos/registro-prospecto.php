@@ -44,6 +44,7 @@ if (isset($_POST['variable1'])) {
 										<div class="col-lg-2">
 											<label>Codigo:</label>
 										</div>
+										
 										<div class="col-lg-3">
 											<input type="text" class="form-control form-control-sm m-input" disabled id="codProspecto" value="<?php echo $codPro; ?>"/>
 										</div>

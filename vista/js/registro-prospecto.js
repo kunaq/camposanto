@@ -3,6 +3,28 @@ function mayus(e) {
     e.value = e.value.toUpperCase();
 }
 
+function pasaAnumero(string){
+  if(string == parseFloat(string)){
+       valor = parseFloat(string);
+  }
+   else if(string.indexOf(',') != -1){
+    var mil = string.split(',')[0];
+    var cien = string.split(',')[1];
+    var decenas = cien.split('.')[0];
+    var decimal = cien.split('.')[1];
+    valor = (parseInt(mil)*1000)+(parseInt(decenas))+(parseFloat(decimal)*0.01);
+  }
+  else if(string.indexOf('.') != -1){
+    var decenas = string.split('.')[0];
+    var decimal = string.split('.')[1];
+    valor = (parseInt(decenas))+(parseFloat(decimal)*0.01);
+  }
+  else{
+    valor = parseFloat(string);
+  }
+  return valor;
+}
+
 
 $("#importe").on({
     "focus": function (event) {
@@ -285,6 +307,7 @@ function cambiaCodigo(cod){
         dataType: 'text',
         data: {'cod':cod},
         success : function(response){
+          console.log(response);
             var info = JSON.parse(response);
             
             if (info.code == '0') {
@@ -588,14 +611,13 @@ function registrarProspecto(){
       }else {
         $.ajax({
         type:'POST',
-        url: 'extensiones/funciones/registrarProspecto.php',
+        url: 'ajax/prospecto.ajax.php',
         dataType: 'text',
-        data: {'importe':importe,'tipoDoc':tipoDoc, 'numDoc':numDoc, 'jur':jur,'apePaterno':apePaterno, 'apeMaterno':apeMaterno, 'nombre':nombre,'razonSocial':razonSocial, 'direccion':direccion, 'pais':pais,'departamento':departamento, 'provincia':provincia, 'distrito':distrito,'telefono1':telefono1, 'telefono2':telefono2, 'fchRegistro':fchRegistro,'usuario':usuario, 'origen':origen, 'calificacion':calificacion,'vendedor':vendedor, 'grupo':grupo, 'supervisor':supervisor, 'jefeVentas':jefeVentas, 'observacion':observacionP, 'estado':estado},
+        data: {'accion':'guardaProspecto','importe':importe,'tipoDoc':tipoDoc, 'numDoc':numDoc, 'jur':jur,'apePaterno':apePaterno, 'apeMaterno':apeMaterno, 'nombre':nombre,'razonSocial':razonSocial, 'direccion':direccion, 'pais':pais,'departamento':departamento, 'provincia':provincia, 'distrito':distrito,'telefono1':telefono1, 'telefono2':telefono2, 'fchRegistro':fchRegistro,'usuario':usuario, 'origen':origen, 'calificacion':calificacion,'vendedor':vendedor, 'grupo':grupo, 'supervisor':supervisor, 'jefeVentas':jefeVentas, 'observacion':observacionP, 'estado':estado},
         success : function(response){
            var info = JSON.parse(response);
-
+           var j = 0;
            if (info.cod == 1) {
-
             for (i = 0; i < rowLength; i++){
                //gets cells of current row
               var oCells = oTable.rows.item(i).cells;
@@ -618,18 +640,24 @@ function registrarProspecto(){
 
               $.ajax({
                 type:'POST',
-                url: 'extensiones/funciones/registrarContacto.php',
+                url: 'ajax/prospecto.ajax.php',
                 dataType: 'text',
-                data: {'codPro':info.codProspecto, 'num_linea':fila, 'fchContacto':fchCon, 'calificacion':cal, 'presentacion':cie, 'consejero':consejero, 'observacion':observacion, 'indicador':indicador, 'usuarioC':usuarioC},
+                data: {'accion':'guardaContacto', 'codPro':info.codProspecto, 'num_linea':fila, 'fchContacto':fchCon, 'calificacion':cal, 'presentacion':cie, 'consejero':consejero, 'observacion':observacion, 'indicador':indicador, 'usuarioC':usuarioC},
                 success : function(response){
-                  var resp = JSON.parse(response);
+                var resp = JSON.parse(response);
                   if (resp.cod == 1) {
-                    swal({
+                    j = j + 1;
+                    if (j == rowLength) {
+                      swal({
                         type: "success",
                         title: resp.msg,
                         showConfirmButton: true,
-                      confirmButtonText: "Aceptar"
-                    });
+                        confirmButtonText: "Aceptar"
+                      });
+                      document.getElementById('codProspecto').value = info.codProspecto;
+                      verificarRegistro();
+                    }
+                    
                   }else{
                     swal({
                         type: "warning",
@@ -638,8 +666,6 @@ function registrarProspecto(){
                       confirmButtonText: "Cerrar"
                     });
                   }
-                  document.getElementById('codProspecto').value = info.codProspecto;
-                  verificarRegistro();
                  }
               });
             }
@@ -701,12 +727,12 @@ function registrarProspecto(){
       }else {
         $.ajax({
         type:'POST',
-        url: 'extensiones/funciones/registrarProspecto.php',
+        url: 'ajax/prospecto.ajax.php',
         dataType: 'text',
-        data: {'importe':importe,'tipoDoc':tipoDoc, 'numDoc':numDoc, 'jur':jur,'apePaterno':apePaterno, 'apeMaterno':apeMaterno, 'nombre':nombre,'razonSocial':razonSocial, 'direccion':direccion, 'pais':pais,'departamento':departamento, 'provincia':provincia, 'distrito':distrito,'telefono1':telefono1, 'telefono2':telefono2, 'fchRegistro':fchRegistro,'usuario':usuario, 'origen':origen, 'calificacion':calificacion,'vendedor':vendedor, 'grupo':grupo, 'supervisor':supervisor, 'jefeVentas':jefeVentas, 'observacion':observacionP, 'estado':estado},
+        data: {'accion':'guardaProspecto','importe':importe,'tipoDoc':tipoDoc, 'numDoc':numDoc, 'jur':jur,'apePaterno':apePaterno, 'apeMaterno':apeMaterno, 'nombre':nombre,'razonSocial':razonSocial, 'direccion':direccion, 'pais':pais,'departamento':departamento, 'provincia':provincia, 'distrito':distrito,'telefono1':telefono1, 'telefono2':telefono2, 'fchRegistro':fchRegistro,'usuario':usuario, 'origen':origen, 'calificacion':calificacion,'vendedor':vendedor, 'grupo':grupo, 'supervisor':supervisor, 'jefeVentas':jefeVentas, 'observacion':observacionP, 'estado':estado},
         success : function(response){
+          var j = 0;
            var info = JSON.parse(response);
-
            if (info.cod == 1) {
 
             for (i = 0; i < rowLength; i++){
@@ -731,18 +757,23 @@ function registrarProspecto(){
 
               $.ajax({
                 type:'POST',
-                url: 'extensiones/funciones/registrarContacto.php',
+                url: 'ajax/prospecto.ajax.php',
                 dataType: 'text',
-                data: {'codPro':info.codProspecto, 'num_linea':fila, 'fchContacto':fchCon, 'calificacion':cal, 'presentacion':cie, 'consejero':consejero, 'observacion':observacion, 'indicador':indicador, 'usuarioC':usuarioC},
+                data: {'accion':'guardaContacto','codPro':info.codProspecto, 'num_linea':fila, 'fchContacto':fchCon, 'calificacion':cal, 'presentacion':cie, 'consejero':consejero, 'observacion':observacion, 'indicador':indicador, 'usuarioC':usuarioC},
                 success : function(response){
                   var resp = JSON.parse(response);
                   if (resp.cod == 1) {
-                    swal({
+                    j = j + 1;
+                    if (j == rowLength) {
+                      swal({
                         type: "success",
                         title: resp.msg,
                         showConfirmButton: true,
-                      confirmButtonText: "Aceptar"
-                    });
+                        confirmButtonText: "Aceptar"
+                      });
+                      document.getElementById('codProspecto').value = info.codProspecto;
+                      verificarRegistro();
+                    }
                   }else{
                     swal({
                         type: "warning",
@@ -751,8 +782,6 @@ function registrarProspecto(){
                       confirmButtonText: "Cerrar"
                     });
                   }
-                  document.getElementById('codProspecto').value = info.codProspecto;
-                  verificarRegistro();
                  }
               });
             }

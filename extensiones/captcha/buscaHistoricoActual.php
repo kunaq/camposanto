@@ -32,7 +32,7 @@ require_once "../../modelo/conexion.php";
 
 		}else{
 			$code = "0";
-			$msg = 'El consejero no se encuentra activo para el presente periodo ['.$periodo.'-'.$tipoPeriodo.'-'.$num_anno.'].';
+			$msg = 'El consejero no se encuentra activo para el presente periodo ['.$num_anno.'-'.$tipoPeriodo.'-'.$periodo.'].';
 			$arrData = array('code'=> $code, 'msg'=> $msg);
 			echo json_encode($arrData,JSON_UNESCAPED_UNICODE);
 		}
