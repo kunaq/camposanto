@@ -51,7 +51,7 @@
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-danger" data-dismiss="modal">
+				<button type="button" class="btn btnGuardarKqPst" data-dismiss="modal">
 					Aceptar
 				</button>
 			</div>
