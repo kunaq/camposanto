@@ -124,14 +124,14 @@ while($key = $db->recorrer($sql)){
                                 <i style="color: #3DB231;" class="fa fa-check"></i>
                             </button>';
             }else if ($key["flg_resuelto"] == "SI" || $key["flg_anulado"] == "SI") {
-                $buttons .= '<h6>aca1</h6>';
+                $buttons .= '';
             }else{
                 $buttons .= '<button type="button" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="m-tooltip" data-container="body" data-placement="top" title="Activar" data-original-title="Activar" onclick="preActivarContrato("'.$numContrato.'","'.$codServicio.'")">
                                 <i class="fa fa-check"></i>
                             </button>';
             }
         }else{
-            $buttons .= '<h6>aca2</h6>';
+            $buttons .= '';
         }
 
 
@@ -145,6 +145,6 @@ while($key = $db->recorrer($sql)){
         $arrData = array('num_contrato'=> $numContrato, 'cod_servicio'=> $codServicio, 'dsc_cliente'=> $cliente, 'tipo_necesidad'=> $ttipoNec, 'fch_emision'=> $fechEmi, 'fch_activacion'=> $fechAct, 'fch_resolucion'=> $fechRes, 'fch_anulacion'=> $fechAnu, 'dsc_vendedor'=> $vendedor, 'tipo_servicio'=>$tipoServ, 'num_cuotas'=> $numCuotas, 'tasa_interes'=> $tasainteres, 'total'=>$total, 'buttons'=> $buttons, 'actions' => $actions);
     }
 
-    echo json_encode($arrData);
+    echo json_encode($arrData,JSON_UNESCAPED_UNICODE);
     $db->liberar($sql);
     $db->cerrar(); 
