@@ -6,11 +6,7 @@ class ModeloProspecto{
 
 	static public function mdlGuardaProspecto($datos){
 		$db = new Conexion();
-		$sql = $db->consulta("SELECT TOP 1 CONVERT(INT,SUBSTRING(
-        cod_prospecto, 
-        CHARINDEX('T', cod_prospecto)+1, 
-        LEN(cod_prospecto)-CHARINDEX('T', cod_prospecto))) AS ultimo_registro
-        FROM vtaca_prospecto_venta ORDER BY cod_prospecto DESC;");
+		$sql = $db->consulta("SELECT MAX(cod_prospecto) AS  FROM vtaca_prospecto_venta;");
 
 		// $ultimoPros = "";
 
@@ -18,23 +14,23 @@ class ModeloProspecto{
 		    $ultimoPros = $key['ultimo_registro'];
 		}
 
-		$nuevoPros = (int)$ultimoPros + 1;
+		// $nuevoPros = (int)$ultimoPros + 1;
 
-		if ($nuevoPros < 10) {
-		    $codPro = "PVT000000".$nuevoPros."";
-		}elseif ($nuevoPros < 100) {
-		    $codPro = "PVT00000".$nuevoPros."";
-		}elseif ($nuevoPros < 1000) {
-		    $codPro = "PVT0000".$nuevoPros."";
-		}elseif ($nuevoPros < 10000) {
-		    $codPro = "PVT000".$nuevoPros."";
-		}elseif ($nuevoPros < 100000) {
-		    $codPro = "PVT00".$nuevoPros."";
-		}elseif ($nuevoPros < 1000000) {
-		    $codPro = "PVT0".$nuevoPros."";
-		}elseif ($nuevoPros < 10000000) {
-		    $codPro = "PVT".$nuevoPros."";
-		}
+		// if ($nuevoPros < 10) {
+		//     $codPro = "PVT000000".$nuevoPros."";
+		// }elseif ($nuevoPros < 100) {
+		//     $codPro = "PVT00000".$nuevoPros."";
+		// }elseif ($nuevoPros < 1000) {
+		//     $codPro = "PVT0000".$nuevoPros."";
+		// }elseif ($nuevoPros < 10000) {
+		//     $codPro = "PVT000".$nuevoPros."";
+		// }elseif ($nuevoPros < 100000) {
+		//     $codPro = "PVT00".$nuevoPros."";
+		// }elseif ($nuevoPros < 1000000) {
+		//     $codPro = "PVT0".$nuevoPros."";
+		// }elseif ($nuevoPros < 10000000) {
+		//     $codPro = "PVT".$nuevoPros."";
+		// }
 
 		$dsc_prospecto = $datos['apePaterno']." ".$datos['apeMaterno'].", ".$datos['nombre'];
 
