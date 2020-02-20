@@ -11,7 +11,7 @@ $arrData = "";
 $db = new Conexion();
 
 $sql = $db->consulta("SELECT vtade_contrato.cod_localidad, vtade_contrato.cod_tipo_necesidad,vtade_contrato.num_servicio, vtade_contrato.cod_contrato,(SELECT vtama_cliente.dsc_cliente FROM vtama_cliente WHERE vtama_cliente.cod_cliente = vtade_contrato.cod_cliente) AS dsc_cliente, vtade_contrato.fch_emision, vtade_contrato.fch_activacion, vtade_contrato.fch_resolucion, vtade_contrato.fch_anulacion,
-(SELECT rhuma_trabajador.dsc_nombres + ' ' + rhuma_trabajador.dsc_apellido_paterno FROM rhuma_trabajador WHERE rhuma_trabajador.cod_trabajador = vtade_contrato.cod_vendedor) AS dsc_vendedor,
+(SELECT rhuma_trabajador.dsc_nombres + ' ' + rhuma_trabajador.dsc_apellido_paterno FROM rhuma_trabajador WHERE rhuma_trabajador.cod_trabajador = vtade_contrato.cod_vendedor) AS dsc_vendedor, vtade_contrato.cod_tipo_servicio,
 (SELECT vtama_tipo_servicio.dsc_tipo_servicio FROM vtama_tipo_servicio WHERE vtama_tipo_servicio.cod_tipo_servicio = vtade_contrato.cod_tipo_servicio) AS dsc_tipo_servicio,
 vtade_contrato.num_cuotas, vtade_contrato.imp_tasa_interes, vtade_contrato.fch_primer_vencimiento, vtade_contrato.imp_totalneto, vtade_contrato.cod_localidad,vtade_contrato.flg_activado,
 vtade_contrato.flg_resuelto, vtade_contrato.flg_anulado, vtade_contrato.cod_tipo_ctt, ( CASE WHEN vtade_contrato.cod_tipo_programa = 'TR000' THEN 'CONTRATO DE SERVICIOS' ELSE
@@ -44,7 +44,7 @@ while($key = $db->recorrer($sql)){
         // $ttipoPro = $key['dsc_tipo_programa'];
         $numContrato = $key['cod_contrato'];
         $codServicio= $key['num_servicio'];
-        $cliente = $key['dsc_cliente'];
+        $cliente = utf8_encode($key['dsc_cliente']);
         // -------- Condicional para campos NULL de fch_generacion -------- //
         // if ($key['fch_generacion'] == NULL) {
         //     $tfechGen = "-";
@@ -76,8 +76,8 @@ while($key = $db->recorrer($sql)){
             $fechAnu = dateFormat($key['fch_anulacion']);
         }
 
-        $vendedor = $key['dsc_vendedor'];
-        $tipoServ = $key['dsc_tipo_servicio'];
+        $vendedor = utf8_encode($key['dsc_vendedor']);
+        $tipoServ = utf8_encode($key['dsc_tipo_servicio']);
         $numCuotas = $key['num_cuotas'];
         $tasainteres = $key['imp_tasa_interes'];
 
@@ -118,15 +118,22 @@ while($key = $db->recorrer($sql)){
                             </button>
                         </span>';
 
-        if ($key["flg_activado"] == "SI") {
-            $buttons .= '<button type="button" data-toggle="m-tooltip" data-container="body" data-placement="top" title="Activado" data-original-title="Activado" style="border: 1px solid #3db231;" disabled="" class="m-portlet__nav-link btn m-btn m-btn--icon m-btn--icon-only m-btn--pill">
-                            <i style="color: #3DB231;" class="fa fa-check"></i>
-                        </button>';
+        if ($key['cod_tipo_servicio'] == 'TS001' || $key['cod_tipo_servicio'] == 'TS007' || $key['cod_tipo_servicio'] == 'TS008') {
+            if ($key["flg_activado"] == "SI") {
+                $buttons .= '<button type="button" data-toggle="m-tooltip" data-container="body" data-placement="top" title="Activado" data-original-title="Activado" style="border: 1px solid #3db231;" disabled="" class="m-portlet__nav-link btn m-btn m-btn--icon m-btn--icon-only m-btn--pill">
+                                <i style="color: #3DB231;" class="fa fa-check"></i>
+                            </button>';
+            }else if ($key["flg_resuelto"] == "SI" || $key["flg_anulado"] == "SI") {
+                $buttons .= '';
+            }else{
+                $buttons .= '<button type="button" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="m-tooltip" data-container="body" data-placement="top" title="Activar" data-original-title="Activar" onclick="preActivarContrato("'.$numContrato.'","'.$codServicio.'")">
+                                <i class="fa fa-check"></i>
+                            </button>';
+            }
         }else{
-            $buttons .= '<button type="button" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="m-tooltip" data-container="body" data-placement="top" title="Activar" data-original-title="Activar" onclick="">
-                            <i class="fa fa-check"></i>
-                        </button>';
+            $buttons .= '';
         }
+
 
         $actions .= '<a href="refinanciamiento?localidad='.$key['cod_localidad'].'&contrato='.$numContrato.'" target="_blank" type="button" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="m-tooltip" data-container="body" data-placement="top" title="Refinanciamiento" onclick="">
                         <i class="fa fa-balance-scale"></i>
@@ -138,6 +145,6 @@ while($key = $db->recorrer($sql)){
         $arrData = array('num_contrato'=> $numContrato, 'cod_servicio'=> $codServicio, 'dsc_cliente'=> $cliente, 'tipo_necesidad'=> $ttipoNec, 'fch_emision'=> $fechEmi, 'fch_activacion'=> $fechAct, 'fch_resolucion'=> $fechRes, 'fch_anulacion'=> $fechAnu, 'dsc_vendedor'=> $vendedor, 'tipo_servicio'=>$tipoServ, 'num_cuotas'=> $numCuotas, 'tasa_interes'=> $tasainteres, 'total'=>$total, 'buttons'=> $buttons, 'actions' => $actions);
     }
 
-    echo json_encode($arrData);
+    echo json_encode($arrData,JSON_UNESCAPED_UNICODE);
     $db->liberar($sql);
     $db->cerrar(); 
