@@ -44,7 +44,7 @@ while($key = $db->recorrer($sql)){
         // $ttipoPro = $key['dsc_tipo_programa'];
         $numContrato = $key['cod_contrato'];
         $codServicio= $key['num_servicio'];
-        $cliente = $key['dsc_cliente'];
+        $cliente = utf8_encode($key['dsc_cliente']);
         // -------- Condicional para campos NULL de fch_generacion -------- //
         // if ($key['fch_generacion'] == NULL) {
         //     $tfechGen = "-";
@@ -76,8 +76,8 @@ while($key = $db->recorrer($sql)){
             $fechAnu = dateFormat($key['fch_anulacion']);
         }
 
-        $vendedor = $key['dsc_vendedor'];
-        $tipoServ = $key['dsc_tipo_servicio'];
+        $vendedor = utf8_encode($key['dsc_vendedor']);
+        $tipoServ = utf8_encode($key['dsc_tipo_servicio']);
         $numCuotas = $key['num_cuotas'];
         $tasainteres = $key['imp_tasa_interes'];
 
