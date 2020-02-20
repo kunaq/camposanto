@@ -615,7 +615,6 @@ function registrarProspecto(){
         dataType: 'text',
         data: {'accion':'guardaProspecto','importe':importe,'tipoDoc':tipoDoc, 'numDoc':numDoc, 'jur':jur,'apePaterno':apePaterno, 'apeMaterno':apeMaterno, 'nombre':nombre,'razonSocial':razonSocial, 'direccion':direccion, 'pais':pais,'departamento':departamento, 'provincia':provincia, 'distrito':distrito,'telefono1':telefono1, 'telefono2':telefono2, 'fchRegistro':fchRegistro,'usuario':usuario, 'origen':origen, 'calificacion':calificacion,'vendedor':vendedor, 'grupo':grupo, 'supervisor':supervisor, 'jefeVentas':jefeVentas, 'observacion':observacionP, 'estado':estado},
         success : function(response){
-          console.log(response);
            var info = JSON.parse(response);
            var j = 0;
            if (info.cod == 1) {
