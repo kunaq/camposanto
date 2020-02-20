@@ -7,33 +7,50 @@ class ModeloProspecto{
 	static public function mdlGuardaProspecto($datos){
 		$db = new Conexion();
 		$sql = $db->consulta("SELECT TOP 1 CONVERT(INT,SUBSTRING(
-					        cod_prospecto, 
-					        CHARINDEX('T', cod_prospecto)+1, 
-					        LEN(cod_prospecto)-CHARINDEX('T', cod_prospecto))) AS ultimo_registro
-					        FROM vtaca_prospecto_venta ORDER BY cod_prospecto DESC;");
+        cod_prospecto, 
+        CHARINDEX('T', cod_prospecto)+1, 
+        LEN(cod_prospecto)-CHARINDEX('T', cod_prospecto))) AS ultimo_registro
+        FROM vtaca_prospecto_venta ORDER BY cod_prospecto DESC;");
+
+		$ultimoPros = "";
 
 		while($key = $db->recorrer($sql)){
 		    $ultimoPros = $key['ultimo_registro'];
 		}
+
 		$nuevoPros = (int)$ultimoPros + 1;
 
-		$cod_prospecto = "PVT".str_pad($nuevoPros, 7, "0", STR_PAD_LEFT);
+		if ($nuevoPros < 10) {
+		    $codPro = "PVT000000".$nuevoPros."";
+		}elseif ($nuevoPros < 100) {
+		    $codPro = "PVT00000".$nuevoPros."";
+		}elseif ($nuevoPros < 1000) {
+		    $codPro = "PVT0000".$nuevoPros."";
+		}elseif ($nuevoPros < 10000) {
+		    $codPro = "PVT000".$nuevoPros."";
+		}elseif ($nuevoPros < 100000) {
+		    $codPro = "PVT00".$nuevoPros."";
+		}elseif ($nuevoPros < 1000000) {
+		    $codPro = "PVT0".$nuevoPros."";
+		}elseif ($nuevoPros < 10000000) {
+		    $codPro = "PVT".$nuevoPros."";
+		}
 
 		$dsc_prospecto = $datos['apePaterno']." ".$datos['apeMaterno'].", ".$datos['nombre'];
 
 		if ($datos['juridico'] == "NO") {
-		    $sql2 = $db->consulta("INSERT INTO vtaca_prospecto_venta(cod_prospecto, dsc_apellido_paterno, dsc_apellido_materno, dsc_nombre, flg_juridico, cod_tipo_documento, dsc_documento, dsc_prospecto, cod_pais, cod_departamento, cod_provincia, cod_distrito, dsc_direccion, dsc_telefono_1, dsc_telefono_2, cod_origen, cod_calificacion, dsc_observaciones, fch_registro, cod_usuario, cod_consejero, cod_grupo, cod_supervisor, cod_jefeventas, cod_estado, flg_cambio_activo) VALUES('$cod_prospecto', '".$datos['apePaterno']."', '".$datos['apeMaterno']."', '".$datos['nombre']."', '".$datos['juridico']."', '".$datos['tipoDoc']."', '".$datos['numDoc']."', '$dsc_prospecto', '".$datos['pais']."', '".$datos['departamento']."', '".$datos['provincia']."', '".$datos['distrito']."', '".$datos['direccion']."', '".$datos['telefono1']."', '".$datos['telefono2']."', '".$datos['origen']."', '".$datos['calificacion']."', '".$datos['observacion']."', '".$datos['fchRegistro']."', '".$datos['usuario']."', '".$datos['vendedor']."', '".$datos['grupo']."', '".$datos['supervisor']."', '".$datos['jefeVentas']."', '".$datos['estado']."', 'NO')");
+		    $sql2 = $db->consulta("INSERT INTO vtaca_prospecto_venta(cod_prospecto, dsc_apellido_paterno, dsc_apellido_materno, dsc_nombre, flg_juridico, cod_tipo_documento, dsc_documento, dsc_prospecto, cod_pais, cod_departamento, cod_provincia, cod_distrito, dsc_direccion, dsc_telefono_1, dsc_telefono_2, cod_origen, cod_calificacion, dsc_observaciones, fch_registro, cod_usuario, cod_consejero, cod_grupo, cod_supervisor, cod_jefeventas, cod_estado, flg_cambio_activo) VALUES('$codPro', '".$datos['apePaterno']."', '".$datos['apeMaterno']."', '".$datos['nombre']."', '".$datos['juridico']."', '".$datos['tipoDoc']."', '".$datos['numDoc']."', '$dsc_prospecto', '".$datos['pais']."', '".$datos['departamento']."', '".$datos['provincia']."', '".$datos['distrito']."', '".$datos['direccion']."', '".$datos['telefono1']."', '".$datos['telefono2']."', '".$datos['origen']."', '".$datos['calificacion']."', '".$datos['observacion']."', '".$datos['fchRegistro']."', '".$datos['usuario']."', '".$datos['vendedor']."', '".$datos['grupo']."', '".$datos['supervisor']."', '".$datos['jefeVentas']."', '".$datos['estado']."', 'NO')");
 
-		    $consulta = "INSERT INTO vtaca_prospecto_venta(cod_prospecto, dsc_apellido_paterno, dsc_apellido_materno, dsc_nombre, flg_juridico, cod_tipo_documento, dsc_documento, dsc_prospecto, cod_pais, cod_departamento, cod_provincia, cod_distrito, dsc_direccion, dsc_telefono_1, dsc_telefono_2, cod_origen, cod_calificacion, dsc_observaciones, fch_registro, cod_usuario, cod_consejero, cod_grupo, cod_supervisor, cod_jefeventas, cod_estado, flg_cambio_activo) VALUES('$cod_prospecto', '".$datos['apePaterno']."', '".$datos['apeMaterno']."', '".$datos['nombre']."', '".$datos['juridico']."', '".$datos['tipoDoc']."', '".$datos['numDoc']."', '$dsc_prospecto', '".$datos['pais']."', '".$datos['departamento']."', '".$datos['provincia']."', '".$datos['distrito']."', '".$datos['direccion']."', '".$datos['telefono1']."', '".$datos['telefono2']."', '".$datos['origen']."', '".$datos['calificacion']."', '".$datos['observacion']."', '".$datos['fchRegistro']."', '".$datos['usuario']."', '".$datos['vendedor']."', '".$datos['grupo']."', '".$datos['supervisor']."', '".$datos['jefeVentas']."', '".$datos['estado']."', 'NO')";
+		    $consulta = "INSERT INTO vtaca_prospecto_venta(cod_prospecto, dsc_apellido_paterno, dsc_apellido_materno, dsc_nombre, flg_juridico, cod_tipo_documento, dsc_documento, dsc_prospecto, cod_pais, cod_departamento, cod_provincia, cod_distrito, dsc_direccion, dsc_telefono_1, dsc_telefono_2, cod_origen, cod_calificacion, dsc_observaciones, fch_registro, cod_usuario, cod_consejero, cod_grupo, cod_supervisor, cod_jefeventas, cod_estado, flg_cambio_activo) VALUES('$codPro', '".$datos['apePaterno']."', '".$datos['apeMaterno']."', '".$datos['nombre']."', '".$datos['juridico']."', '".$datos['tipoDoc']."', '".$datos['numDoc']."', '$dsc_prospecto', '".$datos['pais']."', '".$datos['departamento']."', '".$datos['provincia']."', '".$datos['distrito']."', '".$datos['direccion']."', '".$datos['telefono1']."', '".$datos['telefono2']."', '".$datos['origen']."', '".$datos['calificacion']."', '".$datos['observacion']."', '".$datos['fchRegistro']."', '".$datos['usuario']."', '".$datos['vendedor']."', '".$datos['grupo']."', '".$datos['supervisor']."', '".$datos['jefeVentas']."', '".$datos['estado']."', 'NO')";
 
-
-		    if ($sql2) {
-		    	$respuesta = array('cod' => '1', 'codProspecto'=> $cod_prospecto, 'consulta' => $consulta);
-				return $respuesta;
-		    }else{
-		        $arrData = array('cod'=> '0', 'msg'=>'Ocurrio un error al registrar el prospecto');
-		        return $respuesta;
-		    }
+		    return $consulta;
+		  //   if ($sql2) {
+		  //   	$respuesta = array('cod' => '1', 'codProspecto'=> $cod_prospecto, 'consulta' => $consulta);
+				// return $respuesta;
+		  //   }else{
+		  //       $arrData = array('cod'=> '0', 'msg'=>'Ocurrio un error al registrar el prospecto');
+		  //       return $respuesta;
+		  //   }
 
 		    $db->liberar($sql2);
 
