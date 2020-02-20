@@ -305,6 +305,7 @@ class ControladorModifCtto{
 						"ldt_fch_venc" => $_POST['ldt_fch_venc'],
 						"lde_tasa" => $_POST['lde_tasa'],
 						"ls_flg_agencia" => $_POST['ls_flg_agencia'],
+						"ls_agencia" => $_POST['ls_agencia'],
 						"ls_convenio" => $_POST['ls_convenio'],
 						"ls_cliente_alterno" => $_POST['ls_cliente_alterno'],
 						"ls_aval" => $_POST['ls_aval'],
@@ -319,5 +320,63 @@ class ControladorModifCtto{
 		return $respuesta;
 	}//ctrRpDatosMod
 
+	static public function ctrActFOMAMod(){
+		$tablaCtto = 'vtade_contrato';
+		$fecha = date('Y-m-d');
+		$hora = date('H:i:s');
+		$fechaActual = $fecha.' '.$hora;
+		$datos = array("ls_localidad" => $_SESSION['localidad'],
+						"ls_contrato" => $_POST['ls_contrato'],
+						"ls_servicio" => $_POST['ls_servicio_foma'],
+						"ls_tipo_programa" => $_POST['ls_tipo_programa'],
+						"ls_tipo_ctt" => $_POST['ls_tipo_ctt'],
+						"gs_usuario" => $_SESSION['user'],
+						"ldt_fch_actual" => $fechaActual,
+						"ls_vendedor" => $_POST['ls_vendedor'],
+						"ls_supervisor" => $_POST['ls_supervisor'],
+						"ls_jefe" => $_POST['ls_jefe'],
+						"ls_grupo" => $_POST['ls_grupo'],
+						"ls_canal" => $_POST['ls_canal'],
+						"ls_tipo_comisionista" => $_POST['ls_tipo_comisionista'],
+						"ls_cuota_foma" => $_POST['ls_cuota_foma'],
+						"li_cuotas_foma" => $_POST['li_cuotas_foma'],
+						"ldt_fch_venc_foma" => $_POST['ldt_fch_venc_foma'],
+						"ls_cliente_alterno" => $_POST['ls_cliente_alterno'],
+						"ls_aval" => $_POST['ls_aval'],
+						"ls_cod_cobrador" => $_POST['ls_cod_cobrador'],
+						"ls_zona" => $_POST['ls_zona']
+					);
+		$respuesta = ModeloModifCtto::mdlActFOMAMod($tablaCtto,$datos);
+		return $respuesta;
+	}//ctrActFOMAMod
+
+	static public function ctrGuardaBeneficiarios(){
+		$tablabenef = 'vtade_beneficiario_x_contrato';
+		$datos = array("ls_localidad" => $_SESSION['localidad'],
+						"cod_contrato" => $_POST['cod_contrato'],
+						"num_item" => $_POST['num_item'],
+						"num_servicio" => $_POST['num_servicio'],
+						"dsc_apellidopaterno" => $_POST['dsc_apellidopaterno'],
+						"dsc_apellidomaterno" => $_POST['dsc_apellidomaterno'],
+						"dsc_nombre" => $_POST['dsc_nombre'],
+						"cod_tipo_documento" => $_POST['cod_tipo_documento'],
+						"dsc_documento" => $_POST['dsc_documento'],
+						"fch_nacimiento" => $_POST['fch_nacimiento'],
+						"fch_entierro" => $_POST['fch_entierro'],
+						"num_nivel" => $_POST['num_nivel'],
+						"fch_deceso" => $_POST['fch_deceso'],
+						"cod_religion" => $_POST['cod_religion'],
+						"cod_lugar_deceso" => $_POST['cod_lugar_deceso'],
+						"cod_motivo_deceso" => $_POST['cod_motivo_deceso'],
+						"flg_autopsia" => $_POST['flg_autopsia'],
+						"num_peso" => $_POST['num_peso'],
+						"num_talla" => $_POST['num_talla'],
+						"cod_estado_civil" => $_POST['cod_estado_civil'],
+						"cod_sexo" => $_POST['cod_sexo'],
+						"cod_parentesco" => $_POST['cod_parentesco']
+					);
+		$respuesta = ModeloModifCtto::mdlGuardaBeneficiarios($tablabenef,$datos);
+		return $respuesta;
+	}//ctrGuardaBeneficiarios
 }//class ControladorModifCtto
 ?>
