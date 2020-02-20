@@ -124,14 +124,14 @@ while($key = $db->recorrer($sql)){
                                 <i style="color: #3DB231;" class="fa fa-check"></i>
                             </button>';
             }else if ($key["flg_resuelto"] == "SI" || $key["flg_anulado"] == "SI") {
-                $buttons .= '';
+                $buttons .= '<h6>aca1</h6>';
             }else{
                 $buttons .= '<button type="button" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="m-tooltip" data-container="body" data-placement="top" title="Activar" data-original-title="Activar" onclick="preActivarContrato("'.$numContrato.'","'.$codServicio.'")">
                                 <i class="fa fa-check"></i>
                             </button>';
             }
         }else{
-            $buttons .= '';
+            $buttons .= '<h6>aca2</h6>';
         }
 
 
