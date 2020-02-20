@@ -1877,7 +1877,21 @@ function buscaMaxValor(ls_tipo_ctt,ls_tipo_programa,ls_contrato,li_ref){
     });
  }             
 
-       
+ function buscaMaxLineaObsrv(ls_tipo_ctt,ls_tipo_programa,ls_contrato,ls_num_servicio_getrow){
+    $.ajax({
+        url: 'ajax/modifCtto.ajax.php',
+        dataType: 'json',
+        method: "POST",
+        data: { 'accion' : 'lineaMaxObsrv', 'ls_tipo_ctt' : ls_tipo_ctt, 'ls_tipo_programa' : ls_tipo_programa, 'ls_contrato' : ls_contrato, 'ls_num_servicio_getrow' : ls_num_servicio_getrow },
+        success : function(respuesta){
+              if(respuesta == '' || respuesta == null){
+                return 0;
+              }else{
+                return respuesta;
+              }
+        }
+    });
+ }      
      
 //-----------------------------------------------------------------------------------------------------//
 //-------------------------------------------Modificacion----------------------------------------------//
@@ -1893,6 +1907,7 @@ function modificaCtto(){
     var ls_tipo_programa = $("#tipoPrograma").val();
     var ls_num_servicio_det = $("#numServicioSeleccionado").val();
     var ls_flg_resuelto = $("#flg_resuelto_"+ls_num_servicio_det).val();
+    var ls_flg_anulado = $("#flg_anulado_"+ls_num_servicio_det).val();
     
     // -- Otros Datos -- //
 
@@ -1962,6 +1977,16 @@ function modificaCtto(){
         swal({
             title: "",
             text: "No puede hacer cambios en el contrato y servicio seleccionado, esta resuelto o retirado",
+            type: "warning",
+            confirmButtonText: "Aceptar",
+        })
+        return;
+    }
+
+    if(ls_flg_anulado == 'SI'){
+        swal({
+            title: "",
+            text: "No puede hacer cambios en el contrato y servicio seleccionado, esta anulado",
             type: "warning",
             confirmButtonText: "Aceptar",
         })
@@ -2541,9 +2566,9 @@ function modificaCtto(){
     //     If is_cronograma = 'SI' Then
 
     //        If is_flg_cronograma_cuoi = 'SI' Then                                            
-    //            DELETE vtade_cronograma
+    //            DELETE vtade_cronogramaipo_ctt = :ls_tipo_ctt
+    //            AND                      vtade_cronograma.cod_t
     //            WHERE vtade_cronograma.cod_localidad = :ls_localidad
-    //            AND                      vtade_cronograma.cod_tipo_ctt = :ls_tipo_ctt
     //            AND                      vtade_cronograma.cod_tipo_programa = :ls_tipo_programa
     //            AND                      vtade_cronograma.cod_contrato = :ls_contrato
     //            AND                      vtade_cronograma.num_refinanciamiento = :li_ref
@@ -2629,53 +2654,39 @@ function modificaCtto(){
     guardaBeneficiarios();
     // If tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.UpDate() <> 1 Then Goto db_error
      
-    // // -- Actualiza Resumen Cronograma -- //
+    // -- Actualiza Resumen Cronograma -- //
+
+    $.ajax({
+        url: 'ajax/modifCtto.ajax.php',
+        dataType: 'json',
+        method: "POST",
+        data: { 'accion' : 'actResCronoMod', 'ls_tipo_ctt' : ls_tipo_ctt, 'ls_tipo_programa' : ls_tipo_programa, 'ls_contrato' : ls_contrato, 'li_total_cuotas' : li_total_cuotas, 'ls_interes' : ls_interes, 'lde_tasa' : lde_tasa, 'lde_tot_interes' : lde_tot_interes, 'li_ref' : li_ref},
+        success : function(respuesta){
+          if(respuesta == '' || respuesta == null){
+            actResCrono = 1;
+          }
+        }
+    });
      
-    // UPDATE               vtaca_cronograma
-    // SET                        vtaca_cronograma.num_cuotas = :li_total_cuotas,
-    //                            vtaca_cronograma.cod_interes = :ls_interes,
-    //                            vtaca_cronograma.imp_tasainteres = :lde_tasa,
-    //                            vtaca_cronograma.imp_interes = :lde_tot_interes
-    // WHERE vtaca_cronograma.cod_localidad = :ls_localidad
-    // AND                      vtaca_cronograma.cod_tipo_ctt = :ls_tipo_ctt
-    // AND                      vtaca_cronograma.cod_tipo_programa = :ls_tipo_programa
-    // AND                      vtaca_cronograma.cod_contrato = :ls_contrato
-    // AND                      vtaca_cronograma.num_refinanciamiento = :li_ref
-    // USING SQLCA;
+    // -- Cabecera -- //
+    
+    $.ajax({
+        url: 'ajax/modifCtto.ajax.php',
+        dataType: 'json',
+        method: "POST",
+        data: { 'accion' : 'actCabeceraMod', 'ls_tipo_ctt' : ls_tipo_ctt, 'ls_tipo_programa' : ls_tipo_programa, 'ls_contrato' : ls_contrato, 'ls_tipo_contrato' : ls_tipo_contrato},
+        success : function(respuesta){
+          if(respuesta == '' || respuesta == null){
+            return 0;
+          }
+        }
+    });
+         
+    // -- Max -- //
      
-    // If f_verifica_transaccion(SQLCA) = False Then Goto db_error
-}//borrar       
-    // // -- Cabecera -- //
-     
-    // UPDATE               vtaca_contrato
-    // SET                        vtaca_contrato.cod_tipo_contrato = :ls_tipo_contrato
-    // WHERE vtaca_contrato.cod_localidad = :ls_localidad
-    // AND                      vtaca_contrato.cod_tipo_ctt = :ls_tipo_ctt
-    // AND                      vtaca_contrato.cod_tipo_programa = :ls_tipo_programa
-    // AND                      vtaca_contrato.cod_contrato = :ls_contrato
-    // USING SQLCA;
-     
-    // If f_verifica_transaccion(SQLCA) = False Then Goto db_error
-     
-    // // -- Max -- //
-     
-    // li_linea = 0
-     
-    // SELECT  MAX(vtade_observacion_x_contrato.num_linea)
-    // INTO                     :li_linea
-    // FROM                   vtade_observacion_x_contrato
-    // WHERE vtade_observacion_x_contrato.cod_localidad = :ls_localidad
-    // AND                      vtade_observacion_x_contrato.cod_tipo_ctt = :ls_tipo_ctt
-    // AND                      vtade_observacion_x_contrato.cod_tipo_programa = :ls_tipo_programa
-    // AND                      vtade_observacion_x_contrato.cod_contrato = :ls_contrato
-    // AND                      vtade_observacion_x_contrato.num_servicio = :ls_num_servicio_getrow
-    // USING SQLCA;
-     
-    // If f_verifica_transaccion(SQLCA) = False Then Goto db_error
-     
-    // If IsNull(li_linea) Then li_linea = 0
-     
-    // // -- Observaciones -- //
+    li_linea = buscaMaxLineaObsrv(ls_tipo_ctt,ls_tipo_programa,ls_contrato,ls_num_servicio_getrow);
+       
+    // -- Observaciones -- //
      
     // For li_i = 1 To tab_1.tp_10.dw_observacion.Rowcount()
                    
@@ -2703,6 +2714,7 @@ function modificaCtto(){
     // f_sys_mensaje_usuario(Title, "MSGLIB", "SE GRABO EL REGISTRO SATISFACTORIAMENTE.", "MSG")
     // TriggerEvent("ue_limpiar")
 
+}//borrar   
     //---------------------------------------------------------------------------------------------------------- 
     // // -- Replicar ERP (Contrato) -- //----------------------------------------------------------------------
      

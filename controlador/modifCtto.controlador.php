@@ -378,5 +378,47 @@ class ControladorModifCtto{
 		$respuesta = ModeloModifCtto::mdlGuardaBeneficiarios($tablabenef,$datos);
 		return $respuesta;
 	}//ctrGuardaBeneficiarios
+
+	static public function ctrActResCronoMod(){
+		$tabla = 'vtaca_cronograma';
+		$datos = array("ls_localidad" => $_SESSION['localidad'],
+						"li_total_cuotas" => $_POST['li_total_cuotas'],
+						"ls_interes" => $_POST['ls_interes'],
+						"lde_tasa" => $_POST['lde_tasa'],
+						"lde_tot_interes" => $_POST['lde_tot_interes'],
+						"ls_tipo_ctt" => $_POST['ls_tipo_ctt'],
+						"ls_tipo_programa" => $_POST['ls_tipo_programa'],
+						"ls_contrato" => $_POST['ls_contrato'],
+						"li_ref" => $_POST['li_ref']
+					);
+		$respuesta = ModeloModifCtto::mdlActResCronoMod($tabla,$datos);
+		return $respuesta;
+	}//ctrActResCronoMod
+
+	static public function ctrActCabeceraMod(){
+		$tabla = 'vtaca_contrato';
+		$datos = array("ls_localidad" => $_SESSION['localidad'],
+						"ls_tipo_contrato" => $_POST['ls_tipo_contrato'],
+						"ls_tipo_ctt" => $_POST['ls_tipo_ctt'],
+						"ls_tipo_programa" => $_POST['ls_tipo_programa'],
+						"ls_contrato" => $_POST['ls_contrato']
+					);
+		$respuesta = ModeloModifCtto::mdlActCabeceraMod($tabla,$datos);
+		return $respuesta;
+	}//ctrActCabeceraMod
+
+	static public function ctrlineaMaxObsrv(){
+		$tabla = 'vtade_observacion_x_contrato';
+		$datos = array("ls_localidad" => $_SESSION['localidad'],
+						"ls_tipo_contrato" => $_POST['ls_tipo_contrato'],
+						"ls_tipo_ctt" => $_POST['ls_tipo_ctt'],
+						"ls_tipo_programa" => $_POST['ls_tipo_programa'],
+						"ls_contrato" => $_POST['ls_contrato'],
+						"ls_num_servicio_getrow" => $_POST['ls_num_servicio_getrow']
+					);
+		$respuesta = ModeloModifCtto::mdllineaMaxObsrv($tabla,$datos);
+		return $respuesta;
+	}//ctrlineaMaxObsrv
+
 }//class ControladorModifCtto
 ?>

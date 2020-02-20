@@ -156,6 +156,18 @@ class AjaxModifCtto{
 		$respuesta = ControladorModifCtto::ctrGuardaBeneficiarios();
 		echo json_encode($respuesta);
 	}//ajaxGuardaBeneficiarios
+	public function ajaxajaxActResCronoMod(){
+		$respuesta = ControladorModifCtto::ctrActResCronoMod();
+		echo json_encode($respuesta);
+	}//ajaxajaxActResCronoMod
+	public function ajaxajaxActCabeceraMod(){
+		$respuesta = ControladorModifCtto::ctrActCabeceraMod();
+		echo json_encode($respuesta);
+	}//ajaxajaxActCabeceraMod
+	public function ajaxajaxlineaMaxObsrv(){
+		$respuesta = ControladorModifCtto::ctrlineaMaxObsrv();
+		echo json_encode($respuesta);
+	}//ajaxajaxlineaMaxObsrv
 }//class AjaxModifCtto
 /*=============================================
 ACCIONES
@@ -275,4 +287,16 @@ else if(isset($_POST["accion"]) && $_POST["accion"] == 'ActFOMAMod'){
 else if(isset($_POST["accion"]) && $_POST["accion"] == 'guardaBeneficiarios'){
 	$cliente = new AjaxModifCtto();
 	$cliente -> ajaxGuardaBeneficiarios();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'actResCronoMod'){
+	$cliente = new AjaxModifCtto();
+	$cliente -> ajaxActResCronoMod();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'actCabeceraMod'){
+	$cliente = new AjaxModifCtto();
+	$cliente -> ajaxActCabeceraMod();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'lineaMaxObsrv'){
+	$cliente = new AjaxModifCtto();
+	$cliente -> ajaxLineaMaxObsrv();
 }

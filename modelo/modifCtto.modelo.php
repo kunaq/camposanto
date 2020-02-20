@@ -307,5 +307,38 @@ class ModeloModifCtto{
         $db->cerrar();
 	}//mdlGuardaBeneficiarios
 
+	static public function mdlActResCronoMod($tabla,$datos){
+		$db = new Conexion();
+		$sql = $db->consulta("UPDATE $tabla SET num_cuotas = ".$datos['li_total_cuotas'].", cod_interes = '".$datos['ls_interes']."', imp_tasainteres = ".$datos['lde_tasa'].", imp_interes = ".$datos['lde_tot_interes']." WHERE cod_localidad = '".$datos['ls_localidad']."'' AND cod_tipo_ctt = '".$datos['ls_tipo_ctt']."'' AND cod_tipo_programa = '".$datos['ls_tipo_programa']."'' AND num_refinanciamiento = ".$datos['li_ref']." AND cod_contrato LIKE (RIGHT('0000000000'+'".$datos['ls_contrato']."',10))");
+		if($sql){
+			return true;
+		}else{
+			return false;
+		}
+		$db->liberar($sql);
+        $db->cerrar();
+	}//mdlActResCronoMod
+
+	static public function mdlActCabeceraMod($tabla,$datos){
+		$db = new Conexion();
+		$sql = $db->consulta("UPDATE $tabla SET cod_tipo_contrato = '".$datos['ls_tipo_contrato']."'  WHERE cod_localidad = '".$datos['ls_localidad']."' AND cod_tipo_ctt = '".$datos['ls_tipo_ctt']."' AND cod_tipo_programa = '".$datos['ls_tipo_programa']."' AND cod_contrato LIKE (RIGHT('0000000000'+'".$datos['ls_contrato']."',10))");
+		if($sql){
+			return true;
+		}else{
+			return false;
+		}
+		$db->liberar($sql);
+        $db->cerrar();
+	}//mdlActCabeceraMod
+
+	static public function mdllineaMaxObsrv($tabla,$datos){
+		$db = new Conexion();
+		$sql = $db->consulta("SELECT MAX(num_linea) FROM $tabla WHERE cod_localidad = '".$datos['ls_localidad']."' AND cod_tipo_ctt = '".$datos['ls_tipo_ctt']."' AND cod_tipo_programa = '".$datos['ls_tipo_programa']."' AND num_servicio = '".$datos['ls_num_servicio_getrow']."' AND cod_contrato LIKE (RIGHT('0000000000'+'".$codCtto."',10))");
+		$datos = arrayMapUtf8Encode($db->recorrer($sql));
+		return $datos;
+		$db->liberar($sql);
+        $db->cerrar();
+	}//function mdllineaMaxObsrv
+
 }//class ModeloModifCtto
 ?>
