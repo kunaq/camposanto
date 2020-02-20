@@ -6,7 +6,7 @@ class ModeloProspecto{
 
 	static public function mdlGuardaProspecto($datos){
 		$db = new Conexion();
-		$sql = $db->consulta("SELECT MAX(cod_prospecto) AS  FROM vtaca_prospecto_venta;");
+		$sql = $db->consulta("SELECT MAX(cod_prospecto) AS ultimo_registro FROM vtaca_prospecto_venta;");
 
 		// $ultimoPros = "";
 
