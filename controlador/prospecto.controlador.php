@@ -6,7 +6,7 @@ class ControladorProspecto{
 		$fecha = date('Y-m-d');
 		$hora = date('H:i:s');
 		$fechaActual = $fecha.' '.$hora;
-		$datos = array(	(float)"importe" => $_POST['importe'],
+		$datos = array(	"importe" => (float)$_POST['importe'],
 						"tipoDoc" => $_POST['tipoDoc'],
 						"numDoc" => $_POST['numDoc'],
 						"juridico" => $_POST['jur'],

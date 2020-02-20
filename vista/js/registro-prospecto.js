@@ -7,16 +7,16 @@ function pasaAnumero(string){
   if(string == parseFloat(string)){
        valor = parseFloat(string);
   }
-   else if(string.indexOf(',') != -1){
-    var mil = string.split(',')[0];
-    var cien = string.split(',')[1];
-    var decenas = cien.split('.')[0];
-    var decimal = cien.split('.')[1];
+   else if(string.indexOf('.') != -1){
+    var mil = string.split('.')[0];
+    var cien = string.split('.')[1];
+    var decenas = cien.split(',')[0];
+    var decimal = cien.split(',')[1];
     valor = (parseInt(mil)*1000)+(parseInt(decenas))+(parseFloat(decimal)*0.01);
   }
-  else if(string.indexOf('.') != -1){
-    var decenas = string.split('.')[0];
-    var decimal = string.split('.')[1];
+  else if(string.indexOf(',') != -1){
+    var decenas = string.split(',')[0];
+    var decimal = string.split(',')[1];
     valor = (parseInt(decenas))+(parseFloat(decimal)*0.01);
   }
   else{
@@ -307,7 +307,6 @@ function cambiaCodigo(cod){
         dataType: 'text',
         data: {'cod':cod},
         success : function(response){
-          console.log(response);
             var info = JSON.parse(response);
             
             if (info.code == '0') {
@@ -468,7 +467,7 @@ function verificarDocumento(numDoc){
 
 function registrarProspecto(){
   //Datos vtaca_prospecto_venta
-  var importe = document.getElementById("importe").value;
+  var importe = pasaAnumero(document.getElementById("importe").value);
   var tipoDoc = document.getElementById("tipoDocRegPro").value;
   var numDoc = document.getElementById("numDocRegPro").value;
   var juridico = document.getElementById('juridico');
