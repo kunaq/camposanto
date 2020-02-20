@@ -783,7 +783,7 @@
 										<div class="col-lg-12">
 											<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="200">
 				                				<div class="table-responsive">
-				                					<table class="table myTableComprobante">
+				                					<table class="table myTableComprobante" id="myTableComprobante">
 				                						<thead>
 				                							<th></th>
 				                							<th>Comprobante</th>
