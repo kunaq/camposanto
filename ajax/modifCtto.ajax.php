@@ -127,11 +127,27 @@ class AjaxModifCtto{
 	public function ajaxBuscaCodInteres(){
 		$respuesta = ControladorModifCtto::ctrBuscaCodInteres();
 		echo json_encode($respuesta);
-	}//ajaxBuscaCtdBenef
+	}//ajaxBuscaCodInteres
 	public function ajaxBuscaCtdBenef(){
 		$respuesta = ControladorModifCtto::ctrBuscaCtdBenef();
 		echo json_encode($respuesta);
 	}//ajaxBuscaCtdBenef
+	public function ajaxBuscaMaxCuotas(){
+		$respuesta = ControladorModifCtto::ctrBuscaMaxCuotas();
+		echo json_encode($respuesta);
+	}//ajaxBuscaMaxCuotas
+	public function ajaxBuscaMaxValorCuotas(){
+		$respuesta = ControladorModifCtto::ctrBuscaMaxValorCuotas();
+		echo json_encode($respuesta);
+	}//ajaxBuscaMaxValorCuotas
+	public function ajaxBuscaCostoCarencia(){
+		$respuesta = ControladorModifCtto::ctrBuscaCostoCarencia();
+		echo json_encode($respuesta);
+	}//ajaxBuscaCostoCarencia
+	public function ajaxRpDatosMod(){
+		$respuesta = ControladorModifCtto::ctrRpDatosMod();
+		echo json_encode($respuesta);
+	}//ajaxRpDatosMod
 }//class AjaxModifCtto
 /*=============================================
 ACCIONES
@@ -227,4 +243,20 @@ else if(isset($_POST["accion"]) && $_POST["accion"] == 'codInteres'){
 else if(isset($_POST["accion"]) && $_POST["accion"] == 'ctdBenef'){
 	$cliente = new AjaxModifCtto();
 	$cliente -> ajaxBuscaCtdBenef();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'maxCuotas'){
+	$cliente = new AjaxModifCtto();
+	$cliente -> ajaxBuscaMaxCuotas();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'maxValorCuotas'){
+	$cliente = new AjaxModifCtto();
+	$cliente -> ajaxBuscaMaxValorCuotas();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'costoCarencia'){
+	$cliente = new AjaxModifCtto();
+	$cliente -> ajaxBuscaCostoCarencia();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'RpDatosMod'){
+	$cliente = new AjaxModifCtto();
+	$cliente -> ajaxRpDatosMod();
 }
