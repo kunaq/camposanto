@@ -248,5 +248,76 @@ class ControladorModifCtto{
 		return $respuesta;
 	}// function ctrBuscaCtdBenef
 
+	static public function ctrBuscaMaxCuotas(){
+		$tabla = 'vtade_cronograma';
+		$localidad = $_SESSION['localidad'];
+		$codCtto =  $_POST['ls_contrato'];
+		$tipoCtto = $_POST['ls_tipo_ctt'];
+		$tipoProg = $_POST['ls_tipo_programa'];
+		$refi = $_POST['li_ref'];
+		$respuesta = ModeloModifCtto::mdlBuscaMaxCuotas($tabla,$localidad,$codCtto,$tipoCtto,$tipoProg,$refi);
+		return $respuesta;
+	}// function ctrBuscaMaxCuotas
+
+	static public function ctrBuscaMaxValorCuotas(){
+		$tabla = 'vtade_cronograma';
+		$localidad = $_SESSION['localidad'];
+		$codCtto =  $_POST['ls_contrato'];
+		$tipoCtto = $_POST['ls_tipo_ctt'];
+		$tipoProg = $_POST['ls_tipo_programa'];
+		$refi = $_POST['li_ref'];
+		$respuesta = ModeloModifCtto::mdlBuscaMaxValorCuotas($tabla,$localidad,$codCtto,$tipoCtto,$tipoProg,$refi);
+		return $respuesta;
+	}// function ctrBuscaMaxValorCuotas
+
+	static public function ctrBuscaCostoCarencia(){
+		$tabla = 'vtade_contrato_servicio';
+		$localidad = $_SESSION['localidad'];
+		$codCtto =  $_POST['ls_contrato'];
+		$tipoCtto = $_POST['ls_tipo_ctt'];
+		$tipoProg = $_POST['ls_tipo_programa'];
+		$tipoServ = $_POST['ls_servicio'];
+		$respuesta = ModeloModifCtto::mdlBuscaCostoCarencia($tabla,$localidad,$codCtto,$tipoCtto,$tipoProg,$tipoServ);
+		return $respuesta;
+	}// function ctrBuscaCostoCarencia
+
+	static public function ctrRpDatosMod(){
+		$tablaCtto = 'vtade_contrato';
+		$fecha = date('Y-m-d');
+		$hora = date('H:i:s');
+		$fechaActual = $fecha.' '.$hora;
+		$datos = array("ls_localidad" => $_SESSION['localidad'],
+						"ls_contrato" => $_POST['ls_contrato'],
+						"ls_servicio" => $_POST['ls_servicio'],
+						"ls_tipo_programa" => $_POST['ls_tipo_programa'],
+						"ls_tipo_ctt" => $_POST['ls_tipo_ctt'],
+						"gs_usuario" => $_SESSION['user'],
+						"ldt_fch_actual" => $fechaActual,
+						"ls_vendedor" => $_POST['ls_vendedor'],
+						"ls_supervisor" => $_POST['ls_supervisor'],
+						"ls_jefe" => $_POST['ls_jefe'],
+						"ls_grupo" => $_POST['ls_grupo'],
+						"ls_canal" => $_POST['ls_canal'],
+						"ls_tipo_comisionista" => $_POST['ls_tipo_comisionista'],
+						"ls_cuota" => $_POST['ls_cuota'],
+						"li_cuotas" => $_POST['li_cuotas'],
+						"ls_interes" => $_POST['ls_interes'],
+						"ldt_fch_venc" => $_POST['ldt_fch_venc'],
+						"lde_tasa" => $_POST['lde_tasa'],
+						"ls_flg_agencia" => $_POST['ls_flg_agencia'],
+						"ls_convenio" => $_POST['ls_convenio'],
+						"ls_cliente_alterno" => $_POST['ls_cliente_alterno'],
+						"ls_aval" => $_POST['ls_aval'],
+						"gs_empresa" => $_POST['gs_empresa'],
+						"ls_cod_cobrador" => $_POST['ls_cod_cobrador'],
+						"lde_valor_cuota" => $_POST['lde_valor_cuota'],
+						"lde_tot_interes" => $_POST['lde_tot_interes'],
+						"ls_zona" => $_POST['ls_zona'],
+						"lde_costo_carencia" => $_POST['lde_costo_carencia']
+					);
+		$respuesta = ModeloModifCtto::mdlRpDatosMod($tablaCtto,$datos);
+		return $respuesta;
+	}//ctrRpDatosMod
+
 }//class ControladorModifCtto
 ?>
