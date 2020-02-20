@@ -1,3 +1,4 @@
+
 $("#codCliCon").change(function() {
     var valor = $(this).val();
     if (valor == "") {
@@ -128,11 +129,9 @@ function hideSidebar(){
 }
 
 window.addEventListener("keyup",function(e){
-
     if(e.keyCode==27) {
       hideSidebar();
     }
-
 });
 
 function limpiarCliente(){

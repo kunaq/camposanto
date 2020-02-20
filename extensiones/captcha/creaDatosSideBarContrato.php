@@ -118,15 +118,22 @@ while($key = $db->recorrer($sql)){
                             </button>
                         </span>';
 
-        if ($key["flg_activado"] == "SI") {
-            $buttons .= '<button type="button" data-toggle="m-tooltip" data-container="body" data-placement="top" title="Activado" data-original-title="Activado" style="border: 1px solid #3db231;" disabled="" class="m-portlet__nav-link btn m-btn m-btn--icon m-btn--icon-only m-btn--pill">
-                            <i style="color: #3DB231;" class="fa fa-check"></i>
-                        </button>';
+        if ($key['cod_tipo_servicio'] == 'TS001' || $key['cod_tipo_servicio'] == 'TS007' || $key['cod_tipo_servicio'] == 'TS008') {
+            if ($key["flg_activado"] == "SI") {
+                $buttons .= '<button type="button" data-toggle="m-tooltip" data-container="body" data-placement="top" title="Activado" data-original-title="Activado" style="border: 1px solid #3db231;" disabled="" class="m-portlet__nav-link btn m-btn m-btn--icon m-btn--icon-only m-btn--pill">
+                                <i style="color: #3DB231;" class="fa fa-check"></i>
+                            </button>';
+            }else if ($key["flg_resuelto"] == "SI" || $key["flg_anulado"] == "SI") {
+                $buttons .= '';
+            }else{
+                $buttons .= '<button type="button" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="m-tooltip" data-container="body" data-placement="top" title="Activar" data-original-title="Activar" onclick="preActivarContrato("'.$numContrato.'","'.$codServicio.'")">
+                                <i class="fa fa-check"></i>
+                            </button>';
+            }
         }else{
-            $buttons .= '<button type="button" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="m-tooltip" data-container="body" data-placement="top" title="Activar" data-original-title="Activar" onclick="">
-                            <i class="fa fa-check"></i>
-                        </button>';
+            $buttons .= '';
         }
+
 
         $actions .= '<a href="refinanciamiento?localidad='.$key['cod_localidad'].'&contrato='.$numContrato.'" target="_blank" type="button" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="m-tooltip" data-container="body" data-placement="top" title="Refinanciamiento" onclick="">
                         <i class="fa fa-balance-scale"></i>
