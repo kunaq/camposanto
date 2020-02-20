@@ -103,6 +103,8 @@
 									<input type="hidden" id="fchActivacion" name="fchActivacion">
 									<input type="hidden" id="flgCambioTitular" name="flgCambioTitular">
 									<input type="hidden" id="numServFoma" name="numServFoma">
+									<input type="hidden" id="cambioCronograma" name="cambioCronograma">
+									<input type="hidden" id="cambioCronogramaFoma" name="cambioCronogramaFoma">
 								</div>
 							</div>
 						</div>
@@ -1160,11 +1162,11 @@
 														General
 													</a>
 												</li>
-												<li class="nav-item m-tabs__item">
+												<!-- <li class="nav-item m-tabs__item">
 													<a class="nav-link m-tabs__link" data-toggle="tab" href="#m_tabs_Ben_2" role="tab">
 														Observaciones
 													</a>
-												</li>
+												</li> -->
 											</ul>
 										</div>
 									</div>
@@ -1548,7 +1550,7 @@
 													<input type="hidden" id="codInteresModif" name="codInteresModif">
 												</div>
 												<div class="col-lg-12">
-													<button type="reset" class="btn btn-sm btnGuardarKqPst mt25">
+													<button type="reset" id="btnGenCrono" class="btn btn-sm btnGuardarKqPst mt25">
 														Generar cronograma de pagos
 													</button>
 												</div>
@@ -1712,7 +1714,7 @@
 										<div class="col-lg-12">
 											<div class="row form-group">
 												<div class="col-lg-12" style="text-align: center;">
-													<button class="btn btn-sm btn-danger">Generar Cuotas</button>
+													<button id="btnGenCronoFoma" class="btn btn-sm btn-danger">Generar Cuotas</button>
 												</div>
 											</div>
 										</div>

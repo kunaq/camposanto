@@ -148,6 +148,14 @@ class AjaxModifCtto{
 		$respuesta = ControladorModifCtto::ctrRpDatosMod();
 		echo json_encode($respuesta);
 	}//ajaxRpDatosMod
+	public function ajaxActFOMAMod(){
+		$respuesta = ControladorModifCtto::ctrActFOMAMod();
+		echo json_encode($respuesta);
+	}//ajaxActFOMAMod
+	public function ajaxGuardaBeneficiarios(){
+		$respuesta = ControladorModifCtto::ctrGuardaBeneficiarios();
+		echo json_encode($respuesta);
+	}//ajaxGuardaBeneficiarios
 }//class AjaxModifCtto
 /*=============================================
 ACCIONES
@@ -259,4 +267,12 @@ else if(isset($_POST["accion"]) && $_POST["accion"] == 'costoCarencia'){
 else if(isset($_POST["accion"]) && $_POST["accion"] == 'RpDatosMod'){
 	$cliente = new AjaxModifCtto();
 	$cliente -> ajaxRpDatosMod();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'ActFOMAMod'){
+	$cliente = new AjaxModifCtto();
+	$cliente -> ajaxActFOMAMod();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'guardaBeneficiarios'){
+	$cliente = new AjaxModifCtto();
+	$cliente -> ajaxGuardaBeneficiarios();
 }

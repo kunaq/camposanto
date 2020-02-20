@@ -58,6 +58,40 @@ function getParameterByName() {
 
 getParameterByName();
 
+$("#btnGenCrono").on('click',function(){
+    Swal.fire({
+      title: '',
+      text: "¿Esta seguro de generar un nuevo cronograma para este contrato / servicio?",
+      icon: 'warning',
+      showCancelButton: true,
+      type: "question",
+      showCancelButton:!0,
+      confirmButtonText: "Generar",
+      cancelButtonText:"Cancelar"
+    }).then((result) => {
+      if (result.value) {
+        $("#cambioCronograma").val('SI')
+      }
+    })
+});
+
+$("#btnGenCronoFoma").on('click',function(){
+    Swal.fire({
+      title: '',
+      text: "¿Esta seguro de generar un nuevo cronograma FOMA para este contrato / servicio?",
+      icon: 'warning',
+      showCancelButton: true,
+      type: "question",
+      showCancelButton:!0,
+      confirmButtonText: "Generar",
+      cancelButtonText:"Cancelar"
+    }).then((result) => {
+      if (result.value) {
+        $("#cambioCronogramaFoma").val('SI')
+      }
+    })
+});
+
 function fechaParaConsulta(dato){
     fecha = new Date(dato);
     var aux_dia = fecha.getDate();
@@ -1355,6 +1389,46 @@ function verDetalles(evt) {
   boton2.addEventListener("click", function(){eliminaBenef(numDoc)}, false);
 }
 
+function guardaBeneficiarios(){
+    var cod_contrato = $("#codContrato").val();
+    var container = document.querySelector('#bodyBeneficiarioM');
+    container.querySelectorAll('tr').forEach(function (i){ 
+        var numDoc = $(i).attr("name");       
+        var respuesta = document.getElementById("registro_"+numDoc).value;
+        var tipoDoc = respuesta.split(",")[0];
+        var numDoc = respuesta.split(",")[1];
+        var apellPaterno = respuesta.split(",")[2];
+        var apellMaterno = respuesta.split(",")[3];
+        var nombre = respuesta.split(",")[4];
+        var fechNac = respuesta.split(",")[5];
+        var fechDec = respuesta.split(",")[6];
+        var religion = respuesta.split(",")[7];
+        var edoCivil = respuesta.split(",")[8];
+        var sexo = respuesta.split(",")[9];
+        var parentesco = respuesta.split(",")[10];
+        var lugar = respuesta.split(",")[11];
+        var motivo = respuesta.split(",")[12];
+        var peso = respuesta.split(",")[13];
+        var talla = respuesta.split(",")[14];
+        var autopsia = respuesta.split(",")[15];
+        var numItem = respuesta.split(",")[16];
+        var numServ = respuesta.split(",")[17];
+        var fchEnt = respuesta.split(",")[18];
+        var nivel = respuesta.split(",")[19];
+        $.ajax({
+            url: 'ajax/modifCtto.ajax.php',
+            dataType: 'json',
+            method: "POST",
+            data: { 'accion' : 'guardaBenef', 'cod_contrato' : cod_contrato, 'num_item' : numItem, 'num_servicio' : numServ, 'dsc_apellidopaterno' : apellPaterno, 'dsc_apellidomaterno' : apellMaterno, 'dsc_nombre' : nombre, 'cod_tipo_documento' : tipoDoc, 'dsc_documento' : numDoc, 'fch_nacimiento' : fechNac, 'fch_entierro' : fchEnt, 'num_nivel' : nivel, 'fch_deceso' : fechDec, 'cod_religion' : religion, 'cod_lugar_deceso' : lugar, 'cod_motivo_deceso' : motivo, 'flg_autopsia' : autopsia, 'num_peso' : peso, 'num_talla' : talla, 'cod_estado_civil' : edoCivil, 'cod_sexo' : sexo, 'cod_parentesco' : parentesco },
+            success : function(respuesta){
+                if(respuesta){
+                    return 1;
+                }
+            }//success
+        });//ajax
+    });//querySelectorAll
+}
+
 //---------------------------------pestaña observaciones----------------------
 
 function cargaObservaciones(codCtto,numServicio){
@@ -1959,6 +2033,8 @@ function modificaCtto(){
     }else{
         ls_flg_agencia = 'NO';
     }
+    var repDat = 0;
+    var actFoma = 0;
     var ls_agencia =  $("#codFuneraria").val();
     var ls_vendedor = $("#codVendedor").val();
     var ls_supervisor = $("#codSupervisor").val();
@@ -2279,7 +2355,7 @@ function modificaCtto(){
      
     // -- Cuotas -- //
 
-    var is_cronograma = 'SI';//-----------------de donde sale??
+    var is_cronograma = $("#cambioCronograma").val();
     if( is_cronograma == 'SI'){
                    
         // -- Retorno -- //-----------------------------------????
@@ -2378,7 +2454,7 @@ function modificaCtto(){
 
         // -- FOMA -- //
        
-       var is_cronograma_foma = 'SI';
+       var is_cronograma_foma = $("#cambioCronogramaFoma").val();
         if( is_cronograma_foma == 'SI'){
                       
            // -- Borrar -- //
@@ -2513,9 +2589,11 @@ function modificaCtto(){
             url: 'ajax/modifCtto.ajax.php',
             dataType: 'json',
             method: "POST",
-            data: { 'accion' : 'RpDatosMod', 'ls_vendedor' : ls_vendedor, 'ls_supervisor' : ls_supervisor, 'ls_jefe' : ls_jefe, 'ls_grupo' : ls_grupo, 'ls_canal' : ls_canal, 'ls_tipo_comisionista' : ls_tipo_comisionista, 'ls_cuota' : ls_cuota, 'li_cuotas' : li_cuotas, 'ls_interes' : ls_interes, 'ldt_fch_venc' : ldt_fch_venc, 'lde_tasa' : lde_tasa, 'fch_actual_consulta' : fch_actual_consulta, 'ls_flg_agencia' : ls_flg_agencia, 'ls_convenio' : ls_convenio, 'ls_cliente_alterno' : ls_cliente_alterno, 'ls_aval' : ls_aval, 'gs_empresa' : gs_empresa, 'ls_cod_cobrador' : ls_cod_cobrador, 'lde_valor_cuota' : lde_valor_cuota, 'lde_tot_interes' : lde_tot_interes, 'ls_zona' : ls_zona, 'lde_costo_carencia' : lde_costo_carencia, 'ls_tipo_ctt' : ls_tipo_ctt, 'ls_tipo_programa' : ls_tipo_programa, 'ls_contrato' : ls_contrato, 'ls_servicio' : ls_servicio},
+            data: { 'accion' : 'RpDatosMod', 'ls_vendedor' : ls_vendedor, 'ls_supervisor' : ls_supervisor, 'ls_jefe' : ls_jefe, 'ls_grupo' : ls_grupo, 'ls_canal' : ls_canal, 'ls_tipo_comisionista' : ls_tipo_comisionista, 'ls_cuota' : ls_cuota, 'li_cuotas' : li_cuotas, 'ls_interes' : ls_interes, 'ldt_fch_venc' : ldt_fch_venc, 'lde_tasa' : lde_tasa, 'fch_actual_consulta' : fch_actual_consulta, 'ls_flg_agencia' : ls_flg_agencia,'ls_agencia' : ls_agencia, 'ls_convenio' : ls_convenio, 'ls_cliente_alterno' : ls_cliente_alterno, 'ls_aval' : ls_aval, 'gs_empresa' : gs_empresa, 'ls_cod_cobrador' : ls_cod_cobrador, 'lde_valor_cuota' : lde_valor_cuota, 'lde_tot_interes' : lde_tot_interes, 'ls_zona' : ls_zona, 'lde_costo_carencia' : lde_costo_carencia, 'ls_tipo_ctt' : ls_tipo_ctt, 'ls_tipo_programa' : ls_tipo_programa, 'ls_contrato' : ls_contrato, 'ls_servicio' : ls_servicio},
             success : function(respuesta){
-                  
+                  if(respuesta){
+                    repDat = 1;
+                  }
             }
         });
                             
@@ -2530,41 +2608,25 @@ function modificaCtto(){
                    
         // -- Actualiza FOMA -- //
 
-    //     If IsNull(ls_servicio_foma) = False And Trim(ls_servicio_foma) <> "" Then
-                      
-    //        UPDATE  vtade_contrato
-    //        SET  vtade_contrato.cod_vendedor = :ls_vendedor,
-    //           vtade_contrato.cod_supervisor = :ls_supervisor,
-    //           vtade_contrato.cod_jefeventas = :ls_jefe,
-    //           vtade_contrato.cod_grupo = :ls_grupo,
-    //           vtade_contrato.cod_canal_venta = :ls_canal,
-    //           vtade_contrato.cod_tipo_comisionista = :ls_tipo_comisionista,
-    //           vtade_contrato.cod_cuota = :ls_cuota_foma,
-    //           vtade_contrato.num_cuotas = :li_cuotas_foma,
-    //           vtade_contrato.fch_primer_vencimiento = :ldt_fch_venc_foma,
-    //           vtade_contrato.fch_emision = ( CASE WHEN vtade_contrato.fch_emision IS NULL THEN :ldt_fch_actual ELSE vtade_contrato.fch_emision END ),
-    //           vtade_contrato.flg_emitido = 'SI',
-    //           vtade_contrato.cod_usuario_emision = :gs_usuario,
-    //           vtade_contrato.cod_titular_alterno = :ls_cliente_alterno,
-    //           vtade_contrato.cod_aval = :ls_aval,
-    //           vtade_contrato.cod_cobrador = :ls_cod_cobrador,
-    //           vtade_contrato.cod_zona = :ls_zona
-    //        WHERE vtade_contrato.cod_localidad = :ls_localidad
-    //        AND      vtade_contrato.cod_tipo_ctt = :ls_tipo_ctt
-    //        AND      vtade_contrato.cod_tipo_programa = :ls_tipo_programa
-    //        AND                      vtade_contrato.cod_contrato = :ls_contrato
-    //        AND                      vtade_contrato.num_servicio = :ls_servicio_foma
-    //        USING SQLCA;
+        if( ls_servicio_foma != null && ls_servicio_foma != ""){
 
-    //        If f_verifica_transaccion(SQLCA) = False Then Goto db_error
-                      
-    //     End If
-                   
+            $.ajax({
+            url: 'ajax/modifCtto.ajax.php',
+            dataType: 'json',
+            method: "POST",
+            data: { 'accion' : 'ActFOMAMod', 'ls_vendedor' : ls_vendedor, 'ls_supervisor' : ls_supervisor, 'ls_jefe' : ls_jefe, 'ls_grupo' : ls_grupo, 'ls_canal' : ls_canal, 'ls_tipo_comisionista' : ls_tipo_comisionista, 'ls_cuota_foma' : ls_cuota_foma, 'li_cuotas_foma' : li_cuotas_foma, 'ldt_fch_venc_foma' : ldt_fch_venc_foma, 'fch_actual_consulta' : fch_actual_consulta, 'ls_cliente_alterno' : ls_cliente_alterno, 'ls_aval' : ls_aval, 'ls_cod_cobrador' : ls_cod_cobrador, 'ls_zona' : ls_zona, 'ls_tipo_ctt' : ls_tipo_ctt, 'ls_tipo_programa' : ls_tipo_programa, 'ls_contrato' : ls_contrato, 'ls_servicio_foma' : ls_servicio_foma},
+                    success : function(respuesta){
+                          if(respuesta){
+                            actFoma = 1;
+                          }
+                    }
+                });                      
+        }//End If            
     }//Next tabla vin
-}//borrar   
-    // // -- UpDate Dw -- //
+ 
+    // -- UpDate Dw -- //
      
-    // If tab_1.tp_3.dw_det_beneficiarios.UpDate() <> 1 Then Goto db_error
+    guardaBeneficiarios();
     // If tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.UpDate() <> 1 Then Goto db_error
      
     // // -- Actualiza Resumen Cronograma -- //
@@ -2582,7 +2644,7 @@ function modificaCtto(){
     // USING SQLCA;
      
     // If f_verifica_transaccion(SQLCA) = False Then Goto db_error
-     
+}//borrar       
     // // -- Cabecera -- //
      
     // UPDATE               vtaca_contrato
@@ -2640,8 +2702,9 @@ function modificaCtto(){
     // Commit;
     // f_sys_mensaje_usuario(Title, "MSGLIB", "SE GRABO EL REGISTRO SATISFACTORIAMENTE.", "MSG")
     // TriggerEvent("ue_limpiar")
-     
-    // // -- Replicar ERP (Contrato) -- //
+
+    //---------------------------------------------------------------------------------------------------------- 
+    // // -- Replicar ERP (Contrato) -- //----------------------------------------------------------------------
      
     // If gs_flg_replicar_erp = 'SI' Then
                    
