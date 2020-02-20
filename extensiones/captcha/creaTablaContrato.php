@@ -78,7 +78,7 @@ WHEN 'ACT' THEN CONVERT(DATE, vtade_contrato.fch_activacion,105) END ) <= CONVER
         $tnumContrato = $key['cod_contrato'];
         $auxNumCtt = "'".$tnumContrato."'";
         $tcodServicio= $key['num_servicio'];
-        $tcliente = $key['dsc_cliente'];
+        $tcliente = utf8_encode($key['dsc_cliente']);
         // -------- Condicional para campos NULL de fch_generacion -------- //
         // if ($key['fch_generacion'] == NULL) {
         //     $tfechGen = "-";
@@ -110,7 +110,7 @@ WHEN 'ACT' THEN CONVERT(DATE, vtade_contrato.fch_activacion,105) END ) <= CONVER
             $tfechAnu = dateFormat($key['fch_anulacion']);
         }
 
-        $tvendedor = $key['dsc_vendedor'];
+        $tvendedor = utf8_encode($key['dsc_vendedor']);
         $ttipoServ = $key['dsc_tipo_servicio'];
         $tnumCuotas = $key['num_cuotas'];
         // $ttasainteres = $key['imp_tasa_interes'];
