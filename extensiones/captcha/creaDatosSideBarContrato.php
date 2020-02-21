@@ -80,6 +80,9 @@ while($key = $db->recorrer($sql)){
         $tipoServ = utf8_encode($key['dsc_tipo_servicio']);
         $numCuotas = $key['num_cuotas'];
         $tasainteres = $key['imp_tasa_interes'];
+        $actLoc = "'".$key['cod_localidad']."'";
+        $actCtt = "'".$key['cod_contrato']."'";
+        $actSrv = "'".$key['num_servicio']."'";
 
         // -------- Condicional para campos NULL de fch_primer_vencimiento -------- //
         if ($key['fch_primer_vencimiento'] == NULL) {
@@ -124,7 +127,7 @@ while($key = $db->recorrer($sql)){
             }else if ($key["flg_resuelto"] == "SI" || $key["flg_anulado"] == "SI") {
                 $buttons .= '';
             }else{
-                $buttons .= '<button type="button" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="m-tooltip" data-container="body" data-placement="top" title="Activar" data-original-title="Activar" onclick="validarContrato("'.trim($key['cod_localidad']).'","'.$numContrato.'","'.$codServicio.'")">
+                $buttons .= '<button type="button" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="m-tooltip" data-container="body" data-placement="top" title="Activar" data-original-title="Activar" onclick="validarContrato('.$actLoc.','.$actCtt.','.$actSrv.')">
                                 <i class="fa fa-check"></i>
                             </button>';
             }

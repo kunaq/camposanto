@@ -77,7 +77,7 @@ FROM vtade_contrato WHERE vtade_contrato.cod_localidad = '".$datos['cod_localida
 				    }
 				}
 				if ($estado_vendedor_periodo < 1 ) {
-					$respuesta = array('error' => 6, 'vendedor' => $vendedor, 'num_anno' => $num_anno, 'cod_tipo_periodo' => $cod_tipo_periodo, 'cod_periodo' => $cod_periodo);
+					$respuesta = array('error' => 6, 'cod_vendedor' => $vendedor, 'num_anno' => $num_anno, 'cod_tipo_periodo' => $cod_tipo_periodo, 'cod_periodo' => $cod_periodo);
 					return $respuesta;
 				}else{
 
