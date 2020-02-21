@@ -221,6 +221,7 @@ function activarContrato(localidad,contrato,servicio,tipoCtt,tipoPrograma,numAnn
         data: {'accion': 'activaContrato', 'cod_localidad':localidad, 'cod_contrato' : contrato, 'cod_tipo_programa':tipoPrograma, 'cod_tipo_ctt':tipoCtt, 'num_servicio':servicio, 'num_anno':numAnno, 'cod_tipo_periodo':tipoPeriodo, 'cod_periodo':periodo},
         success : function(response){
             if (response == 1) {
+                mostrarSidebar(contrato,servicio);
                 swal({
                   title:"",
                   text:'Se activo el contrato satisfactoriamente',
