@@ -2215,7 +2215,10 @@ function modificaContrato(){
     var ls_zona = '';
     var li_cuotas = $("#numCuoCronograma").val();
     var li_cuotas_foma = $("#nCuotasFOMA").val();
-    var lde_tasa = $("#interesCronograma").val()
+    var lde_tasa = $("#interesCronograma").val();
+    if(lde_tasa == null){
+        lde_tasa = 0;
+    }
     var li_ref = $("#numRefinanciamiento").val();
     var ls_servicio_foma = $("#numServFoma").val();
     var ls_tipo = '';
