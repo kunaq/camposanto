@@ -134,15 +134,15 @@ class AjaxModifCtto{
 	}//ajaxBuscaCtdBenef
 	public function ajaxBuscaMaxCuotas(){
 		$respuesta = ControladorModifCtto::ctrBuscaMaxCuotas();
-		echo $respuesta;
+		echo print_r($respuesta);
 	}//ajaxBuscaMaxCuotas
 	public function ajaxBuscaMaxValorCuotas(){
 		$respuesta = ControladorModifCtto::ctrBuscaMaxValorCuotas();
-		echo $respuesta;
+		echo print_r($respuesta);
 	}//ajaxBuscaMaxValorCuotas
 	public function ajaxBuscaCostoCarencia(){
 		$respuesta = ControladorModifCtto::ctrBuscaCostoCarencia();
-		echo $respuesta;
+		echo print_r($respuesta);
 	}//ajaxBuscaCostoCarencia
 	public function ajaxRpDatosMod(){
 		$respuesta = ControladorModifCtto::ctrRpDatosMod();
