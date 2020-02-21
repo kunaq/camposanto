@@ -270,7 +270,7 @@ class ModeloModifCtto{
         $db->cerrar();
 	}//function mdlBuscaCostoCarencia
 
-	static public function ctrRpDatosMod($tablaCtto,$datos){
+	static public function mdlRpDatosMod($tablaCtto,$datos){
 		$db = new Conexion();
 		$sql = $db->consulta("UPDATE $tablaCtto SET cod_vendedor = '".$datos['ls_vendedor']."', cod_supervisor = '".$datos['ls_supervisor']."', cod_jefeventas = '".$datos['ls_jefe']."', cod_grupo = '".$datos['ls_grupo']."', cod_canal_venta = '".$datos['ls_canal']."', cod_tipo_comisionista = '".$datos['ls_tipo_comisionista']."', cod_cuota = '".$datos['ls_cuota']."', num_cuotas = ".$datos['li_cuotas'].", cod_interes = '".$datos['ls_interes']."', fch_primer_vencimiento = '".$datos['ldt_fch_venc']."', imp_tasa_interes = ".$datos['lde_tasa'].", fch_emision = ( CASE WHEN fch_emision IS NULL THEN '".$datos['ldt_fch_actual']."' ELSE fch_emision END ), flg_emitido = 'SI', cod_usuario_emision = '".$datos['gs_usuario']."', flg_agencia = '".$datos['ls_flg_agencia']."', cod_agencia = '".$datos['ls_agencia']."', cod_convenio = '".$datos['ls_convenio']."', cod_titular_alterno = '".$datos['ls_cliente_alterno']."', cod_aval = '".$datos['ls_aval']."', cod_empresa = '".$datos['gs_empresa']."', cod_cobrador = '".$datos['ls_cod_cobrador']."', imp_valor_cuota = ".$datos['lde_valor_cuota'].", imp_interes = ".$datos['lde_tot_interes'].", cod_zona = '".$datos['ls_zona']."', imp_costo_carencia = ".$datos['lde_costo_carencia']." WHERE cod_localidad = '".$datos['ls_localidad']."' AND cod_tipo_ctt = '".$datos['ls_tipo_ctt']."' AND cod_tipo_programa = '".$datos['ls_tipo_programa']."' AND num_servicio = '".$datos['ls_servicio']."' AND cod_contrato LIKE (RIGHT('0000000000'+'".$datos['ls_contrato']."',10))");
 		if($sql){
@@ -280,7 +280,7 @@ class ModeloModifCtto{
 		}
 		$db->liberar($sql);
         $db->cerrar();
-	}//ctrRpDatosMod
+	}//mdlRpDatosMod
 
 	static public function mdlActFOMAMod($tablaCtto,$datos){
 		$db = new Conexion();
