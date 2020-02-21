@@ -1039,7 +1039,9 @@ function verificaBenef(val){
 }
 
 function guardaBenef(){
-  var filas = length("#bodyBeneficiarioM tr");
+    var tablaBenef = document.getElementById("bodyBeneficiarioM");
+    var filas = tablaBenef.rows.length;
+  // var filas = length("#bodyBeneficiarioM tr");
   var tipoDoc = document.getElementById("tipoDocBenef").value;
   var numDoc = document.getElementById("numDocBenef").value;
   var aux = verificaBenef(numDoc);
