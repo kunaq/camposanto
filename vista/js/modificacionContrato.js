@@ -1921,6 +1921,7 @@ function modificaCtto(){
     var lde_saldo_financiar = $("#saldoFinanciar").val();
     var ldt_fch_emision = $("#fchEmision").val();
     var ldt_fch_activacion = $("#fchActivacion").val();
+    var fechaHoy = new Date();
     var aux_dia = fechaHoy.getDate();
     var aux_mes1 = fechaHoy.setMonth(fechaHoy.getMonth() + 1);
     var aux_mes = fechaHoy.getMonth();
