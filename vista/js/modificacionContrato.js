@@ -946,6 +946,7 @@ function validaDocLenght(tipo){
     }
 }
 function buscaBeneficiarios(codCtto){
+    $("#bodyBeneficiarioM").empty();
     $.ajax({
         url: 'ajax/modifCtto.ajax.php',
         dataType: 'json',
