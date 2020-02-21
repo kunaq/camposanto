@@ -2290,7 +2290,20 @@ function modificaContrato(){
         }//End If ls_servicio_foma              
     }else{
         var li_tot_cronograma = 0;
-        li_total_cuotas = buscaMaxCuotas(ls_tipo_ctt,ls_tipo_programa,ls_contrato,li_ref);
+        // li_total_cuotas = buscaMaxCuotas(ls_tipo_ctt,ls_tipo_programa,ls_contrato,li_ref);
+        $.ajax({
+            url: 'ajax/modifCtto.ajax.php',
+            dataType: 'json',
+            method: "POST",
+            data: { 'accion' : 'maxCuotas', 'ls_tipo_ctt' : ls_tipo_ctt, 'ls_tipo_programa' : ls_tipo_programa, 'ls_contrato' : ls_contrato, 'li_ref' : li_ref },
+            success : function(respuesta){
+                  if(respuesta['max'] == '' || respuesta['max'] == null){
+                    li_total_cuotas = 0;
+                  }else{
+                    li_total_cuotas =  respuesta['max'];
+                  }
+            }
+        });
         // console.log(li_total_cuotas['max']);
         // li_total_cuotas = li_total_cuotas_aux['computed'];
     }// End If is_cronograma
@@ -2315,9 +2328,20 @@ function modificaContrato(){
         }//End If  
 
          // -- Total -- //
-        li_total_cuotas = buscaMaxCuotas(ls_tipo_ctt,ls_tipo_programa,ls_contrato,li_ref);
-        // console.log(li_total_cuotas['max']);
-        // li_total_cuotas = li_total_cuotas_aux[0];
+        // li_total_cuotas = buscaMaxCuotas(ls_tipo_ctt,ls_tipo_programa,ls_contrato,li_ref);
+        $.ajax({
+            url: 'ajax/modifCtto.ajax.php',
+            dataType: 'json',
+            method: "POST",
+            data: { 'accion' : 'maxCuotas', 'ls_tipo_ctt' : ls_tipo_ctt, 'ls_tipo_programa' : ls_tipo_programa, 'ls_contrato' : ls_contrato, 'li_ref' : li_ref },
+            success : function(respuesta){
+                  if(respuesta['max'] == '' || respuesta['max'] == null){
+                    li_total_cuotas = 0;
+                  }else{
+                    li_total_cuotas =  respuesta['max'];
+                  }
+            }
+        });
 
     }//End If is_cronograma_foma
      
@@ -2331,7 +2355,7 @@ function modificaContrato(){
         lde_tot_interes = lde_tot_interes + pasaAnumero(oCells.item(5).innerHTML.trim());               
 
     }// Next 
-    console.log(lde_valor_cuota);    
+    // console.log(lde_valor_cuota);    
     var tablaVin = document.getElementById('bodyServicioVin');
     var tablaVinLenght = tablaVin.rows.length;
     var gs_empresa = $("#idPropietario").val();
