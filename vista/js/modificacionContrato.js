@@ -2410,19 +2410,20 @@ function modificaCtto(){
             var oCells = cronograma.rows.item(i).cells;
 
             var cuota = oCells.item(0).innerHTML.trim();
-            var estado = oCells.item(1).innerHTML.trim();
-            var fchVen = oCells.item(2).innerHTML.trim();
-            var subTotal = pasaAnumero(oCells.item(3).innerHTML.trim());
-            var interes = pasaAnumero(oCells.item(4).innerHTML.trim());
-            var igv = pasaAnumero(oCells.item(5).innerHTML.trim());
-            var total = pasaAnumero(oCells.item(6).innerHTML.trim());
-            var saldo = pasaAnumero(oCells.item(7).innerHTML.trim());
+            var tipoCuota = oCells.item(1).innerHTML.trim();
+            var estado = oCells.item(2).innerHTML.trim();
+            var fchVen = oCells.item(3).innerHTML.trim();
+            var subTotal = pasaAnumero(oCells.item(4).innerHTML.trim());
+            var interes = pasaAnumero(oCells.item(5).innerHTML.trim());
+            var igv = pasaAnumero(oCells.item(6).innerHTML.trim());
+            var total = pasaAnumero(oCells.item(7).innerHTML.trim());
+            var saldo = pasaAnumero(oCells.item(8).innerHTML.trim());
 
             $.ajax({
               type: 'POST',
               url: 'ajax/modifCtto.ajax.php',
               dataType: 'json',
-              data: {'accion' : 'guardaCronograma', 'ls_contrato' : ls_contrato, 'li_ref' : li_ref, 'li_cuota' : cuota, 'cod_estadocuota' : estado, 'ldt_vencimiento' : fchVen, 'lde_principal' : subTotal, 'lde_interes' : interes, 'lde_igv' : igv, 'lde_total' : total,'imp_saldo' : saldo, 'ls_tipo_ctt' : ls_tipo_ctt, 'ls_tipo_programa' : ls_tipo_programa},
+              data: {'accion' : 'guardaCronograma', 'ls_contrato' : ls_contrato, 'li_ref' : li_ref, 'li_cuota' : cuota, 'cod_estadocuota' : estado, 'ldt_vencimiento' : fchVen, 'lde_principal' : subTotal, 'lde_interes' : interes, 'lde_igv' : igv, 'lde_total' : total,'imp_saldo' : saldo, 'ls_tipo_ctt' : ls_tipo_ctt, 'ls_tipo_programa' : ls_tipo_programa, 'cod_tipo_cuota' : tipoCuota},
               success : function(respuesta){
                 if(respuesta == 1){
                   checkCronograma = "success";

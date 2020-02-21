@@ -340,5 +340,14 @@ class ModeloModifCtto{
         $db->cerrar();
 	}//function mdllineaMaxObsrv
 
+	static public function ctrGuardaCronograma($tabla,$datos){
+		$db = new Conexion();
+		$sql = $db->consulta("DELETE FROM  AND cod_contrato LIKE (RIGHT('0000000000'+'".$codCtto."',10))");
+		$datos = arrayMapUtf8Encode($db->recorrer($sql));
+		return $datos;
+		$db->liberar($sql);
+        $db->cerrar();
+	}//function ctrGuardaCronograma
+
 }//class ModeloModifCtto
 ?>
