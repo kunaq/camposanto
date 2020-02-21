@@ -2345,17 +2345,30 @@ function modificaContrato(){
         }
         // console.log(lde_costo_carencia['imp_costo_carencia']);
         // lde_costo_carencia = lde_costo_carencia_aux[0];
-                   
-        // -- Replica Datos tab Gestion-- //
         $.ajax({
-            url: 'ajax/modifCtto.ajax.php',
-            dataType: 'json',
-            method: "POST",
-            data: { 'accion' : 'RpDatosMod', 'ls_vendedor' : ls_vendedor, 'ls_supervisor' : ls_supervisor, 'ls_jefe' : ls_jefe, 'ls_grupo' : ls_grupo, 'ls_canal' : ls_canal, 'ls_tipo_comisionista' : ls_tipo_comisionista, 'ls_cuota' : ls_cuota, 'li_cuotas' : li_cuotas, 'ls_interes' : ls_interes, 'ldt_fch_venc' : ldt_fch_venc, 'lde_tasa' : lde_tasa, 'fch_actual_consulta' : fch_actual_consulta, 'ls_flg_agencia' : ls_flg_agencia,'ls_agencia' : ls_agencia, 'ls_convenio' : ls_convenio, 'ls_cliente_alterno' : ls_cliente_alterno, 'ls_aval' : ls_aval, 'gs_empresa' : gs_empresa, 'ls_cod_cobrador' : ls_cod_cobrador, 'lde_valor_cuota' : lde_valor_cuota, 'lde_tot_interes' : lde_tot_interes, 'ls_zona' : ls_zona, 'lde_costo_carencia' : lde_costo_carencia, 'ls_tipo_ctt' : ls_tipo_ctt, 'ls_tipo_programa' : ls_tipo_programa, 'ls_contrato' : ls_contrato, 'ls_servicio' : ls_servicio},
+        url: 'ajax/modifCtto.ajax.php',
+        dataType: 'json',
+        method: "POST",
+        data: { 'accion' : 'maxCuotas', 'ls_tipo_ctt' : ls_tipo_ctt, 'ls_tipo_programa' : ls_tipo_programa, 'ls_contrato' : ls_contrato, 'li_ref' : li_ref },
             success : function(respuesta){
-                  if(respuesta){
-                    repDat = 1;
+                  if(respuesta['max'] == '' || respuesta['max'] == null){
+                    lde_valor_cuota = 0;
+                  }else{
+                   lde_valor_cuota = respuesta['max'];
                   }
+                     
+            // -- Replica Datos tab Gestion-- //
+                $.ajax({
+                    url: 'ajax/modifCtto.ajax.php',
+                    dataType: 'json',
+                    method: "POST",
+                    data: { 'accion' : 'RpDatosMod', 'ls_vendedor' : ls_vendedor, 'ls_supervisor' : ls_supervisor, 'ls_jefe' : ls_jefe, 'ls_grupo' : ls_grupo, 'ls_canal' : ls_canal, 'ls_tipo_comisionista' : ls_tipo_comisionista, 'ls_cuota' : ls_cuota, 'li_cuotas' : li_cuotas, 'ls_interes' : ls_interes, 'ldt_fch_venc' : ldt_fch_venc, 'lde_tasa' : lde_tasa, 'fch_actual_consulta' : fch_actual_consulta, 'ls_flg_agencia' : ls_flg_agencia,'ls_agencia' : ls_agencia, 'ls_convenio' : ls_convenio, 'ls_cliente_alterno' : ls_cliente_alterno, 'ls_aval' : ls_aval, 'gs_empresa' : gs_empresa, 'ls_cod_cobrador' : ls_cod_cobrador, 'lde_valor_cuota' : lde_valor_cuota, 'lde_tot_interes' : lde_tot_interes, 'ls_zona' : ls_zona, 'lde_costo_carencia' : lde_costo_carencia, 'ls_tipo_ctt' : ls_tipo_ctt, 'ls_tipo_programa' : ls_tipo_programa, 'ls_contrato' : ls_contrato, 'ls_servicio' : ls_servicio},
+                    success : function(respuesta){
+                          if(respuesta){
+                            repDat = 1;
+                          }
+                    }
+                });  
             }
         });                              
     }//Next tabla vin
