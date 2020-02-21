@@ -1903,6 +1903,7 @@ function buscaMaxValor(ls_tipo_ctt,ls_tipo_programa,ls_contrato,li_ref){
         method: "POST",
         data: { 'accion' : 'costoCarencia', 'ls_tipo_ctt' : ls_tipo_ctt, 'ls_tipo_programa' : ls_tipo_programa, 'ls_contrato' : ls_contrato, 'ls_servicio' : ls_servicio },
         success : function(respuesta){
+            console.log(respuesta);
               if(respuesta['imp_costo_carencia'] == '' || respuesta['imp_costo_carencia'] == null){
                 return 0;
               }else{
