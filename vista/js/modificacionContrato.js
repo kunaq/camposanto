@@ -2404,6 +2404,29 @@ function modificaCtto(){
         var cronogramaLenght = cronograma.rows.length;
        
         for( li_i = 1 ; li_i <= cronogramaLenght ; li_i++ ){
+
+            var oCells = cronograma.rows.item(i).cells;
+
+            var cuota = oCells.item(0).innerHTML.trim();
+            var estado = oCells.item(1).innerHTML.trim();
+            var fchVen = oCells.item(2).innerHTML.trim();
+            var subTotal = pasaAnumero(oCells.item(3).innerHTML.trim());
+            var interes = pasaAnumero(oCells.item(4).innerHTML.trim());
+            var igv = pasaAnumero(oCells.item(5).innerHTML.trim());
+            var total = pasaAnumero(oCells.item(6).innerHTML.trim());
+            var saldo = pasaAnumero(oCells.item(7).innerHTML.trim());
+
+            $.ajax({
+              type: 'POST',
+              url: 'ajax/wizard.ajax.php',
+              dataType: 'text',
+              data: {'accion' : 'guardaCronograma', 'ls_num_contrato' : ls_contrato, 'li_refinanciamiento' : li_ref, 'li_cuota' : cuota, 'ls_tipo_cuota' : estado, 'ldt_vencimiento' : fchVen, 'lde_principal' : subTotal, 'lde_interes' : interes, 'lde_igv' : igv, 'lde_total' : total,'imp_saldo' : saldo, 'ls_tipo_ctt' : ls_tipo_ctt, 'ls_tipo_programa' : ls_tipo_programa},
+              success : function(respuesta){
+                if(respuesta == 1){
+                  checkCronograma = "success";
+                }
+              }//success cronograma
+            });//ajax cronograma
                                       
     //        li_row = dw_aux.InsertRow(0)   -----------------------------cual es esa tabla??
           
