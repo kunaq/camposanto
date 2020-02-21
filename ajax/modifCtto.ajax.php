@@ -164,10 +164,14 @@ class AjaxModifCtto{
 		$respuesta = ControladorModifCtto::ctrActCabeceraMod();
 		echo json_encode($respuesta);
 	}//ajaxajaxActCabeceraMod
-	public function ajaxajaxlineaMaxObsrv(){
+	public function ajaxlineaMaxObsrv(){
 		$respuesta = ControladorModifCtto::ctrlineaMaxObsrv();
 		echo json_encode($respuesta);
 	}//ajaxajaxlineaMaxObsrv
+	public function ajaxGuardaCronograma(){
+		$respuesta = ControladorModifCtto::ctrGuardaCronograma();
+		echo json_encode($respuesta);
+	}//ajaxGuardaCronograma
 }//class AjaxModifCtto
 /*=============================================
 ACCIONES
@@ -299,4 +303,8 @@ else if(isset($_POST["accion"]) && $_POST["accion"] == 'actCabeceraMod'){
 else if(isset($_POST["accion"]) && $_POST["accion"] == 'lineaMaxObsrv'){
 	$cliente = new AjaxModifCtto();
 	$cliente -> ajaxLineaMaxObsrv();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'guardaCronograma'){
+	$cliente = new AjaxModifCtto();
+	$cliente -> ajaxGuardaCronograma();
 }

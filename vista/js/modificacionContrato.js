@@ -853,6 +853,7 @@ function cargaCronograma(codCtto,numRefi){
         		var filaCrono = '<tr>'+
 									'<th scope="row">'+value['num_cuota']+'</th>'+
 									'<td>'+edoCuota+'</td>'+
+                                    '<td>'+value['cod_tipo_cuota']+'</td>'+
 									'<td>'+value['fch_vencimiento']+'</td>'+
 									'<td style="text-align: right;">'+Number(value['imp_total']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
 									'<td style="text-align: right;">'+Number(value['imp_interes']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
@@ -896,6 +897,7 @@ function cargaFoma(codCtto,numRefi){
         		var filaFoma = '<tr>'+
 									'<th scope="row">'+value['num_cuota']+'</th>'+
 									'<td>'+edoCuota+'</td>'+
+                                    '<td>FMA</td>'+
 									'<td>'+value['fch_vencimiento']+'</td>'+
 									'<td style="text-align: right;">'+Number(value['imp_total']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
 									'<td style="text-align: right;">'+Number(value['imp_saldo']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
@@ -2418,9 +2420,9 @@ function modificaCtto(){
 
             $.ajax({
               type: 'POST',
-              url: 'ajax/wizard.ajax.php',
-              dataType: 'text',
-              data: {'accion' : 'guardaCronograma', 'ls_num_contrato' : ls_contrato, 'li_refinanciamiento' : li_ref, 'li_cuota' : cuota, 'ls_tipo_cuota' : estado, 'ldt_vencimiento' : fchVen, 'lde_principal' : subTotal, 'lde_interes' : interes, 'lde_igv' : igv, 'lde_total' : total,'imp_saldo' : saldo, 'ls_tipo_ctt' : ls_tipo_ctt, 'ls_tipo_programa' : ls_tipo_programa},
+              url: 'ajax/modifCtto.ajax.php',
+              dataType: 'json',
+              data: {'accion' : 'guardaCronograma', 'ls_contrato' : ls_contrato, 'li_ref' : li_ref, 'li_cuota' : cuota, 'cod_estadocuota' : estado, 'ldt_vencimiento' : fchVen, 'lde_principal' : subTotal, 'lde_interes' : interes, 'lde_igv' : igv, 'lde_total' : total,'imp_saldo' : saldo, 'ls_tipo_ctt' : ls_tipo_ctt, 'ls_tipo_programa' : ls_tipo_programa},
               success : function(respuesta){
                 if(respuesta == 1){
                   checkCronograma = "success";

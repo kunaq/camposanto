@@ -420,5 +420,27 @@ class ControladorModifCtto{
 		return $respuesta;
 	}//ctrlineaMaxObsrv
 
+	static public function ctrGuardaCronograma(){
+		$tabla = 'vtade_observacion_x_contrato';
+		$datos = array("ls_localidad" => $_SESSION['localidad'],
+						"ls_tipo_contrato" => $_POST['ls_tipo_contrato'],
+						"ls_tipo_ctt" => $_POST['ls_tipo_ctt'],
+						"ls_tipo_programa" => $_POST['ls_tipo_programa'],
+						"ls_contrato" => $_POST['ls_contrato'],
+						"ls_num_servicio_getrow" => $_POST['ls_num_servicio_getrow'],
+						"ls_tipo_ctt" => $_POST['ls_tipo_ctt'],
+						"ls_tipo_programa" => $_POST['ls_tipo_programa'],
+						"ls_contrato" => $_POST['ls_contrato'],
+						"ls_num_servicio_getrow" => $_POST['ls_num_servicio_getrow'],
+						"ls_tipo_ctt" => $_POST['ls_tipo_ctt'],
+						"ls_tipo_programa" => $_POST['ls_tipo_programa'],
+						"ls_contrato" => $_POST['ls_contrato'],
+						"ls_num_servicio_getrow" => $_POST['ls_num_servicio_getrow']
+					);
+		$respuesta = ModeloModifCtto::mdlGuardaCronograma($tabla,$datos);
+		return $respuesta;
+	}//ctrGuardaCronograma
+
+
 }//class ControladorModifCtto
 ?>

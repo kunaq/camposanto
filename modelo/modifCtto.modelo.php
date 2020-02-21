@@ -71,7 +71,7 @@ class ModeloModifCtto{
 
 	static public function mdlBuscaCronograma($tablaCronograma,$codCtto,$num_refinanciamiento){
 		$db = new Conexion();
-		$sql = $db->consulta("SELECT num_cuota, cod_estadocuota, fch_vencimiento, imp_principal, imp_interes, imp_igv, imp_saldo, imp_total FROM $tablaCronograma WHERE cod_contrato LIKE (RIGHT('0000000000'+'$codCtto',10)) AND num_refinanciamiento = $num_refinanciamiento AND num_cuota != 0 AND cod_tipo_cuota != 'FMA' ORDER BY num_cuota ASC");
+		$sql = $db->consulta("SELECT num_cuota, cod_estadocuota, fch_vencimiento, imp_principal, imp_interes, imp_igv, imp_saldo, imp_total, cod_tipo_cuota FROM $tablaCronograma WHERE cod_contrato LIKE (RIGHT('0000000000'+'$codCtto',10)) AND num_refinanciamiento = $num_refinanciamiento AND num_cuota != 0 AND cod_tipo_cuota != 'FMA' ORDER BY num_cuota ASC");
 		$datos = array();
     	while($key = $db->recorrer($sql)){
 	    		$datos[] = arrayMapUtf8Encode($key);

@@ -1641,6 +1641,7 @@
 													<tr>
 														<th>Cuota</th>
 														<th>Estado</th>
+														<th>Tipo cuota</th>
 														<th>Fecha de Venicimiento</th>
 														<th>Subtotal</th>
 														<th>Interes</th>
@@ -1653,6 +1654,7 @@
 												</tbody>
 												<tfoot>
 													<tr>
+														<td></td>
 														<td></td>
 														<td></td>
 														<td>Total:</td>
@@ -1730,6 +1732,7 @@
 												<thead>
 													<th>Cuota</th>
 													<th>Estado</th>
+													<th>Tipo cuota</th>
 													<th>F. Vecimiento</th>
 													<th>Total</th>
 													<th>Saldo</th>
