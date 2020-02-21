@@ -1033,7 +1033,7 @@ function verificaBenef(val){
   if(row > 0){
     var filas = document.querySelectorAll("#bodyBeneficiarioM tr");
     for (var i = 0; i < row; i++) {
-      result = filas[i-1].querySelectorAll("td");
+      result = filas[i].querySelectorAll("td");
       com = result[0].innerHTML;
       if(val == com){
         return 1;
