@@ -1904,10 +1904,12 @@ function buscaMaxValor(ls_tipo_ctt,ls_tipo_programa,ls_contrato,li_ref){
         data: { 'accion' : 'costoCarencia', 'ls_tipo_ctt' : ls_tipo_ctt, 'ls_tipo_programa' : ls_tipo_programa, 'ls_contrato' : ls_contrato, 'ls_servicio' : ls_servicio },
         success : function(respuesta){
             console.log(respuesta);
-              if(respuesta['imp_costo_carencia'] == '' || respuesta['imp_costo_carencia'] == null){
+            var info = JSON.parse(respuesta);
+                $("#anio"+campo+"Aud").val(info.num_anno);
+              if(info.imp_costo_carencia == '' || info.imp_costo_carencia == null){
                 return 0;
               }else{
-                return respuesta['imp_costo_carencia'];
+                return info.imp_costo_carencia;
               }
         }
     });
