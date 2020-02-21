@@ -254,8 +254,7 @@ class ModeloModifCtto{
 
 	static public function mdlBuscaMaxValorCuotas($tabla,$localidad,$codCtto,$tipoCtto,$tipoProg,$refi){
 		$db = new Conexion();
-		$sql = $db->consulta("SELECT  MAX(imp_total) FROM $tabla WHERE cod_localidad = '$localidad' AND cod_tipo_ctt = '$tipoCtt' AND cod_tipo_programa = '$tipoProg' AND num_refinanciamiento = $refi AND cod_tipo_cuota = 'ARM' AND cod_contrato LIKE (RIGHT('0000000000'+'".$codCtto."',10))");
-		echo "SELECT  MAX(imp_total) FROM $tabla WHERE cod_localidad = '$localidad' AND cod_tipo_ctt = '$tipoCtt' AND cod_tipo_programa = '$tipoProg' AND num_refinanciamiento = $refi AND cod_tipo_cuota = 'ARM' AND cod_contrato LIKE (RIGHT('0000000000'+'".$codCtto."',10))";
+		$sql = $db->consulta("SELECT  MAX(imp_total) FROM $tabla WHERE cod_localidad = '$localidad' AND cod_tipo_ctt = '$tipoCtto' AND cod_tipo_programa = '$tipoProg' AND num_refinanciamiento = $refi AND cod_tipo_cuota = 'ARM' AND cod_contrato LIKE (RIGHT('0000000000'+'".$codCtto."',10))");
 		$datos = arrayMapUtf8Encode($db->recorrer($sql));
 		return $datos;
 		$db->liberar($sql);
@@ -265,7 +264,6 @@ class ModeloModifCtto{
 	static public function mdlBuscaCostoCarencia($tabla,$localidad,$codCtto,$tipoCtto,$tipoProg,$tipoServ){
 		$db = new Conexion();
 		$sql = $db->consulta("SELECT imp_costo_carencia FROM $tabla WHERE cod_localidad = '$localidad' AND cod_tipo_ctt = '$tipoCtto' AND cod_tipo_programa = '$tipoProg' AND num_servicio = '$tipoServ' AND flg_servicio_principal = 'SI' AND cod_contrato LIKE (RIGHT('0000000000'+'".$codCtto."',10))");
-		echo "SELECT imp_costo_carencia FROM $tabla WHERE cod_localidad = '$localidad' AND cod_tipo_ctt = '$tipoCtto' AND cod_tipo_programa = '$tipoProg' AND num_servicio = '$tipoServ' AND flg_servicio_principal = 'SI' AND cod_contrato LIKE (RIGHT('0000000000'+'".$codCtto."',10))";
 		$datos = arrayMapUtf8Encode($db->recorrer($sql));
 		return $datos;
 		$db->liberar($sql);
