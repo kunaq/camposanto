@@ -43,6 +43,13 @@ $("#fchEntBenef").datepicker({
     autoclose: true
 });//datepicker
 
+function justNumbers(e){
+  var keynum = window.event ? window.event.keyCode : e.which;
+  if ((keynum == 8) || (keynum == 46))
+  return true;
+  return /\d/.test(String.fromCharCode(keynum));
+}
+
 function getParameterByName() {
     var query = window.location.search.substring(1);
     if (query == "" ) {
@@ -2093,6 +2100,7 @@ function modificaCtto(){
     // -- Detalle de Servicios -- // 
 
     var li_tot = 0;
+    var ls_det_servicios = '';
     var container = document.querySelector('#bodyServicioVin');
     container.querySelectorAll('tr').forEach(function (li_i) 
     {            
