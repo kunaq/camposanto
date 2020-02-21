@@ -1422,11 +1422,29 @@ function guardaBeneficiarios(){
         var nombre = respuesta.split(",")[4];
         var fechNac = respuesta.split(",")[5];
         if(fechNac != ''){
-            fechNac = fechaParaConsulta(fechNac);
+            fecha = new Date(fechNac);
+            var aux_dia = fecha.getDate();
+            var aux_mes1 = fecha.setMonth(fecha.getMonth() + 1);
+            var aux_mes = fecha.getMonth();
+            var  aux_anio = fecha.getFullYear();
+            if(aux_mes == '0'){
+                aux_mes = '12';
+                aux_anio = fecha.getFullYear()-1;
+            }               
+            fechNac = aux_mes+'/'+aux_dia+'/'+aux_anio;
         }
         var fechDec = respuesta.split(",")[6];
         if(fechDec != ''){
-            fechDec = fechaParaConsulta(fechDec);
+            fecha = new Date(fechDec);
+            var aux_dia = fecha.getDate();
+            var aux_mes1 = fecha.setMonth(fecha.getMonth() + 1);
+            var aux_mes = fecha.getMonth();
+            var  aux_anio = fecha.getFullYear();
+            if(aux_mes == '0'){
+                aux_mes = '12';
+                aux_anio = fecha.getFullYear()-1;
+            }               
+            fechDec = aux_mes+'/'+aux_dia+'/'+aux_anio;
         }
         var religion = respuesta.split(",")[7];
         var edoCivil = respuesta.split(",")[8];
@@ -1447,7 +1465,16 @@ function guardaBeneficiarios(){
         var numServ = respuesta.split(",")[17];
         var fchEnt = respuesta.split(",")[18];
         if(fchEnt != ''){
-            fchEnt = fechaParaConsulta(fchEnt);
+           fecha = new Date(fchEnt);
+            var aux_dia = fecha.getDate();
+            var aux_mes1 = fecha.setMonth(fecha.getMonth() + 1);
+            var aux_mes = fecha.getMonth();
+            var  aux_anio = fecha.getFullYear();
+            if(aux_mes == '0'){
+                aux_mes = '12';
+                aux_anio = fecha.getFullYear()-1;
+            }               
+            fchEnt = aux_mes+'/'+aux_dia+'/'+aux_anio;
         }
         var nivel = respuesta.split(",")[19];
         if(i == ''){
