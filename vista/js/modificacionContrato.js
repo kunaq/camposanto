@@ -1407,7 +1407,7 @@ function guardaBeneficiarios(){
     var cod_contrato = $("#codContrato").val();
     var container = document.querySelector('#bodyBeneficiarioM');
     container.querySelectorAll('tr').forEach(function (i){ 
-        var numDoc = $(i).attr("name");       
+        var numDoc = $(i).attr("id");       
         var respuesta = document.getElementById("registro_"+numDoc).value;
         var tipoDoc = respuesta.split(",")[0];
         var numDoc = respuesta.split(",")[1];
