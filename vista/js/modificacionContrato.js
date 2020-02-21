@@ -1086,9 +1086,8 @@ function guardaBenef(){
             type: "success",
             confirmButtonText: "Aceptar",
         })
+      limpiaydsi(); 
     }
-
-  limpiaydsi(); 
 }
 
 function eliminaBenef(id){
@@ -1258,8 +1257,8 @@ function guardaEdicionB(id){
             type: "success",
             confirmButtonText: "Aceptar",
         })
+      limpiaydsi();
     }
-  limpiaydsi();
 }
 
 function limpiaydsi(){
