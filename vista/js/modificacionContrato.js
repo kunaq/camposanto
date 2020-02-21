@@ -2135,7 +2135,7 @@ function modificaCtto(){
                 reverseButtons: true
             }).then((result) => {
               if (result.value) {
-                var continue = 1;
+                var seguir = 1;
               } else if (
                 result.dismiss === Swal.DismissReason.cancel
               ) {
@@ -2154,7 +2154,7 @@ function modificaCtto(){
                 reverseButtons: true
             }).then((result) => {
               if (result.value) {
-                var continue = 1;
+                var seguir = 1;
               } else if (
                 result.dismiss === Swal.DismissReason.cancel
               ) {
@@ -2173,7 +2173,7 @@ function modificaCtto(){
             reverseButtons: true
         }).then((result) => {
           if (result.value) {
-            var continue = 1;
+            var seguir = 1;
           } else if (
             result.dismiss === Swal.DismissReason.cancel
           ) {
