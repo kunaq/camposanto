@@ -1943,6 +1943,7 @@ function ValidaModificaCtto(){
     var is_principal = $("#is_principal_"+ls_num_servicio_det).val();
     var is_ds = $("#is_ds_"+ls_num_servicio_det).val();
     var ls_flg_agencia = $("#AgFunCheck").prop('checked');
+    var lde_saldo_financiar = $("#saldoFinanciar").val();
     if(ls_flg_agencia){
         ls_flg_agencia = 'SI';
     }else{
