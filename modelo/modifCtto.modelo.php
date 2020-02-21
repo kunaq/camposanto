@@ -309,6 +309,7 @@ class ModeloModifCtto{
 	static public function mdlActResCronoMod($tabla,$datos){
 		$db = new Conexion();
 		$sql = $db->consulta("UPDATE $tabla SET num_cuotas = ".$datos['li_total_cuotas'].", cod_interes = '".$datos['ls_interes']."', imp_tasainteres = ".$datos['lde_tasa'].", imp_interes = ".$datos['lde_tot_interes']." WHERE cod_localidad = '".$datos['ls_localidad']."'' AND cod_tipo_ctt = '".$datos['ls_tipo_ctt']."'' AND cod_tipo_programa = '".$datos['ls_tipo_programa']."'' AND num_refinanciamiento = ".$datos['li_ref']." AND cod_contrato LIKE (RIGHT('0000000000'+'".$datos['ls_contrato']."',10))");
+		echo "UPDATE $tabla SET num_cuotas = ".$datos['li_total_cuotas'].", cod_interes = '".$datos['ls_interes']."', imp_tasainteres = ".$datos['lde_tasa'].", imp_interes = ".$datos['lde_tot_interes']." WHERE cod_localidad = '".$datos['ls_localidad']."'' AND cod_tipo_ctt = '".$datos['ls_tipo_ctt']."'' AND cod_tipo_programa = '".$datos['ls_tipo_programa']."'' AND num_refinanciamiento = ".$datos['li_ref']." AND cod_contrato LIKE (RIGHT('0000000000'+'".$datos['ls_contrato']."',10))";
 		if($sql){
 			return true;
 		}else{
