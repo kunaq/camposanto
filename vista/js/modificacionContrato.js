@@ -1019,7 +1019,9 @@ function cargaFormBenefModif(){
 }
 
 function verificaBenef(val){
-  var row = $("#bodyBeneficiarioM tr").length;
+    var tablaBenef = document.getElementById("bodyBeneficiarioM");
+    var row = tablaBenef.rows.length;
+  // var row = $("#bodyBeneficiarioM tr").length;
   if(row > 0){
     var filas = document.querySelectorAll("#bodyBeneficiarioM tr");
     for (var i = 1; i <= row; i++) {
