@@ -127,7 +127,7 @@ while($key = $db->recorrer($sql)){
             }else if ($key["flg_resuelto"] == "SI" || $key["flg_anulado"] == "SI") {
                 $buttons .= '';
             }else{
-                $buttons .= '<button type="button" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="m-tooltip" data-container="body" data-placement="top" title="Activar" data-original-title="Activar" onclick="validarContrato('.$actLoc.'",'.$actCtt.','.$actSrv.')">
+                $buttons .= '<button type="button" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="m-tooltip" data-container="body" data-placement="top" title="Activar" data-original-title="Activar" onclick="validarContrato('.$actLoc.','.$actCtt.','.$actSrv.')">
                                 <i class="fa fa-check"></i>
                             </button>';
             }
