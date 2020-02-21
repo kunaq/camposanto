@@ -2171,6 +2171,7 @@ function modificaContrato(){
     var ls_tipo_ctt = $("#modC").val();
     var ls_tipo_programa = $("#tipoPrograma").val();
     var ls_num_servicio_det = $("#numServicioSeleccionado").val();
+    var ls_num_servicio_getrow = $("#numServicioSeleccionado").val();
     var ls_flg_resuelto = $("#flg_resuelto_"+ls_num_servicio_det).val();
     var ls_flg_anulado = $("#flg_anulado_"+ls_num_servicio_det).val();
     var lde_saldo_financiar_foma = $("#saldoFOMA").val();
