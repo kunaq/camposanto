@@ -2584,7 +2584,7 @@ function modificaCtto(){
    
     for( li_i = 1 ; li_i <= cronogramaLenght ; li_i++ ){
 
-        var oCells = croTable.rows.item(li_i).cells;
+        var oCells = cronograma.rows.item(li_i).cells;
         lde_tot_interes = lde_tot_interes + pasaAnumero(oCells.item(5).innerHTML.trim());               
 
     }// Next
@@ -2635,7 +2635,7 @@ function modificaCtto(){
     var gs_empresa = $("#idPropietario").val();
     for( li_i = 1 ; li_i <= tablaVinLenght ; li_i++ ){
                    
-        var oCells = croTable.rows.item(li_i).cells;
+        var oCells = tablaVin.rows.item(li_i).cells;
         var ls_servicio = oCells.item(0).innerHTML.trim();
        
         // -- Inicializar -- //
