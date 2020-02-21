@@ -2164,6 +2164,7 @@ function ValidaModificaCtto(){
 }  //valida
 
 function modificaContrato(){
+
     var li_valida = 0;
     var ls_localidad = $("#sedeContrato").val();
     var ls_contrato = $("#codContrato").val();
@@ -2232,6 +2233,7 @@ function modificaContrato(){
     var li_max_item = $("#numBeneficiarios").val();
     var is_cronograma_foma = $("#cambioCronogramaFoma").val();
     var li_total_cuotas = 0;
+    var lde_valor_cuota = buscaMaxValor(ls_tipo_ctt,ls_tipo_programa,ls_contrato,li_ref);
     if(li_max_item == null || li_max_item == ''){
         li_max_item = 0;
     }
@@ -2328,8 +2330,8 @@ function modificaContrato(){
         var oCells = cronograma.rows.item(li_i).cells;
         lde_tot_interes = lde_tot_interes + pasaAnumero(oCells.item(5).innerHTML.trim());               
 
-    }// Next
-    var lde_valor_cuota = buscaMaxValor(ls_tipo_ctt,ls_tipo_programa,ls_contrato,li_ref);     
+    }// Next 
+    console.log(lde_valor_cuota);    
     var tablaVin = document.getElementById('bodyServicioVin');
     var tablaVinLenght = tablaVin.rows.length;
     var gs_empresa = $("#idPropietario").val();
