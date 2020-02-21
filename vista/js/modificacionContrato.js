@@ -1874,7 +1874,7 @@ function buscaMaxCuotas(ls_tipo_ctt,ls_tipo_programa,ls_contrato,li_ref){
               if(respuesta == '' || respuesta == null){
                 return 0;
               }else{
-                return respuesta;
+                return respuesta['max'];
               }
         }
     });
@@ -1890,7 +1890,7 @@ function buscaMaxValor(ls_tipo_ctt,ls_tipo_programa,ls_contrato,li_ref){
               if(respuesta == '' || respuesta == null){
                 return 0;
               }else{
-                return respuesta;
+                return respuesta['max'];
               }
         }
     });
@@ -1906,7 +1906,7 @@ function buscaMaxValor(ls_tipo_ctt,ls_tipo_programa,ls_contrato,li_ref){
               if(respuesta == '' || respuesta == null){
                 return 0;
               }else{
-                return respuesta;
+                return respuesta['imp_costo_carencia'];
               }
         }
     });
@@ -2311,7 +2311,7 @@ function modificaContrato(){
 
          // -- Total -- //
         li_total_cuotas = buscaMaxCuotas(ls_tipo_ctt,ls_tipo_programa,ls_contrato,li_ref);
-        console.log(li_total_cuotas['max']);
+        // console.log(li_total_cuotas['max']);
         // li_total_cuotas = li_total_cuotas_aux[0];
 
     }//End If is_cronograma_foma
@@ -2335,7 +2335,7 @@ function modificaContrato(){
         var oCells = tablaVin.rows.item(li_i).cells;
         var ls_servicio = oCells.item(0).innerHTML.trim();
         var lde_costo_carencia = buscaCostoCarencia(ls_tipo_ctt,ls_tipo_programa,ls_contrato,ls_servicio);
-        console.log(lde_costo_carencia['imp_costo_carencia']);
+        // console.log(lde_costo_carencia['imp_costo_carencia']);
         // lde_costo_carencia = lde_costo_carencia_aux[0];
                    
         // -- Replica Datos tab Gestion-- //
