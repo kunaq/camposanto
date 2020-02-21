@@ -1421,7 +1421,13 @@ function guardaBeneficiarios(){
         var apellMaterno = respuesta.split(",")[3];
         var nombre = respuesta.split(",")[4];
         var fechNac = respuesta.split(",")[5];
+        if(fechNac != ''){
+            fechNac = fechaParaConsulta(fechNac);
+        }
         var fechDec = respuesta.split(",")[6];
+        if(fechDec != ''){
+            fechDec = fechaParaConsulta(fechDec);
+        }
         var religion = respuesta.split(",")[7];
         var edoCivil = respuesta.split(",")[8];
         var sexo = respuesta.split(",")[9];
@@ -1429,11 +1435,20 @@ function guardaBeneficiarios(){
         var lugar = respuesta.split(",")[11];
         var motivo = respuesta.split(",")[12];
         var peso = respuesta.split(",")[13];
+        if(peso == ''){
+            peso = 0;
+        }
         var talla = respuesta.split(",")[14];
+        if(talla == ''){
+            talla = 0;
+        }
         var autopsia = respuesta.split(",")[15];
         var numItem = respuesta.split(",")[16];
         var numServ = respuesta.split(",")[17];
         var fchEnt = respuesta.split(",")[18];
+        if(fchEnt != ''){
+            fchEnt = fechaParaConsulta(fchEnt);
+        }
         var nivel = respuesta.split(",")[19];
         if(i == ''){
             $.ajax({
