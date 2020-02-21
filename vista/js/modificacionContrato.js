@@ -2286,7 +2286,7 @@ function modificaContrato(){
     }else{
         var li_tot_cronograma = 0;
         li_total_cuotas = buscaMaxCuotas(ls_tipo_ctt,ls_tipo_programa,ls_contrato,li_ref);
-        console.log(li_total_cuotas);
+        console.log(li_total_cuotas[0]);
         // li_total_cuotas = li_total_cuotas_aux['computed'];
     }// End If is_cronograma
 
@@ -2334,7 +2334,7 @@ function modificaContrato(){
         var oCells = tablaVin.rows.item(li_i).cells;
         var ls_servicio = oCells.item(0).innerHTML.trim();
         var lde_costo_carencia_aux = buscaCostoCarencia(ls_tipo_ctt,ls_tipo_programa,ls_contrato,ls_servicio);
-        lde_costo_carencia = lde_costo_carencia_aux['imp_costo_carencia'];
+        lde_costo_carencia = lde_costo_carencia_aux[0];
                    
         // -- Replica Datos tab Gestion-- //
         $.ajax({
