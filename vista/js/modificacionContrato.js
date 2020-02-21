@@ -1905,7 +1905,6 @@ function buscaMaxValor(ls_tipo_ctt,ls_tipo_programa,ls_contrato,li_ref){
         success : function(respuesta){
             console.log(respuesta);
             var info = JSON.parse(respuesta);
-                $("#anio"+campo+"Aud").val(info.num_anno);
               if(info.imp_costo_carencia == '' || info.imp_costo_carencia == null){
                 return 0;
               }else{
@@ -2338,6 +2337,9 @@ function modificaContrato(){
         var oCells = tablaVin.rows.item(li_i).cells;
         var ls_servicio = oCells.item(0).innerHTML.trim();
         var lde_costo_carencia = buscaCostoCarencia(ls_tipo_ctt,ls_tipo_programa,ls_contrato,ls_servicio);
+        if(lde_costo_carencia == '' || lde_costo_carencia == null){
+            lde_costo_carencia = 0;
+        }
         // console.log(lde_costo_carencia['imp_costo_carencia']);
         // lde_costo_carencia = lde_costo_carencia_aux[0];
                    
