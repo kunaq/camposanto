@@ -2583,7 +2583,7 @@ function modificaCtto(){
     var cronograma = document.getElementById('bodyCronogramaModif');
     var cronogramaLenght = cronograma.rows.length;
    
-    for( li_i = 1 ; li_i <= cronogramaLenght ; li_i++ ){
+    for( li_i = 0 ; li_i < cronogramaLenght ; li_i++ ){
 
         var oCells = cronograma.rows.item(li_i).cells;
         lde_tot_interes = lde_tot_interes + pasaAnumero(oCells.item(5).innerHTML.trim());               
