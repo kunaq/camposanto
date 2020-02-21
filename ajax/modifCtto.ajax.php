@@ -288,7 +288,7 @@ else if(isset($_POST["accion"]) && $_POST["accion"] == 'ActFOMAMod'){
 	$cliente = new AjaxModifCtto();
 	$cliente -> ajaxActFOMAMod();
 }
-else if(isset($_POST["accion"]) && $_POST["accion"] == 'guardaBeneficiarios'){
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'guardaBenef'){
 	$cliente = new AjaxModifCtto();
 	$cliente -> ajaxGuardaBeneficiarios();
 }
