@@ -81,7 +81,7 @@ while($key = $db->recorrer($sql)){
         $numCuotas = $key['num_cuotas'];
         $tasainteres = $key['imp_tasa_interes'];
         $actLoc = "'".$key['cod_localidad']."'";
-        $sctCtt = "'".$key['cod_contrato']."'";
+        $actCtt = "'".$key['cod_contrato']."'";
         $actSrv = "'".$key['num_servicio']."'";
 
         // -------- Condicional para campos NULL de fch_primer_vencimiento -------- //
