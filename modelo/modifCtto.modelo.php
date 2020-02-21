@@ -245,7 +245,7 @@ class ModeloModifCtto{
 
 	static public function mdlBuscaMaxCuotas($tabla,$localidad,$codCtto,$tipoCtto,$tipoProg,$refi){
 		$db = new Conexion();
-		$sql = $db->consulta("SELECT  MAX(num_cuota) FROM $tabla WHERE cod_localidad = '$localidad' AND cod_tipo_programa = '$tipoProg' AND cod_contrato = '$codCtto' AND num_refinanciamiento = $refi AND cod_contrato LIKE (RIGHT('0000000000'+'".$codCtto."',10))");
+		$sql = $db->consulta("SELECT  MAX(num_cuota) AS max FROM $tabla WHERE cod_localidad = '$localidad' AND cod_tipo_programa = '$tipoProg' AND cod_contrato = '$codCtto' AND num_refinanciamiento = $refi AND cod_contrato LIKE (RIGHT('0000000000'+'".$codCtto."',10))");
 		$datos = arrayMapUtf8Encode($db->recorrer($sql));
 		return $datos;
 		$db->liberar($sql);
@@ -254,7 +254,7 @@ class ModeloModifCtto{
 
 	static public function mdlBuscaMaxValorCuotas($tabla,$localidad,$codCtto,$tipoCtto,$tipoProg,$refi){
 		$db = new Conexion();
-		$sql = $db->consulta("SELECT  MAX(imp_total) FROM $tabla WHERE cod_localidad = '$localidad' AND cod_tipo_ctt = '$tipoCtto' AND cod_tipo_programa = '$tipoProg' AND num_refinanciamiento = $refi AND cod_tipo_cuota = 'ARM' AND cod_contrato LIKE (RIGHT('0000000000'+'".$codCtto."',10))");
+		$sql = $db->consulta("SELECT  MAX(imp_total) AS max FROM $tabla WHERE cod_localidad = '$localidad' AND cod_tipo_ctt = '$tipoCtto' AND cod_tipo_programa = '$tipoProg' AND num_refinanciamiento = $refi AND cod_tipo_cuota = 'ARM' AND cod_contrato LIKE (RIGHT('0000000000'+'".$codCtto."',10))");
 		$datos = arrayMapUtf8Encode($db->recorrer($sql));
 		return $datos;
 		$db->liberar($sql);
