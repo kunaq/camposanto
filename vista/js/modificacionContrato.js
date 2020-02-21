@@ -2400,14 +2400,13 @@ function modificaCtto(){
     //     Next
                 
         // -- Cuotas Ordinarias -- //
-       
-        var li_tot_cronograma = 0;
+
         var cronograma = document.getElementById('bodyCronogramaModif');
         var cronogramaLenght = cronograma.rows.length;
        
         for( li_i = 1 ; li_i <= cronogramaLenght ; li_i++ ){
 
-            var oCells = cronograma.rows.item(i).cells;
+            var oCells = cronograma.rows.item(li_i).cells;
 
             var cuota = oCells.item(0).innerHTML.trim();
             var tipoCuota = oCells.item(1).innerHTML.trim();
@@ -2451,8 +2450,7 @@ function modificaCtto(){
           
     //        // -- Total Interes -- //
             
-            var oCells = croTable.rows.item(li_i).cells;
-            lde_tot_interes = lde_tot_interes + pasaAnumero(oCells.item(4).innerHTML.trim());
+            lde_tot_interes = lde_tot_interes + pasaAnumero(oCells.item(5).innerHTML.trim());
           
     //        // -- Total -- //
           
@@ -2516,6 +2514,8 @@ function modificaCtto(){
     //            If ls_tipo_cuota = 'FMA' Then dw_aux.DeleteRow(li_i)
 
     //        Next
+
+         var li_tot_cronograma = 0;
                       
            // li_tot_cronograma = dw_aux.GetItemNumber(dw_aux.Rowcount(), "num_cuota")
           
@@ -2572,7 +2572,7 @@ function modificaCtto(){
     for( li_i = 1 ; li_i <= cronogramaLenght ; li_i++ ){
 
         var oCells = croTable.rows.item(li_i).cells;
-        lde_tot_interes = lde_tot_interes + pasaAnumero(oCells.item(4).innerHTML.trim());               
+        lde_tot_interes = lde_tot_interes + pasaAnumero(oCells.item(5).innerHTML.trim());               
 
     }// Next
      
@@ -2592,15 +2592,14 @@ function modificaCtto(){
     //     If is_cronograma = 'SI' Then
 
     //        If is_flg_cronograma_cuoi = 'SI' Then                                            
-    //            DELETE vtade_cronogramaipo_ctt = :ls_tipo_ctt
-    //            AND                      vtade_cronograma.cod_t
-    //            WHERE vtade_cronograma.cod_localidad = :ls_localidad
-    //            AND                      vtade_cronograma.cod_tipo_programa = :ls_tipo_programa
-    //            AND                      vtade_cronograma.cod_contrato = :ls_contrato
-    //            AND                      vtade_cronograma.num_refinanciamiento = :li_ref
-    //            AND                      vtade_cronograma.num_cuota <= 0
-    //            AND                      vtade_cronograma.cod_tipo_cuota = 'CUI'
-    //            USING SQLCA;
+    //            DELETE vtade_cronograma
+                // WHERE vtade_cronograma.cod_localidad = :ls_localidad
+                // AND                      vtade_cronograma.cod_tipo_ctt = :ls_tipo_ctt
+                   // AND                      vtade_cronograma.cod_tipo_programa = :ls_tipo_programa
+                   // AND                      vtade_cronograma.cod_contrato = :ls_contrato
+                   // AND                      vtade_cronograma.num_refinanciamiento = :li_ref
+                   // AND                      vtade_cronograma.num_cuota <= 0
+                   // AND                      vtade_cronograma.cod_tipo_cuota = 'CUI'
             
     //            If f_verifica_transaccion(SQLCA) = False Then Goto db_error
                         
