@@ -659,7 +659,7 @@ $("#ctt").change(function() {
             document.getElementById('tipo_ctt').value = value['cod_tipo_ctt'];
             document.getElementById('tipo_programa').value = value['cod_tipo_programa'];
             document.getElementById("numDocCliente").value = value['dsc_documento'];
-            // $("#numDocCliente").change();
+            $("#numDocCliente").change();
             if (tipoPrograma == 'TR007' || tipoPrograma == 'TR004' || tipoPrograma == 'TR003') {
               document.getElementById('camposanto').value = value['cod_camposanto_actual'];
               $("#camposanto").change();

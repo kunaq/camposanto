@@ -1,3 +1,16 @@
+function getParameterByName() {
+    var query = window.location.search.substring(1);
+    if (query == "" ) {
+    }else{
+        var pair = query.split("&");
+        var localidad = pair[0].split("=");
+        var contrato = pair[1].split("=");
+        $("#localidadResolucion").val(localidad[1]);
+        $("#numConResolucion").val(contrato[1]);
+        buscaNumServicio();
+    }
+}
+
 $("#m_datepicker_4_3").datepicker({
   format: 'dd-mm-yyyy',
   autoclose: true
@@ -730,3 +743,8 @@ function resolverContrato(){
         }//successVerificaContado
     });//ajaxVerificaContado
 }
+
+
+
+
+getParameterByName();
