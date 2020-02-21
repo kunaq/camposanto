@@ -156,14 +156,14 @@ class AjaxModifCtto{
 		$respuesta = ControladorModifCtto::ctrGuardaBeneficiarios();
 		echo json_encode($respuesta);
 	}//ajaxGuardaBeneficiarios
-	public function ajaxajaxActResCronoMod(){
+	public function ajaxActResCronoMod(){
 		$respuesta = ControladorModifCtto::ctrActResCronoMod();
 		echo json_encode($respuesta);
-	}//ajaxajaxActResCronoMod
-	public function ajaxajaxActCabeceraMod(){
+	}//ajaxActResCronoMod
+	public function ajaxActCabeceraMod(){
 		$respuesta = ControladorModifCtto::ctrActCabeceraMod();
 		echo json_encode($respuesta);
-	}//ajaxajaxActCabeceraMod
+	}//ajaxActCabeceraMod
 	public function ajaxlineaMaxObsrv(){
 		$respuesta = ControladorModifCtto::ctrlineaMaxObsrv();
 		echo json_encode($respuesta);
