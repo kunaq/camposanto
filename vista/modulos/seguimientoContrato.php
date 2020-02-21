@@ -18,7 +18,7 @@
 							<div class="row form-group">
 								<div class="col-lg-2">
 									<label>Filtrar por:</label>
-									<select class="form-control form-control-sm" onclick="filtro(this.value);">
+									<select class="form-control form-control-sm" id="filtro" onclick="filtro(this.value);">
 										<option value="cliente">Cliente</option>
 										<option value="contrato">Contrato(Afiliación)</option>
 									</select>

@@ -91,11 +91,9 @@ while($key = $db->recorrer($sql)){
         $total = number_format(round($key['imp_totalneto'], 2),2,',','.');
 
         if ($key["flg_activado"] == "SI") {
-            $buttons .= '<span data-toggle="modal" data-target="#m_modal_contrato">
-                            <button type="button" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="m-tooltip" data-container="body" data-placement="top" title="Ver" onclick="">
-                                <i class="fa fa-eye"></i>
-                            </button>
-                        </span>';
+            $buttons .= '<a href="seguimientoContrato?localidad='.$key['cod_localidad'].'&contrato='.$numContrato.'" target="_blank"><button type="button" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="m-tooltip" data-container="body" data-placement="top" title="Seguimiento" onclick="">
+                            <i class="la la-eye"></i>
+                        </button></a>';
         }else{
             $buttons .= '<a href="modificacionContrato?localidad='.$key['cod_localidad'].'&contrato='.$numContrato.'" target="_blank"><button type="button" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="m-tooltip" data-container="body" data-placement="top" title="Modificar" onclick="">
                             <i class="la la-edit"></i>

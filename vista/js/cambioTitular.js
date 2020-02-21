@@ -7,6 +7,7 @@ function getParameterByName() {
     	var contrato = pair[1].split("=");
     	$("#localidadCamTit").val(localidad[1]);
     	$("#codCtt").val(contrato[1]);
+        $("#codCtt").change();
     }
 }
 

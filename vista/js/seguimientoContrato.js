@@ -27,8 +27,12 @@ function getParameterByName() {
     	filtro("cliente");
     }else{
     	filtro("contrato");
-    	var pair = query.split("=");
-    	$("#cttSegCon").val(pair[1]);
+      document.getElementById('filtro').value = "contrato";
+    	var pair = query.split("&");
+      var localidad = pair[0].split("=");
+      var contrato = pair[1].split("=");
+      $("#localidadSegCon").val(localidad[1]);
+      $("#cttSegCon").val(contrato[1]);
     	getDatosCtt();
     }
 }
