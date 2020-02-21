@@ -1244,7 +1244,7 @@ function guardaEdicionB(id){
   var fchEnt = $("#fchEntBenef").val();
   var nivel = $("#nivelBenef").val();
   var registro = [tipoDoc,numDoc,apellPaterno,apellMaterno,nombre,fechNac,fechDec,religion,edoCivil,sexo,parentesco,lugarDeceso,motivoDeceso,peso,talla,autopsia,numItem,numServ,fchEnt,nivel];
-  var muestra = '<tr onclick="verDetalles(event)" id="'+numDoc+'"><td class="'+numDoc+'">'+numDoc+'</td><td class="'+numDoc+'">'+nombre+'</td><td class="'+numDoc+'">'+apellPaterno+' '+apellMaterno+'<input type="hidden" id="idBenef_'+numDoc+'" value="'+numDoc+'"><input type="hidden" id="registro_'+numDoc+'" value="'+registro+'"></td></tr>';
+  var muestra = '<tr onclick="verDetalles(event)" id="'+numDoc+'"><td class="'+numDoc+'">'+nombre+'</td><td class="'+numDoc+'">'+apellPaterno+' '+apellMaterno+'<input type="hidden" id="idBenef_'+numDoc+'" value="'+numDoc+'"><input type="hidden" id="registro_'+numDoc+'" value="'+registro+'"></td></tr>';
   document.getElementById(id).remove();
   document.getElementById("bodyBeneficiarioM").insertAdjacentHTML("beforeEnd" ,muestra);
   var valida = validaCamposBeneficiario();
@@ -1405,6 +1405,9 @@ function verDetalles(evt) {
 }
 
 function guardaBeneficiarios(){
+    var localidad = $("#sedeContrto").val();
+    var ls_tipo_ctt_new = $("#codTipoContrato").val();
+    var ls_tipo_programa_new = $("#tipoPrograma").val();
     var cod_contrato = $("#codContrato").val();
     var container = document.querySelector('#bodyBeneficiarioM');
     container.querySelectorAll('tr').forEach(function (i){ 
@@ -1430,17 +1433,31 @@ function guardaBeneficiarios(){
         var numServ = respuesta.split(",")[17];
         var fchEnt = respuesta.split(",")[18];
         var nivel = respuesta.split(",")[19];
-        $.ajax({
-            url: 'ajax/modifCtto.ajax.php',
-            dataType: 'json',
-            method: "POST",
-            data: { 'accion' : 'guardaBenef', 'cod_contrato' : cod_contrato, 'num_item' : numItem, 'num_servicio' : numServ, 'dsc_apellidopaterno' : apellPaterno, 'dsc_apellidomaterno' : apellMaterno, 'dsc_nombre' : nombre, 'cod_tipo_documento' : tipoDoc, 'dsc_documento' : numDoc, 'fch_nacimiento' : fechNac, 'fch_entierro' : fchEnt, 'num_nivel' : nivel, 'fch_deceso' : fechDec, 'cod_religion' : religion, 'cod_lugar_deceso' : lugar, 'cod_motivo_deceso' : motivo, 'flg_autopsia' : autopsia, 'num_peso' : peso, 'num_talla' : talla, 'cod_estado_civil' : edoCivil, 'cod_sexo' : sexo, 'cod_parentesco' : parentesco },
-            success : function(respuesta){
-                if(respuesta){
-                    return 1;
+        if(i == ''){
+            $.ajax({
+              type: 'POST',
+              url: 'ajax/wizard.ajax.php',
+              dataType: 'text',
+              data: {'accion' : 'guardaBeneficiario', 'localidad' : localidad, 'ls_num_contrato_new' : cod_contrato, 'li_linea_benef' : numItem, 'ls_num_servicio_new' : numServ, 'ls_ape_paterno_benef' : apellPaterno, 'ls_ape_materno_benef' : apellMaterno, 'ls_nombre_benef' : nombre, 'ls_tipo_doc_benef' : tipoDoc, 'ls_num_doc_benef' : numDoc, 'ldt_nacimiento' : fchNac, 'ldt_deceso' : fchDec, 'ls_religion' : religion, 'ls_lugar_deceso' : lugar, 'ls_motivo_deceso' : motivo, 'ls_flg_autopsia' : flg_autopsia, 'lde_peso' : pesof, 'lde_talla' : tallaf, 'ls_parentesco' : parentesco, 'ls_estado_civil' : edoCivil, 'ls_sexo' : sexo, 'ls_tipo_ctt_new' : ls_tipo_ctt_new, 'ls_tipo_programa_new' : ls_tipo_programa_new},
+              success : function(respuesta){
+                if(respuesta == 1){
+                  checkBeneficiario = "success";
                 }
-            }//success
-        });//ajax
+              }//success beneficiario
+            });//ajax beneficiario 
+        }else{
+            $.ajax({
+                url: 'ajax/modifCtto.ajax.php',
+                dataType: 'json',
+                method: "POST",
+                data: { 'accion' : 'guardaBenef', 'cod_contrato' : cod_contrato, 'num_item' : numItem, 'num_servicio' : numServ, 'dsc_apellidopaterno' : apellPaterno, 'dsc_apellidomaterno' : apellMaterno, 'dsc_nombre' : nombre, 'cod_tipo_documento' : tipoDoc, 'dsc_documento' : numDoc, 'fch_nacimiento' : fechNac, 'fch_entierro' : fchEnt, 'num_nivel' : nivel, 'fch_deceso' : fechDec, 'cod_religion' : religion, 'cod_lugar_deceso' : lugar, 'cod_motivo_deceso' : motivo, 'flg_autopsia' : autopsia, 'num_peso' : peso, 'num_talla' : talla, 'cod_estado_civil' : edoCivil, 'cod_sexo' : sexo, 'cod_parentesco' : parentesco },
+                success : function(respuesta){
+                    if(respuesta){
+                        return 1;
+                    }
+                }//success
+            });//ajax
+        }
     });//querySelectorAll
 }
 
