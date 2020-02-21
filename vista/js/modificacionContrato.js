@@ -2286,7 +2286,7 @@ function modificaContrato(){
     }else{
         var li_tot_cronograma = 0;
         li_total_cuotas = buscaMaxCuotas(ls_tipo_ctt,ls_tipo_programa,ls_contrato,li_ref);
-        console.log(li_total_cuotas['max']);
+        // console.log(li_total_cuotas['max']);
         // li_total_cuotas = li_total_cuotas_aux['computed'];
     }// End If is_cronograma
 
