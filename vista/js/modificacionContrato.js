@@ -2285,9 +2285,9 @@ function modificaContrato(){
         }//End If ls_servicio_foma              
     }else{
         var li_tot_cronograma = 0;
-        li_total_cuotas_aux = buscaMaxCuotas(ls_tipo_ctt,ls_tipo_programa,ls_contrato,li_ref);
-        console.log(li_total_cuotas_aux);
-        li_total_cuotas = li_total_cuotas_aux['computed'];
+        li_total_cuotas = buscaMaxCuotas(ls_tipo_ctt,ls_tipo_programa,ls_contrato,li_ref);
+        console.log(li_total_cuotas);
+        // li_total_cuotas = li_total_cuotas_aux['computed'];
     }// End If is_cronograma
 
     if( is_cronograma_foma == 'SI'){     
