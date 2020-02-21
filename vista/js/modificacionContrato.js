@@ -1032,7 +1032,7 @@ function verificaBenef(val){
   // var row = $("#bodyBeneficiarioM tr").length;
   if(row > 0){
     var filas = document.querySelectorAll("#bodyBeneficiarioM tr");
-    for (var i = 1; i <= row; i++) {
+    for (var i = 0; i < row; i++) {
       result = filas[i-1].querySelectorAll("td");
       com = result[0].innerHTML;
       if(val == com){
@@ -2228,7 +2228,7 @@ function modificaCtto(){
     // -- Seteo -- // 
 
     // var largoTabBenef = document.getElementById("bodyBeneficiarioM").rows.length;
-    // for( li_i = 0 ; li_i <= largoTabBenef ; li_i++){
+    // for( li_i = 0 ; li_i < largoTabBenef ; li_i++){
 
     //     li_num_item = tab_1.tp_3.dw_det_beneficiarios.GetItemNumber(li_i, "num_item")
     //     ls_tipo_doc_b = tab_1.tp_3.dw_det_beneficiarios.GetItemString(li_i, "cod_tipo_documento")
@@ -2418,7 +2418,7 @@ function modificaCtto(){
         var cronograma = document.getElementById('bodyCronogramaModif');
         var cronogramaLenght = cronograma.rows.length;
        
-        for( li_i = 1 ; li_i <= cronogramaLenght ; li_i++ ){
+        for( li_i = 0 ; li_i < cronogramaLenght ; li_i++ ){
 
             var oCells = cronograma.rows.item(li_i).cells;
 
@@ -2481,7 +2481,7 @@ function modificaCtto(){
 
         if(ls_servicio_foma != null && ls_servicio_foma != ''){
            var fomaLength = document.getElementById("bodyCronogramaFomaModif").rows.length;
-           for( li_i = 1 ; li_i <= fomaLength ; li_i++){
+           for( li_i = 0 ; li_i < fomaLength ; li_i++){
                           
     //            ls_localidad_det = tab_1.tp_5.dw_detalle_cuotas_foma.GetItemString(li_i, "cod_localidad")
               
@@ -2634,7 +2634,7 @@ function modificaCtto(){
     var tablaVin = document.getElementById('bodyServicioVin');
     var tablaVinLenght = tablaVin.rows.length;
     var gs_empresa = $("#idPropietario").val();
-    for( li_i = 1 ; li_i <= tablaVinLenght ; li_i++ ){
+    for( li_i = 0 ; li_i < tablaVinLenght ; li_i++ ){
                    
         var oCells = tablaVin.rows.item(li_i).cells;
         var ls_servicio = oCells.item(0).innerHTML.trim();
