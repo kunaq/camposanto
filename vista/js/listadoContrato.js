@@ -179,14 +179,14 @@ function validarContrato(localidad,contrato,servicio){
             }else if (info.error == 5) {
                 swal({
                   title: "",
-                  text: "El periodo seleccionado ["+info.num_anno+" - "+info.cod_tipo_periodo+" - "+info.cod_periodo+]" esta cerrado.",
+                  text: "El periodo seleccionado ["+info.num_anno+" - "+info.cod_tipo_periodo+" - "+info.cod_periodo+"] esta cerrado.",
                   type: "error",
                   confirmButtonText: "Aceptar",
                 });
             }else if (info.error == 6) {
                 swal({
                   title: "",
-                  text: "El vendedor ["+info.cod_vendedor+"] no esta activo para el período seleccionado ["+info.num_anno+" - "+info.cod_tipo_periodo+" - "+info.cod_periodo+]".",
+                  text: "El vendedor ["+info.cod_vendedor+"] no esta activo para el período seleccionado ["+info.num_anno+" - "+info.cod_tipo_periodo+" - "+info.cod_periodo+"].",
                   type: "error",
                   confirmButtonText: "Aceptar",
                 });
@@ -213,14 +213,7 @@ function validarContrato(localidad,contrato,servicio){
 }
 
 function activarContrato(localidad,contrato,servicio,tipoCtt,tipoPrograma,numAnno,tipoPeriodo,periodo){
-    console.log(localidad);
-    console.log(contrato);
-    console.log(servicio);
-    console.log(tipoCtt);
-    console.log(tipoPrograma);
-    console.log(numAnno);
-    console.log(tipoPeriodo);
-    console.log(periodo);
+
     $.ajax({
         type:'POST',
         url: 'ajax/listadoCtt.ajax.php',
