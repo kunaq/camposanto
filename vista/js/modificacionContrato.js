@@ -1928,55 +1928,25 @@ function buscaMaxValor(ls_tipo_ctt,ls_tipo_programa,ls_contrato,li_ref){
     });
  }      
      
-//-----------------------------------------------------------------------------------------------------//
-//-------------------------------------------Modificacion----------------------------------------------//
-//-----------------------------------------------------------------------------------------------------//
+//-------------------------------------------------------------------------------------------//
+//----------------------------------Modificacion----------------------------------------------//
+//-------------------------------------------------------------------------------------------//
 
-function modificaCtto(){
+function ValidaModificaCtto(){
 
-    var li_valida = 0;
     var ls_localidad = $("#sedeContrato").val();
     var ls_contrato = $("#codContrato").val();
-    var ls_tipo_contrato = $("#codTipoContrato").val();
-    var ls_tipo_ctt = $("#modC").val();
-    var ls_tipo_programa = $("#tipoPrograma").val();
     var ls_num_servicio_det = $("#numServicioSeleccionado").val();
     var ls_flg_resuelto = $("#flg_resuelto_"+ls_num_servicio_det).val();
     var ls_flg_anulado = $("#flg_anulado_"+ls_num_servicio_det).val();
-    
-    // -- Otros Datos -- //
-
-    var lde_saldo_financiar_foma = $("#saldoFOMA").val();
-    var lde_saldo_financiar = $("#saldoFinanciar").val();
     var ldt_fch_emision = $("#fchEmision").val();
-    var ldt_fch_activacion = $("#fchActivacion").val();
-    var fechaHoy = new Date();
-    var aux_dia = fechaHoy.getDate();
-    var aux_mes1 = fechaHoy.setMonth(fechaHoy.getMonth() + 1);
-    var aux_mes = fechaHoy.getMonth();
-    var aux_anio = fechaHoy.getFullYear();
-    if(aux_mes == '0'){
-        aux_mes = '12';
-        aux_anio = fechaHoy.getFullYear()-1;
-    }               
-    var ldt_fch_actual = aux_dia+'/'+aux_mes+'/'+aux_anio;
-    var fch_actual_consulta = aux_mes+'/'+aux_dia+'/'+aux_anio;
-    var lde_tot_interes = 0;
-    var li_total_cuotas = 0;
-
-    var ls_cliente = $("#codCliTitular").val();
-    var ls_cliente_alterno = $("#codCliTitular2").val();
-    var ls_aval = $("#codAval").val();
     var is_principal = $("#is_principal_"+ls_num_servicio_det).val();
     var is_ds = $("#is_ds_"+ls_num_servicio_det).val();
-
-    // -- Inicializar -- // 
-
-    if(lde_saldo_financiar_foma == null){
-        lde_saldo_financiar_foma = 0;
-    }
-    if(lde_saldo_financiar == null){
-        lde_saldo_financiar = 0;
+    var ls_flg_agencia = $("#AgFunCheck").prop('checked');
+    if(ls_flg_agencia){
+        ls_flg_agencia = 'SI';
+    }else{
+        ls_flg_agencia = 'NO';
     }
      
     // -- Valida Datos -- //
@@ -2080,32 +2050,6 @@ function modificaCtto(){
         }
     }
 
-    // -- Datos -- //
-
-    var ls_convenio = $("#convenio").val(); 
-    var ls_interes = $("#codInteresModif").val();
-    var ls_cuota = $("#codCuotaModif").val();
-    var ldt_fch_venc = $("#fchVenCronograma").val();
-    var ls_cuota_foma = $("#codCuotaFOMAModif").val();
-    var ldt_fch_venc_foma = $("#fchVenCronoFOMA").datepicker("getDate");
-    var ls_flg_agencia = $("#AgFunCheck").prop('checked');
-    if(ls_flg_agencia){
-        ls_flg_agencia = 'SI';
-    }else{
-        ls_flg_agencia = 'NO';
-    }
-    var repDat = 0;
-    var actFoma = 0;
-    var ls_agencia =  $("#codFuneraria").val();
-    var ls_vendedor = $("#codVendedor").val();
-    var ls_supervisor = $("#codSupervisor").val();
-    var ls_jefe = $("#codJefeVentas").val();
-    var ls_grupo = $("#codGrupo").val();
-    var ls_canal = $("#canalVentaModif").val();
-    var ls_tipo_comisionista = $("#codTipoComisionista").val();
-    var ls_cod_cobrador =$("#codCobrador").val();
-    var ls_zona = ''; //--------------------------------------------------------------??
-
     if(ls_flg_agencia == 'SI'){
         if(ls_agencia == null || ls_agencia == ''){
             swal({
@@ -2166,7 +2110,7 @@ function modificaCtto(){
                 reverseButtons: true
             }).then((result) => {
               if (result.value) {
-                var seguir = 1;
+                modificaContrato();
               } else if (
                 result.dismiss === Swal.DismissReason.cancel
               ) {
@@ -2185,7 +2129,7 @@ function modificaCtto(){
                 reverseButtons: true
             }).then((result) => {
               if (result.value) {
-                var seguir = 1;
+                modificaContrato();
               } else if (
                 result.dismiss === Swal.DismissReason.cancel
               ) {
@@ -2204,7 +2148,7 @@ function modificaCtto(){
             reverseButtons: true
         }).then((result) => {
           if (result.value) {
-            var seguir = 1;
+            modificaContrato();
           } else if (
             result.dismiss === Swal.DismissReason.cancel
           ) {
@@ -2212,229 +2156,85 @@ function modificaCtto(){
           }
         })
     }
+}  //valida
 
-    // -- Numero de Cuotas -- //
-
+function modificaContrato(){
+    var li_valida = 0;
+    var ls_localidad = $("#sedeContrato").val();
+    var ls_contrato = $("#codContrato").val();
+    var ls_tipo_contrato = $("#codTipoContrato").val();
+    var ls_tipo_ctt = $("#modC").val();
+    var ls_tipo_programa = $("#tipoPrograma").val();
+    var ls_num_servicio_det = $("#numServicioSeleccionado").val();
+    var ls_flg_resuelto = $("#flg_resuelto_"+ls_num_servicio_det).val();
+    var ls_flg_anulado = $("#flg_anulado_"+ls_num_servicio_det).val();
+    var lde_saldo_financiar_foma = $("#saldoFOMA").val();
+    var lde_saldo_financiar = $("#saldoFinanciar").val();
+    var ldt_fch_emision = $("#fchEmision").val();
+    var ldt_fch_activacion = $("#fchActivacion").val();
+    var fechaHoy = new Date();
+    var aux_dia = fechaHoy.getDate();
+    var aux_mes1 = fechaHoy.setMonth(fechaHoy.getMonth() + 1);
+    var aux_mes = fechaHoy.getMonth();
+    var aux_anio = fechaHoy.getFullYear();
+    if(aux_mes == '0'){
+        aux_mes = '12';
+        aux_anio = fechaHoy.getFullYear()-1;
+    }               
+    var ldt_fch_actual = aux_dia+'/'+aux_mes+'/'+aux_anio;
+    var fch_actual_consulta = aux_mes+'/'+aux_dia+'/'+aux_anio;
+    var lde_tot_interes = 0;
+    var li_total_cuotas = 0;
+    var ls_cliente = $("#codCliTitular").val();
+    var ls_cliente_alterno = $("#codCliTitular2").val();
+    var ls_aval = $("#codAval").val();
+    var is_principal = $("#is_principal_"+ls_num_servicio_det).val();
+    var is_ds = $("#is_ds_"+ls_num_servicio_det).val();
+    var ls_convenio = $("#convenio").val(); 
+    var ls_interes = $("#codInteresModif").val();
+    var ls_cuota = $("#codCuotaModif").val();
+    var ldt_fch_venc = $("#fchVenCronograma").val();
+    var ls_cuota_foma = $("#codCuotaFOMAModif").val();
+    var ldt_fch_venc_foma = $("#fchVenCronoFOMA").datepicker("getDate");
+    var ls_flg_agencia = $("#AgFunCheck").prop('checked');
+    if(ls_flg_agencia){
+        ls_flg_agencia = 'SI';
+    }else{
+        ls_flg_agencia = 'NO';
+    }
+    var repDat = 0;
+    var actFoma = 0;
+    var ls_agencia =  $("#codFuneraria").val();
+    var ls_vendedor = $("#codVendedor").val();
+    var ls_supervisor = $("#codSupervisor").val();
+    var ls_jefe = $("#codJefeVentas").val();
+    var ls_grupo = $("#codGrupo").val();
+    var ls_canal = $("#canalVentaModif").val();
+    var ls_tipo_comisionista = $("#codTipoComisionista").val();
+    var ls_cod_cobrador =$("#codCobrador").val();
+    var ls_zona = '';
     var li_cuotas = $("#numCuoCronograma").val();
     var li_cuotas_foma = $("#nCuotasFOMA").val();
-
-    // -- Valor Interes -- // 
-
     var lde_tasa = $("#interesCronograma").val()
-
-    // -- Num Ref -- //
-
     var li_ref = $("#numRefinanciamiento").val();
     var ls_servicio_foma = $("#numServFoma").val();
-    
-
-    // -- Tipo Observ -- //-----------------------------------tabla vacia
-
     var ls_tipo = '';
-    // SELECT  vtama_tipo_observacion.cod_tipo_observacion
-    // INTO                     :ls_tipo
-    // FROM                   vtama_tipo_observacion
-    // WHERE vtama_tipo_observacion.flg_default = 'SI'
-
-    // -- Max -- //
-
-    li_max_item = 0;
-
-    li_max_item = $("#numBeneficiarios").val();
-
+    var li_ref_aux = $("#numRefinanciamiento").val();
+    var is_cronograma = $("#cambioCronograma").val();
+    var li_max_item = $("#numBeneficiarios").val();
+    var is_cronograma_foma = $("#cambioCronogramaFoma").val();
+    var li_total_cuotas = 0;
     if(li_max_item == null || li_max_item == ''){
         li_max_item = 0;
     }
+    if(lde_saldo_financiar_foma == null){
+        lde_saldo_financiar_foma = 0;
+    }
+    if(lde_saldo_financiar == null){
+        lde_saldo_financiar = 0;
+    }
 
-    // -- Seteo -- // 
-
-    // var largoTabBenef = document.getElementById("bodyBeneficiarioM").rows.length;
-    // for( li_i = 0 ; li_i < largoTabBenef ; li_i++){
-
-    //     li_num_item = tab_1.tp_3.dw_det_beneficiarios.GetItemNumber(li_i, "num_item")
-    //     ls_tipo_doc_b = tab_1.tp_3.dw_det_beneficiarios.GetItemString(li_i, "cod_tipo_documento")
-    //     ls_num_doc_b = tab_1.tp_3.dw_det_beneficiarios.GetItemString(li_i, "dsc_documento")
-        // ls_estado = tab_1.tp_3.dw_det_beneficiarios.GetItemString(li_i, "cod_estado")
-        // ls_estado_bd = tab_1.tp_3.dw_det_beneficiarios.GetItemString(li_i, "cod_estado_bd")
-    //     ldt_fch_baja = tab_1.tp_3.dw_det_beneficiarios.GetItemDatetime(li_i, "fch_baja")
-    //     ldt_fch_baja_bd = tab_1.tp_3.dw_det_beneficiarios.GetItemDatetime(li_i, "fch_baja_bd")
-    //     ldt_fch_alta = tab_1.tp_3.dw_det_beneficiarios.GetItemDatetime(li_i, "fch_alta")
-    //     ldt_fch_alta_bd = tab_1.tp_3.dw_det_beneficiarios.GetItemDatetime(li_i, "fch_alta_bd")
-
-        // -- Ingreso de observaciones automaticas -- //            
-
-    //     If f_sys_valida_ingreso_datos(String(li_num_item), "NUM") = False Then
-
-    //        ls_texto = "SE INGRESA EL BENEFICIARIO, CON FECHA DE ALTA " + String(ldt_fch_alta, "DD/MM/YYYY")
-
-    //        li_fila = tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.InsertRow(0)
-    //        tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "cod_usuario", gs_usuario)
-    //        tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "fch_registro", ldt_fch_actual)
-    //        tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "cod_tipo_observacion", ls_tipo)
-    //        tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "dsc_observacion", ls_texto)
-    //        tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "cod_tipo_documento", ls_tipo_doc_b)
-    //        tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "dsc_documento", ls_num_doc_b)
-    //        tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "flg_ineditable", "SI")                              
-    //     End If
-
-    //     If f_sys_valida_ingreso_datos(String(ldt_fch_baja_bd), "FEC") = False Then
-
-    //        If f_sys_valida_ingreso_datos(String(ldt_fch_baja), "FEC") Then
-
-    //            ls_texto = "SE INGRESA LA FECHA DE BAJA PARA EL BENEFICIARIO, DE " + String(ldt_fch_baja, "DD/MM/YYYY")                                              
-    //            li_fila = tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.InsertRow(0)
-    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "cod_usuario", gs_usuario)
-    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "fch_registro", ldt_fch_actual)
-    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "cod_tipo_observacion", ls_tipo)
-    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "dsc_observacion", ls_texto)
-    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "cod_tipo_documento", ls_tipo_doc_b)
-    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "dsc_documento", ls_num_doc_b)
-    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "flg_ineditable", "SI")
-
-    //        End If
-
-    //     End If
-       
-    //     If f_sys_valida_ingreso_datos(String(ldt_fch_baja_bd), "FEC") Then
-
-    //        If ldt_fch_baja <> ldt_fch_baja_bd Then
-
-    //            ls_texto = "SE CAMBIA LA FECHA DE BAJA DE " + String(ldt_fch_baja_bd, "DD/MM/YYYY") + " A " + String(ldt_fch_baja, "DD/MM/YYYY")                                              
-    //            li_fila = tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.InsertRow(0)
-    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "cod_usuario", gs_usuario)
-    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "fch_registro", ldt_fch_actual)
-    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "cod_tipo_observacion", ls_tipo)
-    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "dsc_observacion", ls_texto)
-    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "cod_tipo_documento", ls_tipo_doc_b)
-    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "dsc_documento", ls_num_doc_b)
-    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "flg_ineditable", "SI")
-                          
-    //        End If
-                      
-    //     End If
-                
-    //     If f_sys_valida_ingreso_datos(String(ldt_fch_alta_bd), "FEC") Then
-                      
-    //        If ldt_fch_alta <> ldt_fch_alta_bd Then
-
-    //            ls_texto = "SE CAMBIA LA FECHA DE ALTA DE " + String(ldt_fch_alta_bd, "DD/MM/YYYY") + " A " + String(ldt_fch_alta, "DD/MM/YYYY")
-              
-    //            li_fila = tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.InsertRow(0)
-    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "cod_usuario", gs_usuario)
-    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "fch_registro", ldt_fch_actual)
-    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "cod_tipo_observacion", ls_tipo)
-    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "dsc_observacion", ls_texto)
-    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "cod_tipo_documento", ls_tipo_doc_b)
-    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "dsc_documento", ls_num_doc_b)
-    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "flg_ineditable", "SI")
-                          
-    //        End If
-                      
-    //     End If
-
-    //     If f_sys_valida_ingreso_datos(ls_estado_bd, "TEX") Then
-                      
-    //        If ls_estado <> ls_estado_bd Then
-                          
-    //            If ls_estado_bd = 'VIG' Then ls_dsc_estado_bd = 'VIGENTE'
-    //            If ls_estado_bd = 'BAJ' Then ls_dsc_estado_bd = 'BAJA'
-    //            If ls_estado = 'VIG' Then ls_dsc_estado = 'VIGENTE'
-    //            If ls_estado = 'BAJ' Then ls_dsc_estado = 'BAJA'
-              
-    //            ls_texto = 'SE CAMBIA EL ESTADO DEL BENEFICIARIO DE "' + ls_dsc_estado_bd + '" A "' + ls_dsc_estado + "'"
-              
-    //            li_fila = tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.InsertRow(0)
-    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "cod_usuario", gs_usuario)
-    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "fch_registro", ldt_fch_actual)
-    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "cod_tipo_observacion", ls_tipo)
-    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "dsc_observacion", ls_texto)
-    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "cod_tipo_documento", ls_tipo_doc_b)
-    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "dsc_documento", ls_num_doc_b)
-    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_fila, "flg_ineditable", "SI")
-                          
-    //        End If
-                      
-    //     End If
-
-    //     // -- Llave -- //---------------------------------------AQUI!!!!!
-       
-    //     If IsNull(li_num_item) Or li_num_item = 0 Then
-
-    //        li_max_item = li_max_item + 1
-    //        tab_1.tp_3.dw_det_beneficiarios.SetItem(li_i, "cod_localidad", ls_localidad)
-    //        tab_1.tp_3.dw_det_beneficiarios.SetItem(li_i, "cod_contrato", ls_contrato)
-    //        tab_1.tp_3.dw_det_beneficiarios.SetItem(li_i, "cod_tipo_ctt", ls_tipo_ctt)
-    //        tab_1.tp_3.dw_det_beneficiarios.SetItem(li_i, "cod_tipo_programa", ls_tipo_programa)
-    //        tab_1.tp_3.dw_det_beneficiarios.SetItem(li_i, "num_item", li_max_item)
-    //     End If
-       
-    //     // -- Inicializa -- //
-       
-    //     tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetFilter("")
-    //     tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.Filter()
-       
-    //     // -- Filtrar -- //
-       
-    //     tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetFilter("cod_tipo_documento = '" + ls_tipo_doc_b + "' AND dsc_documento = '" + ls_num_doc_b + "'" )
-    //     tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.Filter()
-                   
-    //     For li_j = 1 To tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.RowCount()
-                      
-    //        // -- Valor -- //
-          
-    //        li_item = tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.GetItemNumber(li_j, "num_item")
-          
-    //        // -- Setea -- //
-          
-    //        tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_j, "cod_localidad", ls_localidad)
-    //        tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_j, "cod_tipo_ctt", ls_tipo_ctt)
-    //        tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_j, "cod_tipo_programa", ls_tipo_programa)
-    //        tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_j, "cod_contrato", ls_contrato)
-    //        tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_j, "num_item", tab_1.tp_3.dw_det_beneficiarios.GetItemNumber(li_i, "num_item"))
-    //        tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_j, "num_linea", li_j)
-                      
-    //        // -- Usuario y fecha -- //
-          
-    //        If f_sys_valida_ingreso_datos(String(li_item), "NUM") = False Then
-          
-    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_j, "cod_usuario", gs_usuario)
-    //            tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetItem(li_j, "fch_registro", ldt_fch_actual)
-                          
-    //        End If
-                      
-    //     Next
-
-    //     // -- Inicializa -- //
-       
-    //     tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.SetFilter("")
-    //     tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.Filter()
-                   
-    //Next for obsv beneficiarios Next
-     
-    // -- Ref -- //
-
-    var li_ref_aux = $("#numRefinanciamiento").val();
-     
-    // -- Cuotas -- //
-
-    var is_cronograma = $("#cambioCronograma").val();
     if( is_cronograma == 'SI'){
-                   
-        // -- Retorno -- //-----------------------------------????
-       
-    //     dw_aux.SetTransObject(SQLCA)
-    //     dw_aux.Retrieve(ls_localidad, ls_contrato, ls_num_servicio_getrow, li_ref_aux, ls_tipo_ctt, ls_tipo_programa)
-       
-        // -- Borrar -- //
-       
-    //     For li_i = dw_aux.RowCount() To 1 Step -1
-
-    //        ls_tipo_cuota = dw_aux.GetItemString(li_i, "cod_tipo_cuota")
-    //        li_num_cuota = dw_aux.GetItemNumber(li_i, "num_cuota")
-    //        If ls_tipo_cuota + String(li_num_cuota) <> 'CUI0' Then dw_aux.DeleteRow(li_i)
-    //     Next
-                
-        // -- Cuotas Ordinarias -- //
 
         var cronograma = document.getElementById('bodyCronogramaModif');
         var cronogramaLenght = cronograma.rows.length;
@@ -2454,153 +2254,60 @@ function modificaCtto(){
             var saldo = pasaAnumero(oCells.item(8).innerHTML.trim());
 
             $.ajax({
-              type: 'POST',
-              url: 'ajax/modifCtto.ajax.php',
-              dataType: 'json',
-              data: {'accion' : 'guardaCronograma', 'ls_contrato' : ls_contrato, 'li_ref' : li_ref, 'li_cuota' : cuota, 'cod_estadocuota' : estado, 'ldt_vencimiento' : fchVen, 'lde_principal' : subTotal, 'lde_interes' : interes, 'lde_igv' : igv, 'lde_total' : total,'imp_saldo' : saldo, 'ls_tipo_ctt' : ls_tipo_ctt, 'ls_tipo_programa' : ls_tipo_programa, 'cod_tipo_cuota' : tipoCuota},
-              success : function(respuesta){
-                if(respuesta == 1){
-                  checkCronograma = "success";
-                }
-              }//success cronograma
+                type: 'POST',
+                url: 'ajax/modifCtto.ajax.php',
+                dataType: 'json',
+                data: {'accion' : 'guardaCronograma', 'ls_contrato' : ls_contrato, 'li_ref' : li_ref, 'li_cuota' : cuota, 'cod_estadocuota' : estado, 'ldt_vencimiento' : fchVen, 'lde_principal' : subTotal, 'lde_interes' : interes, 'lde_igv' : igv, 'lde_total' : total,'imp_saldo' : saldo, 'ls_tipo_ctt' : ls_tipo_ctt, 'ls_tipo_programa' : ls_tipo_programa, 'cod_tipo_cuota' : tipoCuota},
+                success : function(respuesta){
+                    if(respuesta == 1){
+                      checkCronograma = "success";
+                    }
+                }//success cronograma
             });//ajax cronograma
-                                      
-    //        li_row = dw_aux.InsertRow(0)   -----------------------------cual es esa tabla??
-          
-    //        dw_aux.SetItem(li_row, "cod_localidad", ls_localidad)
-    //        dw_aux.SetItem(li_row, "cod_tipo_ctt", ls_tipo_ctt)
-    //        dw_aux.SetItem(li_row, "cod_tipo_programa", ls_tipo_programa)
-    //        dw_aux.SetItem(li_row, "cod_contrato", ls_contrato)
-    //        dw_aux.SetItem(li_row, "num_refinanciamiento", li_ref)
-    //        dw_aux.SetItem(li_row, "cod_estadocuota", tab_1.tp_4.dw_det_cuotas.GetItemString(li_i, "cod_estadocuota"))
-    //        dw_aux.SetItem(li_row, "cod_tipo_cuota", tab_1.tp_4.dw_det_cuotas.GetItemString(li_i, "cod_tipo_cuota"))
-    //        dw_aux.SetItem(li_row, "fch_vencimiento", tab_1.tp_4.dw_det_cuotas.GetItemDatetime(li_i, "fch_vencimiento"))
-    //        dw_aux.SetItem(li_row, "imp_igv", tab_1.tp_4.dw_det_cuotas.GetItemDecimal(li_i, "imp_igv"))
-    //        dw_aux.SetItem(li_row, "imp_interes", tab_1.tp_4.dw_det_cuotas.GetItemDecimal(li_i, "imp_interes"))
-    //        dw_aux.SetItem(li_row, "imp_principal", tab_1.tp_4.dw_det_cuotas.GetItemDecimal(li_i, "imp_principal"))
-    //        dw_aux.SetItem(li_row, "imp_saldo", tab_1.tp_4.dw_det_cuotas.GetItemDecimal(li_i, "imp_saldo"))
-    //        dw_aux.SetItem(li_row, "imp_total", tab_1.tp_4.dw_det_cuotas.GetItemDecimal(li_i, "imp_total"))
-    //        dw_aux.SetItem(li_row, "num_cuota", tab_1.tp_4.dw_det_cuotas.GetItemNumber(li_i, "num_cuota"))
-    //        dw_aux.SetItem(li_row, "flg_generar_mora", is_flg_generar_moras)
-          
-    //        // -- Total Interes -- //
-            
             lde_tot_interes = lde_tot_interes + pasaAnumero(oCells.item(5).innerHTML.trim());
-          
-    //        // -- Total -- //
-          
-           li_tot_cronograma = li_tot_cronograma + 1;
-           li_total_cuotas = li_total_cuotas + 1;
+            li_tot_cronograma = li_tot_cronograma + 1;
+            li_total_cuotas = li_total_cuotas + 1;
                       
-        }//for cronogramalength
-                   
-        // -- Inicializa Variables -- //
-       
-        var ls_localidad_det = '';
-       
+        }//for cronogramalength       
+        var ls_localidad_det = '';      
         // -- Cronograma FOMA -- //
 
         if(ls_servicio_foma != null && ls_servicio_foma != ''){
            var fomaLength = document.getElementById("bodyCronogramaFomaModif").rows.length;
            for( li_i = 0 ; li_i < fomaLength ; li_i++){
-                          
-    //            ls_localidad_det = tab_1.tp_5.dw_detalle_cuotas_foma.GetItemString(li_i, "cod_localidad")
-              
-    //            If IsNull(ls_localidad_det) Or Trim(ls_localidad_det) = '' Then
-                              
-    //                li_row = dw_aux.InsertRow(0)
-                  
-    //                dw_aux.SetItem(li_row, "cod_localidad", ls_localidad)
-    //                dw_aux.SetItem(li_row, "cod_tipo_ctt", ls_tipo_ctt)
-    //                dw_aux.SetItem(li_row, "cod_tipo_programa", ls_tipo_programa)
-    //                dw_aux.SetItem(li_row, "cod_contrato", ls_contrato)
-    //                dw_aux.SetItem(li_row, "num_refinanciamiento", li_ref)
-    //                dw_aux.SetItem(li_row, "cod_estadocuota", tab_1.tp_5.dw_detalle_cuotas_foma.GetItemString(li_i, "cod_estadocuota"))
-    //                dw_aux.SetItem(li_row, "cod_tipo_cuota", tab_1.tp_5.dw_detalle_cuotas_foma.GetItemString(li_i, "cod_tipo_cuota"))
-    //                dw_aux.SetItem(li_row, "fch_vencimiento", tab_1.tp_5.dw_detalle_cuotas_foma.GetItemDatetime(li_i, "fch_vencimiento"))
-    //                dw_aux.SetItem(li_row, "imp_principal", tab_1.tp_5.dw_detalle_cuotas_foma.GetItemDecimal(li_i, "imp_principal"))
-    //                dw_aux.SetItem(li_row, "imp_saldo", tab_1.tp_5.dw_detalle_cuotas_foma.GetItemDecimal(li_i, "imp_saldo"))
-    //                dw_aux.SetItem(li_row, "imp_total", tab_1.tp_5.dw_detalle_cuotas_foma.GetItemDecimal(li_i, "imp_total"))
-    //                dw_aux.SetItem(li_row, "num_cuota", tab_1.tp_5.dw_detalle_cuotas_foma.GetItemDecimal(li_i, "num_cuota") + li_tot_cronograma)
-                  
-                   li_total_cuotas = li_total_cuotas + 1;
-                              
-    //            End If
-                          
-           }//Next tablafoma
-                      
-        }//End If ls_servicio_foma
-                   
+                li_total_cuotas = li_total_cuotas + 1;
+            }//Next tablafoma              
+        }//End If ls_servicio_foma              
     }else{
-                   
-    //     dw_aux.SetTransObject(SQLCA)
-    //     dw_aux.Retrieve(ls_localidad, ls_contrato, ls_num_servicio_getrow, li_ref_aux, ls_tipo_ctt, ls_tipo_programa)
-
-        // -- FOMA -- //
-       
-       var is_cronograma_foma = $("#cambioCronogramaFoma").val();
-        if( is_cronograma_foma == 'SI'){
-                      
-           // -- Borrar -- //
-
-    //        For li_i = dw_aux.RowCount() To 1 Step -1
-
-    //            ls_tipo_cuota = dw_aux.GetItemString(li_i, "cod_tipo_cuota")
-    //            If ls_tipo_cuota = 'FMA' Then dw_aux.DeleteRow(li_i)
-
-    //        Next
-
-         var li_tot_cronograma = 0;
-                      
-           // li_tot_cronograma = dw_aux.GetItemNumber(dw_aux.Rowcount(), "num_cuota")
-          
-    //        // -- FOMA -- //
-          
-    //        If IsNull(ls_servicio_foma) = False And Trim(ls_servicio_foma) <> '' Then
-
-    //            For li_i = 1 To tab_1.tp_5.dw_detalle_cuotas_foma.Rowcount()
-                              
-    //                ls_localidad_det = tab_1.tp_5.dw_detalle_cuotas_foma.GetItemString(li_i, "cod_localidad")
-                            
-    //                // -- Crea -- //
-                 
-    //                If IsNull(ls_localidad_det) Or Trim(ls_localidad_det) = '' Then
-                                 
-    //                   li_row = dw_aux.InsertRow(0)
-                     
-    //                   dw_aux.SetItem(li_row, "cod_localidad", ls_localidad)
-    //                   dw_aux.SetItem(li_row, "cod_tipo_ctt", ls_tipo_ctt)
-    //                   dw_aux.SetItem(li_row, "cod_tipo_programa", ls_tipo_programa)
-    //                   dw_aux.SetItem(li_row, "cod_contrato", ls_contrato)
-    //                   dw_aux.SetItem(li_row, "num_refinanciamiento", li_ref)
-    //                   dw_aux.SetItem(li_row, "cod_estadocuota", tab_1.tp_5.dw_detalle_cuotas_foma.GetItemString(li_i, "cod_estadocuota"))
-    //                   dw_aux.SetItem(li_row, "cod_tipo_cuota", tab_1.tp_5.dw_detalle_cuotas_foma.GetItemString(li_i, "cod_tipo_cuota"))
-    //                   dw_aux.SetItem(li_row, "fch_vencimiento", tab_1.tp_5.dw_detalle_cuotas_foma.GetItemDatetime(li_i, "fch_vencimiento"))
-    //                   dw_aux.SetItem(li_row, "imp_principal", tab_1.tp_5.dw_detalle_cuotas_foma.GetItemDecimal(li_i, "imp_principal"))
-    //                   dw_aux.SetItem(li_row, "imp_saldo", tab_1.tp_5.dw_detalle_cuotas_foma.GetItemDecimal(li_i, "imp_saldo"))
-    //                   dw_aux.SetItem(li_row, "imp_total", tab_1.tp_5.dw_detalle_cuotas_foma.GetItemDecimal(li_i, "imp_total"))
-    //                   dw_aux.SetItem(li_row, "num_cuota", tab_1.tp_5.dw_detalle_cuotas_foma.GetItemDecimal(li_i, "num_cuota") + li_tot_cronograma)
-                                 
-    //                End If
-                              
-    //            Next
-              
-    //        End If
-                      
-        }//End If is_cronograma_foma
-                   
-        // -- Total -- //
-
-        var li_total_cuotas = buscaMaxCuotas(ls_tipo_ctt,ls_tipo_programa,ls_contrato,li_ref);
-                   
+        var li_tot_cronograma = 0;
+        li_total_cuotas = buscaMaxCuotas(ls_tipo_ctt,ls_tipo_programa,ls_contrato,li_ref);
     }// End If is_cronograma
+
+    if( is_cronograma_foma == 'SI'){     
+        ls_servicio_foma = $("#numServFoma").val();      
+        if(ls_servicio_foma == '' || ls_servicio_foma == null){
+            ls_servicio_foma = "";
+        }
+        if( ls_servicio_foma != null && ls_servicio_foma != ""){
+            $.ajax({
+                url: 'ajax/modifCtto.ajax.php',
+                dataType: 'json',
+                method: "POST",
+                data: { 'accion' : 'ActFOMAMod', 'ls_vendedor' : ls_vendedor, 'ls_supervisor' : ls_supervisor, 'ls_jefe' : ls_jefe, 'ls_grupo' : ls_grupo, 'ls_canal' : ls_canal, 'ls_tipo_comisionista' : ls_tipo_comisionista, 'ls_cuota_foma' : ls_cuota_foma, 'li_cuotas_foma' : li_cuotas_foma, 'ldt_fch_venc_foma' : ldt_fch_venc_foma, 'fch_actual_consulta' : fch_actual_consulta, 'ls_cliente_alterno' : ls_cliente_alterno, 'ls_aval' : ls_aval, 'ls_cod_cobrador' : ls_cod_cobrador, 'ls_zona' : ls_zona, 'ls_tipo_ctt' : ls_tipo_ctt, 'ls_tipo_programa' : ls_tipo_programa, 'ls_contrato' : ls_contrato, 'ls_servicio_foma' : ls_servicio_foma},
+                success : function(respuesta){
+                    if(respuesta){
+                        actFoma = 1;
+                    }
+                }
+            });                      
+        }//End If  
+
+         // -- Total -- //
+        li_total_cuotas = buscaMaxCuotas(ls_tipo_ctt,ls_tipo_programa,ls_contrato,li_ref);
+
+    }//End If is_cronograma_foma
      
-    // -- Inicializa -- //
-     
-    var lde_tot_interes = 0;
-     
-    // -- Interes -- //
-     
+    var lde_tot_interes = 0;     
     var cronograma = document.getElementById('bodyCronogramaModif');
     var cronogramaLenght = cronograma.rows.length;
    
@@ -2610,48 +2317,7 @@ function modificaCtto(){
         lde_tot_interes = lde_tot_interes + pasaAnumero(oCells.item(5).innerHTML.trim());               
 
     }// Next
-     
-    // -- Ref -- //
-     
-    // If dw_aux.Rowcount() > 0 Then
-                   
-    //     For li_i = 1 To tab_1.tp_4.dw_det_cuotas.RowCount()
-
-    //        ls_estado = tab_1.tp_4.dw_det_cuotas.GetItemString(li_i, "cod_estadocuota")
-    //        If ls_estado <> 'REG' Then li_valida = li_valida + 1
-
-    //     Next
-       
-    //     // -- Borrar cuota "0" en caso de existir -- //
-                   
-    //     If is_cronograma = 'SI' Then
-
-    //        If is_flg_cronograma_cuoi = 'SI' Then                                            
-    //            DELETE vtade_cronograma
-                // WHERE vtade_cronograma.cod_localidad = :ls_localidad
-                // AND                      vtade_cronograma.cod_tipo_ctt = :ls_tipo_ctt
-                   // AND                      vtade_cronograma.cod_tipo_programa = :ls_tipo_programa
-                   // AND                      vtade_cronograma.cod_contrato = :ls_contrato
-                   // AND                      vtade_cronograma.num_refinanciamiento = :li_ref
-                   // AND                      vtade_cronograma.num_cuota <= 0
-                   // AND                      vtade_cronograma.cod_tipo_cuota = 'CUI'
-            
-    //            If f_verifica_transaccion(SQLCA) = False Then Goto db_error
-                        
-    //        End If
-    //     End If
-       
-    //     If dw_aux.UpDate() <> 1 Then Goto db_error
-                     
-    // End If
-     
-    // -- Cuota -- //
-
-    var lde_valor_cuota = buscaMaxValor(ls_tipo_ctt,ls_tipo_programa,ls_contrato,li_ref);
-
-    
-    // -- N° de servicios -- //
-     
+    var lde_valor_cuota = buscaMaxValor(ls_tipo_ctt,ls_tipo_programa,ls_contrato,li_ref);     
     var tablaVin = document.getElementById('bodyServicioVin');
     var tablaVinLenght = tablaVin.rows.length;
     var gs_empresa = $("#idPropietario").val();
@@ -2659,17 +2325,9 @@ function modificaCtto(){
                    
         var oCells = tablaVin.rows.item(li_i).cells;
         var ls_servicio = oCells.item(0).innerHTML.trim();
-       
-        // -- Inicializar -- //
-       
-        // var lde_costo_carencia = 0;
-       
-        // -- Servicio principal -- //
-
         var lde_costo_carencia = buscaCostoCarencia(ls_tipo_ctt,ls_tipo_programa,ls_contrato,ls_servicio);
                    
-        // -- Replica Datos -- //
-
+        // -- Replica Datos tab Gestion-- //
         $.ajax({
             url: 'ajax/modifCtto.ajax.php',
             dataType: 'json',
@@ -2680,40 +2338,9 @@ function modificaCtto(){
                     repDat = 1;
                   }
             }
-        });
-                            
-        // -- DS -- //
-
-        ls_servicio_foma = $("#numServFoma").val();
-
-                   
-        if(ls_servicio_foma == '' || ls_servicio_foma == null){
-            ls_servicio_foma = "";
-        }
-                   
-        // -- Actualiza FOMA -- //
-
-        if( ls_servicio_foma != null && ls_servicio_foma != ""){
-
-            $.ajax({
-            url: 'ajax/modifCtto.ajax.php',
-            dataType: 'json',
-            method: "POST",
-            data: { 'accion' : 'ActFOMAMod', 'ls_vendedor' : ls_vendedor, 'ls_supervisor' : ls_supervisor, 'ls_jefe' : ls_jefe, 'ls_grupo' : ls_grupo, 'ls_canal' : ls_canal, 'ls_tipo_comisionista' : ls_tipo_comisionista, 'ls_cuota_foma' : ls_cuota_foma, 'li_cuotas_foma' : li_cuotas_foma, 'ldt_fch_venc_foma' : ldt_fch_venc_foma, 'fch_actual_consulta' : fch_actual_consulta, 'ls_cliente_alterno' : ls_cliente_alterno, 'ls_aval' : ls_aval, 'ls_cod_cobrador' : ls_cod_cobrador, 'ls_zona' : ls_zona, 'ls_tipo_ctt' : ls_tipo_ctt, 'ls_tipo_programa' : ls_tipo_programa, 'ls_contrato' : ls_contrato, 'ls_servicio_foma' : ls_servicio_foma},
-                    success : function(respuesta){
-                          if(respuesta){
-                            actFoma = 1;
-                          }
-                    }
-                });                      
-        }//End If            
+        });                              
     }//Next tabla vin
- 
-    // -- UpDate Dw -- //
-     
-    guardaBeneficiarios();
-    // If tab_1.tp_3.tab_3.tp_observacion.dw_observacion_benef.UpDate() <> 1 Then Goto db_error
-     
+
     // -- Actualiza Resumen Cronograma -- //
 
     $.ajax({
@@ -2722,183 +2349,32 @@ function modificaCtto(){
         method: "POST",
         data: { 'accion' : 'actResCronoMod', 'ls_tipo_ctt' : ls_tipo_ctt, 'ls_tipo_programa' : ls_tipo_programa, 'ls_contrato' : ls_contrato, 'li_total_cuotas' : li_total_cuotas, 'ls_interes' : ls_interes, 'lde_tasa' : lde_tasa, 'lde_tot_interes' : lde_tot_interes, 'li_ref' : li_ref},
         success : function(respuesta){
-          if(respuesta == '' || respuesta == null){
-            actResCrono = 1;
-          }
-        }
-    });
-     
-    // -- Cabecera -- //
-    
-    $.ajax({
-        url: 'ajax/modifCtto.ajax.php',
-        dataType: 'json',
-        method: "POST",
-        data: { 'accion' : 'actCabeceraMod', 'ls_tipo_ctt' : ls_tipo_ctt, 'ls_tipo_programa' : ls_tipo_programa, 'ls_contrato' : ls_contrato, 'ls_tipo_contrato' : ls_tipo_contrato},
-        success : function(respuesta){
-          if(respuesta == '' || respuesta == null){
-            return 0;
-          }
-        }
-    });
-         
-    // -- Max -- //
-     
-    li_linea = buscaMaxLineaObsrv(ls_tipo_ctt,ls_tipo_programa,ls_contrato,ls_num_servicio_getrow);
-       
-    // -- Observaciones -- //
-     
-    // For li_i = 1 To tab_1.tp_10.dw_observacion.Rowcount()
-                   
-    //     li_row =  tab_1.tp_10.dw_observacion.GetItemNumber(li_i, "num_linea")
-       
-    //     If IsNull(li_row) Or li_row = 0 Then
-                      
-    //        li_linea = li_linea + 1
-    //        tab_1.tp_10.dw_observacion.SetItem(li_i, "cod_localidad", ls_localidad)
-    //        tab_1.tp_10.dw_observacion.SetItem(li_i, "cod_tipo_ctt", ls_tipo_ctt)
-    //        tab_1.tp_10.dw_observacion.SetItem(li_i, "cod_tipo_programa", ls_tipo_programa)
-    //        tab_1.tp_10.dw_observacion.SetItem(li_i, "cod_contrato", ls_contrato)
-    //        tab_1.tp_10.dw_observacion.SetItem(li_i, "num_servicio", ls_num_servicio_getrow)
-    //        tab_1.tp_10.dw_observacion.SetItem(li_i, "num_linea", li_linea)
-                      
-    //     End If               
-
-    // Next
-
-
-    // If tab_1.tp_10.dw_observacion.Update() <> 1 Then Goto db_error
-    // If tab_1.tp_12.dw_condicion.Update() <> 1 Then Goto db_error
-     
-    // Commit;
-    // f_sys_mensaje_usuario(Title, "MSGLIB", "SE GRABO EL REGISTRO SATISFACTORIAMENTE.", "MSG")
-    // TriggerEvent("ue_limpiar")
-
-}//borrar   
-    //---------------------------------------------------------------------------------------------------------- 
-    // // -- Replicar ERP (Contrato) -- //----------------------------------------------------------------------
-     
-    // If gs_flg_replicar_erp = 'SI' Then
-                   
-    //     // -- Servicio -- //
-                     
-    //     soapconnection onn_ctt
-    //     ws_integrens_ext servicio_ctt               
-    //     onn_ctt = CREATE soapconnection
-    //     li_instancia = onn_ctt.CreateInstance(servicio_ctt, "ws_integrens_ext", gs_dsc_webservice_erp)
-       
-    //     If li_instancia <> 0 Then
-
-    //        f_sys_mensaje_usuario(Title, "MSGLIB", "ERROR DE CONEXIÓN AL SERVICIO WEB.", "ERR")
-
-    //     Else
-     
-    //        // -- Inicializa -- //
-
-    //        ls_flg_respuesta = 'NO'
-
-    //        // -- Replica contrato -- //
-          
-    //        lb_contrato = f_vta_xml_contrato(ls_localidad, ls_tipo_ctt, ls_tipo_programa, ls_contrato, ls_xml_cabecera, ls_xml_detalle, ls_xml_cronograma)
-          
-    //        // -- Genera XML -- //
-                                  
-    //            If gs_flg_replicar_erp = 'SI' Then
-                                                                     
-    //                If ii_acceso > 0 Then
-                                          
-    //                    If f_sys_mensaje_usuario(Title, "MSGLIB", "DESEA GENERAR LOS ARCHIVOS XML CORRESPONDIENTES AL CONTRATO [" + ls_contrato + "]?", "PRG") = 1 Then
-                                             
-    //                       // -- Crea directorio -- //
-
-    //                       If DirectoryExists ("C:\UmayuxSoftware\XML") = False Then CreateDirectory ("C:\UmayuxSoftware\XML")
-                         
-    //                       If FileExists("C:\UmayuxSoftware\XML\" + ls_contrato + "_Cabecera.txt") Then FileDelete("C:\UmayuxSoftware\XML\" + ls_contrato + "_Cabecera.txt")
-
-    //                       If FileExists("C:\UmayuxSoftware\XML\" + ls_contrato + "_Detalle.txt") Then FileDelete("C:\UmayuxSoftware\XML\" + ls_contrato + "_Detalle.txt")
-
-    //                       If FileExists("C:\UmayuxSoftware\XML\" + ls_contrato + "_Cronograma.txt") Then FileDelete("C:\UmayuxSoftware\XML\" + ls_contrato + "_Cronograma.txt")
-
-    //                       li_open = FileOpen("C:\UmayuxSoftware\XML\" + ls_contrato + "_Cabecera.xml", TextMode!, Write!)
-
-    //                       FileWriteEx(li_open, ls_xml_cabecera)
-
-    //                       FileClose(li_open)
-                         
-    //                       li_open = FileOpen("C:\UmayuxSoftware\XML\" + ls_contrato + "_Detalle.xml", TextMode!, Write!)
-
-    //                       FileWriteEx(li_open, ls_xml_detalle)
-
-    //                       FileClose(li_open)
-                                 
-    //                       li_open = FileOpen("C:\UmayuxSoftware\XML\" + ls_contrato + "_Cronograma.xml", TextMode!, Write!)
-
-    //                       FileWriteEx(li_open, ls_xml_cronograma)
-
-    //                       FileClose(li_open)
-                         
-    //                       f_sys_mensaje_usuario(Title, "MSGLIB", "SE GENERO LOS ARCHIVOS XML SATISFACTORIAMENTE POR FAVOR VERIFIQUE LA RUTA: C:\UMAYUXSOFTWARE\XML.", "MSG")
-                                             
-    //                    End If
-                                  
-    //                End If
-                              
-    //            End If
-     
-    //            // -- Envio -- //
-
-    //            ls_flg_respuesta = servicio_ctt.ws_cmrext_externo_importa_contratos_xml(ls_xml_cabecera, ls_xml_detalle, ls_xml_cronograma, 'A00', gs_usuario)
-    //            ls_flg_respuesta = UPPER(ls_flg_respuesta)
-
-    //            li_pos = Pos(ls_flg_respuesta, "<ESTADO>") + 8
-    //            ls_flg_correcto = Mid(ls_flg_respuesta, li_pos, 2)
-
-    //            If ls_flg_correcto <> 'CO' Then
-
-    //                f_sys_mensaje_usuario(Title, "MSGLIB", "PROBLEMAS AL HACER EL ENVIO AL ERP INTEGRENS [" + ls_flg_respuesta + "].", "ERR")
-
-    //                Return
-
-    //            Else
-
-    //                UPDATE               vtaca_contrato
-    //                SET                  vtaca_contrato.flg_replicado = 'SI'
-    //                WHERE vtaca_contrato.cod_localidad = :ls_localidad
-    //                AND   vtaca_contrato.cod_tipo_ctt = :ls_tipo_ctt
-    //                AND   vtaca_contrato.cod_tipo_programa = :ls_tipo_programa
-    //                AND   vtaca_contrato.cod_contrato = :ls_contrato
-    //                USING SQLCA;
-
-    //                If f_verifica_transaccion(SQLCA) = False Then
-
-    //                    RollBack;
-
-    //                   f_sys_mensaje_usuario(Title, "MSGLIB", "[2] ERROR EN LA ACTUALIZACIÓN DE LA BASE DE DATOS.", "ERR")
-
-    //                Else
-
-    //                     Commit;
-
-    //                End If
-                              
-    //            End If
-                          
-    //     End If
-
-    // End If
-     
-    // dw_cab.SetItem(1, "cod_localidad", ls_localidad)
-    // dw_cab.SetItem(1, "cod_tipo_ctt", ls_tipo_ctt)
-    // dw_cab.SetItem(1, "cod_tipo_programa", ls_tipo_programa)
-     
-    // is_flg_recupera = 'SI'
-    // f_sys_dw_ubica_cursor(dw_cab, "cod_contrato", "FREE", 0)
-    // dw_cab.SetItem(1, "cod_contrato", ls_contrato)
-    // dw_cab.TriggerEvent(Itemchanged!)
-     
-    // Return
-     
-    // db_error:
-    // RollBack;
-    // f_sys_mensaje_usuario(Title, "MSGLIB", "ERROR EN LA ACTUALIZACION DE LA BASE DE DATOS.", "ERR")
-// }//function modificaCtto
+            if(respuesta){
+                guardaBeneficiarios();
+                // -- Cabecera -- //
+                $.ajax({
+                    url: 'ajax/modifCtto.ajax.php',
+                    dataType: 'json',
+                    method: "POST",
+                    data: { 'accion' : 'actCabeceraMod', 'ls_tipo_ctt' : ls_tipo_ctt, 'ls_tipo_programa' : ls_tipo_programa, 'ls_contrato' : ls_contrato, 'ls_tipo_contrato' : ls_tipo_contrato},
+                    success : function(respuesta){
+                        if(respuesta){
+                            //guardar observaciones     
+                            // -- Max -- //
+                             
+                            li_linea = buscaMaxLineaObsrv(ls_tipo_ctt,ls_tipo_programa,ls_contrato,ls_num_servicio_getrow);
+                             //ultima linea de observaciones para guardar la siguiente  
+                             //guarda
+                            swal({
+                                title: "",
+                                text: "El contrato se ha modificado con exito.",
+                                type: "success",
+                                confirmButtonText: "Aceptar",
+                            })
+                        }
+                    }//success
+                });//ajax cabecera
+            }
+        }//success
+    });//ajax resumen cronograma
+}//function modificar
