@@ -1887,7 +1887,8 @@ function buscaMaxValor(ls_tipo_ctt,ls_tipo_programa,ls_contrato,li_ref){
         method: "POST",
         data: { 'accion' : 'maxValorCuotas', 'ls_tipo_ctt' : ls_tipo_ctt, 'ls_tipo_programa' : ls_tipo_programa, 'ls_contrato' : ls_contrato, 'li_ref' : li_ref },
         success : function(respuesta){
-              if(respuesta == '' || respuesta == null){
+            console.log(respuesta['max']);
+              if(respuesta['max'] == '' || respuesta['max'] == null){
                 return 0;
               }else{
                 return respuesta['max'];
