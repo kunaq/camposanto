@@ -119,6 +119,7 @@ function buscaDatosPeriodo(fechaRes,campo){
         dataType: 'text',
         data: {'fechaRes':fechaRes},
             success : function(response){
+                console.log(response['num_anno']);
                 var info = JSON.parse(response);
                 $("#anio"+campo+"Aud").val(info.num_anno);
                 $("#tipoPer"+campo+"Aud").val(info.tipo_periodo);
