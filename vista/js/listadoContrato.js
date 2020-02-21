@@ -140,5 +140,111 @@ function limpiarCliente(){
     $('#codCliCon').change();
 }
 
+function validarContrato(localidad,contrato,servicio){
+    $.ajax({
+        type:'POST',
+        url: 'ajax/listadoCtt.ajax.php',
+        dataType: 'text',
+        data: {'accion': 'validaContrato', 'cod_localidad':localidad, 'cod_contrato':contrato, 'num_servicio':servicio},
+        success : function(response){
+            var info = JSON.parse(response);
+            if (info.error == 1) {
+                swal({
+                  title: "",
+                  text: "Debe seleccionar un vendedor, verifique la ruta modificación de contrato.",
+                  type: "error",
+                  confirmButtonText: "Aceptar",
+                });
+            }else if (info.error == 2) {
+                swal({
+                  title: "",
+                  text: "Debe seleccionar una agencia funeraria, verifique la ruta modificación de contrato.",
+                  type: "error",
+                  confirmButtonText: "Aceptar",
+                });
+            }else if (info.error == 3) {
+                swal({
+                  title: "",
+                  text: "El contrato esta resuelto.",
+                  type: "error",
+                  confirmButtonText: "Aceptar",
+                });
+            }else if (info.error == 4) {
+                swal({
+                  title: "",
+                  text: "El contrato esta anulado.",
+                  type: "error",
+                  confirmButtonText: "Aceptar",
+                });
+            }else if (info.error == 5) {
+                swal({
+                  title: "",
+                  text: "El periodo seleccionado ["+info.num_anno+" - "+info.cod_tipo_periodo+" - "+info.cod_periodo+]" esta cerrado.",
+                  type: "error",
+                  confirmButtonText: "Aceptar",
+                });
+            }else if (info.error == 6) {
+                swal({
+                  title: "",
+                  text: "El vendedor ["+info.cod_vendedor+"] no esta activo para el período seleccionado ["+info.num_anno+" - "+info.cod_tipo_periodo+" - "+info.cod_periodo+]".",
+                  type: "error",
+                  confirmButtonText: "Aceptar",
+                });
+            }else if (info.error == 7) {
+                swal({
+                  title: "",
+                  text: "No puede activar el contrato, la cuota inicial debe estar completamente cancelada.",
+                  type: "error",
+                  confirmButtonText: "Aceptar",
+                });
+            }else if (info.error == 0) {
+                swal({
+                  title:"",
+                  text:'¿Esta seguro de activar el contrato?',
+                  type:"question",
+                  showCancelButton:!0,
+                  confirmButtonText:"Aceptar"
+                }).then(function(e){
+                  e.value&&activarContrato(info.cod_localidad,info.cod_contrato,info.num_servicio,info.cod_tipo_ctt,info.cod_tipo_programa,info.num_anno,info.cod_tipo_periodo,info.cod_periodo)
+                })
+            }
+         }//success
+    });//ajax
+}
+
+function activarContrato(localidad,contrato,servicio,tipoCtt,tipoPrograma,numAnno,tipoPeriodo,periodo){
+    console.log(localidad);
+    console.log(contrato);
+    console.log(servicio);
+    console.log(tipoCtt);
+    console.log(tipoPrograma);
+    console.log(numAnno);
+    console.log(tipoPeriodo);
+    console.log(periodo);
+    $.ajax({
+        type:'POST',
+        url: 'ajax/listadoCtt.ajax.php',
+        dataType: 'text',
+        data: {'accion': 'activaContrato', 'cod_localidad':localidad, 'cod_contrato' : contrato, 'cod_tipo_programa':tipoPrograma, 'cod_tipo_ctt':tipoCtt, 'num_servicio':servicio, 'num_anno':numAnno, 'cod_tipo_periodo':tipoPeriodo, 'cod_periodo':periodo},
+        success : function(response){
+            if (response == 1) {
+                swal({
+                  title:"",
+                  text:'Se activo el contrato satisfactoriamente',
+                  type:"success",
+                  confirmButtonText:"Aceptar"
+                })
+            }else{
+                swal({
+                  title:"",
+                  text:'Ocurrio un error al activar el contrato',
+                  type:"error",
+                  confirmButtonText:"Aceptar"
+                })
+            }
+        }//successServicioFoma
+    });//ajaxServicioFoma
+}
+
 creaTablaContrato();
 
