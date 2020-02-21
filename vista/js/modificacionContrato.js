@@ -119,7 +119,7 @@ function buscaDatosPeriodo(fechaRes,campo){
         dataType: 'text',
         data: {'fechaRes':fechaRes},
             success : function(response){
-                console.log(response['num_anno']);
+                // console.log(response['num_anno']);
                 var info = JSON.parse(response);
                 $("#anio"+campo+"Aud").val(info.num_anno);
                 $("#tipoPer"+campo+"Aud").val(info.tipo_periodo);
@@ -427,8 +427,8 @@ $("#interesCronograma").on('change',function(){
             method: "POST",
             data: { 'accion' : 'codInteres', 'num_valor' : num },
             success : function(respuesta){
-                console.log(respuesta.length);
-                // $("#codInteresModif").val(respuesta['cod_interes']);
+                // console.log(respuesta.length);
+                $("#codInteresModif").val(respuesta['cod_interes']);
             }//success
         });//ajax
     }
@@ -1887,7 +1887,7 @@ function buscaMaxValor(ls_tipo_ctt,ls_tipo_programa,ls_contrato,li_ref){
         method: "POST",
         data: { 'accion' : 'maxValorCuotas', 'ls_tipo_ctt' : ls_tipo_ctt, 'ls_tipo_programa' : ls_tipo_programa, 'ls_contrato' : ls_contrato, 'li_ref' : li_ref },
         success : function(respuesta){
-            console.log(respuesta['max']);
+            // console.log(respuesta['max']);
               if(respuesta['max'] == '' || respuesta['max'] == null){
                 return 0;
               }else{
@@ -1904,7 +1904,7 @@ function buscaMaxValor(ls_tipo_ctt,ls_tipo_programa,ls_contrato,li_ref){
         method: "POST",
         data: { 'accion' : 'costoCarencia', 'ls_tipo_ctt' : ls_tipo_ctt, 'ls_tipo_programa' : ls_tipo_programa, 'ls_contrato' : ls_contrato, 'ls_servicio' : ls_servicio },
         success : function(respuesta){
-            console.log(respuesta);
+            // console.log(respuesta);
             var info = JSON.parse(respuesta);
               if(info.imp_costo_carencia == '' || info.imp_costo_carencia == null){
                 return 0;
