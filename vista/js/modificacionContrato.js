@@ -956,9 +956,9 @@ function buscaBeneficiarios(codCtto){
             // console.log(respuesta);
             $.each(respuesta,function(index,value){
                 var registro = [value['cod_tipo_documento'],value['dsc_documento'],value['dsc_apellidopaterno'],value['dsc_apellidomaterno'],value['dsc_nombre'],value['fch_nacimiento'],value['fch_deceso'],value['cod_religion'],value['cod_estado_civil'],value['cod_sexo'],value['cod_parentesco'],value['cod_lugar_deceso'],value['cod_motivo_deceso'],value['num_peso'],value['num_talla'],value['flg_autopsia'],value['num_item'],value['num_servicio'],value['fch_entierro'],value['num_nivel']];
-                 var muestra = '<tr onclick="verDetalles(event)" id="'+value['dsc_documento']+'">'+
+                 var muestra = '<tr onclick="verDetalles(event)" id="'+value['num_item']+'">'+
                         '<td class="'+value['dsc_documento']+'">'+value['dsc_apellidopaterno']+' '+value['dsc_apellidomaterno']+', '+value['dsc_nombre']+
-                        '<input type="hidden" id="idBenef_'+value['dsc_documento']+'" value="'+value['dsc_documento']+'"><input type="hidden" id="registro_'+value['dsc_documento']+'" value="'+registro+'">'+
+                        '<input type="hidden" id="idBenef_'+value['num_item']+'" value="'+value['dsc_documento']+'"><input type="hidden" id="registro_'+value['num_item']+'" value="'+registro+'">'+
                         '</td></tr>';
                 document.getElementById("bodyBeneficiarioM").insertAdjacentHTML("beforeEnd" ,muestra);
             });//each
@@ -1072,10 +1072,10 @@ function guardaBenef(){
   var numServ = 0;
   var fchEnt = $("#fchEntBenef").val();
   var nivel = $("#nivelBenef").val();
-  var registro = [tipoDoc,numDoc,apellPaterno,apellMaterno,nombre,fechNac,fechDec,religion,edoCivil,sexo,parentesco,lugarDeceso,motivoDeceso,peso,talla,autopsia,numItem,numServ,fchEnt,nivel];
-  var muestra = '<tr onclick="verDetalles(event)" id="'+numDoc+'">'+
-  					'<td class="'+numDoc+'">'+apellPaterno+' '+apellMaterno+', '+nombre+
-  					'<input type="hidden" id="idBenef_'+numDoc+'" value="'+numDoc+'"><input type="hidden" id="registro_'+numDoc+'" value="'+registro+'">'+
+  var registro = [tipoDoc,numDoc,apellPaterno,apellMaterno,nombre,fechNac,fechDec,religion,edoCivil,sexo,parentesco,lugarDeceso,motivoDeceso,peso,talla,autopsia,numItem,numServ,fchEnt,nivel,'SI'];
+  var muestra = '<tr onclick="verDetalles(event)" id="'+numItem+'">'+
+  					'<td class="'+numItem+'">'+apellPaterno+' '+apellMaterno+', '+nombre+
+  					'<input type="hidden" id="idBenef_'+numItem+'" value="'+numDoc+'"><input type="hidden" id="registro_'+numItem+'" value="'+registro+'">'+
   					'</td></tr>';
   document.getElementById("bodyBeneficiarioM").insertAdjacentHTML("beforeEnd" ,muestra);
   var valida = validaCamposBeneficiario();
@@ -1242,10 +1242,10 @@ function guardaEdicionB(id){
   var numServ = $("#numServBenef").val();
   var fchEnt = $("#fchEntBenef").val();
   var nivel = $("#nivelBenef").val();
-  var registro = [tipoDoc,numDoc,apellPaterno,apellMaterno,nombre,fechNac,fechDec,religion,edoCivil,sexo,parentesco,lugarDeceso,motivoDeceso,peso,talla,autopsia,numItem,numServ,fchEnt,nivel];
-  var muestra = '<tr onclick="verDetalles(event)" id="'+numDoc+'">'+
-                    '<td class="'+numDoc+'">'+apellPaterno+' '+apellMaterno+', '+nombre+
-                    '<input type="hidden" id="idBenef_'+numDoc+'" value="'+numDoc+'"><input type="hidden" id="registro_'+numDoc+'" value="'+registro+'">'+
+  var registro = [tipoDoc,numDoc,apellPaterno,apellMaterno,nombre,fechNac,fechDec,religion,edoCivil,sexo,parentesco,lugarDeceso,motivoDeceso,peso,talla,autopsia,numItem,numServ,fchEnt,nivel,'NO'];
+  var muestra = '<tr onclick="verDetalles(event)" id="'+numItem+'">'+
+                    '<td class="'+numItem+'">'+apellPaterno+' '+apellMaterno+', '+nombre+
+                    '<input type="hidden" id="idBenef_'+numItem+'" value="'+numDoc+'"><input type="hidden" id="registro_'+numItem+'" value="'+registro+'">'+
                     '</td></tr>';
   document.getElementById(id).remove();
   document.getElementById("bodyBeneficiarioM").insertAdjacentHTML("beforeEnd" ,muestra);
@@ -1477,7 +1477,8 @@ function guardaBeneficiarios(){
             fchEnt = aux_mes+'/'+aux_dia+'/'+aux_anio;
         }
         var nivel = respuesta.split(",")[19];
-        if(i == ''){
+        var flg_nuevo_benef = respuesta.split(",")[20];
+        if(i == '' || flg_nuevo_benef == 'SI'){
             $.ajax({
               type: 'POST',
               url: 'ajax/wizard.ajax.php',
