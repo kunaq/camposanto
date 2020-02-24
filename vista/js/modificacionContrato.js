@@ -1547,9 +1547,9 @@ function masObsv(usuario){
         aux_anio = fechaHoy.getFullYear()-1;
     }               
     fechaFinal = aux_dia+'/'+aux_mes+'/'+aux_anio;
-    var filaObsv = '<tr>'+
+    var filaObsv = '<tr name ="'+numFilas+'"">'+
                         '<td>'+(numFilas+1)+'</td>'+
-                        '<td style="text-align: left;"><input type="text" class="form-control form-control-sm m-input" name="obsv'+numFilas+'" id="obsv'+numFilas+'"></td>'+
+                        '<td style="text-align: left;"><input type="text" class="form-control form-control-sm m-input" name="obsv_'+numFilas+'" id="obsv_'+numFilas+'"></td>'+
                         '<td>'+usuario+'</td>'+
                         '<td>'+fechaFinal+'</td>'+
                         '<td><span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger"><input type="checkbox" disabled><span></span></span></td>'+
@@ -1959,8 +1959,8 @@ function buscaMaxValor(ls_tipo_ctt,ls_tipo_programa,ls_contrato,li_ref){
     var container = document.querySelector('#bodyObservaciones');
     container.querySelectorAll('tr').forEach(function (li_i) 
     {            
-        var ls_servicio_add = $(li_i)
-        console.log(li_i);
+        var numObsv = $(li_i).attr("name");
+        console.log(numObsv);
      
         // $.ajax({
         //     url: 'ajax/modifCtto.ajax.php',
