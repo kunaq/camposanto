@@ -110,10 +110,11 @@ class ModeloWizard{
 		// -- Beneficiario -- //
 
 		// -- Linea -- //
-		// var_dump($datos);
+		
 		if(is_string($datos['li_i'])){
 			$datos['li_i'] = floatval($datos['li_i']);
 		}
+		var_dump($datos);
 		$li_linea_benef = $datos['li_i'] + $li_max_item;
 		
 		// -- Insertar -- //
