@@ -1401,9 +1401,9 @@ function verDetalles(evt) {
   $("#nivelBenef").val(nivel);
   $("#nivelBenef").prop('disabled',true);
   boton = document.getElementById("botonEditaB");
-  boton.addEventListener("click", function(){activaEditaBenef(numDoc)}, false);
+  boton.addEventListener("click", function(){activaEditaBenef(numItem)}, false);
   boton2 = document.getElementById("botonEliminarB");
-  boton2.addEventListener("click", function(){eliminaBenef(numDoc)}, false);
+  boton2.addEventListener("click", function(){eliminaBenef(numItem)}, false);
 }
 
 function guardaBeneficiarios(){
