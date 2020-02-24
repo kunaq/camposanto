@@ -2214,7 +2214,7 @@ function ValidaModificaCtto(){
 }  //valida
 
 function modificaContrato(){
-
+    $(".loader").fadeIn("slow");
     var li_valida = 0;
     var ls_localidad = $("#sedeContrato").val();
     var ls_contrato = $("#codContrato").val();
@@ -2468,16 +2468,14 @@ function modificaContrato(){
                         if(respuesta){
                             //guardar observaciones                                  
                             var observ = buscaMaxLineaObsrv(ls_tipo_ctt,ls_tipo_programa,ls_contrato,ls_num_servicio_getrow);
-                            console.log(observ);
-                            console.log(benef);
-                            if(observ && benef){ 
-                                swal({
-                                    title: "",
-                                    text: "El contrato se ha modificado con exito.",
-                                    type: "success",
-                                    confirmButtonText: "Aceptar",
-                                })
-                            }
+                            $(".loader").fadeOut("slow");
+                            swal({
+                                title: "",
+                                text: "El contrato se ha modificado con exito.",
+                                type: "success",
+                                confirmButtonText: "Aceptar",
+                                onBeforeOpen: window.location.assign('modificacionContrato?localidad='+localidad+'&contrato='+ls_contrato);
+                            })
                         }
                     }//success
                 });//ajax cabecera
