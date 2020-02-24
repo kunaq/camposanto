@@ -106,9 +106,9 @@ class ModeloWizard{
 		if(is_null($li_max_item[0]) || $li_max_item[0] == ''){
 		 $li_max_item = 0;
 		}
-		if(is_string($li_max_item)){
+		// if(is_string($li_max_item)){
 			$li_max_item = floatval($li_max_item);
-		}
+		// }
 		// -- Beneficiario -- //
 
 		// -- Linea -- //
