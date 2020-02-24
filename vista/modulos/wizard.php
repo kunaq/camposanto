@@ -1472,7 +1472,7 @@
 											<i class="la la-check"></i>
 											&nbsp;&nbsp;
 											<span>
-												Submit
+												Generar
 											</span>
 										</span>
 									</a>
