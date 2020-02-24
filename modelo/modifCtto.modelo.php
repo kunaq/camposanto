@@ -330,7 +330,7 @@ class ModeloModifCtto{
         $db->cerrar();
 	}//mdlActCabeceraMod
 
-	static public function mdllineaMaxObsrv($tabla,$datos){
+	static public function mdllineaMaxObsrv($datos){
 		$db = new Conexion();
 		$sql = $db->consulta("SELECT Max(num_linea) AS num_linea FROM vtade_observacion_x_contrato WHERE vtade_observacion_x_contrato.cod_localidad = '".$datos['cod_localidad']."' AND	vtade_observacion_x_contrato.cod_tipo_ctt = '".$datos['cod_tipo_ctt']."' AND		vtade_observacion_x_contrato.cod_tipo_programa = '".$datos['cod_tipo_programa']."' AND	vtade_observacion_x_contrato.cod_contrato = '".$datos['cod_contrato']."' AND vtade_observacion_x_contrato.num_servicio = '".$datos['num_servicio']."'");
 
