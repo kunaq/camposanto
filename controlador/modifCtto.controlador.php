@@ -286,6 +286,9 @@ class ControladorModifCtto{
 		$fecha = date('Y-m-d');
 		$hora = date('H:i:s');
 		$fechaActual = $fecha.' '.$hora;
+		if($_POST['li_cuotas'] == '' || $_POST['li_cuotas'] == null){
+			$_POST['li_cuotas'] = 0;
+		}
 		$datos = array("ls_localidad" => $_SESSION['localidad'],
 						"ls_contrato" => $_POST['ls_contrato'],
 						"ls_servicio" => $_POST['ls_servicio'],
