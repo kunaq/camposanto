@@ -172,10 +172,10 @@
 										<label>Espacio</label>
 										<div class="input-group">
 		  									<input type="text" class="form-control form-control-sm m-input" name="espacioContrato" id="espacioContrato" disabled>
-		  									<div class="input-group-append">
+		  									<!-- <div class="input-group-append">
 		   										 <button class="btn btn-sm btnGuardarKqPst btn-outline-secondary" type="button"><i class="fa fa-th-list"></i></button>
 		  									</div>
-										</div>
+ -->										</div>
 									</div>
 									<div class="col-lg-2">
 										<label>Nivel</label>
@@ -660,17 +660,17 @@
 														<input type="text" class="form-control form-control-sm m-input" name="emailTitular" id="emailTitular" disabled>
 													</div>
 													<div class="col-lg-3" style="text-align: center;">
-														<button type="button" class="btn btn-sm btnEditarKqPst2 mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Datos del cliente" onclick="">
+														<!-- <button type="button" class="btn btn-sm btnEditarKqPst2 mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Datos del cliente" onclick="">
 															<i class="fa fa-user-o"></i>
-														</button>
+														</button> -->
 														<span data-toggle="modal" data-target="#m_modal_2">
 															<button type="button" class="btn btn-sm btnGuardarKqPst mt25"data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar cliente" onclick="creaTablaCliente('titularModif');">
 																<i class="fa fa-search"></i>
 															</button>
 														</span>
-														<button type="button" class="btn btn-sm btnThird mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Cambiar titular" onclick="">
+														<!-- <button type="button" class="btn btn-sm btnThird mt25" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Cambiar titular" onclick="">
 															<i class="fa fa-exchange"></i>
-														</button>
+														</button> -->
 													</div>
 												</div>
 											</div>
