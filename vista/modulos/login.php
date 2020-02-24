@@ -17,11 +17,10 @@
 							<div class="form-group m-form__group seleccioneEmpresa" style="padding-top: 0;">
 								<select class="form-control m-input" data-init-plugin="select2" name="ingEmpresa" id="ingEmpresa" required>
 									<option value="" selected disabled>SELECCIONAR</option>
-									<option value="00001" selected disabled>SAN ANTONIO</option>
 									<?php
 									$empresa = ControladorControlEmpresa::ctrMostrarControlEmpresa();
 									foreach ($empresa as $key => $value) {
-										echo '<option value="'.$value["cod_ctr_empresa"].'||'.$value["nom_tabla"].'">'.$value["dsc_razon_social"].'</option>';
+										echo '<option value="'.$value["cod_empresa"].'||'.$value["dsc_database"].'">'.$value["dsc_empresa"].'</option>';
 									}
 									?>
 								</select>
