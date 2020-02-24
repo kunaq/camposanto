@@ -1960,7 +1960,8 @@ function buscaMaxValor(ls_tipo_ctt,ls_tipo_programa,ls_contrato,li_ref){
     container.querySelectorAll('tr').forEach(function (li_i) 
     {            
         var numObsv = $(li_i).attr("name");
-        console.log(numObsv);
+        var dsc_observacion = $("#obsv_"+numObsv).val();
+        console.log(dsc_observacion);
      
         // $.ajax({
         //     url: 'ajax/modifCtto.ajax.php',
