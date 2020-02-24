@@ -151,7 +151,7 @@ class ModeloEmpresa{
 
  				while($key = $db->recorrer($sql)){
                     $datos[] =  $key;
-                    echo $key['imp_cambio_compra'];
+                    echo number_format($key['imp_cambio_compra'], 3, '.', ',');;
                 }
 
         $db->liberar($sql);
