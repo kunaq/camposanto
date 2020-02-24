@@ -1470,7 +1470,7 @@ function guardaBeneficiarios(){
                 aux_anio = fecha.getFullYear()-1;
             }               
             fchEnt = aux_mes+'/'+aux_dia+'/'+aux_anio;
-            console.log(fchEnt);
+            // console.log(fchEnt);
         }
         var nivel = respuesta.split(",")[19];
         var flg_nuevo_benef = respuesta.split(",")[20];
@@ -2465,6 +2465,8 @@ function modificaContrato(){
                         if(respuesta){
                             //guardar observaciones                                  
                             var observ = buscaMaxLineaObsrv(ls_tipo_ctt,ls_tipo_programa,ls_contrato,ls_num_servicio_getrow);
+                            console.log(observ);
+                            console.log(benef);
                             if(observ && benef){ 
                                 swal({
                                     title: "",
