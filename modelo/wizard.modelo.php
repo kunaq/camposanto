@@ -106,7 +106,9 @@ class ModeloWizard{
 		if(is_null($li_max_item[0]) || $li_max_item[0] == ''){
 		 $li_max_item = 0;
 		}
-		
+		if(is_string($li_max_item)){
+			$li_max_item = floatval($li_max_item);
+		}
 		// -- Beneficiario -- //
 
 		// -- Linea -- //
@@ -114,7 +116,7 @@ class ModeloWizard{
 		if(is_string($datos['li_i'])){
 			$datos['li_i'] = floatval($datos['li_i']);
 		}
-		var_dump($li_max_item);
+		// var_dump($li_max_item);
 		$li_linea_benef = $datos['li_i'] + $li_max_item;
 		
 		// -- Insertar -- //
