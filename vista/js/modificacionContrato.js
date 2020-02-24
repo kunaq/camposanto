@@ -1408,8 +1408,8 @@ function guardaBeneficiarios(){
     var cod_contrato = $("#codContrato").val();
     var container = document.querySelector('#bodyBeneficiarioM');
     container.querySelectorAll('tr').forEach(function (i){ 
-        var numDoc = $(i).attr("id");       
-        var respuesta = document.getElementById("registro_"+numDoc).value;
+        var numItem = $(i).attr("id");       
+        var respuesta = document.getElementById("registro_"+numItem).value;
         var tipoDoc = respuesta.split(",")[0];
         var numDoc = respuesta.split(",")[1];
         var apellPaterno = respuesta.split(",")[2];
@@ -1460,7 +1460,7 @@ function guardaBeneficiarios(){
         var numServ = respuesta.split(",")[17];
         var fchEnt = respuesta.split(",")[18];
         if(fchEnt != ''){
-           fecha = new Date(fchEnt);
+           // fecha = new Date(fchEnt);
             var aux_dia = fecha.getDate();
             var aux_mes1 = fecha.setMonth(fecha.getMonth() + 1);
             var aux_mes = fecha.getMonth();
@@ -1470,6 +1470,7 @@ function guardaBeneficiarios(){
                 aux_anio = fecha.getFullYear()-1;
             }               
             fchEnt = aux_mes+'/'+aux_dia+'/'+aux_anio;
+            console.log(fchEnt);
         }
         var nivel = respuesta.split(",")[19];
         var flg_nuevo_benef = respuesta.split(",")[20];
