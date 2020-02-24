@@ -1403,7 +1403,7 @@ function verDetalles(evt) {
 
 function guardaBeneficiarios(){
     var localidad = $("#sedeContrto").val();
-    var ls_tipo_ctt_new = $("#codTipoContrato").val();
+    var ls_tipo_ctt_new = $("#modC").val();
     var ls_tipo_programa_new = $("#tipoPrograma").val();
     var cod_contrato = $("#codContrato").val();
     var container = document.querySelector('#bodyBeneficiarioM');
