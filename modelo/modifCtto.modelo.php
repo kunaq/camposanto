@@ -345,6 +345,8 @@ class ModeloModifCtto{
 
 		$sql2 = $db->consulta("INSERT INTO vtade_observacion_x_contrato ( cod_localidad, cod_contrato, num_servicio, num_linea, cod_area, dsc_observacion,cod_usuario, fch_registro, flg_automatico, cod_tipo_ctt, cod_tipo_programa ) 
 			VALUES ( '".$datos['cod_localidad']."', '".$datos['cod_contrato']."', '".$datos['num_servicio']."', '$num_linea', '".$datos['cod_area']."', '".$datos['dsc_observacion']."', '".$datos['usuario']."', '".$datos['fch_actual']."', 'NO','".$datos['cod_tipo_ctt']."', '".$datos['cod_tipo_programa']."' )");
+		echo "INSERT INTO vtade_observacion_x_contrato ( cod_localidad, cod_contrato, num_servicio, num_linea, cod_area, dsc_observacion,cod_usuario, fch_registro, flg_automatico, cod_tipo_ctt, cod_tipo_programa ) 
+			VALUES ( '".$datos['cod_localidad']."', '".$datos['cod_contrato']."', '".$datos['num_servicio']."', '$num_linea', '".$datos['cod_area']."', '".$datos['dsc_observacion']."', '".$datos['usuario']."', '".$datos['fch_actual']."', 'NO','".$datos['cod_tipo_ctt']."', '".$datos['cod_tipo_programa']."' )";
 
 		if ($sql2) {
 			return 1;
@@ -355,7 +357,7 @@ class ModeloModifCtto{
 		$db->liberar($sql);
         $db->cerrar();
 	}//mdlGuardaObservacion
-	
+
 	static public function ctrGuardaCronograma($tabla,$datos){
 		$db = new Conexion();
 		$sql = $db->consulta("DELETE FROM  AND cod_contrato LIKE (RIGHT('0000000000'+'".$codCtto."',10))");
