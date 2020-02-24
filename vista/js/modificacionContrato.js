@@ -1235,7 +1235,7 @@ function guardaEdicionB(id){
   var autopsia = $("#autopsiaBenefM").checked;
   var numItem = $("#numItemBenef").val();
   var numServ = $("#numServBenef").val();
-  var fchEnt = $("#fchEntBenef").val();
+  var fchEnt = $("#fchEntBenef").datepicker("getDate");
   var nivel = $("#nivelBenef").val();
   var registro = [tipoDoc,numDoc,apellPaterno,apellMaterno,nombre,fechNac,fechDec,religion,edoCivil,sexo,parentesco,lugarDeceso,motivoDeceso,peso,talla,autopsia,numItem,numServ,fchEnt,nivel,'NO'];
   var muestra = '<tr onclick="verDetalles(event)" id="'+numItem+'">'+
@@ -1460,7 +1460,7 @@ function guardaBeneficiarios(){
         var numServ = respuesta.split(",")[17];
         var fchEnt = respuesta.split(",")[18];
         if(fchEnt != ''){
-           // fecha = new Date(fchEnt);
+           fecha = new Date(fchEnt);
             var aux_dia = fecha.getDate();
             var aux_mes1 = fecha.setMonth(fecha.getMonth() + 1);
             var aux_mes = fecha.getMonth();
