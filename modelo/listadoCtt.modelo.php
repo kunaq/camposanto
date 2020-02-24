@@ -81,31 +81,31 @@ FROM vtade_contrato WHERE vtade_contrato.cod_localidad = '".$datos['cod_localida
 					return $respuesta;
 				}else{
 
-					$sql5 = $db->consulta("SELECT  COUNT(1) AS cuota_cancelada
-										FROM                   vtade_cronograma
-										WHERE vtade_cronograma.cod_localidad = '$localidad'
-										AND                      vtade_cronograma.cod_tipo_ctt = '$tipo_ctt'
-										AND                      vtade_cronograma.cod_tipo_programa = '$programa'
-										AND                      vtade_cronograma.cod_contrato = '$contrato'
-										AND                      vtade_cronograma.num_refinanciamiento = '$refinanciamiento'
-										AND                      vtade_cronograma.cod_tipo_cuota = 'CUI'
-										AND                      vtade_cronograma.cod_estadocuota IN ('EMI', 'REG')
-										AND                      ISNULL(vtade_cronograma.imp_saldo, 0.00) > 0.01");
+					// $sql5 = $db->consulta("SELECT  COUNT(1) AS cuota_cancelada
+					// 					FROM                   vtade_cronograma
+					// 					WHERE vtade_cronograma.cod_localidad = '$localidad'
+					// 					AND                      vtade_cronograma.cod_tipo_ctt = '$tipo_ctt'
+					// 					AND                      vtade_cronograma.cod_tipo_programa = '$programa'
+					// 					AND                      vtade_cronograma.cod_contrato = '$contrato'
+					// 					AND                      vtade_cronograma.num_refinanciamiento = '$refinanciamiento'
+					// 					AND                      vtade_cronograma.cod_tipo_cuota = 'CUI'
+					// 					AND                      vtade_cronograma.cod_estadocuota IN ('EMI', 'REG')
+					// 					AND                      ISNULL(vtade_cronograma.imp_saldo, 0.00) > 0.01");
 
-					while($key5 = $db->recorrer($sql5)){
-					    $cuota_cancelada = $key5['cuota_cancelada'];
-					    if (is_null($cuota_cancelada)) {
-					    	$cuota_cancelada = 0;
-					    }
-					}
-					if ($cuota_cancelada > 0) {
-						$respuesta = array('error' => 7);
-						return $respuesta;
-					}
-					else{
+					// while($key5 = $db->recorrer($sql5)){
+					//     $cuota_cancelada = $key5['cuota_cancelada'];
+					//     if (is_null($cuota_cancelada)) {
+					//     	$cuota_cancelada = 0;
+					//     }
+					// }
+					// if ($cuota_cancelada > 0) {
+					// 	$respuesta = array('error' => 7);
+					// 	return $respuesta;
+					// }
+					// else{
 						$respuesta = array('error' => 0, 'cod_localidad' => $localidad, 'cod_contrato' => $contrato, 'num_servicio' => $servicio, 'cod_tipo_ctt' => $tipo_ctt, 'cod_tipo_programa' => $programa, 'num_anno' =>$num_anno, 'cod_tipo_periodo' => $cod_tipo_periodo, 'cod_periodo' => $cod_periodo);
 						return $respuesta;
-					}
+					// }
 				}
 			}
 		}
