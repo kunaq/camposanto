@@ -355,16 +355,7 @@ class ModeloModifCtto{
 		$db->liberar($sql);
         $db->cerrar();
 	}//mdlGuardaObservacion
-		$db = new Conexion();
-		$sql = $db->consulta("SELECT MAX(num_linea) FROM $tabla WHERE cod_localidad = '".$datos['ls_localidad']."' AND cod_tipo_ctt = '".$datos['ls_tipo_ctt']."' AND cod_tipo_programa = '".$datos['ls_tipo_programa']."' AND num_servicio = '".$datos['ls_num_servicio_getrow']."' AND cod_contrato LIKE (RIGHT('0000000000'+'".$codCtto."',10))");
-		$datos = arrayMapUtf8Encode($db->recorrer($sql));
-		return $datos;
-		$db->liberar($sql);
-        $db->cerrar();
-
-
-	}//function mdllineaMaxObsrv
-
+	
 	static public function ctrGuardaCronograma($tabla,$datos){
 		$db = new Conexion();
 		$sql = $db->consulta("DELETE FROM  AND cod_contrato LIKE (RIGHT('0000000000'+'".$codCtto."',10))");
