@@ -1483,6 +1483,7 @@ function guardaBeneficiarios(){
               success : function(respuesta){
                 if(respuesta == 1){
                   checkBeneficiario = "success";
+                  buscaBeneficiarios(cod_contrato);
                 }
               }//success beneficiario
             });//ajax beneficiario 
@@ -1495,6 +1496,7 @@ function guardaBeneficiarios(){
                 success : function(respuesta){
                     if(respuesta){
                         return 1;
+                        buscaBeneficiarios(cod_contrato);
                     }
                 }//success
             });//ajax
