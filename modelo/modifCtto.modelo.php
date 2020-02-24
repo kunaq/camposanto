@@ -332,7 +332,7 @@ class ModeloModifCtto{
 
 	static public function mdllineaMaxObsrv($datos){
 		$db = new Conexion();
-		$sql = $db->consulta("SELECT Max(num_linea) AS num_linea FROM vtade_observacion_x_contrato WHERE vtade_observacion_x_contrato.cod_localidad = '".$datos['cod_localidad']."' AND	vtade_observacion_x_contrato.cod_tipo_ctt = '".$datos['cod_tipo_ctt']."' AND		vtade_observacion_x_contrato.cod_tipo_programa = '".$datos['cod_tipo_programa']."' AND	vtade_observacion_x_contrato.cod_contrato = '".$datos['cod_contrato']."' AND vtade_observacion_x_contrato.num_servicio = '".$datos['num_servicio']."'");
+		$sql = $db->consulta("SELECT Max(num_linea) AS num_linea FROM vtade_observacion_x_contrato WHERE vtade_observacion_x_contrato.cod_localidad = '".$datos['cod_localidad']."' AND	vtade_observacion_x_contrato.cod_tipo_ctt = '".$datos['cod_tipo_ctt']."' AND		vtade_observacion_x_contrato.cod_tipo_programa = '".$datos['cod_tipo_programa']."' AND	vtade_observacion_x_contrato.cod_contrato LIKE (RIGHT('0000000000'+'".$datos['cod_contrato']."',10)) AND vtade_observacion_x_contrato.num_servicio = '".$datos['num_servicio']."'");
 
 		while($key = $db->recorrer($sql)){
 			if (is_null($key['num_linea'])) {
@@ -344,9 +344,7 @@ class ModeloModifCtto{
 		$num_linea = $num_linea + 1;
 
 		$sql2 = $db->consulta("INSERT INTO vtade_observacion_x_contrato ( cod_localidad, cod_contrato, num_servicio, num_linea, cod_area, dsc_observacion,cod_usuario, fch_registro, flg_automatico, cod_tipo_ctt, cod_tipo_programa ) 
-			VALUES ( '".$datos['cod_localidad']."', '".$datos['cod_contrato']."', '".$datos['num_servicio']."', '$num_linea', '".$datos['cod_area']."', '".$datos['dsc_observacion']."', '".$datos['usuario']."', '".$datos['fch_actual']."', 'NO','".$datos['cod_tipo_ctt']."', '".$datos['cod_tipo_programa']."' )");
-		echo "INSERT INTO vtade_observacion_x_contrato ( cod_localidad, cod_contrato, num_servicio, num_linea, cod_area, dsc_observacion,cod_usuario, fch_registro, flg_automatico, cod_tipo_ctt, cod_tipo_programa ) 
-			VALUES ( '".$datos['cod_localidad']."', '".$datos['cod_contrato']."', '".$datos['num_servicio']."', '$num_linea', '".$datos['cod_area']."', '".$datos['dsc_observacion']."', '".$datos['usuario']."', '".$datos['fch_actual']."', 'NO','".$datos['cod_tipo_ctt']."', '".$datos['cod_tipo_programa']."' )";
+			VALUES ( '".$datos['cod_localidad']."', (RIGHT('0000000000'+'".$datos['cod_contrato']."',10)), '".$datos['num_servicio']."', '$num_linea', '".$datos['cod_area']."', '".$datos['dsc_observacion']."', '".$datos['usuario']."', '".$datos['fch_actual']."', 'NO','".$datos['cod_tipo_ctt']."', '".$datos['cod_tipo_programa']."' )");
 
 		if ($sql2) {
 			return 1;
