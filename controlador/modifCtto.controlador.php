@@ -456,7 +456,7 @@ class ControladorModifCtto{
 						"num_servicio" => $_POST['num_servicio'],
 						"dsc_observacion" => $_POST['dsc_observacion']
 					);
-		$respuesta = ModeloResCtto::mdlGuardaObservacion($datos);
+		$respuesta = ModeloResCtto::mdllineaMaxObsrv($datos);
 		return $respuesta;
 	}//ctrGuardaObservacion
 
