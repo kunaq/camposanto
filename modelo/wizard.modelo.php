@@ -106,9 +106,7 @@ class ModeloWizard{
 		if(is_null($li_max_item[0]) || $li_max_item[0] == ''){
 		 $li_max_item = 0;
 		}
-		// if(is_string($li_max_item)){
-			$li_max_item = floatval($li_max_item);
-		// }
+		$li_max_item = floatval($li_max_item);
 		// -- Beneficiario -- //
 
 		// -- Linea -- //
@@ -121,8 +119,7 @@ class ModeloWizard{
 		
 		// -- Insertar -- //
 		
-		$sql1 = $db->consulta("INSERT INTO $tabla ( cod_localidad, cod_contrato, num_item, num_servicio, dsc_apellidopaterno, dsc_apellidomaterno, dsc_nombre, cod_tipo_documento, dsc_documento, fch_nacimiento, fch_entierro, num_nivel, fch_deceso, cod_religion, cod_lugar_deceso, cod_motivo_deceso, flg_autopsia, num_peso, num_talla, cod_parentesco, cod_estado_civil, cod_sexo, cod_tipo_ctt, cod_estado, fch_alta, cod_tipo_programa ) VALUES ( '".$datos['ls_localidad']."', '(RIGHT('0000000000'+'".$datos['ls_num_contrato_new']."',10))', ".$li_linea_benef.", '".$datos['ls_num_servicio_new']."', '".$datos['ls_ape_paterno_benef']."', '".$datos['ls_ape_materno_benef']."', '".$datos['ls_nombre_benef']."', '".$datos['ls_tipo_doc_benef']."', '".$datos['ls_num_doc_benef']."', CONVERT(DATE,'".$datos['ldt_nacimiento']."',105), NULL, NULL, CONVERT(DATE,'".$datos['ldt_deceso']."',105), '".$datos['ls_religion']."', '".$datos['ls_lugar_deceso']."', '".$datos['ls_motivo_deceso']."', '".$datos['ls_flg_autopsia']."', '".$datos['lde_peso']."', '".$datos['lde_talla']."', '".$datos['ls_parentesco']."', '".$datos['ls_estado_civil']."', '".$datos['ls_sexo']."', '".$datos['ls_tipo_ctt_new']."', 'VIG', '".$datos['ldt_fch_actual']."', '".$datos['ls_tipo_programa_new']."')");
-		echo "INSERT INTO $tabla ( cod_localidad, cod_contrato, num_item, num_servicio, dsc_apellidopaterno, dsc_apellidomaterno, dsc_nombre, cod_tipo_documento, dsc_documento, fch_nacimiento, fch_entierro, num_nivel, fch_deceso, cod_religion, cod_lugar_deceso, cod_motivo_deceso, flg_autopsia, num_peso, num_talla, cod_parentesco, cod_estado_civil, cod_sexo, cod_tipo_ctt, cod_estado, fch_alta, cod_tipo_programa ) VALUES ( '".$datos['ls_localidad']."', '(RIGHT('0000000000'+'".$datos['ls_num_contrato_new']."',10))', ".$li_linea_benef.", '".$datos['ls_num_servicio_new']."', '".$datos['ls_ape_paterno_benef']."', '".$datos['ls_ape_materno_benef']."', '".$datos['ls_nombre_benef']."', '".$datos['ls_tipo_doc_benef']."', '".$datos['ls_num_doc_benef']."', CONVERT(DATE,'".$datos['ldt_nacimiento']."',105), NULL, NULL, CONVERT(DATE,'".$datos['ldt_deceso']."',105), '".$datos['ls_religion']."', '".$datos['ls_lugar_deceso']."', '".$datos['ls_motivo_deceso']."', '".$datos['ls_flg_autopsia']."', '".$datos['lde_peso']."', '".$datos['lde_talla']."', '".$datos['ls_parentesco']."', '".$datos['ls_estado_civil']."', '".$datos['ls_sexo']."', '".$datos['ls_tipo_ctt_new']."', 'VIG', '".$datos['ldt_fch_actual']."', '".$datos['ls_tipo_programa_new']."')";
+		$sql1 = $db->consulta("INSERT INTO $tabla ( cod_localidad, cod_contrato, num_item, num_servicio, dsc_apellidopaterno, dsc_apellidomaterno, dsc_nombre, cod_tipo_documento, dsc_documento, fch_nacimiento, fch_entierro, num_nivel, fch_deceso, cod_religion, cod_lugar_deceso, cod_motivo_deceso, flg_autopsia, num_peso, num_talla, cod_parentesco, cod_estado_civil, cod_sexo, cod_tipo_ctt, cod_estado, fch_alta, cod_tipo_programa ) VALUES ( '".$datos['ls_localidad']."', (RIGHT('0000000000'+'".$datos['ls_num_contrato_new']."',10)), ".$li_linea_benef.", '".$datos['ls_num_servicio_new']."', '".$datos['ls_ape_paterno_benef']."', '".$datos['ls_ape_materno_benef']."', '".$datos['ls_nombre_benef']."', '".$datos['ls_tipo_doc_benef']."', '".$datos['ls_num_doc_benef']."', CONVERT(DATE,'".$datos['ldt_nacimiento']."',105), NULL, NULL, CONVERT(DATE,'".$datos['ldt_deceso']."',105), '".$datos['ls_religion']."', '".$datos['ls_lugar_deceso']."', '".$datos['ls_motivo_deceso']."', '".$datos['ls_flg_autopsia']."', '".$datos['lde_peso']."', '".$datos['lde_talla']."', '".$datos['ls_parentesco']."', '".$datos['ls_estado_civil']."', '".$datos['ls_sexo']."', '".$datos['ls_tipo_ctt_new']."', 'VIG', '".$datos['ldt_fch_actual']."', '".$datos['ls_tipo_programa_new']."')");
 		if($sql){
 			return 1;
 		}else{
