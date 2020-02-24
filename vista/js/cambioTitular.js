@@ -332,21 +332,21 @@ function preCambioTitular(){
                                         confirmButtonText: "Aceptar",
                                     });
                                 }else{
-                                    $.ajax({
-                                        type: 'POST',
-                                        url:"ajax/cambioTitular.ajax.php",
-                                        dataType: 'text',
-                                        data: {'accion' : 'getEstadoCambioTitular', 'localidad' : localidad, 'cod_contrato' : contrato, 'num_servicio' : info.num_servicio, 'cod_tipo_ctt' : tipo_ctt, 'cod_tipo_programa' : tipo_programa},
-                                        success: function(respuesta){
-                                            var resp = JSON.parse(respuesta);
-                                            if (resp.existe_cancelacion == 0) {
-                                                swal({
-                                                    title: "",
-                                                    text: 'El servicio por cambio de titular debe estar cancelado',
-                                                    type: "warning",
-                                                    confirmButtonText: "Aceptar",
-                                                });
-                                            }else{
+                                    // $.ajax({
+                                    //     type: 'POST',
+                                    //     url:"ajax/cambioTitular.ajax.php",
+                                    //     dataType: 'text',
+                                    //     data: {'accion' : 'getEstadoCambioTitular', 'localidad' : localidad, 'cod_contrato' : contrato, 'num_servicio' : info.num_servicio, 'cod_tipo_ctt' : tipo_ctt, 'cod_tipo_programa' : tipo_programa},
+                                    //     success: function(respuesta){
+                                    //         var resp = JSON.parse(respuesta);
+                                    //         if (resp.existe_cancelacion == 0) {
+                                    //             swal({
+                                    //                 title: "",
+                                    //                 text: 'El servicio por cambio de titular debe estar cancelado',
+                                    //                 type: "warning",
+                                    //                 confirmButtonText: "Aceptar",
+                                    //             });
+                                    //         }else{
                                                 swal({
                                                   title:"",
                                                   text:'Esta generando el cambio de titular del servicio ["'+info.num_servicio+'"]. ¿Esta seguro de continuar?',
@@ -356,9 +356,9 @@ function preCambioTitular(){
                                                 }).then(function(e){
                                                   e.value&&cambiarTitular(info.num_servicio)
                                                 })
-                                            }
-                                        }
-                                    });
+                                    //         }
+                                    //     }
+                                    // });
                                 }
                             }
                         });
