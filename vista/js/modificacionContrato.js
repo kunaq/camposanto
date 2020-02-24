@@ -1048,8 +1048,8 @@ function verificaBenef(val){
 }
 
 function guardaBenef(){
-    var tablaBenef = document.getElementById("bodyBeneficiarioM");
-    var filas = tablaBenef.rows.length;
+  var tablaBenef = document.getElementById("bodyBeneficiarioM");
+  var filas = tablaBenef.rows.length;
   // var filas = length("#bodyBeneficiarioM tr");
   var tipoDoc = document.getElementById("tipoDocBenef").value;
   var numDoc = document.getElementById("numDocBenef").value;
@@ -1128,59 +1128,54 @@ function validaCamposBeneficiario(){
                 confirmButtonText: "Aceptar",
             })
            return;
-        }
-                   
-
-        if( ls_ape_materno == null || ls_ape_materno == ''){
-            swal({
-                title: "",
-                text: "Debe ingresar el apellido materno del beneficiario ",
-                type: "warning",
-                confirmButtonText: "Aceptar",
-            })
-           return;
-        }
-
-        if( ls_nombre == null || ls_nombre == ''){
-            swal({
-                title: "",
-                text: "Debe ingresar el nombre del beneficiario ",
-                type: "warning",
-                confirmButtonText: "Aceptar",
-            })
-           return;
-        }
-
-
-        if( ls_tipo_doc == null || ls_tipo_doc == ''){
-            swal({
-                title: "",
-                text: "Debe seleccionar el tipo de documento del beneficiario ",
-                type: "warning",
-                confirmButtonText: "Aceptar",
-            })
-           return;
-        }
-
-        if( ls_num_doc == null || ls_num_doc == ''){
-            swal({
-                title: "",
-                text: "Debe ingresar número de documento del beneficiario ",
-                type: "warning",
-                confirmButtonText: "Aceptar",
-            })
-           return;
-        }
-       
-        if( ldt_fch_nac == null || ldt_fch_nac == '' || ldt_fch_nac == '00/00/0000'){
-            swal({
-                title: "",
-                text: "Debe ingresar la fecha de nacimiento del beneficiario ",
-                type: "warning",
-                confirmButtonText: "Aceptar",
-            })
-           return;
-        }
+    }
+    else if( ls_ape_materno == null || ls_ape_materno == ''){
+        swal({
+            title: "",
+            text: "Debe ingresar el apellido materno del beneficiario ",
+            type: "warning",
+            confirmButtonText: "Aceptar",
+        })
+       return 0;
+    }
+    else if( ls_nombre == null || ls_nombre == ''){
+        swal({
+            title: "",
+            text: "Debe ingresar el nombre del beneficiario ",
+            type: "warning",
+            confirmButtonText: "Aceptar",
+        })
+       return 0;
+    }
+    else if( ls_tipo_doc == null || ls_tipo_doc == ''){
+        swal({
+            title: "",
+            text: "Debe seleccionar el tipo de documento del beneficiario ",
+            type: "warning",
+            confirmButtonText: "Aceptar",
+        })
+       return 0;
+    }
+    else if( ls_num_doc == null || ls_num_doc == ''){
+        swal({
+            title: "",
+            text: "Debe ingresar número de documento del beneficiario ",
+            type: "warning",
+            confirmButtonText: "Aceptar",
+        })
+       return 0;
+    }
+    else if( ldt_fch_nac == null || ldt_fch_nac == '' || ldt_fch_nac == '00/00/0000'){
+        swal({
+            title: "",
+            text: "Debe ingresar la fecha de nacimiento del beneficiario ",
+            type: "warning",
+            confirmButtonText: "Aceptar",
+        })
+       return 0;
+    }else{
+        return 1;
+    }
 }
 
 function activaEditaBenef(id){
