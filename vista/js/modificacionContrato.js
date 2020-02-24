@@ -2091,7 +2091,10 @@ function ValidaModificaCtto(){
     var largoObsv = document.getElementById("bodyObservaciones").rows.length;
     for(li_i = 0; li_i < largoObsv ; li_i++){         
         ls_observacion = $("#obsv_"+li_i).val();
-        if( ls_observacion == null || ls_observacion == ''){
+        if(!ls_observacion){
+            continue;
+        }
+        else if( ls_observacion == null || ls_observacion == ''){
             swal({
                 title: "",
                 text: "Debe ingresar las observaciones",
