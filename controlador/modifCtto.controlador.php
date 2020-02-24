@@ -408,15 +408,21 @@ class ControladorModifCtto{
 	}//ctrActCabeceraMod
 
 	static public function ctrlineaMaxObsrv(){
-		$tabla = 'vtade_observacion_x_contrato';
-		$datos = array("ls_localidad" => $_SESSION['localidad'],
-						"ls_tipo_contrato" => $_POST['ls_tipo_contrato'],
-						"ls_tipo_ctt" => $_POST['ls_tipo_ctt'],
-						"ls_tipo_programa" => $_POST['ls_tipo_programa'],
-						"ls_contrato" => $_POST['ls_contrato'],
-						"ls_num_servicio_getrow" => $_POST['ls_num_servicio_getrow']
+		$fecha = date('Y-m-d');
+		$fechaf = date('Y-m-d');
+		$hora = date('H:i:s');
+		$fechaActual = $fecha.' '.$hora;
+		$datos = array(	"fch_actual" => $fechaActual,
+						"usuario" => $_SESSION["user"],
+						"cod_area" => '',
+						"cod_localidad" => $_SESSION['localidad'],
+						"cod_tipo_ctt" => $_POST['cod_tipo_ctt'],
+						"cod_tipo_programa" => $_POST['cod_tipo_programa'],
+						"cod_contrato" => $_POST['cod_contrato'],
+						"num_servicio" => $_POST['num_servicio'],
+						"dsc_observacion" => $_POST['dsc_observacion']
 					);
-		$respuesta = ModeloModifCtto::mdllineaMaxObsrv($tabla,$datos);
+		$respuesta = ModeloModifCtto::mdllineaMaxObsrv($datos);
 		return $respuesta;
 	}//ctrlineaMaxObsrv
 
@@ -440,26 +446,6 @@ class ControladorModifCtto{
 		$respuesta = ModeloModifCtto::mdlGuardaCronograma($tabla,$datos);
 		return $respuesta;
 	}//ctrGuardaCronograma
-
-	static public function ctrGuardaObservacion(){
-		$fecha = date('Y-m-d');
-		$fechaf = date('Y-m-d');
-		$hora = date('H:i:s');
-		$fechaActual = $fecha.' '.$hora;
-		$datos = array(	"fch_actual" => $fechaActual,
-						"usuario" => $_SESSION["user"],
-						"cod_area" => '',
-						"cod_localidad" => $_SESSION['localidad'],
-						"cod_tipo_ctt" => $_POST['cod_tipo_ctt'],
-						"cod_tipo_programa" => $_POST['cod_tipo_programa'],
-						"cod_contrato" => $_POST['cod_contrato'],
-						"num_servicio" => $_POST['num_servicio'],
-						"dsc_observacion" => $_POST['dsc_observacion']
-					);
-		$respuesta = ModeloResCtto::mdllineaMaxObsrv($datos);
-		return $respuesta;
-	}//ctrGuardaObservacion
-
 
 }//class ControladorModifCtto
 ?>
