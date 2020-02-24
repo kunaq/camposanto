@@ -332,11 +332,37 @@ class ModeloModifCtto{
 
 	static public function mdllineaMaxObsrv($tabla,$datos){
 		$db = new Conexion();
+		$sql = $db->consulta("SELECT Max(num_linea) AS num_linea FROM vtade_observacion_x_contrato WHERE vtade_observacion_x_contrato.cod_localidad = '".$datos['cod_localidad']."' AND	vtade_observacion_x_contrato.cod_tipo_ctt = '".$datos['cod_tipo_ctt']."' AND		vtade_observacion_x_contrato.cod_tipo_programa = '".$datos['cod_tipo_programa']."' AND	vtade_observacion_x_contrato.cod_contrato = '".$datos['cod_contrato']."' AND vtade_observacion_x_contrato.num_servicio = '".$datos['num_servicio']."'");
+
+		while($key = $db->recorrer($sql)){
+			if (is_null($key['num_linea'])) {
+				$num_linea = 0;
+			}else{
+				$num_linea = $key['num_linea'];
+			}
+		}
+		$num_linea = $num_linea + 1;
+
+		$sql2 = $db->consulta("INSERT INTO vtade_observacion_x_contrato ( cod_localidad, cod_contrato, num_servicio, num_linea, cod_area, dsc_observacion,cod_usuario, fch_registro, flg_automatico, cod_tipo_ctt, cod_tipo_programa ) 
+			VALUES ( '".$datos['cod_localidad']."', '".$datos['cod_contrato']."', '".$datos['num_servicio']."', '$num_linea', '".$datos['cod_area']."', '".$datos['dsc_observacion']."', '".$datos['usuario']."', '".$datos['fch_actual']."', 'NO','".$datos['cod_tipo_ctt']."', '".$datos['cod_tipo_programa']."' )");
+
+		if ($sql2) {
+			return 1;
+		}else{
+			return 0;
+		}
+
+		$db->liberar($sql);
+        $db->cerrar();
+	}//mdlGuardaObservacion
+		$db = new Conexion();
 		$sql = $db->consulta("SELECT MAX(num_linea) FROM $tabla WHERE cod_localidad = '".$datos['ls_localidad']."' AND cod_tipo_ctt = '".$datos['ls_tipo_ctt']."' AND cod_tipo_programa = '".$datos['ls_tipo_programa']."' AND num_servicio = '".$datos['ls_num_servicio_getrow']."' AND cod_contrato LIKE (RIGHT('0000000000'+'".$codCtto."',10))");
 		$datos = arrayMapUtf8Encode($db->recorrer($sql));
 		return $datos;
 		$db->liberar($sql);
         $db->cerrar();
+
+
 	}//function mdllineaMaxObsrv
 
 	static public function ctrGuardaCronograma($tabla,$datos){

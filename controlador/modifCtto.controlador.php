@@ -441,6 +441,25 @@ class ControladorModifCtto{
 		return $respuesta;
 	}//ctrGuardaCronograma
 
+	static public function ctrGuardaObservacion(){
+		$fecha = date('Y-m-d');
+		$fechaf = date('Y-m-d');
+		$hora = date('H:i:s');
+		$fechaActual = $fecha.' '.$hora;
+		$datos = array(	"fch_actual" => $fechaActual,
+						"usuario" => $_SESSION["user"],
+						"cod_area" => '',
+						"cod_localidad" => $_SESSION['localidad'],
+						"cod_tipo_ctt" => $_POST['cod_tipo_ctt'],
+						"cod_tipo_programa" => $_POST['cod_tipo_programa'],
+						"cod_contrato" => $_POST['cod_contrato'],
+						"num_servicio" => $_POST['num_servicio'],
+						"dsc_motivo_resolucion" => $_POST['dsc_motivo_resolucion']
+					);
+		$respuesta = ModeloResCtto::mdlGuardaObservacion($datos);
+		return $respuesta;
+	}//ctrGuardaObservacion
+
 
 }//class ControladorModifCtto
 ?>

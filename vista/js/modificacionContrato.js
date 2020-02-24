@@ -1955,20 +1955,27 @@ function buscaMaxValor(ls_tipo_ctt,ls_tipo_programa,ls_contrato,li_ref){
     });
  }             
 
- function buscaMaxLineaObsrv(ls_tipo_ctt,ls_tipo_programa,ls_contrato,ls_num_servicio_getrow){
-    $.ajax({
-        url: 'ajax/modifCtto.ajax.php',
-        dataType: 'json',
-        method: "POST",
-        data: { 'accion' : 'lineaMaxObsrv', 'ls_tipo_ctt' : ls_tipo_ctt, 'ls_tipo_programa' : ls_tipo_programa, 'ls_contrato' : ls_contrato, 'ls_num_servicio_getrow' : ls_num_servicio_getrow },
-        success : function(respuesta){
-              if(respuesta == '' || respuesta == null){
-                return 0;
-              }else{
-                return respuesta;
-              }
-        }
-    });
+ function buscaMaxLineaObsrv(ls_tipo_ctt,ls_tipo_programa,ls_contrato,ls_num_servicio_getrow,){
+    var container = document.querySelector('#bodyObservaciones');
+    container.querySelectorAll('tr').forEach(function (li_i) 
+    {            
+        var ls_servicio_add = $(li_i)
+        console.log(li_i);
+     
+        // $.ajax({
+        //     url: 'ajax/modifCtto.ajax.php',
+        //     dataType: 'json',
+        //     method: "POST",
+        //     data: { 'accion' : 'lineaMaxObsrv', 'cod_tipo_ctt' : ls_tipo_ctt, 'cod_tipo_programa' : ls_tipo_programa, 'cod_contrato' : ls_contrato, 'num_servicio' : ls_num_servicio_getrow, 'dsc_motivo_resolucion' : dsc_motivo_resolucion },
+        //     success : function(respuesta){
+        //           if(respuesta == '' || respuesta == null){
+        //             return 0;
+        //           }else{
+        //             return respuesta;
+        //           }
+        //     }
+        // });//ajax
+    });//foreach
  }      
      
 //-------------------------------------------------------------------------------------------//
@@ -2447,7 +2454,7 @@ function modificaContrato(){
         data: { 'accion' : 'actResCronoMod', 'ls_tipo_ctt' : ls_tipo_ctt, 'ls_tipo_programa' : ls_tipo_programa, 'ls_contrato' : ls_contrato, 'li_total_cuotas' : li_total_cuotas, 'ls_interes' : ls_interes, 'lde_tasa' : lde_tasa, 'lde_tot_interes' : lde_tot_interes, 'li_ref' : li_ref},
         success : function(respuesta){
             if(respuesta){
-                guardaBeneficiarios();
+                var benef = guardaBeneficiarios();
                 // -- Cabecera -- //
                 $.ajax({
                     url: 'ajax/modifCtto.ajax.php',
@@ -2456,18 +2463,16 @@ function modificaContrato(){
                     data: { 'accion' : 'actCabeceraMod', 'ls_tipo_ctt' : ls_tipo_ctt, 'ls_tipo_programa' : ls_tipo_programa, 'ls_contrato' : ls_contrato, 'ls_tipo_contrato' : ls_tipo_contrato},
                     success : function(respuesta){
                         if(respuesta){
-                            //guardar observaciones     
-                            // -- Max -- //
-                             
-                            li_linea = buscaMaxLineaObsrv(ls_tipo_ctt,ls_tipo_programa,ls_contrato,ls_num_servicio_getrow);
-                             //ultima linea de observaciones para guardar la siguiente  
-                             //guarda
-                            swal({
-                                title: "",
-                                text: "El contrato se ha modificado con exito.",
-                                type: "success",
-                                confirmButtonText: "Aceptar",
-                            })
+                            //guardar observaciones                                  
+                            var observ = buscaMaxLineaObsrv(ls_tipo_ctt,ls_tipo_programa,ls_contrato,ls_num_servicio_getrow);
+                            if(observ && benef){ 
+                                swal({
+                                    title: "",
+                                    text: "El contrato se ha modificado con exito.",
+                                    type: "success",
+                                    confirmButtonText: "Aceptar",
+                                })
+                            }
                         }
                     }//success
                 });//ajax cabecera
