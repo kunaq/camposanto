@@ -454,7 +454,7 @@ class ControladorModifCtto{
 						"cod_tipo_programa" => $_POST['cod_tipo_programa'],
 						"cod_contrato" => $_POST['cod_contrato'],
 						"num_servicio" => $_POST['num_servicio'],
-						"dsc_motivo_resolucion" => $_POST['dsc_motivo_resolucion']
+						"dsc_observacion" => $_POST['dsc_observacion']
 					);
 		$respuesta = ModeloResCtto::mdlGuardaObservacion($datos);
 		return $respuesta;

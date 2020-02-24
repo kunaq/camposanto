@@ -1961,21 +1961,20 @@ function buscaMaxValor(ls_tipo_ctt,ls_tipo_programa,ls_contrato,li_ref){
     {            
         var numObsv = $(li_i).attr("name");
         var dsc_observacion = $("#obsv_"+numObsv).val();
-        console.log(dsc_observacion);
-     
-        // $.ajax({
-        //     url: 'ajax/modifCtto.ajax.php',
-        //     dataType: 'json',
-        //     method: "POST",
-        //     data: { 'accion' : 'lineaMaxObsrv', 'cod_tipo_ctt' : ls_tipo_ctt, 'cod_tipo_programa' : ls_tipo_programa, 'cod_contrato' : ls_contrato, 'num_servicio' : ls_num_servicio_getrow, 'dsc_motivo_resolucion' : dsc_motivo_resolucion },
-        //     success : function(respuesta){
-        //           if(respuesta == '' || respuesta == null){
-        //             return 0;
-        //           }else{
-        //             return respuesta;
-        //           }
-        //     }
-        // });//ajax
+        // console.log(dsc_observacion);
+        $.ajax({
+            url: 'ajax/modifCtto.ajax.php',
+            dataType: 'json',
+            method: "POST",
+            data: { 'accion' : 'lineaMaxObsrv', 'cod_tipo_ctt' : ls_tipo_ctt, 'cod_tipo_programa' : ls_tipo_programa, 'cod_contrato' : ls_contrato, 'num_servicio' : ls_num_servicio_getrow, 'dsc_observacion' : dsc_observacion },
+            success : function(respuesta){
+                  if(respuesta == '' || respuesta == null){
+                    return 0;
+                  }else{
+                    return respuesta;
+                  }
+            }
+        });//ajax
     });//foreach
  }      
      
