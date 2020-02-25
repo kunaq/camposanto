@@ -51,12 +51,12 @@ $(".btnIngresar2").click(function(){
   else{
    $.ajax({
         dataType:"json",
-        url: 'extensiones/captcha/login.php',
+        url: 'ajax/usuario.ajax.php',
         method: "POST",
         data: $("#formIngresarSistema").serialize(),
         success : function(respuesta){
           console.log(respuesta);
-           if(respuesta=='true'){
+           if(respuesta == 'ok'){
                 swal({
                     type: "success",
                     title: "Bienvenido",

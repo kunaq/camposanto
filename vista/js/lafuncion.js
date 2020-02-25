@@ -2429,6 +2429,215 @@ function calcular() {
 }
 
 //----------------------------------------------------------------------------------------------//
+//----------------------------------NUEVO CRONOGRAMA--------------------------------------------//
+//----------------------------------------------------------------------------------------------//
+
+function nuevoCronograma(){
+  var flg_integral = document.getElementById('flagIntegral').value;
+  
+  if (flg_integral == "SI") {
+    var saldo_detalle = pasaAnumero(document.getElementById('saldoFinCronograma').value);
+    var cuotas = pasaAnumero(document.getElementById('numCuoCronograma').value);
+    var ldt_fch_ven = $('#fchVenCronograma').datepicker("getDate");
+    var interes = pasaAnumero(document.getElementById('interesCronograma').value);
+    // var bodySrvPrincipal = document.getElementById('bodyServiciosPpales');
+    // var oCells = bodySrvPrincipal.rows.item(0).cells;
+    // var servicio = oCells.item(1).innerHTML.trim();
+
+    // calculo interes
+    if (interes == "0" || interes == null) {
+        var lde_valor = 0;
+    }else{
+        var lde_valor = Math.pow((1 + (interes/100)),(1/12)) - 1;
+    }
+    
+    var servicio = 'DU000020';
+    var igv = 0;
+    var lde_cuota = 0;
+    var lde_total = 0;
+    var lde_total_saldo = 0;
+
+    if (saldo_detalle > 0) {
+        $.ajax({
+            type: 'POST',
+            url:"ajax/modifCtto.ajax.php",
+            dataType: 'text',
+            data: {'accion' : 'verificaAfectoIgv', 'cod_servicio' : servicio},
+            success: function(respuesta){
+                console.log(respuesta);
+                var info = JSON.parse(respuesta);
+                if (info.flg_afecto_igv == 'SI') {
+                    igv = 0.18;
+                }
+                lde_total = saldo_detalle;
+                lde_total_saldo = ((saldo_detalle/(1 + igv)).toFixed(2));
+
+                if (lde_valor == 0) {
+                    lde_cuota = saldo_detalle/cuotas;
+                }else{
+                    lde_cuota = saldo_detalle * ((lde_valor * Math.pow((1 + lde_valor),cuotas)) / (Math.pow((1 + lde_valor),cuotas)-1));
+                }
+
+                for (var i = 0; i < cuotas - 1; i++) {
+                    // Calculo
+                    lde_interes = lde_total_saldo * lde_valor;
+                    // Datos
+                    lde_capital_cuota = lde_cuota / (1 + igv);
+                    lde_igv_cuota = lde_cuota - lde_capital_cuota;
+                    lde_amortizacion = (lde_cuota - lde_igv_cuota) - lde_interes;
+
+                    aux_dia = ldt_fch_ven.getDate();
+                    aux_mes1 = ldt_fch_ven.setMonth(ldt_fch_ven.getMonth() + 1);
+                    var aux_mes = ldt_fch_ven.getMonth();
+                    aux_anio = ldt_fch_ven.getFullYear();
+                    if(aux_mes == '0'){
+                      aux_mes = '12';
+                      aux_anio = ldt_fch_ven.getFullYear()-1;
+                    }               
+                    lda_vencimiento = aux_dia+'/'+aux_mes+'/'+aux_anio;
+
+                    // Saldos
+
+                    lde_total_saldo = lde_total - lde_amortizacion;
+
+                    fila = '<tr><input type="hidden" class="det_cuotas" value="'+(i+1)+'"><td style="width:7.2rem;text-align:center;">'+(i+1)+'</td><td style="width:9rem;text-align:center;">REG</td><td style="width:6rem;text-align:center;" class="ARM">ARM</td><td style="width:9.3rem;text-align:center;">'+lda_vencimiento+'</td><td style="width:6rem;text-align:right;" class ="sumcapital cuotaA">'+lde_amortizacion.toFixed(2)+'</td><td style="width:6rem;text-align:right;" class="cuotaB">'+lde_interes.toFixed(2)+'</td><td style="width:6rem;text-align:right;" >'+lde_igv_cuota.toFixed(2)+'</td><td style="width:6rem;text-align:right;" class = "sumtotal" >'+lde_cuota.toFixed(2)+'</td><td style="width:5.2rem;text-align:right;">'+lde_cuota.toFixed(2)+'</td></tr>';
+                    document.getElementById("bodyCronogramaModif").insertAdjacentHTML("beforeEnd" ,fila);
+
+                    // if (ctd_servicio <= 1) {}
+
+                }
+
+                var lde_sumcapital = 0;
+                var lde_sumtotal = 0;
+
+                for (var i = 0; i < cuotas - 1; i++) {
+                    var bodySrvPrincipal = document.getElementById('bodyCronogramaModif');
+                    var oCells = bodySrvPrincipal.rows.item(i).cells;
+                    var cod_tipo_cuota = oCells.item(2).innerHTML.trim();
+                    var imp_principal_2 = pasaAnumero(oCells.item(7).innerHTML.trim());
+                    var imp_total_2 = pasaAnumero(oCells.item(8).innerHTML.trim());
+
+                    if (cod_tipo_cuota != "CUI") {
+                        lde_sumcapital = lde_sumcapital + imp_principal_2;
+                        lde_sumtotal = lde_sumtotal + imp_total_2;
+                    }
+                }
+                // Sin IGV
+                var lde_saldo_2 = (saldo_detalle / (1 + igv)).toFixed(2);
+
+                // Interes
+                lde_interes = (lde_saldo_2 - lde_sumcapital) * lde_valor;
+
+                if (lde_interes <= 0) {
+                    lde_amortizacion = (lde_total.toFixed(2) - lde_sumtotal) - (1 + igv);
+                }else{
+                    lde_amortizacion = lde_saldo_2 - lde_sumcapital;
+                }
+
+                aux_dia = ldt_fch_ven.getDate();
+                aux_mes1 = ldt_fch_ven.setMonth(ldt_fch_ven.getMonth() + 1);
+                var aux_mes = ldt_fch_ven.getMonth();
+                aux_anio = ldt_fch_ven.getFullYear();
+                if(aux_mes == '0'){
+                    aux_mes = '12';
+                    aux_anio = ldt_fch_ven.getFullYear()-1;
+                }               
+                lda_vencimiento = aux_dia+'/'+aux_mes+'/'+aux_anio;
+
+                // Datos
+                lde_igv_cuota = (lde_amortizacion + lde_interes) * igv;
+                lde_cuota = (lde_amortizacion + lde_interes) + lde_igv_cuota;
+
+                // Regenera
+                lde_capital_cuota = lde_cuota / (1 + igv);
+                lde_igv_cuota = lde_cuota - lde_capital_cuota;
+                aux_dia = ldt_fch_ven.getDate();
+                aux_mes1 = ldt_fch_ven.setMonth(ldt_fch_ven.getMonth() + 1);
+                var aux_mes = ldt_fch_ven.getMonth();
+                aux_anio = ldt_fch_ven.getFullYear();
+                if(aux_mes == '0'){
+                    aux_mes = '12';
+                    aux_anio = ldt_fch_ven.getFullYear()-1;
+                }               
+                lda_vencimiento = aux_dia+'/'+aux_mes+'/'+aux_anio;
+
+                if (lde_valor > 0) {
+                    lde_interes = lde_capital_cuota - lde_amortizacion;
+                }else{
+                    lde_amortizacion = lde_capital_cuota;
+                }
+
+                // Inserta
+                fila = '<tr><input type="hidden" class="det_cuotas" value="'+(cuotas)+'"><td style="width:7.2rem;text-align:center;">'+(cuotas)+'</td><td style="width:9rem;text-align:center;">REG</td><td style="width:6rem;text-align:center;" class="ARM">ARM</td><td style="width:9.3rem;text-align:center;">'+lda_vencimiento+'</td><td style="width:6rem;text-align:right;" class ="sumcapital cuotaA">'+lde_amortizacion.toFixed(2)+'</td><td style="width:6rem;text-align:right;" class="cuotaB">'+lde_interes.toFixed(2)+'</td><td style="width:6rem;text-align:right;" >'+lde_igv_cuota.toFixed(2)+'</td><td style="width:6rem;text-align:right;" class = "sumtotal" >'+lde_cuota.toFixed(2)+'</td><td style="width:5.2rem;text-align:right;">'+lde_cuota.toFixed(2)+'</td></tr>';
+                document.getElementById("bodyCronogramaModif").insertAdjacentHTML("beforeEnd" ,fila);
+            }
+        });
+    }
+  }else{
+
+    // No integrales
+
+    var saldo_detalle = pasaAnumero(document.getElementById('saldoFinCronograma').value);
+    var li_cuotas = pasaAnumero(document.getElementById('numCuoCronograma').value);
+    var interes = pasaAnumero(document.getElementById('interesCronograma').value);
+    var ldt_fch_ven = $('#fchVenCronograma').datepicker("getDate");
+    // var bodySrvPrincipal = document.getElementById('bodyServiciosPpales');
+    // var oCells = bodySrvPrincipal.rows.item(0).cells;
+    // var servicio = oCells.item(1).innerHTML.trim();
+
+    // calculo interes
+    if (interes == "0" || interes == null) {
+        var lde_valor = 0;
+    }else{
+        var lde_valor = Math.pow((1 + (interes / 100)),(1/12)) - 1;
+    }
+
+    // Total en caso de no haber interes
+    var lde_saldo = saldo_detalle;
+
+    if (lde_porc_total > 0) {
+        lde_total_saldo = (lde_saldo * lde_porc_total / (1 + lde_valor_igv_det)).toFixed(2) + (1 - lde_porc_total).toFixed(4);
+    }else{
+        lde_total_saldo = (lde_saldo / (1 + lde_valor_igv)).toFixed(2);
+    }
+
+    //calclulo de la cuota
+    if (lde_valor <= 0) {
+        lde_cuota = lde_saldo / li_cuotas;
+    }else{
+        lde_cuota = lde_saldo * ((lde_valor * (1 + lde_valor) ** li_cuotas) / ((1 + lde_valor) ** li_cuotas -1));
+    }
+
+    for (var i = 0; i < cuotas - 1; i++) {
+
+        // Calculo
+        lde_interes = lde_total * lde_valor;
+
+        // Datos
+        if (lde_porc_total > 0) {
+            lde_capital_cuota = (lde_cuota * (1 - lde_porc_total)).toFixed(4);
+            lde_capital_cuota = (lde_capital_cuota / (1 + lde_valor_igv_det)).toFixed(4);
+
+            lde_capital_cuota_2 = (lde_cuota * (1 - lde_porc_total)).toFixed(4);
+            lde_capital_cuota = lde_capital_cuota + lde_capital_cuota_2;
+        }else{
+            lde_capital_cuota = lde_cuota / (1 + lde_valor_igv);
+        }
+
+        lde_igv_cuota = lde_cuota - lde_capital_cuota;
+        lde_amortizacion = (lde_cuota - lde_igv_cuota) - lde_interes;
+
+        // Saldos
+        lde_total_saldo = lde_total_saldo - lde_amortizacion;
+
+        // Seteo
+        fila = '<tr><input type="hidden" class="det_cuotas" value="'+(i+1)+'"><td style="width:7.2rem;text-align:center;">'+(i+1)+'</td><td style="width:9rem;text-align:center;">REG</td><td style="width:6rem;text-align:center;" class="ARM">ARM</td><td style="width:9.3rem;text-align:center;">'+lda_vencimiento+'</td><td style="width:6rem;text-align:right;" class ="sumcapital cuotaA">'+lde_amortizacion.toFixed(2)+'</td><td style="width:6rem;text-align:right;" class="cuotaB">'+lde_interes.toFixed(2)+'</td><td style="width:6rem;text-align:right;" >'+lde_igv_cuota.toFixed(2)+'</td><td style="width:6rem;text-align:right;" class = "sumtotal" >'+lde_cuota.toFixed(2)+'</td><td style="width:5.2rem;text-align:right;">'+lde_cuota.toFixed(2)+'</td></tr>';
+            document.getElementById("bodyCronogramaModif").insertAdjacentHTML("beforeEnd" ,fila);
+    }
+  }
+}
+
+//----------------------------------------------------------------------------------------------//
 //-----------------------------FUNCIÓN GRABAR TABLA TEMPORAL-----------------------------------------//
 //----------------------------------------------------------------------------------------------//
 

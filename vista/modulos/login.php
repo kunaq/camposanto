@@ -20,7 +20,7 @@
 									<?php
 									$empresa = ControladorControlEmpresa::ctrMostrarControlEmpresa();
 									foreach ($empresa as $key => $value) {
-										echo '<option value="'.$value["cod_empresa"].'||'.$value["dsc_database"].'">'.$value["dsc_empresa"].'</option>';
+										echo '<option value="'.$value["cod_ctr_empresa"].'||'.$value["nom_tabla"].'">'.$value["dsc_razon_social"].'</option>';
 									}
 									?>
 								</select>

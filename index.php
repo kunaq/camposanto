@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+require_once "core.php";
 require_once "extensiones/captcha/simple-php-captcha.php";
 require_once "funciones.php";
 require_once "controlador/plantilla.controlador.php";

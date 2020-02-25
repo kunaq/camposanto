@@ -1,4 +1,5 @@
 <?php
+require_once "../../core.php";
 require_once "../../modelo/conexion.php";
 
 $filaDetalle = $_GET[''];//cantidad de filas de servicions adicionales

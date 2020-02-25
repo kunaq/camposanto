@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 class ControladorSegContrato{
 
 	static public function ctrGetDatosCtt(){

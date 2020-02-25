@@ -1,4 +1,5 @@
 <?php
+require_once "../../core.php";
 require_once "../../modelo/conexion.php";
    $cod = $_GET['cod_dscto'];
    $nombre = $_GET['nombre'];

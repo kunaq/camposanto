@@ -1,4 +1,5 @@
 <?php
+require_once "../../core.php";
 require_once "../../modelo/conexion.php";
    //var_dump($cod);
     $db = new Conexion();                                             

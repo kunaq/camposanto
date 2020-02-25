@@ -1,4 +1,5 @@
 <?php
+require_once "../../core.php";
 require_once "../../modelo/conexion.php";
 
    $fechaRes = date($_GET['fechaRes']);

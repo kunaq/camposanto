@@ -1,4 +1,5 @@
 <?php
+require_once "../../core.php";
 require_once "../../modelo/conexion.php";
   $fecha = date("Y-m-d");//var_dump($fecha);
 
