@@ -15,7 +15,7 @@ class ControladorUsuario{
 			$respuesta2 = ControladorLocalidad::ctrMostrarLocalidad($entradaLcd);
 			$entradaEmp = 'sessionEmpr';
 			$respuesta3 = ControladorEmpresa::ctrMostrarEmpresa($entradaEmp);
-			if(count($respuesta) > 0){
+			if($respuesta != null){
 				if($respuesta["cod_usuario"] == $_POST["user"] && $respuesta["dsc_clave"] == $password){
 					//if($respuesta["flg_activo"] == 'SI'){
 						$_SESSION["user"] = $respuesta["cod_usuario"];
@@ -27,15 +27,15 @@ class ControladorUsuario{
 						$_SESSION["codEmpresa"] = $respuesta3["cod_empresa"];
 						$_SESSION["dsc_empresa"] = $respuesta3["dsc_empresa"];
 						$_SESSION["dsc_ruc"] = $respuesta3["dsc_ruc"];
-						return 'ok';
+						return 1;
 					/*}else{
 						return 'inactivo';
 					}*/
 				}else{
-					return 'error';
+					return 0;
 				}
 			}else{
-				return 'error';
+				return 0;
 			}
 		}//if
 	}//function ctrIngresoUsuario

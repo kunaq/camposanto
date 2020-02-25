@@ -13,7 +13,7 @@ class AjaxUsuario{
 	=============================================*/
 	public function ajaxIngresoUsuario(){
 		$respuesta = ControladorUsuario::ctrIngresoUsuario();
-		echo $respuesta;
+		echo json_encode($respuesta);
 	}//function ajaxIngresoUsuario
 
 	/*=============================================

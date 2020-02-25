@@ -6,9 +6,9 @@ class ModeloUsuario{
 	=============================================*/
 	static public function mdlMostrarUsuario($usuario,$pass){
 		$db = new Conexion();
-		$sql = $db->consulta("SELECT * FROM scfma_usuario where cod_usuario = '$usuario' AND dsc_clave = '$pass' AND flg_activo = 'SI'");
+		$sql = $db->consulta("SELECT cod_usuario, dsc_usuario, dsc_clave, flg_administrador, cod_trabajador FROM scfma_usuario where cod_usuario = '$usuario' AND dsc_clave = '$pass' AND flg_activo = 'SI'");
 
-		$datos = $db->recorrer($sql);		
+		$datos = arrayMapUtf8Encode($db->recorrer($sql));		
 		$db->liberar($sql);
         $db->cerrar();
 

@@ -55,8 +55,7 @@ $(".btnIngresar2").click(function(){
         method: "POST",
         data: $("#formIngresarSistema").serialize(),
         success : function(respuesta){
-          console.log(respuesta);
-           if(respuesta == 'ok'){
+           if(respuesta == 1){
                 swal({
                     type: "success",
                     title: "Bienvenido",
@@ -66,8 +65,7 @@ $(".btnIngresar2").click(function(){
                 window.setTimeout(4000);
                 window.location = "inicio";
                 iniciaSesion(usuario);
-            }
-            else{                
+            }else{                
                 swal({
                     title: "Error",
                     text: "Usuario o contraseña invalidos.",
