@@ -24,9 +24,9 @@ class Conexion{
       return mssql_num_rows($query);
   }
   public function liberar($query){
-    return mssql_free_result($query);
+     return mssql_free_result($query);;
   }
-  public function cerrar(){
+   public function cerrar(){
     return mssql_close($this->link);
   }
   public function inicioTransaccion(){
@@ -40,5 +40,9 @@ class Conexion{
   }
   public function rollback(){
     return true;
+  }
+  public function validar($stmt){
+
+    return mssql_rows_affected($stmt);
   }
 }//class Conexion
