@@ -6,7 +6,7 @@ class ModeloControlEmpresa{
 	=============================================*/
 	static public function mdlMostrarControlEmpresa($bd,$tabla){
 		$db = new Conexion($bd);
-		$sql = $db->consulta("SELECT cod_ctr_empresa, dsc_razon_social ,nom_tabla FROM $tabla WHERE flg_activo = 'SI'");
+		$sql = $db->consulta("SELECT cod_ctr_empresa, dsc_razon_social ,nom_tabla FROM $tabla WHERE flg_beta = 'SI'");
 		$datos = array();
 	    while($key = $db->recorrer($sql)){
 	    	$datos[] = arrayMapUtf8Encode($key);
