@@ -895,35 +895,37 @@ function cargaFoma(codCtto,numRefi){
         method: "POST",
         data: { 'accion' : 'FOMA', 'codCtto' : codCtto, 'num_refinanciamiento' : numRefi },
         success : function(respuesta){
-        	//console.log('respuesta',respuesta);
-        	$("#bodyCronogramaFomaModif").empty();
-        	var numCuo = 0;
-        	var totalTotal = 0;
-        	var totalSaldo = 0;
-        	$.each(respuesta,function(index,value){
-        		numCuo++;
-        		totalTotal = totalTotal + parseFloat(value['imp_total']);
-        		totalSaldo = totalSaldo + parseFloat(value['imp_saldo']);
-        		if(value['cod_estadocuota'] == 'REG'){
-        			edoCuota = 'REGISTRADO';
-        		}else if (value['cod_estadocuota'] == 'CAN'){
-        			edoCuota = 'CANCELADO';
-        		}
-        		var filaFoma = '<tr>'+
-									'<th scope="row">'+value['num_cuota']+'</th>'+
-									'<td>'+edoCuota+'</td>'+
-                                    '<td>FMA</td>'+
-									'<td>'+value['fch_vencimiento']+'</td>'+
-									'<td style="text-align: right;">'+Number(value['imp_total']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
-									'<td style="text-align: right;">'+Number(value['imp_saldo']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
-								'</tr>';
-				document.getElementById("bodyCronogramaFomaModif").insertAdjacentHTML("beforeEnd" ,filaFoma);
-				document.getElementById("totalTotalFomaModif").innerText = Number(totalTotal).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
-				document.getElementById("totalSaldoFomaModif").innerText = Number(totalSaldo).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
-        	});//each
-        	$("#saldoFOMA").val(totalTotal);
-        	$("#fchVenCronoFOMA").val(respuesta[0]['fch_vencimiento']);
-        	$("#nCuotasFOMA").val(numCuo);
+            if(respuesta != ''){
+            	//console.log('respuesta',respuesta);
+            	$("#bodyCronogramaFomaModif").empty();
+            	var numCuo = 0;
+            	var totalTotal = 0;
+            	var totalSaldo = 0;
+            	$.each(respuesta,function(index,value){
+            		numCuo++;
+            		totalTotal = totalTotal + parseFloat(value['imp_total']);
+            		totalSaldo = totalSaldo + parseFloat(value['imp_saldo']);
+            		if(value['cod_estadocuota'] == 'REG'){
+            			edoCuota = 'REGISTRADO';
+            		}else if (value['cod_estadocuota'] == 'CAN'){
+            			edoCuota = 'CANCELADO';
+            		}
+            		var filaFoma = '<tr>'+
+    									'<th scope="row">'+value['num_cuota']+'</th>'+
+    									'<td>'+edoCuota+'</td>'+
+                                        '<td>FMA</td>'+
+    									'<td>'+value['fch_vencimiento']+'</td>'+
+    									'<td style="text-align: right;">'+Number(value['imp_total']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+    									'<td style="text-align: right;">'+Number(value['imp_saldo']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+    								'</tr>';
+    				document.getElementById("bodyCronogramaFomaModif").insertAdjacentHTML("beforeEnd" ,filaFoma);
+    				document.getElementById("totalTotalFomaModif").innerText = Number(totalTotal).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
+    				document.getElementById("totalSaldoFomaModif").innerText = Number(totalSaldo).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
+            	});//each
+            	$("#saldoFOMA").val(totalTotal);
+            	$("#fchVenCronoFOMA").val(respuesta[0]['fch_vencimiento']);
+            	$("#nCuotasFOMA").val(numCuo);
+            }
         }//success
     });//ajax
 }
