@@ -189,7 +189,7 @@ function cronogramaModifi(){
         return;
     }
 
-    if (ldt_fch_ven = '' || ldt_fch_ven == null) = False {
+    if (ldt_fch_ven = '' || ldt_fch_ven == null){
         swal({
             title: "",
             text: "Debe ingresar la fecha del primer vencimiento.",
