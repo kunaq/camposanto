@@ -172,6 +172,22 @@ class AjaxModifCtto{
 		$respuesta = ControladorModifCtto::ctrGuardaCronograma();
 		echo json_encode($respuesta);
 	}//ajaxGuardaCronograma
+	public function ajaxTotalFinanciar(){
+		$respuesta = ControladorModifCtto::ctrTotalFinanciar();
+		echo json_encode($respuesta);
+	}//ajaxTotalFinanciar
+	public function ajaxTotalPagado(){
+		$respuesta = ControladorModifCtto::ctrTotalPagado();
+		echo json_encode($respuesta);
+	}//ajaxTotalPagado
+	public function ajaxCrServicio(){
+		$respuesta = ControladorModifCtto::ctrCrServicio();
+		echo json_encode($respuesta);
+	}//ajaxCrServicio
+	public function ajaxPagoXservicio(){
+		$respuesta = ControladorModifCtto::ctrPagoXservicio();
+		echo json_encode($respuesta);
+	}//ajaxPagoXservicio
 }//class AjaxModifCtto
 /*=============================================
 ACCIONES
@@ -307,4 +323,20 @@ else if(isset($_POST["accion"]) && $_POST["accion"] == 'lineaMaxObsrv'){
 else if(isset($_POST["accion"]) && $_POST["accion"] == 'guardaCronograma'){
 	$cliente = new AjaxModifCtto();
 	$cliente -> ajaxGuardaCronograma();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'totalFinanciar'){
+	$cliente = new AjaxModifCtto();
+	$cliente -> ajaxTotalFinanciar();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'totalPagado'){
+	$cliente = new AjaxModifCtto();
+	$cliente -> ajaxTotalPagado();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'cr_servicio'){
+	$cliente = new AjaxModifCtto();
+	$cliente -> ajaxCrServicio();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'pagoXservicio'){
+	$cliente = new AjaxModifCtto();
+	$cliente -> ajaxPagoXservicio();
 }

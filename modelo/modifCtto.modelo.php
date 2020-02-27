@@ -5,7 +5,7 @@ class ModeloModifCtto{
 
 	static public function mdlBuscaCttos($tabla,$tabla2,$tabla3,$tabla4,$tabla5,$tabla6,$tabla7,$tabla8,$tablaViServ,$codCtto){
 		$db = new Conexion();
-		$sql = $db->consulta("SELECT $tabla.*, $tabla2.dsc_cliente, $tabla3.*, $tabla4.dsc_camposanto, $tabla5.dsc_area, $tabla6.dsc_plataforma, $tabla7.dsc_tipo_espacio, $tabla8.dsc_tipo_servicio, $tabla3.cod_camposanto_actual, $tabla3.cod_plataforma_actual, $tabla3.cod_areaplataforma_actual, $tabla3.cod_tipoespacio_actual, $tablaViServ.flg_principal FROM $tabla INNER JOIN $tabla2 ON $tabla.cod_cliente = $tabla2.cod_cliente INNER JOIN $tabla3 ON $tabla.cod_contrato = $tabla3.cod_contrato LEFT JOIN $tabla4 ON $tabla4.cod_camposanto = $tabla.cod_empresa INNER JOIN $tabla5 ON $tabla5.cod_area_plataforma = $tabla3.cod_areaplataforma_actual INNER JOIN  $tabla6 ON $tabla6.cod_plataforma = $tabla3.cod_plataforma_actual INNER JOIN $tabla7 ON $tabla7.cod_tipo_espacio = $tabla3.cod_tipoespacio_actual INNER JOIN $tabla8 ON $tabla8.cod_tipo_servicio = $tabla.cod_tipo_servicio LEFT JOIN $tablaViServ ON ($tablaViServ.cod_contrato = $tabla.cod_contrato AND $tablaViServ.num_servicio = $tabla.num_servicio AND $tablaViServ.cod_localidad = $tabla.cod_localidad) WHERE $tabla.cod_contrato LIKE (RIGHT('0000000000'+'$codCtto',10)) AND $tabla.flg_fondo_mantenimiento = 'NO'");
+		$sql = $db->consulta("SELECT $tabla.*, $tabla2.dsc_cliente, $tabla3.*, $tabla4.dsc_camposanto, $tabla5.dsc_area, $tabla6.dsc_plataforma, $tabla7.dsc_tipo_espacio, $tabla8.dsc_tipo_servicio, $tabla8.flg_afecto_igv, $tabla8.flg_prevencion, $tabla3.cod_camposanto_actual, $tabla3.cod_plataforma_actual, $tabla3.cod_areaplataforma_actual, $tabla3.cod_tipoespacio_actual, $tablaViServ.flg_principal FROM $tabla INNER JOIN $tabla2 ON $tabla.cod_cliente = $tabla2.cod_cliente INNER JOIN $tabla3 ON $tabla.cod_contrato = $tabla3.cod_contrato LEFT JOIN $tabla4 ON $tabla4.cod_camposanto = $tabla.cod_empresa INNER JOIN $tabla5 ON $tabla5.cod_area_plataforma = $tabla3.cod_areaplataforma_actual INNER JOIN  $tabla6 ON $tabla6.cod_plataforma = $tabla3.cod_plataforma_actual INNER JOIN $tabla7 ON $tabla7.cod_tipo_espacio = $tabla3.cod_tipoespacio_actual INNER JOIN $tabla8 ON $tabla8.cod_tipo_servicio = $tabla.cod_tipo_servicio LEFT JOIN $tablaViServ ON ($tablaViServ.cod_contrato = $tabla.cod_contrato AND $tablaViServ.num_servicio = $tabla.num_servicio AND $tablaViServ.cod_localidad = $tabla.cod_localidad) WHERE $tabla.cod_contrato LIKE (RIGHT('0000000000'+'$codCtto',10)) AND $tabla.flg_fondo_mantenimiento = 'NO'");
 		$datos = array();
     	while($key = $db->recorrer($sql)){
 	    		$datos[] = arrayMapUtf8Encode($key);
@@ -17,7 +17,7 @@ class ModeloModifCtto{
 
 	static public function mdlBuscaDatosServicio($tablaCtto,$tablaEnt,$tablaTipoSvcio,$tablaViServ,$codCtto,$num_servicio){
 		$db = new Conexion();
-		$sql = $db->consulta("SELECT $tablaCtto.*, $tablaEnt.dsc_entidad, $tablaTipoSvcio.dsc_tipo_servicio, $tablaTipoSvcio.cod_tipo_servicio, $tablaViServ.flg_principal FROM $tablaCtto LEFT JOIN $tablaEnt ON $tablaEnt.cod_entidad = $tablaCtto.cod_convenio INNER JOIN $tablaTipoSvcio ON $tablaTipoSvcio.cod_tipo_servicio = $tablaCtto.cod_tipo_servicio LEFT JOIN $tablaViServ ON ($tablaViServ.cod_contrato = $tablaCtto.cod_contrato AND $tablaViServ.num_servicio = $tablaCtto.num_servicio) WHERE $tablaCtto.cod_contrato LIKE (RIGHT('0000000000'+'$codCtto',10)) AND $tablaCtto.num_servicio = $num_servicio");
+		$sql = $db->consulta("SELECT $tablaCtto.*, $tablaEnt.dsc_entidad, $tablaTipoSvcio.dsc_tipo_servicio, $tablaTipoSvcio.cod_tipo_servicio,$tablaTipoSvcio.flg_prevencion, $tablaViServ.flg_principal FROM $tablaCtto LEFT JOIN $tablaEnt ON $tablaEnt.cod_entidad = $tablaCtto.cod_convenio INNER JOIN $tablaTipoSvcio ON $tablaTipoSvcio.cod_tipo_servicio = $tablaCtto.cod_tipo_servicio LEFT JOIN $tablaViServ ON ($tablaViServ.cod_contrato = $tablaCtto.cod_contrato AND $tablaViServ.num_servicio = $tablaCtto.num_servicio) WHERE $tablaCtto.cod_contrato LIKE (RIGHT('0000000000'+'$codCtto',10)) AND $tablaCtto.num_servicio = $num_servicio");
 		$datos = arrayMapUtf8Encode($db->recorrer($sql));
 		return $datos;
 		$db->liberar($sql);
@@ -358,12 +358,51 @@ class ModeloModifCtto{
 
 	static public function ctrGuardaCronograma($tabla,$datos){
 		$db = new Conexion();
-		$sql = $db->consulta("DELETE FROM  AND cod_contrato LIKE (RIGHT('0000000000'+'".$codCtto."',10))");
+		$sql = $db->consulta("DELETE FROM  AND cod_contrato c");
 		$datos = arrayMapUtf8Encode($db->recorrer($sql));
 		return $datos;
 		$db->liberar($sql);
         $db->cerrar();
 	}//function ctrGuardaCronograma
+
+	static public function mdlTotalFinanciar($datos){
+		$db = new Conexion();
+		$sql = $db->consulta("SELECT  SUM(vtade_contrato_servicio.imp_total - vtade_contrato_servicio.imp_cuoi) AS lde_saldo_total FROM vtade_contrato INNER JOIN vtavi_cronograma_x_servicio ON vtavi_cronograma_x_servicio.cod_localidad = vtade_contrato.cod_localidad AND vtavi_cronograma_x_servicio.cod_tipo_ctt = vtade_contrato.cod_tipo_ctt AND vtavi_cronograma_x_servicio.cod_tipo_programa = vtade_contrato.cod_tipo_programa AND vtavi_cronograma_x_servicio.cod_contrato = vtade_contrato.cod_contrato AND vtavi_cronograma_x_servicio.num_servicio = vtade_contrato.num_servicio INNER JOIN vtade_contrato_servicio ON vtade_contrato_servicio.cod_localidad = vtade_contrato.cod_localidad AND vtade_contrato_servicio.cod_tipo_ctt = vtade_contrato.cod_tipo_ctt AND vtade_contrato_servicio.cod_tipo_programa = vtade_contrato.cod_tipo_programa AND vtade_contrato_servicio.cod_contrato = vtade_contrato.cod_contrato AND vtade_contrato_servicio.num_servicio = vtade_contrato.num_servicio INNER JOIN vtama_tipo_servicio ON vtama_tipo_servicio.cod_tipo_servicio = vtade_contrato.cod_tipo_servicio WHERE vtavi_cronograma_x_servicio.cod_localidad = '".$datos['ls_localidad_det']."'' AND vtavi_cronograma_x_servicio.cod_tipo_ctt = '".$datos['ls_tipo_ctt_det']."'' AND vtavi_cronograma_x_servicio.cod_tipo_programa = '".$datos['ls_tipo_programa_det']."'' AND vtavi_cronograma_x_servicio.cod_contrato LIKE (RIGHT('0000000000'+'".$datso['ls_contrato_det']."',10)) AND vtavi_cronograma_x_servicio.num_refinanciamiento = ".$datos['li_ref']." AND vtavi_cronograma_x_servicio.flg_activo = 'SI' AND vtade_contrato_servicio.flg_servicio_principal = 'SI' AND vtade_contrato_servicio.flg_contado = 'NO' AND vtade_contrato.flg_resuelto = 'NO' AND vtade_contrato.flg_anulado = 'NO'");
+		$datos = arrayMapUtf8Encode($db->recorrer($sql));
+		return $datos;
+		$db->liberar($sql);
+        $db->cerrar();
+	}//function mdlTotalFinanciar
+
+	static public function mdlTotalPagado($datos){
+		$db = new Conexion();
+		$sql = $db->consulta("SELECT  SUM(vtaca_comprobante.imp_total - ISNULL(vtaca_comprobante.imp_saldo, 0)) AS lde_total_pagado FROM vtaca_comprobante WHERE EXISTS(SELECT  1 FROM  vtavi_cuotas_x_comprobante, vtavi_cronograma_x_servicio WHERE vtavi_cuotas_x_comprobante.cod_localidad_ctt = vtavi_cronograma_x_servicio.cod_localidad AND vtavi_cuotas_x_comprobante.cod_tipo_ctt = vtavi_cronograma_x_servicio.cod_tipo_ctt AND vtavi_cuotas_x_comprobante.cod_tipo_programa = vtavi_cronograma_x_servicio.cod_tipo_programa AND  vtavi_cuotas_x_comprobante.cod_contrato = vtavi_cronograma_x_servicio.cod_contrato AND  vtavi_cuotas_x_comprobante.num_refinanciamiento = vtavi_cronograma_x_servicio.num_refinanciamiento AND vtavi_cuotas_x_comprobante.cod_localidad = vtaca_comprobante.cod_localidad AND vtavi_cuotas_x_comprobante.num_correlativo = vtaca_comprobante.num_correlativo AND vtavi_cuotas_x_comprobante.num_cuota > 0 AND vtavi_cronograma_x_servicio.cod_localidad = '".$datos['ls_localidad_det']."' AND vtavi_cronograma_x_servicio.cod_tipo_ctt = '".$datos['ls_tipo_ctt_det']."' AND vtavi_cronograma_x_servicio.cod_tipo_programa = '".$datos['ls_tipo_programa_det']."' AND vtavi_cronograma_x_servicio.cod_contrato LIKE (RIGHT('0000000000'+'".$datso['ls_contrato_det']."',10)) AND vtavi_cronograma_x_servicio.num_servicio = ".$datos['ls_num_servicio_det']);
+		$datos = arrayMapUtf8Encode($db->recorrer($sql));
+		return $datos;
+		$db->liberar($sql);
+        $db->cerrar();
+	}//function mdlTotalPagado
+
+	static public function mdlCrServicio($datos){
+		$db = new Conexion();
+		$sql = $db->consulta("SELECT  (vtade_contrato_servicio.imp_total - vtade_contrato_servicio.imp_cuoi) AS lde_saldo_det, vtama_tipo_servicio.flg_afecto_igv, vtade_contrato_servicio.cod_servicio FROM vtade_contrato INNER JOIN vtavi_cronograma_x_servicio ON vtavi_cronograma_x_servicio.cod_localidad = vtade_contrato.cod_localidad AND vtavi_cronograma_x_servicio.cod_tipo_ctt = vtade_contrato.cod_tipo_ctt AND vtavi_cronograma_x_servicio.cod_tipo_programa = vtade_contrato.cod_tipo_programa AND vtavi_cronograma_x_servicio.cod_contrato = vtade_contrato.cod_contrato AND vtavi_cronograma_x_servicio.num_servicio = vtade_contrato.num_servicio INNER JOIN vtade_contrato_servicio ON vtade_contrato_servicio.cod_localidad = vtade_contrato.cod_localidad AND vtade_contrato_servicio.cod_tipo_ctt = vtade_contrato.cod_tipo_ctt AND vtade_contrato_servicio.cod_tipo_programa = vtade_contrato.cod_tipo_programa AND vtade_contrato_servicio.cod_contrato = vtade_contrato.cod_contrato AND vtade_contrato_servicio.num_servicio = vtade_contrato.num_servicio INNER JOIN vtama_tipo_servicio ON vtama_tipo_servicio.cod_tipo_servicio = vtade_contrato.cod_tipo_servicio WHERE vtavi_cronograma_x_servicio.cod_localidad = '".$datos['ls_localidad_det']."' AND vtavi_cronograma_x_servicio.cod_tipo_ctt = '".$datos['ls_tipo_ctt_det']."' AND vtavi_cronograma_x_servicio.cod_tipo_programa = '".$datos['ls_tipo_programa_det']."' AND vtavi_cronograma_x_servicio.cod_contrato LIKE (RIGHT('0000000000'+'".$datso['ls_contrato_det']."',10)) AND vtavi_cronograma_x_servicio.num_refinanciamiento = ".$datos['li_ref']." AND vtavi_cronograma_x_servicio.flg_activo = 'SI' AND vtade_contrato_servicio.flg_servicio_principal = 'SI' AND vtade_contrato_servicio.flg_contado = 'NO' AND vtade_contrato.flg_resuelto = 'NO' AND vtade_contrato.flg_anulado = 'NO'");
+		$datos = array();
+    	while($key = $db->recorrer($sql)){
+	    		$datos[] = arrayMapUtf8Encode($key);
+			}
+		return $datos;
+		$db->liberar($sql);
+        $db->cerrar();
+	}//function mdlCrServicio
+
+	static public function mdlPagoXservicio($datos){
+		$db = new Conexion();
+		$sql = $db->consulta("SELECT (SUM(vtade_comprobante.imp_total - ISNULL(vtade_comprobante.imp_saldo, 0))) AS lde_total_pagado_x_servicio FROM vtade_comprobante WHERE EXISTS( SELECT 1 FROM  vtavi_cuotas_x_comprobante, vtavi_cronograma_x_servicio WHERE vtavi_cuotas_x_comprobante.cod_localidad_ctt = vtavi_cronograma_x_servicio.cod_localidad AND vtavi_cuotas_x_comprobante.cod_tipo_ctt = vtavi_cronograma_x_servicio.cod_contrato AND vtavi_cuotas_x_comprobante.cod_tipo_programa = vtavi_cronograma_x_servicio.cod_tipo_programa AND vtavi_cuotas_x_comprobante.cod_contrato = vtavi_cronograma_x_servicio.cod_contrato AND vtavi_cuotas_x_comprobante.num_refinanciamiento = vtavi_cronograma_x_servicio.num_refinanciamiento AND vtavi_cuotas_x_comprobante.cod_localidad = vtade_comprobante.cod_localidad AND vtavi_cuotas_x_comprobante.num_correlativo = vtade_comprobante.num_correlativo AND vtavi_cuotas_x_comprobante.num_cuota > 0 AND vtavi_cronograma_x_servicio.cod_localidad = '".$datos['ls_localidad_det']."' AND vtavi_cronograma_x_servicio.cod_tipo_ctt = '".$datos['ls_tipo_ctt_det']."' AND vtavi_cronograma_x_servicio.cod_tipo_programa = '".$datos['ls_tipo_programa_det']."' AND vtavi_cronograma_x_servicio.cod_contrato = '".$datos['ls_contrato_det']."' AND vtavi_cronograma_x_servicio.num_servicio = ".$datos['ls_num_servicio_det']." ) AND   vtade_comprobante.cod_servicio = '".$datos['cod_servicio']."'");
+		$datos = arrayMapUtf8Encode($db->recorrer($sql));
+		return $datos;
+		$db->liberar($sql);
+        $db->cerrar();
+	}//function mdlPagoXservicio
 
 }//class ModeloModifCtto
 ?>

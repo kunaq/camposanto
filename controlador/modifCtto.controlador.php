@@ -450,5 +450,50 @@ class ControladorModifCtto{
 		return $respuesta;
 	}//ctrGuardaCronograma
 
+	static public function ctrTotalFinanciar(){
+		$datos = array("ls_localidad_det" => $_SESSION['localidad'],
+						"ls_contrato_det" => $_POST['ls_contrato_det'],
+						"li_ref" => $_POST['li_ref'],
+						"ls_tipo_ctt_det" => $_POST['ls_tipo_ctt_det'],
+						"ls_tipo_programa_det" => $_POST['ls_tipo_programa_det']
+					);
+		$respuesta = ModeloModifCtto::mdlTotalFinanciar($datos);
+		return $respuesta;
+	}//ctrTotalFinanciar
+
+	static public function ctrTotalPagado(){
+		$datos = array("ls_localidad_det" => $_SESSION['localidad'],
+						"ls_contrato_det" => $_POST['ls_contrato_det'],
+						"ls_num_servicio_det" => $_POST['ls_num_servicio_det'],
+						"ls_tipo_ctt_det" => $_POST['ls_tipo_ctt_det'],
+						"ls_tipo_programa_det" => $_POST['ls_tipo_programa_det']
+					);
+		$respuesta = ModeloModifCtto::mdlTotalPagado($datos);
+		return $respuesta;
+	}//ctrTotalPagado
+
+	static public function ctrCrServicio(){
+		$datos = array("ls_localidad_det" => $_SESSION['localidad'],
+						"ls_contrato_det" => $_POST['ls_contrato_det'],
+						"li_ref" => $_POST['li_ref'],
+						"ls_tipo_ctt_det" => $_POST['ls_tipo_ctt_det'],
+						"ls_tipo_programa_det" => $_POST['ls_tipo_programa_det']
+					);
+		$respuesta = ModeloModifCtto::mdlCrServicio($datos);
+		return $respuesta;
+	}//ctrCrServicio
+
+	static public function ctrPagoXservicio(){
+		$datos = array("ls_localidad_det" => $_SESSION['localidad'],
+						"ls_contrato_det" => $_POST['ls_contrato_det'],
+						"ls_num_servicio_det" => $_POST['ls_num_servicio_det'],
+						"ls_tipo_ctt_det" => $_POST['ls_tipo_ctt_det'],
+						"ls_tipo_programa_det" => $_POST['ls_tipo_programa_det'],
+						"cod_servicio" => $_POST['cod_servicio']
+					);
+		$respuesta = ModeloModifCtto::mdlPagoXservicio($datos);
+		return $respuesta;
+	}//ctrPagoXservicio
+
 }//class ControladorModifCtto
 ?>

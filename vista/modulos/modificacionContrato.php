@@ -93,9 +93,12 @@
 									<input type="text" class="form-control form-control-sm m-input" name="nomCliContrato" id="nomCliContrato" disabled>
 									<input type="hidden" id="codTipoContrato" name="codTipoContrato">
 									<input type="hidden" id="flg_activado" name="flg_activado">
+									<input type="hidden" id="flg_afecto_igv" name="flg_afecto_igv">
 									<input type="hidden" id="flgResuelto" name="flgResuelto">
-									<input type="hidden" name="flg_ctt_integral" id="flg_ctt_integral">
-									<input type="hidden" name="numRefinanciamiento" id="numRefinanciamiento">
+									<input type="hidden" id="flg_prevencion" name="flg_prevencion">
+									<input type="hidden" id="flg_ctt_integral" name="flg_ctt_integral">
+									<input type="hidden" id="flg_cronograma_cuoi" name="flg_cronograma_cuoi">
+									<input type="hidden" id="numRefinanciamiento" name="numRefinanciamiento">
 									<input type="hidden" id="numServicioSeleccionado" name="numServicioSeleccionado">
 									<input type="hidden" id="cdServicioSeleccionado" name="cdServicioSeleccionado">
 									<input type="hidden" id="tipoNecCtto" name="tipoNecCtto">
@@ -103,6 +106,7 @@
 									<input type="hidden" id="fchActivacion" name="fchActivacion">
 									<input type="hidden" id="flgCambioTitular" name="flgCambioTitular">
 									<input type="hidden" id="numServFoma" name="numServFoma">
+									<input type="hidden" id="fld_ds" name="fld_ds">
 									<input type="hidden" id="cambioCronograma" name="cambioCronograma">
 									<input type="hidden" id="cambioCronogramaFoma" name="cambioCronogramaFoma">
 								</div>
@@ -1550,7 +1554,7 @@
 													<input type="hidden" id="codInteresModif" name="codInteresModif">
 												</div>
 												<div class="col-lg-12">
-													<button type="reset" id="btnGenCrono" class="btn btn-sm btnGuardarKqPst mt25">
+													<button type="reset" id="btnGenCrono" onclick="cronogramaModifi();" class="btn btn-sm btnGuardarKqPst mt25">
 														Generar cronograma de pagos
 													</button>
 												</div>
@@ -1652,7 +1656,7 @@
 												</thead>
 												<tbody id="bodyCronogramaModif">
 												</tbody>
-												<tfoot>
+												<tfoot id="footCronogramaModif">
 													<tr>
 														<td></td>
 														<td></td>

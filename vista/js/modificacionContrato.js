@@ -205,6 +205,8 @@ function llenaDatos(codCtto){
             $("#flg_ctt_integral").val(respuesta[0]['flg_ctt_integral']);
             $("#flgResuelto").val(respuesta[0]['flg_resuelto']);
             $("#flg_activado").val(respuesta[0]['flg_activado']);
+            $("#flg_afecto_igv").val(respuesta[0]['flg_afecto_igv']);
+            $("#flg_prevencion").val(respuesta[0]['flg_prevencion']);
             $("#tipoNecCtto").val(respuesta[0]['cod_tipo_necesidad']);
             if(respuesta[0]['cod_tipo_necesidad'] == 'NI'){
                 $("#tabAval").attr('hidden',false);
@@ -241,6 +243,8 @@ function llenaDatos(codCtto){
                     '<input type="hidden" id="flg_anulado_'+value['num_servicio']+'" value="'+value['flg_anulado']+'">'+
                     '<input type="hidden" id="flg_resuelto_'+value['num_servicio']+'" value="'+value['flg_resuelto']+'">'+
                     '<input type="hidden" id="cod_tipo_servicio_'+value['num_servicio']+'" value="'+value['cod_tipo_servicio']+'">'+
+                    '<input type="hidden" id="ls_flg_ds_'+value['num_servicio']+'" value="'+value['flg_prevencion']+'">'+
+                    '<input type="hidden" id="num_servicio_foma_'+value['num_servicio']+'" value="'+value['num_servicio_foma']+'">'+
 				'</tr>';
 				document.getElementById("bodyDetCttoModif").insertAdjacentHTML("beforeEnd" ,fila);
                 if (respuesta[0]['flg_ctt_integral'] == 'SI') {
@@ -251,13 +255,14 @@ function llenaDatos(codCtto){
                     }
                     var fila2 = '<tr name="'+value['num_servicio']+'" style="'+color+'">'+
                         '<td class="text-center">'+value['num_servicio']+
-                        '<td class="text-right">'+Number(value['imp_saldofinanciar']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });+'<input type="hidden" id="is_principal_'+value['num_servicio']+'" value="'+value['flg_principal']+'"><input type="hidden" id="is_ds_'+value['num_servicio']+'" value="'+value['flg_derecho_sepultura']+'"></td>'+
+                        '<td class="text-right">'+Number(value['imp_saldofinanciar']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });+'<input type="hidden" id="is_principal_'+value['num_servicio']+'" value="'+value['flg_principal']+'"><input type="hidden" id="is_ds_'+value['num_servicio']+'" value="'+value['flg_derecho_sepultura']+'"><input type="hidden" id="flg_afecto_igv_'+value['num_servicio']+'" value="'+value['flg_afecto_igv']+'"></td>'+
                     '</tr>';
                     document.getElementById("bodyServicioVin").insertAdjacentHTML("beforeEnd" ,fila2);
                     document.getElementById("totalServicioVin").innerText = Number(totalVin).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
                 }
 
         	});//each
+            muestraInfo(respuesta[0]['num_servicio']);
         }//success
     });//ajax
 }//llenaDatos
@@ -295,6 +300,7 @@ function muestraInfo(id){
         	$("#interes").val(respuesta['imp_interes']);
             $("#flgCambioTitular").val(respuesta['flg_cambio_titular']);
             $("#numServFoma").val(respuesta['num_servicio_foma']);
+             $("#fld_ds").val(respuesta['flg_prevencion']);
             $("#cdServicioSeleccionado").val(respuesta['cod_tipo_servicio']);
         	$("#saldoFinanciar").val(respuesta['imp_saldofinanciar']);
         	$("#cuotaInicial").val(respuesta['imp_cuoi']);
@@ -601,7 +607,7 @@ function buscaDatos2Ti(codCliente){
             $("#cel2Titular2").val(respuesta['dsc_telefono_2']);
             $("#edoCivilTitular2").val(respuesta['cod_estadocivil']);
             if(respuesta['cod_sexo'] != '' || respuesta['cod_sexo'] != null || respuesta['cod_sexo'] != 'undefinied'){
-            	sexo = respuesta['cod_sexo'].trim();
+            	sexo = respuesta['cod_sexo'];
             }else{
             	sexo = '';
             }
@@ -876,6 +882,7 @@ function cargaCronograma(codCtto,numRefi){
 				document.getElementById("totalIGVCronoModif").innerText = Number(totalIGV).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
 				document.getElementById("totalTotalCronoModif").innerText = Number(totalTotal).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
 				document.getElementById("totalSaldoCronoModif").innerText = Number(totalSaldo).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
+                $("#flg_cronograma_cuoi").val('NO');
         	});//each
         }//success
     });//ajax
