@@ -559,7 +559,7 @@ function cronogramaModifi(){
                             var cronograma = document.getElementById('bodyCronogramaModif');
                             var li_find = cronograma.rows.length;
 
-                            if(li_find == '' || li_find = null ) {li_find = 0;}
+                            if(li_find == '' || li_find == null ) {li_find = 0;}
                          
                             if( li_find > 0 ){
                                                  
