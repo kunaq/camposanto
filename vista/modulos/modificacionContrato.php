@@ -1554,7 +1554,7 @@
 													<input type="hidden" id="codInteresModif" name="codInteresModif">
 												</div>
 												<div class="col-lg-12">
-													<button type="reset" id="btnGenCrono" onclick="cronogramaModifi();" class="btn btn-sm btnGuardarKqPst mt25">
+													<button type="button" id="btnGenCrono" class="btn btn-sm btnGuardarKqPst mt25">
 														Generar cronograma de pagos
 													</button>
 												</div>
@@ -1603,7 +1603,7 @@
 												</div>
 											<br>
 												<div class="col-lg-12">
-													<button type="reset" class="btn btn-sm btnEditarKqPst2 mt25">
+													<button type="button" class="btn btn-sm btnEditarKqPst2 mt25">
 														Generar CUD
 													</button>
 												</div>

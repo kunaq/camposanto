@@ -77,7 +77,7 @@ $("#btnGenCrono").on('click',function(){
       cancelButtonText:"Cancelar"
     }).then((result) => {
       if (result.value) {
-        $("#cambioCronograma").val('SI')
+        cronogramaModifi();
       }
     })
 });
