@@ -156,7 +156,7 @@ function llenaDatos(codCtto){
         method: "POST",
         data: { 'accion' : 'conCodigo', 'codCtto' : codCtto },
         success : function(respuesta){
-        	// console.log('respuesta',respuesta);
+        	console.log('respuesta',respuesta);
         	document.getElementById("codContrato").value = respuesta[0]['cod_contrato'];
         	$("#tipoPrograma option[value='"+respuesta[0]['cod_tipo_programa']+"']").attr("selected",true);
         	if(respuesta[0]['cod_tipo_programa'] = 'TR000'){
@@ -399,6 +399,7 @@ function muestraInfo(id){
 
 $("#numCuoCronograma").on('change',function(){
     var num = $(this).val();
+    if(num == '' || num == null){ num = 0;}
     $.ajax({
         url: 'ajax/modifCtto.ajax.php',
         dataType: 'json',
