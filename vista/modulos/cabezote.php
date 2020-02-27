@@ -46,7 +46,7 @@ include "modals/modalConfiguraciones.php"; ?>
 														<?php echo $_SESSION['nombre']; ?>
 													</span>
 													<p class="m--font-weight-300">
-														Sede San Antonio
+														<?php echo $_SESSION['dsc_localidad']; ?>
 													</p>
 											<!-- </div> -->
 										</li>

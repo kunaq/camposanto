@@ -1,5 +1,6 @@
 <?php
 @session_start();
+require_once "../../core.php";
 require_once "../../modelo/conexion.php";
 require_once "../../funciones.php";
 

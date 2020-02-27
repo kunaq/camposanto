@@ -4,30 +4,18 @@ require_once "conexion.php";
 
 class ModeloEmpresa{
 
-    static public function mdlMostrarEmpresa($tabla,$valor,$item){
-
+    static public function mdlMostrarEmpresa($entrada,$tabla){
         $db = new Conexion();
-
-            if($item != null){                                              
-
-                $sql = $db->consulta("SELECT * FROM $tabla WHERE $item = '$valor'");
+        if($entrada == 'sessionEmpr'){
+            $sql = $db->consulta("SELECT * FROM $tabla WHERE flg_principal = 'SI'");
  
-                $datos = $db->recorrer($sql);
- 
-            }else{
+            $datos = $db->recorrer($sql);
 
-                $sql = $db->consulta("SELECT * FROM $tabla");
+            $db->liberar($sql);
 
-                $datos = array();
+        }
 
-                while($key = $db->recorrer($sql)){
-                    $datos[] =  $key;
-                }
-
-            }
-
-        $db->liberar($sql);
- 		$db->cerrar();
+        $db->cerrar();
 
         return $datos;
 

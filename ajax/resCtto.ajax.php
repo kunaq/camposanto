@@ -1,4 +1,5 @@
 <?php
+require_once "../core.php";
 require_once "../funciones.php";
 require_once "../controlador/resCtto.controlador.php";
 require_once "../modelo/resCtto.modelo.php";

@@ -5,7 +5,7 @@ class ControladorProspecto{
 	static public function ctrGuardaProspecto(){
 		$fecha = date('Y-m-d');
 		$hora = date('H:i:s');
-		$fechaActual = $fecha.' '.$hora;
+		$fechaActual = $fecha.' '.$hora; 
 		$datos = array(	"importe" => (float)$_POST['importe'],
 						"tipoDoc" => $_POST['tipoDoc'],
 						"numDoc" => $_POST['numDoc'],
@@ -21,7 +21,7 @@ class ControladorProspecto{
 						"distrito" => $_POST['distrito'],
 						"telefono1" => $_POST['telefono1'],
 						"telefono2" => $_POST['telefono2'],
-						"fchRegistro" => $_POST['fchRegistro'],
+						"fchRegistro" => $fechaActual,
 						"usuario" => $_SESSION['user'],
 						"origen" => $_POST['origen'],
 						"calificacion" => $_POST['calificacion'],

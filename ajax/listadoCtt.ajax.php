@@ -1,4 +1,5 @@
 <?php
+require_once "../core.php";
 require_once "../funciones.php";
 require_once "../controlador/listadoCtt.controlador.php";
 require_once "../modelo/listadoCtt.modelo.php";
