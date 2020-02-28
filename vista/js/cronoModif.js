@@ -178,7 +178,7 @@ function cronogramaModifi(){
        return;
     }
 
-    if (ls_cuota = '' || ls_cuota == null){
+    if (ls_cuota == '' || ls_cuota == null){
         swal({
             title: "",
             text: "Debe ingresar el numero de cuotas.",
