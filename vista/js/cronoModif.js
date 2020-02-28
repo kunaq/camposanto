@@ -869,7 +869,7 @@ function cronogramaModifi(){
                 if( ls_flg_ds == null || ls_flg_ds == ''){ ls_flg_ds = 'NO';}
                 if( ls_num_servicio_foma == null || ls_num_servicio_foma == ''){ ls_num_servicio_foma = '';}
               
-                if (ls_flg_ds == 'SI' && ls_num_servicio_foma 1= '' ){
+                if (ls_flg_ds == 'SI' && ls_num_servicio_foma == '' ){
                     
                     swal({
                         title: "",
