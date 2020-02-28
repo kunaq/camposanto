@@ -150,7 +150,7 @@ function cronogramaModifi(){
             var oCells = cronograma.rows.item(li_i).cells;
             ls_estado = oCells.item(2).innerHTML.trim();
             
-            if( ls_estado != 'REG'){
+            if( ls_estado != 'REGISTRADO'){
                 li_valida = li_valida + 1;
             }
         }           
