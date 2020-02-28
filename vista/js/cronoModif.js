@@ -147,7 +147,7 @@ function cronogramaModifi(){
     if( cronogramaLenght > 0 ){
 
         for( li_i = 0 ; li_i < cronogramaLenght ; li_i++ ){               
-            var oCells = cronograma.rows.item(i).cells;
+            var oCells = cronograma.rows.item(li_i).cells;
             ls_estado = oCells.item(2).innerHTML.trim();
             
             if( ls_estado != 'REG'){
