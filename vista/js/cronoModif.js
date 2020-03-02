@@ -468,7 +468,7 @@ function cronogramaModifi(){
                         var cronogramaLenght = cronograma.rows.length;
 
                         for( li_i = 0 ; li_i < cronogramaLenght ; li_i++ ){                                   
-                            
+                            var oCells = cronograma.rows.item(li_i).cells;
                             ls_tipo_cuota = oCells.item(2).innerHTML.trim();
                                                               
                             if( ls_tipo_cuota != 'CUI' ){
@@ -723,7 +723,7 @@ function cronogramaModifi(){
                 var cronogramaLenght = cronograma.rows.length;
 
                 for( li_i = 0 ; li_i < cronogramaLenght ; li_i++ ){                                   
-                    
+                    var oCells = cronograma.rows.item(li_i).cells;
                     ls_tipo_cuota = oCells.item(2).innerHTML.trim();
                                                       
                     if( ls_tipo_cuota != 'CUI' ){
