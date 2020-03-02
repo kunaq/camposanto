@@ -128,6 +128,7 @@ function cronogramaModifi(){
     var lde_saldo   = $("#saldoFinCronograma").val();   //tab_1.tp_4.dw_det_interes.GetItemDecimal(1, "imp_saldo")
     var lde_valor_cuota = $("#cuota").val(); //tab_1.tp_1.dw_datos.GetItemDecimal(1, "imp_valor_cuota")
     var ldt_emision = $("#fchEmision").val(); //tab_1.tp_1.dw_datos.GetItemDatetime(1, "fch_emision")
+    ldt_emision = new Date(ldt_emision);
     var fechaHoy = new Date();
     var aux_dia = fechaHoy.getDate();
     var aux_mes1 = fechaHoy.setMonth(fechaHoy.getMonth() + 1);
@@ -270,7 +271,7 @@ function cronogramaModifi(){
 
     lde_valor = $("#interesCronograma").val();
     if( lde_valor == '' || lde_valor == null ){ lde_valor = 0.00;}
-    lde_valor = pasaAnumero(lde_valor);s
+    lde_valor = pasaAnumero(lde_valor);
 
     // -- Forma de calculo según configuración -- //
     
