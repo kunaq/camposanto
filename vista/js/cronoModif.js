@@ -365,7 +365,7 @@ function cronogramaModifi(){
                                  
                         // -- Armar Cronograma -- //
 
-                        for( li_i = 0; li_i < li_cuotas ; li_i ++){
+                        for( li_i = 1; li_i < li_cuotas ; li_i ++){
           
                             // -- Calculo -- //
                              
@@ -442,7 +442,7 @@ function cronogramaModifi(){
                                    // tab_1.tp_4.dw_det_cuotas.SetItem(li_i + ii_num_cuota_cuoi, "imp_total_2",  Round(lde_cuota, 4))
 
                                    var filaCrono = '<tr>'+
-                                        '<td scope="row">'+(li_find+li_i)+'</td>'+
+                                        '<td scope="row">'+(li_find)+'</td>'+
                                         '<td>REGISTRADO</td>'+
                                         '<td>ARM</td>'+
                                         '<td>'+lda_vencimiento+'</td>'+
@@ -646,7 +646,7 @@ function cronogramaModifi(){
                           
                 // -- Armar Cronograma -- //
 
-                for( li_i = 0 ; li_i < li_cuotas ; li_i++ ){ 
+                for( li_i = 1 ; li_i < li_cuotas ; li_i++ ){ 
 
                     // -- Calculo -- //
  
@@ -698,7 +698,7 @@ function cronogramaModifi(){
                     // tab_1.tp_4.dw_det_cuotas.SetItem(li_i + ii_num_cuota_cuoi, "flg_generar_mora",  "SI")
 
                     var filaCrono = '<tr>'+
-                        '<td scope="row">'+(li_i+1)+'</td>'+
+                        '<td scope="row">'+(li_i)+'</td>'+
                         '<td>REGISTRADO</td>'+
                         '<td>ARM</td>'+
                         '<td>'+lda_vencimiento+'</td>'+
