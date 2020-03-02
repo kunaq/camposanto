@@ -411,7 +411,7 @@ function cronogramaModifi(){
 
                                 var filaCrono = '<tr>'+
                                     '<th scope="row">'+li_i+'</th>'+
-                                    '<td>REG</td>'+
+                                    '<td>REG 414</td>'+
                                     '<td>ARM</td>'+
                                     '<td>'+lda_vencimiento+'</td>'+
                                     '<td style="text-align: right;">'+Number(lde_amortizacion).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
@@ -445,7 +445,7 @@ function cronogramaModifi(){
 
                                    var filaCrono = '<tr>'+
                                         '<th scope="row">'+(li_find+li_i)+'</th>'+
-                                        '<td>REG</td>'+
+                                        '<td>REG 448</td>'+
                                         '<td>ARM</td>'+
                                         '<td>'+lda_vencimiento+'</td>'+
                                         '<td style="text-align: right;">'+Number(lde_amortizacion).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
@@ -550,7 +550,7 @@ function cronogramaModifi(){
 
                             var filaCrono = '<tr>'+
                                 '<th scope="row">'+(li_find+1)+'</th>'+
-                                '<td>REG</td>'+
+                                '<td>REG 553</td>'+
                                 '<td>ARM</td>'+
                                 '<td>'+lda_vencimiento+'</td>'+
                                 '<td style="text-align: right;">'+Number(lde_amortizacion).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
@@ -577,7 +577,7 @@ function cronogramaModifi(){
 
                                 var filaCrono = '<tr>'+
                                     '<th scope="row">'+(li_find+1)+'</th>'+
-                                    '<td>REG</td>'+
+                                    '<td>REG 580</td>'+
                                     '<td>ARM</td>'+
                                     '<td>'+lda_vencimiento+'</td>'+
                                     '<td style="text-align: right;">'+Number(lde_amortizacion).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
@@ -706,7 +706,7 @@ function cronogramaModifi(){
 
                     var filaCrono = '<tr>'+
                         '<th scope="row">'+(li_find+1)+'</th>'+
-                        '<td>REG</td>'+
+                        '<td>REG 709</td>'+
                         '<td>ARM</td>'+
                         '<td>'+lda_vencimiento+'</td>'+
                         '<td style="text-align: right;">'+Number(lde_amortizacion).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
@@ -848,7 +848,7 @@ function cronogramaModifi(){
 
                 var filaCrono = '<tr>'+
                     '<th scope="row">'+(li_find+1)+'</th>'+
-                    '<td>REG</td>'+
+                    '<td>REG 851</td>'+
                     '<td>ARM</td>'+
                     '<td>'+lda_vencimiento+'</td>'+
                     '<td style="text-align: right;">'+Number(lde_amortizacion).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
@@ -904,6 +904,7 @@ function cronogramaModifi(){
     }//switch
     // -- Filas -- //
     $("#cambioCronograma").val('SI');
+    calcular();
 }//function cronogramaModif
 
 
