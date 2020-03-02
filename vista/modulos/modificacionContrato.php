@@ -1647,11 +1647,11 @@
 														<th>Estado</th>
 														<th>Tipo cuota</th>
 														<th>Fecha de Venicimiento</th>
-														<th>Subtotal</th>
-														<th>Interes</th>
-														<th>I.G.V</th>
-														<th>Total</th>
-														<th>Saldo</th>
+														<th style="text-align: right;">Subtotal</th>
+														<th style="text-align: right;">Interes</th>
+														<th style="text-align: right;">I.G.V</th>
+														<th style="text-align: right;">Total</th>
+														<th style="text-align: right;">Saldo</th>
 													</tr>
 												</thead>
 												<tbody id="bodyCronogramaModif">
