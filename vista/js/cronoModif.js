@@ -651,6 +651,7 @@ function cronogramaModifi(){
               
                 var cronograma = document.getElementById('bodyCronogramaModif');
                 var cronogramaLenght = cronograma.rows.length;
+                console.log('cronogramaLenght',cronogramaLenght);
 
                 for( li_i = 0 ; li_i < cronogramaLenght ; li_i++ ){ 
 
