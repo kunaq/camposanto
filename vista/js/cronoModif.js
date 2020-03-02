@@ -125,19 +125,18 @@ function cronogramaModifi(){
     var ls_cuota    = $("#codCuotaModif").val();   //tab_1.tp_4.dw_det_interes.GetItemString(1, "cod_cuota")
     var ls_interes  = $("#codInteresModif").val();   //tab_1.tp_4.dw_det_interes.GetItemString(1, "cod_interes")
     var ldt_fch_ven = $("#fchVenCronograma").datepicker("getDate");   //tab_1.tp_4.dw_det_interes.GetItemDatetime(1, "fch_vencimiento")
+    var aux_dia = ldt_fch_ven.getDate();
+    var aux_mes1 = ldt_fch_ven.setMonth(ldt_fch_ven.getMonth() + 1);
+    var aux_mes = ldt_fch_ven.getMonth();
+    var aux_anio = ldt_fch_ven.getFullYear();
+    if(aux_mes == '0'){
+        aux_mes = '12';
+        aux_anio = ldt_fch_ven.getFullYear()-1;
+    }               
+    var ldt_fch_ven = aux_dia+'/'+aux_mes+'/'+aux_anio;
     var lde_saldo   = $("#saldoFinCronograma").val();   //tab_1.tp_4.dw_det_interes.GetItemDecimal(1, "imp_saldo")
     var lde_valor_cuota = $("#cuota").val(); //tab_1.tp_1.dw_datos.GetItemDecimal(1, "imp_valor_cuota")
     var ldt_emision = $("#fchEmision").val(); //tab_1.tp_1.dw_datos.GetItemDatetime(1, "fch_emision")
-    var aux_dia1 = ldt_emision.getDate();
-    var aux_mes11 = ldt_emision.setMonth(ldt_emision.getMonth() + 1);
-    var aux_mes1 = ldt_emision.getMonth();
-    var aux_anio1 = ldt_emision.getFullYear();
-    if(aux_mes1 == '0'){
-        aux_mes1 = '12';
-        aux_anio1 = ldt_emision.getFullYear()-1;
-    }               
-    var ldt_emision = aux_dia1+'/'+aux_mes1+'/'+aux_anio1;
-    
     var fechaHoy = new Date();
     var aux_dia = fechaHoy.getDate();
     var aux_mes1 = fechaHoy.setMonth(fechaHoy.getMonth() + 1);
