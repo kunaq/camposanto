@@ -731,8 +731,8 @@ function cronogramaModifi(){
                         lde_sumcapital = lde_sumcapital + pasaAnumero(oCells.item(4).innerHTML.trim());
 
                         lde_sumtotal = lde_sumtotal + pasaAnumero(oCells.item(7).innerHTML.trim());
-                        console.log('lde_sumcapital for',lde_sumcapital);
-                        console.log('lde_sumtotal for',lde_sumtotal);
+                        console.log('lde_sumcapital for',oCells.item(4).innerHTML.trim());
+                        console.log('lde_sumtotal for',oCells.item(7).innerHTML.trim());
 
                     }            
                 }
