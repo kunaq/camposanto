@@ -653,7 +653,7 @@ function cronogramaModifi(){
                 var cronogramaLenght = cronograma.rows.length;
                 console.log('cronogramaLenght',cronogramaLenght);
 
-                for( li_i = 0 ; li_i < cronogramaLenght ; li_i++ ){ 
+                for( li_i = 0 ; li_i < li_cuotas ; li_i++ ){ 
 
                     // -- Calculo -- //
                   
