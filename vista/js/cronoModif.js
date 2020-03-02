@@ -290,7 +290,7 @@ function cronogramaModifi(){
 
                 // -- Valor de Interes -- //
 
-                lde_valor = ( 1 + (lde_valor / 100)) ^ ( 1 / 12 ) - 1
+                lde_valor = ( 1 + (lde_valor / 100)) ** ( 1 / 12 ) - 1
 
                 if( lde_valor == '' || lde_valor){ lde_valor = 0.00;}
 
@@ -359,7 +359,7 @@ function cronogramaModifi(){
 
                         }else{       
 
-                            var lde_cuota = lde_saldo_detalle * ((lde_valor * (1 + lde_valor) ^ li_cuotas) / ((1 + lde_valor) ^ li_cuotas - 1));
+                            var lde_cuota = lde_saldo_detalle * ((lde_valor * (1 + lde_valor) ** li_cuotas) / ((1 + lde_valor) ** li_cuotas - 1));
 
                         }
                                  
@@ -596,9 +596,9 @@ function cronogramaModifi(){
 
             }else{ // -- No integrales -- //
                 console.log('li_cuotas',li_cuotas);
-            console.log('lde_valor',lde_valor);
+                console.log('lde_valor',lde_valor);
                   console.log('llego no integrales');        
-                lde_valor = ( 1 + (lde_valor / 100)) ^ ( 1 / 12 ) - 1;
+                lde_valor = ( 1 + (lde_valor / 100)) ** ( 1 / 12 ) - 1;
                 if(lde_valor == '' || lde_valor == null){ lde_valor = 0.00;}
               
                 // -- Total en caso no haber interes -- //
@@ -623,7 +623,7 @@ function cronogramaModifi(){
 
                 }else{       
 
-                    lde_cuota = lde_saldo * ((lde_valor * (1 + lde_valor) ^ li_cuotas) / ((1 + lde_valor) ^ li_cuotas - 1));
+                    lde_cuota = lde_saldo * ((lde_valor * (1 + lde_valor) ** li_cuotas) / ((1 + lde_valor) ** li_cuotas - 1));
 
                 }
               console.log('lde_cuota 629', lde_cuota);
@@ -657,8 +657,7 @@ function cronogramaModifi(){
                   
                     // -- Datos -- //
                   
-                    if( lde_porc_total > 0 ){
-                                 
+                    if( lde_porc_total > 0 ){           
 
                        lde_capital_cuota   = lde_cuota * lde_porc_total;
                        lde_capital_cuota   = lde_capital_cuota / ( 1 + lde_valor_igv_det );
@@ -670,7 +669,7 @@ function cronogramaModifi(){
                        lde_capital_cuota = lde_cuota / ( 1 + lde_valor_igv );
 
                     }
-                       console.log('lde_capital_cuota 676', lde_capital_cuota);                      
+                    console.log('lde_capital_cuota 676', lde_capital_cuota);                      
                     lde_igv_cuota    = lde_cuota - lde_capital_cuota;
                     lde_amortizacion = ( lde_cuota - lde_igv_cuota ) - lde_interes;
                     aux_dia = ldt_fch_ven.getDate();
