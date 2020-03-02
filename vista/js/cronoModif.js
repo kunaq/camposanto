@@ -719,7 +719,7 @@ function cronogramaModifi(){
                lde_sumcapital  = 0.00;
                lde_sumtotal    = 0.00;
                           
-               var cronograma = document.getElementById('bodyCronogramaModif');
+                var cronograma = document.getElementById('bodyCronogramaModif');
                 var cronogramaLenght = cronograma.rows.length;
 
                 for( li_i = 0 ; li_i < cronogramaLenght ; li_i++ ){                                   
@@ -731,6 +731,8 @@ function cronogramaModifi(){
                         lde_sumcapital = lde_sumcapital + pasaAnumero(oCells.item(4).innerHTML.trim());
 
                         lde_sumtotal = lde_sumtotal + pasaAnumero(oCells.item(7).innerHTML.trim());
+                        console.log('lde_sumcapital for',lde_sumcapital);
+                        console.log('lde_sumtotal for',lde_sumtotal);
 
                     }            
                 }
