@@ -69,7 +69,6 @@ $("#btnGenCrono").on('click',function(){
     Swal.fire({
       title: '',
       text: "¿Esta seguro de generar un nuevo cronograma para este contrato / servicio?",
-      icon: 'warning',
       showCancelButton: true,
       type: "question",
       showCancelButton:!0,
@@ -86,7 +85,6 @@ $("#btnGenCronoFoma").on('click',function(){
     Swal.fire({
       title: '',
       text: "¿Esta seguro de generar un nuevo cronograma FOMA para este contrato / servicio?",
-      icon: 'warning',
       showCancelButton: true,
       type: "question",
       showCancelButton:!0,
