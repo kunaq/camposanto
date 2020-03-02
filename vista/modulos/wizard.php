@@ -340,8 +340,9 @@
 													<label> Tipo plataforma:</label>
 													<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="tipoPlat" disabled="disabled" id="tipoPlat" onchange="buscaPlataforma(this.value);">
 														<option value="">Tipo de plataforma</option>
-														<option value="TP001">NICHOS</option>
-														<option value="TP002">PLATAFORMA</option>
+														<?php
+												           $prueba = controladorEmpresa::ctrTipoPlataforma();
+														  ?>
 													</select>
 												</div>
 												<div class="col-lg-4">

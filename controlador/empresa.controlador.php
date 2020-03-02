@@ -91,4 +91,9 @@ class ControladorEmpresa{
 		return $respuesta;
 	}
 
+	static public function ctrTipoPlataforma(){
+		$respuesta = ModeloEmpresa::mdlTipoPlataforma();
+		return $respuesta;
+	}
+
 }//class ControladorPlantilla

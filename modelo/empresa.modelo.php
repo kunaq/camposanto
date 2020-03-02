@@ -465,4 +465,20 @@ class ModeloEmpresa{
 
     }
 
+    static public function mdlTipoPlataforma(){
+
+        $db = new Conexion();                                             
+
+        $sql = $db->consulta("SELECT cod_tipo_plataforma, dsc_tipo_plataforma FROM vtama_tipo_plataforma WHERE flg_activo = 'SI'");
+ 
+        $datos = array();
+
+        while($key = $db->recorrer($sql)){
+            echo '<option value="'.$key['cod_tipo_plataforma'].'">'.$key['dsc_tipo_plataforma'].'</option>';
+        }
+
+        $db->liberar($sql);
+        $db->cerrar();
+    }
+
 }//class ModeloPaises
