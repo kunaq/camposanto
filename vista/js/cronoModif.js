@@ -268,7 +268,11 @@ function cronogramaModifi(){
     // -- Interes -- //
 
     lde_valor = $("#interesCronograma").val();
-    lde_valor = pasaAnumero(lde_valor);
+    if( lde_valor == '' || lde_valor == null ){
+        lde_valor = 0.00;
+    }else{
+        lde_valor = pasaAnumero(lde_valor);
+    }
 
     if( lde_valor == '' || lde_valor == null ){ lde_valor = 0.00;}
 
