@@ -410,7 +410,7 @@ function cronogramaModifi(){
                                 // tab_1.tp_4.dw_det_cuotas.SetItem(li_i + ii_num_cuota_cuoi, "imp_total_2",  Round(lde_cuota, 4))
 
                                 var filaCrono = '<tr>'+
-                                    '<th scope="row">'+li_i+'</th>'+
+                                    '<td scope="row">'+li_i+'</td>'+
                                     '<td>REG 414</td>'+
                                     '<td>ARM</td>'+
                                     '<td>'+lda_vencimiento+'</td>'+
@@ -444,7 +444,7 @@ function cronogramaModifi(){
                                    // tab_1.tp_4.dw_det_cuotas.SetItem(li_i + ii_num_cuota_cuoi, "imp_total_2",  Round(lde_cuota, 4))
 
                                    var filaCrono = '<tr>'+
-                                        '<th scope="row">'+(li_find+li_i)+'</th>'+
+                                        '<td scope="row">'+(li_find+li_i)+'</td>'+
                                         '<td>REG 448</td>'+
                                         '<td>ARM</td>'+
                                         '<td>'+lda_vencimiento+'</td>'+
@@ -549,7 +549,7 @@ function cronogramaModifi(){
                             var li_find = cronograma.rows.length;
 
                             var filaCrono = '<tr>'+
-                                '<th scope="row">'+(li_find+1)+'</th>'+
+                                '<td scope="row">'+(li_find+1)+'</td>'+
                                 '<td>REG 553</td>'+
                                 '<td>ARM</td>'+
                                 '<td>'+lda_vencimiento+'</td>'+
@@ -576,7 +576,7 @@ function cronogramaModifi(){
                                 // tab_1.tp_4.dw_det_cuotas.SetItem(li_find, "imp_saldo",  tab_1.tp_4.dw_det_cuotas.GetItemDecimal(li_find, "imp_saldo") + Round(lde_cuota, 4))
 
                                 var filaCrono = '<tr>'+
-                                    '<th scope="row">'+(li_find+1)+'</th>'+
+                                    '<td scope="row">'+(li_find+1)+'</td>'+
                                     '<td>REG 580</td>'+
                                     '<td>ARM</td>'+
                                     '<td>'+lda_vencimiento+'</td>'+
@@ -705,7 +705,7 @@ function cronogramaModifi(){
                     // tab_1.tp_4.dw_det_cuotas.SetItem(li_i + ii_num_cuota_cuoi, "flg_generar_mora",  "SI")
 
                     var filaCrono = '<tr>'+
-                        '<th scope="row">'+(li_find+1)+'</th>'+
+                        '<td scope="row">'+(li_find+1)+'</td>'+
                         '<td>REG 709</td>'+
                         '<td>ARM</td>'+
                         '<td>'+lda_vencimiento+'</td>'+
@@ -847,7 +847,7 @@ function cronogramaModifi(){
                 // tab_1.tp_4.dw_det_cuotas.SetItem(li_i + ii_num_cuota_cuoi, "flg_generar_mora",  "SI")
 
                 var filaCrono = '<tr>'+
-                    '<th scope="row">'+(li_find+1)+'</th>'+
+                    '<td scope="row">'+(li_find+1)+'</td>'+
                     '<td>REG 851</td>'+
                     '<td>ARM</td>'+
                     '<td>'+lda_vencimiento+'</td>'+
