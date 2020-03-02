@@ -597,7 +597,7 @@ function cronogramaModifi(){
                 });//foreach serv vin
 
             }else{ // -- No integrales -- //
-                          
+                  console.log('llego no integrales');        
                 lde_valor = ( 1 + (lde_valor / 100)) ^ ( 1 / 12 ) - 1;
                 if(lde_valor == '' || lde_valor == null){ lde_valor = 0.00;}
               
@@ -614,7 +614,7 @@ function cronogramaModifi(){
                    lde_total_saldo = lde_saldo / ( 1 + lde_valor_igv );
 
                 }
-                          
+                  console.log('lde_total_saldo 617',lde_total_saldo);        
                // -- Calculo de Cuota -- //
               
                 if (lde_valor <= 0 ){
@@ -626,7 +626,7 @@ function cronogramaModifi(){
                     lde_cuota = lde_saldo * ((lde_valor * (1 + lde_valor) ^ li_cuotas) / ((1 + lde_valor) ^ li_cuotas - 1));
 
                 }
-              
+              console.log('lde_cuota 629', lde_cuota);
                // -- Limpia Cronograma -- //
 
                 if( is_flg_cronograma_cuoi == 'SI' ){
@@ -705,7 +705,7 @@ function cronogramaModifi(){
                     // tab_1.tp_4.dw_det_cuotas.SetItem(li_i + ii_num_cuota_cuoi, "flg_generar_mora",  "SI")
 
                     var filaCrono = '<tr>'+
-                        '<td scope="row">'+(li_find+1)+'</td>'+
+                        '<td scope="row">'+(li_i+1)+'</td>'+
                         '<td>REG 709</td>'+
                         '<td>ARM</td>'+
                         '<td>'+lda_vencimiento+'</td>'+
@@ -714,7 +714,7 @@ function cronogramaModifi(){
                         '<td style="text-align: right;">'+Number(lde_igv_cuota).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
                         '<td style="text-align: right;">'+Number(lde_cuota).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
                         '<td style="text-align: right;">'+Number(lde_cuota).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
-                        '<input type="hidden" id="flg_generar_mora_"'+(li_find+1)+'" value="SI">'+
+                        '<input type="hidden" id="flg_generar_mora_"'+(li_i+1)+'" value="SI">'+
                     '</tr>';
                     document.getElementById("bodyCronogramaModif").insertAdjacentHTML("beforeEnd" ,filaCrono);
 
