@@ -127,7 +127,7 @@ function cronogramaModifi(){
     var ldt_fch_ven = $("#fchVenCronograma").datepicker("getDate");   //tab_1.tp_4.dw_det_interes.GetItemDatetime(1, "fch_vencimiento")
     var lde_saldo   = $("#saldoFinCronograma").val();   //tab_1.tp_4.dw_det_interes.GetItemDecimal(1, "imp_saldo")
     var lde_valor_cuota = $("#cuota").val(); //tab_1.tp_1.dw_datos.GetItemDecimal(1, "imp_valor_cuota")
-    var ldt_emision = $("#fchEmision").datepicker("getDate"); //tab_1.tp_1.dw_datos.GetItemDatetime(1, "fch_emision")
+    var ldt_emision = $("#fchEmision").val(); //tab_1.tp_1.dw_datos.GetItemDatetime(1, "fch_emision")
     var fechaHoy = new Date();
     var aux_dia = fechaHoy.getDate();
     var aux_mes1 = fechaHoy.setMonth(fechaHoy.getMonth() + 1);
