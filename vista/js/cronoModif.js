@@ -409,7 +409,7 @@ function cronogramaModifi(){
 
                                 var filaCrono = '<tr>'+
                                     '<td scope="row">'+li_i+'</td>'+
-                                    '<td>REG</td>'+
+                                    '<td>REGISTRADO</td>'+
                                     '<td>ARM</td>'+
                                     '<td>'+lda_vencimiento+'</td>'+
                                     '<td style="text-align: right;">'+Number(lde_amortizacion).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
@@ -443,7 +443,7 @@ function cronogramaModifi(){
 
                                    var filaCrono = '<tr>'+
                                         '<td scope="row">'+(li_find+li_i)+'</td>'+
-                                        '<td>REG</td>'+
+                                        '<td>REGISTRADO</td>'+
                                         '<td>ARM</td>'+
                                         '<td>'+lda_vencimiento+'</td>'+
                                         '<td style="text-align: right;">'+Number(lde_amortizacion).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
@@ -548,7 +548,7 @@ function cronogramaModifi(){
 
                             var filaCrono = '<tr>'+
                                 '<td scope="row">'+(li_find+1)+'</td>'+
-                                '<td>REG</td>'+
+                                '<td>REGISTRADO</td>'+
                                 '<td>ARM</td>'+
                                 '<td>'+lda_vencimiento+'</td>'+
                                 '<td style="text-align: right;">'+Number(lde_amortizacion).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
@@ -575,7 +575,7 @@ function cronogramaModifi(){
 
                                 var filaCrono = '<tr>'+
                                     '<td scope="row">'+(li_find+1)+'</td>'+
-                                    '<td>REG</td>'+
+                                    '<td>REGISTRADO</td>'+
                                     '<td>ARM</td>'+
                                     '<td>'+lda_vencimiento+'</td>'+
                                     '<td style="text-align: right;">'+Number(lde_amortizacion).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
@@ -595,9 +595,7 @@ function cronogramaModifi(){
                 });//foreach serv vin
 
             }else{ // -- No integrales -- //
-                console.log('li_cuotas',li_cuotas);
-                console.log('lde_valor',lde_valor);
-                  console.log('llego no integrales');        
+        
                 lde_valor = ( 1 + (lde_valor / 100)) ** ( 1 / 12 ) - 1;
                 if(lde_valor == '' || lde_valor == null){ lde_valor = 0.00;}
               
@@ -614,7 +612,7 @@ function cronogramaModifi(){
                    lde_total_saldo = lde_saldo / ( 1 + lde_valor_igv );
 
                 }
-                  console.log('lde_total_saldo 617',lde_total_saldo);        
+        
                // -- Calculo de Cuota -- //
               
                 if (lde_valor <= 0 ){
@@ -626,7 +624,7 @@ function cronogramaModifi(){
                     lde_cuota = lde_saldo * ((lde_valor * (1 + lde_valor) ** li_cuotas) / ((1 + lde_valor) ** li_cuotas - 1));
 
                 }
-              console.log('lde_cuota 629', lde_cuota);
+
                // -- Limpia Cronograma -- //
 
                 if( is_flg_cronograma_cuoi == 'SI' ){
@@ -651,8 +649,7 @@ function cronogramaModifi(){
                 for( li_i = 0 ; li_i < li_cuotas ; li_i++ ){ 
 
                     // -- Calculo -- //
-                    console.log('lde_total_saldo 654',lde_total_saldo); 
-                    console.log('lde_valor 654',lde_valor); 
+ 
                     lde_interes = lde_total_saldo * lde_valor;
                   
                     // -- Datos -- //
@@ -669,7 +666,7 @@ function cronogramaModifi(){
                        lde_capital_cuota = lde_cuota / ( 1 + lde_valor_igv );
 
                     }
-                    console.log('lde_capital_cuota 676', lde_capital_cuota);                      
+                     
                     lde_igv_cuota    = lde_cuota - lde_capital_cuota;
                     lde_amortizacion = ( lde_cuota - lde_igv_cuota ) - lde_interes;
                     aux_dia = ldt_fch_ven.getDate();
@@ -702,7 +699,7 @@ function cronogramaModifi(){
 
                     var filaCrono = '<tr>'+
                         '<td scope="row">'+(li_i+1)+'</td>'+
-                        '<td>REG</td>'+
+                        '<td>REGISTRADO</td>'+
                         '<td>ARM</td>'+
                         '<td>'+lda_vencimiento+'</td>'+
                         '<td style="text-align: right;">'+Number(lde_amortizacion).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
@@ -825,7 +822,7 @@ function cronogramaModifi(){
                     lde_amortizacion = lde_capital_cuota;
 
                 }
-
+                console.log('lde_amortizacion',lde_amortizacion);
                 // -- Inserta -- //
                 var cronograma = document.getElementById('bodyCronogramaModif');
                 var li_find = cronograma.rows.length;
@@ -844,7 +841,7 @@ function cronogramaModifi(){
 
                 var filaCrono = '<tr>'+
                     '<td scope="row">'+(li_find+1)+'</td>'+
-                    '<td>REG</td>'+
+                    '<td>REGISTRADO</td>'+
                     '<td>ARM</td>'+
                     '<td>'+lda_vencimiento+'</td>'+
                     '<td style="text-align: right;">'+Number(lde_amortizacion).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
