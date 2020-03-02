@@ -42,6 +42,9 @@ $("#fchEntBenef").datepicker({
     format : 'dd-mm-yyyy',
     autoclose: true
 });//datepicker
+$("#fchEmision").datepicker({
+    format : 'dd-mm-yyyy'
+});//datepicker
 
 function justNumbers(e){
   var keynum = window.event ? window.event.keyCode : e.which;
@@ -186,7 +189,7 @@ function llenaDatos(codCtto){
             var auditAct = buscaDatosPeriodo(fch_activacion,'Act');
             var fch_resolucion = fechaParaConsulta(respuesta[0]['fch_resolucion']);
             var auditRes = buscaDatosPeriodo(fch_resolucion,'Res');
-            $("#fchEmision").val(respuesta[0]['fch_emision']);
+            $("#fchEmision").datepicker("setDate", respuesta[0]['fch_emision']);
             $("#fchActivacion").val(respuesta[0]['fch_activacion']);
             $("#codCampoContrato").val(respuesta[0]['cod_camposanto_actual']);
             $("#codPlatContrato").val(respuesta[0]['cod_plataforma_actual']);
@@ -1997,7 +2000,7 @@ function ValidaModificaCtto(){
     var ls_num_servicio_det = $("#numServicioSeleccionado").val();
     var ls_flg_resuelto = $("#flg_resuelto_"+ls_num_servicio_det).val();
     var ls_flg_anulado = $("#flg_anulado_"+ls_num_servicio_det).val();
-    var ldt_fch_emision = $("#fchEmision").val();
+    var ldt_fch_emision = $("#fchEmision").datepicker("getDate");
     var is_principal = $("#is_principal_"+ls_num_servicio_det).val();
     var is_ds = $("#is_ds_"+ls_num_servicio_det).val();
     var ls_flg_agencia = $("#AgFunCheck").prop('checked');
@@ -2235,7 +2238,7 @@ function modificaContrato(){
     var ls_flg_anulado = $("#flg_anulado_"+ls_num_servicio_det).val();
     var lde_saldo_financiar_foma = $("#saldoFOMA").val();
     var lde_saldo_financiar = $("#saldoFinanciar").val();
-    var ldt_fch_emision = $("#fchEmision").val();
+    var ldt_fch_emision = $("#fchEmision").datepicker("getDate");
     var ldt_fch_activacion = $("#fchActivacion").val();
     var fechaHoy = new Date();
     var aux_dia = fechaHoy.getDate();
