@@ -867,7 +867,7 @@ function cargaCronograma(codCtto,numRefi){
                     edoCuota = '';
                 }
         		var filaCrono = '<tr>'+
-									'<th scope="row">'+value['num_cuota']+'</th>'+
+									'<td scope="row">'+value['num_cuota']+'</td>'+
 									'<td>'+edoCuota+'</td>'+
                                     '<td>'+value['cod_tipo_cuota']+'</td>'+
 									'<td>'+value['fch_vencimiento']+'</td>'+
@@ -913,7 +913,7 @@ function cargaFoma(codCtto,numRefi){
             			edoCuota = 'CANCELADO';
             		}
             		var filaFoma = '<tr>'+
-    									'<th scope="row">'+value['num_cuota']+'</th>'+
+    									'<td scope="row">'+value['num_cuota']+'</td>'+
     									'<td>'+edoCuota+'</td>'+
                                         '<td>FMA</td>'+
     									'<td>'+value['fch_vencimiento']+'</td>'+
