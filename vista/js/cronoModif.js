@@ -282,9 +282,7 @@ function cronogramaModifi(){
     //Choose Case is_tipo_calculo_interes
     switch(is_tipo_calculo_interes){                                  
 
-        case 3:
-            console.log('li_cuotas',li_cuotas);
-            console.log('lde_valor',lde_valor);   
+        case 3:   
            
             // -- Integrales -- //                            
 
@@ -597,6 +595,8 @@ function cronogramaModifi(){
                 });//foreach serv vin
 
             }else{ // -- No integrales -- //
+                console.log('li_cuotas',li_cuotas);
+            console.log('lde_valor',lde_valor);
                   console.log('llego no integrales');        
                 lde_valor = ( 1 + (lde_valor / 100)) ^ ( 1 / 12 ) - 1;
                 if(lde_valor == '' || lde_valor == null){ lde_valor = 0.00;}
@@ -630,7 +630,7 @@ function cronogramaModifi(){
                // -- Limpia Cronograma -- //
 
                 if( is_flg_cronograma_cuoi == 'SI' ){
-                    
+                    console.log('llego cuoi');
                     var container = document.querySelector('#bodyCronogramaModif');
                     container.querySelectorAll('tr').forEach(function (li_i)
                     {   
@@ -673,7 +673,7 @@ function cronogramaModifi(){
                        lde_capital_cuota = lde_cuota / ( 1 + lde_valor_igv );
 
                     }
-                                             
+                       console.log('lde_capital_cuota 676', lde_capital_cuota);                      
                     lde_igv_cuota    = lde_cuota - lde_capital_cuota;
                     lde_amortizacion = ( lde_cuota - lde_igv_cuota ) - lde_interes;
                     aux_dia = ldt_fch_ven.getDate();
