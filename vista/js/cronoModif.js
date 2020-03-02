@@ -123,6 +123,7 @@ function cronogramaModifi(){
     // -- Datos -- //
      
     var ls_cuota    = $("#codCuotaModif").val();   //tab_1.tp_4.dw_det_interes.GetItemString(1, "cod_cuota")
+    console.log('ls_cuota',ls_cuota);
     var ls_interes  = $("#codInteresModif").val();   //tab_1.tp_4.dw_det_interes.GetItemString(1, "cod_interes")
     var ldt_fch_ven = $("#fchVenCronograma").datepicker("getDate");   //tab_1.tp_4.dw_det_interes.GetItemDatetime(1, "fch_vencimiento")
     var lde_saldo   = $("#saldoFinCronograma").val();   //tab_1.tp_4.dw_det_interes.GetItemDecimal(1, "imp_saldo")
