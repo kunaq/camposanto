@@ -223,6 +223,7 @@ function cronogramaModifi(){
         }
     }
     console.log('ldt_emision',ldt_emision);
+    console.log('ldt_fch_ven',ldt_fch_ven);
     console.log('ldt_fch_ven1',ldt_emision < ldt_fch_ven);
     if ( ldt_emision < ldt_fch_ven && (ldt_emision != '' || ldt_emision != null) ){
         swal({
