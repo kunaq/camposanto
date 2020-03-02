@@ -630,7 +630,6 @@ function cronogramaModifi(){
                // -- Limpia Cronograma -- //
 
                 if( is_flg_cronograma_cuoi == 'SI' ){
-                    console.log('llego cuoi');
                     var container = document.querySelector('#bodyCronogramaModif');
                     container.querySelectorAll('tr').forEach(function (li_i)
                     {   
@@ -648,15 +647,12 @@ function cronogramaModifi(){
                 }
                           
                 // -- Armar Cronograma -- //
-              
-                var cronograma = document.getElementById('bodyCronogramaModif');
-                var cronogramaLenght = cronograma.rows.length;
-                console.log('cronogramaLenght',cronogramaLenght);
 
                 for( li_i = 0 ; li_i < li_cuotas ; li_i++ ){ 
 
                     // -- Calculo -- //
-                  
+                    console.log('lde_total_saldo 654',lde_total_saldo); 
+                    console.log('lde_valor 654',lde_valor); 
                     lde_interes = lde_total_saldo * lde_valor;
                   
                     // -- Datos -- //
@@ -715,7 +711,7 @@ function cronogramaModifi(){
                         '<td style="text-align: right;">'+Number(lde_igv_cuota).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
                         '<td style="text-align: right;">'+Number(lde_cuota).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
                         '<td style="text-align: right;">'+Number(lde_cuota).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
-                        '<input type="hidden" id="flg_generar_mora_"'+(li_i+1)+'" value="SI">'+
+                        '<input type="hidden" id="flg_generar_mora_'+(li_i+1)+'" value="SI">'+
                     '</tr>';
                     document.getElementById("bodyCronogramaModif").insertAdjacentHTML("beforeEnd" ,filaCrono);
 
@@ -857,7 +853,7 @@ function cronogramaModifi(){
                     '<td style="text-align: right;">'+Number(lde_igv_cuota).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
                     '<td style="text-align: right;">'+Number(lde_cuota).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
                     '<td style="text-align: right;">'+Number(lde_cuota).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
-                    '<input type="hidden" id="flg_generar_mora_"'+(li_find+1)+'" value="SI">'+
+                    '<input type="hidden" id="flg_generar_mora_'+(li_find+1)+'" value="SI">'+
                 '</tr>';
                 document.getElementById("bodyCronogramaModif").insertAdjacentHTML("beforeEnd" ,filaCrono);                
                           
