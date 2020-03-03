@@ -688,6 +688,9 @@ function cronogramaModifi(){
                      }else if(aux_mes == 1){
                         aux_dia2 = ldt_fch_ven.setDate(ldt_fch_ven.getDate()+28);
                         aux_dia = ldt_fch_ven.getDate();
+                    }else{
+                        aux_mes1 = ldt_fch_ven.setMonth(ldt_fch_ven.getMonth() + 1);
+                        aux_mes = ldt_fch_ven.getMonth();
                     }               
                     lda_vencimiento = aux_dia+'/'+aux_mes+'/'+aux_anio;
                   
