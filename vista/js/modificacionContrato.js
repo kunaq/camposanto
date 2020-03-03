@@ -100,7 +100,7 @@ $("#btnGenCronoFoma").on('click',function(){
     })
 });
 
-$("#CuoDefinidasCheck").on('change',function(){
+$("#CuoDefinidasCheck").on('click',function(){
     var checkbox = document.getElementById('CuoDefinidasCheck');
     if (checkbox.checked != true){
         $('#cuoFin').prop('disabled',true);
