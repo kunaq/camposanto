@@ -686,7 +686,7 @@ function cronogramaModifi(){
                         aux_mes = '12';
                         aux_anio = ldt_fch_ven.getFullYear()-1;
                         lda_vencimiento = aux_dia+'/'+aux_mes+'/'+aux_anio;
-                     }else if(aux_mes == 1){
+                     }else if(aux_mes == 2){
                         aux_dia2 = ldt_fch_ven.setDate(ldt_fch_ven.getDate()+28);
                         aux_dia = ldt_fch_ven.getDate();
                         lda_vencimiento = aux_dia+'/'+aux_mes+'/'+aux_anio;
