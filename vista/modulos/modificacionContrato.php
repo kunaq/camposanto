@@ -1579,7 +1579,7 @@
 																<td>
 																	<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
 																		<label>
-																			<input type="checkbox" name="CuoDefinidasCheck" id="CuoDefinidasCheck">
+																			<input type="checkbox" onclick="activaCuD();" name="CuoDefinidasCheck" id="CuoDefinidasCheck">
 																			<span></span>
 																		</label>
 																	</span>

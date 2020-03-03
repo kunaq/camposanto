@@ -100,7 +100,7 @@ $("#btnGenCronoFoma").on('click',function(){
     })
 });
 
-$("#CuoDefinidasCheck").on('click',function(){
+function activaCuD(){
     var checkbox = document.getElementById('CuoDefinidasCheck');
     if (checkbox.checked != true){
         $('#cuoFin').prop('disabled',true);
@@ -117,7 +117,7 @@ $("#CuoDefinidasCheck").on('click',function(){
         $('#cuoIni').prop('disabled',false);
         $("#btnCuoDef").prop('disabled',false);
     }
-});
+}
 
 function fechaParaConsulta(dato){
     fecha = new Date(dato);
