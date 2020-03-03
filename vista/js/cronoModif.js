@@ -676,7 +676,7 @@ function cronogramaModifi(){
                         aux_dia2 = ldt_fch_ven.setDate(ldt_fch_ven.getDate()+28);
                         aux_dia = ldt_fch_ven.getDate();
                         // aux_mes1 = ldt_fch_ven.setMonth(ldt_fch_ven.getMonth() + 1);
-                        aux_mes = ldt_fch_ven.getMonth();
+                        // aux_mes = ldt_fch_ven.getMonth();
                     }else{
                         aux_mes1 = ldt_fch_ven.setMonth(ldt_fch_ven.getMonth() + 1);
                         aux_mes = ldt_fch_ven.getMonth();
