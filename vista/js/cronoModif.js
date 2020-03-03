@@ -675,7 +675,7 @@ function cronogramaModifi(){
                     if(aux_mes == 1){
                         aux_dia2 = ldt_fch_ven.setDate(ldt_fch_ven.getDate()+28);
                         aux_dia = ldt_fch_ven.getDate();
-                        aux_mes1 = ldt_fch_ven.setMonth(ldt_fch_ven.getMonth() + 1);
+                        // aux_mes1 = ldt_fch_ven.setMonth(ldt_fch_ven.getMonth() + 1);
                         aux_mes = ldt_fch_ven.getMonth();
                     }else{
                         aux_mes1 = ldt_fch_ven.setMonth(ldt_fch_ven.getMonth() + 1);
@@ -683,7 +683,7 @@ function cronogramaModifi(){
                     }
                     aux_anio = ldt_fch_ven.getFullYear();
                     if(aux_mes == '0'){
-                       // aux_mes = '1';
+                       aux_mes = '12';
                        aux_anio = ldt_fch_ven.getFullYear()-1;
                      }               
                     lda_vencimiento = aux_dia+'/'+aux_mes+'/'+aux_anio;
