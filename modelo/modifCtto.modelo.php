@@ -355,11 +355,12 @@ class ModeloModifCtto{
 		$db->liberar($sql);
         $db->cerrar();
 	}//mdlGuardaObservacion
+	
 
 	static public function mdlGuardaCronograma($tabla,$datos){
 		$db = new Conexion();
 		$sql = $db->consulta("DELETE FROM $tabla WHERE cod_contrato LIKE (RIGHT('0000000000'+'".$datos['ls_contrato']."',10)) AND cod_localidad = '".$datos['localidad']."' AND cod_tipo_cuota = 'ARM' AND num_refinanciamiento = ".$datos['refi']);
-
+		$sql1 = $db->consulta("INSERT INTO ");
 		$datos = arrayMapUtf8Encode($db->recorrer($sql));
 		return $datos;
 		$db->liberar($sql);
