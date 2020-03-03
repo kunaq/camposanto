@@ -2918,7 +2918,6 @@ function grabaTemporal(){
 //----------------------------------------------------------------------------------------------//
 
 function editar_fecha_30(fecha, intervalo, dma, separador,dia1erFchVenc2,intDiaGrc=0) {
-  console.log(fecha);
   var separador = separador || "-";
   var arrayFecha = fecha.split(separador);
   var dia = arrayFecha[0];

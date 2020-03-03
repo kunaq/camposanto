@@ -676,7 +676,7 @@ function cronogramaModifi(){
                     lde_amortizacion = ( lde_cuota - lde_igv_cuota ) - lde_interes;
 
                     lda_vencimiento = ldt_fch_ven1;
-                    lda_vencimiento = editar_fecha_30(ldt_fch_ven1, 30, 'd', "-",lda_vencimiento,0);
+                    lda_vencimiento = editar_fecha_30(lda_vencimiento, 30, 'd', "-",ldt_fch_ven1,0);
                     console.log('lda_vencimiento fun', lda_vencimiento);
                     // aux_dia = ldt_fch_ven.getDate();
                     // aux_mes1 = ldt_fch_ven.setMonth(ldt_fch_ven.getMonth() + 1);
@@ -741,8 +741,8 @@ function cronogramaModifi(){
                         lde_sumcapital = lde_sumcapital + pasaAnumero(oCells.item(4).innerHTML.trim());
 
                         lde_sumtotal = lde_sumtotal + pasaAnumero(oCells.item(7).innerHTML.trim());
-                        console.log('lde_sumcapital for',oCells.item(4).innerHTML.trim());
-                        console.log('lde_sumtotal for',oCells.item(7).innerHTML.trim());
+                        // console.log('lde_sumcapital for',oCells.item(4).innerHTML.trim());
+                        // console.log('lde_sumtotal for',oCells.item(7).innerHTML.trim());
 
                     }            
                 }
