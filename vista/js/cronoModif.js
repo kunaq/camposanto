@@ -675,7 +675,8 @@ function cronogramaModifi(){
                     lde_igv_cuota    = lde_cuota - lde_capital_cuota;
                     lde_amortizacion = ( lde_cuota - lde_igv_cuota ) - lde_interes;
 
-                    lda_vencimiento = editar_fecha_30(ldt_fch_ven1, 30, 'd', "-",ldt_fch_ven1,0);
+                    lda_vencimiento = ldt_fch_ven1;
+                    lda_vencimiento = editar_fecha_30(ldt_fch_ven1, 30, 'd', "-",lda_vencimiento,0);
                     console.log('lda_vencimiento fun', lda_vencimiento);
                     // aux_dia = ldt_fch_ven.getDate();
                     // aux_mes1 = ldt_fch_ven.setMonth(ldt_fch_ven.getMonth() + 1);
