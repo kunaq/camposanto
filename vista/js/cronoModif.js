@@ -673,15 +673,18 @@ function cronogramaModifi(){
                      
                     lde_igv_cuota    = lde_cuota - lde_capital_cuota;
                     lde_amortizacion = ( lde_cuota - lde_igv_cuota ) - lde_interes;
-                    aux_dia = ldt_fch_ven.getDate();
-                    aux_mes1 = ldt_fch_ven.setMonth(ldt_fch_ven.getMonth() + 1);
-                    var aux_mes = ldt_fch_ven.getMonth();
-                    aux_anio = ldt_fch_ven.getFullYear();
-                    if(aux_mes == '0'){
-                      aux_mes = '12';
-                      aux_anio = ldt_fch_ven.getFullYear()-1;
-                    }               
-                    lda_vencimiento = aux_dia+'/'+aux_mes+'/'+aux_anio;
+
+                     var lda_vencimiento = editar_fecha_30(ldt_fch_ven, 30, 'd', "/",ldt_fch_ven,0);
+                    console.log('lda_vencimiento fun', lda_vencimiento);
+                    // aux_dia = ldt_fch_ven.getDate();
+                    // aux_mes1 = ldt_fch_ven.setMonth(ldt_fch_ven.getMonth() + 1);
+                    // var aux_mes = ldt_fch_ven.getMonth();
+                    // aux_anio = ldt_fch_ven.getFullYear();
+                    // if(aux_mes == '0'){
+                    //   aux_mes = '12';
+                    //   aux_anio = ldt_fch_ven.getFullYear()-1;
+                    // }               
+                    // lda_vencimiento = aux_dia+'/'+aux_mes+'/'+aux_anio;
 
                   
                     // -- Saldos -- //
