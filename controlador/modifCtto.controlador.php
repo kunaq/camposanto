@@ -431,9 +431,9 @@ class ControladorModifCtto{
 
 	static public function ctrGuardaCronograma(){
 		$tabla = 'vtade_cronograma';
-		$datos = array("ls_localidad" => $_SESSION['localidad'],
+		$datos = array("localidad" => $_SESSION['localidad'],
 						"ls_contrato" => $_POST['ls_contrato'],
-						"li_ref" => $_POST['li_ref'],
+						"ref" => $_POST['li_ref'],
 						"li_cuota" => $_POST['li_cuota'],
 						"cod_estadocuota" => $_POST['cod_estadocuota'],
 						"ldt_vencimiento" => $_POST['ldt_vencimiento'],
