@@ -635,7 +635,7 @@ function cronogramaModifi(){
                 // -- Armar Cronograma -- //
 
                 lda_vencimiento = ldt_fch_ven1;
-                
+
                 for( li_i = 1 ; li_i < li_cuotas ; li_i++ ){ 
 
                     // -- Calculo -- //
@@ -909,7 +909,7 @@ var lde_valor_aux = parseInt(lde_valor);
       //    FROM                   vtama_servicio
       //    INNER JOIN vtama_tipo_servicio ON vtama_servicio.cod_tipo_servicio = vtama_tipo_servicio.cod_tipo_servicio
       //    WHERE vtama_servicio.cod_servicio = :ls_cod_servicio
-        var ls_flg_afecto_igv = document.getElementById("flg_afecto_igv_"+ls_cod_servicio).value;
+        var ls_flg_afecto_igv = document.getElementById("flg_afecto_igv").value;
          
         if(ls_flg_afecto_igv == null || ls_flg_afecto_igv == ''){
             ls_flg_afecto_igv = 'NO';
