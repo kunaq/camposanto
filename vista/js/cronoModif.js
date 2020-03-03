@@ -894,6 +894,32 @@ var li_fin = document.getElementById("cuoFin").value;
 var lde_valor = document.getElementById("valCuo").value;
 var lde_valor_aux = parseInt(lde_valor);
 
+var li_valida = 0;
+var ls_estado = '';
+var cronograma = document.getElementById('bodyCronogramaModif');
+    var cronogramaLenght = cronograma.rows.length;
+    if( cronogramaLenght > 0 ){
+
+        for( li_i = 0 ; li_i < cronogramaLenght ; li_i++ ){               
+            var oCells = cronograma.rows.item(li_i).cells;
+            ls_estado = oCells.item(1).innerHTML.trim();
+            
+            if( ls_estado != 'REGISTRADO'){
+                li_valida = li_valida + 1;
+            }
+        }           
+
+        if( li_valida > 0 ){
+            swal({
+                title: "",
+                text: "No puede regenerar el cronograma, ya fue modificado.",
+                type: "warning",
+                confirmButtonText: "Aceptar",
+            })
+           return;
+        }              
+    }
+
 // // -- Afecto a I.G.V. -- //
 
   var ls_cod_servicio = [];
