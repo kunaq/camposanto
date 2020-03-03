@@ -650,7 +650,7 @@ function cronogramaModifi(){
                 }
                           
                 // -- Armar Cronograma -- //
-
+                lda_vencimiento = ldt_fch_ven1;
                 for( li_i = 1 ; li_i < li_cuotas ; li_i++ ){ 
 
                     // -- Calculo -- //
@@ -675,8 +675,8 @@ function cronogramaModifi(){
                     lde_igv_cuota    = lde_cuota - lde_capital_cuota;
                     lde_amortizacion = ( lde_cuota - lde_igv_cuota ) - lde_interes;
 
-                    lda_vencimiento = ldt_fch_ven1;
-                    lda_vencimiento = editar_fecha_30(lda_vencimiento, '+30', 'd', "-",ldt_fch_ven1,0);
+                    
+                    lda_vencimiento = editar_fecha_30(lda_vencimiento, '+30', 'd', "",ldt_fch_ven1,0);
                     console.log('lda_vencimiento fun', lda_vencimiento);
                     // aux_dia = ldt_fch_ven.getDate();
                     // aux_mes1 = ldt_fch_ven.setMonth(ldt_fch_ven.getMonth() + 1);
@@ -717,7 +717,7 @@ function cronogramaModifi(){
                         '<td style="text-align: right;">'+Number(lde_igv_cuota).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
                         '<td style="text-align: right;">'+Number(lde_cuota).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
                         '<td style="text-align: right;">'+Number(lde_cuota).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
-                        '<input type="hidden" id="flg_generar_mora_'+(li_i+1)+'" value="SI">'+
+                        '<input type="hidden" id="flg_generar_mora_'+(li_i)+'" value="SI">'+
                     '</tr>';
                     document.getElementById("bodyCronogramaModif").insertAdjacentHTML("beforeEnd" ,filaCrono);
 
