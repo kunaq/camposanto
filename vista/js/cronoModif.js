@@ -955,7 +955,7 @@ var cronograma = document.getElementById('bodyCronogramaModif');
 
     // -- Datos -- //
 
-    var li_total = $("#bodyCronograma tr").length;
+    var li_total = $("#bodyCronogramaModif tr").length;
     var ls_interes = document.getElementById("interes").value;
     if(ls_interes == 'Seleccione...'){
       ls_interes = 0;
@@ -1093,7 +1093,7 @@ var cronograma = document.getElementById('bodyCronogramaModif');
 
         for (li_i = 1; li_i <= (li_ini - 1); li_i++){
 
-            filas=document.querySelectorAll("#bodyCronograma tr");
+            filas=document.querySelectorAll("#bodyCronogramaModif tr");
             result = filas[li_i-1].querySelectorAll("td");
             lde_cuota = result[4].textContent;
             lde_cuota = pasaAnumero(lde_cuota);
@@ -1107,7 +1107,7 @@ var cronograma = document.getElementById('bodyCronogramaModif');
         var lde_x_financiar2 = document.getElementById("saldoFinanciar").value;
         lde_x_financiar2 = pasaAnumero(lde_x_financiar2);
 
-        var li_final = $("#bodyCronograma tr").length;
+        var li_final = $("#bodyCronogramaModif tr").length;
        
         lde_x_financiar = (lde_x_financiar / (lde_valor_igv + 1));
         lde_saldo = lde_x_financiar - lde_suma_capital;
@@ -1131,7 +1131,7 @@ var cronograma = document.getElementById('bodyCronogramaModif');
          
             // -- Seteo -- //
 
-            var filas=document.querySelectorAll("#bodyCronograma tr");
+            var filas=document.querySelectorAll("#bodyCronogramaModif tr");
             result = filas[li_i-1].querySelectorAll("td");
          
 
@@ -1199,7 +1199,7 @@ var cronograma = document.getElementById('bodyCronogramaModif');
          
             // -- Seteo -- //
 
-            var filas=document.querySelectorAll("#bodyCronograma tr");
+            var filas=document.querySelectorAll("#bodyCronogramaModif tr");
             result = filas[li_i-1].querySelectorAll("td");
 
             aux1 = Number(lde_amortizacion).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
@@ -1227,7 +1227,7 @@ var cronograma = document.getElementById('bodyCronogramaModif');
          
             for(li_i = 1; li_i <= (li_final - 1); li_i++){
 
-                filas=document.querySelectorAll("#bodyCronograma tr");
+                filas=document.querySelectorAll("#bodyCronogramaModif tr");
                 result = filas[li_i-1].querySelectorAll("td");
                 aux = pasaAnumero(result[4].innerHTML);
                 var lde_suma_capital = lde_suma_capital + aux;
@@ -1277,7 +1277,7 @@ var cronograma = document.getElementById('bodyCronogramaModif');
          
             // -- Seteo -- //
 
-            filas=document.querySelectorAll("#bodyCronograma tr");
+            filas=document.querySelectorAll("#bodyCronogramaModif tr");
             result = filas[li_final-1].querySelectorAll("td");
             aux2 = Number(lde_saldo).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
             result[4].innerHTML = aux2;
