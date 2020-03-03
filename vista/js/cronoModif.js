@@ -683,7 +683,7 @@ function cronogramaModifi(){
                     }
                     aux_anio = ldt_fch_ven.getFullYear();
                     if(aux_mes == '0'){
-                       aux_mes = '12';
+                       aux_mes = '1';
                        aux_anio = ldt_fch_ven.getFullYear()-1;
                      }               
                     lda_vencimiento = aux_dia+'/'+aux_mes+'/'+aux_anio;
