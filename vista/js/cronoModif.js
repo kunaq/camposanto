@@ -669,13 +669,13 @@ function cronogramaModifi(){
                      
                     lde_igv_cuota    = lde_cuota - lde_capital_cuota;
                     lde_amortizacion = ( lde_cuota - lde_igv_cuota ) - lde_interes;
-                    
+
                     aux_dia = ldt_fch_ven.getDate();
                     aux_mes = ldt_fch_ven.getMonth();
                     if(aux_mes == 1){
                         aux_dia2 = ldt_fch_ven.setDate(ldt_fch_ven.getDate()+30);
                         aux_dia = ldt_fch_ven.getDate();
-                    }else{}
+                    }else{
                         aux_mes1 = ldt_fch_ven.setMonth(ldt_fch_ven.getMonth() + 1);
                         aux_mes = ldt_fch_ven.getMonth();
                     }
