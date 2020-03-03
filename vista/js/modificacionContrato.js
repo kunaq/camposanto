@@ -2440,6 +2440,7 @@ function modificaContrato(){
     var tablaVin = document.getElementById('bodyServicioVin');
     var tablaVinLenght = tablaVin.rows.length;
     var gs_empresa = $("#idPropietario").val();
+    
     for( li_i = 0 ; li_i < tablaVinLenght ; li_i++ ){
                    
         var oCells = tablaVin.rows.item(li_i).cells;
