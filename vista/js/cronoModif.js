@@ -671,7 +671,11 @@ function cronogramaModifi(){
                     lde_amortizacion = ( lde_cuota - lde_igv_cuota ) - lde_interes;
 
                     aux_dia = ldt_fch_ven.getDate();
+                    aux_dia2 = ldt_fch_ven.setDate(ldt_fch_ven.getDate()+30);
+                        aux_dia = ldt_fch_ven.getDate();
                     aux_mes = ldt_fch_ven.getMonth();
+                    // aux_mes1 = ldt_fch_ven.setMonth(ldt_fch_ven.getMonth() + 1);
+                    //     aux_mes = ldt_fch_ven.getMonth();
                     // if(aux_mes == 1){
                     //     aux_dia2 = ldt_fch_ven.setDate(ldt_fch_ven.getDate()+28);
                     //     aux_dia = ldt_fch_ven.getDate();
@@ -686,18 +690,19 @@ function cronogramaModifi(){
                         aux_mes = '12';
                         aux_anio = ldt_fch_ven.getFullYear()-1;
                         // lda_vencimiento = aux_dia+'/'+aux_mes+'/'+aux_anio;
-                     }else if(aux_mes == 1){
-                        aux_dia2 = ldt_fch_ven.setDate(ldt_fch_ven.getDate()+28);
-                        aux_dia = ldt_fch_ven.getDate();
+                     }
+                    //  else if(aux_mes == 1){
+                    //     aux_dia2 = ldt_fch_ven.setDate(ldt_fch_ven.getDate()+28);
+                    //     aux_dia = ldt_fch_ven.getDate();
 
-                        // lda_vencimiento = aux_dia+'/'+aux_mes+'/'+aux_anio;
-                    }else{
-                        aux_mes1 = ldt_fch_ven.setMonth(ldt_fch_ven.getMonth() + 1);
-                        aux_mes = ldt_fch_ven.getMonth();
-                        // lda_vencimiento = aux_dia+'/'+aux_mes+'/'+aux_anio;
-                    }   
-                    aux_mes1 = ldt_fch_ven.setMonth(ldt_fch_ven.getMonth() + 1);
-                    aux_mes = ldt_fch_ven.getMonth();            
+                    //     // lda_vencimiento = aux_dia+'/'+aux_mes+'/'+aux_anio;
+                    // }else{
+                    //     aux_mes1 = ldt_fch_ven.setMonth(ldt_fch_ven.getMonth() + 1);
+                    //     aux_mes = ldt_fch_ven.getMonth();
+                    //     // lda_vencimiento = aux_dia+'/'+aux_mes+'/'+aux_anio;
+                    // }   
+                    // aux_mes1 = ldt_fch_ven.setMonth(ldt_fch_ven.getMonth() + 1);
+                    // aux_mes = ldt_fch_ven.getMonth();            
                     lda_vencimiento = aux_dia+'/'+aux_mes+'/'+aux_anio;
                     // -- Saldos -- //
                   
