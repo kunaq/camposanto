@@ -125,6 +125,7 @@ function cronogramaModifi(){
     var ls_cuota    = $("#codCuotaModif").val();   //tab_1.tp_4.dw_det_interes.GetItemString(1, "cod_cuota")
     var ls_interes  = $("#codInteresModif").val();   //tab_1.tp_4.dw_det_interes.GetItemString(1, "cod_interes")
     var ldt_fch_ven = $("#fchVenCronograma").datepicker("getDate");   //tab_1.tp_4.dw_det_interes.GetItemDatetime(1, "fch_vencimiento")
+    var ldt_fch_ven1 = $("#fchVenCronograma").val();
     var lde_saldo   = $("#saldoFinCronograma").val();   //tab_1.tp_4.dw_det_interes.GetItemDecimal(1, "imp_saldo")
     var lde_valor_cuota = $("#cuota").val(); //tab_1.tp_1.dw_datos.GetItemDecimal(1, "imp_valor_cuota")
     var ldt_emision = $("#fchEmision").datepicker("getDate"); //tab_1.tp_1.dw_datos.GetItemDatetime(1, "fch_emision")
@@ -674,19 +675,17 @@ function cronogramaModifi(){
                     lde_igv_cuota    = lde_cuota - lde_capital_cuota;
                     lde_amortizacion = ( lde_cuota - lde_igv_cuota ) - lde_interes;
 
-                     var lda_vencimiento = editar_fecha_30(ldt_fch_ven, 30, 'd', "/",ldt_fch_ven,0);
+                     var lda_vencimiento = editar_fecha_30(ldt_fch_ven1, 30, 'd', "-",ldt_fch_ven1,0);
                     console.log('lda_vencimiento fun', lda_vencimiento);
-                    aux_dia = ldt_fch_ven.getDate();
-                    aux_mes1 = ldt_fch_ven.setMonth(ldt_fch_ven.getMonth() + 1);
+                    // aux_dia = ldt_fch_ven.getDate();
+                    // aux_mes1 = ldt_fch_ven.setMonth(ldt_fch_ven.getMonth() + 1);
                     // var aux_mes = ldt_fch_ven.getMonth();
-                    aux_anio = ldt_fch_ven.getFullYear();
+                    // aux_anio = ldt_fch_ven.getFullYear();
                     // if(aux_mes == '0'){
                     //   aux_mes = '12';
                     //   aux_anio = ldt_fch_ven.getFullYear()-1;
                     // }               
-                    lda_vencimiento = aux_dia+'/'+aux_mes+'/'+aux_anio;
-                    var lda_vencimiento = editar_fecha_30(lda_vencimiento, 30, 'd', "/",lda_vencimiento,0);
-                    console.log('lda_vencimiento fun', lda_vencimiento);
+                    // lda_vencimiento = aux_dia+'/'+aux_mes+'/'+aux_anio;
 
                   
                     // -- Saldos -- //
