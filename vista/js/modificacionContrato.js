@@ -100,6 +100,25 @@ $("#btnGenCronoFoma").on('click',function(){
     })
 });
 
+$("#CuoDefinidasCheck").on('change',function(){
+    var checkbox = document.getElementById('CuoDefinidasCheck');
+    if (checkbox.checked != true){
+        $('#cuoFin').prop('disabled',true);
+        $('#cuoFin').val('');
+        $('#cuoIni').prop('disabled',true);
+        $('#cuoIni').val('');
+        $('#valCuo').prop('disabled',true);
+        $('#valCuo').val('');
+        $("#btnCuoDef").prop('disabled',true);
+    }
+    else{
+        $('#cuoFin').prop('disabled',false);
+        $('#valCuo').prop('disabled',false);
+        $('#cuoIni').prop('disabled',false);
+        $("#btnCuoDef").prop('disabled',false);
+    }
+});
+
 function fechaParaConsulta(dato){
     fecha = new Date(dato);
     var aux_dia = fecha.getDate();

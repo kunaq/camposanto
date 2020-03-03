@@ -1579,7 +1579,7 @@
 																<td>
 																	<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
 																		<label>
-																			<input type="checkbox" name="" id="personaCheck" disabled>
+																			<input type="checkbox" name="CuoDefinidasCheck" id="CuoDefinidasCheck">
 																			<span></span>
 																		</label>
 																	</span>
@@ -1603,8 +1603,8 @@
 												</div>
 											<br>
 												<div class="col-lg-12">
-													<button type="button" class="btn btn-sm btnEditarKqPst2 mt25">
-														Generar CUD
+													<button type="button" id="btnCuoDef" onclick="CuoDefinidas();" disabled class="btn btn-sm btnEditarKqPst2 mt25">
+														Generar cuotas
 													</button>
 												</div>
 											</div>

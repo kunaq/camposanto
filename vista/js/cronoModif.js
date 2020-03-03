@@ -366,6 +366,8 @@ function cronogramaModifi(){
                                  
                         // -- Armar Cronograma -- //
 
+                        lda_vencimiento = ldt_fch_ven1;
+
                         for( li_i = 1; li_i < li_cuotas ; li_i ++){
           
                             // -- Calculo -- //
@@ -379,17 +381,6 @@ function cronogramaModifi(){
                             var lde_amortizacion  = ( lde_cuota - lde_igv_cuota ) - lde_interes;
 
                              var lda_vencimiento = editar_fecha_30(ldt_fch_ven, 30, 'd', "/",ldt_fch_ven,0);
-                             console.log('lda_vencimiento fun', lda_vencimiento);
-
-                            // var aux_dia = ldt_fch_ven.getDate();
-                            // var aux_mes1 = ldt_fch_ven.setMonth(ldt_fch_ven.getMonth() + 1);
-                            // var aux_mes = ldt_fch_ven.getMonth();
-                            // var  aux_anio = ldt_fch_ven.getFullYear();
-                            // if(aux_mes == '0'){
-                            //    aux_mes = '12';
-                            //    aux_anio = ldt_fch_ven.getFullYear()-1;
-                            //  }               
-                            // var lda_vencimiento = aux_dia+'/'+aux_mes+'/'+aux_anio;
                                          
                             // -- Saldos -- //
                              
@@ -505,15 +496,7 @@ function cronogramaModifi(){
 
                         }
                      
-                        aux_dia = ldt_fch_ven.getDate();
-                        aux_mes1 = ldt_fch_ven.setMonth(ldt_fch_ven.getMonth() + 1);
-                        aux_mes = ldt_fch_ven.getMonth();
-                        aux_anio = ldt_fch_ven.getFullYear();
-                        if(aux_mes == '0'){
-                           aux_mes = '12';
-                           aux_anio = ldt_fch_ven.getFullYear()-1;
-                         }               
-                        lda_vencimiento = aux_dia+'/'+aux_mes+'/'+aux_anio;
+                        lda_vencimiento = editar_fecha_30(lda_vencimiento, '+30', 'd', "",ldt_fch_ven1,0);
                      
                         // -- Datos -- //
                              
@@ -650,7 +633,9 @@ function cronogramaModifi(){
                 }
                           
                 // -- Armar Cronograma -- //
+
                 lda_vencimiento = ldt_fch_ven1;
+                
                 for( li_i = 1 ; li_i < li_cuotas ; li_i++ ){ 
 
                     // -- Calculo -- //
@@ -772,15 +757,6 @@ function cronogramaModifi(){
 
                 }
                 
-                // aux_dia = ldt_fch_ven.getDate();
-                // aux_mes1 = ldt_fch_ven.setMonth(ldt_fch_ven.getMonth() + 1);
-                // var aux_mes = ldt_fch_ven.getMonth();
-                // aux_anio = ldt_fch_ven.getFullYear();
-                // if(aux_mes == '0'){
-                //   aux_mes = '12';
-                //   aux_anio = ldt_fch_ven.getFullYear()-1;
-                // }               
-                // lda_vencimiento = aux_dia+'/'+aux_mes+'/'+aux_anio;
                 lda_vencimiento = editar_fecha_30(lda_vencimiento, '+30', 'd', "",ldt_fch_ven1,0);
 
               
