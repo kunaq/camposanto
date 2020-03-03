@@ -685,7 +685,7 @@ function cronogramaModifi(){
                     //   aux_anio = ldt_fch_ven.getFullYear()-1;
                     // }               
                     lda_vencimiento = aux_dia+'/'+aux_mes+'/'+aux_anio;
-                    var lda_vencimiento = editar_fecha_30(ldt_fch_ven, 30, 'd', "/",ldt_fch_ven,0);
+                    var lda_vencimiento = editar_fecha_30(lda_vencimiento, 30, 'd', "/",lda_vencimiento,0);
                     console.log('lda_vencimiento fun', lda_vencimiento);
 
                   
