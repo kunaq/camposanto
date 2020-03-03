@@ -376,15 +376,19 @@ function cronogramaModifi(){
                             var lde_capital_cuota = lde_cuota / ( 1 + lde_valor_igv_detalle );
                             var lde_igv_cuota     = lde_cuota - lde_capital_cuota;
                             var lde_amortizacion  = ( lde_cuota - lde_igv_cuota ) - lde_interes;
-                            var aux_dia = ldt_fch_ven.getDate();
-                            var aux_mes1 = ldt_fch_ven.setMonth(ldt_fch_ven.getMonth() + 1);
-                            var aux_mes = ldt_fch_ven.getMonth();
-                            var  aux_anio = ldt_fch_ven.getFullYear();
-                            if(aux_mes == '0'){
-                               aux_mes = '12';
-                               aux_anio = ldt_fch_ven.getFullYear()-1;
-                             }               
-                            var lda_vencimiento = aux_dia+'/'+aux_mes+'/'+aux_anio;
+
+                             var lda_vencimiento = editar_fecha_30(ldt_fch_ven, 30, 'd', "/",ldt_fch_ven,0);
+                             console.log('lda_vencimiento fun', lda_vencimiento);
+
+                            // var aux_dia = ldt_fch_ven.getDate();
+                            // var aux_mes1 = ldt_fch_ven.setMonth(ldt_fch_ven.getMonth() + 1);
+                            // var aux_mes = ldt_fch_ven.getMonth();
+                            // var  aux_anio = ldt_fch_ven.getFullYear();
+                            // if(aux_mes == '0'){
+                            //    aux_mes = '12';
+                            //    aux_anio = ldt_fch_ven.getFullYear()-1;
+                            //  }               
+                            // var lda_vencimiento = aux_dia+'/'+aux_mes+'/'+aux_anio;
                                          
                             // -- Saldos -- //
                              
