@@ -429,14 +429,14 @@ class ControladorModifCtto{
 		return $respuesta;
 	}//ctrlineaMaxObsrv
 
-	static public function mdlBorrarCronograma(){
+	static public function ctrBorrarCronograma(){
 		$tabla = 'vtade_cronograma';
 		$datos = array("localidad" => $_SESSION['localidad'],
 						"ls_contrato" => $_POST['ls_contrato'],
 						"refi" => $_POST['refi'],
 						"tipo_cuota" => $_POST['tipo_cuota']
 					);
-		$respuesta = ModeloModifCtto::mdlGuardaCronograma($tabla,$datos);
+		$respuesta = ModeloModifCtto::mdlBorrarCronograma($tabla,$datos);
 		return $respuesta;
 	}//ctrGuardaCronograma
 
