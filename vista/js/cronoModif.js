@@ -1473,6 +1473,7 @@ function modificaFOMA(){
 
     // -- Armar Cronograma -- //
 
+    lda_vencimiento = ldt_fch_ven;
     var lde_sumtotal = 0;
 
     for( li_i = 1; li_i < li_cuotas; li_i++){              
