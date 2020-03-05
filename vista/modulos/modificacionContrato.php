@@ -1720,7 +1720,7 @@
 										<div class="col-lg-12">
 											<div class="row form-group">
 												<div class="col-lg-12" style="text-align: center;">
-													<button id="btnGenCronoFoma" class="btn btn-sm btn-danger">Generar Cuotas</button>
+													<button type="button" id="btnGenCronoFoma" class="btn btn-sm btn-danger">Generar Cuotas</button>
 												</div>
 											</div>
 										</div>
