@@ -2519,7 +2519,7 @@ function modificaContrato(){
                                 title: "",
                                 text: "El contrato se ha modificado con exito.",
                                 type: "success",
-                                confirmButtonText: "Aceptar"//,
+                                confirmButtonText: "Aceptar",
                                 onBeforeOpen: window.location.assign('modificacionContrato?localidad='+ls_localidad+'&contrato='+ls_contrato)
                             })
                         }
