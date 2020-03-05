@@ -2510,6 +2510,7 @@ function modificaContrato(){
                     method: "POST",
                     data: { 'accion' : 'actCabeceraMod', 'ls_tipo_ctt' : ls_tipo_ctt, 'ls_tipo_programa' : ls_tipo_programa, 'ls_contrato' : ls_contrato, 'ls_tipo_contrato' : ls_tipo_contrato},
                     success : function(respuesta){
+                        $(".loader").fadeOut("slow");
                         if(respuesta){
                             //guardar observaciones                                  
                             var observ = buscaMaxLineaObsrv(ls_tipo_ctt,ls_tipo_programa,ls_contrato,ls_num_servicio_getrow);
@@ -2519,7 +2520,7 @@ function modificaContrato(){
                                 text: "El contrato se ha modificado con exito.",
                                 type: "success",
                                 confirmButtonText: "Aceptar"//,
-                                // onBeforeOpen: window.location.assign('modificacionContrato?localidad='+ls_localidad+'&contrato='+ls_contrato)
+                                onBeforeOpen: window.location.assign('modificacionContrato?localidad='+ls_localidad+'&contrato='+ls_contrato)
                             })
                         }
                     }//success
