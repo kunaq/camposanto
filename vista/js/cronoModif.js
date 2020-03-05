@@ -1367,6 +1367,7 @@ function modificaFOMA(){
     var ls_contrato = $("#codContrato").val();
     var li_valida = 0;
     var ls_estado = '';
+    var lde_amortizacion = 0;
     var is_cronograma = $("#cambioCronograma").val();
     var li_cuotas = $("#nCuotasFOMA").val();
     var ls_num_servicio_foma = $("#numServFoma").val();
