@@ -1398,7 +1398,7 @@ function modificaFOMA(){
 
     // -- Fila del servicio -- // 
 
-    if ($("#numServicioSeleccionado").val(); == '' || $("#numServicioSeleccionado").val() == null){
+    if ($("#numServicioSeleccionado").val() == '' || $("#numServicioSeleccionado").val() == null){
        swal({
             title: "",
             text: "Debe seleccionar el número de servicio del contrato.",
