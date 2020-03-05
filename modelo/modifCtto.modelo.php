@@ -215,7 +215,7 @@ class ModeloModifCtto{
 
 	static public function mdlBuscaCodCuotas($tablaCuo,$datos){
 		$db = new Conexion();
-		$sql = $db->consulta("SELECT cod_cuota FROM $tablaCuo WHERE num_cuotas = $datos");
+		$sql = $db->consulta("SELECT cod_cuota FROM $tablaCuo WHERE num_cuotas =".$datos);
 		$datos = arrayMapUtf8Encode($db->recorrer($sql));
 		return $datos;
 		$db->liberar($sql);
@@ -224,7 +224,7 @@ class ModeloModifCtto{
 
 	static public function mdlBuscaCodInteres($tablaInt,$datos){
 		$db = new Conexion();
-		$sql = $db->consulta("SELECT cod_interes FROM $tablaInt WHERE num_valor = $datos");
+		$sql = $db->consulta("SELECT cod_interes FROM $tablaInt WHERE num_valor =".$datos);
 		$datos = arrayMapUtf8Encode($db->recorrer($sql));
 		return $datos;
 		$db->liberar($sql);

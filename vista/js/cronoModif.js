@@ -897,7 +897,7 @@ var lde_valor_aux = parseInt(lde_valor);
 var li_valida = 0;
 var ls_estado = '';
 var cronograma = document.getElementById('bodyCronogramaModif');
-    var cronogramaLenght = cronograma.rows.length;
+var cronogramaLenght = cronograma.rows.length;
     if( cronogramaLenght > 0 ){
 
         for( li_i = 0 ; li_i < cronogramaLenght ; li_i++ ){               
@@ -920,7 +920,7 @@ var cronograma = document.getElementById('bodyCronogramaModif');
         }              
     }
 
-// // -- Afecto a I.G.V. -- //
+    // -- Afecto a I.G.V. -- //
 
   var ls_cod_servicio = [];
   var row = $("#bodyDetCttoModif").length;
@@ -1352,4 +1352,186 @@ function calcular() {
     filas[6].textContent=totalIgv;
     filas[7].textContent=totalTot;
     filas[8].textContent=totalSal;
+}
+
+//----------------------------------------------------------------------------------------------//
+//----------------------------------FUNCIÓN MODIFICA FOMA---------------------------------------//
+//----------------------------------------------------------------------------------------------//
+
+function modificaFOMA(){
+
+    var li_row = 0;
+    var lde_saldo_f = $("#saldoFinCronograma").val();
+    var ls_cuota = $("#codCuotaFOMAModif").val();
+    var ldt_fch_ven = $("#fchVenCronoFOMA").val();
+    var ls_contrato = $("#codContrato").val();
+    var li_valida = 0;
+    var ls_estado = '';
+    var is_cronograma = $("#cambioCronograma").val();
+    var li_cuotas = $("#nCuotasFOMA").val();
+    var ls_num_servicio_foma = $("#numServFoma").val();
+    var lde_saldo = $("#saldoFOMA").val();
+    var is_tipo_redondeo = 'ARRIBA';
+    var cronograma = document.getElementById('bodyCronogramaModif');
+    var cronogramaLenght = cronograma.rows.length;
+    if( cronogramaLenght > 0 ){
+
+        for( li_i = 0 ; li_i < cronogramaLenght ; li_i++ ){               
+            var oCells = cronograma.rows.item(li_i).cells;
+            ls_estado = oCells.item(1).innerHTML.trim();
+            
+            if( ls_estado != 'REGISTRADO'){
+                li_valida = li_valida + 1;
+            }
+        }           
+
+        if( li_valida > 0 ){
+            swal({
+                title: "",
+                text: "No puede regenerar el cronograma, ya fue modificado.",
+                type: "warning",
+                confirmButtonText: "Aceptar",
+            })
+           return;
+        }              
+    }
+
+    // -- Fila del servicio -- // 
+
+    if ($("#numServicioSeleccionado").val(); == '' || $("#numServicioSeleccionado").val() == null){
+       swal({
+            title: "",
+            text: "Debe seleccionar el número de servicio del contrato.",
+            type: "warning",
+            confirmButtonText: "Aceptar",
+        })
+       return;
+    }
+
+    // -- Valida -- //
+
+    if (is_cronograma == 'NO' && lde_saldo_f >= 0.01 && cronogramaLenght <= 0) {
+        swal({
+            title: "",
+            text: "Debe generar previamente el cronograma de pagoas del contrato.",
+            type: "warning",
+            confirmButtonText: "Aceptar",
+        })
+       return;
+    }
+ 
+
+    if (ls_cuota ==null || ls_cuota == '') {
+        swal({
+            title: "",
+            text: "Debe seleccionar el número de cuotas.",
+            type: "warning",
+            confirmButtonText: "Aceptar",
+        })
+       return;
+       $("#nCuotasFOMA").focus();
+    }
+    
+    if(lde_saldo == null || lde_saldo == '') { lde_saldo = 0.00;}
+
+    if (lde_saldo < 0.01){
+        swal({
+            title: "",
+            text: "El fondo de mantenimiento no tiene saldo a financiar.",
+            type: "warning",
+            confirmButtonText: "Aceptar",
+        })
+       return;
+    } 
+
+    // -- Total deuda -- //
+
+    lde_total = lde_saldo;
+
+    // -- Calculo de Cuota -- //
+
+    lde_cuota = lde_saldo / li_cuotas; 
+
+    // -- Redondeo -- //                             
+
+    switch(is_tipo_redondeo){
+                                     
+        case 'ARRIBA':
+          lde_cuota = Math.ceil(lde_cuota);
+                       
+        case 'CERO':
+          lde_cuota = Math.round(lde_cuota);
+    }
+
+    // -- Guarda la Variable -- //
+
+    lde_total_saldo = lde_saldo;
+
+    // -- Limpia Cronograma -- // 
+
+    $("#bodyCronogramaFomaModif").empty();
+
+    // -- Armar Cronograma -- //
+
+    var lde_sumtotal = 0;
+
+    for( li_i = 1; li_i < li_cuotas; li_i++){              
+
+        lde_sumtotal = lde_sumtotal + lde_amortizacion;
+
+        // -- Valores -- //
+
+        lde_amortizacion = lde_cuota;
+        lde_total_saldo = lde_total_saldo - lde_amortizacion;
+        lda_vencimiento = editar_fecha_30(lda_vencimiento, '+30', 'd', "",ldt_fch_ven,0);
+
+        // -- Seteo -- //
+        var filaFoma = '<tr>'+
+                            '<td scope="row">'+li_i+'</td>'+
+                            '<td>REGISTRADO</td>'+
+                            '<td>FMA</td>'+
+                            '<td>'+lda_vencimiento+'</td>'+
+                            '<td style="text-align: right;">'+Number(lde_amortizacion).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+                            '<td style="text-align: right;">'+Number(lde_amortizacion).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+                        '</tr>';
+        document.getElementById("bodyCronogramaFomaModif").insertAdjacentHTML("beforeEnd" ,filaFoma);
+    }
+
+    // -- Cuota Final -- //
+
+    lde_amortizacion = lde_total - lde_sumtotal;
+
+    // -- Redondeo -- //
+
+    switch(is_tipo_redondeo){
+                                     
+        case 'ARRIBA':
+          lde_amortizacion = Math.ceil(lde_amortizacion);
+                       
+        case 'CERO':
+          lde_amortizacion = Math.round(lde_amortizacion);
+    }
+
+    lda_vencimiento = editar_fecha_30(lda_vencimiento, '+30', 'd', "",ldt_fch_ven,0);
+
+    // -- Insert -- //
+
+    var li_final = $("#bodyCronogramaModif tr").length;
+
+    var filaFoma = '<tr>'+
+                        '<td scope="row">'+(li_final+1)+'</td>'+
+                        '<td>REGISTRADO</td>'+
+                        '<td>FMA</td>'+
+                        '<td>'+lda_vencimiento+'</td>'+
+                        '<td style="text-align: right;">'+Number(lde_amortizacion).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+                        '<td style="text-align: right;">'+Number(lde_amortizacion).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+                    '</tr>';
+    document.getElementById("bodyCronogramaFomaModif").insertAdjacentHTML("beforeEnd" ,filaFoma);
+
+    document.getElementById("totalTotalFomaModif").innerText = Number(lde_sumtotal+lde_amortizacion).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
+    document.getElementById("totalSaldoFomaModif").innerText = Number(lde_sumtotal+lde_amortizacion).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 }); 
+ 
+    // -- Filas -- //
+
+    $("#cambioCronogramaFoma").val('SI');
 }
