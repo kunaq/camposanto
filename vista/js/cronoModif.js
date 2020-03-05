@@ -1518,7 +1518,7 @@ function modificaFOMA(){
 
     // -- Insert -- //
 
-    var li_final = $("#bodyCronogramaModif tr").length;
+    var li_final = $("#bodyCronogramaFomaModif tr").length;
 
     var filaFoma = '<tr>'+
                         '<td scope="row">'+(li_final+1)+'</td>'+
