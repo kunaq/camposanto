@@ -496,7 +496,7 @@ function cronogramaModifi(){
 
                         }
                      
-                        lda_vencimiento = editar_fecha_30(lda_vencimiento, '+30', 'd', "/",ldt_fch_ven1,0);
+                        lda_vencimiento = editar_fecha_30(lda_vencimiento, '+30', 'd', "",ldt_fch_ven1,0);
                      
                         // -- Datos -- //
                              
@@ -660,7 +660,7 @@ function cronogramaModifi(){
                     lde_igv_cuota    = lde_cuota - lde_capital_cuota;
                     lde_amortizacion = ( lde_cuota - lde_igv_cuota ) - lde_interes;
                     
-                    lda_vencimiento = editar_fecha_30(lda_vencimiento, '+30', 'd', "/",ldt_fch_ven1,0);
+                    lda_vencimiento = editar_fecha_30(lda_vencimiento, '+30', 'd', "",ldt_fch_ven1,0);
                   
                     // -- Saldos -- //
                   
@@ -757,7 +757,7 @@ function cronogramaModifi(){
 
                 }
                 
-                lda_vencimiento = editar_fecha_30(lda_vencimiento, '+30', 'd', "/",ldt_fch_ven1,0);
+                lda_vencimiento = editar_fecha_30(lda_vencimiento, '+30', 'd', "",ldt_fch_ven1,0);
 
               
                 // -- Datos -- //
@@ -870,7 +870,7 @@ function cronogramaModifi(){
             }               
             lda_vencimiento = aux_dia+'/'+aux_mes+'/'+aux_anio;
 
-            $("#fchVenCronoFOMA").datepicker({ dateFormat: 'dd/mm/yy' }).datepicker("setDate", lda_vencimiento);
+            $("#fchVenCronoFOMA").datepicker({ dateFormat: 'dd-mm-yy' }).datepicker("setDate", lda_vencimiento);
         //fin case 3 de aqui en adelante segui caso el remanso y jde
     }//switch
     // -- Filas -- //
@@ -1485,7 +1485,7 @@ function modificaFOMA(){
 
         lde_amortizacion = lde_cuota;
         lde_total_saldo = lde_total_saldo - lde_amortizacion;
-        lda_vencimiento = editar_fecha_30(lda_vencimiento, '+30', 'd', "/",ldt_fch_ven,0);
+        lda_vencimiento = editar_fecha_30(lda_vencimiento, '+30', 'd', "",ldt_fch_ven,0);
 
         // -- Seteo -- //
         var filaFoma = '<tr>'+
@@ -1514,7 +1514,7 @@ function modificaFOMA(){
           lde_amortizacion = Math.round(lde_amortizacion);
     }
 
-    lda_vencimiento = editar_fecha_30(lda_vencimiento, '+30', 'd', "/",ldt_fch_ven,0);
+    lda_vencimiento = editar_fecha_30(lda_vencimiento, '+30', 'd', "",ldt_fch_ven,0);
 
     // -- Insert -- //
 
