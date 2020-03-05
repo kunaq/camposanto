@@ -95,7 +95,7 @@ $("#btnGenCronoFoma").on('click',function(){
       cancelButtonText:"Cancelar"
     }).then((result) => {
       if (result.value) {
-        $("#cambioCronogramaFoma").val('SI')
+        modificaFOMA();
       }
     })
 });
