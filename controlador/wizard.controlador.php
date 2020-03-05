@@ -183,7 +183,7 @@ class ControladorWizard{
 		}else{
 			$flg_generar_mora = "SI";
 		}
-		$datos = array('ls_localidad' => $_POST['localidad'], 
+		$datos = array('ls_localidad' => $_SESSION['localidad'], 
 					   'ls_num_contrato_new' => $_POST['ls_num_contrato_new'],
 					   'li_refinanciamiento' => $_POST['li_refinanciamiento'],
 					   'li_cuota' => $_POST['li_cuota'],

@@ -173,6 +173,10 @@ class AjaxModifCtto{
 		$respuesta = ControladorModifCtto::ctrGuardaCronograma();
 		echo json_encode($respuesta);
 	}//ajaxGuardaCronograma
+	public function ajaxBorrarCronograma(){
+		$respuesta = ControladorModifCtto::ctrBorrarCronograma();
+		echo json_encode($respuesta);
+	}//ajaxBorrarCronograma
 	public function ajaxTotalFinanciar(){
 		$respuesta = ControladorModifCtto::ctrTotalFinanciar();
 		echo json_encode($respuesta);
@@ -320,6 +324,10 @@ else if(isset($_POST["accion"]) && $_POST["accion"] == 'actCabeceraMod'){
 else if(isset($_POST["accion"]) && $_POST["accion"] == 'lineaMaxObsrv'){
 	$cliente = new AjaxModifCtto();
 	$cliente -> ajaxLineaMaxObsrv();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'borrarCronograma'){
+	$cliente = new AjaxModifCtto();
+	$cliente -> ajaxBorrarCronograma();
 }
 else if(isset($_POST["accion"]) && $_POST["accion"] == 'guardaCronograma'){
 	$cliente = new AjaxModifCtto();

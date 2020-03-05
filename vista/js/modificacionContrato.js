@@ -2329,37 +2329,47 @@ function modificaContrato(){
 
         var cronograma = document.getElementById('bodyCronogramaModif');
         var cronogramaLenght = cronograma.rows.length;
+         $.ajax({
+            type: 'POST',
+            url: 'ajax/modifCtto.ajax.php',
+            dataType: 'json',
+            data: {'accion' : 'borrarCronograma', 'ls_contrato' : ls_contrato, 'li_ref' : li_ref, 'li_cuota' : cuota, 'cod_estadocuota' : estado, 'ldt_vencimiento' : fchVen, 'lde_principal' : subTotal, 'lde_interes' : interes, 'lde_igv' : igv, 'lde_total' : total,'imp_saldo' : saldo, 'ls_tipo_ctt' : ls_tipo_ctt, 'ls_tipo_programa' : ls_tipo_programa, 'cod_tipo_cuota' : tipoCuota, 'tipo_cuota' : 'ARM'},
+            success : function(respuesta){
        
-        for( li_i = 0 ; li_i < cronogramaLenght ; li_i++ ){
+                for( li_i = 0 ; li_i < cronogramaLenght ; li_i++ ){
 
-            var oCells = cronograma.rows.item(li_i).cells;
+                    var oCells = cronograma.rows.item(li_i).cells;
 
-            var cuota = oCells.item(0).innerHTML.trim();
-            var tipoCuota = oCells.item(1).innerHTML.trim();
-            var estado = oCells.item(2).innerHTML.trim();
-            var fchVen = oCells.item(3).innerHTML.trim();
-            var subTotal = pasaAnumero(oCells.item(4).innerHTML.trim());
-            var interes = pasaAnumero(oCells.item(5).innerHTML.trim());
-            var igv = pasaAnumero(oCells.item(6).innerHTML.trim());
-            var total = pasaAnumero(oCells.item(7).innerHTML.trim());
-            var saldo = pasaAnumero(oCells.item(8).innerHTML.trim());
+                    var cuota = oCells.item(0).innerHTML.trim();
+                    var tipoCuota = oCells.item(1).innerHTML.trim();
+                    tipoCuota = tipoCuota.slice(0,2);
+                    console.log('tipoCuota',tipoCuota);
+                    var estado = oCells.item(2).innerHTML.trim();
+                    var fchVen = oCells.item(3).innerHTML.trim();
+                    var subTotal = pasaAnumero(oCells.item(4).innerHTML.trim());
+                    var interes = pasaAnumero(oCells.item(5).innerHTML.trim());
+                    var igv = pasaAnumero(oCells.item(6).innerHTML.trim());
+                    var total = pasaAnumero(oCells.item(7).innerHTML.trim());
+                    var saldo = pasaAnumero(oCells.item(8).innerHTML.trim());
 
-            $.ajax({
-                type: 'POST',
-                url: 'ajax/modifCtto.ajax.php',
-                dataType: 'json',
-                data: {'accion' : 'guardaCronograma', 'ls_contrato' : ls_contrato, 'li_ref' : li_ref, 'li_cuota' : cuota, 'cod_estadocuota' : estado, 'ldt_vencimiento' : fchVen, 'lde_principal' : subTotal, 'lde_interes' : interes, 'lde_igv' : igv, 'lde_total' : total,'imp_saldo' : saldo, 'ls_tipo_ctt' : ls_tipo_ctt, 'ls_tipo_programa' : ls_tipo_programa, 'cod_tipo_cuota' : tipoCuota},
-                success : function(respuesta){
-                    if(respuesta == 1){
-                      checkCronograma = "success";
-                    }
-                }//success cronograma
-            });//ajax cronograma
-            lde_tot_interes = lde_tot_interes + pasaAnumero(oCells.item(5).innerHTML.trim());
-            li_tot_cronograma = li_tot_cronograma + 1;
-            li_total_cuotas = li_total_cuotas + 1;
-                      
-        }//for cronogramalength       
+                    $.ajax({
+                        type: 'POST',
+                        url: 'ajax/wizard.ajax.php',
+                        dataType: 'json',
+                        data: {'accion' : 'guardaCronograma', 'ls_num_contrato_new' : ls_contrato, 'li_refinanciamiento' : li_ref, 'li_cuota' : cuota, 'ls_tipo_cuota' : estado, 'ldt_vencimiento' : fchVen, 'lde_principal' : subTotal, 'lde_interes' : interes, 'lde_igv' : igv, 'lde_total' : total, 'ls_tipo_ctt_new' : ls_tipo_ctt, 'ls_tipo_programa_new' : ls_tipo_programa},
+                        success : function(respuesta){
+                            if(respuesta == 1){
+                              checkCronograma = "success";
+                            }
+                        }//success cronograma
+                    });//ajax cronograma
+                    lde_tot_interes = lde_tot_interes + pasaAnumero(oCells.item(5).innerHTML.trim());
+                    li_tot_cronograma = li_tot_cronograma + 1;
+                    li_total_cuotas = li_total_cuotas + 1;
+                              
+                }//for cronogramalength       
+            }//success
+        });//ajax borra cronograma
         var ls_localidad_det = '';      
         // -- Cronograma FOMA -- //
 
