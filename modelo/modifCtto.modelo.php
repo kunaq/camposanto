@@ -367,16 +367,6 @@ class ModeloModifCtto{
         $db->cerrar();
 	}//function ctrGuardaCronograma
 
-	static public function mdlGuardaCronograma($tabla,$datos){
-		$db = new Conexion();
-		$sql = $db->consulta("DELETE FROM $tabla WHERE cod_contrato LIKE (RIGHT('0000000000'+'".$datos['ls_contrato']."',10)) AND cod_localidad = '".$datos['localidad']."' AND cod_tipo_cuota = 'ARM' AND num_refinanciamiento = ".$datos['refi']);
-		$sql1 = $db->consulta("INSERT INTO ");
-		$datos = arrayMapUtf8Encode($db->recorrer($sql));
-		return $datos;
-		$db->liberar($sql);
-        $db->cerrar();
-	}//function ctrGuardaCronograma
-
 	static public function mdlTotalFinanciar($datos){
 		$db = new Conexion();
 		$sql = $db->consulta("SELECT  SUM(vtade_contrato_servicio.imp_total - vtade_contrato_servicio.imp_cuoi) AS lde_saldo_total FROM vtade_contrato INNER JOIN vtavi_cronograma_x_servicio ON vtavi_cronograma_x_servicio.cod_localidad = vtade_contrato.cod_localidad AND vtavi_cronograma_x_servicio.cod_tipo_ctt = vtade_contrato.cod_tipo_ctt AND vtavi_cronograma_x_servicio.cod_tipo_programa = vtade_contrato.cod_tipo_programa AND vtavi_cronograma_x_servicio.cod_contrato = vtade_contrato.cod_contrato AND vtavi_cronograma_x_servicio.num_servicio = vtade_contrato.num_servicio INNER JOIN vtade_contrato_servicio ON vtade_contrato_servicio.cod_localidad = vtade_contrato.cod_localidad AND vtade_contrato_servicio.cod_tipo_ctt = vtade_contrato.cod_tipo_ctt AND vtade_contrato_servicio.cod_tipo_programa = vtade_contrato.cod_tipo_programa AND vtade_contrato_servicio.cod_contrato = vtade_contrato.cod_contrato AND vtade_contrato_servicio.num_servicio = vtade_contrato.num_servicio INNER JOIN vtama_tipo_servicio ON vtama_tipo_servicio.cod_tipo_servicio = vtade_contrato.cod_tipo_servicio WHERE vtavi_cronograma_x_servicio.cod_localidad = '".$datos['ls_localidad_det']."'' AND vtavi_cronograma_x_servicio.cod_tipo_ctt = '".$datos['ls_tipo_ctt_det']."'' AND vtavi_cronograma_x_servicio.cod_tipo_programa = '".$datos['ls_tipo_programa_det']."'' AND vtavi_cronograma_x_servicio.cod_contrato LIKE (RIGHT('0000000000'+'".$datos['ls_contrato_det']."',10)) AND vtavi_cronograma_x_servicio.num_refinanciamiento = ".$datos['li_ref']." AND vtavi_cronograma_x_servicio.flg_activo = 'SI' AND vtade_contrato_servicio.flg_servicio_principal = 'SI' AND vtade_contrato_servicio.flg_contado = 'NO' AND vtade_contrato.flg_resuelto = 'NO' AND vtade_contrato.flg_anulado = 'NO'");

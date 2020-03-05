@@ -2333,7 +2333,7 @@ function modificaContrato(){
             type: 'POST',
             url: 'ajax/modifCtto.ajax.php',
             dataType: 'json',
-            data: {'accion' : 'borrarCronograma', 'ls_contrato' : ls_contrato, 'li_ref' : li_ref, 'li_cuota' : cuota, 'cod_estadocuota' : estado, 'ldt_vencimiento' : fchVen, 'lde_principal' : subTotal, 'lde_interes' : interes, 'lde_igv' : igv, 'lde_total' : total,'imp_saldo' : saldo, 'ls_tipo_ctt' : ls_tipo_ctt, 'ls_tipo_programa' : ls_tipo_programa, 'cod_tipo_cuota' : tipoCuota, 'tipo_cuota' : 'ARM'},
+            data: {'accion' : 'borrarCronograma', 'ls_contrato' : ls_contrato, 'refi' : li_ref, 'tipo_cuota' : 'ARM'},
             success : function(respuesta){
        
                 for( li_i = 0 ; li_i < cronogramaLenght ; li_i++ ){

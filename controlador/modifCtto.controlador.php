@@ -433,18 +433,7 @@ class ControladorModifCtto{
 		$tabla = 'vtade_cronograma';
 		$datos = array("localidad" => $_SESSION['localidad'],
 						"ls_contrato" => $_POST['ls_contrato'],
-						"ref" => $_POST['li_ref'],
-						"li_cuota" => $_POST['li_cuota'],
-						"cod_estadocuota" => $_POST['cod_estadocuota'],
-						"ldt_vencimiento" => $_POST['ldt_vencimiento'],
-						"lde_principal" => $_POST['lde_principal'],
-						"lde_interes" => $_POST['lde_interes'],
-						"lde_igv" => $_POST['lde_igv'],
-						"lde_total" => $_POST['lde_total'],
-						"imp_saldo" => $_POST['imp_saldo'],
-						"ls_tipo_ctt" => $_POST['ls_tipo_ctt'],
-						"ls_tipo_programa" => $_POST['ls_tipo_programa'],
-						"cod_tipo_cuota" => $_POST['cod_tipo_cuota'],
+						"refi" => $_POST['refi'],
 						"tipo_cuota" => $_POST['tipo_cuota']
 					);
 		$respuesta = ModeloModifCtto::mdlGuardaCronograma($tabla,$datos);
