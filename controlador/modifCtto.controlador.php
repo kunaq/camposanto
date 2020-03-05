@@ -445,7 +445,7 @@ class ControladorModifCtto{
 						"ls_tipo_ctt" => $_POST['ls_tipo_ctt'],
 						"ls_tipo_programa" => $_POST['ls_tipo_programa'],
 						"cod_tipo_cuota" => $_POST['cod_tipo_cuota'],
-						"tipo_cuota" => $_POST['tipo_cuota'];
+						"tipo_cuota" => $_POST['tipo_cuota']
 					);
 		$respuesta = ModeloModifCtto::mdlGuardaCronograma($tabla,$datos);
 		return $respuesta;
