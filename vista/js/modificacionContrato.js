@@ -2351,12 +2351,16 @@ function modificaContrato(){
                     var igv = pasaAnumero(oCells.item(6).innerHTML.trim());
                     var total = pasaAnumero(oCells.item(7).innerHTML.trim());
                     var saldo = pasaAnumero(oCells.item(8).innerHTML.trim());
-
+                    caracter = '0';
+                    longitud = 10;
+                    cadena = ls_contrato;
+                    var contrato = caracter.repeat(longitud- String(cadena).length).concat(cadena);
+                    console.log('contrato',contrato);
                     $.ajax({
                         type: 'POST',
                         url: 'ajax/wizard.ajax.php',
                         dataType: 'json',
-                        data: {'accion' : 'guardaCronograma', 'ls_num_contrato_new' : ls_contrato, 'li_refinanciamiento' : li_ref, 'li_cuota' : cuota, 'ls_tipo_cuota' : estado, 'ldt_vencimiento' : fchVen, 'lde_principal' : subTotal, 'lde_interes' : interes, 'lde_igv' : igv, 'lde_total' : total, 'ls_tipo_ctt_new' : ls_tipo_ctt, 'ls_tipo_programa_new' : ls_tipo_programa},
+                        data: {'accion' : 'guardaCronograma', 'ls_num_contrato_new' : contrato, 'li_refinanciamiento' : li_ref, 'li_cuota' : cuota, 'ls_tipo_cuota' : estado, 'ldt_vencimiento' : fchVen, 'lde_principal' : subTotal, 'lde_interes' : interes, 'lde_igv' : igv, 'lde_total' : total, 'ls_tipo_ctt_new' : ls_tipo_ctt, 'ls_tipo_programa_new' : ls_tipo_programa},
                         success : function(respuesta){
                             if(respuesta == 1){
                               checkCronograma = "success";
