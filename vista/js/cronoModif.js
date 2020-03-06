@@ -1501,7 +1501,10 @@ function modificaFOMA(){
 
     // -- Cuota Final -- //
 
-    lde_amortizacion = lde_saldo - lde_sumtotal;
+    lde_amortizacion = lde_total - lde_sumtotal;
+    console.log('lde_total',lde_total);
+    console.log('lde_amortizacion',lde_amortizacion);
+    console.log('lde_sumtotal',lde_sumtotal);
 
     // -- Redondeo -- //
 
