@@ -1758,56 +1758,48 @@
 									</div>
 								</div>
 								<div class="col-lg-4">
-											<div class="row">
-										<div class="col-lg-10">
-											<fieldset class="fieldFormHorizontal">
-												<legend>&nbsp;</legend>
-												<div class="col-lg-12">
-													<div class="row form-group">
-														<div class="col-lg-4">
-															<label>Saldo</label>
-															<input type="text" class="form-control form-control-sm m-input" placeholder="0.00" name="saldoFOMA" id="saldoFOMA">
-														</div>
-														<div class="col-lg-4">
-															<label>N° Cuotas</label>
-															<select  data-tags="true" class="form-control form-control-sm m-select2 m-select2-general" name="nCuotasFOMA" id="nCuotasFOMA" style="width: 100%">
-																<option>
-																Seleccione... 
-																</option>
-																<?php
-								 						 		$prueba=controladorEmpresa::ctrnumCuotas();
-																  ?> 
-															</select>
-															<input type="hidden" id="codCuotaFOMAModif" name="codCuotaFOMAModif">
-														</div>
-														<div class="col-lg-4">
-															<label>1er Vencimiento</label>
-															<div class="input-group date">
-																<input type="text" class="form-control form-control-sm m-input" readonly="" id="fchVenCronoFOMA" name="fchVenCronoFOMA">
-																<div class="input-group-append">
-																	<span class="input-group-text">
-																		<i class="la la-calendar-check-o"></i>
-																	</span>
-																</div>
-															</div>
+									<div class="row">
+										<fieldset class="fieldFormHorizontal">
+										<legend>&nbsp;</legend>
+											<div class="row form-group">
+												<div class="col-lg-6">
+													<label>Saldo</label>
+													<input type="text" class="form-control form-control-sm m-input" placeholder="0.00" name="saldoFOMA" id="saldoFOMA">
+												</div>
+												<div class="col-lg-6">
+													<label>N° Cuotas</label>
+													<select  data-tags="true" class="form-control form-control-sm m-select2 m-select2-general" name="nCuotasFOMA" id="nCuotasFOMA" style="width: 100%">
+														<option>
+														Seleccione... 
+														</option>
+														<?php
+						 						 		$prueba=controladorEmpresa::ctrnumCuotas();
+														  ?> 
+													</select>
+													<input type="hidden" id="codCuotaFOMAModif" name="codCuotaFOMAModif">
+												</div>
+											</div>
+											<div class="row form-group">
+												<div class="col-lg-6">
+													<label>1er Vencimiento</label>
+													<div class="input-group date">
+														<input type="text" class="form-control form-control-sm m-input" readonly="" id="fchVenCronoFOMA" name="fchVenCronoFOMA">
+														<div class="input-group-append">
+															<span class="input-group-text">
+																<i class="la la-calendar-check-o"></i>
+															</span>
 														</div>
 													</div>
 												</div>
-											</fieldset>
-										</div>
-										<div class="col-lg-2">
-											<fieldset class="fieldFormHorizontal" style="height: 100px;">
-												<legend>&nbsp;</legend>
-												<br>
-												<div class="col-lg-12">
+												<div class="col-lg-6">
 													<div class="row form-group">
 														<div class="col-lg-12" style="text-align: center;">
 															<button type="button" id="btnGenCronoFoma" class="btn btn-sm btn-danger">Generar Cuotas</button>
 														</div>
 													</div>
 												</div>
-											</fieldset>
-										</div>
+											</div>
+										</fieldset>
 									</div>
 									<!-- <fieldset class="fieldFormHorizontal">
 										<legend class="tittle-box">
