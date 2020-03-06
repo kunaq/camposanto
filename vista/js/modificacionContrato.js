@@ -2409,17 +2409,46 @@ function modificaContrato(){
             ls_servicio_foma = "";
         }
         if( ls_servicio_foma != null && ls_servicio_foma != ""){
-            $.ajax({
+            var cronogramaFOMA = document.getElementById('bodyCronogramaFomaModif');
+            var cronogramaLenght = cronogramaFOMA.rows.length;
+
+             $.ajax({
+                type: 'POST',
                 url: 'ajax/modifCtto.ajax.php',
                 dataType: 'json',
-                method: "POST",
-                data: { 'accion' : 'ActFOMAMod', 'ls_vendedor' : ls_vendedor, 'ls_supervisor' : ls_supervisor, 'ls_jefe' : ls_jefe, 'ls_grupo' : ls_grupo, 'ls_canal' : ls_canal, 'ls_tipo_comisionista' : ls_tipo_comisionista, 'ls_cuota_foma' : ls_cuota_foma, 'li_cuotas_foma' : li_cuotas_foma, 'ldt_fch_venc_foma' : ldt_fch_venc_foma, 'fch_actual_consulta' : fch_actual_consulta, 'ls_cliente_alterno' : ls_cliente_alterno, 'ls_aval' : ls_aval, 'ls_cod_cobrador' : ls_cod_cobrador, 'ls_zona' : ls_zona, 'ls_tipo_ctt' : ls_tipo_ctt, 'ls_tipo_programa' : ls_tipo_programa, 'ls_contrato' : ls_contrato, 'ls_servicio_foma' : ls_servicio_foma},
+                data: {'accion' : 'borrarCronograma', 'ls_contrato' : ls_contrato, 'refi' : li_ref, 'tipo_cuota' : 'FMA'},
                 success : function(respuesta){
-                    if(respuesta){
-                        actFoma = 1;
-                    }
-                }
-            });                      
+                    var cronogramaPpalLenght = document.getElementById("bodyCronogramaModif").rows.length;; 
+                    for( li_i = 0 ; li_i < cronogramaLenght ; li_i++ ){
+
+                        var oCells = cronogramaFOMA.rows.item(li_i).cells;
+
+                        var cuota = cronogramaPpalLenght +li_i+1;
+                        var tipoCuota = oCells.item(1).innerHTML.trim();
+                        tipoCuota = tipoCuota.slice(0,2);
+                        var estado = oCells.item(2).innerHTML.trim();
+                        var fchVen = oCells.item(3).innerHTML.trim();
+                        var total = pasaAnumero(oCells.item(4).innerHTML.trim());
+                        var saldo = pasaAnumero(oCells.item(5).innerHTML.trim());
+                        caracter = '0';
+                        longitud = 10;
+                        cadena = ls_contrato;
+                        var contrato = caracter.repeat(longitud- String(cadena).length).concat(cadena);
+
+                        $.ajax({
+                            type: 'POST',
+                            url: 'ajax/wizard.ajax.php',
+                            dataType: 'json',
+                            data: {'accion' : 'guardaCronograma', 'ls_num_contrato_new' : contrato, 'li_refinanciamiento' : li_ref, 'li_cuota' : cuota, 'ls_tipo_cuota' : estado, 'ldt_vencimiento' : fchVen, 'lde_principal' : total, 'lde_interes' : 0, 'lde_igv' : 0, 'lde_total' : total, 'ls_tipo_ctt_new' : ls_tipo_ctt, 'ls_tipo_programa_new' : ls_tipo_programa},
+                            success : function(respuesta){
+                                if(respuesta){
+                                    actFoma = 1;
+                                }
+                            }//success
+                        }); //ajax nuevas cuotas
+                    }//for
+                } //success
+            });//ajax borrar cuotas                    
         }//End If  
 
          // -- Total -- //
