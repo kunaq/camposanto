@@ -2423,7 +2423,7 @@ function modificaContrato(){
 
                         var oCells = cronogramaFOMA.rows.item(li_i).cells;
 
-                        var cuota = cronogramaPpalLenght +li_i+1;
+                        var cuota = cronogramaPpalLenght +li_i+2;
                         var tipoCuota = oCells.item(1).innerHTML.trim();
                         tipoCuota = tipoCuota.slice(0,2);
                         var estado = oCells.item(2).innerHTML.trim();
