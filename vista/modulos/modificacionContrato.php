@@ -1758,9 +1758,9 @@
 									</div>
 								</div>
 								<div class="col-lg-4">
-									<div class="row">
-										<fieldset class="fieldFormHorizontal">
-										<legend>&nbsp;</legend>
+									<fieldset class="fieldFormHorizontal">
+									<legend>&nbsp;</legend>
+										<div class="row">
 											<div class="row form-group">
 												<div class="col-lg-6">
 													<label>Saldo</label>
@@ -1799,8 +1799,8 @@
 													</div>
 												</div>
 											</div>
-										</fieldset>
-									</div>
+										</div>
+									</fieldset>
 									<!-- <fieldset class="fieldFormHorizontal">
 										<legend class="tittle-box">
 											<table>
