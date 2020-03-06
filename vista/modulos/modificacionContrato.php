@@ -1760,7 +1760,7 @@
 								<div class="col-lg-4">
 									<fieldset class="fieldFormHorizontal">
 									<legend>&nbsp;</legend>
-										<div class="row form-group">
+										<div class="row form-group" style="margin-left: 0;margin-right: 0;">
 											<div class="col-lg-6">
 												<label>Saldo</label>
 												<input type="text" class="form-control form-control-sm m-input" placeholder="0.00" name="saldoFOMA" id="saldoFOMA">
@@ -1778,7 +1778,7 @@
 												<input type="hidden" id="codCuotaFOMAModif" name="codCuotaFOMAModif">
 											</div>
 										</div>
-										<div class="row form-group">
+										<div class="row form-group" style="margin-left: 0;margin-right: 0;">
 											<div class="col-lg-6">
 												<label>1er Vencimiento</label>
 												<div class="input-group date">
@@ -1793,7 +1793,7 @@
 											<div class="col-lg-6">
 												<div class="row form-group">
 													<div class="col-lg-12" style="text-align: center;">
-														<button type="button" id="btnGenCronoFoma" class="btn btn-sm btn-danger">Generar Cuotas</button>
+														<button type="button" id="btnGenCronoFoma" class="btn btn-sm btn-danger" style="margin-top: 2rem">Generar Cuotas</button>
 													</div>
 												</div>
 											</div>
