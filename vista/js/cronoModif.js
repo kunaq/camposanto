@@ -1479,7 +1479,7 @@ function modificaFOMA(){
 
     for( li_i = 1; li_i < li_cuotas; li_i++){              
 
-        lde_sumtotal = lde_sumtotal + lde_amortizacion;
+        lde_sumtotal = lde_sumtotal + lde_cuota;
 
         // -- Valores -- //
 
