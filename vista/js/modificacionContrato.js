@@ -176,113 +176,122 @@ function llenaDatos(codCtto){
         method: "POST",
         data: { 'accion' : 'conCodigo', 'codCtto' : codCtto },
         success : function(respuesta){
-        	console.log('respuesta',respuesta);
-        	document.getElementById("codContrato").value = respuesta[0]['cod_contrato'];
-        	$("#tipoPrograma option[value='"+respuesta[0]['cod_tipo_programa']+"']").attr("selected",true);
-        	if(respuesta[0]['cod_tipo_programa'] = 'TR000'){
-        		$("#progContrato").val('CONTRATO DE SERVICIO');
-        	}
-        	else{
-        		$("#progContrato").val('SERVICIO PRE-INSCRITO');
-        	}
-        	if(respuesta[0]['flg_ctt_modif'] == null || respuesta[0]['flg_ctt_modif'] == 'NO'){
-        		$("#checkModif").prop("checked", false);
-        	}
-        	else{
-        		$("#checkModif").prop("checked", true);
-        	}
-            $("#contGenVendedor").val(respuesta[0]['cod_usuario_generacion']);
-            $("#contGenFecha").val(respuesta[0]['fch_generacion']);
-            $("#contEmiVendedor").val(respuesta[0]['cod_usuario_emision']);
-            $("#contEmiFecha").val(respuesta[0]['fch_emision']);
-            $("#contActVendedor").val(respuesta[0]['cod_usuario_activacion']);
-            $("#contActFecha").val(respuesta[0]['fch_activacion']);
-            $("#contAnuVendedor").val(respuesta[0]['cod_usuario_anulacion']);
-            $("#contAnuFecha").val(respuesta[0]['fch_anulacion']);
-            $("#contResVendedor").val(respuesta[0]['cod_usuario_resolucion']);
-            $("#contResFecha").val(respuesta[0]['fch_resolucion']);
-            $("#codTipoContrato").val(respuesta[0]['cod_tipo_contrato']);
-            var fch_emision = fechaParaConsulta(respuesta[0]['fch_emision']);
-            var auditEmi = buscaDatosPeriodo(fch_emision,'Emi');
-            var fch_activacion = fechaParaConsulta(respuesta[0]['fch_activacion']);
-            var auditAct = buscaDatosPeriodo(fch_activacion,'Act');
-            var fch_resolucion = fechaParaConsulta(respuesta[0]['fch_resolucion']);
-            var auditRes = buscaDatosPeriodo(fch_resolucion,'Res');
-            $("#fchEmision").datepicker("setDate", respuesta[0]['fch_emision']);
-            $("#fchActivacion").val(respuesta[0]['fch_activacion']);
-            $("#codCampoContrato").val(respuesta[0]['cod_camposanto_actual']);
-            $("#codPlatContrato").val(respuesta[0]['cod_plataforma_actual']);
-            $("#codAreaContrato").val(respuesta[0]['cod_areaplataforma_actual']);
-            $("#codTipoEspModifContrato").val(respuesta[0]['cod_tipoespacio_actual']);
-        	$("#modC").val(respuesta[0]['cod_tipo_ctt']);
-        	$("#nomCliContrato").val(respuesta[0]['dsc_cliente']);
-        	$("#campoContrato").val(respuesta[0]['dsc_camposanto']);
-        	$("#platContrato").val(respuesta[0]['dsc_plataforma']);
-        	$("#areaContrato").val(respuesta[0]['dsc_area']);
-        	$("#ejeHCotrato").val(respuesta[0]['cod_ejehorizontal_actual']);
-        	$("#ejeVContrato").val(respuesta[0]['cod_ejevertical_actual']);
-        	$("#espacioContrato").val(respuesta[0]['cod_espacio_actual']);
-            $("#flg_ctt_integral").val(respuesta[0]['flg_ctt_integral']);
-            $("#flgResuelto").val(respuesta[0]['flg_resuelto']);
-            $("#flg_activado").val(respuesta[0]['flg_activado']);
-            $("#flg_afecto_igv").val(respuesta[0]['flg_afecto_igv']);
-            $("#flg_prevencion").val(respuesta[0]['flg_prevencion']);
-            $("#tipoNecCtto").val(respuesta[0]['cod_tipo_necesidad']);
-            if(respuesta[0]['cod_tipo_necesidad'] == 'NI'){
-                $("#tabAval").attr('hidden',false);
-                $("#tab2doTitular").attr('hidden',true);
-            }else if(respuesta[0]['cod_tipo_necesidad'] == 'NF'){
-                $("#tabAval").attr('hidden',true);
-                $("#tab2doTitular").attr('hidden',false);
-            }
-        	document.getElementById("tipoEspModifContrato").value = respuesta[0]['dsc_tipo_espacio'];
-            buscaBeneficiarios(codCtto);
-        	$("#bodyDetCttoModif").empty();
-            $("#bodyServicioVin").empty();
-            var totalVin = 0;
-        	$.each(respuesta,function(index,value){
-                totalVin = totalVin+parseFloat(value['imp_saldofinanciar']);
-                if(value['flg_anulado'] == 'SI'){
-                    color = 'red';
-                }else if(value['flg_resuelto'] == 'SI'){
-                    color = 'blue';
-                }else{
-                    color = '#575962';
+            if(respuesta == '' || respuesta == null){
+                swal({
+                    title: "",
+                    text: 'El contrato ingresado no existe.',
+                    type: "warning",
+                    confirmButtonText: "Aceptar",
+                });
+            }else{
+            	console.log('respuesta',respuesta);
+            	document.getElementById("codContrato").value = respuesta[0]['cod_contrato'];
+            	$("#tipoPrograma option[value='"+respuesta[0]['cod_tipo_programa']+"']").attr("selected",true);
+            	if(respuesta[0]['cod_tipo_programa'] = 'TR000'){
+            		$("#progContrato").val('CONTRATO DE SERVICIO');
+            	}
+            	else{
+            		$("#progContrato").val('SERVICIO PRE-INSCRITO');
+            	}
+            	if(respuesta[0]['flg_ctt_modif'] == null || respuesta[0]['flg_ctt_modif'] == 'NO'){
+            		$("#checkModif").prop("checked", false);
+            	}
+            	else{
+            		$("#checkModif").prop("checked", true);
+            	}
+                $("#contGenVendedor").val(respuesta[0]['cod_usuario_generacion']);
+                $("#contGenFecha").val(respuesta[0]['fch_generacion']);
+                $("#contEmiVendedor").val(respuesta[0]['cod_usuario_emision']);
+                $("#contEmiFecha").val(respuesta[0]['fch_emision']);
+                $("#contActVendedor").val(respuesta[0]['cod_usuario_activacion']);
+                $("#contActFecha").val(respuesta[0]['fch_activacion']);
+                $("#contAnuVendedor").val(respuesta[0]['cod_usuario_anulacion']);
+                $("#contAnuFecha").val(respuesta[0]['fch_anulacion']);
+                $("#contResVendedor").val(respuesta[0]['cod_usuario_resolucion']);
+                $("#contResFecha").val(respuesta[0]['fch_resolucion']);
+                $("#codTipoContrato").val(respuesta[0]['cod_tipo_contrato']);
+                var fch_emision = fechaParaConsulta(respuesta[0]['fch_emision']);
+                var auditEmi = buscaDatosPeriodo(fch_emision,'Emi');
+                var fch_activacion = fechaParaConsulta(respuesta[0]['fch_activacion']);
+                var auditAct = buscaDatosPeriodo(fch_activacion,'Act');
+                var fch_resolucion = fechaParaConsulta(respuesta[0]['fch_resolucion']);
+                var auditRes = buscaDatosPeriodo(fch_resolucion,'Res');
+                $("#fchEmision").datepicker("setDate", respuesta[0]['fch_emision']);
+                $("#fchActivacion").val(respuesta[0]['fch_activacion']);
+                $("#codCampoContrato").val(respuesta[0]['cod_camposanto_actual']);
+                $("#codPlatContrato").val(respuesta[0]['cod_plataforma_actual']);
+                $("#codAreaContrato").val(respuesta[0]['cod_areaplataforma_actual']);
+                $("#codTipoEspModifContrato").val(respuesta[0]['cod_tipoespacio_actual']);
+            	$("#modC").val(respuesta[0]['cod_tipo_ctt']);
+            	$("#nomCliContrato").val(respuesta[0]['dsc_cliente']);
+            	$("#campoContrato").val(respuesta[0]['dsc_camposanto']);
+            	$("#platContrato").val(respuesta[0]['dsc_plataforma']);
+            	$("#areaContrato").val(respuesta[0]['dsc_area']);
+            	$("#ejeHCotrato").val(respuesta[0]['cod_ejehorizontal_actual']);
+            	$("#ejeVContrato").val(respuesta[0]['cod_ejevertical_actual']);
+            	$("#espacioContrato").val(respuesta[0]['cod_espacio_actual']);
+                $("#flg_ctt_integral").val(respuesta[0]['flg_ctt_integral']);
+                $("#flgResuelto").val(respuesta[0]['flg_resuelto']);
+                $("#flg_activado").val(respuesta[0]['flg_activado']);
+                $("#flg_afecto_igv").val(respuesta[0]['flg_afecto_igv']);
+                $("#flg_prevencion").val(respuesta[0]['flg_prevencion']);
+                $("#tipoNecCtto").val(respuesta[0]['cod_tipo_necesidad']);
+                if(respuesta[0]['cod_tipo_necesidad'] == 'NI'){
+                    $("#tabAval").attr('hidden',false);
+                    $("#tab2doTitular").attr('hidden',true);
+                }else if(respuesta[0]['cod_tipo_necesidad'] == 'NF'){
+                    $("#tabAval").attr('hidden',true);
+                    $("#tab2doTitular").attr('hidden',false);
                 }
-        		var id = "filaServ_"+value['num_servicio'];
-                var fila ='<tr class="listaServicio inactivo" style="color:'+color+'" id="'+id+'" onclick="muestraInfo('+value['num_servicio']+');">'+
-					'<td class="text-center">'+value['num_servicio']+'</td>'+
-					'<td class="text-left">'+value['dsc_tipo_servicio']+'</td>'+
-					'<td class="text-center">'+value['fch_generacion']+'</td>'+
-					'<td class="text-center">'+value['fch_emision']+'</td>'+
-					'<td class="text-center">'+value['fch_activacion']+'</td>'+
-					'<td class="text-center">'+value['fch_anulacion']+'</td>'+
-					'<td class="text-center">'+value['fch_resolucion']+'</td>'+
-					'<td class="text-center">'+value['fch_transferencia']+'</td>'+
-                    '<input type="hidden" id="flg_activado_'+value['num_servicio']+'" value="'+value['flg_activado']+'">'+
-                    '<input type="hidden" id="flg_anulado_'+value['num_servicio']+'" value="'+value['flg_anulado']+'">'+
-                    '<input type="hidden" id="flg_resuelto_'+value['num_servicio']+'" value="'+value['flg_resuelto']+'">'+
-                    '<input type="hidden" id="cod_tipo_servicio_'+value['num_servicio']+'" value="'+value['cod_tipo_servicio']+'">'+
-                    '<input type="hidden" id="ls_flg_ds_'+value['num_servicio']+'" value="'+value['flg_prevencion']+'">'+
-                    '<input type="hidden" id="num_servicio_foma_'+value['num_servicio']+'" value="'+value['num_servicio_foma']+'">'+
-				'</tr>';
-				document.getElementById("bodyDetCttoModif").insertAdjacentHTML("beforeEnd" ,fila);
-                if (respuesta[0]['flg_ctt_integral'] == 'SI') {
-                    if(value['flg_principal'] == 'SI'){
+            	document.getElementById("tipoEspModifContrato").value = respuesta[0]['dsc_tipo_espacio'];
+                buscaBeneficiarios(codCtto);
+            	$("#bodyDetCttoModif").empty();
+                $("#bodyServicioVin").empty();
+                var totalVin = 0;
+            	$.each(respuesta,function(index,value){
+                    totalVin = totalVin+parseFloat(value['imp_saldofinanciar']);
+                    if(value['flg_anulado'] == 'SI'){
+                        color = 'red';
+                    }else if(value['flg_resuelto'] == 'SI'){
                         color = 'blue';
                     }else{
-                        color = 'black';
+                        color = '#575962';
                     }
-                    var fila2 = '<tr name="'+value['num_servicio']+'" style="'+color+'">'+
-                        '<td class="text-center">'+value['num_servicio']+
-                        '<td class="text-right">'+Number(value['imp_saldofinanciar']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });+'<input type="hidden" id="is_principal_'+value['num_servicio']+'" value="'+value['flg_principal']+'"><input type="hidden" id="is_ds_'+value['num_servicio']+'" value="'+value['flg_derecho_sepultura']+'"><input type="hidden" id="flg_afecto_igv_'+value['num_servicio']+'" value="'+value['flg_afecto_igv']+'"></td>'+
-                    '</tr>';
-                    document.getElementById("bodyServicioVin").insertAdjacentHTML("beforeEnd" ,fila2);
-                    document.getElementById("totalServicioVin").innerText = Number(totalVin).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
-                }
+            		var id = "filaServ_"+value['num_servicio'];
+                    var fila ='<tr class="listaServicio inactivo" style="color:'+color+'" id="'+id+'" onclick="muestraInfo('+value['num_servicio']+');">'+
+    					'<td class="text-center">'+value['num_servicio']+'</td>'+
+    					'<td class="text-left">'+value['dsc_tipo_servicio']+'</td>'+
+    					'<td class="text-center">'+value['fch_generacion']+'</td>'+
+    					'<td class="text-center">'+value['fch_emision']+'</td>'+
+    					'<td class="text-center">'+value['fch_activacion']+'</td>'+
+    					'<td class="text-center">'+value['fch_anulacion']+'</td>'+
+    					'<td class="text-center">'+value['fch_resolucion']+'</td>'+
+    					'<td class="text-center">'+value['fch_transferencia']+'</td>'+
+                        '<input type="hidden" id="flg_activado_'+value['num_servicio']+'" value="'+value['flg_activado']+'">'+
+                        '<input type="hidden" id="flg_anulado_'+value['num_servicio']+'" value="'+value['flg_anulado']+'">'+
+                        '<input type="hidden" id="flg_resuelto_'+value['num_servicio']+'" value="'+value['flg_resuelto']+'">'+
+                        '<input type="hidden" id="cod_tipo_servicio_'+value['num_servicio']+'" value="'+value['cod_tipo_servicio']+'">'+
+                        '<input type="hidden" id="ls_flg_ds_'+value['num_servicio']+'" value="'+value['flg_prevencion']+'">'+
+                        '<input type="hidden" id="num_servicio_foma_'+value['num_servicio']+'" value="'+value['num_servicio_foma']+'">'+
+    				'</tr>';
+    				document.getElementById("bodyDetCttoModif").insertAdjacentHTML("beforeEnd" ,fila);
+                    if (respuesta[0]['flg_ctt_integral'] == 'SI') {
+                        if(value['flg_principal'] == 'SI'){
+                            color = 'blue';
+                        }else{
+                            color = 'black';
+                        }
+                        var fila2 = '<tr name="'+value['num_servicio']+'" style="'+color+'">'+
+                            '<td class="text-center">'+value['num_servicio']+
+                            '<td class="text-right">'+Number(value['imp_saldofinanciar']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });+'<input type="hidden" id="is_principal_'+value['num_servicio']+'" value="'+value['flg_principal']+'"><input type="hidden" id="is_ds_'+value['num_servicio']+'" value="'+value['flg_derecho_sepultura']+'"><input type="hidden" id="flg_afecto_igv_'+value['num_servicio']+'" value="'+value['flg_afecto_igv']+'"></td>'+
+                        '</tr>';
+                        document.getElementById("bodyServicioVin").insertAdjacentHTML("beforeEnd" ,fila2);
+                        document.getElementById("totalServicioVin").innerText = Number(totalVin).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
+                    }
 
-        	});//each
-            muestraInfo(respuesta[0]['num_servicio']);
+            	});//each
+                muestraInfo(respuesta[0]['num_servicio']);
+            }
         }//success
     });//ajax
 }//llenaDatos
