@@ -1853,7 +1853,7 @@
 													<label class="">
 														Canal de Venta
 													</label>
-													<select class="form-control form-control-sm m-input custom-select custom-select-danger m-select2 m-select2-general" name="canalVentaModif" id="canalVentaModif">
+													<select class="form-control form-control-sm m-select2 m-select2-general" name="canalVentaModif" id="canalVentaModif">
 														<option>Selecciona</option>
 														<?php
 															$tabla = "vtama_canal_venta";
