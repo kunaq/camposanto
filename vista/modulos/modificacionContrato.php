@@ -1844,7 +1844,7 @@
 						</div>
 						<div class="tab-pane" id="m_tabs_2_9" role="tabpanel">
 							<div class="row">
-								<div class="col-lg-9">
+								<div class="col-lg-6">
 									<fieldset class="fieldFormHorizontal">
 										<legend>&nbsp;</legend>
 										<div class="col-lg-12">
@@ -1853,7 +1853,7 @@
 													<label class="">
 														Canal de Venta
 													</label>
-													<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="canalVentaModif" id="canalVentaModif">
+													<select class="form-control form-control-sm m-input custom-select custom-select-danger m-select2 m-select2-general" name="canalVentaModif" id="canalVentaModif">
 														<option>Selecciona</option>
 														<?php
 															$tabla = "vtama_canal_venta";
@@ -1887,6 +1887,32 @@
 											</div>
 										</div>
 									</fieldset>
+								</div>
+								<div class="col-lg-6">
+									<fieldset class="fieldFormHorizontal">
+										<legend class="tittle-box">Agencia Funeraria</legend>
+										<div class="col-lg-12">
+											<div class="row form-group">
+												<div class="col-lg-3">
+													<label>Descripcion</label>
+													<input type="text" class="form-control form-control-sm m-input" name="codFuneraria" id="codFuneraria" disabled onchange="nombreFuneraria(this.value,'dscFuneraria');">
+												</div>
+												<div class="col-lg-1" style="margin-top: 1.7rem;">
+													<label>&nbsp;</label>
+													<span data-toggle="modal" data-target="#m_modal_Agencias">
+													<button class="btn btn-sm btnGuardarKqPst" type="button" id="btnAgFun" disabled><i class="fa fa-search" ></i></button></span>
+												</div>
+												<div class="col-lg-8">
+													<label>&nbsp;&nbsp;</label>
+													<input type="text" class="form-control form-control-sm m-input" name="dscFuneraria" id="dscFuneraria" disabled>
+												</div>
+											</div>
+										</div>
+									</fieldset>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-6">
 									<fieldset class="fieldFormHorizontal">
 										<legend class="tittle-box">Cobrador Asignado</legend>
 										<div class="col-lg-12">
@@ -1967,26 +1993,6 @@
 												<div class="col-lg-9">
 													<label>&nbsp;&nbsp;</label>
 													<input type="text" class="form-control form-control-sm m-input" name="nombreJefeVentas" id="nombreJefeVentas">
-												</div>
-											</div>
-										</div>
-									</fieldset>
-									<fieldset class="fieldFormHorizontal">
-										<legend class="tittle-box">Agencia Funeraria</legend>
-										<div class="col-lg-12">
-											<div class="row form-group">
-												<div class="col-lg-3">
-													<label>Descripcion</label>
-													<input type="text" class="form-control form-control-sm m-input" name="codFuneraria" id="codFuneraria" disabled onchange="nombreFuneraria(this.value,'dscFuneraria');">
-												</div>
-												<div class="col-lg-1" style="margin-top: 1.7rem;">
-													<label>&nbsp;</label>
-													<span data-toggle="modal" data-target="#m_modal_Agencias">
-													<button class="btn btn-sm btnGuardarKqPst" type="button" id="btnAgFun" disabled><i class="fa fa-search" ></i></button></span>
-												</div>
-												<div class="col-lg-8">
-													<label>&nbsp;&nbsp;</label>
-													<input type="text" class="form-control form-control-sm m-input" name="dscFuneraria" id="dscFuneraria" disabled>
 												</div>
 											</div>
 										</div>
