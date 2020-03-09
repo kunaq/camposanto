@@ -1849,10 +1849,12 @@
 										<legend>&nbsp;</legend>
 										<div class="col-lg-12">
 											<div class="row form-group">
-												<div class="col-lg-6">
+												<div class="col-lg-3">
 													<label class="">
 														Canal de Venta
 													</label>
+												</div>
+												<div class="col-lg-6">
 													<select class="form-control form-control-sm m-select2 m-select2-general" name="canalVentaModif" id="canalVentaModif">
 														<option>Selecciona</option>
 														<?php
