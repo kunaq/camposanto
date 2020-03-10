@@ -1911,6 +1911,7 @@
 							<div class="row">
 								<div class="col-lg-6">
 									<div class="row">
+										<div class="col-lg-12">
 										<fieldset class="fieldFormHorizontal">
 											<legend class="tittle-box">Cobrador Asignado</legend>
 											<div class="row form-group">
@@ -1935,6 +1936,7 @@
 												</div>
 											</div>
 										</fieldset>
+										</div>
 									</div>
 									<div class="row">
 										<fieldset class="fieldFormHorizontal">
