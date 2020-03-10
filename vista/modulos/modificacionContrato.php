@@ -1912,30 +1912,32 @@
 								<div class="col-lg-6">
 									<div class="row">
 										<div class="col-lg-12">
-										<fieldset class="fieldFormHorizontal">
-											<legend class="tittle-box">Cobrador Asignado</legend>
-											<div class="row form-group">
-												<div class="col-lg-2">
-													<label>Cobrador</label>
-												</div>
-												<div class="col-lg-3">
-													<div class="input-group m-input-group">
-														<input type="text" class="form-control form-control-sm m-input" name="codCobrador" disabled="" id="codCobrador" onchange="nombreTrabajador(this.value,'nombreCobrador');">
-														<div class="input-group-append">
-															<span data-toggle="modal" data-target="#m_modal_4">
-																<button type="button" class="btn btn-sm btnGuardarKqPst" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar vendedor" onclick="creaTablaVendedor('cobrador');">
-																	<i class="fa fa-search">
-																	</i>
-																</button>
-															</span>
+											<fieldset class="fieldFormHorizontal">
+												<div class="col-lg-12">
+													<legend class="tittle-box">Cobrador Asignado</legend>
+													<div class="row form-group">
+														<div class="col-lg-2">
+															<label>Cobrador</label>
+														</div>
+														<div class="col-lg-3">
+															<div class="input-group m-input-group">
+																<input type="text" class="form-control form-control-sm m-input" name="codCobrador" disabled="" id="codCobrador" onchange="nombreTrabajador(this.value,'nombreCobrador');">
+																<div class="input-group-append">
+																	<span data-toggle="modal" data-target="#m_modal_4">
+																		<button type="button" class="btn btn-sm btnGuardarKqPst" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar vendedor" onclick="creaTablaVendedor('cobrador');">
+																			<i class="fa fa-search">
+																			</i>
+																		</button>
+																	</span>
+																</div>
+															</div>
+														</div>
+														<div class="col-lg-7">
+															<input type="text" class="form-control form-control-sm m-input" disabled="" name="nombreCobrador" id="nombreCobrador">
 														</div>
 													</div>
 												</div>
-												<div class="col-lg-7">
-													<input type="text" class="form-control form-control-sm m-input" disabled="" name="nombreCobrador" id="nombreCobrador">
-												</div>
-											</div>
-										</fieldset>
+											</fieldset>
 										</div>
 									</div>
 									<div class="row">
