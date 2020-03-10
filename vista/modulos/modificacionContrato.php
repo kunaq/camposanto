@@ -1866,7 +1866,7 @@
 														?>
 													</select>
 												</div>
-												<div class="col-lg-2 offset-lg-3" style="padding-right: 0;">
+												<!-- <div class="col-lg-2 offset-lg-3" style="padding-right: 0;">
 													<label>Agencia Funeraria</label>
 												</div>
 												<div class="col-lg-1">
@@ -1876,7 +1876,7 @@
 															<span></span>
 														</label>
 													</span>
-												</div>
+												</div> -->
 											</div>
 										</div>
 									</fieldset>
@@ -1886,7 +1886,7 @@
 										<legend class="tittle-box">Agencia Funeraria</legend>
 										<legend class="sidecheck">
 											<div class="row">
-												<div class="col-lg-1 offset-lg-9">
+												<div class="col-lg-1">
 													<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
 														<label>
 															<input type="checkbox" name="AgFunCheck" id="AgFunCheck" onchange="apagar();">
