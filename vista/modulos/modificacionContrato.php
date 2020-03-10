@@ -1990,8 +1990,12 @@
 														</div>
 													</div>
 												</div>
-												<div class="col-lg-7">
+												<div class="col-lg-6">
 													<input type="text" class="form-control form-control-sm m-input" name="nombreVendedor" id="nombreVendedor">
+												</div>
+												<div class="col-lg-1">
+													<p style="text-align: center;"><button type="button" class="btn btn-metal m-btn m-btn--icon m-btn--icon-only m-btn--pill" data-placement="top" data-toggle="m-tooltip" data-container="body" data-original-title="Al seleccionar al vendedor se tomará la configuración vigente del colaborador."><i class="fa fa-question"></i></button>
+													</p>
 												</div>
 											</div>
 											<div class="row form-group">
@@ -2014,21 +2018,6 @@
 												</div>
 												<div class="col-lg-7">
 													<input type="text" class="form-control form-control-sm m-input" name="nombreTipoComisionista" id="nombreTipoComisionista">
-												</div>
-											</div>
-										</div>
-									</fieldset>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-lg-3">
-									<fieldset class="fieldFormHorizontal">
-										<legend class="tittle-box">&nbsp;</legend>
-										<div class="col-lg-12">
-											<div class="row form-group">
-												<div class="col-lg-12" style="text-align: center;">
-													<i class="fa fa-search"></i><br>
-													AL SELECCIONAR AL VENDEDOR SE TOMARA LA CONFIGURACIÓN VIGENTE DEL COLABORADOR
 												</div>
 											</div>
 										</div>
