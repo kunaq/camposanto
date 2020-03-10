@@ -1950,10 +1950,10 @@
 															<label>Supervisor</label>
 														</div>
 														<div class="col-lg-3">
-															<input type="text" class="form-control form-control-sm m-input" name="codSupervisor" id="codSupervisor" onchange="nombreTrabajador(this.value,'nombreSupervisor');">
+															<input type="text" class="form-control form-control-sm m-input" disabled="" name="codSupervisor" id="codSupervisor" onchange="nombreTrabajador(this.value,'nombreSupervisor');">
 														</div>
 														<div class="col-lg-7">
-															<input type="text" class="form-control form-control-sm m-input" name="nombreSupervisor" id="nombreSupervisor">
+															<input type="text" class="form-control form-control-sm m-input" disabled="" name="nombreSupervisor" id="nombreSupervisor">
 														</div>
 													</div>
 													<div class="row form-group">
@@ -1961,10 +1961,10 @@
 															<label>Jefe de Ventas</label>
 														</div>
 														<div class="col-lg-3">
-															<input type="text" class="form-control form-control-sm m-input" name="codJefeVentas" id="codJefeVentas" onchange="nombreTrabajador(this.value,'nombreJefeVentas');">
+															<input type="text" class="form-control form-control-sm m-input" disabled="" name="codJefeVentas" id="codJefeVentas" onchange="nombreTrabajador(this.value,'nombreJefeVentas');">
 														</div>
 														<div class="col-lg-7">
-															<input type="text" class="form-control form-control-sm m-input" name="nombreJefeVentas" id="nombreJefeVentas">
+															<input type="text" class="form-control form-control-sm m-input" disabled="" name="nombreJefeVentas" id="nombreJefeVentas">
 														</div>
 													</div>
 												</div>
@@ -1991,7 +1991,7 @@
 													</div>
 												</div>
 												<div class="col-lg-6">
-													<input type="text" class="form-control form-control-sm m-input" name="nombreVendedor" id="nombreVendedor">
+													<input type="text" class="form-control form-control-sm m-input" name="nombreVendedor" disabled="" id="nombreVendedor">
 												</div>
 												<div class="col-lg-1">
 													<p style="text-align: center;"><button type="button" class="btn btn-metal m-btn m-btn--icon m-btn--icon-only m-btn--pill" data-placement="top" data-toggle="m-tooltip" data-container="body" data-original-title="Al seleccionar al vendedor se tomará la configuración vigente del colaborador."><i class="fa fa-question"></i></button>
@@ -2003,10 +2003,10 @@
 													<label>Grupo</label>
 												</div>
 												<div class="col-lg-3">
-													<input type="text" class="form-control form-control-sm m-input" name="codGrupo" id="codGrupo"  onchange="nombreGrupoVenta(this.value,'nombreGrupo');">
+													<input type="text" class="form-control form-control-sm m-input" name="codGrupo" id="codGrupo" disabled="" onchange="nombreGrupoVenta(this.value,'nombreGrupo');">
 												</div>
 												<div class="col-lg-7">
-													<input type="text" class="form-control form-control-sm m-input" name="nombreGrupo" id="nombreGrupo">
+													<input type="text" class="form-control form-control-sm m-input" name="nombreGrupo" disabled="" id="nombreGrupo">
 												</div>
 											</div>
 											<div class="row form-group">
@@ -2014,10 +2014,10 @@
 													<label>Tipo Comisionista</label>
 												</div>
 												<div class="col-lg-3">
-													<input type="text" class="form-control form-control-sm m-input" name="codTipoComisionista" id="codTipoComisionista" onchange="nombreComisionista(this.value,'nombreTipoComisionista');">
+													<input type="text" class="form-control form-control-sm m-input" name="codTipoComisionista" disabled="" id="codTipoComisionista" onchange="nombreComisionista(this.value,'nombreTipoComisionista');">
 												</div>
 												<div class="col-lg-7">
-													<input type="text" class="form-control form-control-sm m-input" name="nombreTipoComisionista" id="nombreTipoComisionista">
+													<input type="text" class="form-control form-control-sm m-input" name="nombreTipoComisionista" disabled="" id="nombreTipoComisionista">
 												</div>
 											</div>
 										</div>
