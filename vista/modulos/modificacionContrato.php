@@ -1855,7 +1855,7 @@
 													</label>
 												</div>
 												<div class="col-lg-4">
-													<select class="form-control form-control-sm m-select2 m-select2-general" name="canalVentaModif" id="canalVentaModif" style="width: -webkit-fill-available">
+													<select class="form-control form-control-sm m-select2 m-select2-general" name="canalVentaModif" id="canalVentaModif" style="width: 100%">
 														<option>Selecciona</option>
 														<?php
 															$tabla = "vtama_canal_venta";
