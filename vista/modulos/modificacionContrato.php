@@ -1910,9 +1910,9 @@
 							</div>
 							<div class="row">
 								<div class="col-lg-6">
-									<fieldset class="fieldFormHorizontal">
-										<legend class="tittle-box">Cobrador Asignado</legend>
-										<div class="col-lg-12">
+									<div class="row">
+										<fieldset class="fieldFormHorizontal">
+											<legend class="tittle-box">Cobrador Asignado</legend>
 											<div class="row form-group">
 												<div class="col-lg-2">
 													<label>Cobrador</label>
@@ -1934,8 +1934,33 @@
 													<input type="text" class="form-control form-control-sm m-input" disabled="" name="nombreCobrador" id="nombreCobrador">
 												</div>
 											</div>
-										</div>
-									</fieldset>
+										</fieldset>
+									</div>
+									<div class="row">
+										<fieldset class="fieldFormHorizontal">
+											<legend class="tittle-box">Conformación</legend>
+											<div class="col-lg-12">
+												<div class="row form-group">
+													<div class="col-lg-3">
+														<label>Supervisor</label>
+														<input type="text" class="form-control form-control-sm m-input" name="codSupervisor" id="codSupervisor" onchange="nombreTrabajador(this.value,'nombreSupervisor');">
+													</div>
+													<div class="col-lg-9">
+														<label>&nbsp;&nbsp;</label>
+														<input type="text" class="form-control form-control-sm m-input" name="nombreSupervisor" id="nombreSupervisor">
+													</div>
+													<div class="col-lg-3">
+														<label>Jefe de Ventas</label>
+														<input type="text" class="form-control form-control-sm m-input" name="codJefeVentas" id="codJefeVentas" onchange="nombreTrabajador(this.value,'nombreJefeVentas');">
+													</div>
+													<div class="col-lg-9">
+														<label>&nbsp;&nbsp;</label>
+														<input type="text" class="form-control form-control-sm m-input" name="nombreJefeVentas" id="nombreJefeVentas">
+													</div>
+												</div>
+											</div>
+										</fieldset>
+									</div>
 								</div>
 								<div class="col-lg-6">
 									<fieldset class="fieldFormHorizontal">
@@ -1978,31 +2003,6 @@
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-lg-6">
-									<fieldset class="fieldFormHorizontal">
-										<legend class="tittle-box">Conformación</legend>
-										<div class="col-lg-12">
-											<div class="row form-group">
-												<div class="col-lg-3">
-													<label>Supervisor</label>
-													<input type="text" class="form-control form-control-sm m-input" name="codSupervisor" id="codSupervisor" onchange="nombreTrabajador(this.value,'nombreSupervisor');">
-												</div>
-												<div class="col-lg-9">
-													<label>&nbsp;&nbsp;</label>
-													<input type="text" class="form-control form-control-sm m-input" name="nombreSupervisor" id="nombreSupervisor">
-												</div>
-												<div class="col-lg-3">
-													<label>Jefe de Ventas</label>
-													<input type="text" class="form-control form-control-sm m-input" name="codJefeVentas" id="codJefeVentas" onchange="nombreTrabajador(this.value,'nombreJefeVentas');">
-												</div>
-												<div class="col-lg-9">
-													<label>&nbsp;&nbsp;</label>
-													<input type="text" class="form-control form-control-sm m-input" name="nombreJefeVentas" id="nombreJefeVentas">
-												</div>
-											</div>
-										</div>
-									</fieldset>
-								</div>
 								<div class="col-lg-3">
 									<fieldset class="fieldFormHorizontal">
 										<legend class="tittle-box">&nbsp;</legend>
