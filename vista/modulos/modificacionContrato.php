@@ -1994,7 +1994,7 @@
 													<input type="text" class="form-control form-control-sm m-input" name="nombreVendedor" id="nombreVendedor">
 												</div>
 											</div>
-											<div class="row">
+											<div class="row form-group">
 												<div class="col-lg-2">
 													<label>Grupo</label>
 												</div>
