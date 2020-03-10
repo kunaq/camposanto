@@ -1946,20 +1946,24 @@
 												<legend class="tittle-box">Conformación</legend>
 												<div class="col-lg-12">
 													<div class="row form-group">
-														<div class="col-lg-3">
+														<div class="col-lg-2">
 															<label>Supervisor</label>
+														</div>
+														<div class="col-lg-3">
 															<input type="text" class="form-control form-control-sm m-input" name="codSupervisor" id="codSupervisor" onchange="nombreTrabajador(this.value,'nombreSupervisor');">
 														</div>
-														<div class="col-lg-9">
-															<label>&nbsp;&nbsp;</label>
+														<div class="col-lg-7">
 															<input type="text" class="form-control form-control-sm m-input" name="nombreSupervisor" id="nombreSupervisor">
 														</div>
-														<div class="col-lg-3">
+													</div>
+													<div class="row form-group">
+														<div class="col-lg-2">
 															<label>Jefe de Ventas</label>
+														</div>
+														<div class="col-lg-3">
 															<input type="text" class="form-control form-control-sm m-input" name="codJefeVentas" id="codJefeVentas" onchange="nombreTrabajador(this.value,'nombreJefeVentas');">
 														</div>
-														<div class="col-lg-9">
-															<label>&nbsp;&nbsp;</label>
+														<div class="col-lg-7">
 															<input type="text" class="form-control form-control-sm m-input" name="nombreJefeVentas" id="nombreJefeVentas">
 														</div>
 													</div>
