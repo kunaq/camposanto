@@ -1914,21 +1914,23 @@
 										<legend class="tittle-box">Cobrador Asignado</legend>
 										<div class="col-lg-12">
 											<div class="row form-group">
-												<div class="col-lg-3">
+												<div class="col-lg-2">
 													<label>Cobrador</label>
-													<input type="text" class="form-control form-control-sm m-input" name="codCobrador" disabled="" id="codCobrador" onchange="nombreTrabajador(this.value,'nombreCobrador');">
 												</div>
-												<div class="col-lg-1" style="margin-top: 1.7rem;">
-													<label>&nbsp;</label>
-													<span data-toggle="modal" data-target="#m_modal_4">
-														<button type="button" class="btn btn-sm btnGuardarKqPst" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar vendedor" onclick="creaTablaVendedor('cobrador');">
-															<i class="fa fa-search">
-															</i>
-														</button>
-													</span>
+												<div class="col-lg-3">
+													<div class="input-group m-input-group">
+														<input type="text" class="form-control form-control-sm m-input" name="codCobrador" disabled="" id="codCobrador" onchange="nombreTrabajador(this.value,'nombreCobrador');">
+														<div class="input-group-append">
+															<span data-toggle="modal" data-target="#m_modal_4">
+																<button type="button" class="btn btn-sm btnGuardarKqPst" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar vendedor" onclick="creaTablaVendedor('cobrador');">
+																	<i class="fa fa-search">
+																	</i>
+																</button>
+															</span>
+														</div>
+													</div>
 												</div>
-												<div class="col-lg-8">
-													<label>&nbsp;&nbsp;</label>
+												<div class="col-lg-7">
 													<input type="text" class="form-control form-control-sm m-input" disabled="" name="nombreCobrador" id="nombreCobrador">
 												</div>
 											</div>
