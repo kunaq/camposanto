@@ -1975,6 +1975,10 @@
 											</div>
 										</div>
 									</fieldset>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-6">
 									<fieldset class="fieldFormHorizontal">
 										<legend class="tittle-box">Conformación</legend>
 										<div class="col-lg-12">
