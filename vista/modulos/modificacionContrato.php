@@ -1883,7 +1883,20 @@
 								</div>
 								<div class="col-lg-6">
 									<fieldset class="fieldFormHorizontal">
-										<legend class="tittle-box">Agencia Funeraria</legend>
+										<legend class="tittle-box">
+											<div class="col-lg-9" style="padding-right: 0;">
+												<label>Agencia Funeraria</label>
+											</div>
+											<div class="col-lg-1">
+												<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
+													<label>
+														<input type="checkbox" name="AgFunCheck" id="AgFunCheck" onchange="apagar();">
+														<span></span>
+													</label>
+												</span>
+											</div>
+
+										</legend>
 										<div class="col-lg-12">
 											<div class="row form-group">
 												<div class="col-lg-3">
@@ -1912,7 +1925,7 @@
 											<div class="row form-group">
 												<div class="col-lg-3">
 													<label>Cobrador</label>
-													<input type="text" class="form-control form-control-sm m-input" name="codCobrador" id="codCobrador" onchange="nombreTrabajador(this.value,'nombreCobrador');">
+													<input type="text" class="form-control form-control-sm m-input" name="codCobrador" disabled="" id="codCobrador" onchange="nombreTrabajador(this.value,'nombreCobrador');">
 												</div>
 												<div class="col-lg-1" style="margin-top: 1.7rem;">
 													<label>&nbsp;</label>
@@ -1925,7 +1938,7 @@
 												</div>
 												<div class="col-lg-8">
 													<label>&nbsp;&nbsp;</label>
-													<input type="text" class="form-control form-control-sm m-input" name="nombreCobrador" id="nombreCobrador">
+													<input type="text" class="form-control form-control-sm m-input" disabled="" name="nombreCobrador" id="nombreCobrador">
 												</div>
 											</div>
 										</div>
@@ -1936,7 +1949,7 @@
 											<div class="row form-group">
 												<div class="col-lg-3">
 													<label>Vendedor</label>
-													<input type="text" class="form-control form-control-sm m-input" name="codVendedor" id="codVendedor" onchange="nombreTrabajador(this.value,'nombreVendedor');">
+													<input type="text" disabled="" class="form-control form-control-sm m-input" name="codVendedor" id="codVendedor" onchange="nombreTrabajador(this.value,'nombreVendedor');">
 												</div>
 												<div class="col-lg-1"  style="margin-top: 1.7rem;">
 													<label>&nbsp;</label>
