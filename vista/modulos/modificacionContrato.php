@@ -1913,8 +1913,8 @@
 									<div class="row">
 										<div class="col-lg-12">
 											<fieldset class="fieldFormHorizontal">
+												<legend class="tittle-box">Cobrador Asignado</legend>
 												<div class="col-lg-12">
-													<legend class="tittle-box">Cobrador Asignado</legend>
 													<div class="row form-group">
 														<div class="col-lg-2">
 															<label>Cobrador</label>
