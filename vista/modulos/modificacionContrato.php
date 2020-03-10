@@ -1977,34 +1977,43 @@
 										<legend class="tittle-box">Personal de Venta</legend>
 										<div class="col-lg-12">
 											<div class="row form-group">
-												<div class="col-lg-3">
+												<div class="col-lg-2">
 													<label>Vendedor</label>
-													<input type="text" disabled="" class="form-control form-control-sm m-input" name="codVendedor" id="codVendedor" onchange="nombreTrabajador(this.value,'nombreVendedor');">
 												</div>
-												<div class="col-lg-1"  style="margin-top: 1.7rem;">
-													<label>&nbsp;</label>
-													<span data-toggle="modal" data-target="#m_modal_4">
-														<button type="button" class="btn btn-sm btnGuardarKqPst" onclick="creaTablaVendedor('vendedor');"><i class="fa fa-search"></i></button>
-													</span>
+												<div class="col-lg-3">
+													<div class="input-group m-input-group">
+														<input type="text" disabled="" class="form-control form-control-sm m-input" name="codVendedor" id="codVendedor" onchange="nombreTrabajador(this.value,'nombreVendedor');">
+														<div class="input-group-append">
+															<span data-toggle="modal" data-target="#m_modal_4">
+																<button type="button" class="btn btn-sm btnGuardarKqPst" onclick="creaTablaVendedor('vendedor');"><i class="fa fa-search"></i></button>
+															</span>
+														</div>
+													</div>
 												</div>
-												<div class="col-lg-8">
-													<label>&nbsp;&nbsp;</label>
+												<div class="col-lg-7">
 													<input type="text" class="form-control form-control-sm m-input" name="nombreVendedor" id="nombreVendedor">
 												</div>
-												<div class="col-lg-3">
+											</div>
+											<div class="row">
+												<div class="col-lg-2">
 													<label>Grupo</label>
+												</div>
+												<div class="col-lg-3">
 													<input type="text" class="form-control form-control-sm m-input" name="codGrupo" id="codGrupo"  onchange="nombreGrupoVenta(this.value,'nombreGrupo');">
 												</div>
-												<div class="col-lg-9">
+												<div class="col-lg-7">
 													<label>&nbsp;&nbsp;</label>
 													<input type="text" class="form-control form-control-sm m-input" name="nombreGrupo" id="nombreGrupo">
 												</div>
-												<div class="col-lg-3">
+											</div>
+											<div class="row">
+												<div class="col-lg-2">
 													<label>Tipo Comisionista</label>
+												</div>
+												<div class="col-lg-3">
 													<input type="text" class="form-control form-control-sm m-input" name="codTipoComisionista" id="codTipoComisionista" onchange="nombreComisionista(this.value,'nombreTipoComisionista');">
 												</div>
-												<div class="col-lg-9">
-													<label>&nbsp;&nbsp;</label>
+												<div class="col-lg-7">
 													<input type="text" class="form-control form-control-sm m-input" name="nombreTipoComisionista" id="nombreTipoComisionista">
 												</div>
 											</div>
