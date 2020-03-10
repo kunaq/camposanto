@@ -1890,7 +1890,7 @@
 												<div class="col-lg-2">
 													<label>Descripcion</label>
 												</div>
-												<div class="col-lg-2">
+												<div class="col-lg-3">
 													<div class="input-group m-input-group">
 														<input type="text" class="form-control form-control-sm m-input" name="codFuneraria" id="codFuneraria" disabled onchange="nombreFuneraria(this.value,'dscFuneraria');">
 														<div class="input-group-append">
@@ -1900,8 +1900,7 @@
 														</div>
 													</div>
 												</div>
-												<div class="col-lg-8">
-													<label>&nbsp;&nbsp;</label>
+												<div class="col-lg-7">
 													<input type="text" class="form-control form-control-sm m-input" name="dscFuneraria" id="dscFuneraria" disabled>
 												</div>
 											</div>
