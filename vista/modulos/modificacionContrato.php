@@ -1849,12 +1849,12 @@
 										<legend>&nbsp;</legend>
 										<div class="col-lg-12">
 											<div class="row form-group">
-												<div class="col-lg-3">
+												<div class="col-lg-2">
 													<label class="">
 														Canal de Venta
 													</label>
 												</div>
-												<div class="col-lg-6">
+												<div class="col-lg-4">
 													<select class="form-control form-control-sm m-select2 m-select2-general" name="canalVentaModif" id="canalVentaModif">
 														<option>Selecciona</option>
 														<?php
@@ -1866,8 +1866,18 @@
 														?>
 													</select>
 												</div>
-												<div class="col-lg-3"></div>
+												<div class="col-lg-2 offset-lg-3" style="padding-right: 0;">
+													<label>Agencia Funeraria</label>
+												</div>
 												<div class="col-lg-3">
+													<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
+														<label>
+															<input type="checkbox" name="AgFunCheck" id="AgFunCheck" onchange="apagar();">
+															<span></span>
+														</label>
+													</span>
+												</div>
+												<!-- <div class="col-lg-3">
 													<table>
 														<tbody>
 															<tr>
@@ -1885,7 +1895,7 @@
 															</tr>
 														</tbody>
 													</table>
-												</div>
+												</div> -->
 											</div>
 										</div>
 									</fieldset>
