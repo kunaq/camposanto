@@ -1855,7 +1855,7 @@
 													</label>
 												</div>
 												<div class="col-lg-4">
-													<select class="form-control form-control-sm m-select2 m-select2-general" name="canalVentaModif" id="canalVentaModif">
+													<select class="form-control form-control-sm m-select2 m-select2-general" name="canalVentaModif" id="canalVentaModif" style="width: -webkit-fill-available">
 														<option>Selecciona</option>
 														<?php
 															$tabla = "vtama_canal_venta";
@@ -1869,7 +1869,7 @@
 												<div class="col-lg-2 offset-lg-3" style="padding-right: 0;">
 													<label>Agencia Funeraria</label>
 												</div>
-												<div class="col-lg-3">
+												<div class="col-lg-1">
 													<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
 														<label>
 															<input type="checkbox" name="AgFunCheck" id="AgFunCheck" onchange="apagar();">
@@ -1877,25 +1877,6 @@
 														</label>
 													</span>
 												</div>
-												<!-- <div class="col-lg-3">
-													<table>
-														<tbody>
-															<tr>
-																<td>
-																	<label class="">Agencia Funeraria&nbsp;</label>
-																</td>
-																<td>
-																	<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
-																		<label>
-																			<input type="checkbox" name="AgFunCheck" id="AgFunCheck" onchange="apagar();">
-																			<span></span>
-																		</label>
-																	</span>
-																</td>
-															</tr>
-														</tbody>
-													</table>
-												</div> -->
 											</div>
 										</div>
 									</fieldset>
