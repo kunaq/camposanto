@@ -2002,11 +2002,10 @@
 													<input type="text" class="form-control form-control-sm m-input" name="codGrupo" id="codGrupo"  onchange="nombreGrupoVenta(this.value,'nombreGrupo');">
 												</div>
 												<div class="col-lg-7">
-													<label>&nbsp;&nbsp;</label>
 													<input type="text" class="form-control form-control-sm m-input" name="nombreGrupo" id="nombreGrupo">
 												</div>
 											</div>
-											<div class="row">
+											<div class="row form-group">
 												<div class="col-lg-2">
 													<label>Tipo Comisionista</label>
 												</div>
