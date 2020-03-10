@@ -1883,19 +1883,18 @@
 								</div>
 								<div class="col-lg-6">
 									<fieldset class="fieldFormHorizontal">
-										<legend class="tittle-box">
-											<div class="col-lg-9" style="padding-right: 0;">
-												<label>Agencia Funeraria</label>
+										<legend class="tittle-box">Agencia Funeraria</legend>
+										<legend class="sidecheck">
+											<div class="row">
+												<div class="col-lg-1 offset-lg-9">
+													<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
+														<label>
+															<input type="checkbox" name="AgFunCheck" id="AgFunCheck" onchange="apagar();">
+															<span></span>
+														</label>
+													</span>
+												</div>
 											</div>
-											<div class="col-lg-1">
-												<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
-													<label>
-														<input type="checkbox" name="AgFunCheck" id="AgFunCheck" onchange="apagar();">
-														<span></span>
-													</label>
-												</span>
-											</div>
-
 										</legend>
 										<div class="col-lg-12">
 											<div class="row form-group">
