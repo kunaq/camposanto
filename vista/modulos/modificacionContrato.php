@@ -1936,6 +1936,8 @@
 											</div>
 										</div>
 									</fieldset>
+								</div>
+								<div class="col-lg-6">
 									<fieldset class="fieldFormHorizontal">
 										<legend class="tittle-box">Personal de Venta</legend>
 										<div class="col-lg-12">
