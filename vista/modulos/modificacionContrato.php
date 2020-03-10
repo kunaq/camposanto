@@ -1941,29 +1941,31 @@
 										</div>
 									</div>
 									<div class="row">
-										<fieldset class="fieldFormHorizontal">
-											<legend class="tittle-box">Conformación</legend>
-											<div class="col-lg-12">
-												<div class="row form-group">
-													<div class="col-lg-3">
-														<label>Supervisor</label>
-														<input type="text" class="form-control form-control-sm m-input" name="codSupervisor" id="codSupervisor" onchange="nombreTrabajador(this.value,'nombreSupervisor');">
-													</div>
-													<div class="col-lg-9">
-														<label>&nbsp;&nbsp;</label>
-														<input type="text" class="form-control form-control-sm m-input" name="nombreSupervisor" id="nombreSupervisor">
-													</div>
-													<div class="col-lg-3">
-														<label>Jefe de Ventas</label>
-														<input type="text" class="form-control form-control-sm m-input" name="codJefeVentas" id="codJefeVentas" onchange="nombreTrabajador(this.value,'nombreJefeVentas');">
-													</div>
-													<div class="col-lg-9">
-														<label>&nbsp;&nbsp;</label>
-														<input type="text" class="form-control form-control-sm m-input" name="nombreJefeVentas" id="nombreJefeVentas">
+										<div class="col-lg-12">
+											<fieldset class="fieldFormHorizontal">
+												<legend class="tittle-box">Conformación</legend>
+												<div class="col-lg-12">
+													<div class="row form-group">
+														<div class="col-lg-3">
+															<label>Supervisor</label>
+															<input type="text" class="form-control form-control-sm m-input" name="codSupervisor" id="codSupervisor" onchange="nombreTrabajador(this.value,'nombreSupervisor');">
+														</div>
+														<div class="col-lg-9">
+															<label>&nbsp;&nbsp;</label>
+															<input type="text" class="form-control form-control-sm m-input" name="nombreSupervisor" id="nombreSupervisor">
+														</div>
+														<div class="col-lg-3">
+															<label>Jefe de Ventas</label>
+															<input type="text" class="form-control form-control-sm m-input" name="codJefeVentas" id="codJefeVentas" onchange="nombreTrabajador(this.value,'nombreJefeVentas');">
+														</div>
+														<div class="col-lg-9">
+															<label>&nbsp;&nbsp;</label>
+															<input type="text" class="form-control form-control-sm m-input" name="nombreJefeVentas" id="nombreJefeVentas">
+														</div>
 													</div>
 												</div>
-											</div>
-										</fieldset>
+											</fieldset>
+										</div>
 									</div>
 								</div>
 								<div class="col-lg-6">
