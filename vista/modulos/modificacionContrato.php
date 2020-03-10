@@ -1866,17 +1866,6 @@
 														?>
 													</select>
 												</div>
-												<!-- <div class="col-lg-2 offset-lg-3" style="padding-right: 0;">
-													<label>Agencia Funeraria</label>
-												</div>
-												<div class="col-lg-1">
-													<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
-														<label>
-															<input type="checkbox" name="AgFunCheck" id="AgFunCheck" onchange="apagar();">
-															<span></span>
-														</label>
-													</span>
-												</div> -->
 											</div>
 										</div>
 									</fieldset>
@@ -1898,14 +1887,18 @@
 										</legend>
 										<div class="col-lg-12">
 											<div class="row form-group">
-												<div class="col-lg-3">
+												<div class="col-lg-2">
 													<label>Descripcion</label>
-													<input type="text" class="form-control form-control-sm m-input" name="codFuneraria" id="codFuneraria" disabled onchange="nombreFuneraria(this.value,'dscFuneraria');">
 												</div>
-												<div class="col-lg-1" style="margin-top: 1.7rem;">
-													<label>&nbsp;</label>
-													<span data-toggle="modal" data-target="#m_modal_Agencias">
-													<button class="btn btn-sm btnGuardarKqPst" type="button" id="btnAgFun" disabled><i class="fa fa-search" ></i></button></span>
+												<div class="col-lg-2">
+													<div class="input-group m-input-group">
+														<input type="text" class="form-control form-control-sm m-input" name="codFuneraria" id="codFuneraria" disabled onchange="nombreFuneraria(this.value,'dscFuneraria');">
+														<div class="input-group-append">
+															<span data-toggle="modal" data-target="#m_modal_Agencias">
+																<button class="btn btn-sm btnGuardarKqPst" type="button" id="btnAgFun" disabled><i class="fa fa-search" ></i></button>
+															</span>
+														</div>
+													</div>
 												</div>
 												<div class="col-lg-8">
 													<label>&nbsp;&nbsp;</label>
