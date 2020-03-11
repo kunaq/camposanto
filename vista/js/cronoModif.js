@@ -863,7 +863,7 @@ function cronogramaModifi(){
 
             var cronograma = document.getElementById('bodyCronogramaModif');
             var cronogramaLenght = cronograma.rows.length;
-            var oCells = cronograma.rows.item(cronogramaLenght).cells;
+            var oCells = cronograma.rows.item(cronogramaLenght-1).cells;
             fch_venFoma = oCells.item(3).innerHTML.trim();
 
             lda_vencimiento = editar_fecha_30(lda_vencimiento, '+30', 'd', "",fch_venFoma,0);
