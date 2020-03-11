@@ -860,15 +860,7 @@ function cronogramaModifi(){
           
             // -- FOMA -- //
 
-            aux_dia = ldt_fch_ven.getDate();
-            aux_mes1 = ldt_fch_ven.setMonth(ldt_fch_ven.getMonth() + 1);
-            var aux_mes = ldt_fch_ven.getMonth();
-            aux_anio = ldt_fch_ven.getFullYear();
-            if(aux_mes == '0'){
-              aux_mes = '12';
-              aux_anio = ldt_fch_ven.getFullYear()-1;
-            }               
-            lda_vencimiento = aux_dia+'-'+aux_mes+'-'+aux_anio;
+             lda_vencimiento = editar_fecha_30(lda_vencimiento, '+30', 'd', "",ldt_fch_ven1,0);
 
             $("#fchVenCronoFOMA").datepicker({ dateFormat: 'dd-mm-yy' }).datepicker("setDate", lda_vencimiento);
         //fin case 3 de aqui en adelante segui caso el remanso y jde
@@ -878,6 +870,8 @@ function cronogramaModifi(){
     $("#cambioCronograma").val('SI');
     calcular();
     $("#bodyCronogramaFomaModif").empty();
+    document.getElementById("totalTotalFomaModif").innerText = Number(0).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
+    document.getElementById("totalSaldoFomaModif").innerText = Number(0).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 }); 
     swal({
         title: "",
         text: "Debe generar el cronograma de pagos del fondo de mantenimiento.",
