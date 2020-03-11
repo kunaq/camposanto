@@ -380,7 +380,7 @@ function cronogramaModifi(){
                             var lde_igv_cuota     = lde_cuota - lde_capital_cuota;
                             var lde_amortizacion  = ( lde_cuota - lde_igv_cuota ) - lde_interes;
 
-                             var lda_vencimiento = editar_fecha_30(ldt_fch_ven, 30, 'd', "/",ldt_fch_ven,0);
+                             var lda_vencimiento = editar_fecha_30(ldt_fch_ven, 30, 'd', "",ldt_fch_ven,0);
                                          
                             // -- Saldos -- //
                              
