@@ -380,7 +380,7 @@ function cronogramaModifi(){
                             var lde_igv_cuota     = lde_cuota - lde_capital_cuota;
                             var lde_amortizacion  = ( lde_cuota - lde_igv_cuota ) - lde_interes;
 
-                             var lda_vencimiento = editar_fecha_30(ldt_fch_ven, 30, 'd', "/",ldt_fch_ven,0);
+                             var lda_vencimiento = editar_fecha_30(ldt_fch_ven, 30, 'd', "",ldt_fch_ven,0);
                                          
                             // -- Saldos -- //
                              
@@ -868,14 +868,22 @@ function cronogramaModifi(){
               aux_mes = '12';
               aux_anio = ldt_fch_ven.getFullYear()-1;
             }               
-            lda_vencimiento = aux_dia+'/'+aux_mes+'/'+aux_anio;
+            lda_vencimiento = aux_dia+'-'+aux_mes+'-'+aux_anio;
 
             $("#fchVenCronoFOMA").datepicker({ dateFormat: 'dd-mm-yy' }).datepicker("setDate", lda_vencimiento);
         //fin case 3 de aqui en adelante segui caso el remanso y jde
     }//switch
     // -- Filas -- //
+    $("#fchVenCronoFOMA").datepicker({ dateFormat: 'dd-mm-yy' }).datepicker("setDate", lda_vencimiento);
     $("#cambioCronograma").val('SI');
     calcular();
+    $("#bodyCronogramaFomaModif").empty();
+    swal({
+        title: "",
+        text: "Debe generar el cronograma de pagos del fondo de mantenimiento.",
+        type: "warning",
+        confirmButtonText: "Aceptar",
+    })
 }//function cronogramaModif
 
 
