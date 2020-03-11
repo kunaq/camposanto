@@ -861,15 +861,15 @@ function cronogramaModifi(){
           
             // -- FOMA -- //
 
-            var cronograma = document.getElementById('bodyCronogramaModif');
-            var cronogramaLenght = cronograma.rows.length;
-            var oCells = cronograma.rows.item(cronogramaLenght-1).cells;
-            fch_venFoma = oCells.item(3).innerHTML.trim();
+            // var cronograma = document.getElementById('bodyCronogramaModif');
+            // var cronogramaLenght = cronograma.rows.length;
+            // var oCells = cronograma.rows.item(cronogramaLenght-1).cells;
+            // fch_venFoma = oCells.item(3).innerHTML.trim();
 
-            lda_vencimiento = editar_fecha_30(lda_vencimiento, '+30', 'd', "",fch_venFoma,0);
-            console.log('lda_vencimiento',lda_vencimiento);
-            console.log('ldt_fch_ven1',ldt_fch_ven1);
-             console.log('fch_venFoma',fch_venFoma);
+            // lda_vencimiento = editar_fecha_30(lda_vencimiento, '+30', 'd', "",fch_venFoma,0);
+            // console.log('lda_vencimiento',lda_vencimiento);
+            // console.log('ldt_fch_ven1',ldt_fch_ven1);
+            //  console.log('fch_venFoma',fch_venFoma);
 
             $("#fchVenCronoFOMA").datepicker({ dateFormat: 'dd-mm-yy' }).datepicker("setDate", lda_vencimiento);
         //fin case 3 de aqui en adelante segui caso el remanso y jde
