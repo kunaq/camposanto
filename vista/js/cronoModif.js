@@ -859,6 +859,8 @@ function cronogramaModifi(){
             }
           
             // -- FOMA -- //
+            console.log('lda_vencimiento',lda_vencimiento);
+            console.log('ldt_fch_ven1',ldt_fch_ven1);
 
              lda_vencimiento = editar_fecha_30(lda_vencimiento, '+30', 'd', "",ldt_fch_ven1,0);
 
