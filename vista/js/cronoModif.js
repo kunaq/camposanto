@@ -10,8 +10,7 @@ function cronogramaModifi(){
     var li_ref = $("#numRefinanciamiento").val();
     var flg_prevencion = $("#flg_prevencion").val();
     var gde_igv = 0.18;
-    var is_flg_cronograma_cuoi = $("#flg_cronograma_cuoi").val();
-    var lda_vencimiento = ''; 
+    var is_flg_cronograma_cuoi = $("#flg_cronograma_cuoi").val(); 
 
     if(ls_num_servicio_det == null || ls_num_servicio_det == ''){
         swal({
@@ -381,7 +380,7 @@ function cronogramaModifi(){
                             var lde_igv_cuota     = lde_cuota - lde_capital_cuota;
                             var lde_amortizacion  = ( lde_cuota - lde_igv_cuota ) - lde_interes;
 
-                             var lda_vencimiento = editar_fecha_30(lda_vencimiento, 30, 'd', "",ldt_fch_ven1,0);
+                             var lda_vencimiento = editar_fecha_30(ldt_fch_ven, 30, 'd', "/",ldt_fch_ven,0);
                                          
                             // -- Saldos -- //
                              
@@ -861,15 +860,15 @@ function cronogramaModifi(){
           
             // -- FOMA -- //
 
-            // var cronograma = document.getElementById('bodyCronogramaModif');
-            // var cronogramaLenght = cronograma.rows.length;
-            // var oCells = cronograma.rows.item(cronogramaLenght-1).cells;
-            // fch_venFoma = oCells.item(3).innerHTML.trim();
-
-            // lda_vencimiento = editar_fecha_30(lda_vencimiento, '+30', 'd', "",fch_venFoma,0);
-            // console.log('lda_vencimiento',lda_vencimiento);
-            // console.log('ldt_fch_ven1',ldt_fch_ven1);
-            //  console.log('fch_venFoma',fch_venFoma);
+            aux_dia = ldt_fch_ven.getDate();
+            aux_mes1 = ldt_fch_ven.setMonth(ldt_fch_ven.getMonth() + 1);
+            var aux_mes = ldt_fch_ven.getMonth();
+            aux_anio = ldt_fch_ven.getFullYear();
+            if(aux_mes == '0'){
+              aux_mes = '12';
+              aux_anio = ldt_fch_ven.getFullYear()-1;
+            }               
+            lda_vencimiento = aux_dia+'-'+aux_mes+'-'+aux_anio;
 
             $("#fchVenCronoFOMA").datepicker({ dateFormat: 'dd-mm-yy' }).datepicker("setDate", lda_vencimiento);
         //fin case 3 de aqui en adelante segui caso el remanso y jde
@@ -879,8 +878,6 @@ function cronogramaModifi(){
     $("#cambioCronograma").val('SI');
     calcular();
     $("#bodyCronogramaFomaModif").empty();
-    document.getElementById("totalTotalFomaModif").innerText = Number(0).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
-    document.getElementById("totalSaldoFomaModif").innerText = Number(0).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 }); 
     swal({
         title: "",
         text: "Debe generar el cronograma de pagos del fondo de mantenimiento.",
