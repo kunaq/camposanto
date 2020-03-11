@@ -10,7 +10,8 @@ function cronogramaModifi(){
     var li_ref = $("#numRefinanciamiento").val();
     var flg_prevencion = $("#flg_prevencion").val();
     var gde_igv = 0.18;
-    var is_flg_cronograma_cuoi = $("#flg_cronograma_cuoi").val(); 
+    var is_flg_cronograma_cuoi = $("#flg_cronograma_cuoi").val();
+    var lda_vencimiento = ''; 
 
     if(ls_num_servicio_det == null || ls_num_servicio_det == ''){
         swal({
