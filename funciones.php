@@ -21,7 +21,7 @@ function Utf8Encode($data){
     return utf8_encode($data);
 }//function Utf8Encode
 function dateFormat($data){
-	return date_format(new DateTime($data), 'd/m/Y');
+	return date_format(new DateTime($data), 'd-m-Y');
 }//function dateFormat
 function dateTimeFormat($data){
     return date_format(new DateTime($data), 'd-m-Y H:i:s');
