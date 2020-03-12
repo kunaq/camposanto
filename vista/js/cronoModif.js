@@ -422,7 +422,8 @@ function cronogramaModifi(){
                             }else{
 
                                 var cronograma = document.getElementById('bodyCronogramaModif');
-                                var li_find = cronograma.rows.length;                         
+                                var li_find = cronograma.rows.length; 
+                                li_find = lifind + li_i;                        
 
                                 // li_find = tab_1.tp_4.dw_det_cuotas.Find("num_cuota = " + String(li_i + ii_num_cuota_cuoi), 1, tab_1.tp_4.dw_det_cuotas.Rowcount())
 
