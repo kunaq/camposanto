@@ -439,7 +439,7 @@ function cronogramaModifi(){
                                    // tab_1.tp_4.dw_det_cuotas.SetItem(li_i + ii_num_cuota_cuoi, "imp_total_2",  Round(lde_cuota, 4))
 
                                    var filaCrono = '<tr>'+
-                                        '<td scope="row">'+(li_find)+'</td>'+
+                                        '<td scope="row">'+(li_find+1)+'</td>'+
                                         '<td>REGISTRADO</td>'+
                                         '<td>ARM</td>'+
                                         '<td>'+lda_vencimiento+'</td>'+
