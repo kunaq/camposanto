@@ -288,7 +288,7 @@ function llenaDatos(codCtto){
                         document.getElementById("bodyServicioVin").insertAdjacentHTML("beforeEnd" ,fila2);
                         document.getElementById("totalServicioVin").innerText = Number(totalVin).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
                     }
-
+                    $("#saldoFinCronograma").val(totalVin);
             	});//each
                 muestraInfo(respuesta[0]['num_servicio']);
             }
@@ -345,7 +345,6 @@ function muestraInfo(id){
         	if(respuesta['cod_aval'] != ''){
         		$("#codAval").trigger('change');
         	}
-        	$("#saldoFinCronograma").val(respuesta['imp_saldofinanciar']);
             $("#numRefinanciamiento").val(respuesta['num_refinanciamiento']);
         	if(respuesta['imp_saldofinanciar'] != 0){
         		cargaCronograma(codCtto,respuesta['num_refinanciamiento']);
