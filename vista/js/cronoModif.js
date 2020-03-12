@@ -369,8 +369,7 @@ function cronogramaModifi(){
                         lda_vencimiento = ldt_fch_ven1;
 
                         for( li_i = 1; li_i < li_cuotas ; li_i ++){
-                             console.log('li_i',li_i);
-                              console.log('li_ctd_servicio',li_ctd_servicio);
+
                             // -- Calculo -- //
                              
                             var lde_interes = lde_total_saldo * lde_valor;

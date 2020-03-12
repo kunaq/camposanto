@@ -184,7 +184,7 @@ function llenaDatos(codCtto){
                     confirmButtonText: "Aceptar",
                 });
             }else{
-            	console.log('respuesta',respuesta);
+            	// console.log('respuesta',respuesta);
             	document.getElementById("codContrato").value = respuesta[0]['cod_contrato'];
             	$("#tipoPrograma option[value='"+respuesta[0]['cod_tipo_programa']+"']").attr("selected",true);
             	if(respuesta[0]['cod_tipo_programa'] = 'TR000'){
@@ -309,7 +309,7 @@ function muestraInfo(id){
         method: "POST",
         data: { 'accion' : 'DetServ', 'codCtto' : codCtto, 'num_servicio' : id },
         success : function(respuesta){
-        	//console.log('respuesta',respuesta);
+        	console.log('respuesta',respuesta);
         	if(respuesta['cod_tipo_necesidad'] == 'NF'){
         		var tipoNec = 'NECESIDAD FUTURA';
         	}else{
