@@ -368,7 +368,7 @@ function muestraInfo(id){
             $("#anularBoton").attr('name',id);
         	$("#numCuoCronograma").val(respuesta['num_cuotas']);
             $("#numCuoCronograma").trigger('change');
-        	$("#fchVenCronograma").val(respuesta['fch_primer_vencimiento']);
+            $("#fchVenCronograma").datepicker({ dateFormat: 'dd-mm-yy' }).datepicker("setDate", respuesta['fch_primer_vencimiento']);
         	$("#interesCronograma").val(respuesta['imp_interes']);
             $("#interesCronograma").trigger('change');
         	$("#codCobrador").val(respuesta['cod_cobrador']).trigger('change');
