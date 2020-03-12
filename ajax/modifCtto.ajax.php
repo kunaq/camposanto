@@ -22,6 +22,11 @@ class AjaxModifCtto{
 	public function ajaxBuscaDatosServicio(){
 		$respuesta = ControladorModifCtto::ctrBuscaDatosServicio();
 		$respuesta["fch_primer_vencimiento"] = ($respuesta["fch_primer_vencimiento"] != '') ? dateFormat($respuesta["fch_primer_vencimiento"]) : '';
+		$respuesta["fch_generacion"] = ($respuesta["fch_generacion"] != '') ? dateFormat($respuesta["fch_generacion"]) : '';
+		$respuesta["fch_anulacion"] = ($respuesta["fch_anulacion"] != '') ? dateFormat($respuesta["fch_anulacion"]) : '';
+		$respuesta["fch_emision"] = ($respuesta["fch_emision"] != '') ? dateFormat($respuesta["fch_emision"]) : '';
+		$respuesta["fch_activacion"] = ($respuesta["fch_activacion"] != '') ? dateFormat($respuesta["fch_activacion"]) : '';
+		$respuesta["fch_resolucion"] = ($respuesta["fch_resolucion"] != '') ? dateFormat($respuesta["fch_resolucion"]) : '';
 		echo json_encode($respuesta);
 	}//ajaxBuscaDatosServicio
 	public function ajaxBuscaServPpal(){
