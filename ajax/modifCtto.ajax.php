@@ -21,7 +21,7 @@ class AjaxModifCtto{
 	}//function ajaxBuscaCtto
 	public function ajaxBuscaDatosServicio(){
 		$respuesta = ControladorModifCtto::ctrBuscaDatosServicio();
-		$respuesta["fch_primer_vencimiento"] = ($respuesta["fch_primer_vencimiento"] != '') ? dateFormat($respuesta["fch_primer_vencimiento"]) : '';
+		// $respuesta["fch_primer_vencimiento"] = ($respuesta["fch_primer_vencimiento"] != '') ? dateFormat($respuesta["fch_primer_vencimiento"]) : '';
 		echo json_encode($respuesta);
 	}//ajaxBuscaDatosServicio
 	public function ajaxBuscaServPpal(){
