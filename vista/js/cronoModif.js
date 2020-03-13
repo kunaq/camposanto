@@ -277,6 +277,8 @@ function cronogramaModifi(){
 
     if( lde_valor == '' || lde_valor == null ){ lde_valor = 0.00;}
 
+    console.log('lde_valor',lde_valor);
+
     // -- Forma de calculo según configuración -- //
     
     var is_tipo_calculo_interes = 3;
