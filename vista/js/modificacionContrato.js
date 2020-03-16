@@ -275,6 +275,7 @@ function llenaDatos(codCtto){
                         '<input type="hidden" id="num_servicio_foma_'+value['num_servicio']+'" value="'+value['num_servicio_foma']+'">'+
     				'</tr>';
     				document.getElementById("bodyDetCttoModif").insertAdjacentHTML("beforeEnd" ,fila);
+                    console.log('flg_int',respuesta[0]['flg_ctt_integral'] );
                     if (respuesta[0]['flg_ctt_integral'] == 'SI') {
                         if(value['flg_principal'] == 'SI'){
                             color = 'blue';
