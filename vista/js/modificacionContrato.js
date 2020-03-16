@@ -275,7 +275,6 @@ function llenaDatos(codCtto){
                         '<input type="hidden" id="num_servicio_foma_'+value['num_servicio']+'" value="'+value['num_servicio_foma']+'">'+
     				'</tr>';
     				document.getElementById("bodyDetCttoModif").insertAdjacentHTML("beforeEnd" ,fila);
-                    console.log('flg_int',respuesta[0]['flg_ctt_integral'] );
                     if (respuesta[0]['flg_ctt_integral'] == 'SI') {
                         if(value['flg_principal'] == 'SI'){
                             color = 'blue';
@@ -284,7 +283,7 @@ function llenaDatos(codCtto){
                         }
                         var fila2 = '<tr name="'+value['num_servicio']+'" style="'+color+'">'+
                             '<td class="text-center">'+value['num_servicio']+
-                            '<td class="text-right">'+Number(value['imp_saldofinanciar']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });+'<input type="hidden" id="is_principal_'+value['num_servicio']+'" value="'+value['flg_principal']+'"><input type="hidden" id="is_ds_'+value['num_servicio']+'" value="'+value['flg_derecho_sepultura']+'"><input type="hidden" id="flg_afecto_igv_'+value['num_servicio']+'" value="'+value['flg_afecto_igv']+'"></td>'+
+                            '<td class="text-right">'+Number(value['imp_saldofinanciar']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'<input type="hidden" id="is_principal_'+value['num_servicio']+'" value="'+value['flg_principal']+'"><input type="hidden" id="is_ds_'+value['num_servicio']+'" value="'+value['flg_derecho_sepultura']+'"><input type="hidden" id="flg_afecto_igv_'+value['num_servicio']+'" value="'+value['flg_afecto_igv']+'"></td>'+
                         '</tr>';
                         console.log('fila2',fila2);
                         document.getElementById("bodyServicioVin").insertAdjacentHTML("beforeEnd" ,fila2);
