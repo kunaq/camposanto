@@ -286,6 +286,7 @@ function llenaDatos(codCtto){
                             '<td class="text-center">'+value['num_servicio']+
                             '<td class="text-right">'+Number(value['imp_saldofinanciar']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });+'<input type="hidden" id="is_principal_'+value['num_servicio']+'" value="'+value['flg_principal']+'"><input type="hidden" id="is_ds_'+value['num_servicio']+'" value="'+value['flg_derecho_sepultura']+'"><input type="hidden" id="flg_afecto_igv_'+value['num_servicio']+'" value="'+value['flg_afecto_igv']+'"></td>'+
                         '</tr>';
+                        console.log('fila2',fila2);
                         document.getElementById("bodyServicioVin").insertAdjacentHTML("beforeEnd" ,fila2);
                         document.getElementById("totalServicioVin").innerText = Number(totalVin).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
                     }
