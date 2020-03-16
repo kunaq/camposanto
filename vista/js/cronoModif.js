@@ -297,7 +297,7 @@ function cronogramaModifi(){
 
                 // -- Inicializa -- //
               
-                console.log('lde_valor',lde_valor);
+                console.log('lde_valor vjvj',lde_valor);
                 var li_ctd_servicio = 0;
               
                 // -- Limpia Cronograma -- //
