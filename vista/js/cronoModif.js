@@ -324,9 +324,10 @@ function cronogramaModifi(){
                 var container2 = document.querySelector('#bodyServicioVin');
                 container2.querySelectorAll('tr').forEach(function (li_i)
                 { 
-                    var oCells = container2.rows.item(li_i).cells;           
-                    lde_saldo_detalle  = oCells.item(1).innerHTML.trim();
-                    lde_saldo_detalle = pasaAnumero(lde_saldo_detalle);
+                    // var oCells = container2.rows.item(li_i).cells;           
+                    // lde_saldo_detalle  = oCells.item(1).innerHTML.trim();
+                    // lde_saldo_detalle = pasaAnumero(lde_saldo_detalle);
+                    lde_saldo_detalle = $("#saldoFinCronograma").val();
                     var  cod_servicio = $(li_i).attr("name");
                   
                     // -- Inicializa -- //
