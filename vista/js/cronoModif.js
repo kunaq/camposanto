@@ -269,6 +269,7 @@ function cronogramaModifi(){
     // -- Interes -- //
 
     lde_valor = $("#interesCronograma").val();
+    console.log('lde_valor0',lde_valor);
     if( lde_valor == '' || lde_valor == null ){
         lde_valor = 0.00;
     }else{
@@ -288,7 +289,7 @@ function cronogramaModifi(){
             // -- Integrales -- //                            
 
             if( ls_flg_ct_integral == 'SI' ){                         
-
+                console.log('lde_valor',lde_valor);
                 // -- Valor de Interes -- //
 
                 lde_valor = ( 1 + (lde_valor / 100)) ** ( 1 / 12 ) - 1;
@@ -297,7 +298,7 @@ function cronogramaModifi(){
 
                 // -- Inicializa -- //
               
-                console.log('lde_valor',lde_valor);
+                console.log('lde_valor2',lde_valor);
                 var li_ctd_servicio = 0;
               
                 // -- Limpia Cronograma -- //
