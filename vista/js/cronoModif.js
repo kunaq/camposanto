@@ -294,7 +294,7 @@ function cronogramaModifi(){
 
                 lde_valor = ( 1 + (lde_valor / 100)) ** ( 1 / 12 ) - 1;
 
-                if( lde_valor == '' || lde_valor){ lde_valor = 0.00;}
+                if( lde_valor == '' || lde_valor == null){ lde_valor = 0.00;}
 
                 // -- Inicializa -- //
               
