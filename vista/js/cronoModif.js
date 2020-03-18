@@ -269,7 +269,7 @@ function cronogramaModifi(){
     // -- Interes -- //
 
     lde_valor = $("#interesCronograma").val();
-    console.log('lde_valor0',lde_valor);
+    
     if( lde_valor == '' || lde_valor == null ){
         lde_valor = 0.00;
     }else{
@@ -289,7 +289,7 @@ function cronogramaModifi(){
             // -- Integrales -- //                            
 
             if( ls_flg_ct_integral == 'SI' ){                         
-                console.log('lde_valor',lde_valor);
+                
                 // -- Valor de Interes -- //
 
                 lde_valor = ( 1 + (lde_valor / 100)) ** ( 1 / 12 ) - 1;
@@ -298,7 +298,6 @@ function cronogramaModifi(){
 
                 // -- Inicializa -- //
               
-                console.log('lde_valor2',lde_valor);
                 var li_ctd_servicio = 0;
               
                 // -- Limpia Cronograma -- //
@@ -325,10 +324,10 @@ function cronogramaModifi(){
                 var container2 = document.querySelector('#bodyServicioVin');
                 container2.querySelectorAll('tr').forEach(function (li_i)
                 { 
-                    // var oCells = container2.rows.item(li_i).cells;           
-                    // lde_saldo_detalle  = oCells.item(1).innerHTML.trim();
-                    // lde_saldo_detalle = pasaAnumero(lde_saldo_detalle);
-                    lde_saldo_detalle = $("#saldoFinCronograma").val();
+                    var oCells = container2.rows.item(li_i).cells;           
+                    lde_saldo_detalle  = oCells.item(1).innerHTML.trim();
+                    lde_saldo_detalle = pasaAnumero(lde_saldo_detalle);
+                    // lde_saldo_detalle = $("#saldoFinCronograma").val();
                     var  cod_servicio = $(li_i).attr("name");
                   
                     // -- Inicializa -- //
@@ -350,7 +349,7 @@ function cronogramaModifi(){
                         if(ls_flg_afecto_igv == '' || ls_flg_afecto_igv == null) { ls_flg_afecto_igv = 'NO';}
                         if( ls_flg_afecto_igv == 'SI'){  lde_valor_igv_detalle = lde_valor_igv_det;}
 
-                        console.log('ls_flg_afecto_igv'+li_i,ls_flg_afecto_igv)
+                        console.log('ls_flg_afecto_igv',ls_flg_afecto_igv)
 
                         // -- Saldo capital -- //
                      
@@ -424,42 +423,42 @@ function cronogramaModifi(){
 
 
                             }
-                            // else{
+                            else{
 
-                            //     var cronograma = document.getElementById('bodyCronogramaModif');
-                            //     var li_find = cronograma.rows.length; 
-                            //     li_find = li_find + li_i;                        
+                                var cronograma = document.getElementById('bodyCronogramaModif');
+                                var li_find = cronograma.rows.length; 
+                                li_find = li_find + li_i;                        
 
-                            //     // li_find = tab_1.tp_4.dw_det_cuotas.Find("num_cuota = " + String(li_i + ii_num_cuota_cuoi), 1, tab_1.tp_4.dw_det_cuotas.Rowcount())
+                                // li_find = tab_1.tp_4.dw_det_cuotas.Find("num_cuota = " + String(li_i + ii_num_cuota_cuoi), 1, tab_1.tp_4.dw_det_cuotas.Rowcount())
 
-                            //     if(li_find == '' || li_find == null) { li_find = 0;}
+                                if(li_find == '' || li_find == null) { li_find = 0;}
                                  
-                            //     if( li_find > 0 ){
+                                if( li_find > 0 ){
                                                      
-                            //        //  tab_1.tp_4.dw_det_cuotas.SetItem(li_find, "imp_principal", tab_1.tp_4.dw_det_cuotas.GetItemDecimal(li_find, "imp_principal") + Round(lde_amortizacion, 4))
-                            //        //  tab_1.tp_4.dw_det_cuotas.SetItem(li_find, "imp_interes", tab_1.tp_4.dw_det_cuotas.GetItemDecimal(li_find, "imp_interes") + Round(lde_interes, 4))
-                            //        //  tab_1.tp_4.dw_det_cuotas.SetItem(li_find, "imp_igv", tab_1.tp_4.dw_det_cuotas.GetItemDecimal(li_find, "imp_igv") + Round(lde_igv_cuota, 4))
-                            //        // tab_1.tp_4.dw_det_cuotas.SetItem(li_find, "imp_total",  tab_1.tp_4.dw_det_cuotas.GetItemDecimal(li_find, "imp_total") + Round(lde_cuota, 4))
-                            //        // tab_1.tp_4.dw_det_cuotas.SetItem(li_find, "imp_saldo",  tab_1.tp_4.dw_det_cuotas.GetItemDecimal(li_find, "imp_saldo") + Round(lde_cuota, 4))
-                            //        // tab_1.tp_4.dw_det_cuotas.SetItem(li_i + ii_num_cuota_cuoi, "imp_principal_2",  Round(lde_amortizacion, 4))
-                            //        // tab_1.tp_4.dw_det_cuotas.SetItem(li_i + ii_num_cuota_cuoi, "imp_total_2",  Round(lde_cuota, 4))
+                                   //  tab_1.tp_4.dw_det_cuotas.SetItem(li_find, "imp_principal", tab_1.tp_4.dw_det_cuotas.GetItemDecimal(li_find, "imp_principal") + Round(lde_amortizacion, 4))
+                                   //  tab_1.tp_4.dw_det_cuotas.SetItem(li_find, "imp_interes", tab_1.tp_4.dw_det_cuotas.GetItemDecimal(li_find, "imp_interes") + Round(lde_interes, 4))
+                                   //  tab_1.tp_4.dw_det_cuotas.SetItem(li_find, "imp_igv", tab_1.tp_4.dw_det_cuotas.GetItemDecimal(li_find, "imp_igv") + Round(lde_igv_cuota, 4))
+                                   // tab_1.tp_4.dw_det_cuotas.SetItem(li_find, "imp_total",  tab_1.tp_4.dw_det_cuotas.GetItemDecimal(li_find, "imp_total") + Round(lde_cuota, 4))
+                                   // tab_1.tp_4.dw_det_cuotas.SetItem(li_find, "imp_saldo",  tab_1.tp_4.dw_det_cuotas.GetItemDecimal(li_find, "imp_saldo") + Round(lde_cuota, 4))
+                                   // tab_1.tp_4.dw_det_cuotas.SetItem(li_i + ii_num_cuota_cuoi, "imp_principal_2",  Round(lde_amortizacion, 4))
+                                   // tab_1.tp_4.dw_det_cuotas.SetItem(li_i + ii_num_cuota_cuoi, "imp_total_2",  Round(lde_cuota, 4))
 
-                            //        var filaCrono = '<tr>'+
-                            //             '<td scope="row">'+(li_find+1)+'</td>'+
-                            //             '<td>REGISTRADO</td>'+
-                            //             '<td>ARM</td>'+
-                            //             '<td>'+lda_vencimiento+'</td>'+
-                            //             '<td style="text-align: right;">'+Number(lde_amortizacion).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
-                            //             '<td style="text-align: right;">'+Number(lde_interes).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
-                            //             '<td style="text-align: right;">'+Number(lde_igv_cuota).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
-                            //             '<td style="text-align: right;">'+Number(lde_cuota).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
-                            //             '<td style="text-align: right;">'+Number(lde_cuota).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
-                            //         '</tr>';
-                            //         document.getElementById("bodyCronogramaModif").insertAdjacentHTML("beforeEnd" ,filaCrono);
+                                   var filaCrono = '<tr>'+
+                                        '<td scope="row">'+(li_find+1)+'</td>'+
+                                        '<td>REGISTRADO</td>'+
+                                        '<td>ARM</td>'+
+                                        '<td>'+lda_vencimiento+'</td>'+
+                                        '<td style="text-align: right;">'+Number(lde_amortizacion).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+                                        '<td style="text-align: right;">'+Number(lde_interes).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+                                        '<td style="text-align: right;">'+Number(lde_igv_cuota).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+                                        '<td style="text-align: right;">'+Number(lde_cuota).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+                                        '<td style="text-align: right;">'+Number(lde_cuota).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+                                    '</tr>';
+                                    document.getElementById("bodyCronogramaModif").insertAdjacentHTML("beforeEnd" ,filaCrono);
                                                                     
-                            //     }
+                                }
                                                      
-                            // }
+                            }
                                      
                         }
 
