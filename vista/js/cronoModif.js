@@ -427,7 +427,11 @@ function cronogramaModifi(){
                                 container3.querySelectorAll('tr').forEach(function (li_i){                     
 
                                     var li_find = container3.rows.item(li_i).cells;
-                                    console.log('li_find',li_find);
+                                    lde_saldo_detalle  = oCells.item(1).innerHTML.trim();
+                                    lde_saldo_detalle = pasaAnumero(lde_saldo_detalle);
+                                    lde_saldo_detalle = lde_saldo_detalle + lde_amortizacion;
+                                    console.log('lde_saldo_detalle',lde_saldo_detalle);
+                                    
                                     // li_find = tab_1.tp_4.dw_det_cuotas.Find("num_cuota = " + String(li_i + ii_num_cuota_cuoi), 1, tab_1.tp_4.dw_det_cuotas.Rowcount())                                                         
                                    //  tab_1.tp_4.dw_det_cuotas.SetItem(li_find, "imp_principal", tab_1.tp_4.dw_det_cuotas.GetItemDecimal(li_find, "imp_principal") + Round(lde_amortizacion, 4))
                                    //  tab_1.tp_4.dw_det_cuotas.SetItem(li_find, "imp_interes", tab_1.tp_4.dw_det_cuotas.GetItemDecimal(li_find, "imp_interes") + Round(lde_interes, 4))
