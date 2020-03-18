@@ -433,6 +433,7 @@ function cronogramaModifi(){
                                     imp_principal  = li_find.item(4).innerHTML.trim();
                                     imp_principal = pasaAnumero(imp_principal);
                                     imp_principal = imp_principal + lde_amortizacion;
+                                    console.log('lde_amortizacion',lde_amortizacion);
                                     li_find.item(4).innerHTML = Number(imp_principal).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
                                     // tab_1.tp_4.dw_det_cuotas.SetItem(li_find, "imp_principal", tab_1.tp_4.dw_det_cuotas.GetItemDecimal(li_find, "imp_principal") + Round(lde_amortizacion, 4))
 
