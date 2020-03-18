@@ -349,8 +349,6 @@ function cronogramaModifi(){
                         if(ls_flg_afecto_igv == '' || ls_flg_afecto_igv == null) { ls_flg_afecto_igv = 'NO';}
                         if( ls_flg_afecto_igv == 'SI'){  lde_valor_igv_detalle = lde_valor_igv_det;}
 
-                        console.log('ls_flg_afecto_igv',ls_flg_afecto_igv)
-
                         // -- Saldo capital -- //
                      
                         var lde_total = lde_saldo_detalle;
@@ -425,16 +423,12 @@ function cronogramaModifi(){
                             }
                             else{
 
-                                var cronograma = document.getElementById('bodyCronogramaModif');
-                                var li_find = cronograma.rows.length; 
-                                li_find = li_find + li_i;                        
+                                var container3 = document.querySelector('#bodyCronogramaModif');
+                                container3.querySelectorAll('tr').forEach(function (li_i){                     
 
-                                // li_find = tab_1.tp_4.dw_det_cuotas.Find("num_cuota = " + String(li_i + ii_num_cuota_cuoi), 1, tab_1.tp_4.dw_det_cuotas.Rowcount())
-
-                                if(li_find == '' || li_find == null) { li_find = 0;}
-                                 
-                                if( li_find > 0 ){
-                                                     
+                                    var li_find = container3.rows.item(li_i).cells;
+                                    console.log('li_find',li_find);
+                                    // li_find = tab_1.tp_4.dw_det_cuotas.Find("num_cuota = " + String(li_i + ii_num_cuota_cuoi), 1, tab_1.tp_4.dw_det_cuotas.Rowcount())                                                         
                                    //  tab_1.tp_4.dw_det_cuotas.SetItem(li_find, "imp_principal", tab_1.tp_4.dw_det_cuotas.GetItemDecimal(li_find, "imp_principal") + Round(lde_amortizacion, 4))
                                    //  tab_1.tp_4.dw_det_cuotas.SetItem(li_find, "imp_interes", tab_1.tp_4.dw_det_cuotas.GetItemDecimal(li_find, "imp_interes") + Round(lde_interes, 4))
                                    //  tab_1.tp_4.dw_det_cuotas.SetItem(li_find, "imp_igv", tab_1.tp_4.dw_det_cuotas.GetItemDecimal(li_find, "imp_igv") + Round(lde_igv_cuota, 4))
@@ -443,24 +437,20 @@ function cronogramaModifi(){
                                    // tab_1.tp_4.dw_det_cuotas.SetItem(li_i + ii_num_cuota_cuoi, "imp_principal_2",  Round(lde_amortizacion, 4))
                                    // tab_1.tp_4.dw_det_cuotas.SetItem(li_i + ii_num_cuota_cuoi, "imp_total_2",  Round(lde_cuota, 4))
 
-                                   var filaCrono = '<tr>'+
-                                        '<td scope="row">'+(li_find+1)+'</td>'+
-                                        '<td>REGISTRADO</td>'+
-                                        '<td>ARM</td>'+
-                                        '<td>'+lda_vencimiento+'</td>'+
-                                        '<td style="text-align: right;">'+Number(lde_amortizacion).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
-                                        '<td style="text-align: right;">'+Number(lde_interes).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
-                                        '<td style="text-align: right;">'+Number(lde_igv_cuota).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
-                                        '<td style="text-align: right;">'+Number(lde_cuota).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
-                                        '<td style="text-align: right;">'+Number(lde_cuota).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
-                                    '</tr>';
-                                    document.getElementById("bodyCronogramaModif").insertAdjacentHTML("beforeEnd" ,filaCrono);
-                                                                    
-                                }
-                                                     
+                                   // var filaCrono = '<tr>'+
+                                   //      '<td scope="row">'+(li_find+1)+'</td>'+
+                                   //      '<td>REGISTRADO</td>'+
+                                   //      '<td>ARM</td>'+
+                                   //      '<td>'+lda_vencimiento+'</td>'+
+                                   //      '<td style="text-align: right;">'+Number(lde_amortizacion).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+                                   //      '<td style="text-align: right;">'+Number(lde_interes).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+                                   //      '<td style="text-align: right;">'+Number(lde_igv_cuota).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+                                   //      '<td style="text-align: right;">'+Number(lde_cuota).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+                                   //      '<td style="text-align: right;">'+Number(lde_cuota).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+                                   //  '</tr>';
+                                   //  document.getElementById("bodyCronogramaModif").insertAdjacentHTML("beforeEnd" ,filaCrono);                                                  
+                                });           
                             }
-                                     
-                        }
 
                         // -- Cuota Final -- //
 
