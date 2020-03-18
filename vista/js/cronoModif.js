@@ -421,12 +421,12 @@ function cronogramaModifi(){
 
 
                             }else{
-
+                                console.log(li_i)
                                 var container3 = document.querySelector('#bodyCronogramaModif');
-                                container3.querySelectorAll('tr').forEach(function (li_i){  
+                                container3.querySelectorAll('tr').forEach(function (li_j){  
 
                                         // li_find = tab_1.tp_4.dw_det_cuotas.Find("num_cuota = " + String(li_i + ii_num_cuota_cuoi), 1, tab_1.tp_4.dw_det_cuotas.Rowcount())                   
-                                        var li_find = container3.rows.item(li_i).cells;
+                                        var li_find = container3.rows.item(li_j).cells;
                                         console.log('li_find',li_find);
 
                                         imp_principal  = li_find.item(4).innerHTML.trim();
