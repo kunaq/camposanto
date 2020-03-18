@@ -350,6 +350,8 @@ function cronogramaModifi(){
                         if(ls_flg_afecto_igv == '' || ls_flg_afecto_igv == null) { ls_flg_afecto_igv = 'NO';}
                         if( ls_flg_afecto_igv == 'SI'){  lde_valor_igv_detalle = lde_valor_igv_det;}
 
+                        console.log('ls_flg_afecto_igv'+li_i,ls_flg_afecto_igv)
+
                         // -- Saldo capital -- //
                      
                         var lde_total = lde_saldo_detalle;
