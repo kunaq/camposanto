@@ -409,7 +409,7 @@ function cronogramaModifi(){
 
                                 var filaCrono = '<tr>'+
                                     '<td scope="row">'+li_i+'</td>'+
-                                    '<td>REGISTRADO<input id="imp_principal_2_'+li_i+'" type="hidden" value='+lde_amortizacion+'><input id="imp_total_2'+li_i+'" type="hidden" value='+lde_cuota+'></td>'+
+                                    '<td>REGISTRADO<input id="imp_principal_2_'+li_i+'" type="hidden" value='+lde_amortizacion+'><input id="imp_total_2_'+li_i+'" type="hidden" value='+lde_cuota+'></td>'+
                                     '<td>ARM</td>'+
                                     '<td>'+lda_vencimiento+'</td>'+
                                     '<td style="text-align: right;">'+Number(lde_amortizacion).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
@@ -457,9 +457,6 @@ function cronogramaModifi(){
                                 imp_saldo = imp_saldo + lde_cuota;
                                 li_find.item(8).innerHTML = Number(imp_saldo).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
                                 // tab_1.tp_4.dw_det_cuotas.SetItem(li_find, "imp_saldo",  tab_1.tp_4.dw_det_cuotas.GetItemDecimal(li_find,"imp_saldo")+ Round(lde_cuota, 4))
-
-                                imp_principal_2 = lde_amortizacion;
-                                imp_total_2 = lde_cuota;
            
                             }
                         }//for <li_cuotas
@@ -546,7 +543,7 @@ function cronogramaModifi(){
 
                             var filaCrono = '<tr>'+
                                 '<td scope="row">'+(li_find+1)+'</td>'+
-                                '<td>REGISTRADO</td>'+
+                                '<td>REGISTRADO<input id="imp_principal_2_'+(li_find+1)+'" type="hidden" value='+lde_amortizacion+'><input id="imp_total_2_'+(li_find+1)+'" type="hidden" value='+lde_cuota+'></td>'+
                                 '<td>ARM</td>'+
                                 '<td>'+lda_vencimiento+'</td>'+
                                 '<td style="text-align: right;">'+Number(lde_amortizacion).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
