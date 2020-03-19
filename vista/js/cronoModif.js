@@ -409,7 +409,7 @@ function cronogramaModifi(){
                                 console.log('lde_amortizacion',lde_amortizacion);
                                 var filaCrono = '<tr>'+
                                     '<td scope="row">'+li_i+'</td>'+
-                                    '<td>REGISTRADO<input id="imp_principal_2_'+li_i+'" type="hidden" value="'+Number(lde_amortizacion).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'"><input id="imp_total_2_'+li_i+'" type="hidden" value="'+lde_cuota+'"></td>'+
+                                    '<td>REGISTRADO<input id="imp_principal_2_'+li_i+'" type="hidden" value="'+lde_amortizacion+'"><input id="imp_total_2_'+li_i+'" type="hidden" value="'+lde_cuota+'"></td>'+
                                     '<td>ARM</td>'+
                                     '<td>'+lda_vencimiento+'</td>'+
                                     '<td style="text-align: right;">'+Number(lde_amortizacion).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
@@ -427,6 +427,8 @@ function cronogramaModifi(){
 
                                 // li_find = tab_1.tp_4.dw_det_cuotas.Find("num_cuota = " + String(li_i + ii_num_cuota_cuoi), 1, tab_1.tp_4.dw_det_cuotas.Rowcount())                   
                                 var li_find = container3.rows.item(li_i-1).cells;
+                                $("#imp_principal_2_"+li_i).val(lde_amortizacion);
+                                $("#imp_total_2_"+li_i).val(lde_cuota);
 
                                 imp_principal  = li_find.item(4).innerHTML.trim();
                                 imp_principal = pasaAnumero(imp_principal);
@@ -473,9 +475,9 @@ function cronogramaModifi(){
                                                               
                             if( ls_tipo_cuota != 'CUI' ){
 
-                                lde_sumcapital = lde_sumcapital + imp_principal_2;
+                                lde_sumcapital = lde_sumcapital +  $("#imp_principal_2_"+(li_i+1)).val();
 
-                                lde_sumtotal = lde_sumtotal + imp_total_2;
+                                lde_sumtotal = lde_sumtotal + $("#imp_total_2_"+(li_i+1)).val();
 
                             }            
                         }
@@ -487,7 +489,7 @@ function cronogramaModifi(){
                         // -- Interes -- //
                      
                         lde_interes = (lde_saldo_2 - lde_sumcapital ) * lde_valor;  
-                        
+
                         // -- Amortización -- //
 
                         if( lde_valor <= 0 ){
