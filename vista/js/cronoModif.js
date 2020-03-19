@@ -552,36 +552,43 @@ function cronogramaModifi(){
                             document.getElementById("bodyCronogramaModif").insertAdjacentHTML("beforeEnd" ,filaCrono);
                                      
                         }
-                        // else{
-                        //     var cronograma = document.getElementById('bodyCronogramaModif');
-                        //     var li_find = cronograma.rows.length;
+                        else{
+                            var cronograma = document.getElementById('bodyCronogramaModif');
+                             var li_find = container3.rows.item(li_i-1).cells;
+                            console.log('li_find',li_find);
 
-                        //     if(li_find == '' || li_find == null ) {li_find = 0;}
-                         
-                        //     if( li_find > 0 ){
-                                                 
-                        //         // tab_1.tp_4.dw_det_cuotas.SetItem(li_find, "imp_principal", tab_1.tp_4.dw_det_cuotas.GetItemDecimal(li_find, "imp_principal") + Round(lde_amortizacion, 4))
-                        //         // tab_1.tp_4.dw_det_cuotas.SetItem(li_find, "imp_interes", tab_1.tp_4.dw_det_cuotas.GetItemDecimal(li_find, "imp_interes") + Round(lde_interes, 4))
-                        //         // tab_1.tp_4.dw_det_cuotas.SetItem(li_find, "imp_igv", tab_1.tp_4.dw_det_cuotas.GetItemDecimal(li_find, "imp_igv") + Round(lde_igv_cuota, 4))
-                        //         // tab_1.tp_4.dw_det_cuotas.SetItem(li_find, "imp_total",  tab_1.tp_4.dw_det_cuotas.GetItemDecimal(li_find, "imp_total") + Round(lde_cuota, 4))
-                        //         // tab_1.tp_4.dw_det_cuotas.SetItem(li_find, "imp_saldo",  tab_1.tp_4.dw_det_cuotas.GetItemDecimal(li_find, "imp_saldo") + Round(lde_cuota, 4))
+                            imp_principal  = li_find.item(4).innerHTML.trim();
+                            imp_principal = pasaAnumero(imp_principal);
+                            imp_principal = imp_principal + lde_amortizacion;
+                            li_find.item(4).innerHTML = Number(imp_principal).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
+                            // tab_1.tp_4.dw_det_cuotas.SetItem(li_find, "imp_principal", tab_1.tp_4.dw_det_cuotas.GetItemDecimal(li_find, "imp_principal") + Round(lde_amortizacion, 4))
 
-                        //         var filaCrono = '<tr>'+
-                        //             '<td scope="row">'+(li_find+1)+'</td>'+
-                        //             '<td>REGISTRADO</td>'+
-                        //             '<td>ARM</td>'+
-                        //             '<td>'+lda_vencimiento+'</td>'+
-                        //             '<td style="text-align: right;">'+Number(lde_amortizacion).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
-                        //             '<td style="text-align: right;">'+Number(lde_interes).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
-                        //             '<td style="text-align: right;">'+Number(lde_igv_cuota).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
-                        //             '<td style="text-align: right;">'+Number(lde_cuota).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
-                        //             '<td style="text-align: right;">'+Number(lde_cuota).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
-                        //         '</tr>';
-                        //         document.getElementById("bodyCronogramaModif").insertAdjacentHTML("beforeEnd" ,filaCrono);
-            
-                        //     }
+                            imp_interes  = li_find.item(5).innerHTML.trim();
+                            imp_interes = pasaAnumero(imp_interes);
+                            imp_interes = imp_interes + lde_interes;
+                            li_find.item(5).innerHTML = Number(imp_interes).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
+                            // tab_1.tp_4.dw_det_cuotas.SetItem(li_find, "imp_interes", tab_1.tp_4.dw_det_cuotas.GetItemDecimal(li_find, "imp_interes") + Round(lde_interes, 4))
+                          
+                            imp_igv  = li_find.item(6).innerHTML.trim();
+                            imp_igv = pasaAnumero(imp_igv);
+                            console.log('lde_igv_cuota',lde_igv_cuota);
+                            imp_igv = imp_igv + lde_igv_cuota;
+                            li_find.item(6).innerHTML = Number(imp_igv).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
+                            // tab_1.tp_4.dw_det_cuotas.SetItem(li_find, "imp_igv", tab_1.tp_4.dw_det_cuotas.GetItemDecimal(li_find, "imp_igv") + Round(lde_igv_cuota, 4))
+                            
+                            imp_total  = li_find.item(7).innerHTML.trim();
+                            imp_total = pasaAnumero(imp_total);
+                            imp_total = imp_total + lde_cuota;
+                            li_find.item(7).innerHTML = Number(imp_total).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
+                            // tab_1.tp_4.dw_det_cuotas.SetItem(li_find, "imp_total",  tab_1.tp_4.dw_det_cuotas.GetItemDecimal(li_find, "imp_total") + Round(lde_cuota, 4))
+                            
+                            imp_saldo  = li_find.item(8).innerHTML.trim();
+                            imp_saldo = pasaAnumero(imp_saldo);
+                            imp_saldo = imp_saldo + lde_cuota;
+                            li_find.item(8).innerHTML = Number(imp_saldo).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
+                            // tab_1.tp_4.dw_det_cuotas.SetItem(li_find, "imp_saldo",  tab_1.tp_4.dw_det_cuotas.GetItemDecimal(li_find,"imp_saldo")+Round(lde_cuota, 4))              
                                              
-                        // }
+                        }
                               
                     }//if lde_saldo_detalle > 0
                               
