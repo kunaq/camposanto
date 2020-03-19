@@ -369,8 +369,8 @@ function cronogramaModifi(){
                         // -- Armar Cronograma -- //
 
                         lda_vencimiento = ldt_fch_ven1;
-                        var imp_principal_2 = 0;
-                        var imp_total_2 = 0;
+                        var imp_principal_2 = 0.00;
+                        var imp_total_2 = 0.00;
 
                         for( li_i = 1; li_i < li_cuotas ; li_i ++){
 
