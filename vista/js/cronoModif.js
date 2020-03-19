@@ -409,7 +409,7 @@ function cronogramaModifi(){
                                 console.log('lde_amortizacion',lde_amortizacion);
                                 var filaCrono = '<tr>'+
                                     '<td scope="row">'+li_i+'</td>'+
-                                    '<td>REGISTRADO<input id="imp_principal_2_'+li_i+'" type="hidden" value="'+lde_amortizacion+'"><input id="imp_total_2_'+li_i+'" type="hidden" value="'+lde_cuota+'"></td>'+
+                                    '<td>REGISTRADO<input id="imp_principal_2_'+li_i+'" type="hidden" value="'+Number(lde_amortizacion).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'"><input id="imp_total_2_'+li_i+'" type="hidden" value="'+lde_cuota+'"></td>'+
                                     '<td>ARM</td>'+
                                     '<td>'+lda_vencimiento+'</td>'+
                                     '<td style="text-align: right;">'+Number(lde_amortizacion).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
