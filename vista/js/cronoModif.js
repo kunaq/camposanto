@@ -259,6 +259,7 @@ function cronogramaModifi(){
     // lde_valor_igv_det = lde_valor_igv
     var lde_valor_igv = gde_igv;
     var lde_valor_igv_det = 0.18;
+    console.log('lde_valor_igv',lde_valor_igv);
 
     if( ls_flg_afecto_igv == 'NO'){ lde_valor_igv = 0.00;}
 
