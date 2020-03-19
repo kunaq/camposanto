@@ -481,11 +481,12 @@ function cronogramaModifi(){
                         // -- Saldo sin I.G.V. -- //                
 
                         lde_saldo_2 =  lde_saldo_detalle / ( 1 + lde_valor_igv_detalle );
-
+                        console.log('lde_saldo_2',lde_saldo_2);
+                        console.log('lde_valor_igv_detalle',lde_valor_igv_detalle);
                         // -- Interes -- //
                      
                         lde_interes = (lde_saldo_2 - lde_sumcapital ) * lde_valor;  
-
+                        console.log('lde_interes',lde_interes);
                         // -- Amortización -- //
 
                         if( lde_valor <= 0 ){
@@ -497,7 +498,7 @@ function cronogramaModifi(){
                             lde_amortizacion = lde_saldo_2 - lde_sumcapital;
 
                         }
-                     
+                        console.log('lde_amortizacion',lde_amortizacion);
                         lda_vencimiento = editar_fecha_30(lda_vencimiento, '+30', 'd', "",ldt_fch_ven1,0);
                      
                         // -- Datos -- //
@@ -553,7 +554,6 @@ function cronogramaModifi(){
                         else{
                             var cronograma = document.getElementById('bodyCronogramaModif');
                             var li_find = cronograma.rows.item(li_i-1).cells;
-                            console.log('li_find',li_find);
                             console.log('lde_amortizacion',lde_amortizacion);
 
                             imp_principal  = li_find.item(4).innerHTML.trim();
@@ -570,7 +570,6 @@ function cronogramaModifi(){
                           
                             imp_igv  = li_find.item(6).innerHTML.trim();
                             imp_igv = pasaAnumero(imp_igv);
-                            console.log('lde_igv_cuota',lde_igv_cuota);
                             imp_igv = imp_igv + lde_igv_cuota;
                             li_find.item(6).innerHTML = Number(imp_igv).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
                             // tab_1.tp_4.dw_det_cuotas.SetItem(li_find, "imp_igv", tab_1.tp_4.dw_det_cuotas.GetItemDecimal(li_find, "imp_igv") + Round(lde_igv_cuota, 4))
