@@ -481,12 +481,14 @@ function cronogramaModifi(){
                         // -- Saldo sin I.G.V. -- //                
 
                         lde_saldo_2 =  lde_saldo_detalle / ( 1 + lde_valor_igv_detalle );
-                        console.log('lde_saldo_2',lde_saldo_2);
-                        console.log('lde_valor_igv_detalle',lde_valor_igv_detalle);
+                        
                         // -- Interes -- //
                      
                         lde_interes = (lde_saldo_2 - lde_sumcapital ) * lde_valor;  
                         console.log('lde_interes',lde_interes);
+                        console.log('lde_saldo_2',lde_saldo_2);
+                        console.log('lde_sumcapital',lde_sumcapital);
+                        console.log('lde_valor',lde_valor);
                         // -- Amortización -- //
 
                         if( lde_valor <= 0 ){
