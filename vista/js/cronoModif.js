@@ -425,7 +425,6 @@ function cronogramaModifi(){
 
                                     // li_find = tab_1.tp_4.dw_det_cuotas.Find("num_cuota = " + String(li_i + ii_num_cuota_cuoi), 1, tab_1.tp_4.dw_det_cuotas.Rowcount())                   
                                     var li_find = container3.rows.item(li_i-1).cells;
-                                    console.log('li_find',li_find);
 
                                     imp_principal  = li_find.item(4).innerHTML.trim();
                                     imp_principal = pasaAnumero(imp_principal);
@@ -441,7 +440,6 @@ function cronogramaModifi(){
                                   
                                     imp_igv  = li_find.item(6).innerHTML.trim();
                                     imp_igv = pasaAnumero(imp_igv);
-                                    console.log('lde_igv_cuota',lde_igv_cuota);
                                     imp_igv = imp_igv + lde_igv_cuota;
                                     li_find.item(6).innerHTML = Number(imp_igv).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
                                     //  tab_1.tp_4.dw_det_cuotas.SetItem(li_find, "imp_igv", tab_1.tp_4.dw_det_cuotas.GetItemDecimal(li_find,"imp_igv")+Round(lde_igv_cuota, 4))
@@ -554,7 +552,7 @@ function cronogramaModifi(){
                         }
                         else{
                             var cronograma = document.getElementById('bodyCronogramaModif');
-                             var li_find = container3.rows.item(li_i-1).cells;
+                            var li_find = cronograma.rows.item(li_i-1).cells;
                             console.log('li_find',li_find);
 
                             imp_principal  = li_find.item(4).innerHTML.trim();
@@ -586,7 +584,7 @@ function cronogramaModifi(){
                             imp_saldo = pasaAnumero(imp_saldo);
                             imp_saldo = imp_saldo + lde_cuota;
                             li_find.item(8).innerHTML = Number(imp_saldo).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
-                            // tab_1.tp_4.dw_det_cuotas.SetItem(li_find, "imp_saldo",  tab_1.tp_4.dw_det_cuotas.GetItemDecimal(li_find, "imp_saldo") +Round(lde_cuota, 4))              
+                            // tab_1.tp_4.dw_det_cuotas.SetItem(li_find, "imp_saldo",  tab_1.tp_4.dw_det_cuotas.GetItemDecimal(li_find,"imp_saldo")+ Round(lde_cuota, 4))                    
                                              
                         }
                               
