@@ -369,6 +369,8 @@ function cronogramaModifi(){
                         // -- Armar Cronograma -- //
 
                         lda_vencimiento = ldt_fch_ven1;
+                        var imp_principal_2 = 0;
+                        var imp_total_2 = 0;
 
                         for( li_i = 1; li_i < li_cuotas ; li_i ++){
 
@@ -404,6 +406,8 @@ function cronogramaModifi(){
                                 // tab_1.tp_4.dw_det_cuotas.SetItem(li_i + ii_num_cuota_cuoi, "imp_saldo",  Round(lde_cuota, 4))
                                 // tab_1.tp_4.dw_det_cuotas.SetItem(li_i + ii_num_cuota_cuoi, "imp_principal_2",  Round(lde_amortizacion, 4)) -----------????
                                 // tab_1.tp_4.dw_det_cuotas.SetItem(li_i + ii_num_cuota_cuoi, "imp_total_2",  Round(lde_cuota, 4))
+                                imp_principal_2 = lde_amortizacion;
+                                imp_total_2 = lde_cuota;
 
                                 var filaCrono = '<tr>'+
                                     '<td scope="row">'+li_i+'</td>'+
@@ -471,9 +475,9 @@ function cronogramaModifi(){
                                                               
                             if( ls_tipo_cuota != 'CUI' ){
 
-                                lde_sumcapital = lde_sumcapital + pasaAnumero(oCells.item(4).innerHTML.trim());
+                                lde_sumcapital = lde_sumcapital + imp_principal_2;
 
-                                lde_sumtotal = lde_sumtotal + pasaAnumero(oCells.item(7).innerHTML.trim());
+                                lde_sumtotal = lde_sumtotal + imp_total_2;
 
                             }            
                         }
