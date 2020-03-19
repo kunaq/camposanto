@@ -554,6 +554,7 @@ function cronogramaModifi(){
                             var cronograma = document.getElementById('bodyCronogramaModif');
                             var li_find = cronograma.rows.item(li_i-1).cells;
                             console.log('li_find',li_find);
+                            console.log('lde_amortizacion',lde_amortizacion);
 
                             imp_principal  = li_find.item(4).innerHTML.trim();
                             imp_principal = pasaAnumero(imp_principal);
