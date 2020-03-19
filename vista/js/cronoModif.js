@@ -469,15 +469,15 @@ function cronogramaModifi(){
                         var cronograma = document.getElementById('bodyCronogramaModif');
                         var cronogramaLenght = cronograma.rows.length;
 
-                        for( li_i = 0 ; li_i < cronogramaLenght ; li_i++ ){                                   
-                            var oCells = cronograma.rows.item(li_i).cells;
+                        for( li_i = 1 ; li_i < cronogramaLenght ; li_i++ ){                                   
+                            var oCells = cronograma.rows.item(li_i-1).cells;
                             ls_tipo_cuota = oCells.item(2).innerHTML.trim();
                                                               
                             if( ls_tipo_cuota != 'CUI' ){
 
-                                lde_sumcapital = lde_sumcapital +  $("#imp_principal_2_"+(li_i+1)).val();
+                                lde_sumcapital = lde_sumcapital +  $("#imp_principal_2_"+li_i).val();
 
-                                lde_sumtotal = lde_sumtotal + $("#imp_total_2_"+(li_i+1)).val();
+                                lde_sumtotal = lde_sumtotal + $("#imp_total_2_"+li_i).val();
 
                             }            
                         }
