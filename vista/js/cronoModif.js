@@ -475,9 +475,9 @@ function cronogramaModifi(){
                                                               
                             if( ls_tipo_cuota != 'CUI' ){
 
-                                lde_sumcapital = lde_sumcapital +  $("#imp_principal_2_"+li_i).val();
+                                lde_sumcapital = lde_sumcapital + pasaAnumero($("#imp_principal_2_"+li_i).val());
                                 console.log(li_i,lde_sumcapital);
-                                lde_sumtotal = lde_sumtotal + $("#imp_total_2_"+li_i).val();
+                                lde_sumtotal = lde_sumtotal + pasaAnumero($("#imp_total_2_"+li_i).val());
 
                             }            
                         }
