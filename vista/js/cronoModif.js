@@ -406,10 +406,10 @@ function cronogramaModifi(){
                                 // tab_1.tp_4.dw_det_cuotas.SetItem(li_i + ii_num_cuota_cuoi, "imp_saldo",  Round(lde_cuota, 4))
                                 // tab_1.tp_4.dw_det_cuotas.SetItem(li_i + ii_num_cuota_cuoi, "imp_principal_2",  Round(lde_amortizacion, 4)) -----------????
                                 // tab_1.tp_4.dw_det_cuotas.SetItem(li_i + ii_num_cuota_cuoi, "imp_total_2",  Round(lde_cuota, 4))
-
+                                console.log('lde_amortizacion',lde_amortizacion);
                                 var filaCrono = '<tr>'+
                                     '<td scope="row">'+li_i+'</td>'+
-                                    '<td>REGISTRADO<input id="imp_principal_2_'+li_i+'" type="hidden" value='+lde_amortizacion+'><input id="imp_total_2_'+li_i+'" type="hidden" value='+lde_cuota+'></td>'+
+                                    '<td>REGISTRADO<input id="imp_principal_2_'+li_i+'" type="hidden" value="'+lde_amortizacion+'"><input id="imp_total_2_'+li_i+'" type="hidden" value="'+lde_cuota+'"></td>'+
                                     '<td>ARM</td>'+
                                     '<td>'+lda_vencimiento+'</td>'+
                                     '<td style="text-align: right;">'+Number(lde_amortizacion).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
@@ -487,10 +487,7 @@ function cronogramaModifi(){
                         // -- Interes -- //
                      
                         lde_interes = (lde_saldo_2 - lde_sumcapital ) * lde_valor;  
-                        console.log('lde_interes',lde_interes);
-                        console.log('lde_saldo_2',lde_saldo_2);
-                        console.log('lde_sumcapital',lde_sumcapital);
-                        console.log('lde_valor',lde_valor);
+                        
                         // -- Amortización -- //
 
                         if( lde_valor <= 0 ){
