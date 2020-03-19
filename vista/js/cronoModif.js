@@ -411,7 +411,7 @@ function cronogramaModifi(){
 
                                 var filaCrono = '<tr>'+
                                     '<td scope="row">'+li_i+'</td>'+
-                                    '<td>REGISTRADO</td>'+
+                                    '<td>REGISTRADO<input id="imp_principal_2_'+li_i+'" type="hidden" value='+lde_amortizacion+'></td>'+
                                     '<td>ARM</td>'+
                                     '<td>'+lda_vencimiento+'</td>'+
                                     '<td style="text-align: right;">'+Number(lde_amortizacion).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
@@ -419,7 +419,6 @@ function cronogramaModifi(){
                                     '<td style="text-align: right;">'+Number(lde_igv_cuota).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
                                     '<td style="text-align: right;">'+Number(lde_cuota).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
                                     '<td style="text-align: right;">'+Number(lde_cuota).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
-                                    '<td class="hidden">'+lde_amortizacion+'</td>'+
                                 '</tr>';
 
                                 document.getElementById("bodyCronogramaModif").insertAdjacentHTML("beforeEnd" ,filaCrono);
