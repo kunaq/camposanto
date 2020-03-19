@@ -426,7 +426,6 @@ function cronogramaModifi(){
 
                                     // li_find = tab_1.tp_4.dw_det_cuotas.Find("num_cuota = " + String(li_i + ii_num_cuota_cuoi), 1, tab_1.tp_4.dw_det_cuotas.Rowcount())                   
                                     var li_find = container3.rows.item(li_i-1).cells;
-                                    console.log('li_find',li_find);
 
                                     imp_principal  = li_find.item(4).innerHTML.trim();
                                     imp_principal = pasaAnumero(imp_principal);
@@ -556,7 +555,6 @@ function cronogramaModifi(){
                         else{
                             var cronograma = document.getElementById('bodyCronogramaModif');
                              var li_find = container3.rows.item(li_i-1).cells;
-                            console.log('li_find',li_find);
 
                             imp_principal  = li_find.item(4).innerHTML.trim();
                             imp_principal = pasaAnumero(imp_principal);
