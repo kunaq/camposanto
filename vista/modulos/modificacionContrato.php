@@ -1772,8 +1772,11 @@
 													Seleccione... 
 													</option>
 													<?php
-					 						 		$prueba=controladorEmpresa::ctrnumCuotas();
-													  ?> 
+													  $tabla="vtama_cuota";
+													  $item1="num_cuotas";
+													  $item2="dsc_cuota";
+					 						 			$prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
+													  ?>  
 												</select>
 												<input type="hidden" id="codCuotaFOMAModif" name="codCuotaFOMAModif">
 											</div>
