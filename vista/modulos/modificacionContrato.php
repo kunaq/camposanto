@@ -1527,6 +1527,8 @@
 													</select>
 													<input type="hidden" id="codCuotaModif" name="codCuotaModif">
 												</div>
+											</div>
+											<div class="row form-group">
 												<div class="col-lg-6">
 													<label>1er vencimiento:</label>
 													<div class="input-group date">
@@ -1553,6 +1555,8 @@
 													</select>
 													<input type="hidden" id="codInteresModif" name="codInteresModif">
 												</div>
+											</div>
+											<div class="row form-group">
 												<div class="col-lg-6">
 													<button type="button" id="btnGenCrono" class="btn btn-sm btnGuardarKqPst mt25">
 														Generar cronograma
@@ -1560,7 +1564,7 @@
 												</div>
 												<div class="col-lg-6">
 													<button type="button" id="btnGenCUOI" class="btn btn-sm btnGuardarKqPst mt25">
-														Generar cronograma CUOI
+														Cronograma CUOI
 													</button>
 												</div>
 											</div>
