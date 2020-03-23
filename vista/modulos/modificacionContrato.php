@@ -1634,7 +1634,7 @@
 								<div class="col-lg-3">
 									<fieldset class="fieldFormHorizontal">
 										<legend>&nbsp;</legend>
-										<legend class="sidecheck" style="right: 0 !important">
+										<legend class="sidecheck" style="right: auto">
 											<div class="row form-group">
 												<div class="col-lg-9" style="padding-right: 0;">
 													<label>Cuotas Definidas</label>
@@ -1650,22 +1650,22 @@
 											</div>
 										</legend>
 										<div class="col-lg-12">
-											<div class="row form-group">
-												<div class="col-lg-9"></div>	
-												<div class="col-lg-4">
+											<div class="row form-group">	
+												<div class="col-lg-6">
 													<label>Cuota inicial: </label>
 													<input type="text" id="cuoIni" class="form-control form-control-sm m-input" disabled="" placeholder="0">
 												</div>
-												<div class="col-lg-4">
+												<div class="col-lg-6">
 													<label>Cuota final: </label>
 													<input type="text" id="cuoFin" class="form-control form-control-sm m-input" disabled="" placeholder="0">			
 												</div>
-												<div class="col-lg-4">
+											</div>
+											<div class="row form-group">
+												<div class="col-lg-6">
 													<label>Valor de cuota: </label>
 													<input type="text" id="valCuo" class="form-control form-control-sm m-input" disabled="" placeholder="0.00">			
 												</div>
-											<br>
-												<div class="col-lg-12">
+												<div class="col-lg-6">
 													<button type="button" id="btnCuoDef" onclick="CuoDefinidas();" disabled class="btn btn-sm btnEditarKqPst2 mt25">
 														Generar cuotas
 													</button>
