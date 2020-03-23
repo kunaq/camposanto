@@ -1649,7 +1649,7 @@
 												</div>
 											</div>
 										</legend>
-										<div class="col-lg-12">
+										<div class="col-lg-12 mt25">
 											<div class="row form-group">	
 												<div class="col-lg-6">
 													<label>Cuota inicial: </label>
@@ -1659,8 +1659,6 @@
 													<label>Cuota final: </label>
 													<input type="text" id="cuoFin" class="form-control form-control-sm m-input" disabled="" placeholder="0">			
 												</div>
-											</div>
-											<div class="row form-group">
 												<div class="col-lg-6">
 													<label>Valor de cuota: </label>
 													<input type="text" id="valCuo" class="form-control form-control-sm m-input" disabled="" placeholder="0.00">			
