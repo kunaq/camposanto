@@ -1578,11 +1578,11 @@
 											<div class="row form-group">
 												<div class="col-lg-6">
 													<label>Saldo a financiar: </label>
-													<input type="text" class="form-control form-control-sm m-input" placeholder="00.00" id="saldoFinCronograma" name="saldoFinCronograma">
+													<input type="text" class="form-control form-control-sm m-input" placeholder="00.00" id="saldoFinCUOI" name="saldoFinCUOI">
 												</div>
 												<div class="col-lg-6">
 													<label> N° de cuotas:</label>
-													<select  data-tags="true" class="form-control form-control-sm m-select2 m-select2-general" name="numCuoCronograma" id="numCuoCronograma" style="width: 100%">
+													<select  data-tags="true" class="form-control form-control-sm m-select2 m-select2-general" name="numCuoCUOI" id="numCuoCUOI" style="width: 100%">
 														<option>
 															Seleccione... 
 														</option>
@@ -1597,7 +1597,7 @@
 												<div class="col-lg-6">
 													<label>1er vencimiento:</label>
 													<div class="input-group date">
-														<input type="text" class="form-control form-control-sm m-input" readonly="" id="fchVenCronograma" name="fchVenCronograma">
+														<input type="text" class="form-control form-control-sm m-input" readonly="" id="fchVenCUOI" name="fchVenCUOI">
 														<div class="input-group-append">
 															<span class="input-group-text">
 																<i class="la la-calendar-check-o"></i>
@@ -1607,7 +1607,7 @@
 												</div>
 												<div class="col-lg-6">
 													<label>Interes:</label>
-													<select class="form-control form-control-sm m-select2 m-select2-general" id="interesCronograma" name="interesCronograma" style="width: 100%">
+													<select class="form-control form-control-sm m-select2 m-select2-general" id="interesCUOI" name="interesCUOI" style="width: 100%">
 														<option>
 															Seleccione...
 														</option>
@@ -1623,7 +1623,7 @@
 											</div>
 											<div class="row form-group">
 												<div class="col-lg-6">
-													<button type="button" id="btnGenCrono" class="btn btn-sm btnGuardarKqPst">
+													<button type="button" id="btnGenCUOI" class="btn btn-sm btnGuardarKqPst">
 														Cronograma CUOI
 													</button>
 												</div>
