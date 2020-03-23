@@ -1639,9 +1639,24 @@
 								<div class="col-lg-3">
 									<fieldset class="fieldFormHorizontal">
 										<legend>&nbsp;</legend>
+										<legend class="sidecheck">
+											<div class="row form-group">
+												<div class="col-lg-6" style="padding-right: 0;">
+													<label>Cuotas Definidas</label>
+												</div>
+												<div class="col-lg-3">
+													<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
+														<label>
+															<input type="checkbox" onclick="activaCuD();" name="CuoDefinidasCheck" id="CuoDefinidasCheck">
+															<span></span>
+														</label>
+													</span>
+												</div>
+											</div>
+										</legend>
 										<div class="col-lg-12">
 											<div class="row form-group">
-												<div class="col-lg-2" style="margin-top: -18px;">
+												<!-- <div class="col-lg-2" style="margin-top: -18px;">
 													<table>
 														<tbody>
 															<tr>
@@ -1661,7 +1676,7 @@
 															</tr>
 														</tbody>
 													</table>
-												</div>	
+												</div>	 -->
 												<div class="col-lg-9"></div>	
 												<div class="col-lg-4">
 													<label>Cuota inicial: </label>
