@@ -1659,12 +1659,12 @@
 													<label>Cuota final: </label>
 													<input type="text" id="cuoFin" class="form-control form-control-sm m-input" disabled="" placeholder="0">			
 												</div>
+											</div>
+											<div class="row form-group">
 												<div class="col-lg-6">
 													<label>Valor de cuota: </label>
 													<input type="text" id="valCuo" class="form-control form-control-sm m-input" disabled="" placeholder="0.00">			
 												</div>
-											</div>
-											<div class="row form-group">
 												<div class="col-lg-6">
 													<button type="button" id="btnCuoDef" onclick="CuoDefinidas();" disabled class="btn btn-sm btnEditarKqPst2 mt25">
 														Generar cuotas
