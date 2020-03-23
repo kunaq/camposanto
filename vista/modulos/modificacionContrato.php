@@ -1627,11 +1627,6 @@
 														Cronograma CUOI
 													</button>
 												</div>
-												<!-- <div class="col-lg-6">
-													<button type="button" data-toggle="modal" data-target="#m_modal_CUOI" id="btnGenCUOI" class="btn btn-sm btnGuardarKqPst">
-														Cronograma CUOI
-													</button>
-												</div> -->
 											</div>
 										</div>
 									</fieldset>
@@ -1639,8 +1634,8 @@
 								<div class="col-lg-3">
 									<fieldset class="fieldFormHorizontal">
 										<legend>&nbsp;</legend>
-										<legend class="sidecheck">
-											<div class="row form-group" style="right: 0 !important">
+										<legend class="sidecheck" style="right: 0 !important">
+											<div class="row form-group">
 												<div class="col-lg-9" style="padding-right: 0;">
 													<label>Cuotas Definidas</label>
 												</div>
@@ -1656,27 +1651,6 @@
 										</legend>
 										<div class="col-lg-12">
 											<div class="row form-group">
-												<!-- <div class="col-lg-2" style="margin-top: -18px;">
-													<table>
-														<tbody>
-															<tr>
-																<td>
-																	<label class="m-checkbox">
-																		Cuotas Definidas
-																	</label>
-																</td>
-																<td>
-																	<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--danger">
-																		<label>
-																			<input type="checkbox" onclick="activaCuD();" name="CuoDefinidasCheck" id="CuoDefinidasCheck">
-																			<span></span>
-																		</label>
-																	</span>
-																</td>
-															</tr>
-														</tbody>
-													</table>
-												</div>	 -->
 												<div class="col-lg-9"></div>	
 												<div class="col-lg-4">
 													<label>Cuota inicial: </label>
