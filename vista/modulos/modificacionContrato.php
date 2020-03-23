@@ -1506,7 +1506,7 @@
 						</div>
 						<div class="tab-pane" id="m_tabs_2_7" role="tabpanel">
 							<div class="row form-group m-form__group">
-								<div class="col-lg-4">
+								<div class="col-lg-3">
 									<fieldset class="fieldFormHorizontal">
 										<legend>&nbsp;</legend>
 										<div class="col-lg-12">
@@ -1558,20 +1558,85 @@
 											</div>
 											<div class="row form-group">
 												<div class="col-lg-6">
-													<button type="button" id="btnGenCrono" class="btn btn-sm btnGuardarKqPst mt25">
-														Generar cronograma
+													<button type="button" id="btnGenCrono" class="btn btn-sm btnGuardarKqPst">
+														Cronograma
 													</button>
 												</div>
-												<div class="col-lg-6">
-													<button type="button" id="btnGenCUOI" class="btn btn-sm btnGuardarKqPst mt25">
+												<!-- <div class="col-lg-6">
+													<button type="button" data-toggle="modal" data-target="#m_modal_CUOI" id="btnGenCUOI" class="btn btn-sm btnGuardarKqPst">
 														Cronograma CUOI
 													</button>
-												</div>
+												</div> -->
 											</div>
 										</div>
 									</fieldset>
 								</div>
-								<div class="col-lg-4">
+								<div class="col-lg-3">
+									<fieldset class="fieldFormHorizontal">
+										<legend>&nbsp;</legend>
+										<div class="col-lg-12">
+											<div class="row form-group">
+												<div class="col-lg-6">
+													<label>Saldo a financiar: </label>
+													<input type="text" class="form-control form-control-sm m-input" placeholder="00.00" id="saldoFinCronograma" name="saldoFinCronograma">
+												</div>
+												<div class="col-lg-6">
+													<label> N° de cuotas:</label>
+													<select  data-tags="true" class="form-control form-control-sm m-select2 m-select2-general" name="numCuoCronograma" id="numCuoCronograma" style="width: 100%">
+														<option>
+															Seleccione... 
+														</option>
+														<?php
+						 						 			$prueba=controladorEmpresa::ctrnumCuotas();
+														  ?> 
+													</select>
+													<input type="hidden" id="codCuotaModif" name="codCuotaModif">
+												</div>
+											</div>
+											<div class="row form-group">
+												<div class="col-lg-6">
+													<label>1er vencimiento:</label>
+													<div class="input-group date">
+														<input type="text" class="form-control form-control-sm m-input" readonly="" id="fchVenCronograma" name="fchVenCronograma">
+														<div class="input-group-append">
+															<span class="input-group-text">
+																<i class="la la-calendar-check-o"></i>
+															</span>
+														</div>
+													</div>
+												</div>
+												<div class="col-lg-6">
+													<label>Interes:</label>
+													<select class="form-control form-control-sm m-select2 m-select2-general" id="interesCronograma" name="interesCronograma" style="width: 100%">
+														<option>
+															Seleccione...
+														</option>
+														<?php
+															$tabla="vtama_interes";
+														  $item1="num_valor";
+														  $item2="dsc_interes";
+						 								 $prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
+														  ?>
+													</select>
+													<input type="hidden" id="codInteresModif" name="codInteresModif">
+												</div>
+											</div>
+											<div class="row form-group">
+												<div class="col-lg-6">
+													<button type="button" id="btnGenCrono" class="btn btn-sm btnGuardarKqPst">
+														Cronograma CUOI
+													</button>
+												</div>
+												<!-- <div class="col-lg-6">
+													<button type="button" data-toggle="modal" data-target="#m_modal_CUOI" id="btnGenCUOI" class="btn btn-sm btnGuardarKqPst">
+														Cronograma CUOI
+													</button>
+												</div> -->
+											</div>
+										</div>
+									</fieldset>
+								</div>
+								<div class="col-lg-3">
 									<fieldset class="fieldFormHorizontal">
 										<legend>&nbsp;</legend>
 										<div class="col-lg-12">
@@ -1620,7 +1685,7 @@
 										</div>
 									</fieldset>
 								</div>
-								<div class="col-lg-4">
+								<div class="col-lg-3">
 									<fieldset class="fieldFormHorizontal">
 										<legend>Conformación de saldo</legend>
 											<div class="col-lg-12">
