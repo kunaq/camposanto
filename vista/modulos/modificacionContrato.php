@@ -1562,11 +1562,6 @@
 														Cronograma
 													</button>
 												</div>
-												<!-- <div class="col-lg-6">
-													<button type="button" data-toggle="modal" data-target="#m_modal_CUOI" id="btnGenCUOI" class="btn btn-sm btnGuardarKqPst">
-														Cronograma CUOI
-													</button>
-												</div> -->
 											</div>
 										</div>
 									</fieldset>
@@ -1590,7 +1585,7 @@
 						 						 			$prueba=controladorEmpresa::ctrnumCuotas();
 														  ?> 
 													</select>
-													<input type="hidden" id="codCuotaModif" name="codCuotaModif">
+													<input type="hidden" id="codCuotaCUOIModif" name="codCuotaCUOIModif">
 												</div>
 											</div>
 											<div class="row form-group">
@@ -1618,7 +1613,7 @@
 						 								 $prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
 														  ?>
 													</select>
-													<input type="hidden" id="codInteresModif" name="codInteresModif">
+													<input type="hidden" id="codInteresCUOIModif" name="codInteresCUOIModif">
 												</div>
 											</div>
 											<div class="row form-group">
