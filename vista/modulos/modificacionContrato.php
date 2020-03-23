@@ -1533,9 +1533,9 @@
 													<label>1er vencimiento:</label>
 													<div class="input-group date">
 														<input type="text" class="form-control form-control-sm m-input" readonly="" id="fchVenCronograma" name="fchVenCronograma">
-														<div class="input-group-append">
+														<div class="input-group-append" style="width: 1rem;">
 															<span class="input-group-text">
-																<i class="la la-calendar-check-o"></i>
+																<i class="la la-calendar-check-o" style="margin-left: -10px"></i>
 															</span>
 														</div>
 													</div>
@@ -1598,9 +1598,9 @@
 													<label>1er vencimiento:</label>
 													<div class="input-group date">
 														<input type="text" class="form-control form-control-sm m-input" readonly="" id="fchVenCUOI" name="fchVenCUOI">
-														<div class="input-group-append">
+														<div class="input-group-append" style="width: 1rem;">
 															<span class="input-group-text">
-																<i class="la la-calendar-check-o"></i>
+																<i class="la la-calendar-check-o" style="margin-left: -10px"></i>
 															</span>
 														</div>
 													</div>
