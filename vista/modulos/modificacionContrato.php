@@ -1535,7 +1535,7 @@
 														<input type="text" class="form-control form-control-sm m-input" readonly="" id="fchVenCronograma" name="fchVenCronograma">
 														<div class="input-group-append">
 															<span class="input-group-text">
-																<i class="la la-calendar-check-o" style="width: 1rem; margin-left: -10px"></i>
+																<i class="la la-calendar-check-o" style="width: 10px; margin-left: -10px"></i>
 															</span>
 														</div>
 													</div>
@@ -1600,7 +1600,7 @@
 														<input type="text" class="form-control form-control-sm m-input" readonly="" id="fchVenCUOI" name="fchVenCUOI">
 														<div class="input-group-append">
 															<span class="input-group-text">
-																<i class="la la-calendar-check-o" style="width: 1rem; margin-left: -10px"></i>
+																<i class="la la-calendar-check-o" style="width: 10px; margin-left: -10px"></i>
 															</span>
 														</div>
 													</div>
