@@ -1815,7 +1815,6 @@ function creaCUOI(){
     // -- Obtiene numero de cuotas -- //
     
     var li_cuota = $("#numCuoCUOI").val();  
-    console.log('li_cuota',li_cuota); 
     // -- Interes -- //
     
     var lde_valor = $("#interesCUOI").val();                     
@@ -1858,8 +1857,8 @@ function creaCUOI(){
             // -- Armar Cronograma -- //
 
             lda_vencimiento = ldt_fch_ven1;
-           
-            for( li_i = 1; li_i < li_cuota - 1 ; li_i++){
+
+            for( li_i = 1; li_i < li_cuota ; li_i++){
 
                 // -- Calculo -- //
                console.log('for13ra cuota');
