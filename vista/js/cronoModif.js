@@ -1695,7 +1695,7 @@ function creaCUOI(){
                 // -- Si? -- //
              
                 if( ls_flg_afecto_igv == 'SI' && lde_saldo_det > 0 ){
-                    break;
+                    continue;
                 }else{
                     ls_flg_afecto_igv = 'NO';
                 }
@@ -1760,7 +1760,7 @@ function creaCUOI(){
                 // -- Si? -- //
                
                 if (ls_flg_afecto_igv == 'SI' && lde_saldo_x_servicio > 0 ){
-                    break;
+                    continue;
                 }else{
                     ls_flg_afecto_igv = 'NO';
                 }
@@ -1784,7 +1784,7 @@ function creaCUOI(){
            
             // -- Si? -- //
            
-            if( ls_flg_afecto_igv == 'SI') { break; }
+            if( ls_flg_afecto_igv == 'SI') { continue; }
                    
         });
     }
