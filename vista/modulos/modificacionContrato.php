@@ -1513,69 +1513,6 @@
 											<div class="row form-group">
 												<div class="col-lg-6">
 													<label>Saldo a financiar: </label>
-													<input type="text" class="form-control form-control-sm m-input" placeholder="00.00" id="saldoFinCronograma" name="saldoFinCronograma">
-												</div>
-												<div class="col-lg-6">
-													<label> N° de cuotas:</label>
-													<select  data-tags="true" class="form-control form-control-sm m-select2 m-select2-general" name="numCuoCronograma" id="numCuoCronograma" style="width: 100%">
-														<option>
-															Seleccione... 
-														</option>
-														<?php
-														  $tabla="vtama_cuota";
-														  $item1="num_cuotas";
-														  $item2="dsc_cuota";
-						 						 			$prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
-														 ?> 
-													</select>
-													<input type="hidden" id="codCuotaModif" name="codCuotaModif">
-												</div>
-											</div>
-											<div class="row form-group">
-												<div class="col-lg-6">
-													<label>1er vencimiento:</label>
-													<div class="input-group date">
-														<input type="text" class="form-control form-control-sm m-input" readonly="" id="fchVenCronograma" name="fchVenCronograma">
-														<div class="input-group-append">
-															<span class="input-group-text">
-																<i class="la la-calendar-check-o" style="width: 10px; margin-left: -10px"></i>
-															</span>
-														</div>
-													</div>
-												</div>
-												<div class="col-lg-6">
-													<label>Interes:</label>
-													<select class="form-control form-control-sm m-select2 m-select2-general" id="interesCronograma" name="interesCronograma" style="width: 100%">
-														<option>
-															Seleccione...
-														</option>
-														<?php
-															$tabla="vtama_interes";
-														  $item1="num_valor";
-														  $item2="dsc_interes";
-						 								 $prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
-														  ?>
-													</select>
-													<input type="hidden" id="codInteresModif" name="codInteresModif">
-												</div>
-											</div>
-											<div class="row form-group">
-												<div class="col-lg-6">
-													<button type="button" id="btnGenCrono" class="btn btn-sm btnGuardarKqPst">
-														Cronograma
-													</button>
-												</div>
-											</div>
-										</div>
-									</fieldset>
-								</div>
-								<div class="col-lg-3">
-									<fieldset class="fieldFormHorizontal">
-										<legend>&nbsp;</legend>
-										<div class="col-lg-12">
-											<div class="row form-group">
-												<div class="col-lg-6">
-													<label>Saldo a financiar: </label>
 													<input type="text" class="form-control form-control-sm m-input" placeholder="00.00" id="saldoFinCUOI" name="saldoFinCUOI">
 												</div>
 												<div class="col-lg-6">
@@ -1626,6 +1563,69 @@
 												<div class="col-lg-6">
 													<button type="button" id="btnGenCUOI" onclick="creaCUOI();" class="btn btn-sm btnGuardarKqPst">
 														Cronograma CUOI
+													</button>
+												</div>
+											</div>
+										</div>
+									</fieldset>
+								</div>
+								<div class="col-lg-3">
+									<fieldset class="fieldFormHorizontal">
+										<legend>&nbsp;</legend>
+										<div class="col-lg-12">
+											<div class="row form-group">
+												<div class="col-lg-6">
+													<label>Saldo a financiar: </label>
+													<input type="text" class="form-control form-control-sm m-input" placeholder="00.00" id="saldoFinCronograma" name="saldoFinCronograma">
+												</div>
+												<div class="col-lg-6">
+													<label> N° de cuotas:</label>
+													<select  data-tags="true" class="form-control form-control-sm m-select2 m-select2-general" name="numCuoCronograma" id="numCuoCronograma" style="width: 100%">
+														<option>
+															Seleccione... 
+														</option>
+														<?php
+														  $tabla="vtama_cuota";
+														  $item1="num_cuotas";
+														  $item2="dsc_cuota";
+						 						 			$prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
+														 ?> 
+													</select>
+													<input type="hidden" id="codCuotaModif" name="codCuotaModif">
+												</div>
+											</div>
+											<div class="row form-group">
+												<div class="col-lg-6">
+													<label>1er vencimiento:</label>
+													<div class="input-group date">
+														<input type="text" class="form-control form-control-sm m-input" readonly="" id="fchVenCronograma" name="fchVenCronograma">
+														<div class="input-group-append">
+															<span class="input-group-text">
+																<i class="la la-calendar-check-o" style="width: 10px; margin-left: -10px"></i>
+															</span>
+														</div>
+													</div>
+												</div>
+												<div class="col-lg-6">
+													<label>Interes:</label>
+													<select class="form-control form-control-sm m-select2 m-select2-general" id="interesCronograma" name="interesCronograma" style="width: 100%">
+														<option>
+															Seleccione...
+														</option>
+														<?php
+															$tabla="vtama_interes";
+														  $item1="num_valor";
+														  $item2="dsc_interes";
+						 								 $prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
+														  ?>
+													</select>
+													<input type="hidden" id="codInteresModif" name="codInteresModif">
+												</div>
+											</div>
+											<div class="row form-group">
+												<div class="col-lg-6">
+													<button type="button" id="btnGenCrono" class="btn btn-sm btnGuardarKqPst">
+														Cronograma
 													</button>
 												</div>
 											</div>
