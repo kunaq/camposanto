@@ -1693,7 +1693,7 @@ function creaCUOI(){
             // container.querySelectorAll('tr').forEach(function (li_i)
 
             // {
-                var  cod_servicio = $(li_i).attr("name");
+                // var  cod_servicio = $(li_i).attr("name");
                 lde_saldo_det = $("#imp_cuoi_"+cod_servicio).val();
                 lde_saldo_det = pasaAnumero(lde_saldo_det);
                 ls_flg_afecto_igv = $("#flg_afecto_igv_"+cod_servicio).val();  
