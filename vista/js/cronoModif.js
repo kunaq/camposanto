@@ -1899,7 +1899,7 @@ function creaCUOI(){
                     '<td style="text-align: right;">'+Number(lde_igv_cuota).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
                     '<td style="text-align: right;">'+Number(lde_cuota).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
                     '<td style="text-align: right;">'+Number(lde_cuota).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
-                    '<input type="hidden" id="flg_generar_mora_'+(li_find+1)+'" value="SI">'+
+                    '<input type="hidden" id="flg_generar_mora_'+(li_i+1)+'" value="SI">'+
                 '</tr>';
                 document.getElementById("bodyCronogramaModif").insertAdjacentHTML("beforeEnd" ,filaCUOI);
                        
@@ -2002,7 +2002,7 @@ function creaCUOI(){
                     '<td style="text-align: right;">'+Number(lde_igv_cuota).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
                     '<td style="text-align: right;">'+Number(lde_cuota).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
                     '<td style="text-align: right;">'+Number(lde_cuota).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
-                    '<input type="hidden" id="flg_generar_mora_'+(li_find+1)+'" value="SI">'+
+                    '<input type="hidden" id="flg_generar_mora_'+(li_i+1)+'" value="SI">'+
                 '</tr>';
                 document.getElementById("bodyCronogramaModif").insertAdjacentHTML("beforeEnd" ,filaCUOI);
                            
