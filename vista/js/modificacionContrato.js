@@ -45,6 +45,9 @@ $("#fchEntBenef").datepicker({
 $("#fchEmision").datepicker({
     format : 'dd-mm-yyyy'
 });//datepicker
+$("#fchVenCUOI").datepicker({
+    format : 'dd-mm-yyyy'
+});//datepicker
 
 function justNumbers(e){
   var keynum = window.event ? window.event.keyCode : e.which;

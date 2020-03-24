@@ -1618,7 +1618,7 @@
 											</div>
 											<div class="row form-group">
 												<div class="col-lg-6">
-													<button type="button" id="btnGenCUOI" class="btn btn-sm btnGuardarKqPst">
+													<button type="button" id="btnGenCUOI" onclick="creaCUOI();" class="btn btn-sm btnGuardarKqPst">
 														Cronograma CUOI
 													</button>
 												</div>
