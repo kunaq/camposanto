@@ -1827,7 +1827,7 @@ function creaCUOI(){
             if (lde_valor <= 0) {
 
                 lde_cuota = lde_saldo / li_cuota;
-            }else{}    
+            }else{   
                 lde_cuota = lde_saldo * ((lde_valor * (1 + lde_valor) ** li_cuota) / ((1 + lde_valor) ** li_cuota - 1));
             }
                            
@@ -2116,9 +2116,6 @@ function creaCUOI(){
         //         dw_cronograma.SetItem(li_i, "imp_igv", Round(lde_igv_cuota, 2))
         //         dw_cronograma.SetItem(li_i, "imp_total",  Round(lde_cuota, 2))
         //         dw_cronograma.SetItem(li_i, "imp_saldo",  Round(lde_cuota, 2))
-                           
-        }//fin choose
-     
-    $("#flg_cronograma_cuoi").val('SI');
-
+        } //fin choose        
+        $("#flg_cronograma_cuoi").val('SI');          
 }
