@@ -1892,7 +1892,7 @@ function creaCUOI(){
                 var filaCUOI = '<tr style="color:blue;">'+
                     '<td scope="row">'+(li_i)+'</td>'+
                     '<td>REGISTRADO</td>'+
-                    '<td>CUI</td>'+
+                    '<td>CUI1</td>'+
                     '<td>'+lda_vencimiento+'</td>'+
                     '<td style="text-align: right;">'+Number(lde_amortizacion).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
                     '<td style="text-align: right;">'+Number(lde_interes).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
@@ -1995,7 +1995,7 @@ function creaCUOI(){
             var filaCUOI = '<tr style="color:blue;">'+
                     '<td scope="row">'+(li_i)+'</td>'+
                     '<td>REGISTRADO</td>'+
-                    '<td>CUI</td>'+
+                    '<td>CUI2</td>'+
                     '<td>'+lda_vencimiento+'</td>'+
                     '<td style="text-align: right;">'+Number(lde_amortizacion).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
                     '<td style="text-align: right;">'+Number(lde_interes).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
