@@ -1862,7 +1862,7 @@ function creaCUOI(){
             for( li_i = 1; li_i < li_cuota - 1 ; li_i++){
 
                 // -- Calculo -- //
-               
+               console.log('for13ra cuota');
                 lde_interes = lde_total_saldo * lde_valor;
                
                 // -- Datos -- //
@@ -1995,7 +1995,7 @@ function creaCUOI(){
             var filaCUOI = '<tr style="color:blue;">'+
                     '<td scope="row">'+(li_i)+'</td>'+
                     '<td>REGISTRADO</td>'+
-                    '<td>CUI2</td>'+
+                    '<td>CUI</td>'+
                     '<td>'+lda_vencimiento+'</td>'+
                     '<td style="text-align: right;">'+Number(lde_amortizacion).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
                     '<td style="text-align: right;">'+Number(lde_interes).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
