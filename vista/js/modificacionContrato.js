@@ -184,7 +184,7 @@ function llenaDatos(codCtto){
                     confirmButtonText: "Aceptar",
                 });
             }else{
-            	// console.log('respuesta',respuesta);
+            	console.log('respuesta',respuesta);
             	document.getElementById("codContrato").value = respuesta[0]['cod_contrato'];
             	$("#tipoPrograma option[value='"+respuesta[0]['cod_tipo_programa']+"']").attr("selected",true);
             	if(respuesta[0]['cod_tipo_programa'] = 'TR000'){
@@ -271,7 +271,6 @@ function llenaDatos(codCtto){
                         '<input type="hidden" id="flg_anulado_'+value['num_servicio']+'" value="'+value['flg_anulado']+'">'+
                         '<input type="hidden" id="flg_resuelto_'+value['num_servicio']+'" value="'+value['flg_resuelto']+'">'+
                         '<input type="hidden" id="cod_tipo_servicio_'+value['num_servicio']+'" value="'+value['cod_tipo_servicio']+'">'+
-                        '<input type="hidden" id="cod_servicio_'+value['num_servicio']+'" value="">'+
                         '<input type="hidden" id="ls_flg_ds_'+value['num_servicio']+'" value="'+value['flg_prevencion']+'">'+
                         '<input type="hidden" id="num_servicio_foma_'+value['num_servicio']+'" value="'+value['num_servicio_foma']+'">'+
     				'</tr>';
@@ -311,7 +310,7 @@ function muestraInfo(id){
         method: "POST",
         data: { 'accion' : 'DetServ', 'codCtto' : codCtto, 'num_servicio' : id },
         success : function(respuesta){
-        	console.log('respuesta',respuesta);
+        	// console.log('respuesta',respuesta);
         	if(respuesta['cod_tipo_necesidad'] == 'NF'){
         		var tipoNec = 'NECESIDAD FUTURA';
         	}else{
@@ -415,7 +414,6 @@ function muestraInfo(id){
 									'<td>'+Number(value['imp_total']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
 									'</td>'+
 								'</tr>';
-                                $("#cod_servicio_"+id).val(value['cod_servicio_principal']);
 								// console.log(fila);
 						document.getElementById("bodyServiciosPpales").insertAdjacentHTML("beforeEnd" ,fila);
 						document.getElementById("totalServPpal").innerText = Number(total).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
