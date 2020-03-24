@@ -1983,6 +1983,7 @@ console.log('lde_capital_cuota_2 1',lde_capital_cuota_2);
                        
             }else{
                 lde_capital_cuota   = lde_cuota / ( 1 + lde_valor_igv );
+                console.log('lde_capital_cuota else',lde_capital_cuota);
             }
            
             lde_igv_cuota = lde_cuota - lde_capital_cuota;
