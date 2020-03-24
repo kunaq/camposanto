@@ -454,6 +454,18 @@ $("#nCuotasFOMA").on('change',function(){
         }//success
     });//ajax
 });
+$("#numCuoCUOI").on('change',function(){
+    var num = $(this).val();
+    $.ajax({
+        url: 'ajax/modifCtto.ajax.php',
+        dataType: 'json',
+        method: "POST",
+        data: { 'accion' : 'codCuotas', 'num_cuotas' : num },
+        success : function(respuesta){
+            $("#codCuotaCUOIModif").val(respuesta['cod_cuota']);
+        }//success
+    });//ajax
+});
 
 $("#interesCronograma").on('change',function(){
     var num = $(this).val();
