@@ -1898,7 +1898,7 @@ function creaCUOI(){
                     '<td style="text-align: right;">'+Number(lde_igv_cuota).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
                     '<td style="text-align: right;">'+Number(lde_cuota).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
                     '<td style="text-align: right;">'+Number(lde_cuota).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
-                    '<input type="hidden" id="flg_generar_mora_'+(li_i+1)+'" value="SI">'+
+                    '<input type="hidden" id="flg_generar_mora_'+(li_i)+'" value="SI">'+
                 '</tr>';
                 document.getElementById("bodyCronogramaModif").insertAdjacentHTML("beforeEnd" ,filaCUOI);
                        
@@ -1993,7 +1993,7 @@ function creaCUOI(){
             // -- Inserta -- //
 
             var filaCUOI = '<tr style="color:blue;">'+
-                    '<td scope="row">'+(li_i)+'</td>'+
+                    '<td scope="row">'+(li_i+1)+'</td>'+
                     '<td>REGISTRADO</td>'+
                     '<td>CUI</td>'+
                     '<td>'+lda_vencimiento+'</td>'+
