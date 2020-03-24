@@ -266,10 +266,12 @@ function cronogramaModifi(){
     // -- Obtiene Valores -- //
 
     li_cuotas = $("#numCuoCronograma").val();
+    li_cuotas = pasaAnumero(li_cuotas);
 
     // -- Interes -- //
 
     lde_valor = $("#interesCronograma").val();
+    lde_valor = pasaAnumero(lde_valor);
     
     if( lde_valor == '' || lde_valor == null ){
         lde_valor = 0.00;
@@ -373,7 +375,7 @@ function cronogramaModifi(){
                         lda_vencimiento = ldt_fch_ven1;
                         var imp_principal_2 = 0.00;
                         var imp_total_2 = 0.00;
-                        console.log('li_fila',li_fila);
+                        
                         for( li_i = (li_fila+1); li_i < (li_cuotas+li_fila) ; li_i ++){
 
                             // -- Calculo -- //
