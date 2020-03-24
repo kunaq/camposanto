@@ -501,7 +501,7 @@ function cronogramaModifi(){
                             lde_amortizacion = lde_saldo_2 - lde_sumcapital;
 
                         }
-                        console.log('lde_amortizacion',lde_amortizacion);
+                        // console.log('lde_amortizacion',lde_amortizacion);
                         lda_vencimiento = editar_fecha_30(lda_vencimiento, '+30', 'd', "",ldt_fch_ven1,0);
                      
                         // -- Datos -- //
@@ -1560,4 +1560,565 @@ function modificaFOMA(){
     // -- Filas -- //
 
     $("#cambioCronogramaFoma").val('SI');
+}
+
+function creaCUOI(){
+
+    // -- Datos -- //
+
+    var ls_cuota = $("#codCuotaCUOIModif").val();
+    var ls_interes = $("#codInteresCUOIModif").val();
+    var ldt_fch_vencimiento = $("#fchVenCUOI").val();
+    var ldt_fch_ven1 = $("#fchVenCUOI").val();
+    var lde_saldo = $("#saldoFinCUOI").val();
+    var ii_num_cuotas_maximo = 2;
+    var gde_igv = 0.18;
+    var is_origen = '';
+     
+    if(lde_saldo == '' || lde_saldo == null){ lde_saldo = 0; }
+    ldt_fch_emision = new Date();
+     
+    // -- Valida -- //
+     
+    if(ls_cuota == '' || ls_cuota == null){
+        swal({
+            title: "",
+            text: "Debe seleccionar el número cuotas.",
+            type: "warning",
+            confirmButtonText: "Aceptar",
+        })
+       return;
+    }
+     
+    // -- Cuotas -- //
+     
+    var li_cuota = $("#numCuoCUOI").val();
+     
+    if(li_cuota == '' || li_cuota == null){ li_cuota = 0; }
+     
+    if( li_cuota > ii_num_cuotas_maximo ){          
+       swal({
+            title: "",
+            text: "El número cuotas no debe exceder al tope configurado.",
+            type: "warning",
+            confirmButtonText: "Aceptar",
+        })
+        $("#numCuoCUOI").val(ii_num_cuotas_maximo);
+        return;           
+    }
+     
+    if(ldt_fch_vencimiento == '' || ldt_fch_vencimiento == null) {
+        swal({
+            title: "",
+            text: "Debe ingresar la primera fecha de vencimiento.",
+            type: "warning",
+            confirmButtonText: "Aceptar",
+        })
+        document.getElementById("fchVenCUOI").focus();
+        return;
+    }
+     
+    if( ldt_fch_emision > ldt_fch_vencimiento ){
+        swal({
+            title: "",
+            text: "La fecha de primer vencimiento debe ser mayor a la fecha de emisión del contrato"+ldt_fch_emision+".",
+            type: "warning",
+            confirmButtonText: "Aceptar",
+        })
+        $("#fchVenCUOI").val();
+        document.getElementById("fchVenCUOI").focus();
+        return;
+    }
+     
+    // -- Obtiene Igv -- //
+     
+    if( ldt_fch_emision == '' || ldt_fch_emision == null){
+        lde_valor_igv = gde_igv;
+    }else{
+        lde_valor_igv = gde_igv;
+        // lde_valor_igv = f_sys_obtiene_igv(ldt_fch_emision)
+    }
+
+    // -- Afecto a I.G.V. -- //
+
+    var lde_saldo_total = 0;
+     
+    if( is_flg_integral == 'SI'){
+               
+        if( is_origen == 'EMI'){
+                   
+            // -- Total a financiar -- //
+
+            lde_saldo_total = $("#cuotaInicial").val();
+            lde_saldo_total = pasaAnumero(lde_saldo_total);
+           
+            if ( lde_saldo_total == '' || lde_saldo_total == null){ lde_saldo_total = 0;}
+           
+            // -- Distribucion -- //
+
+            lde_porc_total = 0;
+            
+            var container = document.querySelector('#bodyServicioVin');
+            container.querySelectorAll('tr').forEach(function (li_i)
+            {   
+                var  cod_servicio = $(li_i).attr("name");
+                lde_saldo_det = $("#imp_cuoi_"+cod_servicio).val();
+                lde_saldo_det = pasaAnumero(lde_saldo_det);
+                ls_flg_afecto_igv_det = $("#flg_afecto_igv_"+cod_servicio).val();   
+
+                if( ls_flg_afecto_igv_det == 'SI'){
+
+                    lde_porc = 0;
+
+                    lde_porc = lde_saldo_det / lde_saldo_total;
+
+                    if( lde_porc == '' || lde_porc == null){ lde_porc = 0;}
+                   
+                    lde_porc_total = lde_porc_total + lde_porc;
+                          
+                }
+
+            });
+                   
+            // -- I.G.V. -- //
+                   
+            var container = document.querySelector('#bodyServicioVin');
+            container.querySelectorAll('tr').forEach(function (li_i)
+            {
+                var  cod_servicio = $(li_i).attr("name");
+                lde_saldo_det = $("#imp_cuoi_"+cod_servicio).val();
+                lde_saldo_det = pasaAnumero(lde_saldo_det);
+                ls_flg_afecto_igv = $("#flg_afecto_igv_"+cod_servicio).val();  
+                       
+                // -- Si? -- //
+             
+                if( ls_flg_afecto_igv == 'SI' && lde_saldo_det > 0 ){
+                    break;
+                }else{
+                    ls_flg_afecto_igv = 'NO';
+                }
+               
+            });
+                   
+        }else{
+
+            lde_saldo_total = 0;
+
+            var container = document.querySelector('#bodyServicioVin');
+            container.querySelectorAll('tr').forEach(function (li_i)
+            {
+                var  cod_servicio = $(li_i).attr("name");
+                lde_saldo_det = $("#imp_cuoi_"+cod_servicio).val();
+                lde_saldo_det = pasaAnumero(lde_saldo_det);
+                lde_saldo_total = lde_saldo_total + lde_saldo_det;
+            });
+
+            if ( lde_saldo_total == '' || lde_saldo_total == null) { lde_saldo_total = 0;}
+                
+            lde_porc_total = 0;
+
+            var container = document.querySelector('#bodyServicioVin');
+            container.querySelectorAll('tr').forEach(function (li_i)
+            {
+                var  cod_servicio = $(li_i).attr("name");
+                lde_saldo_x_servicio = $("#imp_cuoi_"+cod_servicio).val();
+                lde_saldo_x_servicio = pasaAnumero(lde_saldo_x_servicio);       
+                ls_flg_afecto_igv_det = $("#flg_afecto_igv_"+cod_servicio).val();
+               
+                // -- I.G.V. -- //
+               
+                if( ls_flg_afecto_igv_det == '' || ls_flg_afecto_igv_det == null) {ls_flg_afecto_igv_det = 'NO';}
+               
+                if ( ls_flg_afecto_igv_det == 'SI'){
+                           
+                    lde_porc = 0;
+                    lde_porc = lde_saldo_x_servicio / lde_saldo_total;
+                    if (lde_porc == null || lde_porc == ''){ lde_porc = 0;}
+                   
+                    lde_porc_total = lde_porc_total + lde_porc;
+                           
+                }
+                       
+            });
+               
+            // -- I.G.V. -- //
+               
+            var container = document.querySelector('#bodyServicioVin');
+            container.querySelectorAll('tr').forEach(function (li_i)
+            {
+                var  cod_servicio = $(li_i).attr("name");
+                lde_saldo_x_servicio = $("#imp_cuoi_"+cod_servicio).val();
+                lde_saldo_x_servicio = pasaAnumero(lde_saldo_x_servicio);
+                ls_flg_afecto_igv = $("#flg_afecto_igv_"+cod_servicio).val();       
+               
+                // -- Flag -- //
+               
+                if ( ls_flg_afecto_igv == '' || ls_flg_afecto_igv == null) { ls_flg_afecto_igv = 'NO';}
+               
+                // -- Si? -- //
+               
+                if (ls_flg_afecto_igv == 'SI' && lde_saldo_x_servicio > 0 ){
+                    break;
+                }else{
+                    ls_flg_afecto_igv = 'NO';
+                }
+                       
+            });
+                 
+        }//End If is origin
+               
+    }else{ //if integral
+     
+         var container = document.querySelector('#bodyServicioVin');
+        container.querySelectorAll('tr').forEach(function (li_i)
+        {
+            
+            var  cod_servicio = $(li_i).attr("name");      
+            ls_flg_afecto_igv = $("#flg_afecto_igv_"+cod_servicio).val(); 
+           
+            // -- Flag -- //
+           
+            if ( ls_flg_afecto_igv == '' || ls_flg_afecto_igv == null) { ls_flg_afecto_igv = 'NO';}
+           
+            // -- Si? -- //
+           
+            if( ls_flg_afecto_igv == 'SI') { break; }
+                   
+        });
+    }
+     
+    // -- I.G.V. -- //
+     
+    lde_valor_igv_det = lde_valor_igv;
+    if ( ls_flg_afecto_igv == 'NO' ) { lde_valor_igv = 0.00;}
+     
+    // -- Obtiene numero de cuotas -- //
+    
+    var li_cuota = $("#numCuoCUOI").val();  
+     
+    // -- Interes -- //
+    
+    var lde_valor = $("#interesCUOI").val();                     
+
+    if (lde_valor == '' || lde_valor == null) { lde_valor = 0.00;}
+     
+    // -- Forma de calculo según configuración -- //
+     
+    var is_tipo_calculo_interes = 3;
+    //Choose Case is_tipo_calculo_interes
+    switch(is_tipo_calculo_interes){                            
+        case 3:      //solo este case
+     
+            lde_valor = ( 1 + (lde_valor / 100)) ^ ( 1 / 12 ) - 1;
+            if ( lde_valor == '' || lde_valor == null) { lde_valor = 0.00;}
+     
+            // -- Total en caso no haber interes -- //
+           
+            lde_total = lde_saldo;
+           
+            if (lde_porc_total > 0 ){
+                lde_total_saldo = ( lde_saldo * lde_porc_total / ( 1 + lde_valor_igv_det )) + (lde_saldo * ( 1 - lde_porc_total));
+            }else{
+                lde_total_saldo = ( lde_saldo / ( 1 + lde_valor_igv ));
+            }
+           
+            // -- Calculo de Cuota -- //
+           
+            if (lde_valor <= 0) {
+
+                lde_cuota = lde_saldo / li_cuota;
+            }else{}    
+                lde_cuota = lde_saldo * ((lde_valor * (1 + lde_valor) ** li_cuota) / ((1 + lde_valor) ** li_cuota - 1));
+            }
+                           
+            // -- Limpia Cronograma -- //
+
+            $("#bodyCronogramaModif").empty(); 
+                           
+            // -- Armar Cronograma -- //
+
+            lda_vencimiento = ldt_fch_ven1;
+           
+            for( li_i = 1; li_i < li_cuota - 1 ; li_i++){
+
+                // -- Calculo -- //
+               
+                lde_interes = lde_total_saldo * lde_valor;
+               
+                // -- Datos -- //
+             
+                if (lde_porc_total > 0) {
+                          
+                    lde_capital_cuota   = (lde_cuota * lde_porc_total);
+                    lde_capital_cuota   = (lde_capital_cuota / ( 1 + lde_valor_igv_det ));
+                   
+                    lde_capital_cuota_2 = (lde_cuota * ( 1 - lde_porc_total));
+                    lde_capital_cuota   = lde_capital_cuota + lde_capital_cuota_2;
+                           
+                }else{
+                    lde_capital_cuota   = lde_cuota / ( 1 + lde_valor_igv );
+                }
+                           
+                lde_igv_cuota    = lde_cuota - lde_capital_cuota;
+                lde_amortizacion = ( lde_cuota - lde_igv_cuota ) - lde_interes;
+                lda_vencimiento  = editar_fecha_30(lda_vencimiento, '+30', 'd', "",ldt_fch_ven1,0);
+               
+                // -- Saldos -- //
+               
+                lde_total_saldo = lde_total_saldo - lde_amortizacion
+   
+                // -- Seteo -- //
+
+                var filaCUOI = '<tr style="color:blue;">'+
+                    '<td scope="row">'+(li_i)+'</td>'+
+                    '<td>REGISTRADO</td>'+
+                    '<td>CUI</td>'+
+                    '<td>'+lda_vencimiento+'</td>'+
+                    '<td style="text-align: right;">'+Number(lde_amortizacion).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+                    '<td style="text-align: right;">'+Number(lde_interes).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+                    '<td style="text-align: right;">'+Number(lde_igv_cuota).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+                    '<td style="text-align: right;">'+Number(lde_cuota).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+                    '<td style="text-align: right;">'+Number(lde_cuota).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+                    '<input type="hidden" id="flg_generar_mora_'+(li_find+1)+'" value="SI">'+
+                '</tr>';
+                document.getElementById("bodyCronogramaModif").insertAdjacentHTML("beforeEnd" ,filaCUOI);
+                       
+            }
+                           
+            // -- Cuota Final -- //
+
+            var lde_sumcapital  = 0.00;
+            var lde_sumtotal    = 0.00;
+            var cronograma = document.getElementById('bodyCronogramaModif');
+            var cronogramaLenght = cronograma.rows.length;
+
+            for( li_i = 1 ; li_i < cronogramaLenght ; li_i++ ){                                   
+                var oCells = cronograma.rows.item(li_i-1).cells;
+                ls_tipo_cuota = oCells.item(2).innerHTML.trim();
+                                                  
+
+                lde_sumcapital = lde_sumcapital + pasaAnumero($("#imp_principal_2_"+li_i).val());
+                lde_sumtotal = lde_sumtotal + pasaAnumero($("#imp_total_2_"+li_i).val());
+           
+            }
+           
+            if (lde_porc_total > 0 ){
+
+                lde_saldo_2 = (lde_saldo * lde_porc_total);
+                lde_saldo_2 = ( lde_saldo_2 / ( 1 + lde_valor_igv_det ));
+                lde_saldo_3 = (lde_saldo * ( 1 - lde_porc_total));
+                lde_saldo_2 = lde_saldo_2 + lde_saldo_3;
+                       
+            }else{
+                       
+                lde_saldo_2 = ( lde_saldo / ( 1 + lde_valor_igv ));
+                       
+            }
+                           
+            lde_interes = (lde_saldo_2 - lde_sumcapital ) * lde_valor;
+          
+            if (lde_valor <= 0) {
+
+                if (lde_porc_total > 0) {
+                           
+                    lde_amortizacion = (lde_total - lde_sumtotal);
+                    lde_amortizacion_2 = lde_amortizacion;                          
+                    lde_amortizacion = lde_amortizacion * lde_porc_total;
+                    lde_amortizacion_afecta = lde_amortizacion / ( 1 + lde_valor_igv_det );
+                    lde_amortizacion = (lde_amortizacion / ( 1 + lde_valor_igv_det )) + (lde_amortizacion_2 * ( 1 - lde_porc_total));
+                           
+                }else{
+                    lde_amortizacion = (lde_total - lde_sumtotal) / ( 1 + lde_valor_igv );
+                }
+                       
+            }else{    
+                lde_amortizacion = lde_saldo_2 - lde_sumcapital;
+
+            }
+            
+            lda_vencimiento  = editar_fecha_30(lda_vencimiento, '+30', 'd', "",ldt_fch_ven1,0);               
+            // lda_vencimiento = inv_datetime.of_RelativeMonth (Date(ldt_fch_vencimiento), li_cuota - 1)
+                           
+            // -- Datos -- //
+           
+            if (lde_porc_total > 0) {
+                lde_igv_cuota = ( lde_amortizacion_afecta + lde_interes ) * lde_valor_igv_det;
+            }else{
+                lde_igv_cuota = ( lde_amortizacion + lde_interes ) * lde_valor_igv;
+            }
+           
+            lde_cuota = ( lde_amortizacion + lde_interes ) + lde_igv_cuota;
+           
+            // -- Regenera -- //
+
+            if (lde_porc_total > 0) {
+                       
+                lde_capital_cuota   = lde_cuota * lde_porc_total;
+                lde_capital_cuota   = lde_capital_cuota / ( 1 + lde_valor_igv_det );
+                lde_capital_cuota_2 = lde_cuota * ( 1 - lde_porc_total);
+                lde_capital_cuota   = lde_capital_cuota + lde_capital_cuota_2;
+                       
+            }else{
+                lde_capital_cuota   = lde_cuota / ( 1 + lde_valor_igv );
+            }
+           
+            lde_igv_cuota = lde_cuota - lde_capital_cuota;
+           
+            if (lde_valor > 0) {
+                lde_interes = lde_capital_cuota - lde_amortizacion;
+            }else{
+                lde_amortizacion = lde_capital_cuota;
+            }//End If
+     
+            // -- Inserta -- //
+
+            var filaCUOI = '<tr style="color:blue;">'+
+                    '<td scope="row">'+(li_i)+'</td>'+
+                    '<td>REGISTRADO</td>'+
+                    '<td>CUI</td>'+
+                    '<td>'+lda_vencimiento+'</td>'+
+                    '<td style="text-align: right;">'+Number(lde_amortizacion).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+                    '<td style="text-align: right;">'+Number(lde_interes).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+                    '<td style="text-align: right;">'+Number(lde_igv_cuota).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+                    '<td style="text-align: right;">'+Number(lde_cuota).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+                    '<td style="text-align: right;">'+Number(lde_cuota).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
+                    '<input type="hidden" id="flg_generar_mora_'+(li_find+1)+'" value="SI">'+
+                '</tr>';
+                document.getElementById("bodyCronogramaModif").insertAdjacentHTML("beforeEnd" ,filaCUOI);
+                           
+        // Case '1' // -- Remanso -- //
+                   
+        //     lde_valor = Round(((lde_valor / 100) / 12), 4)
+        //     If IsNull(lde_valor) Then lde_valor = 0.00
+                       
+        //     // -- Total en caso no haber interes -- //
+           
+        //     lde_total = lde_saldo
+        //     lde_total_saldo = Round( lde_saldo / ( 1 + lde_valor_igv ), 2)
+           
+        //     // -- Calculo de Cuota -- //
+           
+        //     If lde_valor <= 0 Then
+        //         lde_cuota = lde_saldo / li_cuota
+        //     Else    
+        //         lde_cuota = lde_saldo * ((lde_valor * (1 + lde_valor) ^ li_cuota) / ((1 + lde_valor) ^ li_cuota - 1))
+        //     End If
+           
+        //     // -- Redondeo -- //
+           
+        //     Choose Case is_tipo_redondeo
+                                           
+        //         Case 'ARRIBA'
+        //             lde_cuota = wf_redondeo_up(lde_cuota)         
+                           
+        //         Case 'CERO'
+        //             lde_cuota = Round(lde_cuota, 0)
+           
+        //     End Choose
+                   
+        //         // -- Limpia Cronograma -- //
+               
+        //         For li_i = dw_cronograma.Rowcount() to 1 Step -1
+        //             dw_cronograma.DeleteRow(li_i)
+        //         Next
+               
+        //         // -- Armar Cronograma -- //
+                   
+        //         For li_i = 1 To (li_cuota - 1)
+                               
+        //             // -- Calculo -- //
+                   
+        //             lde_interes = lde_total_saldo * lde_valor
+                   
+        //             // -- Datos -- //
+                   
+        //             lde_capital_cuota   = lde_cuota / ( 1 + lde_valor_igv )
+        //             lde_igv_cuota                      = lde_cuota - lde_capital_cuota
+        //             lde_amortizacion     = ( lde_cuota - lde_igv_cuota ) - lde_interes
+        //             lda_vencimiento      = inv_datetime.of_RelativeMonth (Date(ldt_fch_vencimiento), li_i - 1)
+                   
+        //             // -- Saldos -- //
+                   
+        //             lde_total_saldo         = lde_total_saldo - lde_amortizacion
+       
+        //             // -- Seteo -- //
+                               
+        //                 dw_cronograma.InsertRow(0)
+        //                 dw_cronograma.SetItem(li_i, "num_cuota", li_i)
+        //                 dw_cronograma.SetItem(li_i, "cod_estadocuota", "REG")
+        //                 dw_cronograma.SetItem(li_i, "cod_tipo_cuota", 'CUI')
+        //                 dw_cronograma.SetItem(li_i, "fch_vencimiento", lda_vencimiento)
+        //                 dw_cronograma.SetItem(li_i, "imp_principal", Round(lde_amortizacion, 2))
+        //                 dw_cronograma.SetItem(li_i, "imp_interes", Round(lde_interes, 2))
+        //                 dw_cronograma.SetItem(li_i, "imp_igv", Round(lde_igv_cuota, 2))
+        //                 dw_cronograma.SetItem(li_i, "imp_total",  Round(lde_cuota, 2))
+        //                 dw_cronograma.SetItem(li_i, "imp_saldo",  Round(lde_cuota, 2))
+                       
+        //         Next
+                   
+        //         // -- Cuota Final -- //
+               
+        //         lde_sumcapital         = 0.00
+        //         lde_sumtotal = 0.00
+               
+        //         For li_i = 1 to (li_cuota - 1)
+        //             lde_sumcapital = lde_sumcapital +dw_cronograma.GetItemDecimal(li_i, "imp_principal")
+        //             lde_sumtotal = lde_sumtotal + dw_cronograma.GetItemDecimal(li_i, "imp_total")
+        //         Next
+                   
+        //         lde_interes =(Round(lde_saldo/(1+lde_valor_igv ), 2) - lde_sumcapital ) * lde_valor
+               
+        //         If lde_valor <= 0 then
+        //             lde_amortizacion = (Round (lde_total, 2) - lde_sumtotal) / ( 1 + lde_valor_igv )
+        //         Else    
+        //             lde_amortizacion = Round( lde_saldo / ( 1 + lde_valor_igv ), 2) - lde_sumcapital
+        //         End If
+               
+        //         lda_vencimiento = inv_datetime.of_RelativeMonth (Date(ldt_fch_vencimiento),li_cuota - 1)
+                   
+        //         // -- Datos -- //
+               
+        //         lde_igv_cuota          = ( lde_amortizacion + lde_interes ) * lde_valor_igv
+        //         lde_cuota                  = ( lde_amortizacion + lde_interes ) + lde_igv_cuota
+               
+        //         // -- Redondeo -- //
+                  
+        //         Choose Case is_tipo_redondeo
+                              
+        //             Case 'ARRIBA'
+        //                 lde_cuota = wf_redondeo_up(lde_cuota)         
+                               
+        //             Case 'CERO'
+        //                 lde_cuota = Round(lde_cuota, 0)
+               
+        //         End Choose
+                  
+        //         // -- Regenera -- //
+               
+        //         lde_capital_cuota   = lde_cuota / ( 1 + lde_valor_igv )
+        //         lde_igv_cuota                      = lde_cuota - lde_capital_cuota
+               
+        //         If lde_valor > 0 Then
+        //             lde_interes = lde_capital_cuota - lde_amortizacion
+        //         Else
+        //             lde_amortizacion = lde_capital_cuota
+        //         End If
+               
+        //     // -- Inserta -- //
+               
+        //         dw_cronograma.InsertRow(0) 
+        //         dw_cronograma.SetItem(li_i, "num_cuota", li_i)
+        //         dw_cronograma.SetItem(li_i, "cod_tipo_cuota", "CUI")
+        //         dw_cronograma.SetItem(li_i, "cod_estadocuota", "REG")
+        //         dw_cronograma.SetItem(li_i, "fch_vencimiento", lda_vencimiento)
+        //         dw_cronograma.SetItem(li_i, "imp_principal", Round(lde_amortizacion, 2))
+        //         dw_cronograma.SetItem(li_i, "imp_interes", Round(lde_interes, 2))
+        //         dw_cronograma.SetItem(li_i, "imp_igv", Round(lde_igv_cuota, 2))
+        //         dw_cronograma.SetItem(li_i, "imp_total",  Round(lde_cuota, 2))
+        //         dw_cronograma.SetItem(li_i, "imp_saldo",  Round(lde_cuota, 2))
+                           
+        }//fin choose
+     
+    $("#flg_cronograma_cuoi").val('SI');
+
 }
