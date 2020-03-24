@@ -1917,7 +1917,9 @@ function creaCUOI(){
                 ls_suma_2 = oCells.item(7).innerHTML.trim();                                  
 
                 lde_sumcapital = lde_sumcapital + pasaAnumero(ls_suma_1);
+                console.log('lde_sumcapital',lde_sumcapital);
                 lde_sumtotal = lde_sumtotal + pasaAnumero(ls_suma_2);
+                console.log('lde_sumtotal'.lde_sumtotal);
            
             }
            
