@@ -1683,10 +1683,16 @@ function creaCUOI(){
             });
                    
             // -- I.G.V. -- //
-                   
-            var container = document.querySelector('#bodyServicioVin');
-            container.querySelectorAll('tr').forEach(function (li_i)
-            {
+            var cronograma = document.getElementById('bodyServicioVin');
+            var cronogramaLenght = cronograma.rows.length;
+
+            for( li_i = 0 ; li_i < cronogramaLenght ; li_i++ ){                                   
+                var oCells = cronograma.rows.item(li_i).cells;
+                cod_servicio = oCells.item(0).innerHTML.trim();       
+            // var container = document.querySelector('#bodyServicioVin');
+            // container.querySelectorAll('tr').forEach(function (li_i)
+
+            // {
                 var  cod_servicio = $(li_i).attr("name");
                 lde_saldo_det = $("#imp_cuoi_"+cod_servicio).val();
                 lde_saldo_det = pasaAnumero(lde_saldo_det);
@@ -1695,12 +1701,12 @@ function creaCUOI(){
                 // -- Si? -- //
              
                 if( ls_flg_afecto_igv == 'SI' && lde_saldo_det > 0 ){
-                    continue;
+                    break;
                 }else{
                     ls_flg_afecto_igv = 'NO';
                 }
                
-            });
+            }//);
                    
         }else{
 
@@ -1744,11 +1750,17 @@ function creaCUOI(){
             });
                
             // -- I.G.V. -- //
-               
-            var container = document.querySelector('#bodyServicioVin');
-            container.querySelectorAll('tr').forEach(function (li_i)
-            {
-                var  cod_servicio = $(li_i).attr("name");
+            
+            var cronograma = document.getElementById('bodyServicioVin');
+            var cronogramaLenght = cronograma.rows.length;
+
+            for( li_i = 0 ; li_i < cronogramaLenght ; li_i++ ){                                   
+                var oCells = cronograma.rows.item(li_i).cells;
+                cod_servicio = oCells.item(0).innerHTML.trim();    
+            // var container = document.querySelector('#bodyServicioVin');
+            // container.querySelectorAll('tr').forEach(function (li_i)
+            // {
+                // var  cod_servicio = $(li_i).attr("name");
                 lde_saldo_x_servicio = $("#imp_cuoi_"+cod_servicio).val();
                 lde_saldo_x_servicio = pasaAnumero(lde_saldo_x_servicio);
                 ls_flg_afecto_igv = $("#flg_afecto_igv_"+cod_servicio).val();       
@@ -1760,22 +1772,28 @@ function creaCUOI(){
                 // -- Si? -- //
                
                 if (ls_flg_afecto_igv == 'SI' && lde_saldo_x_servicio > 0 ){
-                    continue;
+                    break;
                 }else{
                     ls_flg_afecto_igv = 'NO';
                 }
                        
-            });
+            }//);
                  
         }//End If is origin
                
     }else{ //if integral
-     
-         var container = document.querySelector('#bodyServicioVin');
-        container.querySelectorAll('tr').forEach(function (li_i)
-        {
+        
+        var cronograma = document.getElementById('bodyServicioVin');
+        var cronogramaLenght = cronograma.rows.length;
+
+        for( li_i = 0 ; li_i < cronogramaLenght ; li_i++ ){                                   
+            var oCells = cronograma.rows.item(li_i).cells;
+            cod_servicio = oCells.item(0).innerHTML.trim(); 
+        // var container = document.querySelector('#bodyServicioVin');
+        // container.querySelectorAll('tr').forEach(function (li_i)
+        // {
             
-            var  cod_servicio = $(li_i).attr("name");      
+            // var  cod_servicio = $(li_i).attr("name");      
             ls_flg_afecto_igv = $("#flg_afecto_igv_"+cod_servicio).val(); 
            
             // -- Flag -- //
@@ -1784,9 +1802,9 @@ function creaCUOI(){
            
             // -- Si? -- //
            
-            if( ls_flg_afecto_igv == 'SI') { continue; }
+            if( ls_flg_afecto_igv == 'SI') { break; }
                    
-        });
+        }//);
     }
      
     // -- I.G.V. -- //
