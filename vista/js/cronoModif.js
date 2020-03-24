@@ -1815,7 +1815,7 @@ function creaCUOI(){
     // -- Obtiene numero de cuotas -- //
     
     var li_cuota = $("#numCuoCUOI").val();  
-     
+    console.log('li_cuota',li_cuota); 
     // -- Interes -- //
     
     var lde_valor = $("#interesCUOI").val();                     
