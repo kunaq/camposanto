@@ -11,6 +11,7 @@ function cronogramaModifi(){
     var flg_prevencion = $("#flg_prevencion").val();
     var gde_igv = 0.18;
     var is_flg_cronograma_cuoi = $("#flg_cronograma_cuoi").val(); 
+    var li_fila = 0;
 
     if(ls_num_servicio_det == null || ls_num_servicio_det == ''){
         swal({
@@ -307,6 +308,7 @@ function cronogramaModifi(){
                     var container = document.querySelector('#bodyCronogramaModif');
                     container.querySelectorAll('tr').forEach(function (li_i)
                     {   
+                        li_fila++;
                         var oCells = container.rows.item(li_i).cells;                               
                         ls_tipo_cuota = oCells.item(2).innerHTML.trim();
                         if( ls_tipo_cuota == 'ARM' || ls_tipo_cuota == 'FMA'){
@@ -372,7 +374,7 @@ function cronogramaModifi(){
                         var imp_principal_2 = 0.00;
                         var imp_total_2 = 0.00;
 
-                        for( li_i = 1; li_i < li_cuotas ; li_i ++){
+                        for( li_i = (li_fila+1); li_i < (li_cuotas+li_filas) ; li_i ++){
 
                             // -- Calculo -- //
                              
@@ -632,6 +634,7 @@ function cronogramaModifi(){
                     var container = document.querySelector('#bodyCronogramaModif');
                     container.querySelectorAll('tr').forEach(function (li_i)
                     {   
+                        li_fila++;
                         var oCells = container.rows.item(li_i).cells;                               
                         ls_tipo_cuota = oCells.item(2).innerHTML.trim();
                         if( ls_tipo_cuota == 'ARM' || ls_tipo_cuota == 'FMA'){
@@ -649,7 +652,7 @@ function cronogramaModifi(){
 
                 lda_vencimiento = ldt_fch_ven1;
 
-                for( li_i = 1 ; li_i < li_cuotas ; li_i++ ){ 
+                for( li_i = (li_fila+1) ; li_i < (li_cuotas+li_fila) ; li_i++ ){ 
 
                     // -- Calculo -- //
  
@@ -1821,7 +1824,7 @@ function creaCUOI(){
     // -- Obtiene numero de cuotas -- //
     
     var li_cuota = $("#numCuoCUOI").val();
-      
+
     // -- Interes -- //
     
     var lde_valor = $("#interesCUOI").val();
