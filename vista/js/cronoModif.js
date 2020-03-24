@@ -1910,7 +1910,7 @@ function creaCUOI(){
             var lde_sumtotal    = 0.00;
             var cronograma = document.getElementById('bodyCronogramaModif');
             var cronogramaLenght = cronograma.rows.length;
-
+            console.log(cronogramaLenght);
             for( li_i = 1 ; li_i < cronogramaLenght ; li_i++ ){                                   
                 var oCells = cronograma.rows.item(li_i-1).cells;
                 ls_suma_1 = oCells.item(4).innerHTML.trim();
