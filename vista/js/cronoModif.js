@@ -1911,7 +1911,7 @@ function creaCUOI(){
             var lde_sumtotal    = 0.00;
             var cronograma = document.getElementById('bodyCronogramaModif');
             var cronogramaLenght = cronograma.rows.length;
-            console.log(cronogramaLenght);
+            
             for( li_i = 1 ; li_i <= cronogramaLenght ; li_i++ ){                                   
                 var oCells = cronograma.rows.item(li_i-1).cells;
                 ls_suma_1 = oCells.item(4).innerHTML.trim();
@@ -1920,9 +1920,7 @@ function creaCUOI(){
                 ls_suma_2 = pasaAnumero(ls_suma_2);                                  
 
                 lde_sumcapital = lde_sumcapital + ls_suma_1;
-                console.log('lde_sumcapital',lde_sumcapital);
                 lde_sumtotal = lde_sumtotal + ls_suma_2;
-                console.log('lde_sumtotal'.lde_sumtotal);
            
             }
            
@@ -1978,17 +1976,12 @@ function creaCUOI(){
             if (lde_porc_total > 0) {
                        
                 lde_capital_cuota   = lde_cuota * lde_porc_total;
-console.log('lde_capital_cuota 1',lde_capital_cuota);
                 lde_capital_cuota   = lde_capital_cuota / ( 1 + lde_valor_igv_det );
-console.log('lde_capital_cuota 2', lde_capital_cuota);
                 lde_capital_cuota_2 = lde_cuota * ( 1 - lde_porc_total);
-console.log('lde_capital_cuota_2 1',lde_capital_cuota_2);
                 lde_capital_cuota   = lde_capital_cuota + lde_capital_cuota_2;
-                console.log('lde_capital_cuota_2 2',lde_capital_cuota_2);
                        
             }else{
                 lde_capital_cuota   = lde_cuota / ( 1 + lde_valor_igv );
-                console.log('lde_capital_cuota else',lde_capital_cuota);
             }
            
             lde_igv_cuota = lde_cuota - lde_capital_cuota;
