@@ -1321,6 +1321,7 @@ var cronogramaLenght = cronograma.rows.length;
     //  fin Case igual que el cronograma                             
   }
   calcular();
+   $("#fchVenCronoFOMA").datepicker({ dateFormat: 'dd-mm-yy' }).datepicker("setDate", lda_vencimiento);
 }
 
 //----------------------------------------------------------------------------------------------//
@@ -1561,6 +1562,10 @@ function modificaFOMA(){
 
     $("#cambioCronogramaFoma").val('SI');
 }
+
+//----------------------------------------------------------------------------------------------//
+//----------------------------------FUNCIÓN GENERA CUOI-----------------------------------------//
+//----------------------------------------------------------------------------------------------//
 
 function creaCUOI(){
 
@@ -1815,10 +1820,12 @@ function creaCUOI(){
      
     // -- Obtiene numero de cuotas -- //
     
-    var li_cuota = $("#numCuoCUOI").val();  
+    var li_cuota = $("#numCuoCUOI").val();
+      
     // -- Interes -- //
     
-    var lde_valor = $("#interesCUOI").val();                     
+    var lde_valor = $("#interesCUOI").val();
+    lde_valor = pasaAnumero(lde_valor);                     
 
     if (lde_valor == '' || lde_valor == null) { lde_valor = 0.00;}
      
@@ -1862,7 +1869,7 @@ function creaCUOI(){
             for( li_i = 1; li_i < li_cuota ; li_i++){
 
                 // -- Calculo -- //
-               console.log('for13ra cuota');
+               
                 lde_interes = lde_total_saldo * lde_valor;
                
                 // -- Datos -- //
@@ -2139,5 +2146,12 @@ function creaCUOI(){
         //         dw_cronograma.SetItem(li_i, "imp_total",  Round(lde_cuota, 2))
         //         dw_cronograma.SetItem(li_i, "imp_saldo",  Round(lde_cuota, 2))
         } //fin choose        
-        $("#flg_cronograma_cuoi").val('SI');          
+        $("#flg_cronograma_cuoi").val('SI'); 
+        $("#fchVenCronograma").datepicker({ dateFormat: 'dd-mm-yy' }).datepicker("setDate", lda_vencimiento); 
+        swal({
+            title: "",
+            text: "Debe generar el cronograma de pagos.",
+            type: "warning",
+            confirmButtonText: "Aceptar",
+        })        
 }
