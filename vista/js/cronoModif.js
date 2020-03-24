@@ -1574,7 +1574,9 @@ function creaCUOI(){
     var ii_num_cuotas_maximo = 2;
     var gde_igv = 0.18;
     var is_origen = '';
-     
+    var is_flg_integral = $("#flg_ctt_integral").val(); 
+    var is_origen = 'EMI';
+
     if(lde_saldo == '' || lde_saldo == null){ lde_saldo = 0; }
     ldt_fch_emision = new Date();
      
