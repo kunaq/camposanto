@@ -1891,7 +1891,7 @@ function creaCUOI(){
                 var filaCUOI = '<tr style="color:blue;">'+
                     '<td scope="row">'+(li_i)+'</td>'+
                     '<td>REGISTRADO</td>'+
-                    '<td>CUI1</td>'+
+                    '<td>CUI</td>'+
                     '<td>'+lda_vencimiento+'</td>'+
                     '<td style="text-align: right;">'+Number(lde_amortizacion).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
                     '<td style="text-align: right;">'+Number(lde_interes).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
@@ -1913,11 +1913,12 @@ function creaCUOI(){
 
             for( li_i = 1 ; li_i < cronogramaLenght ; li_i++ ){                                   
                 var oCells = cronograma.rows.item(li_i-1).cells;
-                ls_tipo_cuota = oCells.item(2).innerHTML.trim();
-                                                  
+                ls_suma_1 = oCells.item(4).innerHTML.trim();
+                console.log(ls_suma_1);
+                ls_suma_2 = oCells.item(7).innerHTML.trim();                                  
 
-                lde_sumcapital = lde_sumcapital + pasaAnumero($("#imp_principal_2_"+li_i).val());
-                lde_sumtotal = lde_sumtotal + pasaAnumero($("#imp_total_2_"+li_i).val());
+                lde_sumcapital = lde_sumcapital + pasaAnumero(ls_suma);
+                lde_sumtotal = lde_sumtotal + pasaAnumero(ls_suma_2);
            
             }
            
