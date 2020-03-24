@@ -1973,9 +1973,13 @@ function creaCUOI(){
             if (lde_porc_total > 0) {
                        
                 lde_capital_cuota   = lde_cuota * lde_porc_total;
+console.log('lde_capital_cuota 1',lde_capital_cuota);
                 lde_capital_cuota   = lde_capital_cuota / ( 1 + lde_valor_igv_det );
+console.log('lde_capital_cuota 2', lde_capital_cuota);
                 lde_capital_cuota_2 = lde_cuota * ( 1 - lde_porc_total);
+console.log('lde_capital_cuota_2 1',lde_capital_cuota_2);
                 lde_capital_cuota   = lde_capital_cuota + lde_capital_cuota_2;
+                console.log('lde_capital_cuota_2 2',lde_capital_cuota_2);
                        
             }else{
                 lde_capital_cuota   = lde_cuota / ( 1 + lde_valor_igv );
