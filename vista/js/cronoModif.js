@@ -1914,11 +1914,13 @@ function creaCUOI(){
             for( li_i = 1 ; li_i < cronogramaLenght ; li_i++ ){                                   
                 var oCells = cronograma.rows.item(li_i-1).cells;
                 ls_suma_1 = oCells.item(4).innerHTML.trim();
-                ls_suma_2 = oCells.item(7).innerHTML.trim();                                  
+                ls_suma_1 = pasaAnumero(ls_suma_1);
+                ls_suma_2 = oCells.item(7).innerHTML.trim();
+                ls_suma_2 = pasaAnumero(ls_suma_2);                                  
 
-                lde_sumcapital = lde_sumcapital + pasaAnumero(ls_suma_1);
+                lde_sumcapital = lde_sumcapital + ls_suma_1;
                 console.log('lde_sumcapital',lde_sumcapital);
-                lde_sumtotal = lde_sumtotal + pasaAnumero(ls_suma_2);
+                lde_sumtotal = lde_sumtotal + ls_suma_2;
                 console.log('lde_sumtotal'.lde_sumtotal);
            
             }
