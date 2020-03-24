@@ -1914,10 +1914,9 @@ function creaCUOI(){
             for( li_i = 1 ; li_i < cronogramaLenght ; li_i++ ){                                   
                 var oCells = cronograma.rows.item(li_i-1).cells;
                 ls_suma_1 = oCells.item(4).innerHTML.trim();
-                console.log(ls_suma_1);
                 ls_suma_2 = oCells.item(7).innerHTML.trim();                                  
 
-                lde_sumcapital = lde_sumcapital + pasaAnumero(ls_suma);
+                lde_sumcapital = lde_sumcapital + pasaAnumero(ls_suma_1);
                 lde_sumtotal = lde_sumtotal + pasaAnumero(ls_suma_2);
            
             }
