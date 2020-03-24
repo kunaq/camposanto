@@ -374,7 +374,7 @@ function cronogramaModifi(){
                         var imp_principal_2 = 0.00;
                         var imp_total_2 = 0.00;
 
-                        for( li_i = (li_fila+1); li_i < (li_cuotas+li_filas) ; li_i ++){
+                        for( li_i = (li_fila+1); li_i < (li_cuotas+li_fila) ; li_i ++){
 
                             // -- Calculo -- //
                              
@@ -2151,6 +2151,12 @@ function creaCUOI(){
         } //fin choose        
         $("#flg_cronograma_cuoi").val('SI'); 
         $("#fchVenCronograma").datepicker({ dateFormat: 'dd-mm-yy' }).datepicker("setDate", lda_vencimiento); 
+        var filas=document.querySelectorAll("#footCronogramaModif tr td");
+        filas[4].textContent='0.00';
+        filas[5].textContent='0.00';
+        filas[6].textContent='0.00';
+        filas[7].textContent='0.00';
+        filas[8].textContent='0.00';
         swal({
             title: "",
             text: "Debe generar el cronograma de pagos.",
