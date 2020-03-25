@@ -21,7 +21,7 @@
 							<div class="col-lg-12">
 								<fieldset class="fieldFormHorizontal">
 									<div class="col-lg-12">
-										<div class="row form-group">
+										<div class="row ">
 											<div class="col-lg-8">
 												<div class="m-input-icon m-input-icon--left px-0">
 													<input type="text" class="form-control form-control-sm m-input">
@@ -33,7 +33,7 @@
 												</div>
 											</div>
 											<div class="col-lg-4">
-												<select class="form-control form-control-sm m-input">
+												<select class="form-control form-control-sm m-select2 m-select2-general">
 													<option>TODOS</option>
 													<option>ACTIVO</option>
 													<option>DESACTIVO</option>
@@ -70,7 +70,7 @@
 														<label>Año</label>
 													</div>
 													<div class="col-lg-8">
-														<select class="form-control form-control-sm m-input" id="anioBuscaTraArbVen" class="anioBuscaTraArbVen">
+														<select class="form-control form-control-sm m-select2 m-select2-general" id="anioBuscaTraArbVen" class="anioBuscaTraArbVen">
 															<?php
 															$prueba = controladorEmpresa::ctrAnnoPeriodo();
 														  ?>
@@ -194,7 +194,7 @@
 												<div class="row">
 													<div class="col-lg-12">
 														<p class="pull-right">
-															<select class="form-control form-control-sm m-input" width="100%" >
+															<select class="form-control form-control-sm m-select2 m-select2-general" width="100%" >
 																<option>
 																	TODOS
 																</option>

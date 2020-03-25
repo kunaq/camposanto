@@ -130,7 +130,7 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
         dataType: 'json',
         data: {'codTrabajador':vendedor,'accion':'buscaCtto','periodo':periodo,'tipoPeriodo':tipoPeriodo,'annio':annio},
         success: function(respuesta){
-        	console.log(respuesta);
+        	// console.log(respuesta);
         	var estatus = '';
         	var fecha_fin = '';
         	var fecha = '';
