@@ -2160,3 +2160,90 @@ function creaCUOI(){
             confirmButtonText: "Aceptar",
         })        
 }
+
+//----------------------------------------------------------------------------------------------//
+//-----------------------------FUNCIÓN PARA FECHAS-----------------------------------------//
+//----------------------------------------------------------------------------------------------//
+
+function editar_fecha_30(fecha, intervalo, dma, separador,dia1erFchVenc2,intDiaGrc=0) {
+  var separador = separador || "-";
+  var arrayFecha = fecha.split(separador);
+  var dia = arrayFecha[0];
+  if(parseInt(dia) == 1){
+  intervalo = parseInt(intervalo)+1;
+  }
+  var arrayFechaFin = dia1erFchVenc2.split('-');
+  var diaFin = arrayFechaFin[0];
+  /*if(parseInt(diaFin) == 1){
+  diaFin = parseInt(diaFin)+1;
+  }*/
+  var mesFin = arrayFechaFin[1];
+  var anioFin = arrayFechaFin[2];
+  var fechaInicialFin = new Date(anioFin, mesFin - 1, diaFin);
+  var fechaFinalFin = fechaInicialFin;
+  fechaFinalFin.setDate(fechaInicialFin.getDate()+parseInt(intDiaGrc));
+  diaInicial = fechaFinalFin.getDate();
+  dia1erFchVenc = fechaFinalFin.getDate();
+  var fechaInicial = new Date(anio, mes - 1, dia);
+  if(dia1erFchVenc == '31' || dia1erFchVenc == '30'){
+    if(arrayFecha[0] == '28' || arrayFecha[0] == '29'){
+      diaInicial = 30;
+    }
+  }
+  if((parseInt(arrayFecha[2]) % 4) != 0){
+    if(parseInt(arrayFecha[1]) == 1){
+      if(parseInt(arrayFecha[0]) == 29){
+        diaInicial = 28;
+      }
+    }else{
+      diaInicial = dia1erFchVenc;
+    }
+  }
+  var mes = arrayFecha[1];
+  var anio = arrayFecha[2];
+  var fechaInicial = new Date(anio, mes - 1, dia);
+  var fechaFinal = fechaInicial;//18-10-2019
+  if(dma=="m" || dma=="M"){
+    fechaFinal.setMonth(fechaInicial.getMonth()+parseInt(intervalo));
+  }else if(dma=="y" || dma=="Y"){
+    fechaFinal.setFullYear(fechaInicial.getFullYear()+parseInt(intervalo));
+  }else if(dma=="d" || dma=="D"){
+    fechaFinal.setDate(fechaInicial.getDate()+parseInt(intervalo));
+    if(fechaFinal.getDate() == 1 && fechaFinal.getMonth() == 2){
+      fechaFinal.setDate(fechaInicial.getDate()-1);
+    }else if(fechaFinal.getDate() == 2 && fechaFinal.getMonth() == 2){
+      fechaFinal.setDate(fechaInicial.getDate()-2);
+    }
+  }else{
+     return fecha;
+  }
+  dia = fechaFinal.getDate();
+  mes = fechaFinal.getMonth() + 1;
+  var mesInicial = fechaFinal.getMonth()+1;
+  anio = fechaFinal.getFullYear();
+  dia = (dia.toString().length == 1) ? "0" + dia.toString() : dia;
+  var residuoAnio = 0;
+  if(dia1erFchVenc == '31'){
+    if(parseInt(arrayFecha[1]) != mesInicial){
+      if(mesInicial == 1 || mesInicial == 3 || mesInicial == 5 || mesInicial == 7 ||mesInicial == 8 || mesInicial == 10 || mesInicial == 12){
+        dia = (diaInicial == dia) ? parseInt(diaInicial)+1 : parseInt(diaInicial);
+    }else if(mesInicial == 4 || mesInicial == 6 || mesInicial == 9 || mesInicial == 11){
+        dia = (diaInicial != dia) ? parseInt(diaInicial)-1 : dia;
+    }else if(mesInicial == 2){
+        residuoAnio = (anio % 4);
+        dia = (residuoAnio == 0) ? 29 : 28;
+    }
+    }
+  }else if(diaInicial == '30'){
+    if(mesInicial == 2){
+      residuoAnio = (anio % 4);
+      dia = (residuoAnio == 0) ? 29 : 28;
+    }else{
+      dia = diaInicial;
+    }
+  }else{
+    dia = diaInicial;
+  }
+  mes = (mes.toString().length == 1) ? "0" + mes.toString() : mes;
+  return dia + "-" + mes + "-" + anio;
+}

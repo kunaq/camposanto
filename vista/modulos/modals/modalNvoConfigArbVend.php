@@ -1,5 +1,5 @@
 <div class="modal fade" id="m_modal_nvoConfigArbVen" tabindex="-1" role="dialog" aria-labelledby="configuracionesModalLabel" aria-hidden="true">
-	<div class="modal-dialog" style="width: 50rem;" role="document">
+	<div class="modal-dialog modal-md" style="width: 50rem;" role="document">
 		<div class="modal-content">
 		<form id="configuraciones">
 			<div class="modal-header">
