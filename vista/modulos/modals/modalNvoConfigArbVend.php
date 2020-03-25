@@ -51,62 +51,62 @@
 					</div>
 					<hr>
 					<div class="form-group row">
-						<div class="col-lg-1">
+						<div class="col-lg-3">
 							<label>Grupo</label>
 						</div>
-						<div class="col-lg-2">
+						<div class="col-lg-3">
 							<select class="form-control form-control-sm m-input" id="grupoConfTraArbVen" class="grupoConfTraArbVen">
 								<?php
 									//$prueba = controladorArbolVen::ctrNombreTrabajador();
 								  ?>
 							 </select>
 						</div>
-						<div class="col-lg-9">
+						<div class="col-lg-6">
 							<input type="text" disabled class="form-control form-control-sm m-input" name="dscGrupoModConfArbVen" id="dscGrupoModConfArbVen">
 						</div>
 					</div>
 					<div class="form-group row">
-						<div class="col-lg-1">
+						<div class="col-lg-3">
 							<label>Comisionista</label>
 						</div>
-						<div class="col-lg-2">
+						<div class="col-lg-3">
 							<select class="form-control form-control-sm m-input" id="grupoConfTraArbVen" class="grupoConfTraArbVen">
 								<?php
 									//$prueba = controladorArbolVen::ctrNombreTrabajador();
 								  ?>
 							 </select>
 						</div>
-						<div class="col-lg-9">
+						<div class="col-lg-6">
 							<input type="text" disabled class="form-control form-control-sm m-input" name="dscGrupoModConfArbVen" id="dscGrupoModConfArbVen">
 						</div>
 					</div>
 					<div class="form-group row">
-						<div class="col-lg-1">
+						<div class="col-lg-3">
 							<label>Supervisor</label>
 						</div>
-						<div class="col-lg-2">
+						<div class="col-lg-3">
 							<select class="form-control form-control-sm m-input" id="grupoConfTraArbVen" class="grupoConfTraArbVen">
 								<?php
 									//$prueba = controladorArbolVen::ctrNombreTrabajador();
 								  ?>
 							 </select>
 						</div>
-						<div class="col-lg-9">
+						<div class="col-lg-6">
 							<input type="text" disabled class="form-control form-control-sm m-input" name="dscGrupoModConfArbVen" id="dscGrupoModConfArbVen">
 						</div>
 					</div>
 					<div class="form-group row">
-						<div class="col-lg-1">
+						<div class="col-lg-3">
 							<label>Jefe de ventas</label>
 						</div>
-						<div class="col-lg-2">
+						<div class="col-lg-3">
 							<select class="form-control form-control-sm m-input" id="grupoConfTraArbVen" class="grupoConfTraArbVen">
 								<?php
 									//$prueba = controladorArbolVen::ctrNombreTrabajador();
 								  ?>
 							 </select>
 						</div>
-						<div class="col-lg-9">
+						<div class="col-lg-6">
 							<input type="text" disabled class="form-control form-control-sm m-input" name="dscGrupoModConfArbVen" id="dscGrupoModConfArbVen">
 						</div>
 					</div>
