@@ -113,12 +113,12 @@
 				</div>
 			</div>
 			<div class="modal-footer">
-				<div class="form-group row">
-					<div class="col-md-12">
-						<p class="pull-right">
-							<button type="button" class="btn btn-sm btnGuardarKqPst" title="Guardar" id="">Aceptar</button>	
-							<button type="button" class="btn btn-sm btn-danger close" data-dismiss="modal" title="Cerrar" id="">Cancelar</button>
-						</p>
+				<div class="row">
+					<div class="col-lg-2 offset-lg-8">
+						<button type="button" class="btn btn-sm btnGuardarKqPst" title="Guardar" id="">Aceptar</button>	
+					</div>
+					<div class="col-lg-2">
+						<button type="button" class="btn btn-sm btn-danger close" data-dismiss="modal" title="Cerrar" id="">Cancelar</button>
 					</div>
 				</div>
 			</div>
