@@ -10,6 +10,7 @@ $("#total").number(true,2);
 $("#saldoFinCronograma").number(true,2);
 $("#valCuo").number(true,2);
 $("#saldoFOMA").number(true,2);
+$("#saldoFinCUOI").number(true,2);
 $("#fchNacTitular").datepicker({
   format: 'dd-mm-yyyy',
   autoclose: true
@@ -251,8 +252,10 @@ function llenaDatos(codCtto){
             	$("#bodyDetCttoModif").empty();
                 $("#bodyServicioVin").empty();
                 var totalVin = 0;
+                var totalCUOI = 0;
             	$.each(respuesta,function(index,value){
                     totalVin = totalVin+parseFloat(value['imp_saldofinanciar']);
+                    totalCUOI = totalCUOI+parseFloat(value['imp_cuoi']);
                     if(value['flg_anulado'] == 'SI'){
                         color = 'red';
                     }else if(value['flg_resuelto'] == 'SI'){
@@ -294,6 +297,7 @@ function llenaDatos(codCtto){
                     }
                     $("#saldoFinCronograma").val(totalVin);
             	});//each
+                $("#saldoFinCUOI").val(totalCUOI);
                 muestraInfo(respuesta[0]['num_servicio']);
             }
         }//success
@@ -373,6 +377,7 @@ function muestraInfo(id){
         	$("#numCuoCronograma").val(respuesta['num_cuotas']);
             $("#numCuoCronograma").trigger('change');
             $("#fchVenCronograma").datepicker({ dateFormat: 'dd-mm-yy' }).datepicker("setDate", respuesta['fch_primer_vencimiento']);
+            $("#fchVenCUOI").datepicker({ dateFormat: 'dd-mm-yy' }).datepicker("setDate", respuesta['fch_primer_vencimiento']);
         	$("#interesCronograma").val(respuesta['imp_interes']);
             $("#interesCronograma").trigger('change');
         	$("#codCobrador").val(respuesta['cod_cobrador']).trigger('change');
