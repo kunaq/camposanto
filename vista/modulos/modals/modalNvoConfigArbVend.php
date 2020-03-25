@@ -1,5 +1,5 @@
 <div class="modal fade" id="m_modal_nvoConfigArbVen" tabindex="-1" role="dialog" aria-labelledby="configuracionesModalLabel" aria-hidden="true">
-	<div class="modal-dialog  modal-lg" style="width: 50rem;" role="document">
+	<div class="modal-dialog" style="width: 50rem;" role="document">
 		<div class="modal-content">
 		<form id="configuraciones">
 			<div class="modal-header">
@@ -53,6 +53,51 @@
 					<div class="form-group row">
 						<div class="col-lg-1">
 							<label>Grupo</label>
+						</div>
+						<div class="col-lg-2">
+							<select class="form-control form-control-sm m-input" id="grupoConfTraArbVen" class="grupoConfTraArbVen">
+								<?php
+									//$prueba = controladorArbolVen::ctrNombreTrabajador();
+								  ?>
+							 </select>
+						</div>
+						<div class="col-lg-9">
+							<input type="text" disabled class="form-control form-control-sm m-input" name="dscGrupoModConfArbVen" id="dscGrupoModConfArbVen">
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-lg-1">
+							<label>Comisionista</label>
+						</div>
+						<div class="col-lg-2">
+							<select class="form-control form-control-sm m-input" id="grupoConfTraArbVen" class="grupoConfTraArbVen">
+								<?php
+									//$prueba = controladorArbolVen::ctrNombreTrabajador();
+								  ?>
+							 </select>
+						</div>
+						<div class="col-lg-9">
+							<input type="text" disabled class="form-control form-control-sm m-input" name="dscGrupoModConfArbVen" id="dscGrupoModConfArbVen">
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-lg-1">
+							<label>Supervisor</label>
+						</div>
+						<div class="col-lg-2">
+							<select class="form-control form-control-sm m-input" id="grupoConfTraArbVen" class="grupoConfTraArbVen">
+								<?php
+									//$prueba = controladorArbolVen::ctrNombreTrabajador();
+								  ?>
+							 </select>
+						</div>
+						<div class="col-lg-9">
+							<input type="text" disabled class="form-control form-control-sm m-input" name="dscGrupoModConfArbVen" id="dscGrupoModConfArbVen">
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-lg-1">
+							<label>Jefe de ventas</label>
 						</div>
 						<div class="col-lg-2">
 							<select class="form-control form-control-sm m-input" id="grupoConfTraArbVen" class="grupoConfTraArbVen">
