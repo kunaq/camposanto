@@ -192,8 +192,8 @@
 											</div>
 											<div class="tab-pane" id="m_tabs_2_2" role="tabpanel">
 												<div class="row">
-													<div class="col-lg-12">
-														<p class="pull-right">
+													<div class="col-lg-2 offset-lg-10">
+														<!-- <p class="pull-right"> -->
 															<select class="form-control form-control-sm m-select2 m-select2-general" width="100%" >
 																<option>
 																	TODOS
@@ -208,7 +208,7 @@
 																	RESUELTOS
 																</option>
 															</select>
-														</p>
+														<!-- </p> -->
 													</div>
 													<div class="col-lg-12">
 														<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="180">
