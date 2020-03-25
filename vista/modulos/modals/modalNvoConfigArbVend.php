@@ -13,7 +13,7 @@
 				</button>
 			</div>
 			<div class="modal-body" >
-				<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="490">
+				<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true">
 					<div class="form-group row">
 						<div class="col-lg-12">
 							<input type="text" disabled class="form-control form-control-sm m-input" name="dscTrabModConfArbVen" id="dscTrabModConfArbVen">
@@ -114,11 +114,11 @@
 			</div>
 			<div class="modal-footer">
 				<div class="row">
-					<div class="col-lg-2 offset-lg-8">
+					<div class="col-lg-5">
 						<button type="button" class="btn btn-sm btnGuardarKqPst" title="Guardar" id="">Aceptar</button>	
 					</div>
 					<div class="col-lg-2">
-						<button type="button" class="btn btn-sm btn-danger close" data-dismiss="modal" title="Cerrar" id="">Cancelar</button>
+						<button type="button" class="btn btn-sm btn-danger" data-dismiss="modal" title="Cerrar" id="">Cancelar</button>
 					</div>
 				</div>
 			</div>
