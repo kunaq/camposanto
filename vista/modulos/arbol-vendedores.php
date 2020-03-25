@@ -81,7 +81,9 @@
 											<div class="col-lg-4"></div>
 											<div class="col-lg-3">
 												<p class="pull-right">
-													<button type="button" class="btn btn-sm btnGuardarKqPst" title="Nuevo" id="NvoConfArbVen"  style="margin-right:6px;"><i class="fa fa-plus"></i></button>	
+													<span data-toggle="modal" data-target="#m_modal_nvoConfigArbVen">
+														<button type="button" class="btn btn-sm btnGuardarKqPst" title="Nuevo" id="NvoConfArbVen"  style="margin-right:6px;"><i class="fa fa-plus"></i></button>
+													</span>	
 													<button type="button" class="btn btn-sm btnEditarKqPst2" title="Modificar" id="" style="margin-right:6px;"><i class="fa fa-pencil"></i></button>
 													<button type="button" class="btn btn-sm btn-danger" title="Eliminar" id=""><i class="fa fa-trash"></i></button>
 												</p>
