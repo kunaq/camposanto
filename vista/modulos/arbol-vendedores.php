@@ -191,10 +191,10 @@
 												</div>
 											</div>
 											<div class="tab-pane" id="m_tabs_2_2" role="tabpanel">
-												<div class="row">
+												<div class="row form-group">
 													<div class="col-lg-2 offset-lg-10">
 														<!-- <p class="pull-right"> -->
-															<select class="form-control form-control-sm m-select2 m-select2-general" width="100%" >
+															<select class="form-control form-control-sm m-select2 m-select2-general" style="width:100%" >
 																<option>
 																	TODOS
 																</option>
