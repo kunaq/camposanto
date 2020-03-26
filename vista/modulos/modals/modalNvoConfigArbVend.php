@@ -24,7 +24,7 @@
 							<label>Año</label>
 						</div>
 						<div class="col-lg-2">
-							<select class="form-control form-control-sm m-input" id="anioConfTraArbVen" class="anioConfTraArbVen">
+							<select class="form-control form-control-sm m-input  m-select2 m-select2-general" id="anioConfTraArbVen" class="anioConfTraArbVen">
 								<?php
 								$prueba = controladorEmpresa::ctrAnnoPeriodo();
 							  ?>
