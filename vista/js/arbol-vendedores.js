@@ -99,10 +99,15 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
 	$("#codComiArbVen").val($(this).attr("codcomisionista"));
 	$("#dscComiArbVen").val($(this).attr("dsccomisionista"));
 	var vendedor = $(this).attr("codTrabajador");
+    $("#cod_trabajador").val(vendedor);
 	var supervisor = $(this).attr("codsup");
 	$("#codSupVenArbVen").val(supervisor);
 	var jefeVentas = $(this).attr("jefeventas");
 	$("#codJefeVenArbVen").val(jefeVentas);
+    var flg_estado = $(this).attr("flg_estado");
+    $("#flgEstado").val(flg_estado);
+    var flg_modificacion_grupo = $(this).attr("flg_modificacion_grupo");
+    $("#flg_modificacion_grupo").val(flg_modificacion_grupo);
 	$.ajax({
         url:"ajax/ArbolVendedores.ajax.php",
         method: "POST",
@@ -185,9 +190,9 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
 
 });
 
-$("#NvoConfArbVen").on("click",function(){
-    $('#m_modal_nvoConfigArbVen').modal('show');
-});
+// $("#NvoConfArbVen").on("click",function(){
+//     $('#m_modal_nvoConfigArbVen').modal('show');
+// });
 
 //----------------------------------------------------------------------------------------------//
 //-------------------------------------------MODIFICAR------------------------------------------//
@@ -201,43 +206,52 @@ function validaModifArbol(){
 //     li_det = dw_detalle.GetRow()
 //     If li_det < 1 Then Return
 
-//     ls_activo = dw_trabajador.GetItemString(li_row, "flg_activo")
-//     If IsNull(ls_activo) Or Trim(ls_activo) = '' Then ls_activo = 'NO'
+    ls_activo = $("#flgEstado").val();
+    if (ls_activo == null || ls_activo == ''){ ls_activo = 'NO';}
 
-//     If ls_activo = 'NO' Then
-//         f_mensaje_axiom(Title, "MSGLIB", "NO PUEDE MODIFICAR EL ÁRBOL VENDEDOR DE UN TRABAJADOR INACTIVO.", "PRV")
-//         Return
-//     End If
+    if (ls_activo == 'NO') {
+        swal({
+            title: "Error",
+            text: "No puede modificar el árbol de vendedor de un trabajador inactivo.",
+            type: "error",
+            confirmButtonText: "Aceptar",
+          });
+        return;
+    }
 
-//     ls_codigo   = dw_trabajador.GetItemString(li_row, "cod_trabajador")
-//     ls_tipo     = dw_detalle.GetItemString(li_det, "cod_tipo_periodo")
-//     ls_periodo  = dw_detalle.GetItemString(li_det, "cod_periodo")
-//     li_anno         = dw_detalle.GetItemNumber(li_det, "num_anno")
+    ls_codigo   = $("#cod_trabajador").val();
+    ls_tipo     = $("tipoPeriodoArbVen").val();
+    ls_periodo  = $("#periodoArbVen").val();
+    li_anno     = $("#numAnioArbVen").val();
 
-//     // -- Valida -- //
+    // -- Valida -- //
 
-//     SELECT  vtama_periodo.flg_estado, vtama_periodo.flg_modificacion_grupo
-//     INTO        :ls_flg_estado, :ls_flg_modif
-//     FROM        vtama_periodo
-//     WHERE   vtama_periodo.num_anno = :li_anno
-//     AND     vtama_periodo.cod_tipo_periodo = :ls_tipo
-//     AND     vtama_periodo.cod_periodo = :ls_periodo;
+    var ls_flg_estado = $("#flgEstado").val();
+    var ls_flg_modif  = $("#flg_modificacion_grupo").val();
 
-//     f_verifica_transaccion(SQLCA)
+    if (ls_flg_modif == null || ls_flg_modif == '') { ls_flg_modif = 'NO';}
 
-//     If IsNull(ls_flg_modif) Or Trim(ls_flg_modif) = '' Then ls_flg_modif = 'NO'
+    if (ls_flg_modif == 'SI') {
+        swal({
+            title: "Error",
+            text: "Ya está cerrada la modificación de árbol vendedor.",
+            type: "error",
+            confirmButtonText: "Aceptar",
+          });
+        return;
+    }
 
-//     If ls_flg_modif = 'SI' Then
-//         f_mensaje_axiom(Title, "MSGLIB", "YA ESTA CERRADA LA MODIFICACIÓN DE ÁRBOL VENDEDOR.", "PRV")
-//         Return
-//     End If
+    if (ls_flg_estado == 'CE') {
+        swal({
+            title: "Error",
+            text: "El período seleccionado esta cerrado.",
+            type: "error",
+            confirmButtonText: "Aceptar",
+          });
+        return;
+    }
 
-//     If ls_flg_estado = 'CE' Then
-//         f_mensaje_axiom(Title, "MSGLIB", "EL PERÍODO SELECCIONADO ESTA CERRADO.", "PRV")
-//         Return
-//     End If
-
-//     // -- Ok -- //
+    // -- Ok -- //
 
 //     estructura.texto1 = "ACT"
 //     estructura.texto2 = ls_codigo + '-' + ls_periodo + '-' + ls_tipo
@@ -245,9 +259,10 @@ function validaModifArbol(){
 
 //     OpenWithParm(w_vta_rsp_mto_arbol_vendedor, estructura)
 //     dw_detalle.Retrieve(ls_codigo, li_anno)
+    $('#m_modal_nvoConfigArbVen').modal('show');
 
-// }
-//  function modificaArbol(){
+}
+ function modificaArbol(){
 
 //     String     ls_tipo, ls_periodo
 //     String      ls_flg_estado, ls_flg_modif

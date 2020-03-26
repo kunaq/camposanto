@@ -84,7 +84,7 @@
 													<span data-toggle="modal" data-target="#m_modal_nvoConfigArbVen">
 														<button type="button" class="btn btn-sm btnGuardarKqPst" title="Nuevo" id="NvoConfArbVen"  style="margin-right:6px;"><i class="fa fa-plus"></i></button>
 													</span>	
-													<button type="button" class="btn btn-sm btnEditarKqPst2" title="Modificar" id="" style="margin-right:6px;"><i class="fa fa-pencil"></i></button>
+													<button type="button" class="btn btn-sm btnEditarKqPst2" title="Modificar" onclick="validaModifArbol();" id="" style="margin-right:6px;"><i class="fa fa-pencil"></i></button>
 													<button type="button" class="btn btn-sm btn-danger" title="Eliminar" id=""><i class="fa fa-trash"></i></button>
 												</p>
 											</div>
@@ -126,6 +126,9 @@
 											<div class="tab-pane active" id="m_tabs_2_1" role="tabpanel">
 												<div class="col-lg-12">
 													<div class="form-group row">
+														<input type="hidden" id="flgEstado" name="flgEstado">
+														<input type="hidden" id="flg_modificacion_grupo" name="flg_modificacion_grupo">
+														<input type="hidden" id="cod_trabajador" name="cod_trabajador">
 														<div class="col-lg-2">
 															<label>Año:</label>
 														</div>
