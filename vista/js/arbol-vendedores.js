@@ -289,10 +289,8 @@ function validaModifArbol(){
     }
 
     ls_codigo   = $("#cod_trabajador").val();
-    ls_tipo     = $("tipoPeriodoArbVen").val();
-    console.log('ls_tipo',ls_tipo);
+    ls_tipo     = $("#tipoPeriodoArbVen").val();
     ls_periodo  = $("#periodoArbVen").val();
-     console.log('ls_periodo',ls_periodo);
     li_anno     = $("#numAnioArbVen").val();
 
     // -- Valida -- //
@@ -330,7 +328,7 @@ function validaModifArbol(){
 
 //     OpenWithParm(w_vta_rsp_mto_arbol_vendedor, estructura)
 //     dw_detalle.Retrieve(ls_codigo, li_anno)
-    buscanombre('nombreTrabajador',ls_codigo);
+    buscanombre('dscTrabModConfArbVen',ls_codigo);
     $("#anioConfTraArbVen").val(li_anno).trigger('change');
     $("#tipoPerConfTraArbVen").val(ls_tipo).trigger('change');
     $("#ls_tipo").val(ls_periodo);
