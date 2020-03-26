@@ -345,7 +345,7 @@ function validaModifArbol(){
 //     OpenWithParm(w_vta_rsp_mto_arbol_vendedor, estructura)
 //     dw_detalle.Retrieve(ls_codigo, li_anno)
     buscanombre('dscTrabModConfArbVen',ls_codigo);
-    $("#periodoConfTraArbVen").val(ls_periodo).trigger('change');
+    $("#periodoConfTraArbVen").val(ls_periodo);
     codGrupo = $("#codGrupoArbVen").val();
     codComi = $("#codComiArbVen").val();
     codJefe = $("#codSupVenArbVen").val();
