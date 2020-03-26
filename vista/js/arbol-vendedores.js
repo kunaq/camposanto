@@ -33,7 +33,7 @@ function creaTablaTrabajadoresArbVend(){
 	                }
 	                $("#listaTrabArbVen").append(
 	                    '<li class="nav-item '+classPeriodo+' itemLista">'+
-	                        '<a href="#" class="btnVerTrabArbVen" codTrabajador="'+value['cod_trabajador']+'">'+
+	                        '<a href="#" class="btnVerTrabArbVen" codTrabajador="'+value['cod_trabajador']+'" flg_activo="'+value['flg_activo']+'">'+
 	                        	'<div class="row" style = "color:'+color+'">'+
 									'<div class="col-md-4">'+value['cod_trabajador']+'</div>'+
 									'<div class="col-md-8">'+value['dsc_apellido_paterno']+' '+value['dsc_apellido_materno']+', '+value['dsc_nombres']+'</div>'+
@@ -51,6 +51,8 @@ $("#listaTrabArbVen").on("click","a.btnVerTrabArbVen",function(){
 	$(".ulListaVerTrabArbVen li").removeClass('liListaKqPstActive');
 	$(this).parent('li').addClass('liListaKqPstActive');
 	var codTrabajador = $(this).attr("codTrabajador");
+    var flg_activo = $(this).attr('flg_activo');
+    $("#flg_activo").val(flg_activo);
 	$("#listaHistConf .itemLista").remove();
 	$.ajax({
         url:"ajax/ArbolVendedores.ajax.php",
@@ -206,7 +208,7 @@ function validaModifArbol(){
 //     li_det = dw_detalle.GetRow()
 //     If li_det < 1 Then Return
 
-    ls_activo = $("#flgEstado").val();
+    ls_activo = $("#flg_activo").val();
     if (ls_activo == null || ls_activo == ''){ ls_activo = 'NO';}
 
     if (ls_activo == 'NO') {
