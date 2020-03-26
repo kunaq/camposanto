@@ -1,5 +1,5 @@
 <div class="modal fade" id="m_modal_nvoConfigArbVen" tabindex="-1" role="dialog" aria-labelledby="configuracionesModalLabel" aria-hidden="true">
-	<div class="modal-dialog modal-md" style="width: 50rem;" role="document">
+	<div class="modal-dialog modal-lg" style="width: 50rem;" role="document">
 		<div class="modal-content">
 		<form id="configuraciones">
 			<div class="modal-header">
@@ -44,14 +44,14 @@
 							<label>Periodo</label>
 						</div>
 						<div class="col-lg-3">
-							<select class="form-control form-control-sm m-input m-select2 m-select2-general" style="width: 100%" name="periodoConfTraArbVen" id="periodoConfTraArbVen">
+							<select class="form-control form-control-sm m-input m-select2 m-select2-general" style="width: 100%" name="periodoConfTraArbVen" id="ls_tipo">
 								<option selected="selected" disabled value="todos">Seleccione</option>
 							</select>
 						</div>
 					</div>
 					<hr>
 					<div class="form-group row">
-						<div class="col-lg-3">
+						<div class="col-lg-2">
 							<label>Grupo</label>
 						</div>
 						<div class="col-lg-3">
@@ -61,53 +61,53 @@
 								  ?>
 							 </select>
 						</div>
-						<div class="col-lg-6">
+						<div class="col-lg-7">
 							<input type="text" disabled class="form-control form-control-sm m-input" name="dscGrupoModConfArbVen" id="dscGrupoModConfArbVen">
 						</div>
 					</div>
 					<div class="form-group row">
-						<div class="col-lg-3">
+						<div class="col-lg-2">
 							<label>Comisionista</label>
 						</div>
 						<div class="col-lg-3">
-							<select class="form-control form-control-sm m-input" id="grupoConfTraArbVen" class="grupoConfTraArbVen">
+							<select class="form-control form-control-sm m-input" id="comisionistaArbVen" class="comisionistaArbVen">
 								<?php
 									//$prueba = controladorArbolVen::ctrNombreTrabajador();
 								  ?>
 							 </select>
 						</div>
-						<div class="col-lg-6">
-							<input type="text" disabled class="form-control form-control-sm m-input" name="dscGrupoModConfArbVen" id="dscGrupoModConfArbVen">
+						<div class="col-lg-7">
+							<input type="text" disabled class="form-control form-control-sm m-input" name="dscComisionistaArbVen" id="dscComisionistaArbVen">
 						</div>
 					</div>
 					<div class="form-group row">
-						<div class="col-lg-3">
+						<div class="col-lg-2">
 							<label>Supervisor</label>
 						</div>
 						<div class="col-lg-3">
-							<select class="form-control form-control-sm m-input" id="grupoConfTraArbVen" class="grupoConfTraArbVen">
+							<select class="form-control form-control-sm m-input" id="SupervisorArbVen" class="SupervisorArbVen">
 								<?php
 									//$prueba = controladorArbolVen::ctrNombreTrabajador();
 								  ?>
 							 </select>
 						</div>
-						<div class="col-lg-6">
-							<input type="text" disabled class="form-control form-control-sm m-input" name="dscGrupoModConfArbVen" id="dscGrupoModConfArbVen">
+						<div class="col-lg-7">
+							<input type="text" disabled class="form-control form-control-sm m-input" name="dscSpervisorArbVen" id="dscSpervisorArbVen">
 						</div>
 					</div>
 					<div class="form-group row">
-						<div class="col-lg-3">
+						<div class="col-lg-2">
 							<label>Jefe de ventas</label>
 						</div>
 						<div class="col-lg-3">
-							<select class="form-control form-control-sm m-input" id="grupoConfTraArbVen" class="grupoConfTraArbVen">
+							<select class="form-control form-control-sm m-input" id="jefeVentaArbVen" class="jefeVentaArbVen">
 								<?php
 									//$prueba = controladorArbolVen::ctrNombreTrabajador();
 								  ?>
 							 </select>
 						</div>
-						<div class="col-lg-6">
-							<input type="text" disabled class="form-control form-control-sm m-input" name="dscGrupoModConfArbVen" id="dscGrupoModConfArbVen">
+						<div class="col-lg-7">
+							<input type="text" disabled class="form-control form-control-sm m-input" name="dscJefeVentaArbVen" id="dscJefeVentaArbVen">
 						</div>
 					</div>
 				</div>
