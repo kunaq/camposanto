@@ -110,6 +110,7 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
     $("#flgEstado").val(flg_estado);
     var flg_modificacion_grupo = $(this).attr("flg_modificacion_grupo");
     $("#flg_modificacion_grupo").val(flg_modificacion_grupo);
+    buscaPeriodo();
 	$.ajax({
         url:"ajax/ArbolVendedores.ajax.php",
         method: "POST",
@@ -263,8 +264,8 @@ function creaTablaVendedor(tipo){
 }
 
 function buscaPeriodo(){
-    var annoPeriodo = document.getElementById("anioConfTraArbVen").value;
-    var tipoPeriodo = document.getElementById("tipoPerConfTraArbVen").value;
+    var annoPeriodo = document.getElementById("numAnioArbVen").value;
+    var tipoPeriodo = document.getElementById("tipoPeriodoArbVen").value;
     $.ajax({
         type:'GET',
         url: 'extensiones/captcha/buscaPeriodo.php',
@@ -307,7 +308,6 @@ function validaModifArbol(){
     li_anno     = $("#numAnioArbVen").val();
     $("#anioConfTraArbVen").val(li_anno).trigger('change');
     $("#tipoPerConfTraArbVen").val(ls_tipo).trigger('change');
-    buscaPeriodo();
 
     // -- Valida -- //
 
