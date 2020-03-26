@@ -345,7 +345,6 @@ function validaModifArbol(){
 //     OpenWithParm(w_vta_rsp_mto_arbol_vendedor, estructura)
 //     dw_detalle.Retrieve(ls_codigo, li_anno)
     buscanombre('dscTrabModConfArbVen',ls_codigo);
-    $("#periodoConfTraArbVen").val(ls_periodo);
     codGrupo = $("#codGrupoArbVen").val();
     codComi = $("#codComiArbVen").val();
     codJefe = $("#codSupVenArbVen").val();
@@ -355,6 +354,7 @@ function validaModifArbol(){
     $("#SupervisorModArbVen").val(codJefe).trigger('change');
     $("#jefeVentaModArbVen").val(codSup).trigger('change');
     $('#m_modal_nvoConfigArbVen').modal('show');
+    $("#periodoConfTraArbVen").val(ls_periodo).trigger('change');
 
 }
  function modificaArbol(){
