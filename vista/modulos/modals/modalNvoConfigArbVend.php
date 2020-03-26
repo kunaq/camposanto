@@ -120,7 +120,7 @@
 						</div>
 						<div class="col-lg-3">
 							<div class="input-group m-input-group">
-								<input type="text" class="form-control form-control-sm m-input" name="jefeVentaModArbVen" disabled="" id="jefeVentaModArbVen" onchange="nombreTrabajador(this.value,'dscJefeVentaArbVen');">
+								<input type="text" class="form-control form-control-sm m-input" name="jefeVentaModArbVen" disabled="" id="jefeVentaModArbVen" onchange="nombreTrabajador(this.value,'dscJefeVentaModArbVen');">
 								<div class="input-group-append">
 									<span data-toggle="modal" data-target="#m_modal_4">
 										<button type="button" class="btn btn-sm btnGuardarKqPst" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar grupo" onclick="creaTablaVendedor('cobrador');">
@@ -132,7 +132,7 @@
 							</div>
 						</div>
 						<div class="col-lg-7">
-							<input type="text" disabled class="form-control form-control-sm m-input" name="dscJefeVentaArbVen" id="dscJefeVentaArbVen">
+							<input type="text" disabled class="form-control form-control-sm m-input" name="dscJefeVentaModArbVen" id="dscJefeVentaModArbVen">
 						</div>
 					</div>
 				</div>
