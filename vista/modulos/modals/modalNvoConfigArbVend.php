@@ -16,7 +16,7 @@
 				<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true">
 					<div class="form-group row">
 						<div class="col-lg-12">
-							<input type="text" disabled class="form-control form-control-sm m-input" name="dscTrabModConfArbVen" id="dscTrabModConfArbVen">
+							<input type="text" disabled class="form-control form-control-sm m-input" name="dscTrabModConfArbVen" style="text-align: center;" id="dscTrabModConfArbVen">
 						</div>
 					</div>
 					<div class="form-group row">
@@ -77,11 +77,17 @@
 							<label>Comisionista</label>
 						</div>
 						<div class="col-lg-3">
-							<select class="form-control form-control-sm m-input" id="comisionistaModArbVen" class="comisionistaModArbVen">
-								<?php
-									//$prueba = controladorArbolVen::ctrNombreTrabajador();
-								  ?>
-							 </select>
+							<div class="input-group m-input-group">
+								<input type="text" class="form-control form-control-sm m-input" name="comisionistaModArbVen" disabled="" id="comisionistaModArbVen" onchange="nombreTrabajador(this.value,'dscComisionistaArbVen');">
+								<div class="input-group-append">
+									<span data-toggle="modal" data-target="#m_modal_4">
+										<button type="button" class="btn btn-sm btnGuardarKqPst" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar grupo" onclick="creaTablaVendedor('cobrador');">
+											<i class="fa fa-search">
+											</i>
+										</button>
+									</span>
+								</div>
+							</div>
 						</div>
 						<div class="col-lg-7">
 							<input type="text" disabled class="form-control form-control-sm m-input" name="dscComisionistaArbVen" id="dscComisionistaArbVen">
@@ -92,11 +98,17 @@
 							<label>Supervisor</label>
 						</div>
 						<div class="col-lg-3">
-							<select class="form-control form-control-sm m-input" id="SupervisorModArbVen" class="SupervisorModArbVen">
-								<?php
-									//$prueba = controladorArbolVen::ctrNombreTrabajador();
-								  ?>
-							 </select>
+							<div class="input-group m-input-group">
+								<input type="text" class="form-control form-control-sm m-input" name="SupervisorModArbVen" disabled="" id="SupervisorModArbVen" onchange="nombreTrabajador(this.value,'dscSpervisorArbVen');">
+								<div class="input-group-append">
+									<span data-toggle="modal" data-target="#m_modal_4">
+										<button type="button" class="btn btn-sm btnGuardarKqPst" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar grupo" onclick="creaTablaVendedor('cobrador');">
+											<i class="fa fa-search">
+											</i>
+										</button>
+									</span>
+								</div>
+							</div>
 						</div>
 						<div class="col-lg-7">
 							<input type="text" disabled class="form-control form-control-sm m-input" name="dscSpervisorArbVen" id="dscSpervisorArbVen">
@@ -107,11 +119,17 @@
 							<label>Jefe de ventas</label>
 						</div>
 						<div class="col-lg-3">
-							<select class="form-control form-control-sm m-input" id="jefeVentaModArbVen" class="jefeVentaModArbVen">
-								<?php
-									//$prueba = controladorArbolVen::ctrNombreTrabajador();
-								  ?>
-							 </select>
+							<div class="input-group m-input-group">
+								<input type="text" class="form-control form-control-sm m-input" name="jefeVentaModArbVen" disabled="" id="jefeVentaModArbVen" onchange="nombreTrabajador(this.value,'dscJefeVentaArbVen');">
+								<div class="input-group-append">
+									<span data-toggle="modal" data-target="#m_modal_4">
+										<button type="button" class="btn btn-sm btnGuardarKqPst" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar grupo" onclick="creaTablaVendedor('cobrador');">
+											<i class="fa fa-search">
+											</i>
+										</button>
+									</span>
+								</div>
+							</div>
 						</div>
 						<div class="col-lg-7">
 							<input type="text" disabled class="form-control form-control-sm m-input" name="dscJefeVentaArbVen" id="dscJefeVentaArbVen">
