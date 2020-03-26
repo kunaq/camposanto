@@ -25,6 +25,7 @@
 						</div>
 						<div class="col-lg-2">
 							<select class="form-control form-control-sm m-input  m-select2 m-select2-general" id="anioConfTraArbVen" class="anioConfTraArbVen">
+								<option  disabled value="todos">Seleccione</option>
 								<?php
 								$prueba = controladorEmpresa::ctrAnnoPeriodo();
 							  ?>
@@ -35,7 +36,7 @@
 						</div>
 						<div class="col-lg-3">
 							<select class="form-control form-control-sm m-input m-select2 m-select2-general" style="width: 100%" name="tipoPerConfTraArbVen" id="tipoPerConfTraArbVen">
-								<option selected="selected" disabled value="todos">Seleccione</option>
+								<option  disabled value="todos">Seleccione</option>
 								<option value="15D">15D</option>
 								<option value="30D">30D</option>
 							</select>
