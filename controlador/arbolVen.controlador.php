@@ -12,7 +12,7 @@ class ControladorArbolVen{
 		$tabla2 = 'vtama_tipo_comisionista';
 		$tabla3 = 'vtama_grupo';
 		$tabla4 = 'vtama_periodo';
-		$respuesta = ModeloArbolVen::mdlVerDetTrabajador($tabla,$tabla2,$tabla3,$codTrabajador);
+		$respuesta = ModeloArbolVen::mdlVerDetTrabajador($tabla,$tabla2,$tabla3,$tabla4,$codTrabajador);
 		return $respuesta;
 	}//function ctrVerDetTrabajador(
 
