@@ -290,7 +290,9 @@ function validaModifArbol(){
 
     ls_codigo   = $("#cod_trabajador").val();
     ls_tipo     = $("tipoPeriodoArbVen").val();
+    console.log('ls_tipo',ls_tipo);
     ls_periodo  = $("#periodoArbVen").val();
+     console.log('ls_periodo',ls_periodo);
     li_anno     = $("#numAnioArbVen").val();
 
     // -- Valida -- //
