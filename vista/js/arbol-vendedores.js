@@ -262,6 +262,19 @@ function creaTablaVendedor(tipo){
     });
 }
 
+function buscaPeriodo(){
+    var annoPeriodo = document.getElementById("anioConfTraArbVen").value;
+    var tipoPeriodo = document.getElementById("tipoPerConfTraArbVen").value;
+    $.ajax({
+        type:'GET',
+        url: 'extensiones/captcha/buscaPeriodo.php',
+        dataType: 'text',
+        data: {'annoPeriodo':annoPeriodo, 'tipoPeriodo':tipoPeriodo},
+        success : function(response){
+            $("#periodoConfTraArbVen").html(response);
+         }//success
+    });//ajax
+}//buscaPeriodo
 
 //----------------------------------------------------------------------------------------------//
 //-------------------------------------------MODIFICAR------------------------------------------//
@@ -331,6 +344,7 @@ function validaModifArbol(){
     buscanombre('dscTrabModConfArbVen',ls_codigo);
     $("#anioConfTraArbVen").val(li_anno).trigger('change');
     $("#tipoPerConfTraArbVen").val(ls_tipo).trigger('change');
+    buscaPeriodo();
     $("#ls_tipo").val(ls_periodo);
     codGrupo = $("#codGrupoArbVen").val();
     codComi = $("#codComiArbVen").val();
