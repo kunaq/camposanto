@@ -277,6 +277,46 @@ function buscaPeriodo(){
     });//ajax
 }//buscaPeriodo
 
+$("#btnGrupoModArbVen").on('click',function(){
+    $('#tablaGrupo').html('<div class="loader"></div>');
+    $.ajax({
+        url: 'extensiones/captcha/creaTablaGrupo.php',
+        success : function(respuesta){
+            // console.log(respuesta);
+            $('#tablaGrupo').html('')
+            $("#tablaGrupo").html(respuesta);
+            $('#myTableGrupo').DataTable();
+        }
+    });
+});
+
+$("#btnComModArbVen").on('click',function(){
+    $('#tablaComisionista').html('<div class="loader"></div>');
+    $.ajax({
+        url: 'extensiones/captcha/creaTablaComisionista.php',
+        success : function(respuesta){
+            // console.log(respuesta);
+            $('#tablaComisionista').html('')
+            $("#tablaComisionista").html(respuesta);
+            $('#myTableComisionista').DataTable();
+        }
+    });
+});
+
+$("#btnAgFun").on('click',function(){
+    var accion = $("#entradaModal").val();
+    $('#tablaSuperior').html('<div class="loader"></div>');
+    $.ajax({
+        url: 'extensiones/captcha/creaTablaSuperior.php',
+        success : function(respuesta){
+            // console.log(respuesta);
+            $('#tablaSuperior').html('')
+            $("#tablaSuperior").html(respuesta);
+            $('#myTableSuperior').DataTable();
+        }
+    });
+});
+
 //----------------------------------------------------------------------------------------------//
 //-------------------------------------------MODIFICAR------------------------------------------//
 //----------------------------------------------------------------------------------------------//
@@ -347,11 +387,15 @@ function validaModifArbol(){
     $("#comisionistaModArbVen").val(codComi).trigger('change');
     $("#SupervisorModArbVen").val(codJefe).trigger('change');
     $("#jefeVentaModArbVen").val(codSup).trigger('change');
+    $("#entradaModal").val('modificacion');
     $('#m_modal_nvoConfigArbVen').modal('show');
     $("#periodoConfTraArbVen").val(ls_periodo).trigger('change');
 
 }
- function modificaArbol(){
+
+function 
+
+function modificaArbol(){
 
 //     String     ls_tipo, ls_periodo
 //     String      ls_flg_estado, ls_flg_modif

@@ -58,7 +58,7 @@
 								<input type="text" class="form-control form-control-sm m-input" name="grupoModTraArbVen" disabled="" id="grupoModTraArbVen" onchange="nombreGrupoVenta(this.value,'dscGrupoModConfArbVen');">
 								<div class="input-group-append">
 									<span data-toggle="modal" data-target="#m_modal_4">
-										<button type="button" class="btn btn-sm btnGuardarKqPst" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar grupo" onclick="creaTablaVendedor('cobrador');">
+										<button type="button" class="btn btn-sm btnGuardarKqPst" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar grupo" id="btnGrupoModArbVen">
 											<i class="fa fa-search">
 											</i>
 										</button>
@@ -79,7 +79,7 @@
 								<input type="text" class="form-control form-control-sm m-input" name="comisionistaModArbVen" disabled="" id="comisionistaModArbVen" onchange="nombreComisionista(this.value,'dscComisionistaArbVen');">
 								<div class="input-group-append">
 									<span data-toggle="modal" data-target="#m_modal_4">
-										<button type="button" class="btn btn-sm btnGuardarKqPst" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar grupo" onclick="creaTablaVendedor('cobrador');">
+										<button type="button" class="btn btn-sm btnGuardarKqPst" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar grupo" id="btnComModArbVen">
 											<i class="fa fa-search">
 											</i>
 										</button>
