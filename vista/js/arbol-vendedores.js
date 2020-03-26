@@ -272,7 +272,7 @@ function buscaPeriodo(){
         data: {'annoPeriodo':annoPeriodo, 'tipoPeriodo':tipoPeriodo},
         success : function(response){
             console.log('periodo',response);
-            $("#periodoConfTraArbVen").html(response);
+            document.getElementById("periodoConfTraArbVen").innerHTML = response;
          }//success
     });//ajax
 }//buscaPeriodo
