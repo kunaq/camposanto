@@ -271,6 +271,7 @@ function buscaPeriodo(){
         dataType: 'text',
         data: {'annoPeriodo':annoPeriodo, 'tipoPeriodo':tipoPeriodo},
         success : function(response){
+            console.log('periodo',respuesta);
             $("#periodoConfTraArbVen").html(response);
          }//success
     });//ajax
