@@ -282,15 +282,9 @@ function buscaPeriodo(){
 //----------------------------------------------------------------------------------------------//
 
 function validaModifArbol(){
-    
-//     li_row = dw_trabajador.GetRow()
-//     If li_row < 1 Then Return
-
-//     li_det = dw_detalle.GetRow()
-//     If li_det < 1 Then Return
 
     ls_activo = $("#flg_activo").val();
-    if (ls_activo == null || ls_activo == ''){ ls_activo = 'NO';}
+    if (ls_activo == null || ls_activo == ''){ return; }
 
     if (ls_activo == 'NO') {
         swal({
