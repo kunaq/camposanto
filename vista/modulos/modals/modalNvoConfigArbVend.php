@@ -45,9 +45,7 @@
 							<label>Periodo</label>
 						</div>
 						<div class="col-lg-3">
-							<select class="form-control form-control-sm m-input m-select2 m-select2-general" style="width: 100%" name="periodoConfTraArbVen" id="periodoConfTraArbVen">
-								
-							</select>
+							<select class="form-control form-control-sm m-input m-select2 m-select2-general" style="width: 100%" name="periodoConfTraArbVen" id="periodoConfTraArbVen"></select>
 						</div>
 					</div>
 					<hr>
