@@ -195,6 +195,73 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
 // $("#NvoConfArbVen").on("click",function(){
 //     $('#m_modal_nvoConfigArbVen').modal('show');
 // });
+//----------------------------------------------------------------------------------------------//
+//-------------------------------------FUNCIONES AUXILIARES-------------------------------------//
+//----------------------------------------------------------------------------------------------//
+function buscanombre(campo,codTrabajador){
+    $.ajax({
+        url:"ajax/ArbolVendedores.ajax.php",
+        method: "POST",
+        dataType: 'json',
+        data: {'codTrabajador':codTrabajador,'accion':'nombreTrabajador'},
+        success: function(respuesta){
+            nombre = codTrabajador+' / '+respuesta['dsc_apellido_paterno']+' '+respuesta['dsc_apellido_materno']+', '+respuesta['dsc_nombres'];
+            document.getElementById(campo).value=nombre;
+        }//succes
+    });//ajax
+}
+
+function nombreTrabajador(valor,campo){
+    $.ajax({
+        type: 'GET',
+        url: 'extensiones/captcha/buscaNombre.php',
+        dataType: 'text',
+        data: { 'value' : valor },
+        success : function(respuesta){
+            document.getElementById(campo).value = respuesta;
+        }
+    });
+}//nombreTrabajador
+
+function nombreGrupoVenta(valor,campo){
+    $.ajax({
+        type: 'POST',
+        url: 'extensiones/captcha/buscarNombreGrupo.php',
+        dataType: 'text',
+        data: { 'cod' : valor },
+        success : function(respuesta){
+            document.getElementById(campo).value = respuesta;
+        }
+    });
+}//nombreGrupoVenta
+
+function nombreComisionista(valor,campo){
+    $.ajax({
+        type: 'POST',
+        url: 'extensiones/captcha/buscaNombreComisionista.php',
+        dataType: 'text',
+        data: { 'cod' : valor },
+        success : function(respuesta){
+            document.getElementById(campo).value = respuesta;
+        }
+    });
+}//nombreGrupoVenta
+
+function creaTablaVendedor(tipo){
+    $('#tablaVendedor').html('<div class="loader"></div>');
+    $.ajax({
+        url: 'extensiones/captcha/creaTablaVendedor.php',
+        dataType: 'text',
+        data: { 'tipo' : tipo },
+        success : function(respuesta){
+            // console.log(respuesta);
+            $('#tablaVendedor').html('')
+            $("#tablaVendedor").html(respuesta);
+            $('#myTableVendedor').DataTable();
+        }
+    });
+}
+
 
 //----------------------------------------------------------------------------------------------//
 //-------------------------------------------MODIFICAR------------------------------------------//
@@ -261,6 +328,18 @@ function validaModifArbol(){
 
 //     OpenWithParm(w_vta_rsp_mto_arbol_vendedor, estructura)
 //     dw_detalle.Retrieve(ls_codigo, li_anno)
+    buscanombre('nombreTrabajador',ls_codigo);
+    $("#anioConfTraArbVen").val(li_anno).trigger('change');
+    $("#tipoPerConfTraArbVen").val(ls_tipo).trigger('change');
+    $("#ls_tipo").val(ls_periodo);
+    codGrupo = $("#codGrupoArbVen").val();
+    codComi = $("#codComiArbVen").val();
+    codJefe = $("#codSupVenArbVen").val();
+    codSup = $("#codJefeVenArbVen").val();
+    $("#grupoModTraArbVen").val(codGrupo).trigger('change');
+    $("#comisionistaModArbVen").val(codComi).trigger('change');
+    $("#SupervisorModArbVen").val(codJefe).trigger('change');
+    $("#jefeVentaModArbVen").val(codSup).trigger('change');
     $('#m_modal_nvoConfigArbVen').modal('show');
 
 }

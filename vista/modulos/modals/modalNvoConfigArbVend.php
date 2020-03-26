@@ -55,11 +55,17 @@
 							<label>Grupo</label>
 						</div>
 						<div class="col-lg-3">
-							<select class="form-control form-control-sm m-input" id="grupoConfTraArbVen" class="grupoConfTraArbVen">
-								<?php
-									//$prueba = controladorArbolVen::ctrNombreTrabajador();
-								  ?>
-							 </select>
+							<div class="input-group m-input-group">
+								<input type="text" class="form-control form-control-sm m-input" name="grupoModTraArbVen" disabled="" id="grupoModTraArbVen" onchange="nombreTrabajador(this.value,'dscGrupoModConfArbVen');">
+								<div class="input-group-append">
+									<span data-toggle="modal" data-target="#m_modal_4">
+										<button type="button" class="btn btn-sm btnGuardarKqPst" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar grupo" onclick="creaTablaVendedor('cobrador');">
+											<i class="fa fa-search">
+											</i>
+										</button>
+									</span>
+								</div>
+							</div>
 						</div>
 						<div class="col-lg-7">
 							<input type="text" disabled class="form-control form-control-sm m-input" name="dscGrupoModConfArbVen" id="dscGrupoModConfArbVen">
@@ -70,7 +76,7 @@
 							<label>Comisionista</label>
 						</div>
 						<div class="col-lg-3">
-							<select class="form-control form-control-sm m-input" id="comisionistaArbVen" class="comisionistaArbVen">
+							<select class="form-control form-control-sm m-input" id="comisionistaModArbVen" class="comisionistaModArbVen">
 								<?php
 									//$prueba = controladorArbolVen::ctrNombreTrabajador();
 								  ?>
@@ -85,7 +91,7 @@
 							<label>Supervisor</label>
 						</div>
 						<div class="col-lg-3">
-							<select class="form-control form-control-sm m-input" id="SupervisorArbVen" class="SupervisorArbVen">
+							<select class="form-control form-control-sm m-input" id="SupervisorModArbVen" class="SupervisorModArbVen">
 								<?php
 									//$prueba = controladorArbolVen::ctrNombreTrabajador();
 								  ?>
@@ -100,7 +106,7 @@
 							<label>Jefe de ventas</label>
 						</div>
 						<div class="col-lg-3">
-							<select class="form-control form-control-sm m-input" id="jefeVentaArbVen" class="jefeVentaArbVen">
+							<select class="form-control form-control-sm m-input" id="jefeVentaModArbVen" class="jefeVentaModArbVen">
 								<?php
 									//$prueba = controladorArbolVen::ctrNombreTrabajador();
 								  ?>

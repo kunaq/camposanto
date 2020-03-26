@@ -24,7 +24,7 @@
 										<div class="row ">
 											<div class="col-lg-8">
 												<div class="m-input-icon m-input-icon--left px-0">
-													<input type="text" class="form-control form-control-sm m-input">
+													<input type="text" id="nombreTrabajador" name="nombreTrabajador" class="form-control form-control-sm m-input">
 													<span class="m-input-icon__icon m-input-icon__icon--left">
 														<span>
 															<i class="la la-search"></i>
@@ -249,4 +249,6 @@
 
 <?php
 include "modals/modalNvoConfigArbVend.php";
+include "modals/modalTablaGrupo.php";
+include "modals/modalTablaTrabArbVen.php";
 ?>
