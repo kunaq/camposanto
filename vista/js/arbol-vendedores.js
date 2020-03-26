@@ -345,7 +345,7 @@ function validaModifArbol(){
     $("#anioConfTraArbVen").val(li_anno).trigger('change');
     $("#tipoPerConfTraArbVen").val(ls_tipo).trigger('change');
     buscaPeriodo();
-    $("#periodoConfTraArbVen").val(ls_periodo);
+    $("#periodoConfTraArbVen").val(ls_periodo).trigger('change');
     codGrupo = $("#codGrupoArbVen").val();
     codComi = $("#codComiArbVen").val();
     codJefe = $("#codSupVenArbVen").val();
