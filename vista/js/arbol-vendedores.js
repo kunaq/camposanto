@@ -69,7 +69,7 @@ $("#listaTrabArbVen").on("click","a.btnVerTrabArbVen",function(){
                 }
             	$("#listaHistConf").append(
                     '<li class="nav-item '+classPeriodo+' itemLista">'+
-                        '<a href="#" class="btnVerHistConf" codTrabajador="'+codTrabajador+'" numAnio="'+value['num_anno']+'" tipoperiodo="'+value['cod_tipo_periodo']+'" periodo="'+value['cod_periodo']+'" jefeventas="'+value['cod_jefeventas']+'" codgrupo="'+value['cod_grupo']+'" dscgrupo="'+value['dsc_grupo']+'" codcomisionista="'+value['cod_tipo_comisionista']+'" dsccomisionista="'+value['dsc_tipo_comisionista']+'" codsup="'+value['cod_supervisor']+'">'+
+                        '<a href="#" class="btnVerHistConf" codTrabajador="'+codTrabajador+'" numAnio="'+value['num_anno']+'" tipoperiodo="'+value['cod_tipo_periodo']+'" periodo="'+value['cod_periodo']+'" jefeventas="'+value['cod_jefeventas']+'" codgrupo="'+value['cod_grupo']+'" dscgrupo="'+value['dsc_grupo']+'" codcomisionista="'+value['cod_tipo_comisionista']+'" dsccomisionista="'+value['dsc_tipo_comisionista']+'" codsup="'+value['cod_supervisor']+'" flg_estado="'+value[flg_estado]+'" flg_modificacion_grupo="'+value['flg_modificacion_grupo']+'">'+
                         	'<div class="row">'+
 								'<div class="col-md-2">'+(index+1)+'</div>'+
 								'<div class="col-md-2">'+value['num_anno']+'</div>'+
@@ -188,3 +188,297 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
 $("#NvoConfArbVen").on("click",function(){
     $('#m_modal_nvoConfigArbVen').modal('show');
 });
+
+//----------------------------------------------------------------------------------------------//
+//-------------------------------------------MODIFICAR------------------------------------------//
+//----------------------------------------------------------------------------------------------//
+
+function validaModifArbol(){
+    
+//     li_row = dw_trabajador.GetRow()
+//     If li_row < 1 Then Return
+
+//     li_det = dw_detalle.GetRow()
+//     If li_det < 1 Then Return
+
+//     ls_activo = dw_trabajador.GetItemString(li_row, "flg_activo")
+//     If IsNull(ls_activo) Or Trim(ls_activo) = '' Then ls_activo = 'NO'
+
+//     If ls_activo = 'NO' Then
+//         f_mensaje_axiom(Title, "MSGLIB", "NO PUEDE MODIFICAR EL ÁRBOL VENDEDOR DE UN TRABAJADOR INACTIVO.", "PRV")
+//         Return
+//     End If
+
+//     ls_codigo   = dw_trabajador.GetItemString(li_row, "cod_trabajador")
+//     ls_tipo     = dw_detalle.GetItemString(li_det, "cod_tipo_periodo")
+//     ls_periodo  = dw_detalle.GetItemString(li_det, "cod_periodo")
+//     li_anno         = dw_detalle.GetItemNumber(li_det, "num_anno")
+
+//     // -- Valida -- //
+
+//     SELECT  vtama_periodo.flg_estado, vtama_periodo.flg_modificacion_grupo
+//     INTO        :ls_flg_estado, :ls_flg_modif
+//     FROM        vtama_periodo
+//     WHERE   vtama_periodo.num_anno = :li_anno
+//     AND     vtama_periodo.cod_tipo_periodo = :ls_tipo
+//     AND     vtama_periodo.cod_periodo = :ls_periodo;
+
+//     f_verifica_transaccion(SQLCA)
+
+//     If IsNull(ls_flg_modif) Or Trim(ls_flg_modif) = '' Then ls_flg_modif = 'NO'
+
+//     If ls_flg_modif = 'SI' Then
+//         f_mensaje_axiom(Title, "MSGLIB", "YA ESTA CERRADA LA MODIFICACIÓN DE ÁRBOL VENDEDOR.", "PRV")
+//         Return
+//     End If
+
+//     If ls_flg_estado = 'CE' Then
+//         f_mensaje_axiom(Title, "MSGLIB", "EL PERÍODO SELECCIONADO ESTA CERRADO.", "PRV")
+//         Return
+//     End If
+
+//     // -- Ok -- //
+
+//     estructura.texto1 = "ACT"
+//     estructura.texto2 = ls_codigo + '-' + ls_periodo + '-' + ls_tipo
+//     estructura.numero1 = li_anno
+
+//     OpenWithParm(w_vta_rsp_mto_arbol_vendedor, estructura)
+//     dw_detalle.Retrieve(ls_codigo, li_anno)
+
+// }
+//  function modificaArbol(){
+
+//     String     ls_tipo, ls_periodo
+//     String      ls_flg_estado, ls_flg_modif
+//     String      ls_jefe, ls_supervisor, ls_grupo, ls_tipo_comisionista
+//     String      ls_flg_supervisor, ls_flg_jefe
+//     String      ls_jefe_gpo, ls_supervisor_gpo
+//     Integer li_anno, li_existe
+
+//     dw_mto.accepttext()
+
+//     ls_jefe = dw_mto.GetItemString(1, "cod_jefeventas")
+//     ls_supervisor = dw_mto.GetItemString(1, "cod_supervisor")
+//     ls_grupo = dw_mto.GetItemString(1, "cod_grupo")
+//     ls_tipo_comisionista = dw_mto.GetItemString(1, "cod_tipo_comisionista")
+
+//     ls_tipo = dw_mto.GetItemString(1, "cod_tipo_periodo")
+//     ls_periodo = dw_mto.GetItemString(1, "cod_periodo")
+//     li_anno = dw_mto.GetItemNumber(1, "num_anno")
+
+//     ls_flg_supervisor = 'NO'
+//     ls_flg_jefe = 'NO'
+
+//     // -- Valida -- //
+
+//     If IsNull(li_anno) Or li_anno = 0 Then
+//         f_sys_mensaje_usuario(Title, "MSGLIB", "DEBE SELECCIONAR EL AÑO.", "PRV")
+//         Return
+//     End If
+
+//     If IsNull(ls_tipo) Or Trim(ls_tipo) = '' Then
+//         f_sys_mensaje_usuario(Title, "MSGLIB", "DEBE SELECCIONAR EL TIPO DE PERÍODO.", "PRV")
+//         Return
+//     End If
+
+//     If IsNull(ls_periodo) Or Trim(ls_periodo) = '' Then
+//         f_sys_mensaje_usuario(Title, "MSGLIB", "DEBE SELECCIONAR EL PERÍODO.", "PRV")
+//         Return
+//     End If
+
+//     If IsNull(ls_grupo) Or Trim(ls_grupo) = '' Then
+//         f_sys_mensaje_usuario(Title, "MSGLIB", "DEBE SELECCIONAR EL GRUPO DE VENTA.", "PRV")
+//         Return
+//     End If
+
+//     If IsNull(ls_tipo_comisionista) Or Trim(ls_tipo_comisionista) = '' Then
+//         f_sys_mensaje_usuario(Title, "MSGLIB", "DEBE SELECCIONAR EL TIPO DE COMISIONISTA.", "PRV")
+//         Return
+//     End If
+
+//     If IsNull(ls_supervisor) Or Trim(ls_supervisor) = '' Then
+//         f_sys_mensaje_usuario(Title, "MSGLIB", "DEBE SELECCIONAR EL SUPERVISOR.", "PRV")
+//         Return
+//     End If
+
+//     If IsNull(ls_jefe) Or Trim(ls_jefe) = '' Then
+//         f_sys_mensaje_usuario(Title, "MSGLIB", "DEBE SELECCIONAR EL JEFE DE VENTAS.", "PRV")
+//         Return
+//     End If
+
+//     // -- Valida -- //
+
+//     If is_opcion = 'INS' Then
+        
+//         li_existe = 0
+        
+//         SELECT  COUNT(1)
+//         INTO        :li_existe
+//         FROM        vtama_historico_vendedor
+//         WHERE   vtama_historico_vendedor.cod_trabajador = :is_codigo
+//         AND     vtama_historico_vendedor.num_anno = :li_anno
+//         AND     vtama_historico_vendedor.cod_tipo_periodo = :ls_tipo
+//         AND     vtama_historico_vendedor    .cod_periodo = :ls_periodo;
+        
+//         f_verifica_transaccion(SQLCA)
+        
+//         If li_existe > 0 Then
+//             f_sys_mensaje_usuario(Title, "MSGLIB", "EL PERÍODO INGRESADO YA ESTA CONFIGURADO PARA EL CONSEJERO.~r~nPOR FAVOR VERIFIQUE.", "PRV")
+//             Return
+//         End If
+        
+//     End If
+
+//     // -- Periodo -- //
+
+//     SELECT  vtama_periodo.flg_estado, vtama_periodo.flg_modificacion_grupo
+//     INTO        :ls_flg_estado, :ls_flg_modif
+//     FROM        vtama_periodo
+//     WHERE   vtama_periodo.num_anno = :li_anno
+//     AND     vtama_periodo.cod_tipo_periodo = :ls_tipo
+//     AND     vtama_periodo.cod_periodo = :ls_periodo;
+
+//     f_verifica_transaccion(SQLCA)
+
+//     If IsNull(ls_flg_modif) Or Trim(ls_flg_modif) = '' Then ls_flg_modif = 'NO'
+
+//     If ls_flg_modif = 'SI' Then
+//         f_sys_mensaje_usuario(Title, "MSGLIB", "YA ESTA CERRADA LA MODIFICACIÓN DE ÁRBOL VENDEDOR.", "PRV")
+//         Return
+//     End If
+
+//     If ls_flg_estado = 'CE' Then
+//         f_sys_mensaje_usuario(Title, "MSGLIB", "EL PERÍODO SELECCIONADO ESTA CERRADO.", "PRV")
+//         Return
+//     End If
+
+//     // -- Obtiene Jefe y Supervisor del grupo -- //
+
+//     SELECT  vtama_grupo.cod_jefe_ventas, vtama_grupo.cod_supervisor
+//     INTO        :ls_jefe_gpo, :ls_supervisor_gpo
+//     FROM        vtama_grupo
+//     WHERE   vtama_grupo.cod_grupo = :ls_grupo;
+
+//     f_verifica_transaccion(SQLCA)
+
+//     // -- Flag -- //
+
+//     If ls_jefe_gpo = is_codigo Then ls_flg_jefe = 'SI'
+//     If ls_supervisor_gpo = is_codigo Then ls_flg_supervisor = 'SI'
+
+//     // -- Setea -- //
+
+//     dw_mto.SetItem(1, "cod_trabajador", is_codigo)
+//     dw_mto.SetItem(1, "flg_supervisor", ls_flg_supervisor)
+//     dw_mto.SetItem(1, "flg_jefeventas", ls_flg_jefe)
+
+//     // -- Graba -- //
+
+//     If dw_mto.Update() <> 1 Then Goto db_error
+
+//     Commit;
+//     f_sys_mensaje_usuario(Title, "MSGLIB", "SE GRABO EL REGISTRO SATISFACTORIAMENTE.", "MSG")
+//     Close(w_vta_rsp_mto_arbol_vendedor)
+//     Return
+
+//     db_error:
+//     RollBack;
+//     f_sys_mensaje_usuario(Title, "MSGLIB", "ERROR EN LA ACTUALIZACION DE LA BASE DE DATOS.", "ERR")
+ }
+
+ //----------------------------------------------------------------------------------------------//
+//--------------------------------------------ELIMINAR------------------------------------------//
+//----------------------------------------------------------------------------------------------//
+
+function eliminaArbol(){
+
+    // String      ls_codigo
+    // String      ls_activo
+    // String      ls_tipo, ls_periodo
+    // String      ls_flg_estado, ls_flg_modif
+    // Integer li_row, li_anno
+    // Integer li_det
+    // Integer li_emi, li_act
+    // str_general estructura
+
+    // dw_trabajador.accepttext()
+
+    // li_emi = 0
+    // li_act = 0
+
+    // li_row = dw_trabajador.GetRow()
+    // If li_row < 1 Then Return
+
+    // li_det = dw_detalle.GetRow()
+    // If li_det < 1 Then Return
+
+    // ls_activo = dw_trabajador.GetItemString(li_row, "flg_activo")
+    // If IsNull(ls_activo) Or Trim(ls_activo) = '' Then ls_activo = 'NO'
+
+    // If ls_activo = 'NO' Then
+    //     f_mensaje_axiom(Title, "MSGLIB", "NO PUEDE MODIFICAR EL ÁRBOL VENDEDOR DE UN TRABAJADOR INACTIVO.", "PRV")
+    //     Return
+    // End If
+
+    // ls_codigo   = dw_trabajador.GetItemString(li_row, "cod_trabajador")
+    // ls_tipo         = dw_detalle.GetItemString(li_det, "cod_tipo_periodo")
+    // ls_periodo  = dw_detalle.GetItemString(li_det, "cod_periodo")
+    // li_anno         = dw_detalle.GetItemNumber(li_det, "num_anno")
+
+    // // -- Valida -- //
+
+    // SELECT  vtama_periodo.flg_estado, vtama_periodo.flg_modificacion_grupo
+    // INTO        :ls_flg_estado, :ls_flg_modif
+    // FROM        vtama_periodo
+    // WHERE   vtama_periodo.num_anno = :li_anno
+    // AND     vtama_periodo.cod_tipo_periodo = :ls_tipo
+    // AND     vtama_periodo.cod_periodo = :ls_periodo;
+
+    // f_verifica_transaccion(SQLCA)
+
+    // If IsNull(ls_flg_modif) Or Trim(ls_flg_modif) = '' Then ls_flg_modif = 'NO'
+
+    // If ls_flg_modif = 'SI' Then
+    //     f_mensaje_axiom(Title, "MSGLIB", "YA ESTA CERRADA LA MODIFICACIÓN DE ÁRBOL VENDEDOR.", "PRV")
+    //     Return
+    // End If
+
+    // If ls_flg_estado = 'CE' Then
+    //     f_mensaje_axiom(Title, "MSGLIB", "EL PERÍODO SELECCIONADO ESTA CERRADO.", "PRV")
+    //     Return
+    // End If
+
+    // // -- Valida Ctt -- //
+
+    // li_emi = tab_1.tp_2.tab_2.tp_3.dw_emi.Rowcount()
+    // li_act = tab_1.tp_2.tab_2.tp_4.dw_act.Rowcount()
+
+    // If li_emi > 0 Then
+    //     f_mensaje_axiom(Title, "MSGLIB", "NO PUEDE ELIMINAR EL REGISTRO, EL CONSEJERO TIENE CONTRATOS EMITIDOS EN EL PERÍODO [" + String(li_anno) + "-" + ls_tipo + "-" + ls_periodo + "].", "PRV")
+    //     Return
+    // End If
+
+    // If li_act > 0 Then
+    //     f_mensaje_axiom(Title, "MSGLIB", "NO PUEDE ELIMINAR EL REGISTRO, EL CONSEJERO TIENE CONTRATOS ACTIVADOS EN EL PERÍODO [" + String(li_anno) + "-" + ls_tipo + "-" + ls_periodo + "].", "PRV")
+    //     Return
+    // End If
+
+    // // -- Confirmacion -- //
+
+    // If f_mensaje_axiom(Title, "MSGLIB", "ESTA SEGURO QUE DESEA ELIMINAR EL REGISTRO SELECCIONADO.", "PRG") <> 1 Then Return
+
+    // // -- Eliminar -- //
+
+    // dw_detalle.Deleterow(li_det)
+    // If dw_detalle.Update() <> 1 Then Goto db_error
+
+    // Commit;
+    // f_mensaje_axiom(Title, "MSGLIB", "SE ELIMINO EL REGISTRO SATISFACTORIAMENTE.", "MSG")
+    // dw_detalle.Retrieve(ls_codigo, li_anno)
+    // Return
+
+    // db_error:
+    // RollBack;
+    // f_mensaje_axiom(Title, "MSGLIB", "ERROR EN LA ACTUALIZACION DE LA BASE DE DATOS.", "ERR")
+}

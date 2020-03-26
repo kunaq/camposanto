@@ -11,6 +11,7 @@ class ControladorArbolVen{
 		$tabla = "vtama_historico_vendedor";
 		$tabla2 = 'vtama_tipo_comisionista';
 		$tabla3 = 'vtama_grupo';
+		$tabla4 = 'vtama_periodo';
 		$respuesta = ModeloArbolVen::mdlVerDetTrabajador($tabla,$tabla2,$tabla3,$codTrabajador);
 		return $respuesta;
 	}//function ctrVerDetTrabajador(
