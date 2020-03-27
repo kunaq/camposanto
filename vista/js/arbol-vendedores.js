@@ -536,7 +536,7 @@ function modificaArbol(){
             dataType: 'json',
             data: {'codTrabajador':cod, 'anno' : li_anno, 'tipo_periodo' : ls_tipo, 'periodo' : ls_periodo, 'accion':'existeConsejero'},
             success: function(respuesta){
-                conole.log(respuesta);
+                console.log(respuesta);
                 li_existe = respuesta;
                 if (li_existe > 0) {
                     swal({
