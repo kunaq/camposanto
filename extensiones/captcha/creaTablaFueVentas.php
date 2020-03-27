@@ -4,7 +4,8 @@ require_once "../../core.php";
 require_once "../../modelo/conexion.php";
 require_once "../../funciones.php";
 
-$entrada = "'".$_POST['entrada']."'";
+// $entrada = "'".$_POST['entrada']."'";
+$entrada = 'pry';
 
  $db = new Conexion();                                             
 
