@@ -303,19 +303,18 @@ $("#btnComModArbVen").on('click',function(){
     });
 });
 
-$("#btnAgFun").on('click',function(){
-    var accion = $("#entradaModal").val();
-    $('#tablaSuperior').html('<div class="loader"></div>');
+function creaTablaFueVentas(entrada){
+    $('#tablaFueVen').html('<div class="loader"></div>');
     $.ajax({
-        url: 'extensiones/captcha/creaTablaSuperior.php',
+        url: 'extensiones/captcha/creaTablaFueVentas.php',
         success : function(respuesta){
             // console.log(respuesta);
-            $('#tablaSuperior').html('')
-            $("#tablaSuperior").html(respuesta);
-            $('#myTableSuperior').DataTable();
+            $('#tablaFueVen').html('')
+            $("#tablaFueVen").html(respuesta);
+            $('#myTableFueVen').DataTable();
         }
     });
-});
+}
 
 function anadeGrupo(codGrupo,codJefe,codSup){
     $("#grupoModTraArbVen").val(codGrupo).trigger('change');
@@ -532,7 +531,7 @@ function modificaArbol(){
 //     dw_mto.SetItem(1, "flg_jefeventas", ls_flg_jefe)
 
 //     // -- Graba -- //
-
+        
 //     If dw_mto.Update() <> 1 Then Goto db_error
 
 //     Commit;
