@@ -331,7 +331,7 @@ function anadeComisionista(codCom,flgJefe,flgSup){
 function anadeFueTra(cod){
     var anno = $("#numAnioArbVen").val();
     var tipoPer = $("#tipoPeriodoArbVen").val();
-    var periodo = = $("#periodoArbVen").val();
+    var periodo = $("#periodoArbVen").val();
     $.ajax({
         url:"ajax/ArbolVendedores.ajax.php",
         method: "POST",
