@@ -38,5 +38,14 @@ class ControladorArbolVen{
 		$respuesta = ModeloArbolVen::mdlBuscarGrupoVen($tabla,$tabla2);
 		return $respuesta;
 	}//function ctrNombreTrabajador
+	static public function ctrBuscarFueVen(){
+		$tabla = "vtama_historico_vendedor";
+		$codigo = $_POST['codTrabajador'];
+		$periodo = $_POST['periodo'];
+		$tipoPeriodo = $_POST['tipo_periodo'];
+		$annio = $_POST['anno'];
+		$respuesta = ModeloArbolVen::mdlBuscarFueVen($tabla,$codigo,$periodo,$tipoPeriodo,$annio);
+		return $respuesta;
+	}//function ctrNombreTrabajador
 }//class ControladorArbolVen
 ?>

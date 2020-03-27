@@ -328,6 +328,22 @@ function anadeComisionista(codCom,flgJefe,flgSup){
     $("#flgSupModArbVen").val(flgSup);
 }
 
+function anadeFueTra(cod){
+    var anno = $("#numAnioArbVen").val();
+    var tipoPer = $("#tipoPeriodoArbVen").val();
+    var periodo = = $("#periodoArbVen").val();
+    $.ajax({
+        url:"ajax/ArbolVendedores.ajax.php",
+        method: "POST",
+        dataType: 'json',
+        data: {'codTrabajador':cod, 'anno' : anno, 'tipo_periodo' : tipoPer, 'periodo' : periodo, 'accion':'listaFueVen'},
+        success: function(respuesta){
+            console.log(respuesta);
+        }
+    });
+
+}
+
 //----------------------------------------------------------------------------------------------//
 //-------------------------------------------MODIFICAR------------------------------------------//
 //----------------------------------------------------------------------------------------------//

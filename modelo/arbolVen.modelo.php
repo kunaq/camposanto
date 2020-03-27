@@ -42,7 +42,10 @@ class ModeloArbolVen{
 		$sql = $db->consulta("SELECT $tabla.cod_contrato, $tabla.cod_vendedor, $tabla.cod_periodo_recep, $tabla.cod_tipo_periodo_recep, $tabla.num_anno_recep, $tabla.flg_activado, $tabla.flg_anulado, $tabla.flg_emitido, $tabla.flg_resuelto, $tabla.cod_localidad, $tabla.cod_tipo_necesidad, $tabla.fch_activacion, $tabla.fch_emision, $tabla.fch_resolucion, $tabla2.dsc_localidad from $tabla inner join $tabla2 on $tabla.cod_localidad = $tabla2.cod_localidad where cod_vendedor = '$codTrabajador' AND $tabla.cod_periodo_recep='$periodo' AND $tabla.cod_tipo_periodo_recep ='$tipoPeriodo' AND $tabla.num_anno_recep = '$annio'");
 		$datos = array();
     	while($key = $db->recorrer($sql)){
-	    		$datos[] = arrayMapUtf8Encode($key);
+	    		$key["fch_activacion"] = ($key["fch_activacion"] != null) ? dateFormat($key["fch_activacion"]) : $key["fch_activacion"];
+			$key["fch_emision"] = ($key["fch_emision"] != null) ? dateFormat($key["fch_emision"]) : $key["fch_emision"];
+			$key["fch_resolucion"] = ($key["fch_resolucion"] != null) ? dateFormat($key["fch_resolucion"]) : $key["fch_resolucion"];
+			$datos[] = arrayMapUtf8Encode($key);
 			}
 		return $datos;
 		$db->liberar($sql);
@@ -62,6 +65,17 @@ class ModeloArbolVen{
         $db->cerrar();
 
 	}//function mdlBuscarGrupoVen
+
+	static public function mdlBuscarFueVen($tabla,$codigo,$periodo,$tipoPeriodo,$annio){
+		$db = new Conexion();
+		$sql = $db->consulta("SELECT $tabla.cod_tipo_comisionista, $tabla.cod_grupo, $tabla.cod_supervisor,
+				$tabla.cod_jefeventas FROM 	$tabla 	WHERE $tabla.cod_trabajador = '$codigo' AND $tabla.num_anno = '$anno' AND 		$tabla.cod_tipo_periodo = '$tipoPeriodo' AND $tabla.cod_periodo = '$periodo'");
+		$datos = arrayMapUtf8Encode($db->recorrer($sql));
+		return $datos;
+		$db->liberar($sql);
+        $db->cerrar();
+
+	}//function mdlBuscarFueVen
 
 }//class ModeloArbolVen
 ?>

@@ -19,13 +19,12 @@ class AjaxArbolVen{
 	}//function ajaxNombreTrabajador
 	public function ajaxBuscarCtto(){
 		$respuesta = ControladorArbolVen::ctrBuscarCtto();
-		foreach ($respuesta as $key => $value) {
-			$respuesta[$key]["fch_activacion"] = ($respuesta[$key]["fch_activacion"] != null) ? dateFormat($respuesta[$key]["fch_activacion"]) : $respuesta[$key]["fch_activacion"];
-			$respuesta[$key]["fch_emision"] = ($respuesta[$key]["fch_emision"] != null) ? dateFormat($respuesta[$key]["fch_emision"]) : $respuesta[$key]["fch_emision"];
-			$respuesta[$key]["fch_resolucion"] = ($respuesta[$key]["fch_resolucion"] != null) ? dateFormat($respuesta[$key]["fch_resolucion"]) : $respuesta[$key]["fch_resolucion"];
-		}
 		echo json_encode($respuesta);
 	}//function ajaxBuscarCtto
+	public function ajaxBuscarFueVen(){
+		$respuesta = ControladorArbolVen::ctrBuscarFueVen();
+		echo json_encode($respuesta);
+	}//function ajaxBuscarFueVen
 }//class AjaxArbolVen
 /*=============================================
 ACCIONES
@@ -45,4 +44,8 @@ else if(isset($_POST["accion"]) && $_POST["accion"] == 'nombreTrabajador'){
 else if(isset($_POST["accion"]) && $_POST["accion"] == 'buscaCtto'){
 	$cliente = new AjaxArbolVen();
 	$cliente -> ajaxBuscarCtto();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'listaFueVen'){
+	$cliente = new AjaxArbolVen();
+	$cliente -> ajaxBuscarFueVen();
 }
