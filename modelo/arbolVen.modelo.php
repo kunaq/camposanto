@@ -66,12 +66,10 @@ class ModeloArbolVen{
 
 	}//function mdlBuscarGrupoVen
 
-	static public function mdlBuscarFueVen($tabla,$codigo,$periodo,$tipoPeriodo,$annio){
+	static public function mdlBuscarFueVen($tabla,$codigo,$periodo,$tipoPeriodo,$anno){
 		$db = new Conexion();
 		$sql = $db->consulta("SELECT $tabla.cod_tipo_comisionista, $tabla.cod_grupo, $tabla.cod_supervisor,
 				$tabla.cod_jefeventas FROM 	$tabla 	WHERE $tabla.cod_trabajador = '$codigo' AND $tabla.num_anno = '$anno' AND 		$tabla.cod_tipo_periodo = '$tipoPeriodo' AND $tabla.cod_periodo = '$periodo'");
-		echo "SELECT $tabla.cod_tipo_comisionista, $tabla.cod_grupo, $tabla.cod_supervisor,
-				$tabla.cod_jefeventas FROM 	$tabla 	WHERE $tabla.cod_trabajador = '$codigo' AND $tabla.num_anno = '$anno' AND 		$tabla.cod_tipo_periodo = '$tipoPeriodo' AND $tabla.cod_periodo = '$periodo'";
 		$datos = arrayMapUtf8Encode($db->recorrer($sql));
 		return $datos;
 		$db->liberar($sql);
