@@ -80,9 +80,7 @@ class ModeloArbolVen{
 	static public function mdlBuscarNomComi($tabla,$codigo){
 		$db = new Conexion();
 		$sql = $db->consulta("SELECT dsc_tipo_comisionista, flg_supervisor, flg_jefeventas FROM $tabla WHERE cod_tipo_comisionista = '$codigo' AND flg_activo = 'SI'");
-		while($key = $db->recorrer($sql)){
-	    		$datos[] = arrayMapUtf8Encode($key);
-			}
+		$datos = arrayMapUtf8Encode($db->recorrer($sql));
 		return $datos;
 		$db->liberar($sql);
         $db->cerrar();
