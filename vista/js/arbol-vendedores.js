@@ -321,6 +321,8 @@ function anadeGrupo(codGrupo,codJefe,codSup){
     $("#grupoModTraArbVen").val(codGrupo).trigger('change');
     $("#SupervisorModArbVen").val(codJefe).trigger('change');
     $("#jefeVentaModArbVen").val(codSup).trigger('change');
+    $("#SupervisorOrigModArbVen").val(codJefe);
+    $("#jefeVentaOrigModArbVen").val(codSup);
 }
 
 //----------------------------------------------------------------------------------------------//
