@@ -303,13 +303,13 @@ $("#btnComModArbVen").on('click',function(){
     });
 });
 
-function creaTablaFueVentas(entrada){
+function creaTablaFueVentas(accion){
     $('#tablaFueVen').html('<div class="loader"></div>');
     $.ajax({
         url: 'extensiones/captcha/creaTablaFueVentas.php',
         method: "POST",
         dataType: 'text',
-        data: {'entrada':'entrada'},
+        data: {'entrada':'accion'},
         success : function(respuesta){
             // console.log(respuesta);
             $('#tablaFueVen').html('')
