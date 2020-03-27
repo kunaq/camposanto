@@ -450,6 +450,8 @@ function modificaArbol(){
     var ls_flg_jefe = 'NO';
     var is_opcion = 'INS';
 
+    var cod = $("#cod_trabajador").val();
+
     // -- Valida -- //
 
     if (li_anno == null || li_anno == 0 || li_anno == '') {
