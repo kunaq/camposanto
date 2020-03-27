@@ -357,7 +357,7 @@ function anadeFueTra(cod,boton){
 
 function aceptarMod(){
     var entrada = $("#entradaModArbVen").val();
-    if (entrada == 'modificacion') {
+    if (entrada == 'modificar') {
         modificaArbol();
     }
     else if(entrada == 'nuevo'){
