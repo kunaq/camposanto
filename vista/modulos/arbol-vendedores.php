@@ -250,5 +250,6 @@
 <?php
 include "modals/modalNvoConfigArbVend.php";
 include "modals/modalTablaGrupo.php";
+include "modals/modalTablaComisionista.php";
 include "modals/modalTablaTrabArbVen.php";
 ?>
