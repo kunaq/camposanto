@@ -243,6 +243,7 @@ function nombreComisionista(valor,campo){
         dataType: 'text',
         data: { 'cod' : valor, 'accion' : 'comisionista' },
         success : function(respuesta){
+            console.log(respuesta);
             document.getElementById(campo).value = respuesta['dsc_tipo_comisionista'];
             $("#flgJefeModArbVen").val(respuesta['flg_supervisor']);
             $("#flgSupModArbVen").val(respuesta['flg_jefeventas']);
