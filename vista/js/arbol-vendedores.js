@@ -347,7 +347,7 @@ function anadeFueTra(cod,boton){
                 $("#SupervisorModArbVen").val(respuesta['cod_supervisor']).trigger('change');
                 $("#jefeVentaModArbVen").val(respuesta['cod_jefeventas']).trigger('change');
             }else if(boton == 'jefe'){
-                $("#jefeVentaModArbVen").val(respuesta['cod_jefeventas']).trigger('change');
+                $("#jefeVentaModArbVen").val(cod).trigger('change');
             }
         }
     });
