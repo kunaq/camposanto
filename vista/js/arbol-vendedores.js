@@ -534,7 +534,7 @@ function modificaArbol(){
             url:"ajax/ArbolVendedores.ajax.php",
             method: "POST",
             dataType: 'json',
-            data: {'codTrabajador':cod, 'anno' : anno, 'tipo_periodo' : tipoPer, 'periodo' : periodo, 'accion':'existeConsejero'},
+            data: {'codTrabajador':cod, 'anno' : li_anno, 'tipo_periodo' : ls_tipo, 'periodo' : ls_periodo, 'accion':'existeConsejero'},
             success: function(respuesta){
                 conole.log(respuesta);
                 li_existe = respuesta;
