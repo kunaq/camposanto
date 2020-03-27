@@ -307,9 +307,9 @@ function creaTablaFueVentas(entrada){
     $('#tablaFueVen').html('<div class="loader"></div>');
     $.ajax({
         url: 'extensiones/captcha/creaTablaFueVentas.php',
-        // method: "POST",
-        // dataType: 'text',
-        // data: {'entrada':entrada},
+        method: "POST",
+        dataType: 'text',
+        data: {'entrada':'entrada'},
         success : function(respuesta){
             // console.log(respuesta);
             $('#tablaFueVen').html('')
