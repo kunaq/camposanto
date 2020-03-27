@@ -13,7 +13,7 @@ require_once "../../funciones.php";
                 echo'
                 <div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="480">
                 <div class="table-responsive">
-                    <table id="myTableComisionista" class="table-responsive-m" cellpadding="0" cellspacing="0" border="0" display="block" >
+                    <table id="myTableFueVen" class="table-responsive-m" cellpadding="0" cellspacing="0" border="0" display="block" >
                       <thead>
                         <tr>
                           <th align="left">Codigo</th>
