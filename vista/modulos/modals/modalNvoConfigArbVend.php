@@ -137,6 +137,8 @@
 			</div>
 			<input type="hidden" id="flgJefeModArbVen" name="flgJefeModArbVen">
 			<input type="hidden" id="flgSupModArbVen" name="flgSupModArbVen">
+			<input type="hidden" id="flgJefeGpoArbVen" name="flgJefeGpoArbVen">
+			<input type="hidden" id="flgSupGpoArbVen" name="flgSupGpoArbVen">
 			<input type="hidden" id="entradaModArbVen" name="entradaModArbVen" value="nuevo">
 			<div class="modal-footer">
 				<div class="row">

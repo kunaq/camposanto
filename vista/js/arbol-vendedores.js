@@ -325,6 +325,8 @@ function anadeGrupo(codGrupo,codJefe,codSup){
     $("#grupoModTraArbVen").val(codGrupo).trigger('change');
     $("#SupervisorModArbVen").val(codJefe).trigger('change');
     $("#jefeVentaModArbVen").val(codSup).trigger('change');
+    $("#flgJefeGpoArbVen").val(codJefe);
+    $("#flgSupGpoArbVen").val(codSup);
 }
 
 function anadeComisionista(codCom,flgJefe,flgSup){
@@ -371,7 +373,7 @@ function aceptarMod(){
 
 function validaModifArbol(){
 
-    ls_activo = $("#flg_activo").val();
+    var ls_activo = $("#flg_activo").val();
     if (ls_activo == null || ls_activo == ''){ return; }
 
     if (ls_activo == 'NO') {
@@ -384,10 +386,10 @@ function validaModifArbol(){
         return;
     }
 
-    ls_codigo   = $("#cod_trabajador").val();
-    ls_tipo     = $("#tipoPeriodoArbVen").val();
-    ls_periodo  = $("#periodoArbVen").val();
-    li_anno     = $("#numAnioArbVen").val();
+    var ls_codigo   = $("#cod_trabajador").val();
+    var ls_tipo     = $("#tipoPeriodoArbVen").val();
+    var ls_periodo  = $("#periodoArbVen").val();
+    var li_anno     = $("#numAnioArbVen").val();
     $("#anioConfTraArbVen").val(li_anno).trigger('change');
     $("#tipoPerConfTraArbVen").val(ls_tipo).trigger('change');
 
@@ -450,7 +452,7 @@ function modificaArbol(){
     var ls_flg_jefe = 'NO';
     var is_opcion = 'INS';
 
-    var cod = $("#cod_trabajador").val();
+    var is_codigo = $("#cod_trabajador").val();
 
     // -- Valida -- //
 
@@ -534,9 +536,8 @@ function modificaArbol(){
             url:"ajax/ArbolVendedores.ajax.php",
             method: "POST",
             dataType: 'json',
-            data: {'codTrabajador':cod, 'anno' : li_anno, 'tipo_periodo' : ls_tipo, 'periodo' : ls_periodo, 'accion':'existeConsejero'},
+            data: {'codTrabajador':is_codigo, 'anno' : li_anno, 'tipo_periodo' : ls_tipo, 'periodo' : ls_periodo, 'accion':'existeConsejero'},
             success: function(respuesta){
-                console.log(respuesta[0]);
                 li_existe = respuesta[0];
                 if (li_existe > 0) {
                     swal({
@@ -551,62 +552,88 @@ function modificaArbol(){
         }); //ajax           
     }//End If
 
-//     // -- Periodo -- //
+    // -- Periodo -- //
 
-//     SELECT  vtama_periodo.flg_estado, vtama_periodo.flg_modificacion_grupo
-//     INTO        :ls_flg_estado, :ls_flg_modif
-//     FROM        vtama_periodo
-//     WHERE   vtama_periodo.num_anno = :li_anno
-//     AND     vtama_periodo.cod_tipo_periodo = :ls_tipo
-//     AND     vtama_periodo.cod_periodo = :ls_periodo;
+    var ls_flg_estado = $("#flgEstado").val();
+    var ls_flg_modif = $("#flg_modificacion_grupo").val();
 
-//     f_verifica_transaccion(SQLCA)
+    if (ls_flg_modif == null || ls_flg_modif == '') { ls_flg_modif = 'NO';}
 
-//     If IsNull(ls_flg_modif) Or Trim(ls_flg_modif) = '' Then ls_flg_modif = 'NO'
+    if (ls_flg_modif == 'SI') {
+        swal({
+            title: "Error",
+            text: "Ya esta cerrada la modificación del árbol de vendedor.",
+            type: "error",
+            confirmButtonText: "Aceptar",
+          });
+        return;
+    }
 
-//     If ls_flg_modif = 'SI' Then
-//         f_sys_mensaje_usuario(Title, "MSGLIB", "YA ESTA CERRADA LA MODIFICACIÓN DE ÁRBOL VENDEDOR.", "PRV")
-//         Return
-//     End If
+    if (ls_flg_estado == 'CE') {
+        swal({
+            title: "Error",
+            text: "El período seleccionado ya esta cerrado.",
+            type: "error",
+            confirmButtonText: "Aceptar",
+          });
+        return;
+    }    
 
-//     If ls_flg_estado = 'CE' Then
-//         f_sys_mensaje_usuario(Title, "MSGLIB", "EL PERÍODO SELECCIONADO ESTA CERRADO.", "PRV")
-//         Return
-//     End If
+    // -- Obtiene Jefe y Supervisor del grupo -- //
 
-//     // -- Obtiene Jefe y Supervisor del grupo -- //
+    var ls_jefe_gpo = $("#flgJefeGpoArbVen").val(codJefe);
+    var ls_supervisor_gpo = $("#flgSupGpoArbVen").val(codSup);
 
-//     SELECT  vtama_grupo.cod_jefe_ventas, vtama_grupo.cod_supervisor
-//     INTO        :ls_jefe_gpo, :ls_supervisor_gpo
-//     FROM        vtama_grupo
-//     WHERE   vtama_grupo.cod_grupo = :ls_grupo;
+    // -- Flag -- //
 
-//     f_verifica_transaccion(SQLCA)
+    if (ls_jefe_gpo == is_codigo) { ls_flg_jefe = 'SI';}
+    if (ls_supervisor_gpo == is_codigo) { ls_flg_supervisor = 'SI';}
 
-//     // -- Flag -- //
-
-//     If ls_jefe_gpo = is_codigo Then ls_flg_jefe = 'SI'
-//     If ls_supervisor_gpo = is_codigo Then ls_flg_supervisor = 'SI'
-
-//     // -- Setea -- //
+    // -- Setea -- //
 
 //     dw_mto.SetItem(1, "cod_trabajador", is_codigo)
 //     dw_mto.SetItem(1, "flg_supervisor", ls_flg_supervisor)
 //     dw_mto.SetItem(1, "flg_jefeventas", ls_flg_jefe)
 
-//     // -- Graba -- //
-        
-//     If dw_mto.Update() <> 1 Then Goto db_error
 
-//     Commit;
-//     f_sys_mensaje_usuario(Title, "MSGLIB", "SE GRABO EL REGISTRO SATISFACTORIAMENTE.", "MSG")
-//     Close(w_vta_rsp_mto_arbol_vendedor)
-//     Return
+    swal({
+        title: "",
+        text: "¿Esta seguro que desea modificar el registro seleccionado?",
+        type: "question",
+        showCancelButton:!0,
+        confirmButtonText: "Anular",
+        cancelButtonText:"Cancelar"
+    }).then(function(){
+        setTimeout(function () { 
 
-//     db_error:
-//     RollBack;
-//     f_sys_mensaje_usuario(Title, "MSGLIB", "ERROR EN LA ACTUALIZACION DE LA BASE DE DATOS.", "ERR")
- }
+            // -- Graba -- //
+
+            $.ajax({
+                url:"ajax/ArbolVendedores.ajax.php",
+                method: "POST",
+                dataType: 'json',
+                data: {'codTrabajador':cod, 'anno' : li_anno, 'tipo_periodo' : ls_tipo, 'periodo' : ls_periodo, 'accion':'modificar'},
+                success: function(respuesta){
+                    if(respuesta == true){
+                        swal({
+                            title: "",
+                            text: "Se grabó el registro satisfactoriamente.",
+                            type: "success",
+                            confirmButtonText: "Aceptar",
+                        })
+                    }else{
+                        swal({
+                            title: "",
+                            text: "Eror en la actualización de la base de datos.",
+                            type: "error",
+                            confirmButtonText: "Aceptar",
+                        })
+                    }
+                }//success
+            });//ajax
+        },1000);//setTimeout
+    })//then
+ }//modificaArbol
 
  //----------------------------------------------------------------------------------------------//
 //--------------------------------------------ELIMINAR------------------------------------------//
@@ -614,92 +641,116 @@ function modificaArbol(){
 
 function eliminaArbol(){
 
-    // String      ls_codigo
-    // String      ls_activo
-    // String      ls_tipo, ls_periodo
-    // String      ls_flg_estado, ls_flg_modif
-    // Integer li_row, li_anno
-    // Integer li_det
-    // Integer li_emi, li_act
-    // str_general estructura
+    var li_emi = 0;
+    var li_act = 0;
 
-    // dw_trabajador.accepttext()
+    var ls_activo = $("#flg_activo").val();
 
-    // li_emi = 0
-    // li_act = 0
+    if (ls_activo==null || trim(ls_activo)=='') {
+        ls_activo='NO';    
+    }
 
-    // li_row = dw_trabajador.GetRow()
-    // If li_row < 1 Then Return
+    if (ls_activo =='NO' || ls_activo == 0) {
+        swal({
+            title: "",
+            text: "No puede modificar el árbol vendedor de un trabajador inactivo.",
+            type: "error",
+            confirmButtonText: "Aceptar",
+          });
+        return;
+    }
 
-    // li_det = dw_detalle.GetRow()
-    // If li_det < 1 Then Return
+    var ls_codigo   = $("#cod_trabajador").val();
+    var ls_tipo     = $("#tipoPeriodoArbVen").val();
+    var ls_periodo  = $("#periodoArbVen").val();
+    var li_anno     = $("#numAnioArbVen").val();
+    var ls_flg_estado = $("#flgEstado").val();
+    var ls_flg_modif  = $("#flg_modificacion_grupo").val();
 
-    // ls_activo = dw_trabajador.GetItemString(li_row, "flg_activo")
-    // If IsNull(ls_activo) Or Trim(ls_activo) = '' Then ls_activo = 'NO'
+    if (ls_flg_modif==null || trim(ls_flg_modif)=='') {
+        ls_flg_modif='NO';        
+    }
 
-    // If ls_activo = 'NO' Then
-    //     f_mensaje_axiom(Title, "MSGLIB", "NO PUEDE MODIFICAR EL ÁRBOL VENDEDOR DE UN TRABAJADOR INACTIVO.", "PRV")
-    //     Return
-    // End If
+    if (ls_flg_modif=='SI') {
+        swal({
+            title: "",
+            text: "Ya está cerrada la modificación de árbol vendedor.",
+            type: "error",
+            confirmButtonText: "Aceptar",
+          });
+        return;        
+    }
 
-    // ls_codigo   = dw_trabajador.GetItemString(li_row, "cod_trabajador")
-    // ls_tipo         = dw_detalle.GetItemString(li_det, "cod_tipo_periodo")
-    // ls_periodo  = dw_detalle.GetItemString(li_det, "cod_periodo")
-    // li_anno         = dw_detalle.GetItemNumber(li_det, "num_anno")
+    if (ls_flg_estado=='CE') {
+        swal({
+            title: "",
+            text: "El período seleccionado está cerrado.",
+            type: "error",
+            confirmButtonText: "Aceptar",
+          });
+        return;        
+    }
 
-    // // -- Valida -- //
+    var li_emi ="";
+    var li_act ="";
 
-    // SELECT  vtama_periodo.flg_estado, vtama_periodo.flg_modificacion_grupo
-    // INTO        :ls_flg_estado, :ls_flg_modif
-    // FROM        vtama_periodo
-    // WHERE   vtama_periodo.num_anno = :li_anno
-    // AND     vtama_periodo.cod_tipo_periodo = :ls_tipo
-    // AND     vtama_periodo.cod_periodo = :ls_periodo;
+    if (li_emi>0) {
+        swal({
+            title: "",
+            text: "No puede eliminar el registro, el consejero tiene contratos emitidos en el período ["+li_anno+"-"+ls_tipo+"-"+ls_periodo+"].",
+            type: "error",
+            confirmButtonText: "Aceptar",
+          });
+        return; 
+    }
 
-    // f_verifica_transaccion(SQLCA)
+    if (li_act>0) {
+        swal({
+            title: "",
+            text: "No puede eliminar el registro, el consejero tiene contratos activados en el período ["+li_anno+"-"+ls_tipo+"-"+ls_periodo+"].",
+            type: "error",
+            confirmButtonText: "Aceptar",
+          });
+        return;
+    }
 
-    // If IsNull(ls_flg_modif) Or Trim(ls_flg_modif) = '' Then ls_flg_modif = 'NO'
+    // -- Confirmacion -- //
 
-    // If ls_flg_modif = 'SI' Then
-    //     f_mensaje_axiom(Title, "MSGLIB", "YA ESTA CERRADA LA MODIFICACIÓN DE ÁRBOL VENDEDOR.", "PRV")
-    //     Return
-    // End If
+    swal({
+        title: "",
+        text: "¿Esta seguro que desea eliminar el registro seleccionado? Esta operación es irreversible",
+        type: "question",
+        showCancelButton:!0,
+        confirmButtonText: "Anular",
+        cancelButtonText:"Cancelar"
+    }).then(function(){
+        setTimeout(function () { 
 
-    // If ls_flg_estado = 'CE' Then
-    //     f_mensaje_axiom(Title, "MSGLIB", "EL PERÍODO SELECCIONADO ESTA CERRADO.", "PRV")
-    //     Return
-    // End If
+            // -- Eliminar -- //
 
-    // // -- Valida Ctt -- //
-
-    // li_emi = tab_1.tp_2.tab_2.tp_3.dw_emi.Rowcount()
-    // li_act = tab_1.tp_2.tab_2.tp_4.dw_act.Rowcount()
-
-    // If li_emi > 0 Then
-    //     f_mensaje_axiom(Title, "MSGLIB", "NO PUEDE ELIMINAR EL REGISTRO, EL CONSEJERO TIENE CONTRATOS EMITIDOS EN EL PERÍODO [" + String(li_anno) + "-" + ls_tipo + "-" + ls_periodo + "].", "PRV")
-    //     Return
-    // End If
-
-    // If li_act > 0 Then
-    //     f_mensaje_axiom(Title, "MSGLIB", "NO PUEDE ELIMINAR EL REGISTRO, EL CONSEJERO TIENE CONTRATOS ACTIVADOS EN EL PERÍODO [" + String(li_anno) + "-" + ls_tipo + "-" + ls_periodo + "].", "PRV")
-    //     Return
-    // End If
-
-    // // -- Confirmacion -- //
-
-    // If f_mensaje_axiom(Title, "MSGLIB", "ESTA SEGURO QUE DESEA ELIMINAR EL REGISTRO SELECCIONADO.", "PRG") <> 1 Then Return
-
-    // // -- Eliminar -- //
-
-    // dw_detalle.Deleterow(li_det)
-    // If dw_detalle.Update() <> 1 Then Goto db_error
-
-    // Commit;
-    // f_mensaje_axiom(Title, "MSGLIB", "SE ELIMINO EL REGISTRO SATISFACTORIAMENTE.", "MSG")
-    // dw_detalle.Retrieve(ls_codigo, li_anno)
-    // Return
-
-    // db_error:
-    // RollBack;
-    // f_mensaje_axiom(Title, "MSGLIB", "ERROR EN LA ACTUALIZACION DE LA BASE DE DATOS.", "ERR")
-}
+            $.ajax({
+                url:"ajax/ArbolVendedores.ajax.php",
+                method: "POST",
+                dataType: 'json',
+                data: {'codTrabajador':cod, 'anno' : li_anno, 'tipo_periodo' : ls_tipo, 'periodo' : ls_periodo, 'accion':'eliminar'},
+                success: function(respuesta){
+                    if(respuesta == true){
+                        swal({
+                            title: "",
+                            text: "Se elimino el registro satisfactoriamente.",
+                            type: "success",
+                            confirmButtonText: "Aceptar",
+                        })
+                    }else{
+                        swal({
+                            title: "",
+                            text: "Eror en la actualización de la base de datos.",
+                            type: "error",
+                            confirmButtonText: "Aceptar",
+                        })
+                    }
+                }//success
+            });//ajax
+        },1000);//setTimeout
+    })//then
+}//eliminaArbol
