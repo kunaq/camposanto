@@ -16,8 +16,8 @@ require_once "../../funciones.php";
                     <table id="myTableGrupo" class="table-responsive-m" cellpadding="0" cellspacing="0" border="0" display="block" >
                       <thead>
                         <tr>
-                          <th align="left">Codigo</th>
-                          <th align="left">Agencia</th>
+                          <th align="left" style="width:10rem;">Codigo</th>
+                          <th align="left" style="width:15rem;">Agencia</th>
                           <th>Acción</th>
                         </tr>
                       </thead>
@@ -35,7 +35,7 @@ require_once "../../funciones.php";
                             '.Utf8Encode($key['dsc_grupo']).'
                         </td>
                         <td style="text-align: center;">
-                            <button type="button" onclick="anadeGrupo('.$cod.');" codJefe="'.$key['cod_jefe_ventas'].'" codSup="'.$key['cod_supervisor'].'" class="m-btn btn btn-danger" data-dismiss="modal">
+                            <button type="button" onclick="anadeGrupo('.$cod.');" codJefe="'.$key['cod_jefe_ventas'].'" codSup="'.$key['cod_supervisor'].'" class="m-btn btn btn-danger btn-sm" data-dismiss="modal">
                                 <i class="la la-plus"></i>
                             </button>
                         </td>
