@@ -81,8 +81,8 @@ class ModeloArbolVen{
 		$db = new Conexion();
 		$sql = $db->consulta("SELECT dsc_tipo_comisionista, flg_supervisor, flg_jefeventas FROM $tabla WHERE cod_tipo_comisionista = '$codigo' AND flg_activo = 'SI'");
 		while($key = $db->recorrer($sql)){
-	    	$dsc_grupo = utf8_encode($key['dsc_tipo_comisionista']);
-		}
+	    		$datos[] = arrayMapUtf8Encode($key);
+			}
 		return $datos;
 		$db->liberar($sql);
         $db->cerrar();
