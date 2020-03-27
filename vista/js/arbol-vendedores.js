@@ -309,7 +309,7 @@ function creaTablaFueVentas(accion){
         url: 'extensiones/captcha/creaTablaFueVentas.php',
         method: "POST",
         dataType: 'text',
-        data: {'entrada':'accion'},
+        data: {'entrada':accion},
         success : function(respuesta){
             // console.log(respuesta);
             $('#tablaFueVen').html('')
