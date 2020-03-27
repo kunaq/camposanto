@@ -25,6 +25,8 @@ require_once "../../funciones.php";
                 while($key = $db->recorrer($sql))
                 {
                    $cod = "'".$key['cod_grupo']."'";
+                   $codJefe = "'".$key['cod_jefe_ventas']."'";
+                   $codSup = "'".$key['cod_supervisor']."'";
                    $nombre = "'".$key['dsc_grupo']."'";
                    echo 
                    '<tr>
@@ -35,7 +37,7 @@ require_once "../../funciones.php";
                             '.Utf8Encode($key['dsc_grupo']).'
                         </td>
                         <td style="text-align: center;">
-                            <button type="button" onclick="anadeGrupo('.$cod.','.$key['cod_jefe_ventas'].','.$key['cod_supervisor'].');"  class="m-btn btn btn-danger btn-sm" data-dismiss="modal">
+                            <button type="button" onclick="anadeGrupo('.$cod.','.$codJefe.','.$codSup.');"  class="m-btn btn btn-danger btn-sm" data-dismiss="modal">
                                 <i class="la la-plus"></i>
                             </button>
                         </td>
