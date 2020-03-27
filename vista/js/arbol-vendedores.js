@@ -355,6 +355,16 @@ function anadeFueTra(cod,boton){
     }
 }
 
+function aceptarMod(){
+    var entrada = $("#entradaModArbVen").val();
+    if (entrada == 'modificacion') {
+        modificaArbol();
+    }
+    else if(entrada == 'nuevo'){
+        alert('nuevo');
+    }
+}
+
 //----------------------------------------------------------------------------------------------//
 //-------------------------------------------MODIFICAR------------------------------------------//
 //----------------------------------------------------------------------------------------------//
@@ -410,12 +420,6 @@ function validaModifArbol(){
 
     // -- Ok -- //
 
-//     estructura.texto1 = "ACT"
-//     estructura.texto2 = ls_codigo + '-' + ls_periodo + '-' + ls_tipo
-//     estructura.numero1 = li_anno
-
-//     OpenWithParm(w_vta_rsp_mto_arbol_vendedor, estructura)
-//     dw_detalle.Retrieve(ls_codigo, li_anno)
     buscanombre('dscTrabModConfArbVen',ls_codigo);
     codGrupo = $("#codGrupoArbVen").val();
     codComi = $("#codComiArbVen").val();

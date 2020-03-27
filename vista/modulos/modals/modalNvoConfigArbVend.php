@@ -141,7 +141,7 @@
 			<div class="modal-footer">
 				<div class="row">
 					<div class="col-lg-5">
-						<button type="button" class="btn btn-sm btnGuardarKqPst" title="Guardar">Aceptar</button>	
+						<button type="button" class="btn btn-sm btnGuardarKqPst" onclick="aceptarMod();" title="Guardar">Aceptar</button>	
 					</div>
 					<div class="col-lg-2">
 						<button type="button" class="btn btn-sm btn-danger" data-dismiss="modal" title="Cerrar">Cancelar</button>
