@@ -87,5 +87,15 @@ class ModeloArbolVen{
 
 	}//function mdlBuscarNomComi
 
+	static public function mdlExisteConsejero($tabla,$codigo,$periodo,$tipoPeriodo,$anno){
+		$db = new Conexion();
+		$sql = $db->consulta("SELECT COUNT(1) FROM $tabla WHERE $tabla.cod_trabajador = '$codigo' AND $tabla.num_anno = '$anno' AND $tabla.cod_tipo_periodo = '$tipo' AND $tabla.cod_periodo = '$periodo' ");
+		$datos = arrayMapUtf8Encode($db->recorrer($sql));
+		return $datos;
+		$db->liberar($sql);
+        $db->cerrar();
+
+	}//function mdlExisteConsejero
+
 }//class ModeloArbolVen
 ?>

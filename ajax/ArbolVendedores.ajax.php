@@ -28,7 +28,11 @@ class AjaxArbolVen{
 	public function ajaxBuscarNomComi(){
 		$respuesta = ControladorArbolVen::ctrBuscarNomComi();
 		echo json_encode($respuesta);
-	}//function ajaxBuscarFueVen
+	}//function ajaxBuscarNomComi
+	public function ajaxExisteConsejero(){
+		$respuesta = ControladorArbolVen::ctrExisteConsejero();
+		echo json_encode($respuesta);
+	}//function ajaxExisteConsejero
 }//class AjaxArbolVen
 /*=============================================
 ACCIONES
@@ -56,4 +60,8 @@ else if(isset($_POST["accion"]) && $_POST["accion"] == 'listaFueVen'){
 else if(isset($_POST["accion"]) && $_POST["accion"] == 'comisionista'){
 	$cliente = new AjaxArbolVen();
 	$cliente -> ajaxBuscarNomComi();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'existeConsejero'){
+	$cliente = new AjaxArbolVen();
+	$cliente -> ajaxExisteConsejero();
 }

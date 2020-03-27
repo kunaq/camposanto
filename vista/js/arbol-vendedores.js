@@ -528,29 +528,21 @@ function modificaArbol(){
             url:"ajax/ArbolVendedores.ajax.php",
             method: "POST",
             dataType: 'json',
-            data: {'codTrabajador':cod, 'anno' : anno, 'tipo_periodo' : tipoPer, 'periodo' : periodo, 'accion':'listaFueVen'},
+            data: {'codTrabajador':cod, 'anno' : anno, 'tipo_periodo' : tipoPer, 'periodo' : periodo, 'accion':'existeConsejero'},
             success: function(respuesta){
                 conole.log(respuesta);
-    //         SELECT  COUNT(1)
-    //         INTO        :li_existe
-    //         FROM        vtama_historico_vendedor
-    //         WHERE   vtama_historico_vendedor.cod_trabajador = :is_codigo
-    //         AND     vtama_historico_vendedor.num_anno = :li_anno
-    //         AND     vtama_historico_vendedor.cod_tipo_periodo = :ls_tipo
-    //         AND     vtama_historico_vendedor    .cod_periodo = :ls_periodo; 
+                li_existe = respuesta;
+                if (li_existe > 0) {
+                    swal({
+                        title: "Error",
+                        text: "El período ingresado ya esta configurado para el consejero. Por favor verifique.",
+                        type: "error",
+                        confirmButtonText: "Aceptar",
+                      });
+                    return;
+                }
             }//success
-        }); //ajax   
-            
-        if (li_existe > 0) {
-            swal({
-                title: "Error",
-                text: "El período ingresado ya esta configurado para el consejero. Por favor verifique.",
-                type: "error",
-                confirmButtonText: "Aceptar",
-              });
-            return;
-        }
-        
+        }); //ajax           
     }//End If
 
 //     // -- Periodo -- //

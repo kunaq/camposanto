@@ -57,5 +57,15 @@ class ControladorArbolVen{
 		$respuesta = ModeloArbolVen::mdlBuscarNomComi($tabla,$codigo);
 		return $respuesta;
 	}//function ctrBuscarNomComi
+
+	static public function ctrExisteConsejero(){
+		$tabla = "vtama_historico_vendedor";
+		$codigo = $_POST['codTrabajador'];
+		$periodo = $_POST['periodo'];
+		$tipoPeriodo = $_POST['tipo_periodo'];
+		$annio = $_POST['anno'];
+		$respuesta = ModeloArbolVen::mdlExisteConsejero($tabla,$codigo,$periodo,$tipoPeriodo,$annio);
+		return $respuesta;
+	}//function ctrExisteConsejero
 }//class ControladorArbolVen
 ?>
