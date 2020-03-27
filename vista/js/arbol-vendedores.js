@@ -331,7 +331,7 @@ function anadeComisionista(codCom,flgJefe,flgSup){
     $("#flgSupModArbVen").val(flgSup);
 }
 
-function anadeFueTra(cod){
+function anadeFueTra(cod,boton){
     var anno = $("#numAnioArbVen").val();
     var tipoPer = $("#tipoPeriodoArbVen").val();
     var periodo = $("#periodoArbVen").val();
@@ -341,10 +341,14 @@ function anadeFueTra(cod){
         dataType: 'json',
         data: {'codTrabajador':cod, 'anno' : anno, 'tipo_periodo' : tipoPer, 'periodo' : periodo, 'accion':'listaFueVen'},
         success: function(respuesta){
-            $("#comisionistaModArbVen").val(respuesta['cod_tipo_comisionista']).trigger('change');
-            // $("#grupoModTraArbVen").val(respuesta['cod_grupo']).trigger('change');
-            $("#SupervisorModArbVen").val(respuesta['cod_supervisor']).trigger('change');
-            $("#jefeVentaModArbVen").val(respuesta['cod_jefeventas']).trigger('change');
+            if(boton == 'supervisor'){
+                $("#comisionistaModArbVen").val(respuesta['cod_tipo_comisionista']).trigger('change');
+                // $("#grupoModTraArbVen").val(respuesta['cod_grupo']).trigger('change');
+                $("#SupervisorModArbVen").val(respuesta['cod_supervisor']).trigger('change');
+                $("#jefeVentaModArbVen").val(respuesta['cod_jefeventas']).trigger('change');
+            }else if(boton == 'jefe'){
+                $("#jefeVentaModArbVen").val(respuesta['cod_jefeventas']).trigger('change');
+            }
         }
     });
 }
