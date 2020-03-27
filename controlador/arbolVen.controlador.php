@@ -22,6 +22,7 @@ class ControladorArbolVen{
 		$respuesta = ModeloArbolVen::mdlNombreTrabajador($tabla,$codigo);
 		return $respuesta;
 	}//function ctrNombreTrabajador
+	
 	static public function ctrBuscarCtto(){
 		$tabla = "vtade_contrato";
 		$tabla2 = "vtama_localidad";
@@ -32,12 +33,14 @@ class ControladorArbolVen{
 		$respuesta = ModeloArbolVen::mdlBuscarCtto($tabla,$tabla2,$codigo,$periodo,$tipoPeriodo,$annio);
 		return $respuesta;
 	}//function ctrBuscarCtto
+	
 	static public function ctrNombreGrupoVen(){
 		$tabla = "vtama_grupo";
 		$tabla2 = "rhuma_trabajador";
 		$respuesta = ModeloArbolVen::mdlBuscarGrupoVen($tabla,$tabla2);
 		return $respuesta;
 	}//function ctrNombreTrabajador
+	
 	static public function ctrBuscarFueVen(){
 		$tabla = "vtama_historico_vendedor";
 		$codigo = $_POST['codTrabajador'];
@@ -46,6 +49,13 @@ class ControladorArbolVen{
 		$annio = $_POST['anno'];
 		$respuesta = ModeloArbolVen::mdlBuscarFueVen($tabla,$codigo,$periodo,$tipoPeriodo,$annio);
 		return $respuesta;
-	}//function ctrNombreTrabajador
+	}//function ctrBuscarFueVen
+
+	static public function ctrBuscarNomComi(){
+		$tabla = "vtama_tipo_comisionista";
+		$codigo = $_POST['cod'];
+		$respuesta = ModeloArbolVen::mdlBuscarNomComi($tabla,$codigo);
+		return $respuesta;
+	}//function ctrBuscarNomComi
 }//class ControladorArbolVen
 ?>

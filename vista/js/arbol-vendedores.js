@@ -239,11 +239,13 @@ function nombreGrupoVenta(valor,campo){
 function nombreComisionista(valor,campo){
     $.ajax({
         type: 'POST',
-        url: 'extensiones/captcha/buscaNombreComisionista.php',
+        url: 'ajax/ArbolVendedores.ajax.php',
         dataType: 'text',
-        data: { 'cod' : valor },
+        data: { 'cod' : valor, 'accion' : 'comisionista' },
         success : function(respuesta){
-            document.getElementById(campo).value = respuesta;
+            document.getElementById(campo).value = respuesta['dsc_tipo_comisionista'];
+            $("#flgJefeModArbVen").val(respuesta['flg_supervisor']);
+            $("#flgSupModArbVen").val(respuesta['flg_jefeventas']);
         }
     });
 }//nombreGrupoVenta
@@ -426,91 +428,130 @@ function validaModifArbol(){
     $("#entradaModal").val('modificacion');
     $('#m_modal_nvoConfigArbVen').modal('show');
     $("#periodoConfTraArbVen").val(ls_periodo).trigger('change');
-
+    $("#entradaModArbVen").val('modificar');
 }
 
 function modificaArbol(){
 
-//     String     ls_tipo, ls_periodo
-//     String      ls_flg_estado, ls_flg_modif
-//     String      ls_jefe, ls_supervisor, ls_grupo, ls_tipo_comisionista
-//     String      ls_flg_supervisor, ls_flg_jefe
-//     String      ls_jefe_gpo, ls_supervisor_gpo
-//     Integer li_anno, li_existe
+    var ls_jefe = $("#jefeVentaModArbVen").val();
+    var ls_supervisor = $("#SupervisorModArbVen").val();
+    var ls_grupo = $("#grupoModTraArbVen").val();
+    var ls_tipo_comisionista = $("#comisionistaModArbVen").val();
 
-//     dw_mto.accepttext()
+    var ls_tipo $("#tipoPeriodoArbVen").val();
+    var ls_periodo = $("#periodoConfTraArbVen").val();
+    var li_anno = $("#numAnioArbVen").val();
 
-//     ls_jefe = dw_mto.GetItemString(1, "cod_jefeventas")
-//     ls_supervisor = dw_mto.GetItemString(1, "cod_supervisor")
-//     ls_grupo = dw_mto.GetItemString(1, "cod_grupo")
-//     ls_tipo_comisionista = dw_mto.GetItemString(1, "cod_tipo_comisionista")
+    var ls_flg_supervisor = 'NO';
+    var ls_flg_jefe = 'NO';
+    var is_opcion = 
 
-//     ls_tipo = dw_mto.GetItemString(1, "cod_tipo_periodo")
-//     ls_periodo = dw_mto.GetItemString(1, "cod_periodo")
-//     li_anno = dw_mto.GetItemNumber(1, "num_anno")
+    // -- Valida -- //
 
-//     ls_flg_supervisor = 'NO'
-//     ls_flg_jefe = 'NO'
+    if (li_anno == null || li_anno == 0 || li_anno == '') {
+        swal({
+            title: "Error",
+            text: "Debe seleccionar el año.",
+            type: "error",
+            confirmButtonText: "Aceptar",
+          });
+        return;
+    }
 
-//     // -- Valida -- //
+    if (ls_tipo == null || ls_tipo == 0 || ls_tipo == '') {
+        swal({
+            title: "Error",
+            text: "Debe seleccionar el tipo de período.",
+            type: "error",
+            confirmButtonText: "Aceptar",
+          });
+        return;
+    }
 
-//     If IsNull(li_anno) Or li_anno = 0 Then
-//         f_sys_mensaje_usuario(Title, "MSGLIB", "DEBE SELECCIONAR EL AÑO.", "PRV")
-//         Return
-//     End If
+    if (ls_periodo == null || ls_periodo == 0 || ls_periodo == '') {
+        swal({
+            title: "Error",
+            text: "Debe seleccionar el período.",
+            type: "error",
+            confirmButtonText: "Aceptar",
+          });
+        return;
+    }
 
-//     If IsNull(ls_tipo) Or Trim(ls_tipo) = '' Then
-//         f_sys_mensaje_usuario(Title, "MSGLIB", "DEBE SELECCIONAR EL TIPO DE PERÍODO.", "PRV")
-//         Return
-//     End If
+    if (ls_grupo == null || ls_grupo == 0 || ls_grupo == '') {
+        swal({
+            title: "Error",
+            text: "Debe seleccionar el grupo de venta.",
+            type: "error",
+            confirmButtonText: "Aceptar",
+          });
+        return;
+    }
 
-//     If IsNull(ls_periodo) Or Trim(ls_periodo) = '' Then
-//         f_sys_mensaje_usuario(Title, "MSGLIB", "DEBE SELECCIONAR EL PERÍODO.", "PRV")
-//         Return
-//     End If
+    if (ls_tipo_comisionista == null || ls_tipo_comisionista == 0 || ls_tipo_comisionista == '') {
+        swal({
+            title: "Error",
+            text: "Debe seleccionar el tipo de comisionista.",
+            type: "error",
+            confirmButtonText: "Aceptar",
+          });
+        return;
+    }
 
-//     If IsNull(ls_grupo) Or Trim(ls_grupo) = '' Then
-//         f_sys_mensaje_usuario(Title, "MSGLIB", "DEBE SELECCIONAR EL GRUPO DE VENTA.", "PRV")
-//         Return
-//     End If
+    if (ls_supervisor == null || ls_supervisor == 0 || ls_supervisor == '') {
+        swal({
+            title: "Error",
+            text: "Debe seleccionar el supervisor.",
+            type: "error",
+            confirmButtonText: "Aceptar",
+          });
+        return;
+    }
 
-//     If IsNull(ls_tipo_comisionista) Or Trim(ls_tipo_comisionista) = '' Then
-//         f_sys_mensaje_usuario(Title, "MSGLIB", "DEBE SELECCIONAR EL TIPO DE COMISIONISTA.", "PRV")
-//         Return
-//     End If
+    if (ls_jefe == null || ls_jefe == 0 || ls_jefe == '') {
+        swal({
+            title: "Error",
+            text: "Debe seleccionar el jefe de ventas.",
+            type: "error",
+            confirmButtonText: "Aceptar",
+          });
+        return;
+    }
 
-//     If IsNull(ls_supervisor) Or Trim(ls_supervisor) = '' Then
-//         f_sys_mensaje_usuario(Title, "MSGLIB", "DEBE SELECCIONAR EL SUPERVISOR.", "PRV")
-//         Return
-//     End If
+    // -- Valida -- //
 
-//     If IsNull(ls_jefe) Or Trim(ls_jefe) = '' Then
-//         f_sys_mensaje_usuario(Title, "MSGLIB", "DEBE SELECCIONAR EL JEFE DE VENTAS.", "PRV")
-//         Return
-//     End If
-
-//     // -- Valida -- //
-
-//     If is_opcion = 'INS' Then
+    if (is_opcion == 'INS'){
         
-//         li_existe = 0
+        var li_existe = 0;
+            
+        $.ajax({
+            url:"ajax/ArbolVendedores.ajax.php",
+            method: "POST",
+            dataType: 'json',
+            data: {'codTrabajador':cod, 'anno' : anno, 'tipo_periodo' : tipoPer, 'periodo' : periodo, 'accion':'listaFueVen'},
+            success: function(respuesta){
+                conole.log(respuesta);
+    //         SELECT  COUNT(1)
+    //         INTO        :li_existe
+    //         FROM        vtama_historico_vendedor
+    //         WHERE   vtama_historico_vendedor.cod_trabajador = :is_codigo
+    //         AND     vtama_historico_vendedor.num_anno = :li_anno
+    //         AND     vtama_historico_vendedor.cod_tipo_periodo = :ls_tipo
+    //         AND     vtama_historico_vendedor    .cod_periodo = :ls_periodo; 
+            }//success
+        }); //ajax   
+            
+        if (li_existe > 0) {
+            swal({
+                title: "Error",
+                text: "El período ingresado ya esta configurado para el consejero. Por favor verifique.",
+                type: "error",
+                confirmButtonText: "Aceptar",
+              });
+            return;
+        }
         
-//         SELECT  COUNT(1)
-//         INTO        :li_existe
-//         FROM        vtama_historico_vendedor
-//         WHERE   vtama_historico_vendedor.cod_trabajador = :is_codigo
-//         AND     vtama_historico_vendedor.num_anno = :li_anno
-//         AND     vtama_historico_vendedor.cod_tipo_periodo = :ls_tipo
-//         AND     vtama_historico_vendedor    .cod_periodo = :ls_periodo;
-        
-//         f_verifica_transaccion(SQLCA)
-        
-//         If li_existe > 0 Then
-//             f_sys_mensaje_usuario(Title, "MSGLIB", "EL PERÍODO INGRESADO YA ESTA CONFIGURADO PARA EL CONSEJERO.~r~nPOR FAVOR VERIFIQUE.", "PRV")
-//             Return
-//         End If
-        
-//     End If
+    }//End If
 
 //     // -- Periodo -- //
 

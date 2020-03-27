@@ -77,5 +77,15 @@ class ModeloArbolVen{
 
 	}//function mdlBuscarFueVen
 
+	static public function mdlBuscarNomComi($tabla,$codigo){
+		$db = new Conexion();
+		$sql = $db->consulta("SELECT dsc_tipo_comisionista, flg_supervisor, flg_jefeventas FROM $tabla WHERE cod_tipo_comisionista = '$codigo' AND flg_activo = 'SI'");
+		$datos = arrayMapUtf8Encode($db->recorrer($sql));
+		return $datos;
+		$db->liberar($sql);
+        $db->cerrar();
+
+	}//function mdlBuscarNomComi
+
 }//class ModeloArbolVen
 ?>
