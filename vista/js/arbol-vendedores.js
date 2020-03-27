@@ -338,7 +338,10 @@ function anadeFueTra(cod){
         dataType: 'json',
         data: {'codTrabajador':cod, 'anno' : anno, 'tipo_periodo' : tipoPer, 'periodo' : periodo, 'accion':'listaFueVen'},
         success: function(respuesta){
-            console.log(respuesta);
+            $("#comisionistaModArbVen").val(respuesta['cod_tipo_comisionista']).trigger('change');
+            $("#grupoModTraArbVen").val(respuesta['cod_grupo']).trigger('change');
+            $("#SupervisorModArbVen").val(respuesta['cod_supervisor']).trigger('change');
+            $("#jefeVentaModArbVen").val(respuesta['cod_jefeventas']).trigger('change');
         }
     });
 
