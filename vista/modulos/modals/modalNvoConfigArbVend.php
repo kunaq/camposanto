@@ -135,6 +135,9 @@
 					</div>
 				</div>
 			</div>
+			<input type="hidden" id="flgJefeModArbVen" name="flgJefeModArbVen">
+			<input type="hidden" id="flgSupModArbVen" name="flgSupModArbVen">
+			<input type="hidden" id="entrada" name="entrada">
 			<div class="modal-footer">
 				<div class="row">
 					<div class="col-lg-5">

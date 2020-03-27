@@ -321,8 +321,12 @@ function anadeGrupo(codGrupo,codJefe,codSup){
     $("#grupoModTraArbVen").val(codGrupo).trigger('change');
     $("#SupervisorModArbVen").val(codJefe).trigger('change');
     $("#jefeVentaModArbVen").val(codSup).trigger('change');
-    $("#SupervisorOrigModArbVen").val(codJefe);
-    $("#jefeVentaOrigModArbVen").val(codSup);
+}
+
+function anadeComisionista(codCom,flgJefe,flgSup){
+    $("#comisionistaModArbVen").val(codCom).trigger('change');
+    $("#flgJefeModArbVen").val(flgJefe);
+    $("#flgSupModArbVen").val(flgSup);
 }
 
 //----------------------------------------------------------------------------------------------//
