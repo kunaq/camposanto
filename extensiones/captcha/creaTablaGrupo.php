@@ -6,7 +6,7 @@ require_once "../../funciones.php";
 
  $db = new Conexion();                                             
 
-            $sql = $db->consulta("SELECT dsc_grupo, cod_grupo, cod_jefe_ventas, cod_supervisor FROM vtama_grupo WHERE flg_activo = 'SI' AND cod_localidad = '".$_SESSION['localidad']."'");
+            $sql = $db->consulta("SELECT dsc_grupo, cod_grupo, cod_jefe_ventas, cod_supervisor FROM vtama_grupo WHERE flg_activo = 'SI'");
 
                 $datos = array();
                 //$datos = '';
