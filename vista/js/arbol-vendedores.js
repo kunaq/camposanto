@@ -393,8 +393,6 @@ function validaModifArbol(){
 
 }
 
-function 
-
 function modificaArbol(){
 
 //     String     ls_tipo, ls_periodo
