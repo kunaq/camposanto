@@ -307,6 +307,7 @@ function creaTablaFueVentas(entrada){
     $('#tablaFueVen').html('<div class="loader"></div>');
     $.ajax({
         url: 'extensiones/captcha/creaTablaFueVentas.php',
+         data: {'entrada':entrada},
         success : function(respuesta){
             // console.log(respuesta);
             $('#tablaFueVen').html('')
@@ -339,12 +340,11 @@ function anadeFueTra(cod){
         data: {'codTrabajador':cod, 'anno' : anno, 'tipo_periodo' : tipoPer, 'periodo' : periodo, 'accion':'listaFueVen'},
         success: function(respuesta){
             $("#comisionistaModArbVen").val(respuesta['cod_tipo_comisionista']).trigger('change');
-            $("#grupoModTraArbVen").val(respuesta['cod_grupo']).trigger('change');
+            // $("#grupoModTraArbVen").val(respuesta['cod_grupo']).trigger('change');
             $("#SupervisorModArbVen").val(respuesta['cod_supervisor']).trigger('change');
             $("#jefeVentaModArbVen").val(respuesta['cod_jefeventas']).trigger('change');
         }
     });
-
 }
 
 //----------------------------------------------------------------------------------------------//

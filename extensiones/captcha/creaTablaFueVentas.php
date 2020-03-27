@@ -4,6 +4,8 @@ require_once "../../core.php";
 require_once "../../modelo/conexion.php";
 require_once "../../funciones.php";
 
+$entrada = $_POST['entrada'];
+
  $db = new Conexion();                                             
 
             $sql = $db->consulta("SELECT ( a.cod_trabajador ) AS codigo, ( a.dsc_apellido_paterno + ' ' + a.dsc_apellido_materno + ', ' + a.dsc_nombres ) AS dsc_trabajador FROM rhuma_trabajador a, rhuma_area_empresa b, rhuvi_cargo_trabajador c WHERE a.cod_trabajador = c.cod_trabajador AND c.cod_empresa = b.cod_empresa AND c.cod_centroresp = b.cod_centroresp AND c.cod_area = b.cod_area AND b.flg_fuerza_ventas = 'SI'");
@@ -35,7 +37,7 @@ require_once "../../funciones.php";
                             '.Utf8Encode($key['dsc_trabajador']).'
                         </td>
                         <td style="text-align: center;">
-                            <button type="button" onclick="anadeFueTra('.$cod.');"  class="m-btn btn btn-danger btn-sm" data-dismiss="modal">
+                            <button type="button" onclick="anadeFueTra('.$cod.','.$entrada.');"  class="m-btn btn btn-danger btn-sm" data-dismiss="modal">
                                 <i class="la la-plus"></i>
                             </button>
                         </td>
