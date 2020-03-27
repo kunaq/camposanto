@@ -317,6 +317,12 @@ $("#btnAgFun").on('click',function(){
     });
 });
 
+function anadeGrupo(codGrupo,codJefe,codSup){
+    $("#grupoModTraArbVen").val(codGrupo).trigger('change');
+    $("#SupervisorModArbVen").val(codJefe).trigger('change');
+    $("#jefeVentaModArbVen").val(codSup).trigger('change');
+}
+
 //----------------------------------------------------------------------------------------------//
 //-------------------------------------------MODIFICAR------------------------------------------//
 //----------------------------------------------------------------------------------------------//
