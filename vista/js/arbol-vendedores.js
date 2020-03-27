@@ -438,7 +438,7 @@ function modificaArbol(){
     var ls_grupo = $("#grupoModTraArbVen").val();
     var ls_tipo_comisionista = $("#comisionistaModArbVen").val();
 
-    var ls_tipo $("#tipoPeriodoArbVen").val();
+    var ls_tipo = $("#tipoPeriodoArbVen").val();
     var ls_periodo = $("#periodoConfTraArbVen").val();
     var li_anno = $("#numAnioArbVen").val();
 
