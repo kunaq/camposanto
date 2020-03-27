@@ -444,7 +444,7 @@ function modificaArbol(){
 
     var ls_flg_supervisor = 'NO';
     var ls_flg_jefe = 'NO';
-    var is_opcion = 
+    var is_opcion = 'INS';
 
     // -- Valida -- //
 
