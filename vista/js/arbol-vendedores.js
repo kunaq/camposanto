@@ -240,7 +240,7 @@ function nombreComisionista(valor,campo){
     $.ajax({
         type: 'POST',
         url: 'ajax/ArbolVendedores.ajax.php',
-        dataType: 'text',
+        dataType: 'json',
         data: { 'cod' : valor, 'accion' : 'comisionista' },
         success : function(respuesta){
             console.log(respuesta);
