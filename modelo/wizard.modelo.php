@@ -54,23 +54,12 @@ class ModeloWizard{
 		$db = new Conexion();
 		$sql = $db->consulta("EXEC usp_vta_prc_genera_contrato '".$datos['a_usuario']."', '".$datos['as_cliente']."', '".$datos['as_contrato_base']."', '".$datos['as_num_comprobante']."', '".$datos['as_contrato_reg']."', '".$datos['as_tipo_comprobante']."', '".$datos['as_localidad']."', '".$datos['as_tipo_recaudacion']."', '".$datos['as_localidad_base']."', '".$datos['as_servicio_base']."', '".$datos['as_tipo_ctt_base']."', '".$datos['as_camposanto']."', '".$datos['as_plataforma']."', '".$datos['as_area']."', '".$datos['as_eje_horizontal']."', '".$datos['as_eje_vertical']."', '".$datos['as_tipo_espacio']."', '".$datos['as_convenio']."', '".$datos['as_moneda']."', '".$datos['as_moneda_comprob']."', '".$datos['as_espacio']."', '".$datos['as_tipo_necesidad']."', '".$datos['adt_fch_emision']."', ".$datos['ade_imp_cuoi'].", ".$datos['ade_valor_igv'].", '".$datos['as_flg_nuevo']."', '".$datos['as_flg_comprobante']."', '".$datos['as_flg_modif']."', '".$datos['as_flg_regularizar']."', '".$datos['as_flg_ctt_x_tn']."', '".$datos['as_cod_empresa']."', '".$datos['as_tipo_programa_base']."', '".$datos['ai_nivel']."', '".$datos['as_flg_emitir_saldo']."', '".$datos['as_flg_integral']."', '".$datos['as_flg_cronograma_cuoi']."'");
 
-		if($sql){
-			while($key = $db->recorrer($sql)){
-	    		$num_contrato = $key['num_contrato'];
-	    		$num_servicio = $key['num_servicio'];
-	    		$cod_tipo_ctt = $key['cod_tipo_ctt'];
-	    		$cod_tipo_programa = $key['cod_tipo_programa'];
-	    		$num_refinanciamiento = $key['num_refinanciamiento'];
-	    		$cod_localidad = $key['cod_localidad'];
+		do {
+		   $respuesta = arrayMapUtf8Encode($db->recorrer($sql));
+		} while (sqlsrv_next_result($sql));
 
-	    		$arrData = array('cod' => '1', 'num_contrato'=> $num_contrato, 'num_servicio'=>$num_servicio, 'cod_tipo_ctt'=>$cod_tipo_ctt, 'cod_tipo_programa'=> $cod_tipo_programa, 'num_refinanciamiento'=>$num_refinanciamiento, 'cod_localidad'=>$cod_localidad);
-			}
-			return $arrData;
-		}else{
-			$arrData = array('cod' => '0', 'msg'=> 'error al registrar contrato');
-			return $arrData;
-		}
-		return $datos;
+		return $respuesta;
+
 	}//function ejecutaProcedureGeneraCtto
 
 	static public function mdlguardaDscto($datos, $tabla){
@@ -173,6 +162,67 @@ class ModeloWizard{
 		$db->liberar($sql);
         $db->cerrar();
 	}//function mdlGetDatosContrato
+	
+	static public function mdlGetCuotas($ls_cuota){
+		$db = new Conexion();
+		$sql = $db->consulta("SELECT num_cuotas FROM vtama_cuota WHERE cod_cuota = '$ls_cuota'");
+
+		$datos = array();
+    	while($key = $db->recorrer($sql)){
+	    		$datos[] = arrayMapUtf8Encode($key);
+			}
+		return $datos;
+		$db->liberar($sql);
+        $db->cerrar();
+	}//function mdlGetCuotas
+	
+	static public function mdlGetCodCuotas($num_cuotas){
+		$db = new Conexion();
+		$sql = $db->consulta("SELECT cod_cuota FROM vtama_cuota WHERE num_cuotas = '$num_cuotas'");
+
+		$datos = array();
+    	while($key = $db->recorrer($sql)){
+	    		$datos[] = arrayMapUtf8Encode($key);
+			}
+		return $datos;
+		$db->liberar($sql);
+        $db->cerrar();
+	}//function mdlGetCuotas
+	
+	static public function mdlGetTotalFinanciar($cod_localidad,$tipo_ctt,$tipo_programa,$cod_contrato,$num_ref){
+		$db = new Conexion();
+		$sql = $db->consulta("SELECT            SUM(vtade_contrato_servicio.imp_cuoi) AS saldo_total
+	                        FROM             vtade_contrato
+	                        INNER JOIN vtavi_cronograma_x_servicio ON vtavi_cronograma_x_servicio.cod_localidad = vtade_contrato.cod_localidad
+	                        AND                vtavi_cronograma_x_servicio.cod_tipo_ctt = vtade_contrato.cod_tipo_ctt
+	                        AND                vtavi_cronograma_x_servicio.cod_tipo_programa = vtade_contrato.cod_tipo_programa
+	                        AND                vtavi_cronograma_x_servicio.cod_contrato = vtade_contrato.cod_contrato
+	                        AND                vtavi_cronograma_x_servicio.num_servicio = vtade_contrato.num_servicio
+	                        INNER JOIN vtade_contrato_servicio ON vtade_contrato_servicio.cod_localidad = vtade_contrato.cod_localidad
+	                        AND                vtade_contrato_servicio.cod_tipo_ctt = vtade_contrato.cod_tipo_ctt
+	                        AND                vtade_contrato_servicio.cod_tipo_programa = vtade_contrato.cod_tipo_programa
+	                        AND                vtade_contrato_servicio.cod_contrato = vtade_contrato.cod_contrato
+	                        AND                vtade_contrato_servicio.num_servicio = vtade_contrato.num_servicio
+	                        INNER JOIN vtama_tipo_servicio ON vtama_tipo_servicio.cod_tipo_servicio = vtade_contrato.cod_tipo_servicio
+	                        WHERE            vtavi_cronograma_x_servicio.cod_localidad = '$cod_localidad'
+	                        AND                vtavi_cronograma_x_servicio.cod_tipo_ctt = '$tipo_ctt'
+	                        AND                vtavi_cronograma_x_servicio.cod_tipo_programa = 'tipo_programa'
+	                        AND                vtavi_cronograma_x_servicio.cod_contrato = 'cod_contrato'
+	                        AND                vtavi_cronograma_x_servicio.num_refinanciamiento = '$num_ref'
+	                        AND                vtavi_cronograma_x_servicio.flg_activo = 'SI'
+	                        AND                vtade_contrato_servicio.flg_servicio_principal = 'SI'
+	                        AND                vtade_contrato_servicio.flg_contado = 'NO'
+	                        AND                vtade_contrato.flg_resuelto = 'NO'
+	                        AND                vtade_contrato.flg_anulado = 'NO'");
+
+		$datos = array();
+    	while($key = $db->recorrer($sql)){
+	    		$datos[] = arrayMapUtf8Encode($key);
+			}
+		return $datos;
+		$db->liberar($sql);
+        $db->cerrar();
+	}//function mdlGetTotalFinanciar
 
 }//class ModeloWizard
 ?>

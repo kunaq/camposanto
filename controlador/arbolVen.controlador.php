@@ -67,5 +67,35 @@ class ControladorArbolVen{
 		$respuesta = ModeloArbolVen::mdlExisteConsejero($tabla,$codigo,$periodo,$tipoPeriodo,$annio);
 		return $respuesta;
 	}//function ctrExisteConsejero
+
+	static public function ctrModificarArbVen(){
+		$tabla = "vtama_historico_vendedor";
+		$codigo = $_POST['codTrabajador'];
+		$periodo = $_POST['periodo'];
+		$tipoPeriodo = $_POST['tipo_periodo'];
+		$annio = $_POST['anno'];
+		$respuesta = ModeloArbolVen::mdlModificarArbVen($tabla,$datos);
+		return $respuesta;
+	}//function ctrModificarArbVen
+
+	static public function ctrEliminarArbVen(){
+		$tabla = "vtama_historico_vendedor";
+		$codigo = $_POST['codTrabajador'];
+		$periodo = $_POST['periodo'];
+		$tipoPeriodo = $_POST['tipo_periodo'];
+		$annio = $_POST['anno'];
+		$respuesta = ModeloArbolVen::mdlEliminarArbVen($tabla,$datos);
+		return $respuesta;
+	}//function ctrEliminarArbVen
+
+	static public function ctrGuardarArbVen(){
+		$tabla = "vtama_historico_vendedor";
+		$codigo = $_POST['codTrabajador'];
+		$periodo = $_POST['periodo'];
+		$tipoPeriodo = $_POST['tipo_periodo'];
+		$annio = $_POST['anno'];
+		$respuesta = ModeloArbolVen::mdlGuardarArbVen($tabla,$datos);
+		return $respuesta;
+	}//function ctrGuardarArbVen
 }//class ControladorArbolVen
 ?>

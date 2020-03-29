@@ -33,6 +33,18 @@ class AjaxArbolVen{
 		$respuesta = ControladorArbolVen::ctrExisteConsejero();
 		echo json_encode($respuesta);
 	}//function ajaxExisteConsejero
+	public function ajaxModificarArbVen(){
+		$respuesta = ControladorArbolVen::ctrModificarArbVen();
+		echo json_encode($respuesta);
+	}//function ajaxModificarArbVen
+	public function ajaxEliminarArbVen(){
+		$respuesta = ControladorArbolVen::ctrEliminarArbVen();
+		echo json_encode($respuesta);
+	}//function ajaxEliminarArbVen
+	public function ajaxGuardarArbVen(){
+		$respuesta = ControladorArbolVen::ctrGuardarArbVen();
+		echo json_encode($respuesta);
+	}//function ajaxGuardarArbVen
 }//class AjaxArbolVen
 /*=============================================
 ACCIONES
@@ -64,4 +76,16 @@ else if(isset($_POST["accion"]) && $_POST["accion"] == 'comisionista'){
 else if(isset($_POST["accion"]) && $_POST["accion"] == 'existeConsejero'){
 	$cliente = new AjaxArbolVen();
 	$cliente -> ajaxExisteConsejero();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'modificar'){
+	$cliente = new AjaxArbolVen();
+	$cliente -> ajaxModificarArbVen();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'eliminar'){
+	$cliente = new AjaxArbolVen();
+	$cliente -> ajaxEliminarArbVen();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'guardar'){
+	$cliente = new AjaxArbolVen();
+	$cliente -> ajaxGuardarArbVen();
 }

@@ -612,7 +612,7 @@ function modificaArbol(){
                 url:"ajax/ArbolVendedores.ajax.php",
                 method: "POST",
                 dataType: 'json',
-                data: {'codTrabajador':cod, 'anno' : li_anno, 'tipo_periodo' : ls_tipo, 'periodo' : ls_periodo, 'accion':'modificar'},
+                data: {'codTrabajador':cod, 'anno' : li_anno, 'tipo_periodo' : ls_tipo, 'periodo' : ls_periodo, 'grupo' : ls_grupo, 'tipo_comisionista' : ls_tipo_comisionista, 'supervisor' : ls_supervisor, 'jefe' : ls_jefe, 'flg_supervisor' : ls_flg_supervisor, 'flg_jefe' : ls_flg_jefe, 'accion':'modificar'},
                 success: function(respuesta){
                     if(respuesta == true){
                         swal({
