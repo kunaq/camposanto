@@ -85,12 +85,12 @@ creaTablaTrabajadoresArbVend();
 			alert("valor 2");
 			$( "li .act_SI" ).each(function() 
 			{
-				$("div").hidden();
+				$("div .row").hidden();
 			
 			});
 			$( "li .act_NO" ).each(function() 
 			{
-				$("div").show();
+				$("div .row").show();
 				
 			});
 		}
