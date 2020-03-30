@@ -71,6 +71,7 @@
 													</div>
 													<div class="col-lg-8">
 														<select class="form-control form-control-sm m-input" id="anioBuscaTraArbVen" class="anioBuscaTraArbVen">
+															<option value="todos" selected>Todos</option>
 															<?php
 															$prueba = controladorEmpresa::ctrAnnoPeriodo();
 														  ?>
