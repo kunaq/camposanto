@@ -33,10 +33,10 @@
 												</div>
 											</div>
 											<div class="col-lg-4">
-												<select class="form-control form-control-sm m-input">
-													<option>TODOS</option>
-													<option>ACTIVO</option>
-													<option>DESACTIVO</option>
+												<select id="SelAct" onblur="selec1()" class="form-control form-control-sm m-input">
+													<option value="0">TODOS</option>
+													<option value="1">ACTIVO</option>
+													<option value="2">DESACTIVO</option>
 												</select>
 											</div>
 										</div>

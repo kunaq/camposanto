@@ -32,7 +32,7 @@ function creaTablaTrabajadoresArbVend(){
 	                	color = 'red';
 	                }
 	                $("#listaTrabArbVen").append(
-	                    '<li class="nav-item '+classPeriodo+' itemLista">'+
+	                    '<li class="nav-item '+classPeriodo+' itemLista act_'+value["flg_acivo"]+'">'+
 	                        '<a href="#" class="btnVerTrabArbVen" codTrabajador="'+value['cod_trabajador']+'">'+
 	                        	'<div class="row" style = "color:'+color+'">'+
 									'<div class="col-md-4">'+value['cod_trabajador']+'</div>'+
@@ -46,6 +46,23 @@ function creaTablaTrabajadoresArbVend(){
         });
 }
 creaTablaTrabajadoresArbVend();
+
+function selec1(params) 
+	{
+		if ($("#SelAct").value==0) 
+		{
+			return this.value;
+			
+		} else if ($("#SelAct").value==1) 
+		{
+			return;
+			
+		} else 
+			{
+				
+				return;
+			} 		
+	}
 
 $("#listaTrabArbVen").on("click","a.btnVerTrabArbVen",function(){
 	$(".ulListaVerTrabArbVen li").removeClass('liListaKqPstActive');
@@ -188,3 +205,4 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
 $("#NvoConfArbVen").on("click",function(){
     $('#m_modal_nvoConfigArbVen').modal('show');
 });
+
