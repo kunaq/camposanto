@@ -34,7 +34,7 @@
 											</div>
 											<div class="col-lg-4">
 												<select id="SelAct" onChange='selec1()' class="form-control form-control-sm m-input">
-													<option value="0" selected>TODOS</option>
+													<option value="0">TODOS</option>
 													<option value="1">ACTIVO</option>
 													<option value="2">DESACTIVO</option>
 												</select>
