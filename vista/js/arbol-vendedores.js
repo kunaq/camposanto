@@ -633,6 +633,7 @@ function modificaArbol(){
                             text: "Se grabó el registro satisfactoriamente.",
                             type: "success",
                             confirmButtonText: "Aceptar",
+                            onBeforeOpen: window.location.assign('arbol-vendedores')
                         })
                     }else{
                         swal({
@@ -753,7 +754,9 @@ function eliminaArbol(){
                             text: "Se elimino el registro satisfactoriamente.",
                             type: "success",
                             confirmButtonText: "Aceptar",
+                            onBeforeOpen: window.location.assign('arbol-vendedores')
                         })
+
                     }else{
                         swal({
                             title: "",
