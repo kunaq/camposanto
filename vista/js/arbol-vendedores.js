@@ -305,7 +305,7 @@ $( "select" ).change(function ()
 			$(".ulListaHistConf li").each(function() {
 
 				
-				if($(this).attr("anio") == anio){
+				if($(this).attr("anio") != anio){
 				
 					// $(".filanno").attr("hidden", false);
 					$("."+anio).attr("hidden", false);
