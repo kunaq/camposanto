@@ -71,30 +71,48 @@ class ControladorArbolVen{
 	static public function ctrModificarArbVen(){
 		$tabla = "vtama_historico_vendedor";
 		$codigo = $_POST['codTrabajador'];
+		$grupo = $_POST['grupo'];
 		$periodo = $_POST['periodo'];
 		$tipoPeriodo = $_POST['tipo_periodo'];
 		$annio = $_POST['anno'];
-		$respuesta = ModeloArbolVen::mdlModificarArbVen($tabla,$datos);
+		$comisionista = $_POST['tipo_comisionista'];
+		$jefe = $_POST['jefe'];
+		$supervisor = $_POST['supervisor'];
+		$flg_jefe = $_POST['flg_jefe'];
+		$flg_sup = $_POST¨['flg_supervisor'];
+		$respuesta = ModeloArbolVen::mdlModificarArbVen($tabla,$codigo,$grupo,$periodo,$tipoPeriodo,$annio,$comisionista,$jefe,$supervisor,$flg_jefe,$flg_sup);
 		return $respuesta;
 	}//function ctrModificarArbVen
 
 	static public function ctrEliminarArbVen(){
 		$tabla = "vtama_historico_vendedor";
 		$codigo = $_POST['codTrabajador'];
+		$grupo = $_POST['grupo'];
 		$periodo = $_POST['periodo'];
 		$tipoPeriodo = $_POST['tipo_periodo'];
 		$annio = $_POST['anno'];
-		$respuesta = ModeloArbolVen::mdlEliminarArbVen($tabla,$datos);
+		$comisionista = $_POST['tipo_comisionista'];
+		$jefe = $_POST['jefe'];
+		$supervisor = $_POST['supervisor'];
+		$flg_jefe = $_POST['flg_jefe'];
+		$flg_sup = $_POST¨['flg_supervisor'];
+		$respuesta = ModeloArbolVen::mdlEliminarArbVen($tabla,$codigo,$grupo,$periodo,$tipoPeriodo,$annio,$comisionista,$jefe,$supervisor,$flg_jefe,$flg_sup);
 		return $respuesta;
 	}//function ctrEliminarArbVen
 
 	static public function ctrGuardarArbVen(){
 		$tabla = "vtama_historico_vendedor";
 		$codigo = $_POST['codTrabajador'];
+		$grupo = $_POST['grupo'];
 		$periodo = $_POST['periodo'];
 		$tipoPeriodo = $_POST['tipo_periodo'];
 		$annio = $_POST['anno'];
-		$respuesta = ModeloArbolVen::mdlGuardarArbVen($tabla,$datos);
+		$comisionista = $_POST['tipo_comisionista'];
+		$jefe = $_POST['jefe'];
+		$supervisor = $_POST['supervisor'];
+		$flg_jefe = $_POST['flg_jefe'];
+		$flg_sup = $_POST¨['flg_supervisor'];
+		$respuesta = ModeloArbolVen::mdlGuardarArbVen($tabla,$codigo,$grupo,$periodo,$tipoPeriodo,$annio,$comisionista,$jefe,$supervisor,$flg_jefe,$flg_sup);
 		return $respuesta;
 	}//function ctrGuardarArbVen
 }//class ControladorArbolVen
