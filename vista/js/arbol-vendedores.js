@@ -48,7 +48,7 @@ function creaTablaTrabajadoresArbVend(){
 creaTablaTrabajadoresArbVend();
 
 //$("#SelAct").change(
-function selec1() 
+function  
 	{
 		//$( "select option:selected" ).each(function() {
 			if ($("#SelAct").value()=="1") 
