@@ -201,18 +201,10 @@
 													<div class="col-lg-3 offset-lg-9 form-group">
 														<!-- <p class="pull-right"> -->
 															<select class="form-control form-control-sm m-select2 m-select2-general" id="edoCttoArbVen" style="width:100%" >
-																<option>
-																	TODOS
-																</option>
-																<option>
-																	EMITIDOS
-																</option>
-																<option>
-																	ACTIVADOS
-																</option>
-																<option>
-																	RESUELTOS
-																</option>
+																<option value="0">TODOS</option>
+																<option value="1">EMITIDOS</option>
+																<option value="2">ACTIVADOS</option>
+																<option value="3">RESUELTOS</option>
 															</select>
 														<!-- </p> -->
 													</div>
