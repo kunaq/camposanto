@@ -162,7 +162,7 @@ class ModeloSegContrato{
 		$totalSaldo = 0;
 		$totalMora = 0;
 		$tasa = 0.12;
-		$fechactual = new DateTime;
+		$fechactual = strtotime(date('Y-m-d'));
 		$num_dias=1;
 
 		$db = new Conexion();
@@ -214,7 +214,7 @@ class ModeloSegContrato{
 	            $fchCancelacion = dateFormat($key['fch_cancelacion']);
 	        }
 
-	        $fchEntrada = new DateTime($key['fch_vencimiento']);
+	        $fchEntrada = strtotime(dateFormat($key['fch_vencimiento']));
 
 	        if ($fchEntrada < $fechactual) {
 	        	$cronogramaCtt.='<tr class="cuoVencida">
@@ -230,7 +230,7 @@ class ModeloSegContrato{
 		                            <td>'.number_format(round($key["imp_saldo"], 2),2,',','.').'</td>
 		                            <td>'.number_format(round($key["imp_mora"], 2),2,',','.').'</td>
 		                        </tr>'; 
-	        }elseif ($fchEntrada > $fechactual) {
+	        }elseif ($fchEntrada >= $fechactual) {
 	        	$cronogramaCtt.='<tr class="cuoPorVencer">
 	        						<td>'.$key['cod_tipo_cuota'].'</td>
 		                            <td>'.$key["num_cuota"].'</td>
@@ -391,12 +391,10 @@ class ModeloSegContrato{
 
 		$tableDsctoServicio = "";
 		$dsctoTotal = 0;
-		$i=0;
 
 		while($key = $db->recorrer($sql)){
 
 			$tableDsctoServicio .='<tr>
-									<td>'.($i+1).'</td>
 									<td>'.Utf8Encode($key['cod_usuario']).'</td>
 									<td>'.dateFormat($key['fch_registro']).'</td>
 									<td>'.$key['dsc_tipo_descuento'].'</td>';
@@ -953,7 +951,7 @@ class ModeloSegContrato{
 
 		$db = new Conexion();
 
-		$sql = $db->consulta("SELECT vtavi_caja_x_comprobante.cod_caja, vtavi_caja_x_comprobante.num_transaccion, (SELECT vtama_forma_pago.dsc_forma_pago FROM vtama_forma_pago WHERE vtama_forma_pago.cod_forma_pago = vtade_caja.cod_forma_pago) AS dsc_forma_pago, vtade_caja.num_documento, (SELECT vtaca_caja.fch_transaccion FROM vtaca_caja WHERE vtaca_caja.cod_caja = vtade_caja.cod_caja AND vtaca_caja.num_transaccion = vtade_caja.num_transaccion) AS fch_registro, (SELECT vtaca_caja.cod_usuario FROM vtaca_caja WHERE vtaca_caja.cod_caja = vtade_caja.cod_caja AND vtaca_caja.num_transaccion = vtade_caja.num_transaccion) AS cod_usuario, vtade_caja.cod_moneda, vtade_caja.imp_operacion, vtade_caja.imp_operacion_soles FROM vtavi_caja_x_comprobante INNER JOIN vtade_caja ON vtade_caja.num_transaccion = vtavi_caja_x_comprobante.num_transaccion WHERE vtavi_caja_x_comprobante.cod_localidad = '$localidad' AND vtavi_caja_x_comprobante.num_correlativo = '$num_correlativo'"); 
+		$sql = $db->consulta("SELECT vtavi_caja_x_comprobante.cod_caja, vtavi_caja_x_comprobante.num_transaccion, (SELECT vtama_forma_pago.dsc_forma_pago FROM vtama_forma_pago WHERE vtama_forma_pago.cod_forma_pago = vtade_caja.cod_forma_pago) AS dsc_forma_pago, vtade_caja.num_documento, (SELECT vtaca_caja.fch_transaccion FROM vtaca_caja WHERE vtaca_caja.cod_caja = vtade_caja.cod_caja AND vtaca_caja.num_transaccion = vtade_caja.num_transaccion) AS fch_registro, (SELECT vtaca_caja.cod_usuario FROM vtaca_caja WHERE vtaca_caja.cod_caja = vtade_caja.cod_caja AND vtaca_caja.num_transaccion = vtade_caja.num_transaccion) AS cod_usuario, vtade_caja.cod_moneda, vtade_caja.imp_operacion, vtade_caja.imp_operacion_soles FROM vtavi_caja_x_comprobante INNER JOIN vtade_caja ON vtade_caja.num_transaccion = vtavi_caja_x_comprobante.num_transaccion AND vtade_caja.cod_caja = vtavi_caja_x_comprobante.cod_caja AND vtade_caja.num_linea = vtavi_caja_x_comprobante.num_linea WHERE vtavi_caja_x_comprobante.cod_localidad = '$localidad' AND vtavi_caja_x_comprobante.num_correlativo = '$num_correlativo'"); 
 
 		$datos = array();
     	while($key = $db->recorrer($sql)){
@@ -997,11 +995,11 @@ class ModeloSegContrato{
 
 	}//function mdlGetBeneficiariosServ
 	
-	static public function mdlGetObservacionesContrato($contrato,$servicio){
+	static public function mdlGetObservacionesContrato($localidad,$contrato,$servicio){
 
 		$db = new Conexion();
 
-		$sql = $db->consulta("SELECT vtade_observacion_x_contrato.num_linea, vtade_observacion_x_contrato.dsc_observacion, vtade_observacion_x_contrato.cod_usuario, vtade_observacion_x_contrato.fch_registro, vtade_observacion_x_contrato.flg_automatico FROM vtade_observacion_x_contrato WHERE vtade_observacion_x_contrato.cod_contrato = '$contrato' AND vtade_observacion_x_contrato.num_servicio = '$servicio'"); 
+		$sql = $db->consulta("SELECT vtade_observacion_x_contrato.num_linea, vtade_observacion_x_contrato.dsc_observacion, vtade_observacion_x_contrato.cod_usuario, vtade_observacion_x_contrato.fch_registro, vtade_observacion_x_contrato.flg_automatico FROM vtade_observacion_x_contrato WHERE vtade_observacion_x_contrato.cod_localidad = '$localidad' AND vtade_observacion_x_contrato.cod_contrato = '$contrato' AND vtade_observacion_x_contrato.num_servicio = '$servicio'"); 
 
 		$datos = array();
     	while($key = $db->recorrer($sql)){

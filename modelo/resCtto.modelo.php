@@ -157,7 +157,7 @@ class ModeloResCtto{
 	static public function mdlActualizaVtadeCtt($datos){
 		$db = new Conexion();
 		$sql = $db->consulta("UPDATE	vtade_contrato
-							SET		vtade_contrato.fch_resolucion = '".$datos['fch_actual']."',
+							SET		vtade_contrato.fch_resolucion = CONVERT(DATE,'".$datos['fch_actual']."'),
 									vtade_contrato.flg_resuelto = 'SI',
 									vtade_contrato.cod_usuario_resolucion = '".$datos['usuario']."'
 							
@@ -195,7 +195,7 @@ class ModeloResCtto{
 		$num_item = $num_item + 1;
 
 		$sql2 = $db->consulta("INSERT INTO vtavi_resolucion_contrato ( cod_localidad, cod_contrato, num_servicio, cod_localidad_nuevo,cod_contrato_nuevo, num_servicio_nuevo, num_item, cod_tipo_movimiento, num_anno_afecto, cod_tipo_periodo_afecto, cod_periodo_afecto, cod_jefe_ventas, cod_supervisor, cod_vendedor, cod_grupo, imp_porc_afecto, imp_afecto, cod_tipo_resolucion, cod_motivo_resolucion, dsc_motivo_usuario, cod_usuario, fch_registro, imp_tc, flg_afecta_comision, imp_pagado, cod_tipo_ctt, cod_tipo_programa, cod_tipo_ctt_nuevo, cod_tipo_programa_nuevo ) 
-		VALUES ( '".$datos['cod_localidad']."', '".$datos['cod_contrato']."', '".$datos['num_servicio']."', '".$datos['cod_localidad']."', '".$datos['cod_contrato']."', '".$datos['num_servicio']."', '$num_item', '".$datos['cod_tipo_movimiento']."', '".$datos['num_anno']."', '".$datos['cod_tipo_periodo']."', '".$datos['cod_periodo']."', '".$datos['cod_jefe_ventas']."', '".$datos['cod_supervisor']."', '".$datos['cod_vendedor']."', '".$datos['cod_grupo']."', ".$datos['imp_porc_afecto'].", ".$datos['imp_afecto'].", '".$datos['cod_tipo_resolucion']."', '".$datos['cod_motivo_resolucion']."', '".$datos['dsc_motivo_usuario']."', '".$datos['usuario']."', '".$datos['fch_actual']."', ".$datos['imp_tc'].", '".$datos['flg_afecta_comision']."', ".$datos['imp_pagado'].", '".$datos['cod_tipo_ctt']."', '".$datos['cod_tipo_programa']."', '".$datos['cod_tipo_ctt']."', '".$datos['cod_tipo_programa']."')");
+		VALUES ( '".$datos['cod_localidad']."', '".$datos['cod_contrato']."', '".$datos['num_servicio']."', '".$datos['cod_localidad']."', '".$datos['cod_contrato']."', '".$datos['num_servicio']."', '$num_item', '".$datos['cod_tipo_movimiento']."', '".$datos['num_anno']."', '".$datos['cod_tipo_periodo']."', '".$datos['cod_periodo']."', '".$datos['cod_jefe_ventas']."', '".$datos['cod_supervisor']."', '".$datos['cod_vendedor']."', '".$datos['cod_grupo']."', ".$datos['imp_porc_afecto'].", ".$datos['imp_afecto'].", '".$datos['cod_tipo_resolucion']."', '".$datos['cod_motivo_resolucion']."', '".$datos['dsc_motivo_usuario']."', '".$datos['usuario']."', CONVERT(DATE,'".$datos['fch_actual']."'), ".$datos['imp_tc'].", '".$datos['flg_afecta_comision']."', ".$datos['imp_pagado'].", '".$datos['cod_tipo_ctt']."', '".$datos['cod_tipo_programa']."', '".$datos['cod_tipo_ctt']."', '".$datos['cod_tipo_programa']."')");
 
 		if ($sql2) {
 			return 1;
@@ -227,7 +227,7 @@ class ModeloResCtto{
 
 		if ($servicio_foma != 'XX') {
 			$sql2 = $db->consulta("UPDATE	vtade_contrato
-							SET		vtade_contrato.fch_resolucion = '".$datos['fch_actual']."',
+							SET		vtade_contrato.fch_resolucion = CONVERT(DATE,'".$datos['fch_actual']."'),
 									vtade_contrato.flg_resuelto = 'SI',
 									vtade_contrato.cod_usuario_resolucion = '".$datos['usuario']."'
 							
@@ -272,7 +272,7 @@ class ModeloResCtto{
 		$dsc_observacion = 'SE RESUELVE EL CONTRATO. USUARIO: "'.$datos['usuario'].'". FECHA: "'.dateFormat($datos['fch_format']).'". MOTIVO: '.$datos['cod_motivo_resolucion'].' - '.$datos['dsc_motivo_resolucion'].'.';
 
 		$sql2 = $db->consulta("INSERT INTO vtade_observacion_x_contrato ( cod_localidad, cod_contrato, num_servicio, num_linea, cod_area, dsc_observacion,cod_usuario, fch_registro, flg_automatico, cod_tipo_ctt, cod_tipo_programa ) 
-			VALUES ( '".$datos['cod_localidad']."', '".$datos['cod_contrato']."', '".$datos['num_servicio']."', '$num_linea', '".$datos['cod_area']."', '$dsc_observacion', '".$datos['usuario']."', '".$datos['fch_actual']."', 'SI','".$datos['cod_tipo_ctt']."', '".$datos['cod_tipo_programa']."' )");
+			VALUES ( '".$datos['cod_localidad']."', '".$datos['cod_contrato']."', '".$datos['num_servicio']."', '$num_linea', '".$datos['cod_area']."', '$dsc_observacion', '".$datos['usuario']."', CONVERT(DATE,'".$datos['fch_actual']."'), 'SI','".$datos['cod_tipo_ctt']."', '".$datos['cod_tipo_programa']."' )");
 
 		if ($sql2) {
 			return 1;
