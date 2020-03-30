@@ -107,7 +107,7 @@ class ModeloArbolVen{
 		}
 	} //function mdlGuardaEndoso
 
-	static public function ctrEliminarArbVen($tabla,$codigo,$periodo,$tipoPeriodo,$annio){
+	static public function mdlEliminarArbVen($tabla,$codigo,$periodo,$tipoPeriodo,$annio){
 		$db = new Conexion();
 		$sql = $db->consulta("DELETE FROM $tabla WHERE cod_trabajador = '$codigo' AND num_anno ='$annio' AND cod_tipo_periodo = '$tipoPeriodo' AND cod_periodo = '$periodo'");
 		if($sql){
