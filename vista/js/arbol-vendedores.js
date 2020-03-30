@@ -226,17 +226,17 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
 		            }
 				}
 				
-				// if (estatus = 'Activado') {
-				// 	flg_activo="activo";
-				// }else if (estatus = 'Emitido') {
-				// 	flg_activo="emitido";
-				// }else if (estatus = 'Resuelto') {
-				// 	flg_activo="resuelto";
-				// }console.log('flg_activo',flg_activo);
+				if (estatus = 'Activado') {
+					flg_activo="activo";
+				}else if (estatus = 'Emitido') {
+					flg_activo="emitido";
+				}else if (estatus = 'Resuelto') {
+					flg_activo="resuelto";
+				}
 
 
             	$("#listaCttos").append(
-                    '<li class="nav-item '+classCtto+' itemLista '+estatus+'">'+
+                    '<li class="nav-item '+classCtto+' itemLista ctr_'+flg_activo+'">'+
                         '<a href="seguimientoContrato?codCtto='+value['cod_contrato']+'" class="btnVerCtto" codCtto="'+value['cod_contrato']+'">'+
                         	'<div class="row" style="color:black">'+
 								'<div class="col-md-3">'+value['dsc_localidad']+'</div>'+
@@ -260,31 +260,36 @@ $("#NvoConfArbVen").on("click",function(){
 
 $( "select" ).change(function () 
 	{
-		if ($("#select2").val()=="1") 
+		if ($("#select2").val()=="1") //emitidos
 		{
-			$(".ulListaVerTrabArbVen li").each(function() {
-				$(".act_SI").attr("hidden", true);
-				$(".act_NO").attr("hidden", false);				
+			$(".ulListaHistConf li").each(function() {
+				
+				$(".ctr_activo").attr("hidden", false);
+				$(".ctr_emitido").attr("hidden", true);
+				$(".ctr_resuelto").attr("hidden", false);				
 			});
-		}else if ($("#select2").val()=="2") 
+		}else if ($("#select2").val()=="2") //activados
 		{
-			$(".ulListaVerTrabArbVen li").each(function() {	
-				$(".act_SI").attr("hidden", false);
-				$(".act_NO").attr("hidden", true);				
-			});
-			
-		}else if ($("#select2").val()=="3") 
-		{
-			$(".ulListaVerTrabArbVen li").each(function() {	
-				$(".act_SI").attr("hidden", false);
-				$(".act_NO").attr("hidden", true);				
+			$(".ulListaHistConf li").each(function() {	
+				$(".ctr_activo").attr("hidden", true);
+				$(".ctr_emitido").attr("hidden", false);
+				$(".ctr_resuelto").attr("hidden", false);				
 			});
 			
-		} else 
+		}else if ($("#select2").val()=="3") //resueltos
 		{
-			$(".ulListaVerTrabArbVen li").each(function() {		
-				$(".act_SI").attr("hidden", false);
-				$(".act_NO").attr("hidden", false);				
+			$(".ulListaHistConf li").each(function() {	
+				$(".ctr_activo").attr("hidden", false);
+				$(".ctr_emitido").attr("hidden", false);
+				$(".ctr_resuelto").attr("hidden", true);				
+			});
+			
+		} else //todos
+		{
+			$(".ulListaHistConf li").each(function() {		
+				$(".ctr_activo").attr("hidden", false);
+				$(".ctr_emitido").attr("hidden", false);
+				$(".ctr_resuelto").attr("hidden", false);		
 			});
 		} 	    
 	});
