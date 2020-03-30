@@ -87,16 +87,10 @@ class ControladorArbolVen{
 	static public function ctrEliminarArbVen(){
 		$tabla = "vtama_historico_vendedor";
 		$codigo = $_POST['codTrabajador'];
-		$grupo = $_POST['grupo'];
 		$periodo = $_POST['periodo'];
 		$tipoPeriodo = $_POST['tipo_periodo'];
 		$annio = $_POST['anno'];
-		$comisionista = $_POST['tipo_comisionista'];
-		$jefe = $_POST['jefe'];
-		$supervisor = $_POST['supervisor'];
-		$flg_jefe = $_POST['flg_jefe'];
-		$flg_sup = $_POST['flg_supervisor'];
-		$respuesta = ModeloArbolVen::mdlEliminarArbVen($tabla,$codigo,$grupo,$periodo,$tipoPeriodo,$annio,$comisionista,$jefe,$supervisor,$flg_jefe,$flg_sup);
+		$respuesta = ModeloArbolVen::mdlEliminarArbVen($tabla,$codigo,$periodo,$tipoPeriodo,$annio);
 		return $respuesta;
 	}//function ctrEliminarArbVen
 
