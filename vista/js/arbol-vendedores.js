@@ -50,9 +50,12 @@ creaTablaTrabajadoresArbVend();
 //$("#SelAct").change(
 function selec1()
 	{
+		alert("entre a la funcion");
 		$( "li" ).each(function() {
+			alert("entre al each");
 			if ($("#SelAct").value()=="1") 
 			{
+				alert("entre al if");
 				$("#listaTrabArbVen").show(".act_SI");
 				$("#listaTrabArbVen").hidden(".act_NO");
 				return;
