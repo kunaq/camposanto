@@ -51,28 +51,25 @@ $("#SelAct").change(
 function() 
 	{
 		$( "select option:selected" ).each(function() {
-
-
-		});
-
-		if ($("#SelAct").value()==1) 
-		{
-			$("li").show(".act_SI");
-			$("li").hidden(".act_NO");
-			return;
-			
-		} else if ($("#SelAct").value()==2) 
-		{
-			$("li").hidden(".act_SI");
-			$("li").show(".act_NO");
-			return;
-			
-		} else 
+			if ($("#SelAct").value()==1) 
 			{
 				$("li").show(".act_SI");
+				$("li").hidden(".act_NO");
+				return;
+				
+			} else if ($("#SelAct").value()==2) 
+			{
+				$("li").hidden(".act_SI");
 				$("li").show(".act_NO");
 				return;
-			} 
+				
+			} else 
+				{
+					$("li").show(".act_SI");
+					$("li").show(".act_NO");
+					return;
+				} 
+		});
 
 	})
 	.change();
