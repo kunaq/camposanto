@@ -5,7 +5,7 @@
 		<div class="sidebar-wrapper stickButtons" id="container-button">
 			<ul>
 				<li style="list-style: none;">
-					<a href="#container" class="btn btnGuardarKqPst m-btn--square m-btn m-btn--icon btn-lg m-btn--icon-only" style="border-top-left-radius: .25rem !important; border-bottom-left-radius: .25rem !important;"" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Grabar cambios" id="new-button" onclick="grabar()">
+					<a href="#container" class="btn btnGuardarKqPst m-btn--square m-btn m-btn--icon btn-lg m-btn--icon-only" style="border-top-left-radius: .25rem !important; border-bottom-left-radius: .25rem !important;"" data-toggle="m-tooltip" data-container="body" disabled data-placement="left" title="" data-original-title="Grabar cambios" id="new-button" onclick="grabar()">
 						<i class="fa fa-save"></i>
 					</a>
 				</li>
