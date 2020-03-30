@@ -214,7 +214,7 @@ function copiaAnio(){
                             text: "Se grabó el registro satisfactoriamente.",
                             type: "success",
                             confirmButtonText: "Aceptar",
-                            onBeforeOpen: window.location.assign('arbol-vendedores')
+                            onBeforeOpen: window.location.assign('periodo-venta')
                         })
                     }else{
                         swal({

@@ -36,7 +36,7 @@
 												<select id="edoTraArbVen" class="form-control form-control-sm ">
 													<option value="0">TODOS</option>
 													<option value="1">ACTIVO</option>
-													<option value="2">DESACTIVO</option>
+													<option value="2">INACTIVO</option>
 												</select>
 											</div>
 										</div>
