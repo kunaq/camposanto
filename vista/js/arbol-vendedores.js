@@ -308,13 +308,13 @@ $( "select" ).change(function ()
 				if($(this).attr("anio") == anio){
 				
 					// $(".filanno").attr("hidden", false);
-					$("."+anio).attr("hidden", false);
+					$(this).attr("hidden", false);
 					//$("."+anio).attr("hidden", false);
-					console.log('clase',$("."+anio));
+					console.log('clase',$(this));
 				}else{
 					// $(".filanno").attr("hidden", true);
 					
-					$("."+anio).attr("hidden", true);
+					$(this).attr("hidden", true);
 				}
 
 				console.log('comparativo',$(this).attr("anio"));
