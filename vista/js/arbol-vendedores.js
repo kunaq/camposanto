@@ -295,7 +295,7 @@ $( "select" ).change(function ()
 		{
 			$(".ulListaHistConf li").each(function() {
 				
-				$(".itemLista").attr("hidden", true);
+				$(".itemLista div.val('2014')").attr("hidden", true);
 								
 			});
 		}else if ($("#select2").val()=="2") //activados
