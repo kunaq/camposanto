@@ -51,13 +51,13 @@ creaTablaTrabajadoresArbVend();
 function selec1() 
 	{
 		//$( "select option:selected" ).each(function() {
-			if ($("#SelAct").value()==1) 
+			if ($("#SelAct").value()=="1") 
 			{
 				$("#listaTrabArbVen").show(".act_SI");
 				$("#listaTrabArbVen").hidden(".act_NO");
 				return;
 				
-			} else if ($("#SelAct").value()==2) 
+			} else if ($("#SelAct").value()=="2") 
 			{
 				$("#listaTrabArbVen").hidden(".act_SI");
 				$("#listaTrabArbVen").show(".act_NO");
