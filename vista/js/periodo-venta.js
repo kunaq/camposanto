@@ -237,7 +237,7 @@ function grabar(){
     var ls_flg_cierre_p = $("#edoPerVen").val();
     var ls_periodo =$("#codPeriodo").val();
     
-    if (ls_flg_cierre_p == null || ls_flg_cierre_p == '' || ) { ls_flg_cierre_p = 'NO';} 
+    if (ls_flg_cierre_p == null || ls_flg_cierre_p == '' ) { ls_flg_cierre_p = 'NO';} 
      
     // -- Valida -- //
      
