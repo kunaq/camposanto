@@ -297,7 +297,6 @@ $( "select" ).change(function ()
 			$(".ulListaHistConf li").each(function() {
 				
 				$(".filanno").attr("hidden", false);
-				$("."+a).attr("hidden", false);
 								
 			});
 		}
