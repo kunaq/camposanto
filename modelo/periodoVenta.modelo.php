@@ -44,7 +44,7 @@ class ModeloPeriodoVenta{
 
 	}//function mdlExstConf
 
-	static public mdlCopiaAnnio($tabla,$tipoPeriodo,$anio){
+	static public function mdlCopiaAnnio($tabla,$tipoPeriodo,$anio){
 		$db = new Conexion();
 		$sql = $db->consulta("INSERT INTO vtama_periodo (num_anno, cod_tipo_periodo, cod_periodo, fch_inicio, fch_fin, flg_estado, cod_usuario, fch_cierre, flg_cierre_manual, num_anno_ant, cod_tipo_periodo_ant, cod_periodo_ant, dsc_periodo, num_mes, flg_modificacion_grupo, flg_parametros_comision, flg_cierre_proceso, fch_modificacion_grupo, fch_parametros_comision, fch_cierre_proceso)
                 SELECT  vtama_periodo.num_anno + 1,
