@@ -181,7 +181,7 @@ function copiaAnio(){
             if (li_existe > 0) {
                 swal({
                     title: "Error",
-                    text: "No se puede copiar los periodos, el año "+li_anno_1+" al cual se dea copiar la configuración tiene registros.",
+                    text: "No se puede copiar los periodos, el año "+li_anno_1+" al cual se desea copiar la configuración tiene registros.",
                     type: "error",
                     confirmButtonText: "Aceptar",
                   });
