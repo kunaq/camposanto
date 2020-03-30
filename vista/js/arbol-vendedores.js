@@ -78,18 +78,18 @@ creaTablaTrabajadoresArbVend();
 
 // 	}
 	//);
-	$( "select" )
-	.change(function () {
-		//alert("cambio el select");
-	  $( "li" ).each(function() {
-		  //var s="";
-		 // s+=1;
-		  //alert(s);
+	// $( "select" )
+	// .change(function () {
+	// 	//alert("cambio el select");
+	//   $( "li" ).each(function() {
+	// 	  //var s="";
+	// 	 // s+=1;
+	// 	  //alert(s);
 		
-	  });
-	  $( "div" ).text( str );
-	})
-	.change();
+	//   });
+	//   $( "div" ).text( str );
+	// })
+	// .change();
 	
 
 
