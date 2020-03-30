@@ -373,6 +373,7 @@ function aceptarMod(){
 }
 
 function limpiaModal(){
+    buscaPeriodo();
     $("#tipoPeriodoArbVen").val();
     $("#periodoArbVen").val();
     $("#numAnioArbVen").val();
