@@ -125,7 +125,7 @@ function copiaAnio(){
     var ls_tipo = $("#periodoPerVen").val();
     console.log(li_anno_1);
  
-    if (li_anno == null || li_anno == '' || li_anno == 0){
+    if (li_anno == null || li_anno == '' || li_anno == 'todos'){
         swal({
             title: "Error",
             text: "Debe seleccionar el año.",
@@ -135,7 +135,7 @@ function copiaAnio(){
         return;
     }
     
-    if (ls_tipo == null || ls_tipo == ''){
+    if (ls_tipo == null || ls_tipo == '' || ls_tipo == 'todos'){
         swal({
             title: "Error",
             text: "Debe seleccionar el tipo de periodo.",
