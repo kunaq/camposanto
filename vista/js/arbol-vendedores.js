@@ -56,22 +56,22 @@ function selec1()
 			if ($("#SelAct").val()=="1") 
 			{
 				alert("entre al if valor 1");
-				$("#listaTrabArbVen").show(".act_SI");
-				$("#listaTrabArbVen").hidden(".act_NO");
+				$("li .act_SI").show();
+				$("li .act_NO").hidden();
 				return;
 				
 			} else if ($("#SelAct").val()=="2") 
 			{
 				alert("entre al if valor 2");
-				$("#listaTrabArbVen").hidden(".act_SI");
-				$("#listaTrabArbVen").show(".act_NO");
+				$("li .act_SI").hidden();
+				$("li .act_NO").show();
 				return;
 				
 			} else 
 				{
 					alert("entre al if valor 0");
-					$("#listaTrabArbVen").show(".act_SI");
-					$("#listaTrabArbVen").show(".act_NO");
+					$("li .act_SI").show();
+					$("li .act_NO").show();
 					return;
 				} 
 		});
