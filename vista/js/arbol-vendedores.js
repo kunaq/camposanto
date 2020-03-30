@@ -224,9 +224,19 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
                		}else{
 		                fecha = value['fch_resolucion'];
 		            }
-                }
+				}
+				
+				if (value['flg_activado'] == 'SI') {
+					var flg_activo="activo";
+				}else if (value['flg_emitido'] == 'SI') {
+					var flg_activo="emitido";
+				}else if (value['flg_resuelto'] == 'SI') {
+					var flg_activo="resuelto";
+				}
+
+
             	$("#listaCttos").append(
-                    '<li class="nav-item '+classCtto+' itemLista">'+
+                    '<li class="nav-item '+classCtto+' itemLista  ctr_'+value["flg_activo"]+'">'+
                         '<a href="seguimientoContrato?codCtto='+value['cod_contrato']+'" class="btnVerCtto" codCtto="'+value['cod_contrato']+'">'+
                         	'<div class="row" style="color:black">'+
 								'<div class="col-md-3">'+value['dsc_localidad']+'</div>'+
