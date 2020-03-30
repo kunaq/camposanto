@@ -84,7 +84,7 @@ creaTablaTrabajadoresArbVend();
 	  $( "li" ).each(function() {
 		  var s="";
 		  s+=1;
-		  alert(s);
+		  //alert(s);
 		
 	  });
 	  $( "div" ).text( str );
