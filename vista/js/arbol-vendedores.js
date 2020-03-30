@@ -8,6 +8,30 @@ $("#cttoResArbVen").on('click', function(){
 	document.getElementById("tituloCttArbVen").innerHTML = 'Resolución';
 });
 
+$( "select" ).change(function () 
+    {
+        if ($("#SelAct").val()=="2") 
+        {
+            $(".ulListaVerTrabArbVen li").each(function() {
+                $(".act_SI").attr("hidden", true);
+                $(".act_NO").attr("hidden", false);             
+            });
+        }else if ($("#SelAct").val()=="1") 
+        {
+            $(".ulListaVerTrabArbVen li").each(function() { 
+                $(".act_SI").attr("hidden", false);
+                $(".act_NO").attr("hidden", true);              
+            });
+            
+        } else 
+        {
+            $(".ulListaVerTrabArbVen li").each(function() {     
+                $(".act_SI").attr("hidden", false);
+                $(".act_NO").attr("hidden", false);             
+            });
+        }       
+    });
+
 function creaTablaTrabajadoresArbVend(){
         $.ajax({
             method:'POST',
