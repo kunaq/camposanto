@@ -331,7 +331,7 @@ function creaNvoAnio(){
                 dataType: 'json',
                 data: {'anno' : li_anno_1, 'accion':'creaNvoAnio'},
                 success: function(respuesta){                         
-                    if(respuesta == true){
+                    if(respuesta == 1){
                         swal({
                             title: "",
                             text: "Se grabó el registro satisfactoriamente.",
@@ -342,7 +342,7 @@ function creaNvoAnio(){
                     }else if(respuesta == 'duplicado'){
                         swal({
                             title: "",
-                            text: "Eror en la actualización de la base de datos.",
+                            text: "El año "+li_anno_1+" ya existe.",
                             type: "error",
                             confirmButtonText: "Aceptar",
                         })

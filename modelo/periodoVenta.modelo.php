@@ -100,7 +100,6 @@ class ModeloPeriodoVenta{
 		$db = new Conexion();
 		$sql = $db->consulta("SELECT * FROM $tabla WHERE cod_anno = $anio");
 		$datos = arrayMapUtf8Encode($db->recorrer($sql));
-		var_dump($datos);
 		if($datos != '' || $datos != null){
 			return 'duplicado';
 		}else{
