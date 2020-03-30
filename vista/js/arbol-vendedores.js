@@ -236,7 +236,7 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
 
 
             	$("#listaCttos").append(
-                    '<li class="nav-item '+classCtto+' itemLista  ctr_'+value["estatus"]+'">'+
+                    '<li class="nav-item '+classCtto+' itemLista  ctr_'+estatus+'">'+
                         '<a href="seguimientoContrato?codCtto='+value['cod_contrato']+'" class="btnVerCtto" codCtto="'+value['cod_contrato']+'">'+
                         	'<div class="row" style="color:black">'+
 								'<div class="col-md-3">'+value['dsc_localidad']+'</div>'+
