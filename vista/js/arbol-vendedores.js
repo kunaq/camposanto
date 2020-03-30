@@ -53,14 +53,14 @@ function selec1()
 		alert("entre a la funcion");
 		$( "li" ).each(function() {
 			alert("entre al each");
-			if ($("#SelAct").value()=="1") 
+			if ($("#SelAct").val()=="1") 
 			{
 				alert("entre al if valor 1");
 				$("#listaTrabArbVen").show(".act_SI");
 				$("#listaTrabArbVen").hidden(".act_NO");
 				return;
 				
-			} else if ($("#SelAct").value()=="2") 
+			} else if ($("#SelAct").val()=="2") 
 			{
 				alert("entre al if valor 2");
 				$("#listaTrabArbVen").hidden(".act_SI");
