@@ -52,7 +52,7 @@ function selec1()
 		if ($("#SelAct").value()==1) 
 		{
 			$("#listaTrabArbVen").remove();
-			return this.value;
+			return;
 			
 		} else if ($("#SelAct").value()==2) 
 		{
