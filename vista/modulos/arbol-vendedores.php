@@ -35,8 +35,8 @@
 											<div class="col-lg-4">
 												<select id="SelAct" class="form-control form-control-sm m-input">
 													<option value="0" selected>TODOS</option>
-													<option value="1">ACTIVO</option>
-													<option value="2">INACTIVO</option>
+													<option value="1">ACTIVOS</option>
+													<option value="2">INACTIVOS</option>
 												</select>
 											</div>
 										</div>
