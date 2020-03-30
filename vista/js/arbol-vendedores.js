@@ -295,31 +295,32 @@ $( "select" ).change(function ()
 		{
 			$(".ulListaHistConf li").each(function() {
 				
-				$(".itemLista div val('2014')").attr("hidden", true);
+				$(".itemLista").attr("hidden", true);
 								
 			});
-		}else if ($("#select2").val()=="2") //activados
-		{
-			$(".ulListaHistConf li").each(function() {	
-				$(".ctr_activo").attr("hidden", false);
-				$(".ctr_emitido").attr("hidden", true);
-				$(".ctr_resuelto").attr("hidden", true);				
-			});
+		}
+		// else if ($("#select2").val()=="2") //activados
+		// {
+		// 	$(".ulListaHistConf li").each(function() {	
+		// 		$(".ctr_activo").attr("hidden", false);
+		// 		$(".ctr_emitido").attr("hidden", true);
+		// 		$(".ctr_resuelto").attr("hidden", true);				
+		// 	});
 			
-		}else if ($("#select2").val()=="3") //resueltos
-		{
-			$(".ulListaHistConf li").each(function() {	
-				$(".ctr_activo").attr("hidden", true);
-				$(".ctr_emitido").attr("hidden", true);
-				$(".ctr_resuelto").attr("hidden", false);				
-			});
+		// }else if ($("#select2").val()=="3") //resueltos
+		// {
+		// 	$(".ulListaHistConf li").each(function() {	
+		// 		$(".ctr_activo").attr("hidden", true);
+		// 		$(".ctr_emitido").attr("hidden", true);
+		// 		$(".ctr_resuelto").attr("hidden", false);				
+		// 	});
 			
-		} else //todos
-		{
-			$(".ulListaHistConf li").each(function() {		
-				$(".ctr_activo").attr("hidden", false);
-				$(".ctr_emitido").attr("hidden", false);
-				$(".ctr_resuelto").attr("hidden", false);		
-			});
-		} 	    
+		// } else //todos
+		// {
+		// 	$(".ulListaHistConf li").each(function() {		
+		// 		$(".ctr_activo").attr("hidden", false);
+		// 		$(".ctr_emitido").attr("hidden", false);
+		// 		$(".ctr_resuelto").attr("hidden", false);		
+		// 	});
+		// } 	    
 	});
