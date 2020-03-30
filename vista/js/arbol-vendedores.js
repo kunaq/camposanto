@@ -83,11 +83,15 @@ creaTablaTrabajadoresArbVend();
 		if ($("#SelAct").val()=="2") 
 		{
 			alert("valor 2");
-			$( "li" ).each(function() 
+			$( "li .act_SI" ).each(function() 
 			{
-				$("li .act_SI").hidden();
-				$("li .act_NO").show();
+				$("div").hidden();
 			
+			});
+			$( "li .act_NO" ).each(function() 
+			{
+				$("div").show();
+				
 			});
 		}
 		
