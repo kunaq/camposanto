@@ -100,6 +100,7 @@ class ModeloArbolVen{
 	static public function mdlModificarArbVen($tabla,$codigo,$grupo,$periodo,$tipoPeriodo,$annio,$comisionista,$jefe,$supervisor,$flg_jefe,$flg_sup){
 		$db = new Conexion();
 		$sql = $db->consulta("UPDATE $tabla SET num_anno ='$annio', cod_tipo_periodo = '$tipoPeriodo', cod_periodo = '$periodo',cod_tipo_comisionista = '$comisionista', cod_grupo = '$grupo', cod_supervisor = '$supervisor', cod_jefeventas = '$jefe', flg_supervisor = '$flg_sup', flg_jefeventas = ',$flg_jefe' WHERE cod_trabajador = '$codigo' AND num_anno ='$annio' AND cod_tipo_periodo = '$tipoPeriodo' AND cod_periodo = '$periodo'");
+		"UPDATE $tabla SET num_anno ='$annio', cod_tipo_periodo = '$tipoPeriodo', cod_periodo = '$periodo',cod_tipo_comisionista = '$comisionista', cod_grupo = '$grupo', cod_supervisor = '$supervisor', cod_jefeventas = '$jefe', flg_supervisor = '$flg_sup', flg_jefeventas = ',$flg_jefe' WHERE cod_trabajador = '$codigo' AND num_anno ='$annio' AND cod_tipo_periodo = '$tipoPeriodo' AND cod_periodo = '$periodo'"
 		if($sql){
 			return 1;
 		}else{
