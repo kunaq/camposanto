@@ -8,7 +8,7 @@ $("#cttoResArbVen").on('click', function(){
 	document.getElementById("tituloCttArbVen").innerHTML = 'Resolución';
 });
 
-$( "select" ).change(function () 
+$( "#edoTraArbVen" ).change(function () 
     {
         if ($("#SelAct").val()=="2") 
         {

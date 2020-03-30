@@ -33,7 +33,7 @@
 												</div>
 											</div>
 											<div class="col-lg-4">
-												<select class="form-control form-control-sm m-select2 m-select2-general">
+												<select id="edoTraArbVen" class="form-control form-control-sm m-select2 m-select2-general">
 													<option>TODOS</option>
 													<option>ACTIVO</option>
 													<option>DESACTIVO</option>
