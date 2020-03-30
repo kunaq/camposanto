@@ -34,7 +34,7 @@ function creaTablaTrabajadoresArbVend(){
 	                $("#listaTrabArbVen").append(
 	                    '<li class="nav-item '+classPeriodo+' itemLista act_'+value['flg_activo']+'">'+
 	                        '<a href="#" class="btnVerTrabArbVen" codTrabajador="'+value['cod_trabajador']+'" flg_activo="'+value['flg_activo']+'">'+
-	                        	'<div class="row" style = "color:'+activo+'">'+
+	                        	'<div class="row" style = "color:'+color+'">'+
 									'<div class="col-md-4">'+value['cod_trabajador']+'</div>'+
 									'<div class="col-md-8">'+value['dsc_apellido_paterno']+' '+value['dsc_apellido_materno']+', '+value['dsc_nombres']+'</div>'+
 								'</div>'+
