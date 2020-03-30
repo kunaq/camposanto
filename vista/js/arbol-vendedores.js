@@ -32,9 +32,9 @@ function creaTablaTrabajadoresArbVend(){
 	                	color = 'red';
 	                }
 	                $("#listaTrabArbVen").append(
-	                    '<li class="nav-item '+classPeriodo+' itemLista">'+
+	                    '<li class="nav-item '+classPeriodo+' itemLista act_'+value['flg_activo']+'">'+
 	                        '<a href="#" class="btnVerTrabArbVen" codTrabajador="'+value['cod_trabajador']+'" flg_activo="'+value['flg_activo']+'">'+
-	                        	'<div class="row" style = "color:'+color+'">'+
+	                        	'<div class="row" style = "color:'+activo+'">'+
 									'<div class="col-md-4">'+value['cod_trabajador']+'</div>'+
 									'<div class="col-md-8">'+value['dsc_apellido_paterno']+' '+value['dsc_apellido_materno']+', '+value['dsc_nombres']+'</div>'+
 								'</div>'+
@@ -367,6 +367,16 @@ function aceptarMod(){
     }
 }
 
+function limpiaModal(){
+    $("#flg_activo").val();
+    $("#tipoPeriodoArbVen").val();
+    $("#periodoArbVen").val();
+    $("#numAnioArbVen").val();
+    $("#flgEstado").val();
+    $("#flg_modificacion_grupo").val();
+
+}
+
 //----------------------------------------------------------------------------------------------//
 //-------------------------------------------MODIFICAR------------------------------------------//
 //----------------------------------------------------------------------------------------------//
@@ -646,7 +656,7 @@ function eliminaArbol(){
 
     var ls_activo = $("#flg_activo").val();
 
-    if (ls_activo==null || trim(ls_activo)=='') {
+    if (ls_activo==null || ls_activo == '') {
         ls_activo='NO';    
     }
 
@@ -667,7 +677,7 @@ function eliminaArbol(){
     var ls_flg_estado = $("#flgEstado").val();
     var ls_flg_modif  = $("#flg_modificacion_grupo").val();
 
-    if (ls_flg_modif==null || trim(ls_flg_modif)=='') {
+    if (ls_flg_modif==null || ls_flg_modif=='') {
         ls_flg_modif='NO';        
     }
 
@@ -732,7 +742,7 @@ function eliminaArbol(){
                 url:"ajax/ArbolVendedores.ajax.php",
                 method: "POST",
                 dataType: 'json',
-                data: {'codTrabajador':cod, 'anno' : li_anno, 'tipo_periodo' : ls_tipo, 'periodo' : ls_periodo, 'accion':'eliminar'},
+                data: {'codTrabajador':is_codigo, 'anno' : li_anno, 'tipo_periodo' : ls_tipo, 'periodo' : ls_periodo, 'grupo' : ls_grupo, 'tipo_comisionista' : ls_tipo_comisionista, 'supervisor' : ls_supervisor, 'jefe' : ls_jefe, 'flg_supervisor' : ls_flg_supervisor, 'flg_jefe' : ls_flg_jefe, 'accion':'eliminar'},
                 success: function(respuesta){
                     if(respuesta == true){
                         swal({
