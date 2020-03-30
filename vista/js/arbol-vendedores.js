@@ -47,17 +47,17 @@ function creaTablaTrabajadoresArbVend(){
 }
 creaTablaTrabajadoresArbVend();
 
-$("#SelAct").change(
-function() 
+//$("#SelAct").change(
+function selec1() 
 	{
 		//$( "select option:selected" ).each(function() {
-			if ($("#SelAct1").value()=="1") 
+			if ($("#SelAct").value()=="1") 
 			{
 				$("#listaTrabArbVen").show(".act_SI");
 				$("#listaTrabArbVen").hidden(".act_NO");
 				return;
 				
-			} else if ($("#SelAct1").value()=="2") 
+			} else if ($("#SelAct").value()=="2") 
 			{
 				$("#listaTrabArbVen").hidden(".act_SI");
 				$("#listaTrabArbVen").show(".act_NO");
@@ -72,7 +72,7 @@ function()
 		//});
 
 	}
-	);
+	//);
 
 
 $("#listaTrabArbVen").on("click","a.btnVerTrabArbVen",function(){

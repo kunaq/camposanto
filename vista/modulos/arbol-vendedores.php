@@ -24,7 +24,7 @@
 										<div class="row form-group">
 											<div class="col-lg-8">
 												<div class="m-input-icon m-input-icon--left px-0">
-													<input id="SelAct" type="text" class="form-control form-control-sm m-input">
+													<input type="text" class="form-control form-control-sm m-input">
 													<span class="m-input-icon__icon m-input-icon__icon--left">
 														<span>
 															<i class="la la-search"></i>
@@ -33,7 +33,7 @@
 												</div>
 											</div>
 											<div class="col-lg-4">
-												<select id="SelAct1" onChange='alert()' class="form-control form-control-sm m-input">
+												<select id="SelAct" onChange='selec1()' class="form-control form-control-sm m-input">
 													<option value="0" selected>TODOS</option>
 													<option value="1">ACTIVO</option>
 													<option value="2">DESACTIVO</option>
