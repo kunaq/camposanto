@@ -113,6 +113,7 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
     $("#flg_modificacion_grupo").val(flg_modificacion_grupo);
     $("#BtnModConfArbVen").prop('disabled',false);
     $("#BtnEliConfArbVen").prop('disabled',false);
+    buscanombre('dscTrabModConfArbVen',ls_codigo);
     buscaPeriodo();
 	$.ajax({
         url:"ajax/ArbolVendedores.ajax.php",
@@ -446,7 +447,6 @@ function validaModifArbol(){
 
     // -- Ok -- //
 
-    buscanombre('dscTrabModConfArbVen',ls_codigo);
     codGrupo = $("#codGrupoArbVen").val();
     codComi = $("#codComiArbVen").val();
     codJefe = $("#codSupVenArbVen").val();
