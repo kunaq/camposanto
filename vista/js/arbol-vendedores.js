@@ -55,19 +55,21 @@ function selec1()
 			alert("entre al each");
 			if ($("#SelAct").value()=="1") 
 			{
-				alert("entre al if");
+				alert("entre al if valor 1");
 				$("#listaTrabArbVen").show(".act_SI");
 				$("#listaTrabArbVen").hidden(".act_NO");
 				return;
 				
 			} else if ($("#SelAct").value()=="2") 
 			{
+				alert("entre al if valor 2");
 				$("#listaTrabArbVen").hidden(".act_SI");
 				$("#listaTrabArbVen").show(".act_NO");
 				return;
 				
 			} else 
 				{
+					alert("entre al if valor 0");
 					$("#listaTrabArbVen").show(".act_SI");
 					$("#listaTrabArbVen").show(".act_NO");
 					return;
