@@ -53,7 +53,7 @@ class ControladorPeriodoVenta{
 		$tipoPeriodo = $_POST['tipo_periodo'];
 		$periodo = $_POST['ls_periodo'];
 		$anio = $_POST['anno'];
-		$flgCierre = $_POST[''];
+		$flgCierre = $_POST['flgCierre'];
 		$li_anno_ant = $_POST['li_anno_ant'];
 		$li_tipo_periodo_ant = $_POST['li_tipo_periodo_ant'];
 		$li_periodo_ant = $_POST['li_periodo_ant'];
