@@ -303,7 +303,7 @@ $( "select" ).change(function ()
 		else  //emitidos
 		{
 			$(".ulListaHistConf li").each(function() {
-				console.log($(this).attr('anio').value);
+				console.log('comparativo',$(this).attr("anio"));
 				if($(this).attr('anio') == anio){
 				
 					// $(".filanno").attr("hidden", false);
