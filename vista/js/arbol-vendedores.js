@@ -49,12 +49,12 @@ creaTablaTrabajadoresArbVend();
 
 function selec1() 
 	{
-		if ($("#SelAct").value==1) 
+		if ($("#SelAct").value()==1) 
 		{
 			$("#listaTrabArbVen").remove();
 			return this.value;
 			
-		} else if ($("#SelAct").value==2) 
+		} else if ($("#SelAct").value()==2) 
 		{
 			return;
 			
