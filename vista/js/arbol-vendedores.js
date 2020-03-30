@@ -85,12 +85,13 @@ creaTablaTrabajadoresArbVend();
 			alert("valor 2");
 			$("input ul li").each(function() {
 				
-				
-					$(this).parent().hide();
+				$(".act_SI").attr("hidden", true);
+				$(".act_NO").attr("hidden", false);
+					// $(this).parent().hide();
 				
 			});
-
-			// $(".act_SI").attr("hidden");
+			
+			// $(".act_SI").attr("hidden", true);
 			// $(".act_NO").attr("show");
 			// $( "li .act_SI" ).each(function() 
 			// {
@@ -105,7 +106,7 @@ creaTablaTrabajadoresArbVend();
 		}
 		
 		
-	    $( "div" ).text( str );
+	    
 	});
 	//.change();
 	
