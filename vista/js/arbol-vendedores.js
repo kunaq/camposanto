@@ -50,7 +50,7 @@ creaTablaTrabajadoresArbVend();
 //$("#SelAct").change(
 function selec1() 
 	{
-		$( "select option:selected" ).each(function() {
+		//$( "select option:selected" ).each(function() {
 			if ($("#SelAct").value()==1) 
 			{
 				$("#listaTrabArbVen").show(".act_SI");
@@ -69,7 +69,7 @@ function selec1()
 					$("#listaTrabArbVen").show(".act_NO");
 					return;
 				} 
-		});
+		//});
 
 	}
 	//);
