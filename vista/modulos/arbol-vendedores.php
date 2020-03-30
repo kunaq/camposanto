@@ -34,9 +34,9 @@
 											</div>
 											<div class="col-lg-4">
 												<select id="edoTraArbVen" class="form-control form-control-sm ">
-													<option>TODOS</option>
-													<option>ACTIVO</option>
-													<option>DESACTIVO</option>
+													<option value="0">TODOS</option>
+													<option value="1">ACTIVO</option>
+													<option value="2">DESACTIVO</option>
 												</select>
 											</div>
 										</div>
