@@ -80,7 +80,7 @@ creaTablaTrabajadoresArbVend();
 	//);
 	$( "select" )
 	.change(function () {
-		//alert("cambio el select");
+		alert("cambio el select");
 	  $( "li" ).each(function() {
 		var s="";
 		s+=1;
