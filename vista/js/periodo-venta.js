@@ -156,7 +156,7 @@ function copiaAnio(){
         success: function(respuesta){
             li_existe = respuesta[0];
             if (li_existe == null || li_existe == ''){li_existe = 0;}
-            if (li_existe < 0) {
+            if (li_existe < 1) {
                 swal({
                     title: "Error",
                     text: "El año seleccionado no tiene configurado los periodos de venta.",
@@ -178,7 +178,7 @@ function copiaAnio(){
         success: function(respuesta){
             li_existe = respuesta[0];
             if (li_existe == null || li_existe == ''){li_existe = 0;}
-            if (li_existe < 0) {
+            if (li_existe > 0) {
                 swal({
                     title: "Error",
                     text: "No se puede copiar los periodos, el año "+li_anno+" al cual se dea copiar la configuración tiene registros.",
