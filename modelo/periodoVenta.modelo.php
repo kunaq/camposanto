@@ -28,16 +28,16 @@ class ModeloPeriodoVenta{
 		$db = new Conexion();
 		$sql = $db->consulta("SELECT num_anno, cod_tipo_periodo, cod_periodo, fch_inicio, fch_fin, flg_estado, cod_usuario, fch_cierre, flg_cierre_manual, num_anno_ant, cod_tipo_periodo_ant, cod_periodo_ant, dsc_periodo, num_mes FROM $tabla WHERE num_anno = '$anio' AND cod_periodo = '$tipoPeriodo'");
 		while($key = $db->recorrer($sql)){
-	    	$datos[] = arrayMapUtf8Encode($key);
+	    	// $datos[] = arrayMapUtf8Encode($key);
 			if ($key['fch_inicio'] == NULL) {
-	            $tfechGen = "-";
+	            $key['fch_inicio'] = "-";
 	        }else{
-	            $tfechGen = dateFormat($key['fch_inicio']);
+	            $key['fch_inicio'] = dateFormat($key['fch_inicio']);
 	        }
 	        if ($key['fch_fin'] == NULL) {
-	            $tfechGen = "-";
+	            $key['fch_fin'] = "-";
 	        }else{
-	            $tfechGen = dateFormat($key['fch_fin']);
+	            $key['fch_fin'] = dateFormat($key['fch_fin']);
 	        }
 	    }
 		return $datos;
