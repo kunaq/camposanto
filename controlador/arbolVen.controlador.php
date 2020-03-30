@@ -79,7 +79,7 @@ class ControladorArbolVen{
 		$jefe = $_POST['jefe'];
 		$supervisor = $_POST['supervisor'];
 		$flg_jefe = $_POST['flg_jefe'];
-		$flg_sup = $_POST¨['flg_supervisor'];
+		$flg_sup = $_POST['flg_supervisor'];
 		$respuesta = ModeloArbolVen::mdlModificarArbVen($tabla,$codigo,$grupo,$periodo,$tipoPeriodo,$annio,$comisionista,$jefe,$supervisor,$flg_jefe,$flg_sup);
 		return $respuesta;
 	}//function ctrModificarArbVen
@@ -95,7 +95,7 @@ class ControladorArbolVen{
 		$jefe = $_POST['jefe'];
 		$supervisor = $_POST['supervisor'];
 		$flg_jefe = $_POST['flg_jefe'];
-		$flg_sup = $_POST¨['flg_supervisor'];
+		$flg_sup = $_POST['flg_supervisor'];
 		$respuesta = ModeloArbolVen::mdlEliminarArbVen($tabla,$codigo,$grupo,$periodo,$tipoPeriodo,$annio,$comisionista,$jefe,$supervisor,$flg_jefe,$flg_sup);
 		return $respuesta;
 	}//function ctrEliminarArbVen
@@ -111,7 +111,7 @@ class ControladorArbolVen{
 		$jefe = $_POST['jefe'];
 		$supervisor = $_POST['supervisor'];
 		$flg_jefe = $_POST['flg_jefe'];
-		$flg_sup = $_POST¨['flg_supervisor'];
+		$flg_sup = $_POST['flg_supervisor'];
 		$respuesta = ModeloArbolVen::mdlGuardarArbVen($tabla,$codigo,$grupo,$periodo,$tipoPeriodo,$annio,$comisionista,$jefe,$supervisor,$flg_jefe,$flg_sup);
 		return $respuesta;
 	}//function ctrGuardarArbVen
