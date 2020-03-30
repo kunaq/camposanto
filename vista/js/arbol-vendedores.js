@@ -48,16 +48,16 @@ function creaTablaTrabajadoresArbVend(){
 creaTablaTrabajadoresArbVend();
 
 //$("#SelAct").change(
-function selec1(a)
+function selec1()
 	{
 		$( "li" ).each(function() {
-			if (a=="1") 
+			if ($("#SelAct").value()=="1") 
 			{
 				$("#listaTrabArbVen").show(".act_SI");
 				$("#listaTrabArbVen").hidden(".act_NO");
 				return;
 				
-			} else if (a=="2") 
+			} else if ($("#SelAct").value()=="2") 
 			{
 				$("#listaTrabArbVen").hidden(".act_SI");
 				$("#listaTrabArbVen").show(".act_NO");
