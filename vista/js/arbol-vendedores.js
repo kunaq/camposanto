@@ -63,6 +63,7 @@ function selec1(params)
 				return;
 			} 		
 	}
+	
 
 $("#listaTrabArbVen").on("click","a.btnVerTrabArbVen",function(){
 	$(".ulListaVerTrabArbVen li").removeClass('liListaKqPstActive');
