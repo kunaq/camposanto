@@ -85,9 +85,7 @@ class ModeloPeriodoVenta{
 	static public function mdlCierraProc($tabla,$tipoPeriodo,$anio,$periodo,$flgCierre,$li_anno_ant,$li_tipo_periodo_ant,$li_periodo_ant,$dsc_periodo,$ldt_inicio,$ldt_fin,$num_mes,$usuario,$fechaActual){
 		$db = new Conexion();
 		$sql = $db->consulta("UPDATE vtama_periodo SET num_anno = '$anio', cod_tipo_periodo = '$tipoPeriodo', cod_periodo = '$periodo', fch_inicio = '$ldt_inicio',fch_fin = '$ldt_fin', flg_estado = '$flgCierre', cod_usuario = '$usuario', fch_cierre = '$fechaActual', flg_cierre_manual = 'SI', num_anno_ant = '$li_anno_ant', cod_tipo_periodo_ant = '$li_tipo_periodo_ant', cod_periodo_ant = '$li_periodo_ant', dsc_periodo = '$dsc_periodo', num_mes = '$num_mes', flg_modificacion_grupo = 'NO', flg_parametros_comision = 'NO', flg_cierre_proceso = 'NO' WHERE num_anno = '$anio' AND cod_tipo_periodo = '$tipoPeriodo' AND cod_periodo = '$periodo'");
-		echo "UPDATE vtama_periodo SET num_anno = '$anio', cod_tipo_periodo = '$tipoPeriodo', cod_periodo = '$periodo', fch_inicio = '$ldt_inicio',fch_fin = '$ldt_fin', flg_estado = '$flgCierre', cod_usuario = '$usuario', fch_cierre = '$fechaActual', flg_cierre_manual = 'SI', num_anno_ant = '$li_anno_ant', cod_tipo_periodo_ant = '$li_tipo_periodo_ant', cod_periodo_ant = '$li_periodo_ant', dsc_periodo = '$dsc_periodo', num_mes = '$num_mes', flg_modificacion_grupo = 'NO', flg_parametros_comision = 'NO', flg_cierre_proceso = 'NO' WHERE num_anno = '$anio' AND cod_tipo_periodo = '$tipoPeriodo' AND cod_periodo = '$periodo'";
 		$sql2 = $db->consulta("UPDATE $tabla SET cod_estado = ( CASE WHEN '$flgCierre' = 'CE' THEN 'CAN' ELSE 'REG' END )     WHERE num_anno = '$anio'AND cod_tipo_periodo = '$tipoPeriodo'  AND cod_periodo = '$periodo'");
-		echo "UPDATE $tabla SET cod_estado = ( CASE WHEN '$flgCierre' = 'CE' THEN 'CAN' ELSE 'REG' END )     WHERE num_anno = '$anio'AND cod_tipo_periodo = '$tipoPeriodo'  AND cod_periodo = '$periodo'";
 		if($sql && $sql2){
 			return 1;
 		}else{
