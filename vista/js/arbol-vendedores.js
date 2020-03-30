@@ -122,7 +122,7 @@ $("#listaTrabArbVen").on("click","a.btnVerTrabArbVen",function(){
                     classPeriodo = 'liListaKqPstPar';
                 }
             	$("#listaHistConf").append(
-                    '<li class="nav-item '+classPeriodo+' '+value['num_anno']+' itemLista">'+
+                    '<li class="nav-item '+classPeriodo+' filanno '+value['num_anno']+' itemLista">'+
                         '<a href="#" class="btnVerHistConf" codTrabajador="'+codTrabajador+'" numAnio="'+value['num_anno']+'" tipoperiodo="'+value['cod_tipo_periodo']+'" periodo="'+value['cod_periodo']+'" jefeventas="'+value['cod_jefeventas']+'" codgrupo="'+value['cod_grupo']+'" dscgrupo="'+value['dsc_grupo']+'" codcomisionista="'+value['cod_tipo_comisionista']+'" dsccomisionista="'+value['dsc_tipo_comisionista']+'" codsup="'+value['cod_supervisor']+'">'+
                         	'<div class="row">'+
 								'<div class="col-md-2">'+(index+1)+'</div>'+
@@ -296,9 +296,10 @@ $( "select" ).change(function ()
 		{
 			$(".ulListaHistConf li").each(function() {
 				
+				$(".filanno").attr("hidden", false);
 				$("."+a).attr("hidden", true);
 								
-			});
+			}); console.log('cantidad de selects',$("#anioBuscaTraArbVen").length());
 		}
 		// else if ($("#select2").val()=="2") //activados
 		// {
