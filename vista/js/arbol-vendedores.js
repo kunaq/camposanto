@@ -10,13 +10,13 @@ $("#cttoResArbVen").on('click', function(){
 
 $( "#edoTraArbVen" ).change(function () 
     {
-        if ($("#SelAct").val()=="2") 
+        if ($("#edoTraArbVen").val()=="2") 
         {
             $(".ulListaVerTrabArbVen li").each(function() {
                 $(".act_SI").attr("hidden", true);
                 $(".act_NO").attr("hidden", false);             
             });
-        }else if ($("#SelAct").val()=="1") 
+        }else if ($("#edoTraArbVen").val()=="1") 
         {
             $(".ulListaVerTrabArbVen li").each(function() { 
                 $(".act_SI").attr("hidden", false);
