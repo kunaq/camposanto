@@ -101,16 +101,17 @@ creaTablaTrabajadoresArbVend();
 			});
 		} 	    
 	});
-$("#listaTrabArbVen").on("click","a.btnVerTrabArbVen",function(){
+$("#anioBuscaTraArbVen").on("change",function(){
 	$(".ulListaVerTrabArbVen li").removeClass('liListaKqPstActive');
-	$(this).parent('li').addClass('liListaKqPstActive');
-	var codTrabajador = $(this).attr("codTrabajador");
+	$("#listaTrabArbVen").parent('li').addClass('liListaKqPstActive');
+	var codTrabajador = $("#listaTrabArbVen").attr("codTrabajador");
+	var anio=$(this).val();
 	$("#listaHistConf .itemLista").remove();
 	$.ajax({
         url:"ajax/ArbolVendedores.ajax.php",
         method: "POST",
         dataType: 'json',
-        data: {'codTrabajador':codTrabajador,'accion':'verDetTrabajador'},
+        data: {'codTrabajador':codTrabajador,'anio':anio,'accion':'verDetTrabajador'},
         success: function(respuesta){
             //console.log('respuesta',respuesta);
             $.each(respuesta,function(index,value){
