@@ -67,7 +67,7 @@ function selec1()
 				$("#listaTrabArbVen").show(".act_NO");
 				return;
 				
-			} else 
+			} else if ($("#SelAct").val()=="0")
 				{
 					alert("entre al if valor 0");
 					$("#listaTrabArbVen").show(".act_SI");
