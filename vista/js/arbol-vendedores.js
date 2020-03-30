@@ -306,7 +306,7 @@ $( "select" ).change(function ()
 
 				console.log('comparativo',$(".filanno").attr("anio"));
 
-				if($(".filanno").attr('anio') != anio){
+				if($("#anioBuscaTraArbVen").val() != anio){
 				
 					// $(".filanno").attr("hidden", false);
 					$("."+anio).attr("hidden", true);
