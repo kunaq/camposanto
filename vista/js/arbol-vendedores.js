@@ -306,13 +306,15 @@ $( "select" ).change(function ()
 
 				console.log('comparativo',$(".filanno").attr("anio"));
 
-				if($(this).attr('anio') == anio){
+				if($(".filanno").attr('anio') != anio){
 				
 					// $(".filanno").attr("hidden", false);
-					$("."+anio).attr("hidden", false);
+					$("."+anio).attr("hidden", true);
+					//$("."+anio).attr("hidden", false);
 				}else{
 					// $(".filanno").attr("hidden", true);
-					$("."+anio).attr("hidden", true);
+					
+					$("."+anio).attr("hidden", false);
 				}
 								
 			}); 
