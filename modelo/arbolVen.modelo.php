@@ -107,6 +107,16 @@ class ModeloArbolVen{
 		}
 	} //function mdlGuardaEndoso
 
+	static public function ctrEliminarArbVen($tabla,$codigo,$grupo,$periodo,$tipoPeriodo,$annio,$comisionista,$jefe,$supervisor,$flg_jefe,$flg_sup){
+		$db = new Conexion();
+		$sql = $db->consulta("DELETE FROM $tabla WHERE cod_trabajador = '$codigo' AND num_anno ='$annio' AND cod_tipo_periodo = '$tipoPeriodo' AND cod_periodo = '$periodo' AND cod_tipo_comisionista = '$comisionista' AND cod_grupo = '$grupo' AND cod_supervisor = '$supervisor' AND cod_jefeventas = '$jefe' AND flg_supervisor = '$flg_sup' AND flg_jefeventas = '$flg_jefe'");
+		if($sql){
+			return 1;
+		}else{
+			return "error";
+		}
+	} //function mdlGuardaEndoso
+
 
 
 }//class ModeloArbolVen
