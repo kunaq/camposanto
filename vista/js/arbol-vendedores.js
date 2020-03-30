@@ -82,35 +82,26 @@ creaTablaTrabajadoresArbVend();
 	{
 		if ($("#SelAct").val()=="2") 
 		{
-			// alert("valor 2");
-			// console.log($(".ulListaVerTrabArbVen li"));
-			// console.log('.itemlista',$('.itemLista'));
 			$(".ulListaVerTrabArbVen li").each(function() {
-				
 				$(".act_SI").attr("hidden", true);
-				$(".act_NO").attr("hidden", false);
-					// $(this).parent().hide();
-				
+				$(".act_NO").attr("hidden", false);				
+			});
+		}else if ($("#SelAct").val()=="1") 
+		{
+			$(".ulListaVerTrabArbVen li").each(function() {	
+				$(".act_SI").attr("hidden", false);
+				$(".act_NO").attr("hidden", true);				
 			});
 			
-			// $(".act_SI").attr("hidden", true);
-			// $(".act_NO").attr("show");
-			// $( "li .act_SI" ).each(function() 
-			// {
-			// 	$("div").hidden("fast");
-			
-			// });
-			// $( "li .act_NO" ).each(function() 
-			// {
-			// 	$("div .row").show("fast");
-				
-			// });
-		}
-		
-		
-	    
+		} else 
+		{
+			$(".ulListaVerTrabArbVen li").each(function() {		
+				$(".act_SI").attr("hidden", false);
+				$(".act_NO").attr("hidden", false);				
+			});
+		} 	    
 	});
-	//.change();
+
 	
 
 
