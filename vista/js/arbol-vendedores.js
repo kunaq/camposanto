@@ -307,13 +307,14 @@ $( "select" ).change(function ()
 				console.log($(this).attr('anio'));
 				if($(this).attr('anio') == anio){
 				
-					$(".filanno").attr("hidden", false);
-					// $("."+a).attr("hidden", false);
+					// $(".filanno").attr("hidden", false);
+					$("."+anio).attr("hidden", false);
 				}else{
-					$(".filanno").attr("hidden", true);
+					// $(".filanno").attr("hidden", true);
+					$("."+anio).attr("hidden", true);
 				}
 								
-			}); console.log('cantidad de selects',$("#anioBuscaTraArbVen").length());
+			}); 
 		}
 		// else if ($("#select2").val()=="2") //activados
 		// {
