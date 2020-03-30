@@ -62,7 +62,7 @@ class ControladorPeriodoVenta{
 		$tabla = "vtaca_pago_comision";
 		$ldt_inicio = $_POST['ldt_inicio'];
 		$ldt_fin = $_POST['ldt_fin'];
-		$usuario = $_SESSION['user'],
+		$usuario = $_SESSION['user'];
 		$fecha = date('Y-m-d');
 		$hora = date('H:i:s');
 		$fechaActual = $fecha.' '.$hora;
