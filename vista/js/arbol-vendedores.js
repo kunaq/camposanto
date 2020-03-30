@@ -260,13 +260,20 @@ $("#NvoConfArbVen").on("click",function(){
 
 $( "select" ).change(function () 
 	{
-		if ($("#SelAct").val()=="2") 
+		if ($("#select2").val()=="1") 
 		{
 			$(".ulListaVerTrabArbVen li").each(function() {
 				$(".act_SI").attr("hidden", true);
 				$(".act_NO").attr("hidden", false);				
 			});
-		}else if ($("#SelAct").val()=="1") 
+		}else if ($("#select2").val()=="2") 
+		{
+			$(".ulListaVerTrabArbVen li").each(function() {	
+				$(".act_SI").attr("hidden", false);
+				$(".act_NO").attr("hidden", true);				
+			});
+			
+		}else if ($("#select2").val()=="3") 
 		{
 			$(".ulListaVerTrabArbVen li").each(function() {	
 				$(".act_SI").attr("hidden", false);
