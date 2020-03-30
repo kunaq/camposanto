@@ -366,18 +366,29 @@ function aceptarMod(){
         modificaArbol();
     }
     else if(entrada == 'nuevo'){
-        alert('nuevo');
+        limpiaModal();
+        modificaArbol();
     }
 }
 
 function limpiaModal(){
-    $("#flg_activo").val();
     $("#tipoPeriodoArbVen").val();
     $("#periodoArbVen").val();
     $("#numAnioArbVen").val();
     $("#flgEstado").val();
     $("#flg_modificacion_grupo").val();
-
+    $("#flgJefeModArbVen").val();
+    $("#flgSupModArbVen").val();
+    $("#flgJefeGpoArbVen").val();
+    $("#flgSupGpoArbVen").val();
+    $("#SupervisorModArbVen").val();
+    $("#dscSpervisorArbVen").val();
+    $("#jefeVentaModArbVen").val();
+    $("#dscJefeVentaModArbVen").val();
+    $("#grupoModTraArbVen").val();
+    $("#dscGrupoModConfArbVen").val();
+    $("#comisionistaModArbVen").val();
+    $("#dscComisionistaArbVen").val();
 }
 
 //----------------------------------------------------------------------------------------------//
