@@ -227,11 +227,11 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
 				}
 				
 				if (value['flg_activado'] == 'SI') {
-					var flg_activo="activo";
+					flg_activo="activo";
 				}else if (value['flg_emitido'] == 'SI') {
-					var flg_activo="emitido";
+					flg_activo="emitido";
 				}else if (value['flg_resuelto'] == 'SI') {
-					var flg_activo="resuelto";
+					flg_activo="resuelto";
 				}
 
 
