@@ -47,13 +47,14 @@ function creaTablaTrabajadoresArbVend(){
 }
 creaTablaTrabajadoresArbVend();
 
-function selec1(params) 
+function selec1() 
 	{
-		if ($("#SelAct").value==0) 
+		if ($("#SelAct").value==1) 
 		{
+			$("#listaTrabArbVen").remove();
 			return this.value;
 			
-		} else if ($("#SelAct").value==1) 
+		} else if ($("#SelAct").value==2) 
 		{
 			return;
 			
