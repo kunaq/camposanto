@@ -83,8 +83,15 @@ creaTablaTrabajadoresArbVend();
 		if ($("#SelAct").val()=="2") 
 		{
 			alert("valor 2");
-			$(".act_SI").attr("hidden");
-			$(".act_NO").attr("show");
+			$("input ul li").each(function() {
+				
+				
+					$(this).parent().hide();
+				
+			});
+
+			// $(".act_SI").attr("hidden");
+			// $(".act_NO").attr("show");
 			// $( "li .act_SI" ).each(function() 
 			// {
 			// 	$("div").hidden("fast");
@@ -99,7 +106,7 @@ creaTablaTrabajadoresArbVend();
 		
 		
 	    $( "div" ).text( str );
-	})
+	});
 	//.change();
 	
 
