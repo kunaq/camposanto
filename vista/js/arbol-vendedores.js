@@ -83,8 +83,8 @@ creaTablaTrabajadoresArbVend();
 		if ($("#SelAct").val()=="2") 
 		{
 			alert("valor 2");
-			console.log($("ulListaVerTrabArbVen li"));
-			console.log('itemlista',$('itemLista'));
+			console.log($(".ulListaVerTrabArbVen li"));
+			console.log('.itemlista',$('.itemLista'));
 			$("ulListaVerTrabArbVen li").each(function() {
 				
 				$(".act_SI").attr("hidden", true);
