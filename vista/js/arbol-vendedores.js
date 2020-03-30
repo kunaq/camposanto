@@ -54,6 +54,7 @@ $("#listaTrabArbVen").on("click","a.btnVerTrabArbVen",function(){
     var flg_activo = $(this).attr('flg_activo');
     $("#flg_activo").val(flg_activo);
 	$("#listaHistConf .itemLista").remove();
+    $("#NvoConfArbVen").prop('disabled',false);
 	$.ajax({
         url:"ajax/ArbolVendedores.ajax.php",
         method: "POST",
@@ -110,7 +111,6 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
     $("#flgEstado").val(flg_estado);
     var flg_modificacion_grupo = $(this).attr("flg_modificacion_grupo");
     $("#flg_modificacion_grupo").val(flg_modificacion_grupo);
-    $("#NvoConfArbVen").prop('disabled',false);
     $("#BtnModConfArbVen").prop('disabled',false);
     $("#BtnEliConfArbVen").prop('disabled',false);
     buscaPeriodo();
@@ -609,8 +609,8 @@ function modificaArbol(){
 
     // -- Obtiene Jefe y Supervisor del grupo -- //
 
-    var ls_jefe_gpo = $("#flgJefeGpoArbVen").val(codJefe);
-    var ls_supervisor_gpo = $("#flgSupGpoArbVen").val(codSup);
+    var ls_jefe_gpo = $("#flgJefeGpoArbVen").val();
+    var ls_supervisor_gpo = $("#flgSupGpoArbVen").val();
 
     // -- Flag -- //
 
