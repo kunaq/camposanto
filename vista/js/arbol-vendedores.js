@@ -122,7 +122,7 @@ $("#listaTrabArbVen").on("click","a.btnVerTrabArbVen",function(){
                     classPeriodo = 'liListaKqPstPar';
                 }
             	$("#listaHistConf").append(
-                    '<li class="nav-item '+classPeriodo+' filanno '+value['num_anno']+' itemLista">'+
+                    '<li class="nav-item '+classPeriodo+' filanno '+value['num_anno']+' itemLista" anio = "'+value['num_anno']+'">'+
                         '<a href="#" class="btnVerHistConf" codTrabajador="'+codTrabajador+'" numAnio="'+value['num_anno']+'" tipoperiodo="'+value['cod_tipo_periodo']+'" periodo="'+value['cod_periodo']+'" jefeventas="'+value['cod_jefeventas']+'" codgrupo="'+value['cod_grupo']+'" dscgrupo="'+value['dsc_grupo']+'" codcomisionista="'+value['cod_tipo_comisionista']+'" dsccomisionista="'+value['dsc_tipo_comisionista']+'" codsup="'+value['cod_supervisor']+'">'+
                         	'<div class="row">'+
 								'<div class="col-md-2">'+(index+1)+'</div>'+
@@ -291,13 +291,27 @@ $( "select" ).change(function ()
 ///////////////////////////////////////
 	$( "select" ).change(function () 
 	{
-		a=2014;
-		if ($("#anioBuscaTraArbVen").val()==a) //emitidos
-		{
+		anio=$(this).value;
+		console.log('anio',anio);
+		if($("#anioBuscaTraArbVen").val()=='todos'){
 			$(".ulListaHistConf li").each(function() {
 				
 				$(".filanno").attr("hidden", false);
-				$("."+a).attr("hidden", true);
+				$("."+a).attr("hidden", false);
+								
+			});
+		}
+		else  //emitidos
+		{
+			$(".ulListaHistConf li").each(function() {
+				console.log($(this).attr('anio'));
+				if($(this).attr('anio') == anio){
+				
+					$(".filanno").attr("hidden", false);
+					// $("."+a).attr("hidden", false);
+				}else{
+					$(".filanno").attr("hidden", true);
+				}
 								
 			}); console.log('cantidad de selects',$("#anioBuscaTraArbVen").length());
 		}
