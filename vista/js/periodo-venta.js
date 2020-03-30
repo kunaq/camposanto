@@ -236,6 +236,8 @@ function grabar(){
     var ldt_fin = $("#fchFinPerVen").val();
     var ls_flg_cierre_p = $("#edoPerVen").val();
     var ls_periodo =$("#codPeriodo").val();
+
+    if (ldt_inicio == null || ldt_inicio == '' ) { return;} 
     
     if (ls_flg_cierre_p == null || ls_flg_cierre_p == '' ) { ls_flg_cierre_p = 'NO';} 
      
