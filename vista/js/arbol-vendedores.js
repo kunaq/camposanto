@@ -101,11 +101,6 @@ creaTablaTrabajadoresArbVend();
 			});
 		} 	    
 	});
-
-	
-
-
-
 $("#listaTrabArbVen").on("click","a.btnVerTrabArbVen",function(){
 	$(".ulListaVerTrabArbVen li").removeClass('liListaKqPstActive');
 	$(this).parent('li').addClass('liListaKqPstActive');
