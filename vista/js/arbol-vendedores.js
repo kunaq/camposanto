@@ -289,7 +289,7 @@ $( "select" ).change(function ()
 		} 	    
 	});
 ///////////////////////////////////////
-	$( "select" ).change(function () 
+	$( "#anioBuscaTraArbVen" ).change(function () 
 	{
 		anio=$(this).value;
 		console.log('anio',anio);
