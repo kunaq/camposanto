@@ -291,7 +291,8 @@ $( "select" ).change(function ()
 ///////////////////////////////////////
 	$( "select" ).change(function () 
 	{
-		if ($("#anioBuscaTraArbVen").val()=="2014") //emitidos
+		a=2014;
+		if ($("#anioBuscaTraArbVen").val()==a) //emitidos
 		{
 			$(".ulListaHistConf li").each(function() {
 				
