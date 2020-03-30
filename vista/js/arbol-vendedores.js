@@ -226,11 +226,11 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
 		            }
 				}
 				
-				if (estatus = 'Activado') {
+				if (estatus == 'Activado') {
 					flg_activo="activo";
-				}else if (estatus = 'Emitido') {
+				}else if (estatus == 'Emitido') {
 					flg_activo="emitido";
-				}else if (estatus = 'Resuelto') {
+				}else if (estatus == 'Resuelto') {
 					flg_activo="resuelto";
 				}
 
