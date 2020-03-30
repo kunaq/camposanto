@@ -226,17 +226,17 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
 		            }
 				}
 				
-				if (estatus = 'Activado') {
-					flg_activo="activo";
-				}else if (estatus = 'Emitido') {
-					flg_activo="emitido";
-				}else if (estatus = 'Resuelto') {
-					flg_activo="resuelto";
-				}console.log('flg_activo',flg_activo);
+				// if (estatus = 'Activado') {
+				// 	flg_activo="activo";
+				// }else if (estatus = 'Emitido') {
+				// 	flg_activo="emitido";
+				// }else if (estatus = 'Resuelto') {
+				// 	flg_activo="resuelto";
+				// }console.log('flg_activo',flg_activo);
 
 
             	$("#listaCttos").append(
-                    '<li class="nav-item '+classCtto+' itemLista  ctr_'+estatus+'">'+
+                    '<li class="nav-item '+classCtto+' itemLista '+estatus+'">'+
                         '<a href="seguimientoContrato?codCtto='+value['cod_contrato']+'" class="btnVerCtto" codCtto="'+value['cod_contrato']+'">'+
                         	'<div class="row" style="color:black">'+
 								'<div class="col-md-3">'+value['dsc_localidad']+'</div>'+
@@ -258,3 +258,26 @@ $("#NvoConfArbVen").on("click",function(){
     $('#m_modal_nvoConfigArbVen').modal('show');
 });
 
+$( "select" ).change(function () 
+	{
+		if ($("#SelAct").val()=="2") 
+		{
+			$(".ulListaVerTrabArbVen li").each(function() {
+				$(".act_SI").attr("hidden", true);
+				$(".act_NO").attr("hidden", false);				
+			});
+		}else if ($("#SelAct").val()=="1") 
+		{
+			$(".ulListaVerTrabArbVen li").each(function() {	
+				$(".act_SI").attr("hidden", false);
+				$(".act_NO").attr("hidden", true);				
+			});
+			
+		} else 
+		{
+			$(".ulListaVerTrabArbVen li").each(function() {		
+				$(".act_SI").attr("hidden", false);
+				$(".act_NO").attr("hidden", false);				
+			});
+		} 	    
+	});

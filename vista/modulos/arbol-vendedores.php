@@ -194,17 +194,17 @@
 												<div class="row">
 													<div class="col-lg-12">
 														<p class="pull-right">
-															<select class="form-control form-control-sm m-input" width="100%" >
-																<option>
+															<select id="select2" class="form-control form-control-sm m-input" width="100%" >
+																<option value="0">
 																	TODOS
 																</option>
-																<option>
+																<option value="1">
 																	EMITIDOS
 																</option>
-																<option>
+																<option value="2">
 																	ACTIVADOS
 																</option>
-																<option>
+																<option value="3">
 																	RESUELTOS
 																</option>
 															</select>
