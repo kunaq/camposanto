@@ -84,7 +84,7 @@ creaTablaTrabajadoresArbVend();
 		{
 			alert("valor 2");
 			$("input ul li").each(function() {
-				
+				console.log($("input ul li"));
 				$(".act_SI").attr("hidden", true);
 				$(".act_NO").attr("hidden", false);
 					// $(this).parent().hide();
