@@ -463,7 +463,8 @@ function modificaArbol(){
 
     var ls_flg_supervisor = 'NO';
     var ls_flg_jefe = 'NO';
-    var is_opcion = 'MOD';
+    var is_opcion = $("#entradaModArbVen").val();
+    // var is_opcion = 'MOD';
 
     var is_codigo = $("#cod_trabajador").val();
 
@@ -541,9 +542,12 @@ function modificaArbol(){
 
     // -- Valida -- //
 
-    if (is_opcion == 'INS'){
+    var mensaje = "¿Esta seguro que desea modificar el registro seleccionado?";
+
+    if (is_opcion == 'nuevo'){
         
         var li_existe = 0;
+        mensaje = "¿Esta seguro que desea grabar el registro?";
             
         $.ajax({
             url:"ajax/ArbolVendedores.ajax.php",
@@ -608,10 +612,9 @@ function modificaArbol(){
 //     dw_mto.SetItem(1, "flg_supervisor", ls_flg_supervisor)
 //     dw_mto.SetItem(1, "flg_jefeventas", ls_flg_jefe)
 
-
     swal({
         title: "",
-        text: "¿Esta seguro que desea modificar el registro seleccionado?",
+        text: mensaje,
         type: "question",
         showCancelButton:!0,
         confirmButtonText: "Aceptar",
@@ -625,7 +628,7 @@ function modificaArbol(){
                 url:"ajax/ArbolVendedores.ajax.php",
                 method: "POST",
                 dataType: 'json',
-                data: {'codTrabajador':is_codigo, 'anno' : li_anno, 'tipo_periodo' : ls_tipo, 'periodo' : ls_periodo, 'grupo' : ls_grupo, 'tipo_comisionista' : ls_tipo_comisionista, 'supervisor' : ls_supervisor, 'jefe' : ls_jefe, 'flg_supervisor' : ls_flg_supervisor, 'flg_jefe' : ls_flg_jefe, 'accion':'modificar'},
+                data: {'codTrabajador':is_codigo, 'anno' : li_anno, 'tipo_periodo' : ls_tipo, 'periodo' : ls_periodo, 'grupo' : ls_grupo, 'tipo_comisionista' : ls_tipo_comisionista, 'supervisor' : ls_supervisor, 'jefe' : ls_jefe, 'flg_supervisor' : ls_flg_supervisor, 'flg_jefe' : ls_flg_jefe, 'accion':is_opcion},
                 success: function(respuesta){
                     if(respuesta == true){
                         swal({

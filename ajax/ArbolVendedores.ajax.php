@@ -85,7 +85,7 @@ else if(isset($_POST["accion"]) && $_POST["accion"] == 'eliminar'){
 	$cliente = new AjaxArbolVen();
 	$cliente -> ajaxEliminarArbVen();
 }
-else if(isset($_POST["accion"]) && $_POST["accion"] == 'guardar'){
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'nuevo'){
 	$cliente = new AjaxArbolVen();
 	$cliente -> ajaxGuardarArbVen();
 }
