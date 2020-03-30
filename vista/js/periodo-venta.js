@@ -236,8 +236,9 @@ function grabar(){
     var ldt_fin = $("#fchFinPerVen").val();
     var ls_flg_cierre_p = $("#edoPerVen").val();
     var ls_periodo =$("#codPeriodo").val();
+    var num_mes = $("#numMes").val();
 
-    if (ldt_inicio == null || ldt_inicio == '' ) { return;} 
+    if (num_mes == null || num_mes == '' ) { return;} 
     
     if (ls_flg_cierre_p == null || ls_flg_cierre_p == '' ) { ls_flg_cierre_p = 'NO';} 
      
@@ -272,7 +273,6 @@ function grabar(){
     var li_tipo_periodo_ant = aux_ant.split(" - ")[1];
     var li_periodo_ant = aux_ant.split(" - ")[2];
     var dsc_periodo = 'PERIODO '+ls_periodo;
-    var num_mes = $("#numMes").val();
      
     // -- Grabar -- //
      
