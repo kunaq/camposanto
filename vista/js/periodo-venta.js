@@ -123,7 +123,6 @@ function copiaAnio(){
     var li_anno = $("#anioPerVen").val();
     var li_anno_1 = parseFloat(li_anno) + 1;
     var ls_tipo = $("#periodoPerVen").val();
-    console.log(li_anno_1);
  
     if (li_anno == null || li_anno == '' || li_anno == 'todos'){
         swal({
@@ -207,7 +206,7 @@ function copiaAnio(){
                 url:"ajax/periodoVenta.ajax.php",
                 method: "POST",
                 dataType: 'json',
-                data: {'codTrabajador':is_codigo, 'anno' : li_anno, 'tipo_periodo' : ls_tipo, 'accion':'copiaAnnio'},
+                data: {'anno' : li_anno, 'tipo_periodo' : ls_tipo, 'accion':'copiaAnnio'},
                 success: function(respuesta){                         
                     if(respuesta == true){
                         swal({
