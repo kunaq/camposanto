@@ -8,29 +8,63 @@ $("#cttoResArbVen").on('click', function(){
 	document.getElementById("tituloCttArbVen").innerHTML = 'Resolución';
 });
 
-$( "#edoTraArbVen" ).change(function () 
+$( "#edoTraArbVen" ).change(function (){
+    if ($("#edoTraArbVen").val()=="2") 
     {
-        if ($("#edoTraArbVen").val()=="2") 
-        {
-            $(".ulListaVerTrabArbVen li").each(function() {
-                $(".act_SI").attr("hidden", true);
-                $(".act_NO").attr("hidden", false);             
-            });
-        }else if ($("#edoTraArbVen").val()=="1") 
-        {
-            $(".ulListaVerTrabArbVen li").each(function() { 
-                $(".act_SI").attr("hidden", false);
-                $(".act_NO").attr("hidden", true);              
-            });
+        $(".ulListaVerTrabArbVen li").each(function() {
+            $(".act_SI").attr("hidden", true);
+            $(".act_NO").attr("hidden", false);             
+        });
+    }else if ($("#edoTraArbVen").val()=="1") 
+    {
+        $(".ulListaVerTrabArbVen li").each(function() { 
+            $(".act_SI").attr("hidden", false);
+            $(".act_NO").attr("hidden", true);              
+        });
+        
+    } else 
+    {
+        $(".ulListaVerTrabArbVen li").each(function() {     
+            $(".act_SI").attr("hidden", false);
+            $(".act_NO").attr("hidden", false);             
+        });
+    }       
+});
+
+$("#edoCttoArbVen").change(function (){
+    if ($("#edoCttoArbVen").val()=="1") //emitidos
+    {
+        $(".ulListaHistConf li").each(function() {
             
-        } else 
-        {
-            $(".ulListaVerTrabArbVen li").each(function() {     
-                $(".act_SI").attr("hidden", false);
-                $(".act_NO").attr("hidden", false);             
-            });
-        }       
-    });
+            $(".ctr_activo").attr("hidden", true);
+            $(".ctr_emitido").attr("hidden", false);
+            $(".ctr_resuelto").attr("hidden", true);                
+        });
+    }else if ($("#edoCttoArbVen").val()=="2") //activados
+    {
+        $(".ulListaHistConf li").each(function() {  
+            $(".ctr_activo").attr("hidden", false);
+            $(".ctr_emitido").attr("hidden", true);
+            $(".ctr_resuelto").attr("hidden", true);                
+        });
+        
+    }else if ($("#edoCttoArbVen").val()=="3") //resueltos
+    {
+        $(".ulListaHistConf li").each(function() {  
+            $(".ctr_activo").attr("hidden", true);
+            $(".ctr_emitido").attr("hidden", true);
+            $(".ctr_resuelto").attr("hidden", false);               
+        });
+        
+    } else //todos
+    {
+        $(".ulListaHistConf li").each(function() {      
+            $(".ctr_activo").attr("hidden", false);
+            $(".ctr_emitido").attr("hidden", false);
+            $(".ctr_resuelto").attr("hidden", false);       
+        });
+    }       
+});
 
 function creaTablaTrabajadoresArbVend(){
         $.ajax({
@@ -202,8 +236,15 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
 		                fecha = value['fch_resolucion'];
 		            }
                 }
+                if (estatus == 'Activado') {
+                    flg_activo="activo";
+                }else if (estatus == 'Emitido') {
+                    flg_activo="emitido";
+                }else if (estatus == 'Resuelto') {
+                    flg_activo="resuelto";
+                }
             	$("#listaCttos").append(
-                    '<li class="nav-item '+classCtto+' itemLista">'+
+                    '<li class="nav-item '+classCtto+' itemLista ctr_'+flg_activo+'">'+
                         '<a href="seguimientoContrato?codCtto='+value['cod_contrato']+'" class="btnVerCtto" codCtto="'+value['cod_contrato']+'">'+
                         	'<div class="row" style="color:black">'+
 								'<div class="col-md-3">'+value['dsc_localidad']+'</div>'+
@@ -744,7 +785,7 @@ function eliminaArbol(){
         return;        
     }
 
-    var li_emi ="";
+    var li_emi = "";
     var li_act ="";
 
     if (li_emi>0) {
