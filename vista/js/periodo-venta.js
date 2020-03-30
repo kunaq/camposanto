@@ -120,9 +120,10 @@ $("#listaPeriodoVenta").on("click","a.btnVerPeriodo",function(){
 
 function copiaAnio(){
 
-    var li_anno = $("#cod_anno").val();
+    var li_anno = $("#anioPerVen").val();
     var li_anno_1 = parseFloat(li_anno) + 1;
-    var ls_tipo = $("#cod_tipo_periodo").val();
+    var ls_tipo = $("#periodoPerVen").val();
+    console.log(li_anno_1);
  
     if (li_anno == null || li_anno == '' || li_anno == 0){
         swal({
