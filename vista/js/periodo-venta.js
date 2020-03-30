@@ -344,7 +344,7 @@ function creaNvoAnio(){
                     }else if(respuesta == 'duplicado'){
                         swal({
                             title: "",
-                            text: "El año "+li_anno_1+" ya existe.",
+                            text: "Solo se puede crear el siguiente al año en curso. El año "+li_anno_1+" ya existe.",
                             type: "error",
                             confirmButtonText: "Aceptar",
                         })

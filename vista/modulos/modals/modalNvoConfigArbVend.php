@@ -79,7 +79,7 @@
 								<input type="text" class="form-control form-control-sm m-input" name="comisionistaModArbVen" disabled="" id="comisionistaModArbVen" onchange="nombreComisionista(this.value,'dscComisionistaArbVen');">
 								<div class="input-group-append">
 									<span data-toggle="modal" data-target="#m_modal_comisionista">
-										<button type="button" class="btn btn-sm btnGuardarKqPst" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar grupo" id="btnComModArbVen">
+										<button type="button" class="btn btn-sm btnGuardarKqPst" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar comisionista" id="btnComModArbVen">
 											<i class="fa fa-search">
 											</i>
 										</button>
@@ -100,7 +100,7 @@
 								<input type="text" class="form-control form-control-sm m-input" name="SupervisorModArbVen" disabled="" id="SupervisorModArbVen" onchange="nombreTrabajador(this.value,'dscSpervisorArbVen');">
 								<div class="input-group-append">
 									<span data-toggle="modal" data-target="#m_modal_FueVen">
-										<button type="button" class="btn btn-sm btnGuardarKqPst" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar grupo" onclick="creaTablaFueVentas('supervisor');">
+										<button type="button" class="btn btn-sm btnGuardarKqPst" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar supervisor" onclick="creaTablaFueVentas('supervisor');">
 											<i class="fa fa-search">
 											</i>
 										</button>
@@ -121,7 +121,7 @@
 								<input type="text" class="form-control form-control-sm m-input" name="jefeVentaModArbVen" disabled="" id="jefeVentaModArbVen" onchange="nombreTrabajador(this.value,'dscJefeVentaModArbVen');">
 								<div class="input-group-append">
 									<span data-toggle="modal" data-target="#m_modal_FueVen">
-										<button type="button" class="btn btn-sm btnGuardarKqPst" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar grupo" onclick="creaTablaFueVentas('jefe');">
+										<button type="button" class="btn btn-sm btnGuardarKqPst" data-toggle="m-tooltip" data-container="body" data-placement="top" title="" data-original-title="Buscar jefe de ventas" onclick="creaTablaFueVentas('jefe');">
 											<i class="fa fa-search">
 											</i>
 										</button>
