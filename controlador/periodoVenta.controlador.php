@@ -43,7 +43,7 @@ class ControladorPeriodoVenta{
 
 	static public function ctrCierraProc(){
 		$tipoPeriodo = $_POST['tipo_periodo'];
-		$periodo ? $_POST['ls_periodo'];
+		$periodo = $_POST['ls_periodo'];
 		$anio = $_POST['anno'];
 		$flgCierre = $_POST[''];
 		$tabla = "vtaca_pago_comision";
