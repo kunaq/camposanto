@@ -48,36 +48,47 @@ function creaTablaTrabajadoresArbVend(){
 creaTablaTrabajadoresArbVend();
 
 //$("#SelAct").change(
-function selec1()
-	{
-		alert("entre a la funcion");
-		$( "li" ).each(function() {
-			alert("entre al each");
-			if ($("#SelAct").val()=="1") 
-			{
-				alert("entre al if valor 1");
-				$("li .act_SI").show();
-				$("li .act_NO").hidden();
-				return;
+// function selec1()
+// 	{
+// 		alert("entre a la funcion");
+// 		$( "li" ).each(function() {
+// 			alert("entre al each");
+// 			if ($("#SelAct").val()=="1") 
+// 			{
+// 				alert("entre al if valor 1");
+// 				$("li .act_SI").show();
+// 				$("li .act_NO").hidden();
+// 				return;
 				
-			} else if ($("#SelAct").val()=="2") 
-			{
-				alert("entre al if valor 2");
-				$("li .act_SI").hidden();
-				$("li .act_NO").show();
-				return;
+// 			} else if ($("#SelAct").val()=="2") 
+// 			{
+// 				alert("entre al if valor 2");
+// 				$("li .act_SI").hidden();
+// 				$("li .act_NO").show();
+// 				return;
 				
-			} else 
-				{
-					alert("entre al if valor 0");
-					$("li .act_SI").show();
-					$("li .act_NO").show();
-					return;
-				} 
-		});
+// 			} else 
+// 				{
+// 					alert("entre al if valor 0");
+// 					$("li .act_SI").show();
+// 					$("li .act_NO").show();
+// 					return;
+// 				} 
+// 		});
 
-	}
+// 	}
 	//);
+	$( "select" )
+	.change(function () {
+		alert("cambio el select");
+	  $( "li" ).each(function() {
+		
+	  });
+	  $( "div" ).text( str );
+	})
+	.change();
+	
+
 
 
 $("#listaTrabArbVen").on("click","a.btnVerTrabArbVen",function(){
