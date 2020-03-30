@@ -304,9 +304,8 @@ $( "select" ).change(function ()
 		{
 			$(".ulListaHistConf li").each(function() {
 
-				console.log('comparativo',$(".filanno").attr("anio"));
-
-				if($("#anioBuscaTraArbVen").val() != anio){
+				
+				if($(this).attr('anio') != anio){
 				
 					// $(".filanno").attr("hidden", false);
 					$("."+anio).attr("hidden", true);
@@ -316,6 +315,9 @@ $( "select" ).change(function ()
 					
 					$("."+anio).attr("hidden", false);
 				}
+
+				console.log('comparativo',$(this).attr("anio"));
+
 								
 			}); 
 		}
