@@ -292,7 +292,6 @@ $( "select" ).change(function ()
 	$( "#anioBuscaTraArbVen" ).change(function () 
 	{
 		anio=$(this).val();
-		console.log('anio',anio);
 		if($("#anioBuscaTraArbVen").val()=='todos'){
 			$(".ulListaHistConf li").each(function() {
 				
@@ -300,50 +299,18 @@ $( "select" ).change(function ()
 								
 			});
 		}
-		else  //emitidos
+		else
 		{
 			$(".ulListaHistConf li").each(function() {
-
 				
 				if($(this).attr("anio") == anio){
-				
-					// $(".filanno").attr("hidden", false);
+
 					$(this).attr("hidden", false);
-					//$("."+anio).attr("hidden", false);
-					console.log('clase',$(this));
+
 				}else{
-					// $(".filanno").attr("hidden", true);
 					
 					$(this).attr("hidden", true);
-				}
-
-				console.log('comparativo',$(this).attr("anio"));
-
-								
+				}	
 			}); 
-		}
-		// else if ($("#select2").val()=="2") //activados
-		// {
-		// 	$(".ulListaHistConf li").each(function() {	
-		// 		$(".ctr_activo").attr("hidden", false);
-		// 		$(".ctr_emitido").attr("hidden", true);
-		// 		$(".ctr_resuelto").attr("hidden", true);				
-		// 	});
-			
-		// }else if ($("#select2").val()=="3") //resueltos
-		// {
-		// 	$(".ulListaHistConf li").each(function() {	
-		// 		$(".ctr_activo").attr("hidden", true);
-		// 		$(".ctr_emitido").attr("hidden", true);
-		// 		$(".ctr_resuelto").attr("hidden", false);				
-		// 	});
-			
-		// } else //todos
-		// {
-		// 	$(".ulListaHistConf li").each(function() {		
-		// 		$(".ctr_activo").attr("hidden", false);
-		// 		$(".ctr_emitido").attr("hidden", false);
-		// 		$(".ctr_resuelto").attr("hidden", false);		
-		// 	});
-		// } 	    
+		}    
 	});
