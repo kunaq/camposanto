@@ -291,7 +291,7 @@ $( "select" ).change(function ()
 ///////////////////////////////////////
 	$( "#anioBuscaTraArbVen" ).change(function () 
 	{
-		anio=$(this).value;
+		anio=$(this).val();
 		console.log('anio',anio);
 		if($("#anioBuscaTraArbVen").val()=='todos'){
 			$(".ulListaHistConf li").each(function() {
