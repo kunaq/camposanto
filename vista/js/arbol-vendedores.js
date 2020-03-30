@@ -226,17 +226,17 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
 		            }
 				}
 				
-				if (value['flg_activado'] == 'SI') {
+				if (estatus = 'Activado') {
 					flg_activo="activo";
-				}else if (value['flg_emitido'] == 'SI') {
+				}else if (estatus = 'Emitido') {
 					flg_activo="emitido";
-				}else if (value['flg_resuelto'] == 'SI') {
+				}else if (estatus = 'Resuelto') {
 					flg_activo="resuelto";
-				}
+				}console.log('flg_activo',flg_activo);
 
 
             	$("#listaCttos").append(
-                    '<li class="nav-item '+classCtto+' itemLista  ctr_'+value["flg_activo"]+'">'+
+                    '<li class="nav-item '+classCtto+' itemLista  ctr_'+value["estatus"]+'">'+
                         '<a href="seguimientoContrato?codCtto='+value['cod_contrato']+'" class="btnVerCtto" codCtto="'+value['cod_contrato']+'">'+
                         	'<div class="row" style="color:black">'+
 								'<div class="col-md-3">'+value['dsc_localidad']+'</div>'+
