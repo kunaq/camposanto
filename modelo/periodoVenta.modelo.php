@@ -96,5 +96,25 @@ class ModeloPeriodoVenta{
 
 	}//function mdlCierraProc
 
+	static public function mdlCreaNvoAnio($tabla,$anio){
+		$db = new Conexion();
+		$sql = $db->consulta("SELECT * FROM $tabla WHERE num_anno = $anio");
+		$datos = arrayMapUtf8Encode($db->recorrer($sql));
+		var_dump($datos);
+		if($datos != '' || $datos != null){
+			return 'duplicado';
+		}else{
+			$sql = $db->consulta("INSERT INTO $tabla (cod_anno) VALUES ($anio)");
+			if($sql){
+				return 1;
+			}else{
+				return "error";
+		}
+		}
+		$db->liberar($sql);
+        $db->cerrar();
+
+	}//function mdlExstConf
+
 }//class ModeloPeriodoVenta
 ?>

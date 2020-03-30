@@ -42,7 +42,12 @@ class ControladorPeriodoVenta{
 		return $respuesta;
 	}
 
-
+	static public function ctrCreaNvoAnio(){
+		$anio = $_POST['anno'];
+		$tabla = "vtama_annos";
+		$respuesta = ModeloPeriodoVenta::mdlCreaNvoAnio($tabla,$anio);
+		return $respuesta;
+	}
 
 	static public function ctrCierraProc(){
 		$tipoPeriodo = $_POST['tipo_periodo'];

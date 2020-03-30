@@ -24,6 +24,10 @@ class AjaxPeriodoVenta{
 		$respuesta = ControladorPeriodoVenta::ctrCierraProc();
 		echo json_encode($respuesta);
 	}//function ajaxCierraProc
+	public function ajaxCreaNvoAnio(){
+		$respuesta = ControladorPeriodoVenta::ctrCreaNvoAnio();
+		echo json_encode($respuesta);
+	}//function ajaxCreaNvoAnio
 }//class AjaxPeriodoVenta
 /*=============================================
 ACCIONES
@@ -47,4 +51,8 @@ else if(isset($_POST["accion"]) && $_POST["accion"] == 'copiaAnnio'){
 else if(isset($_POST["accion"]) && $_POST["accion"] == 'cierraProc'){
 	$cliente = new AjaxPeriodoVenta();
 	$cliente -> ajaxCierraProc();
+}
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'creaNvoAnio'){
+	$cliente = new AjaxPeriodoVenta();
+	$cliente -> ajaxCreaNvoAnio();
 }
