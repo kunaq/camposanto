@@ -25,5 +25,20 @@ class ControladorPeriodoVenta{
 		return $respuesta;
 	}
 
+	static public function ctrExstConf(){
+		$tipoPeriodo = $_POST['tipo_periodo'];
+		$anio = $_POST['anno'];
+		$tabla = "vtama_periodo";
+		$respuesta = ModeloPeriodoVenta::mdlExstConf($tabla,$tipoPeriodo,$anio);
+		return $respuesta;
+	}
+
+	static public function ctrCopiaAnnio(){
+		$tipoPeriodo = $_POST['tipo_periodo'];
+		$anio = $_POST['anno'];
+		$tabla = "vtama_periodo";
+		$respuesta = ModeloPeriodoVenta::mdlCopiaAnnio($tabla,$tipoPeriodo,$anio);
+		return $respuesta;
+	}
 }//class ControladorPeriodoVenta
 ?>
