@@ -83,16 +83,18 @@ creaTablaTrabajadoresArbVend();
 		if ($("#SelAct").val()=="2") 
 		{
 			alert("valor 2");
-			$( "li .act_SI" ).each(function() 
-			{
-				$("div .row").hidden();
+			$("li .act_SI").hidden("fast");
+			$("li .act_NO").show("fast");
+			// $( "li .act_SI" ).each(function() 
+			// {
+			// 	$("div .row").hidden("fast");
 			
-			});
-			$( "li .act_NO" ).each(function() 
-			{
-				$("div .row").show();
+			// });
+			// $( "li .act_NO" ).each(function() 
+			// {
+			// 	$("div .row").show("fast");
 				
-			});
+			// });
 		}
 		
 		
