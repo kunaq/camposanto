@@ -71,7 +71,8 @@ function()
 				} 
 		});
 
-	});
+	})
+	.change();
 
 
 $("#listaTrabArbVen").on("click","a.btnVerTrabArbVen",function(){
