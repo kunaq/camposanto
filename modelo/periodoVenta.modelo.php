@@ -78,7 +78,22 @@ class ModeloPeriodoVenta{
 		}else{
 			return "error";
 		}
+		$db->liberar($sql);
+        $db->cerrar();
 	} //function mdlGuardaEndoso
+
+	static public function mdlCierraProc($tabla,$tipoPeriodo,$anio,$periodo,$flgCierre){
+		$db = new Conexion();
+		$sql = $db->consulta("UPDATE $tabla SET cod_estado = ( CASE WHEN '$flgCierre' = 'SI' THEN 'CAN' ELSE 'REG' END )     WHERE num_anno = '$anio'AND cod_tipo_periodo = '$tipoPeriodo'  AND cod_periodo = '$periodo'");
+		if($sql){
+			return 1;
+		}else{
+			return "error";
+		}
+		$db->liberar($sql);
+        $db->cerrar();
+
+	}//function mdlCierraProc
 
 }//class ModeloPeriodoVenta
 ?>

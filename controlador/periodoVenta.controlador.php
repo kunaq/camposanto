@@ -40,5 +40,15 @@ class ControladorPeriodoVenta{
 		$respuesta = ModeloPeriodoVenta::mdlCopiaAnnio($tabla,$tipoPeriodo,$anio);
 		return $respuesta;
 	}
+
+	static public function ctrCierraProc(){
+		$tipoPeriodo = $_POST['tipo_periodo'];
+		$periodo ? $_POST['ls_periodo'];
+		$anio = $_POST['anno'];
+		$flgCierre = $_POST[''];
+		$tabla = "vtaca_pago_comision";
+		$respuesta = ModeloPeriodoVenta::mdlCierraProc($tabla,$tipoPeriodo,$anio,$periodo,$flgCierre);
+		return $respuesta;
+	}
 }//class ControladorPeriodoVenta
 ?>

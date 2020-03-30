@@ -192,7 +192,7 @@ function copiaAnio(){
 
     // -- Confirmacion -- //
 
-     swal({
+    swal({
         title: "",
         text: "Esta seguro que desea copiar la configuración de los periodos al año "+li_anno_1+"?",
         type: "question",
@@ -230,24 +230,87 @@ function copiaAnio(){
     })//then
 }
 
-// $("#edoPerVen").on("change",function(){
-//     swal({
-//         title: '¿Está seguro de cerrar el período?',
-//         text: "¡Si no lo está puede cancelar la acción!",
-//         type: 'warning',
-//         showCancelButton: true,
-//         confirmButtonColor: '#3085d6',
-//         cancelButtonColor: '#d33',
-//         cancelButtonText: 'Cancelar',
-//         confirmButtonText: 'Si, cerrar el período!'
-//         }).then(function(result){
-//             if (result.value) {
-//                swal({
-//                     type: "success",
-//                     title: "Período cerrado con éxito.",
-//                     showConfirmButton: !1,
-//                     timer: 3000
-//                 })
-//             }//if
-//         });//then
-// });
+function grabar(){
+
+    var ldt_inicio = $("#fch_inicio").val();
+    var ldt_fin = $("#fch_fin").val();
+    var ls_flg_cierre_p = $("#flg_cierre_proceso").val();
+    var ls_periodo =$("#cod_periodo").val();
+    
+    if (ls_flg_cierre_p == null || ls_flg_cierre_p == '') { ls_flg_cierre_p = 'NO';} 
+     
+    // -- Valida -- //
+     
+    if (ldt_inicio == null || ldt_inicio == '') {
+        swal({
+            title: "",
+            text: "Debe ingresar la fecha de inicio.",
+            type: "error",
+            confirmButtonText: "Aceptar",
+        })
+        return;
+            // tab_1.selectedtab = 1
+            // tab_1.tp_1.dw_mto.is_sgte_columna = "fch_inicio"
+            // tab_1.tp_1.dw_mto.SetColumn("fch_inicio")
+    }
+     
+    if (ldt_fin == null || ldt_fin == '') {
+        swal({
+            title: "",
+            text: "Debe ingresar la fecha de fin.",
+            type: "error",
+            confirmButtonText: "Aceptar",
+        })
+        return;
+            // tab_1.selectedtab = 1
+            // tab_1.tp_1.dw_mto.is_sgte_columna = "fch_fin"
+            // tab_1.tp_1.dw_mto.SetColumn("fch_fin")
+    }
+     
+    // -- Datos -- //
+     
+    var li_anno = $("#cod_anno").val();
+    var ls_tipo = $("#cod_tipo_periodo").val();
+     
+    // -- Grabar -- //
+ 
+    // If tab_1.tp_1.dw_mto.UpDate() <> 1 Then Goto db_error ========================???????
+     
+    // -- Cierra Procesos de Comisiones -- //
+
+     swal({
+        title: "",
+        text: "¿Está seguro de cerrar el período?",
+        type: "question",
+        showCancelButton:!0,
+        confirmButtonText: "Aceptar",
+        cancelButtonText:"Cancelar"
+    }).then(function(){
+        setTimeout(function () { 
+            $.ajax({
+                url:"ajax/periodoVenta.ajax.php",
+                method: "POST",
+                dataType: 'json',
+                data: {'codTrabajador':is_codigo, 'anno' : li_anno, 'tipo_periodo' : ls_tipo, 'ls_periodo' : ls_periodo, 'flgCierre' : ls_flg_cierre_p, 'accion':'cierraProc'},
+                success: function(respuesta){                         
+                    if(respuesta == true){
+                        swal({
+                            title: "",
+                            text: "Se grabó el registro satisfactoriamente.",
+                            type: "success",
+                            confirmButtonText: "Aceptar",
+                            onBeforeOpen: window.location.assign('arbol-vendedores')
+                        })
+                    }else{
+                        swal({
+                            title: "",
+                            text: "Eror en la actualización de la base de datos.",
+                            type: "error",
+                            confirmButtonText: "Aceptar",
+                        })
+                    }
+                }//success
+            });//ajax
+         },1000);//setTimeout
+    })//then
+}
