@@ -219,7 +219,7 @@ function copiaAnio(){
                     }else{
                         swal({
                             title: "",
-                            text: "Eror en la actualización de la base de datos.",
+                            text: "Error en la actualización de la base de datos.",
                             type: "error",
                             confirmButtonText: "Aceptar",
                         })
@@ -232,12 +232,12 @@ function copiaAnio(){
 
 function grabar(){
 
-    var ldt_inicio = $("#fch_inicio").val();
-    var ldt_fin = $("#fch_fin").val();
-    var ls_flg_cierre_p = $("#flg_cierre_proceso").val();
-    var ls_periodo =$("#cod_periodo").val();
+    var ldt_inicio = $("#fchIniPerVen").val();
+    var ldt_fin = $("#fchFinPerVen").val();
+    var ls_flg_cierre_p = $("#edoPerVen").val();
+    var ls_periodo =$("#codPeriodo").val();
     
-    if (ls_flg_cierre_p == null || ls_flg_cierre_p == '') { ls_flg_cierre_p = 'NO';} 
+    if (ls_flg_cierre_p == null || ls_flg_cierre_p == '' || ) { ls_flg_cierre_p = 'NO';} 
      
     // -- Valida -- //
      
@@ -249,9 +249,6 @@ function grabar(){
             confirmButtonText: "Aceptar",
         })
         return;
-            // tab_1.selectedtab = 1
-            // tab_1.tp_1.dw_mto.is_sgte_columna = "fch_inicio"
-            // tab_1.tp_1.dw_mto.SetColumn("fch_inicio")
     }
      
     if (ldt_fin == null || ldt_fin == '') {
@@ -262,25 +259,26 @@ function grabar(){
             confirmButtonText: "Aceptar",
         })
         return;
-            // tab_1.selectedtab = 1
-            // tab_1.tp_1.dw_mto.is_sgte_columna = "fch_fin"
-            // tab_1.tp_1.dw_mto.SetColumn("fch_fin")
     }
      
     // -- Datos -- //
      
-    var li_anno = $("#cod_anno").val();
-    var ls_tipo = $("#cod_tipo_periodo").val();
+    var li_anno = $("#nombrePeriodo").val();
+    var ls_tipo = $("#tipoPeriodo").val();
+    var aux_ant = $("#nombrePeriodoAnt").val();
+    var li_anno_ant = aux_ant.split(" - ")[0];
+    var li_tipo_periodo_ant = aux_ant.split(" - ")[1];
+    var li_periodo_ant = aux_ant.split(" - ")[2];
+    var dsc_periodo = 'PERIODO '+ls_periodo;
+    var num_mes = $("#numMes").val();
      
     // -- Grabar -- //
- 
-    // If tab_1.tp_1.dw_mto.UpDate() <> 1 Then Goto db_error ========================???????
      
     // -- Cierra Procesos de Comisiones -- //
 
-     swal({
+    swal({
         title: "",
-        text: "¿Está seguro de cerrar el período?",
+        text: "¿Está seguro de guardar los cambios?",
         type: "question",
         showCancelButton:!0,
         confirmButtonText: "Aceptar",
@@ -291,7 +289,7 @@ function grabar(){
                 url:"ajax/periodoVenta.ajax.php",
                 method: "POST",
                 dataType: 'json',
-                data: {'codTrabajador':is_codigo, 'anno' : li_anno, 'tipo_periodo' : ls_tipo, 'ls_periodo' : ls_periodo, 'flgCierre' : ls_flg_cierre_p, 'accion':'cierraProc'},
+                data: {'anno' : li_anno, 'tipo_periodo' : ls_tipo, 'ls_periodo' : ls_periodo, 'flgCierre' : ls_flg_cierre_p, 'li_anno_ant' : li_anno_ant, 'li_tipo_periodo_ant' : li_tipo_periodo_ant, 'li_periodo_ant' : li_periodo_ant, 'dsc_periodo' : dsc_periodo, 'num_mes' : num_mes, 'ldt_inicio' : ldt_inicio, 'ldt_fin' : ldt_fin, 'accion':'cierraProc'},
                 success: function(respuesta){                         
                     if(respuesta == true){
                         swal({
@@ -299,12 +297,12 @@ function grabar(){
                             text: "Se grabó el registro satisfactoriamente.",
                             type: "success",
                             confirmButtonText: "Aceptar",
-                            onBeforeOpen: window.location.assign('arbol-vendedores')
+                            onBeforeOpen: window.location.assign('periodo-venta')
                         })
                     }else{
                         swal({
                             title: "",
-                            text: "Eror en la actualización de la base de datos.",
+                            text: "Error en la actualización de la base de datos.",
                             type: "error",
                             confirmButtonText: "Aceptar",
                         })
@@ -313,4 +311,51 @@ function grabar(){
             });//ajax
          },1000);//setTimeout
     })//then
+}
+
+function creaNvoAnio(){
+    var li_anno = new Date().getFullYear();
+    var li_anno_1 = parseFloat(li_anno) + 1;
+    swal({
+        title: "",
+        text: "¿Está seguro que desea crear el año "+li_anno_1+"?",
+        type: "question",
+        showCancelButton:!0,
+        confirmButtonText: "Aceptar",
+        cancelButtonText:"Cancelar"
+    }).then(function(){
+        setTimeout(function () {
+         $.ajax({
+                url:"ajax/periodoVenta.ajax.php",
+                method: "POST",
+                dataType: 'json',
+                data: {'anno' : li_anno_1, 'accion':'creaNvoAnio'},
+                success: function(respuesta){                         
+                    if(respuesta == true){
+                        swal({
+                            title: "",
+                            text: "Se grabó el registro satisfactoriamente.",
+                            type: "success",
+                            confirmButtonText: "Aceptar",
+                            onBeforeOpen: window.location.assign('periodo-venta')
+                        })
+                    }else if(respuesta == 'duplicado'){
+                        swal({
+                            title: "",
+                            text: "Eror en la actualización de la base de datos.",
+                            type: "error",
+                            confirmButtonText: "Aceptar",
+                        })
+                    }else{
+                        swal({
+                            title: "",
+                            text: "Error en la actualización de la base de datos.",
+                            type: "error",
+                            confirmButtonText: "Aceptar",
+                        })
+                    }
+                }//success
+            });//ajax
+         },1000);//setTimeout
+    })//then 
 }

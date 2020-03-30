@@ -26,7 +26,7 @@
 								</select>
 							</div>
 							<div class="col-md-3">
-								<button type="button" class="btn btn-sm btnGuardarKqPst" title="Crear año" id="btnNvoAnno"  style="margin-right:6px;"><i class="fa fa-plus"></i></button>	
+								<button type="button" class="btn btn-sm btnGuardarKqPst" title="Crear año" id="btnNvoAnno"  style="margin-right:6px;" onclick="creaNvoAnio();"><i class="fa fa-plus"></i></button>	
 								<button type="button" class="btn btn-sm btnEditarKqPst2" title="Copiar año siguiente" id="btnCopiaAnno" onclick="copiaAnio();"><i class="fa fa-copy"></i></button>
 							</div>
 							<div class="col-md-2">
