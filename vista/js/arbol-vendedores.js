@@ -621,7 +621,7 @@ function modificaArbol(){
 
     var arregloValida = $("#arregloValida").val();
 
-    arregloValida.each(function(){
+    arregloValida.forEach(function(){
         if(arregloValida == valor){
             alert('igual');
         }
