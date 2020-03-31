@@ -439,45 +439,28 @@ function aceptarMod(){
 
 function limpiaModal(){
     buscaPeriodo();
-    $("#tipoPeriodoArbVen").val();
-    $("#periodoArbVen").val();
-    $("#numAnioArbVen").val();
-    $("#flgEstado").val();
-    $("#flg_modificacion_grupo").val();
-    $("#flgJefeModArbVen").val();
-    $("#flgSupModArbVen").val();
-    $("#flgJefeGpoArbVen").val();
-    $("#flgSupGpoArbVen").val();
-    $("#SupervisorModArbVen").val();
-    $("#dscSpervisorArbVen").val();
-    $("#jefeVentaModArbVen").val();
-    $("#dscJefeVentaModArbVen").val();
-    $("#grupoModTraArbVen").val();
-    $("#dscGrupoModConfArbVen").val();
-    $("#comisionistaModArbVen").val();
-    $("#dscComisionistaArbVen").val();
+    $("#tipoPeriodoArbVen").val('');
+    $("#periodoArbVen").val('');
+    $("#numAnioArbVen").val('');
+    $("#flgEstado").val('');
+    $("#flg_modificacion_grupo").val('');
+    $("#flgJefeModArbVen").val('');
+    $("#flgSupModArbVen").val('');
+    $("#flgJefeGpoArbVen").val('');
+    $("#flgSupGpoArbVen").val('');
+    $("#SupervisorModArbVen").val('');
+    $("#dscSpervisorArbVen").val('');
+    $("#jefeVentaModArbVen").val('');
+    $("#dscJefeVentaModArbVen").val('');
+    $("#grupoModTraArbVen").val('');
+    $("#dscGrupoModConfArbVen").val('');
+    $("#comisionistaModArbVen").val('');
+    $("#dscComisionistaArbVen").val('');
 }
 
 function nvoRegistro(){
     limpiaModal();
     document.getElementById("ArbVenModalLabel").innerHTML = 'Nuevo registro';
-     $("#tipoPeriodoArbVen").val();
-    $("#periodoArbVen").val();
-    $("#numAnioArbVen").val();
-    $("#flgEstado").val();
-    $("#flg_modificacion_grupo").val();
-    $("#flgJefeModArbVen").val();
-    $("#flgSupModArbVen").val();
-    $("#flgJefeGpoArbVen").val();
-    $("#flgSupGpoArbVen").val();
-    $("#SupervisorModArbVen").val();
-    $("#dscSpervisorArbVen").val();
-    $("#jefeVentaModArbVen").val();
-    $("#dscJefeVentaModArbVen").val();
-    $("#grupoModTraArbVen").val();
-    $("#dscGrupoModConfArbVen").val();
-    $("#comisionistaModArbVen").val();
-    $("#dscComisionistaArbVen").val();
 }
 
 //----------------------------------------------------------------------------------------------//
