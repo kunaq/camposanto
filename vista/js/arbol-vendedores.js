@@ -632,7 +632,14 @@ function modificaArbol(){
 
     var arregloValida = $("#arregloValida").val();
     arregloValida = arregloValida.split(',');
-    var validaPeriodo = arregloValida.forEach(revisa);
+    arregloValida.forEach(arregloValida);
+    arregloValida.forEach(function(word) {
+      console.log(word);
+      if (word === valor) {
+        alert('rerferfe');
+      }
+    });
+
 
     if (validaPeriodo == 1){
          swal({
