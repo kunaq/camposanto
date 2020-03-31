@@ -439,7 +439,7 @@ function anadeFueTra(cod,boton){
             dataType: 'json',
             data: {'codTrabajador':cod, 'anno' : anno, 'tipo_periodo' : tipoPer, 'periodo' : periodo, 'accion':'listaFueVen'},
             success: function(respuesta){
-                if(respuesta == '' || resp == null){
+                if(respuesta == '' || respuesta == null){
                     swal({
                         title: "Error",
                         text: "El trabajador no tiene configuración para el periodo actual.",
