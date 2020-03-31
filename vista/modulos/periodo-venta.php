@@ -154,7 +154,7 @@
 										<label>Fecha:</label>
 									</div>
 									<div class="col-lg-4">
-										<input type="text" class="form-control form-control-sm m-input" name="fchProComPerVen" id="fchProComPerVen">
+										<input type="text" disabled="" class="form-control form-control-sm m-input" name="fchProComPerVen" id="fchProComPerVen">
 									</div>
 								</div>
 								<div class="form-group row">
