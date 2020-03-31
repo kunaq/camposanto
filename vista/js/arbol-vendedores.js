@@ -636,12 +636,7 @@ function modificaArbol(){
     arregloValida.forEach(function(word) {
       console.log(word);
       if (word === valor) {
-       swal({
-            title: "Error",
-            text: "El trabajador ya se encuentra configurado para el periodo seleccionado.",
-            type: "error",
-            confirmButtonText: "Aceptar",
-          });
+        alert('rerferfe');
       }
     });
 
