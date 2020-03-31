@@ -539,13 +539,12 @@ function revisa(item, index, arr) {
     var valor = li_anno+'-'+ls_tipo+'-'+ls_periodo; 
     // arr[index] = item * 10;
     if(item == valor){
-        alert('adssa')
-        // swal({
-        //     title: "Error",
-        //     text: "El trabajador ya se encuentra configurado para el periodo seleccionado.",
-        //     type: "error",
-        //     confirmButtonText: "Aceptar",
-        //   });
+        swal({
+            title: "Error",
+            text: "El trabajador ya se encuentra configurado para el periodo seleccionado.",
+            type: "error",
+            confirmButtonText: "Aceptar",
+          });
         // return;
     }
 }
