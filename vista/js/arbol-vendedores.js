@@ -465,7 +465,7 @@ function aceptarMod(){
         modificaArbol();
     }
     else if(entrada == 'nuevo'){
-        limpiaModal();
+        // limpiaModal();
         modificaArbol();
     }
 }
