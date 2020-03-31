@@ -183,7 +183,7 @@ function llenaHistorial(codTrabajador,anio){
                             '</a>'+
                         '</li>'
                      );//append
-                    arregloValida.push(value['num_anno']+'-'+value['cod_tipo_periodo']+value['cod_periodo']+);
+                    arregloValida.push(value['num_anno']+'-'+value['cod_tipo_periodo']+'-'+value['cod_periodo']);
                     $("#arregloValida").val(arregloValida);
                 });//each
             }else{
