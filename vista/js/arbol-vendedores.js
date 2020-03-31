@@ -622,6 +622,7 @@ function modificaArbol(){
     var arregloValida = $("#arregloValida").val();
     arregloValida = arregloValida.split(',');
     // arregloValida.forEach(arregloValida);
+    var validaPeriodo = 0;
     arregloValida.forEach(function(word) {
       if (word == valor) {
         validaPeriodo = 1;
