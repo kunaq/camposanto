@@ -94,22 +94,22 @@ $("#listaPeriodoVenta").on("click","a.btnVerPeriodo",function(){
         data: {'anio':codAnio,'tipoPeriodo':codPeriodo,'accion':'verDetPeriodo'},
         success: function(respuesta){
             console.log('respuesta',respuesta);
-            $("#nombrePeriodo").val(respuesta["num_anno"]);
-            $("#tipoPeriodo").val(respuesta["cod_tipo_periodo"]);
-            $("#codPeriodo").val(respuesta["cod_periodo"]);
-            $("#numMes").val(respuesta["num_mes"]);
-            $("#dscPeriodo").val(respuesta["dsc_periodo"]);
-            $('#fchIniPerVen').datepicker('setDate', respuesta["fch_inicio"]);
-            $('#fchFinPerVen').datepicker('setDate', respuesta["fch_fin"]);
-            $("#nombrePeriodoAnt").val(respuesta["num_anno_ant"]+' - '+respuesta["cod_tipo_periodo_ant"]+' - '+respuesta["cod_periodo_ant"]);
-            $("#edoPerVen").val(respuesta["flg_estado"]).trigger("change");
-            if(respuesta['flg_estado'] == 'CE'){
+            $("#nombrePeriodo").val(respuesta[0]["num_anno"]);
+            $("#tipoPeriodo").val(respuesta[0]["cod_tipo_periodo"]);
+            $("#codPeriodo").val(respuesta[0]["cod_periodo"]);
+            $("#numMes").val(respuesta[0]["num_mes"]);
+            $("#dscPeriodo").val(respuesta[0]["dsc_periodo"]);
+            $('#fchIniPerVen').datepicker('setDate', respuesta[0]["fch_inicio"]);
+            $('#fchFinPerVen').datepicker('setDate', respuesta[0]["fch_fin"]);
+            $("#nombrePeriodoAnt").val(respuesta[0]["num_anno_ant"]+' - '+respuesta[0]["cod_tipo_periodo_ant"]+' - '+respuesta[0]["cod_periodo_ant"]);
+            $("#edoPerVen").val(respuesta[0]["flg_estado"]).trigger("change");
+            if(respuesta[0]['flg_estado'] == 'CE'){
                 $("#detCierre").removeAttr('hidden');
-                if(respuesta['fch_cierre'] != null){
-                    document.getElementById("fechCierre").innerHTML = respuesta['fch_cierre'];
-                    document.getElementById("motivoCierre").innerHTML = 'Usuario: '+respuesta['cod_usuario'];
+                if(respuesta[0]['fch_cierre'] != null){
+                    document.getElementById("fechCierre").innerHTML = respuesta[0]['fch_cierre'];
+                    document.getElementById("motivoCierre").innerHTML = 'Usuario: '+respuesta[0]['cod_usuario'];
                 }else{
-                    document.getElementById("fechCierre").innerHTML = respuesta['fch_fin'];
+                    document.getElementById("fechCierre").innerHTML = respuesta[0]['fch_fin'];
                     document.getElementById("motivoCierre").innerHTML = 'Caducó';
                 }
             }else{

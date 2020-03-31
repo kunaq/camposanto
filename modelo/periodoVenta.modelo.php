@@ -27,20 +27,14 @@ class ModeloPeriodoVenta{
 	static public function mdlVerDetPeriodo($tabla,$tipoPeriodo,$anio){
 		$db = new Conexion();
 		$sql = $db->consulta("SELECT num_anno, cod_tipo_periodo, cod_periodo, fch_inicio, fch_fin, flg_estado, cod_usuario, fch_cierre, flg_cierre_manual, num_anno_ant, cod_tipo_periodo_ant, cod_periodo_ant, dsc_periodo, num_mes FROM $tabla WHERE num_anno = '$anio' AND cod_periodo = '$tipoPeriodo'");
-		$datos = arrayMapUtf8Encode($db->recorrer($sql));
-		// while($key = $db->recorrer($sql)){
-	 //    	$datos[] = arrayMapUtf8Encode($key);
-			// if ($key['fch_inicio'] == NULL) {
-	  //           $key['fch_inicio'] = "-";
-	  //       }else{
-	  //           $key['fch_inicio'] = dateFormat($key['fch_inicio']);
-	  //       }
-	  //       if ($key['fch_fin'] == NULL) {
-	  //           $key['fch_fin'] = "-";
-	  //       }else{
-	  //           $key['fch_fin'] = dateFormat($key['fch_fin']);
-	  //       }
-	    // }
+		$datos = array();
+    	while($key = $db->recorrer($sql)){
+    		$key["fch_inicio"] = ($key["fch_inicio"] != '') ? dateFormat($key["fch_inicio"]) : '-';
+    		$key["fch_fin"] = ($key["fch_fin"] != '') ? dateFormat($key["fch_fin"]) : '-';
+    		$key["fch_cierre"] = ($key["fch_cierre"] != '') ? dateFormat($key["fch_cierre"]) : '-';
+	    	$datos[] = arrayMapUtf8Encode($key);
+		}
+		
 		return $datos;
 		$db->liberar($sql);
         $db->cerrar();
