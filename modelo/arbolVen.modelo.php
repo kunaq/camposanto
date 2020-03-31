@@ -105,6 +105,8 @@ class ModeloArbolVen{
 		}else{
 			return "error";
 		}
+		$db->liberar($sql);
+        $db->cerrar();
 	} //function mdlGuardaEndoso
 
 	static public function mdlEliminarArbVen($tabla,$codigo,$periodo,$tipoPeriodo,$annio){
@@ -115,17 +117,28 @@ class ModeloArbolVen{
 		}else{
 			return "error";
 		}
+		$db->liberar($sql);
+        $db->cerrar();
 	} //function mdlGuardaEndoso
 
 	static public function mdlGuardarArbVen($tabla,$codigo,$grupo,$periodo,$tipoPeriodo,$annio,$comisionista,$jefe,$supervisor,$flg_jefe,$flg_sup){
 		$db = new Conexion();
-		$sql = $db->consulta("INSERT INTO $tabla (cod_trabajador, num_anno, cod_tipo_periodo, cod_periodo, cod_tipo_comisionista, cod_grupo, cod_supervisor, cod_jefeventas, flg_supervisor, flg_jefeventas) VALUES
-           ('$codigo', '$annio', '$tipoPeriodo', '$periodo', '$comisionista', '$grupo', '$supervisor', '$jefe', '$flg_sup', '$flg_jefe')");
-		if($sql){
-			return 1;
+		$sql = $db->consulta("SELECT * FROM $tabla WHERE cod_trabajador = '$codigo' AND num_anno = '$annio' AND cod_tipo_periodo = '$tipoPeriodo' AND cod_periodo = '$periodo'");
+		$datos = arrayMapUtf8Encode($db->recorrer($sql));
+		if($datos != '' || $datos != null){
+			return 'duplicado';
 		}else{
-			return "error";
+			$sql = $db->consulta("INSERT INTO $tabla (cod_trabajador, num_anno, cod_tipo_periodo, cod_periodo, cod_tipo_comisionista, cod_grupo, cod_supervisor, cod_jefeventas, flg_supervisor, flg_jefeventas) VALUES
+           ('$codigo', '$annio', '$tipoPeriodo', '$periodo', '$comisionista', '$grupo', '$supervisor', '$jefe', '$flg_sup', '$flg_jefe')");
+			if($sql){
+				return 1;
+			}else{
+				$db->rollback();
+				return "error";
+			}
 		}
+		$db->liberar($sql);
+        $db->cerrar();
 	} //function mdlGuardaEndoso
 
 }//class ModeloArbolVen

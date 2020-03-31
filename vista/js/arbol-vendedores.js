@@ -758,6 +758,13 @@ function modificaArbol(){
                             confirmButtonText: "Aceptar",
                             onBeforeOpen: window.location.assign('arbol-vendedores')
                         })
+                    }else if(respuesta == 'duplicado'){
+                        swal({
+                            title: "",
+                            text: "El trabajador ya se encuentra configurado para el periodo seleccionado.",
+                            type: "error",
+                            confirmButtonText: "Aceptar",
+                        })
                     }else{
                         swal({
                             title: "",
