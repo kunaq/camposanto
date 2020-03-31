@@ -321,8 +321,8 @@ function creaNvoAnio(){
     var container = document.querySelector('#anioPerVen');
     container.querySelectorAll('option').forEach(function (li_i) 
     {  
-        console.log(li_i);
-        if(li_i == li_anno_1){
+        console.log($(li_i).val());
+        if($(li_i).val() == li_anno_1){
             alert('asdfszf')
         }
     });
