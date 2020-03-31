@@ -548,8 +548,8 @@ function validaModifArbol(){
     var ls_tipo     = $("#tipoPeriodoArbVen").val();
     var ls_periodo  = $("#periodoArbVen").val();
     var li_anno     = $("#numAnioArbVen").val();
-    $("#anioConfTraArbVen").val(li_anno).trigger('change');
-    $("#tipoPerConfTraArbVen").val(ls_tipo).trigger('change');
+    $("#anioConfTraArbVen").val(li_anno);
+    $("#tipoPerConfTraArbVen").val(ls_tipo);
 
     // -- Valida -- //
 
@@ -601,7 +601,7 @@ function modificaArbol(){
     var ls_jefe = $("#jefeVentaModArbVen").val();
     var ls_supervisor = $("#SupervisorModArbVen").val();
     var ls_grupo = $("#grupoModTraArbVen").val();
-    console.log(ls_grupo);
+    // console.log(ls_grupo);
     var ls_tipo_comisionista = $("#comisionistaModArbVen").val();
 
     var ls_tipo = $("#tipoPerConfTraArbVen").val();
@@ -783,7 +783,7 @@ function modificaArbol(){
                             text: "Se grabó el registro satisfactoriamente.",
                             type: "success",
                             confirmButtonText: "Aceptar",
-                            // onBeforeOpen: window.location.assign('arbol-vendedores')
+                            onBeforeOpen: window.location.assign('arbol-vendedores')
                         })
                     }else if(respuesta == 'duplicado'){
                         swal({
