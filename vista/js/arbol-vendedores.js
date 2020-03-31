@@ -577,9 +577,9 @@ function modificaArbol(){
     console.log(ls_grupo);
     var ls_tipo_comisionista = $("#comisionistaModArbVen").val();
 
-    var ls_tipo = $("#tipoPeriodoArbVen").val();
+    var ls_tipo = $("#tipoPerConfTraArbVen").val();
     var ls_periodo = $("#periodoConfTraArbVen").val();
-    var li_anno = $("#numAnioArbVen").val();
+    var li_anno = $("#anioConfTraArbVen").val();
 
     var ls_flg_supervisor = 'NO';
     var ls_flg_jefe = 'NO';
