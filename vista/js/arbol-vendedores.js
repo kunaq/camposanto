@@ -113,7 +113,7 @@ $("#listaTrabArbVen").on("click","a.btnVerTrabArbVen",function(){
     $("#flg_activo").val(flg_activo);
 	$("#listaHistConf .itemLista").remove();
     $("#NvoConfArbVen").prop('disabled',false);
-    buscanombre('dscTrabModConfArbVen',vendedor);
+    buscanombre('dscTrabModConfArbVen',codTrabajador);
 	$.ajax({
         url:"ajax/ArbolVendedores.ajax.php",
         method: "POST",
