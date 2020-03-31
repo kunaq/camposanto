@@ -318,6 +318,15 @@ function grabar(){
 function creaNvoAnio(){
     var li_anno = new Date().getFullYear();
     var li_anno_1 = parseFloat(li_anno) + 1;
+    var container = document.querySelector('#anioPerVen');
+    container.querySelectorAll('option').forEach(function (li_i) 
+    {  
+        console.log(li_i);
+        if(li_i == li_anno_1){
+            alert('asdfszf')
+        }
+    });
+
     swal({
         title: "",
         text: "¿Está seguro que desea crear el año "+li_anno_1+"?",
@@ -325,39 +334,41 @@ function creaNvoAnio(){
         showCancelButton:!0,
         confirmButtonText: "Aceptar",
         cancelButtonText:"Cancelar"
-    }).then(function(){
-        setTimeout(function () {
-         $.ajax({
-                url:"ajax/periodoVenta.ajax.php",
-                method: "POST",
-                dataType: 'json',
-                data: {'anno' : li_anno_1, 'accion':'creaNvoAnio'},
-                success: function(respuesta){                         
-                    if(respuesta == 1){
-                        swal({
-                            title: "",
-                            text: "Se grabó el registro satisfactoriamente.",
-                            type: "success",
-                            confirmButtonText: "Aceptar",
-                            onBeforeOpen: window.location.assign('periodo-venta')
-                        })
-                    }else if(respuesta == 'duplicado'){
-                        swal({
-                            title: "",
-                            text: "Solo se puede crear el siguiente al año en curso. El año "+li_anno_1+" ya existe.",
-                            type: "error",
-                            confirmButtonText: "Aceptar",
-                        })
-                    }else{
-                        swal({
-                            title: "",
-                            text: "Error en la actualización de la base de datos.",
-                            type: "error",
-                            confirmButtonText: "Aceptar",
-                        })
-                    }
-                }//success
-            });//ajax
-         },1000);//setTimeout
+    }).then(function(result){
+        if (result.value) {
+            setTimeout(function () {
+             $.ajax({
+                    url:"ajax/periodoVenta.ajax.php",
+                    method: "POST",
+                    dataType: 'json',
+                    data: {'anno' : li_anno_1, 'accion':'creaNvoAnio'},
+                    success: function(respuesta){                         
+                        if(respuesta == 1){
+                            swal({
+                                title: "",
+                                text: "Se grabó el registro satisfactoriamente.",
+                                type: "success",
+                                confirmButtonText: "Aceptar",
+                                onBeforeOpen: window.location.assign('periodo-venta')
+                            })
+                        }else if(respuesta == 'duplicado'){
+                            swal({
+                                title: "",
+                                text: "Solo se puede crear el siguiente al año en curso. El año "+li_anno_1+" ya existe.",
+                                type: "error",
+                                confirmButtonText: "Aceptar",
+                            })
+                        }else{
+                            swal({
+                                title: "",
+                                text: "Error en la actualización de la base de datos.",
+                                type: "error",
+                                confirmButtonText: "Aceptar",
+                            })
+                        }
+                    }//success
+                });//ajax
+             },1000);//setTimeout
+        }
     })//then 
 }
