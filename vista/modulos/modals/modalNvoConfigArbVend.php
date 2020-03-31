@@ -1,10 +1,9 @@
-<div class="modal fade" id="m_modal_nvoConfigArbVen" tabindex="-1" role="dialog" aria-labelledby="configuracionesModalLabel" aria-hidden="true">
+<div class="modal fade" id="m_modal_nvoConfigArbVen" tabindex="-1" role="dialog" aria-labelledby="ArbVenModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-lg" style="width: 50rem;" role="document">
 		<div class="modal-content">
 		<form id="configuracionesModal">
 			<div class="modal-header">
-				<h5 class="modal-title" id="configuracionesModalLabel">
-					Configuración árbol vendedor
+				<h5 class="modal-title" id="ArbVenModalLabel">
 				</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">

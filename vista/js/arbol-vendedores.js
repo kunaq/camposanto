@@ -461,7 +461,7 @@ function limpiaModal(){
 function nvoRegistro(){
     alert('llego');
     limpiaModal();
-    document.getElementById("configuracionesModalLabel").innerHTML = 'Nuevo registro';
+    document.getElementById("ArbVenModalLabel").innerHTML = 'Nuevo registro';
 }
 
 //----------------------------------------------------------------------------------------------//
@@ -529,7 +529,7 @@ function validaModifArbol(){
     $("#jefeVentaModArbVen").val(codSup).trigger('change');
     $("#entradaModal").val('modificacion');
     $('#m_modal_nvoConfigArbVen').modal('show');
-    document.getElementById("configuracionesModalLabel").innerHTML = 'Modificar registro';
+    document.getElementById("ArbVenModalLabel").innerHTML = 'Modificar registro';
     $("#periodoConfTraArbVen").val(ls_periodo).trigger('change');
     $("#entradaModArbVen").val('modificar');
 }
