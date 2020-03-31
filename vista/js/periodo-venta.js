@@ -1,19 +1,19 @@
 $("#fchIniPerVen").datepicker({
   format: 'dd-mm-yyyy',
   autoclose: true,
-  orientation: "botton right"
+  orientation: 'botton right'
 });//datepicker
 
 $("#fchFinPerVen").datepicker({
   format: 'dd-mm-yyyy',
   autoclose: true,
-  orientation: "botton left"
+  orientation: 'botton left'
 });//datepicker
 
 $("#fchProComPerVen").datetimepicker({
   autoclose:!0,
   format:"dd-mm-yyyy hh:ii",
-  orientation: "top left"
+  orientation: 'top'
 });//datepicker
 
 $(document).ready(function() {
