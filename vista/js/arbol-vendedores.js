@@ -459,6 +459,7 @@ function limpiaModal(){
 }
 
 function nvoRegistro(){
+    alert('llego');
     limpiaModal();
     $("#configuracionesModalLabel").innerHTML = 'Nuevo registro';
 }
