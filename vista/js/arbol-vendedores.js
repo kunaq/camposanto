@@ -632,7 +632,7 @@ function modificaArbol(){
 
     var arregloValida = $("#arregloValida").val();
     arregloValida = arregloValida.split(',');
-    arregloValida.forEach(arregloValida);
+    // arregloValida.forEach(arregloValida);
     arregloValida.forEach(function(word) {
       console.log(word);
       if (word === valor) {
