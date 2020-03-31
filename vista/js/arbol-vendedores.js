@@ -257,6 +257,7 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
         	var estatus = '';
         	var fecha_fin = '';
         	var fecha = '';
+             $("#tieneCttoEmi").val();
         	$.each(respuesta,function(index,value){
             	if(index == 0){
                     classCtto = 'liListaKqPstImpar';
