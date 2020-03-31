@@ -8,8 +8,11 @@ $("#cttoResArbVen").on('click', function(){
 	document.getElementById("tituloCttArbVen").innerHTML = 'Resolución';
 });
 
-$("#nombreTrabajador").on("keyup", function() {
+$(".mayuscula").keyup(function() {
+    this.value = this.value.toLocaleUpperCase();
+});
 
+$("#nombreTrabajador").on("keyup", function() {
   var patron = $(this).val();
   // si el campo está vacío
   if (patron == "") {
