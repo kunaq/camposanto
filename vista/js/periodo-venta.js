@@ -1,13 +1,13 @@
 $("#fchIniPerVen").datepicker({
   format: 'dd-mm-yyyy',
-  autoclose: true,
-  pickerPosition: 'bottom-right'
+  pickerPosition:"bottom-right",
+  autoclose: true
 });//datepicker
 
 $("#fchFinPerVen").datepicker({
   format: 'dd-mm-yyyy',
   autoclose: true,
-  pickerPosition: 'bottom-left'
+  pickerPosition:"bottom-right"
 });//datepicker
 
 $("#fchProComPerVen").datetimepicker({
