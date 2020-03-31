@@ -783,7 +783,7 @@ function modificaArbol(){
                             text: "Se grabó el registro satisfactoriamente.",
                             type: "success",
                             confirmButtonText: "Aceptar",
-                            onBeforeOpen: window.location.assign('arbol-vendedores')
+                            // onBeforeOpen: window.location.assign('arbol-vendedores')
                         })
                     }else if(respuesta == 'duplicado'){
                         swal({
