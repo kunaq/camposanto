@@ -160,6 +160,7 @@ $_SESSION['captcha'] = simple_php_captcha();
     	<script src="vista/js/lafuncion.js" type="text/javascript"></script>
     	<script src="vista/js/cronoModif.js" type="text/javascript"></script>
     	<script src="vista/js/core.js" type="text/javascript"></script>
+    	<script src="vista/js/pages.js" type="text/javascript"></script>
     	<?php
         if(isset($_GET["ruta"])){
             if($_GET["ruta"] == 'wizard' ||
