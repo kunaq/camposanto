@@ -121,6 +121,8 @@ class ModeloArbolVen{
 		$db = new Conexion();
 		$sql = $db->consulta("INSERT INTO $tabla (cod_trabajador, num_anno, cod_tipo_periodo, cod_periodo, cod_tipo_comisionista, cod_grupo, cod_supervisor, cod_jefeventas, flg_supervisor, flg_jefeventas) VALUES
            ('$codigo', '$annio', '$tipoPeriodo', '$periodo', '$comisionista', '$grupo', '$supervisor', '$jefe', '$flg_sup', '$flg_jefe')");
+		echo "INSERT INTO $tabla (cod_trabajador, num_anno, cod_tipo_periodo, cod_periodo, cod_tipo_comisionista, cod_grupo, cod_supervisor, cod_jefeventas, flg_supervisor, flg_jefeventas) VALUES
+           ('$codigo', '$annio', '$tipoPeriodo', '$periodo', '$comisionista', '$grupo', '$supervisor', '$jefe', '$flg_sup', '$flg_jefe')";
 		if($sql){
 			return 1;
 		}else{
