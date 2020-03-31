@@ -379,7 +379,7 @@ function creaNvoAnio(){
                                 text: "Se grabó el registro satisfactoriamente.",
                                 type: "success",
                                 confirmButtonText: "Aceptar",
-                                onBeforeOpen: window.location.assign('periodo-venta')
+                                // onBeforeOpen: window.location.assign('periodo-venta')
                             })
                         }else if(respuesta == 'duplicado'){
                             swal({
