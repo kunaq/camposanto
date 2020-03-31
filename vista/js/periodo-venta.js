@@ -235,7 +235,6 @@ function copiaAnio(){
 
 function fechaParaConsulta(dato){
     fecha = new Date(dato);
-    console.log(fecha);
     var aux_dia = fecha.getDate();
     var aux_mes1 = fecha.setMonth(fecha.getMonth() + 1);
     var aux_mes = fecha.getMonth();
@@ -253,7 +252,6 @@ function grabar(){
     var ldt_inicio = $("#fchIniPerVen").val();
     ldt_inicio = fechaParaConsulta(ldt_inicio);
     var ldt_fin = $("#fchFinPerVen").datepicker("getDate"); 
-    console.log(ldt_fin);
     ldt_fin = fechaParaConsulta(ldt_fin);
     var ls_flg_cierre_p = $("#edoPerVen").datepicker("getDate"); 
     ls_flg_cierre_p = fechaParaConsulta(ls_flg_cierre_p);
