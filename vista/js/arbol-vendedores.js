@@ -359,8 +359,8 @@ function creaTablaVendedor(tipo){
 }
 
 function buscaPeriodo(){
-    var annoPeriodo = document.getElementById("numAnioArbVen").value;
-    var tipoPeriodo = document.getElementById("tipoPeriodoArbVen").value;
+    var annoPeriodo = document.getElementById("anioConfTraArbVen").value;
+    var tipoPeriodo = document.getElementById("tipoPerConfTraArbVen").value;
     $.ajax({
         type:'GET',
         url: 'extensiones/captcha/buscaPeriodo.php',
