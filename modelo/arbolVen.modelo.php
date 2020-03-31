@@ -133,7 +133,6 @@ class ModeloArbolVen{
 			if($sql){
 				return 1;
 			}else{
-				$db->rollback();
 				return "error";
 			}
 		}
