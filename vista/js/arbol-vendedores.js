@@ -492,7 +492,7 @@ function limpiaModal(){
 
 function nvoRegistro(){
     limpiaModal();
-
+    buscaPeriodo();
     document.getElementById("ArbVenModalLabel").innerHTML = 'Nuevo registro';
 }
 
