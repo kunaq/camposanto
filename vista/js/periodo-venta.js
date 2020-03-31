@@ -249,7 +249,7 @@ function fechaParaConsulta(dato){
 
 function grabar(){
 
-    var ldt_inicio = $("#fchIniPerVen").val();
+    var ldt_inicio = $("#fchIniPerVen").datepicker("getDate");
     ldt_inicio = fechaParaConsulta(ldt_inicio);
     var ldt_fin = $("#fchFinPerVen").datepicker("getDate"); 
     ldt_fin = fechaParaConsulta(ldt_fin);
