@@ -623,10 +623,7 @@ function modificaArbol(){
     arregloValida = arregloValida.split(',');
     // arregloValida.forEach(arregloValida);
     arregloValida.forEach(function(word) {
-      console.log('word',word);
-      console.log('valor',valor);
       if (word == valor) {
-
         validaPeriodo = 1;
       }
     });
