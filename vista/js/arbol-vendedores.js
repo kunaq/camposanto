@@ -126,6 +126,7 @@ $("#listaTrabArbVen").on("click","a.btnVerTrabArbVen",function(){
  });
 
 function llenaHistorial(codTrabajador,anio){
+    $("#listaHistConf .itemLista").remove();
     $.ajax({
         url:"ajax/ArbolVendedores.ajax.php",
         method: "POST",
@@ -157,6 +158,7 @@ function llenaHistorial(codTrabajador,anio){
                      );//append
                 });//each
             }else{
+
                 swal({
                     title: "Error",
                     text: "El trabajador no posee registros.",
