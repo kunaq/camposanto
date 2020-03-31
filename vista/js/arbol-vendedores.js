@@ -532,6 +532,17 @@ function nvoRegistro(){
 //-------------------------------------------MODIFICAR------------------------------------------//
 //----------------------------------------------------------------------------------------------//
 
+function revisa(item, index, arr) {
+    var ls_tipo = $("#tipoPerConfTraArbVen").val();
+    var ls_periodo = $("#periodoConfTraArbVen").val();
+    var li_anno = $("#anioConfTraArbVen").val();
+    var valor = li_anno+'-'+ls_tipo+'-'+ls_periodo; 
+    // arr[index] = item * 10;
+    if(item == valor){
+        alert('igual');
+    }
+}
+
 function validaModifArbol(){
 
     var ls_activo = $("#flg_activo").val();
@@ -621,11 +632,7 @@ function modificaArbol(){
 
     var arregloValida = $("#arregloValida").val();
 
-    arregloValida.forEach(function(){
-        if(arregloValida == valor){
-            alert('igual');
-        }
-    });
+    arregloValida.forEach(revisa)
 
     // -- Valida -- //
 
