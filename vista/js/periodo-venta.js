@@ -253,6 +253,7 @@ function grabar(){
     var ldt_inicio = $("#fchIniPerVen").val();
     ldt_inicio = fechaParaConsulta(ldt_inicio);
     var ldt_fin = $("#fchFinPerVen").val();
+    console.log(ldt_fin);
     ldt_fin = fechaParaConsulta(ldt_fin);
     var ls_flg_cierre_p = $("#edoPerVen").val();
     ls_flg_cierre_p = fechaParaConsulta(ls_flg_cierre_p);
