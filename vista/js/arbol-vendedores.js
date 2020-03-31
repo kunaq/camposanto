@@ -616,7 +616,7 @@ function modificaArbol(){
     var is_opcion = $("#entradaModArbVen").val();
     // var is_opcion = 'MOD';
 
-    var valor = li_anno+'-'+ls_tipo+'-'ls_periodo;
+    var valor = li_anno+'-'+ls_tipo+'-'+ls_periodo;
     var is_codigo = $("#cod_trabajadorHidd").val();
 
     var arregloValida = $("#arregloValida").val();
