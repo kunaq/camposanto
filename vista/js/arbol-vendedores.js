@@ -121,6 +121,7 @@ $("#listaTrabArbVen").on("click","a.btnVerTrabArbVen",function(){
 
  $("#anioBuscaTraArbVen").on("change", function(){
     var anio = $(this).val();
+    $("#anioConfTraArbVen").val(anio).trigger();
     var codTrabajador = $("#cod_trabajadorHidd").val();
     llenaHistorial(codTrabajador,anio);
  });
