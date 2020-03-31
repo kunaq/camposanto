@@ -113,6 +113,7 @@ $("#listaTrabArbVen").on("click","a.btnVerTrabArbVen",function(){
     $("#flg_activo").val(flg_activo);
 	$("#listaHistConf .itemLista").remove();
     $("#NvoConfArbVen").prop('disabled',false);
+    buscanombre('dscTrabModConfArbVen',vendedor);
 	$.ajax({
         url:"ajax/ArbolVendedores.ajax.php",
         method: "POST",
@@ -171,7 +172,6 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
     $("#flg_modificacion_grupo").val(flg_modificacion_grupo);
     $("#BtnModConfArbVen").prop('disabled',false);
     $("#BtnEliConfArbVen").prop('disabled',false);
-    buscanombre('dscTrabModConfArbVen',vendedor);
     buscaPeriodo();
 	$.ajax({
         url:"ajax/ArbolVendedores.ajax.php",
@@ -439,9 +439,9 @@ function aceptarMod(){
 
 function limpiaModal(){
     buscaPeriodo();
-    $("#tipoPeriodoArbVen").val('');
-    $("#periodoArbVen").val('');
-    $("#numAnioArbVen").val('');
+    $("#tipoPeriodoArbVen").val('Q01');
+    $("#periodoArbVen").val('15D');
+    $("#numAnioArbVen").val('2020');
     $("#flgEstado").val('');
     $("#flg_modificacion_grupo").val('');
     $("#flgJefeModArbVen").val('');
@@ -460,6 +460,7 @@ function limpiaModal(){
 
 function nvoRegistro(){
     limpiaModal();
+
     document.getElementById("ArbVenModalLabel").innerHTML = 'Nuevo registro';
 }
 
