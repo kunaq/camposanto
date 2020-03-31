@@ -585,7 +585,7 @@ function modificaArbol(){
     var is_opcion = $("#entradaModArbVen").val();
     // var is_opcion = 'MOD';
 
-    var is_codigo = $("#cod_trabajador").val();
+    var is_codigo = $("#cod_trabajadorHidd").val();
 
     // -- Valida -- //
 
