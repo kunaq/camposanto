@@ -101,17 +101,16 @@ creaTablaTrabajadoresArbVend();
 			});
 		} 	    
 	});
-$("#anioBuscaTraArbVen").on("change",function(){
+$("#listaTrabArbVen").on("click","a.btnVerTrabArbVen",function(){
 	$(".ulListaVerTrabArbVen li").removeClass('liListaKqPstActive');
-	$("#listaTrabArbVen").parent('li').addClass('liListaKqPstActive');
-	var codTrabajador = $("#listaTrabArbVen").attr("codTrabajador");
-	var anio=$(this).val();
+	$(this).parent('li').addClass('liListaKqPstActive');
+	var codTrabajador = $(this).attr("codTrabajador");
 	$("#listaHistConf .itemLista").remove();
 	$.ajax({
         url:"ajax/ArbolVendedores.ajax.php",
         method: "POST",
         dataType: 'json',
-        data: {'codTrabajador':codTrabajador,'anio':anio,'accion':'verDetTrabajador'},
+        data: {'codTrabajador':codTrabajador,'accion':'verDetTrabajador'},
         success: function(respuesta){
             //console.log('respuesta',respuesta);
             $.each(respuesta,function(index,value){
@@ -290,28 +289,28 @@ $( "select" ).change(function ()
 		} 	    
 	});
 ///////////////////////////////////////
-	// $( "#anioBuscaTraArbVen" ).change(function () 
-	// {
-	// 	anio=$(this).val();
-	// 	if($("#anioBuscaTraArbVen").val()=='todos'){
-	// 		$(".ulListaHistConf li").each(function() {
+	$( "#anioBuscaTraArbVen" ).change(function () 
+	{
+		anio=$(this).val();
+		if($("#anioBuscaTraArbVen").val()=='todos'){
+			$(".ulListaHistConf li").each(function() {
 				
-	// 			$(".filanno").attr("hidden", false);
+				$(".filanno").attr("hidden", false);
 								
-	// 		});
-	// 	}
-	// 	else
-	// 	{
-	// 		$(".ulListaHistConf li").each(function() {
+			});
+		}
+		else
+		{
+			$(".ulListaHistConf li").each(function() {
 				
-	// 			if($(this).attr("anio") == anio){
+				if($(this).attr("anio") == anio){
 
-	// 				$(this).attr("hidden", false);
+					$(this).attr("hidden", false);
 
-	// 			}else{
+				}else{
 					
-	// 				$(this).attr("hidden", true);
-	// 			}	
-	// 		}); 
-	// 	}    
-	// });
+					$(this).attr("hidden", true);
+				}	
+			}); 
+		}    
+	});
