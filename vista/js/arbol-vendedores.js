@@ -113,39 +113,61 @@ $("#listaTrabArbVen").on("click","a.btnVerTrabArbVen",function(){
     $("#flg_activo").val(flg_activo);
 	$("#listaHistConf .itemLista").remove();
     $("#NvoConfArbVen").prop('disabled',false);
+    $("#cod_trabajadorHidd").val(codTrabajador);
     buscanombre('dscTrabModConfArbVen',codTrabajador);
-	$.ajax({
+    var anio = $("#anioBuscaTraArbVen").val();
+    llenaHistorial(codTrabajador,anio);
+});
+
+ $("#anioBuscaTraArbVen").on("change", function(){
+    var anio = $(this).val();
+    var codTrabajador = $("#cod_trabajadorHidd").val();
+    llenaHistorial(codTrabajador,anio);
+ });
+
+function llenaHistorial(codTrabajador,anio){
+    $.ajax({
         url:"ajax/ArbolVendedores.ajax.php",
         method: "POST",
         dataType: 'json',
-        data: {'codTrabajador':codTrabajador,'accion':'verDetTrabajador'},
+        data: {'codTrabajador':codTrabajador,'anio' : anio,'accion':'verDetTrabajador'},
         success: function(respuesta){
             //console.log('respuesta',respuesta);
-            $.each(respuesta,function(index,value){
-            	if(index == 0){
-                    classPeriodo = 'liListaKqPstImpar';
-                }else if(index%2 == 0){
-                    classPeriodo = 'liListaKqPstImpar';
-                }else{
-                    classPeriodo = 'liListaKqPstPar';
-                }
-            	$("#listaHistConf").append(
-                    '<li class="nav-item '+classPeriodo+' itemLista">'+
-                        '<a href="#" class="btnVerHistConf" codTrabajador="'+codTrabajador+'" numAnio="'+value['num_anno']+'" tipoperiodo="'+value['cod_tipo_periodo']+'" periodo="'+value['cod_periodo']+'" jefeventas="'+value['cod_jefeventas']+'" codgrupo="'+value['cod_grupo']+'" dscgrupo="'+value['dsc_grupo']+'" codcomisionista="'+value['cod_tipo_comisionista']+'" dsccomisionista="'+value['dsc_tipo_comisionista']+'" codsup="'+value['cod_supervisor']+'" flg_estado="'+value['flg_estado']+'" flg_modificacion_grupo="'+value['flg_modificacion_grupo']+'">'+
-                        	'<div class="row">'+
-								'<div class="col-md-2">'+(index+1)+'</div>'+
-								'<div class="col-md-2">'+value['num_anno']+'</div>'+
-								'<div class="col-md-2">'+value['cod_tipo_periodo']+'</div>'+
-								'<div class="col-md-2">'+value['cod_periodo']+'</div>'+
-								'<div class="col-md-4">'+value['dsc_tipo_comisionista']+'</div>'+
-							'</div>'+
-                        '</a>'+
-                    '</li>'
-                 );//append
-            });//each
+            if(respuesta != '' || respuesta != null){
+                $.each(respuesta,function(index,value){
+                    if(index == 0){
+                        classPeriodo = 'liListaKqPstImpar';
+                    }else if(index%2 == 0){
+                        classPeriodo = 'liListaKqPstImpar';
+                    }else{
+                        classPeriodo = 'liListaKqPstPar';
+                    }
+                    $("#listaHistConf").append(
+                        '<li class="nav-item '+classPeriodo+' itemLista">'+
+                            '<a href="#" class="btnVerHistConf" codTrabajador="'+codTrabajador+'" numAnio="'+value['num_anno']+'" tipoperiodo="'+value['cod_tipo_periodo']+'" periodo="'+value['cod_periodo']+'" jefeventas="'+value['cod_jefeventas']+'" codgrupo="'+value['cod_grupo']+'" dscgrupo="'+value['dsc_grupo']+'" codcomisionista="'+value['cod_tipo_comisionista']+'" dsccomisionista="'+value['dsc_tipo_comisionista']+'" codsup="'+value['cod_supervisor']+'" flg_estado="'+value['flg_estado']+'" flg_modificacion_grupo="'+value['flg_modificacion_grupo']+'">'+
+                                '<div class="row">'+
+                                    '<div class="col-md-2">'+(index+1)+'</div>'+
+                                    '<div class="col-md-2">'+value['num_anno']+'</div>'+
+                                    '<div class="col-md-2">'+value['cod_tipo_periodo']+'</div>'+
+                                    '<div class="col-md-2">'+value['cod_periodo']+'</div>'+
+                                    '<div class="col-md-4">'+value['dsc_tipo_comisionista']+'</div>'+
+                                '</div>'+
+                            '</a>'+
+                        '</li>'
+                     );//append
+                });//each
+            }else{
+                swal({
+                    title: "Error",
+                    text: "El trabajador no posee registros.",
+                    type: "error",
+                    confirmButtonText: "Aceptar",
+                  });
+                return;
+            }
         }//success
     });//ajax
-});
+}
 
 $("#listaHistConf").on("click","a.btnVerHistConf",function(){
 	$(".ulListaHistConf li").removeClass('liListaKqPstActive');
@@ -725,7 +747,7 @@ function modificaArbol(){
                     }else{
                         swal({
                             title: "",
-                            text: "Eror en la actualización de la base de datos.",
+                            text: "Error en la actualización de la base de datos.",
                             type: "error",
                             confirmButtonText: "Aceptar",
                         })
@@ -847,7 +869,7 @@ function eliminaArbol(){
                     }else{
                         swal({
                             title: "",
-                            text: "Eror en la actualización de la base de datos.",
+                            text: "Error en la actualización de la base de datos.",
                             type: "error",
                             confirmButtonText: "Aceptar",
                         })
