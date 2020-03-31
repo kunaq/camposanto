@@ -131,6 +131,8 @@
 														<input type="hidden" id="flg_modificacion_grupo" name="flg_modificacion_grupo">
 														<input type="hidden" id="cod_trabajador" name="cod_trabajador">
 														<input type="hidden" id="flg_activo" name="flg_activo">
+														<input type="hidden" id="tieneCttoAct" name="tieneCttoAct">
+														<input type="hidden" id="tieneCttoEmi" name="tieneCttoEmi">
 														<div class="col-lg-2">
 															<label>Año:</label>
 														</div>

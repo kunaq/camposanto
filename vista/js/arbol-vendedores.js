@@ -263,8 +263,10 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
                 }
                 if (estatus == 'Activado') {
                     flg_activo="activo";
+                    $("#tieneCttoAct").val('SI');
                 }else if (estatus == 'Emitido') {
                     flg_activo="emitido";
+                    $("#tieneCttoEmi").val('SI');
                 }else if (estatus == 'Resuelto') {
                     flg_activo="resuelto";
                 }
@@ -835,10 +837,10 @@ function eliminaArbol(){
         return;        
     }
 
-    var li_emi = "";
-    var li_act ="";
+    var li_emi = $("#tieneCttoEmi").val();
+    var li_act = $("#tieneCttoAct").val();
 
-    if (li_emi>0) {
+    if (li_emi ==  'SI') {
         swal({
             title: "",
             text: "No puede eliminar el registro, el consejero tiene contratos emitidos en el período ["+li_anno+"-"+ls_tipo+"-"+ls_periodo+"].",
@@ -848,7 +850,7 @@ function eliminaArbol(){
         return; 
     }
 
-    if (li_act>0) {
+    if (li_act == 'SI') {
         swal({
             title: "",
             text: "No puede eliminar el registro, el consejero tiene contratos activados en el período ["+li_anno+"-"+ls_tipo+"-"+ls_periodo+"].",
