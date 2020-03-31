@@ -321,9 +321,14 @@ function creaNvoAnio(){
     var container = document.querySelector('#anioPerVen');
     container.querySelectorAll('option').forEach(function (li_i) 
     {  
-        console.log($(li_i).val());
         if($(li_i).val() == li_anno_1){
-            alert('asdfszf')
+            swal({
+                title: "",
+                text: "Solo se puede crear el siguiente al año en curso. El año "+li_anno_1+" ya existe.",
+                type: "error",
+                confirmButtonText: "Aceptar",
+            })
+            return;
         }
     });
 
