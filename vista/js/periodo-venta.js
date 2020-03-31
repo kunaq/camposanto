@@ -318,19 +318,24 @@ function grabar(){
 function creaNvoAnio(){
     var li_anno = new Date().getFullYear();
     var li_anno_1 = parseFloat(li_anno) + 1;
+    var valida = 0;
     var container = document.querySelector('#anioPerVen');
     container.querySelectorAll('option').forEach(function (li_i) 
     {  
         if($(li_i).val() == li_anno_1){
-            swal({
-                title: "",
-                text: "Solo se puede crear el siguiente al año en curso. El año "+li_anno_1+" ya existe.",
-                type: "error",
-                confirmButtonText: "Aceptar",
-            })
-            return;
+            valida = 1;
         }
     });
+
+    if(valida == 1){
+        swal({
+            title: "",
+            text: "Solo se puede crear el siguiente al año en curso. El año "+li_anno_1+" ya existe.",
+            type: "error",
+            confirmButtonText: "Aceptar",
+        })
+        return;
+    }
 
     swal({
         title: "",
