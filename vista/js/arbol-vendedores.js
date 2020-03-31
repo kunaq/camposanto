@@ -556,7 +556,8 @@ function validaModifArbol(){
     codComi = $("#codComiArbVen").val();
     codJefe = $("#codSupVenArbVen").val();
     codSup = $("#codJefeVenArbVen").val();
-    $("#grupoModTraArbVen").val(codGrupo).trigger('change');
+    $("#grupoModTraArbVen").val(codGrupo);
+    $("#grupoModTraArbVen").trigger('change');
     $("#comisionistaModArbVen").val(codComi).trigger('change');
     $("#SupervisorModArbVen").val(codJefe).trigger('change');
     $("#jefeVentaModArbVen").val(codSup).trigger('change');
