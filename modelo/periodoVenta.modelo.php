@@ -59,7 +59,7 @@ class ModeloPeriodoVenta{
 
 	static public function mdlCopiaAnnio($tabla,$tipoPeriodo,$anio){
 		$db = new Conexion();
-		$sql = $db->consulta("INSERT INTO vtama_periodo (num_anno, cod_tipo_periodo, cod_periodo, fch_inicio, fch_fin, flg_estado, cod_usuario, fch_cierre, flg_cierre_manual, num_anno_ant, cod_tipo_periodo_ant, cod_periodo_ant, dsc_periodo, num_mes, flg_modificacion_grupo, flg_parametros_comision, flg_cierre_proceso, fch_modificacion_grupo, fch_parametros_comision, fch_cierre_proceso)
+		$sql = $db->consulta("INSERT INTO vtama_periodo (num_anno, cod_tipo_periodo, cod_periodo, fch_inicio, fch_fin, flg_estado, cod_usuario,fch_cierre, flg_cierre_manual, num_anno_ant, cod_tipo_periodo_ant, cod_periodo_ant, dsc_periodo, num_mes, flg_modificacion_grupo, flg_parametros_comision, flg_cierre_proceso, fch_modificacion_grupo, fch_parametros_comision, fch_cierre_proceso)
                 SELECT  vtama_periodo.num_anno + 1,
                         vtama_periodo.cod_tipo_periodo,
                         vtama_periodo.cod_periodo,
@@ -80,7 +80,7 @@ class ModeloPeriodoVenta{
                             'NO', 'NO', 'NO', NULL, NULL, NULL
                 FROM  vtama_periodo
                 WHERE vtama_periodo.num_anno = '$anio'
-                AND  vtama_periodo.cod_tipo_periodo = '$tipoPeriodo'");
+                AND  vtama_periodo.cod_tipo_periodo =  CONVERT(DATE, '$tipoPeriodo')");
 		$sql2 = $db->consulta("UPDATE vtama_periodo SET vtama_periodo.num_anno_ant =                     
                             ( SELECT x.num_anno FROM vtama_periodo x WHERE x.fch_fin = DATEADD(DD, -1, vtama_periodo.fch_inicio)), vtama_periodo.cod_tipo_periodo_ant =
                             ( SELECT x.cod_tipo_periodo FROM vtama_periodo x WHERE x.fch_fin = DATEADD(DD, -1, vtama_periodo.fch_inicio)), vtama_periodo.cod_periodo_ant =
