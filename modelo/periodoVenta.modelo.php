@@ -85,7 +85,30 @@ class ModeloPeriodoVenta{
                             ( SELECT x.num_anno FROM vtama_periodo x WHERE x.fch_fin = DATEADD(DD, -1, vtama_periodo.fch_inicio)), vtama_periodo.cod_tipo_periodo_ant =
                             ( SELECT x.cod_tipo_periodo FROM vtama_periodo x WHERE x.fch_fin = DATEADD(DD, -1, vtama_periodo.fch_inicio)), vtama_periodo.cod_periodo_ant =
                             ( SELECT x.cod_periodo FROM vtama_periodo x WHERE x.fch_fin = DATEADD(DD, -1, vtama_periodo.fch_inicio)) 
-                        WHERE vtama_periodo.num_anno = '$anio' + 1;");
+                        WHERE vtama_periodo.num_anno = '$anio' + 1");
+		echo "INSERT INTO vtama_periodo (num_anno, cod_tipo_periodo, cod_periodo, fch_inicio, fch_fin, flg_estado, cod_usuario,fch_cierre, flg_cierre_manual, num_anno_ant, cod_tipo_periodo_ant, cod_periodo_ant, dsc_periodo, num_mes, flg_modificacion_grupo, flg_parametros_comision, flg_cierre_proceso, fch_modificacion_grupo, fch_parametros_comision, fch_cierre_proceso)
+                SELECT  vtama_periodo.num_anno + 1,
+                        vtama_periodo.cod_tipo_periodo,
+                        vtama_periodo.cod_periodo,
+                        DATEADD(YY, 1, vtama_periodo.fch_inicio),
+                        ( CASE WHEN
+                            (( DATEPART(MM, vtama_periodo.fch_fin) * 100 ) +
+                            DATEPART(DD, vtama_periodo.fch_fin)) IN (228, 229) THEN
+                            DATEADD(DD, -1, CONVERT(DATETIME, CONVERT(VARCHAR(4), $anio + 1) + '/03/01', 101))                                                                    
+                            ELSE                                  
+                                DATEADD(YY, 1, vtama_periodo.fch_fin)                
+                            END ),
+                            'AB', NULL, NULL,
+                            'NO', vtama_periodo.num_anno_ant + 1,
+                            vtama_periodo.cod_tipo_periodo_ant,
+                            vtama_periodo.cod_periodo_ant,
+                            vtama_periodo.dsc_periodo,
+                            vtama_periodo.num_mes,
+                            'NO', 'NO', 'NO', NULL, NULL, NULL
+                FROM  vtama_periodo
+                WHERE vtama_periodo.num_anno = '$anio'
+                AND  vtama_periodo.cod_tipo_periodo =  CONVERT(DATE, '$tipoPeriodo')");
+		
 		if($sql && $sql2){
 			return 1;
 		}else{
