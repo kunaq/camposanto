@@ -23,7 +23,7 @@
 							<label>Año</label>
 						</div>
 						<div class="col-lg-2">
-							<select class="form-control form-control-sm m-input  m-select2 m-select2-general" id="anioConfTraArbVen" class="anioConfTraArbVen" style="width: 100%">
+							<select class="form-control form-control-sm m-input  m-select2 m-select2-general" id="anioConfTraArbVen" class="anioConfTraArbVen" onchange="buscaPeriodo();" style="width: 100%">
 								<option  disabled value="todos">Seleccione</option>
 								<?php
 								$prueba = controladorEmpresa::ctrAnnoPeriodo();
@@ -34,7 +34,7 @@
 							<label>Tipo Periodo</label>
 						</div>
 						<div class="col-lg-3">
-							<select class="form-control form-control-sm m-input m-select2 m-select2-general" style="width: 100%" name="tipoPerConfTraArbVen" id="tipoPerConfTraArbVen">
+							<select class="form-control form-control-sm m-input m-select2 m-select2-general" style="width: 100%" name="tipoPerConfTraArbVen" onchange="buscaPeriodo();" id="tipoPerConfTraArbVen">
 								<option  disabled value="todos">Seleccione</option>
 								<option value="15D">15D</option>
 								<option value="30D">30D</option>
