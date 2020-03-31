@@ -571,7 +571,7 @@ function modificaArbol(){
 
     var ls_jefe = $("#jefeVentaModArbVen").val();
     var ls_supervisor = $("#SupervisorModArbVen").val();
-    var ls_grupo = $("#grupoModTraArbVen").val();
+    var ls_grupo = document.getElementById("grupoModTraArbVen").value;
     console.log(ls_grupo);
     var ls_tipo_comisionista = $("#comisionistaModArbVen").val();
 
