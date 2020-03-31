@@ -458,6 +458,11 @@ function limpiaModal(){
     $("#dscComisionistaArbVen").val();
 }
 
+function nvoRegistro(){
+    limpiaModal();
+    $("#configuracionesModalLabel").innerHTML = 'Nuevo registro';
+}
+
 //----------------------------------------------------------------------------------------------//
 //-------------------------------------------MODIFICAR------------------------------------------//
 //----------------------------------------------------------------------------------------------//
@@ -523,6 +528,7 @@ function validaModifArbol(){
     $("#jefeVentaModArbVen").val(codSup).trigger('change');
     $("#entradaModal").val('modificacion');
     $('#m_modal_nvoConfigArbVen').modal('show');
+    $("#configuracionesModalLabel").innerHTML = 'Modificar registro';
     $("#periodoConfTraArbVen").val(ls_periodo).trigger('change');
     $("#entradaModArbVen").val('modificar');
 }
