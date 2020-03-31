@@ -631,8 +631,9 @@ function modificaArbol(){
     var is_codigo = $("#cod_trabajadorHidd").val();
 
     var arregloValida = $("#arregloValida").val();
+    console.log(arregloValida);
 
-    arregloValida.forEach(revisa)
+    arregloValida.forEach(revisa);
 
     // -- Valida -- //
 
