@@ -623,20 +623,22 @@ function modificaArbol(){
     arregloValida = arregloValida.split(',');
     // arregloValida.forEach(arregloValida);
     var validaPeriodo = 0;
-    arregloValida.forEach(function(word) {
-      if (word == valor) {
-        validaPeriodo = 1;
-      }
-    });
+    if(is_opcion == 'nuevo'){
+        arregloValida.forEach(function(word) {
+          if (word == valor) {
+            validaPeriodo = 1;
+          }
+        });
 
-    if (validaPeriodo == 1){
-         swal({
-            title: "Error",
-            text: "El trabajador ya se encuentra configurado para el periodo seleccionado.",
-            type: "error",
-            confirmButtonText: "Aceptar",
-          });
-        return;
+        if (validaPeriodo == 1){
+             swal({
+                title: "Error",
+                text: "El trabajador ya se encuentra configurado para el periodo seleccionado.",
+                type: "error",
+                confirmButtonText: "Aceptar",
+              });
+            return;
+        }
     }
 
     // -- Valida -- //
