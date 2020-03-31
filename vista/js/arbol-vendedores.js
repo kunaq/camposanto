@@ -161,7 +161,7 @@ function llenaHistorial(codTrabajador,anio){
         success: function(respuesta){
             //console.log('respuesta',respuesta);
             if(respuesta != '' || respuesta != null){
-                var arregloValida = new array ();
+                var arregloValida = [];
                 $.each(respuesta,function(index,value){
                     if(index == 0){
                         classPeriodo = 'liListaKqPstImpar';
