@@ -161,6 +161,7 @@ function llenaHistorial(codTrabajador,anio){
         success: function(respuesta){
             //console.log('respuesta',respuesta);
             if(respuesta != '' || respuesta != null){
+                var arregloValida = new array ();
                 $.each(respuesta,function(index,value){
                     if(index == 0){
                         classPeriodo = 'liListaKqPstImpar';
@@ -182,6 +183,8 @@ function llenaHistorial(codTrabajador,anio){
                             '</a>'+
                         '</li>'
                      );//append
+                    arregloValida.push(value['num_anno']+'-'+value['cod_tipo_periodo']+value['cod_periodo']+);
+                    $("#arregloValida").val(arregloValida);
                 });//each
             }else{
 
@@ -613,7 +616,16 @@ function modificaArbol(){
     var is_opcion = $("#entradaModArbVen").val();
     // var is_opcion = 'MOD';
 
+    var valor = li_anno+'-'+ls_tipo+'-'ls_periodo;
     var is_codigo = $("#cod_trabajadorHidd").val();
+
+    var arregloValida = $("#arregloValida").val();
+
+    arregloValida.each(function(){
+        if(arregloValida == valor){
+            alert('igual');
+        }
+    });
 
     // -- Valida -- //
 

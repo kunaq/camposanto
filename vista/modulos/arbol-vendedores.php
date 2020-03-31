@@ -133,6 +133,7 @@
 														<input type="hidden" id="flg_activo" name="flg_activo">
 														<input type="hidden" id="tieneCttoAct" name="tieneCttoAct">
 														<input type="hidden" id="tieneCttoEmi" name="tieneCttoEmi">
+														<input type="hidden" id="arregloValida" name="arregloValida">
 														<div class="col-lg-2">
 															<label>Año:</label>
 														</div>
