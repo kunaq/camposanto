@@ -626,7 +626,7 @@ function modificaArbol(){
       console.log('word',word);
       console.log('valor',valor);
       if (word == valor) {
-        console.log('igual',word == valor);
+
         validaPeriodo = 1;
       }
     });
