@@ -467,7 +467,7 @@ function anadeFueTra(cod,boton){
             dataType: 'json',
             data: {'codTrabajador':cod, 'anno' : anno, 'tipo_periodo' : tipoPer, 'periodo' : periodo, 'accion':'listaFueVen'},
             success: function(respuesta){
-                console.log(re);
+                // console.log(res);
                 if(respuesta == '' || respuesta == null){
                     swal({
                         title: "Error",
