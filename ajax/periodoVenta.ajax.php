@@ -10,8 +10,8 @@ class AjaxPeriodoVenta{
 	}//function ajaxListaPeriodo
 	public function ajaxVerDetPeriodo(){
 		$respuesta = ControladorPeriodoVenta::ctrVerDetPeriodo();
-		$respuesta[$key]["fch_inicio"] = ($respuesta[$key]["fch_inicio"] !='') ? dateFormat($respuesta[$key]["fch_inicio"]) : '';
-		$respuesta[$key]["fch_fin"] = ($respuesta[$key]["fch_fin"] != '') ? dateFormat($respuesta[$key]["fch_fin"]) : '';
+		$respuesta["fch_inicio"] = ($respuesta["fch_inicio"] !='') ? dateFormat($respuesta["fch_inicio"]) : '';
+		$respuesta["fch_fin"] = ($respuesta["fch_fin"] != '') ? dateFormat($respuesta["fch_fin"]) : '';
 		echo json_encode($respuesta);
 	}//function ajaxVerDetPeriodo
 	public function ajaxExstConf(){
