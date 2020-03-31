@@ -252,10 +252,10 @@ function grabar(){
 
     var ldt_inicio = $("#fchIniPerVen").val();
     ldt_inicio = fechaParaConsulta(ldt_inicio);
-    var ldt_fin = $("#fchFinPerVen").val();
+    var ldt_fin = $("#fchFinPerVen").datepicker("getDate"); 
     console.log(ldt_fin);
     ldt_fin = fechaParaConsulta(ldt_fin);
-    var ls_flg_cierre_p = $("#edoPerVen").val();
+    var ls_flg_cierre_p = $("#edoPerVen").datepicker("getDate"); 
     ls_flg_cierre_p = fechaParaConsulta(ls_flg_cierre_p);
     var ls_periodo =$("#codPeriodo").val();
     var num_mes = $("#numMes").val();
