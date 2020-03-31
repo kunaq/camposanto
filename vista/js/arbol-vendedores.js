@@ -539,13 +539,7 @@ function revisa(item, index, arr) {
     var valor = li_anno+'-'+ls_tipo+'-'+ls_periodo; 
     // arr[index] = item * 10;
     if(item == valor){
-        swal({
-            title: "Error",
-            text: "El trabajador ya se encuentra configurado para el periodo seleccionado.",
-            type: "error",
-            confirmButtonText: "Aceptar",
-          });
-        // return;
+        return 1;
     }
 }
 
@@ -638,7 +632,17 @@ function modificaArbol(){
 
     var arregloValida = $("#arregloValida").val();
     arregloValida = arregloValida.split(',');
-    arregloValida.forEach(revisa);
+    var validaPeriodo = arregloValida.forEach(revisa);
+
+    if (validaPeriodo == 1){
+         swal({
+            title: "Error",
+            text: "El trabajador ya se encuentra configurado para el periodo seleccionado.",
+            type: "error",
+            confirmButtonText: "Aceptar",
+          });
+        return;
+    }
 
     // -- Valida -- //
 
