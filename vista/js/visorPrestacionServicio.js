@@ -11,3 +11,7 @@ function mostrarSidebar(numContrato,codServicio){
     hideSidebar();
     $("#m_quick_sidebar-contrato").addClass("m-quick-sidebar-contrato--on");
 }
+
+function hideSidebar(){
+    $("#m_quick_sidebar-contrato").removeClass("m-quick-sidebar-contrato--on");
+}
