@@ -69,18 +69,22 @@
 									</li>
 									<li class="itemLista nav-item liListaKqPstImpar">
 										<div class="row">
-											<div class="col-md-2"><b>13:00</b></div>
-											<div class="col-md-2"><b>ME</b></div>
-											<div class="col-md-2"><b>REG</b></div>
-											<div class="col-md-6"><b>QUINTANILLA ALVARADO VDA DE OLIVERA</b></div>
+											<a href="">
+												<div class="col-md-2"><b>13:00</b></div>
+												<div class="col-md-2"><b>ME</b></div>
+												<div class="col-md-2"><b>REG</b></div>
+												<div class="col-md-6"><b>QUINTANILLA ALVARADO VDA DE OLIVERA</b></div>
+											</a>
 										</div>
 									</li>
 									<li class="itemLista nav-item liListaKqPstPar">
 										<div class="row">
-											<div class="col-md-2"><b>13:00</b></div>
-											<div class="col-md-2"><b>ME</b></div>
-											<div class="col-md-2"><b>REG</b></div>
-											<div class="col-md-6"><b>QUINTANILLA ALVARADO VDA DE OLIVERA</b></div>
+											<a href="">
+												<div class="col-md-2"><b>13:00</b></div>
+												<div class="col-md-2"><b>ME</b></div>
+												<div class="col-md-2"><b>REG</b></div>
+												<div class="col-md-6"><b>QUINTANILLA ALVARADO VDA DE OLIVERA</b></div>
+											</a>
 										</div>
 									</li>
 								</ul>
