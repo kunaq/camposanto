@@ -12,8 +12,8 @@
 		<div class="m-portlet__body">
 			<div class="row">
 				<div class="col-lg-4">
-					<div class="row">
-						<fieldset class="fieldFormHorizontal">
+					<fieldset class="fieldFormHorizontal">
+						<div class="row">
 							<div class="col-lg-6">
 								<div class="col-lg-12 form-group">
 									<label>Fecha de Servicio</label>
@@ -41,8 +41,8 @@
 									</select>
 								</div>
 							</div>
-						</fieldset>
-					</div>
+						</div>
+					</fieldset>
 				</div>
 				<div class="col-lg-8">
 					<fieldset class="fieldFormHorizontal">
