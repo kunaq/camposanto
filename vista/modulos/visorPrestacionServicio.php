@@ -62,25 +62,25 @@
 									<li class="spanTextoActiveKq liListaKqPstTitulo">
 										<div class="row">
 											<div class="col-md-2"><b>Hora</b></div>
-											<div class="col-md-3"><b>Tipo Aut</b></div>
-											<div class="col-md-3"><b>Estado</b></div>
-											<div class="col-md-4"><b>Beneficiario (fallecido)</b></div>
+											<div class="col-md-2"><b>Tipo Aut</b></div>
+											<div class="col-md-2"><b>Estado</b></div>
+											<div class="col-md-6"><b>Beneficiario (fallecido)</b></div>
 										</div>
 									</li>
-									<li class="spanTextoActiveKq liListaKqPstTitulo">
+									<li class="spanTextoActiveKq liListaKqPstImpar">
 										<div class="row">
 											<div class="col-md-2"><b>13:00</b></div>
-											<div class="col-md-3"><b>ME</b></div>
-											<div class="col-md-3"><b>REG</b></div>
-											<div class="col-md-4"><b>QUINTANILLA ALVARADO VDA DE OLIVERA</b></div>
+											<div class="col-md-2"><b>ME</b></div>
+											<div class="col-md-2"><b>REG</b></div>
+											<div class="col-md-6"><b>QUINTANILLA ALVARADO VDA DE OLIVERA</b></div>
 										</div>
 									</li>
-									<li class="spanTextoActiveKq liListaKqPstTitulo">
+									<li class="spanTextoActiveKq liListaKqPstPar">
 										<div class="row">
 											<div class="col-md-2"><b>13:00</b></div>
-											<div class="col-md-3"><b>ME</b></div>
-											<div class="col-md-3"><b>REG</b></div>
-											<div class="col-md-4"><b>QUINTANILLA ALVARADO VDA DE OLIVERA</b></div>
+											<div class="col-md-2"><b>ME</b></div>
+											<div class="col-md-2"><b>REG</b></div>
+											<div class="col-md-6"><b>QUINTANILLA ALVARADO VDA DE OLIVERA</b></div>
 										</div>
 									</li>
 								</ul>
