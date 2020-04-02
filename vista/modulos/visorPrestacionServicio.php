@@ -11,14 +11,14 @@
 		</div>
 		<div class="m-portlet__body">
 			<div class="row">
-				<div class="col-lg-12">
+				<div class="col-lg-4">
 					<div class="row">
 						<div class="col-lg-3">
 							<fieldset class="fieldFormHorizontal">
 								<legend class="tittle-box">Fecha de Servicio</legend>
 								<div class="col-lg-12 form-group">
 									<div class="input-group date">
-										<input type="text" class="form-control form-control-sm m-input"  id="fechVPS" data-date-format="dd/mm/yyyy" value="<?php echo date('d/m/Y', strtotime(date('m/d/Y'))); ?>"/>
+										<input type="text" class="form-control form-control-sm m-input"  id="fechVPS" data-date-format="dd/mm/yyyy" value=""/>
 										<div class="input-group-append">
 											<span class="input-group-text">
 												<i class="la la-calendar-check-o"></i>
@@ -61,7 +61,7 @@
 						</div>
 					</fieldset> -->
 				</div>
-				<div class="col-lg-12">
+				<div class="col-lg-8">
 					<fieldset class="fieldFormHorizontal">
 						<legend>&nbsp;</legend>
 						<div class="col-lg-12" style="height: 600px;">
