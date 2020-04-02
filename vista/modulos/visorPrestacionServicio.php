@@ -13,10 +13,10 @@
 			<div class="row">
 				<div class="col-lg-4">
 					<div class="row">
-						<div class="col-lg-3">
-							<fieldset class="fieldFormHorizontal">
-								<legend class="tittle-box">Fecha de Servicio</legend>
+						<fieldset class="fieldFormHorizontal">
+							<div class="col-lg-6">
 								<div class="col-lg-12 form-group">
+									<label>Fecha de Servicio</label>
 									<div class="input-group date">
 										<input type="text" class="form-control form-control-sm m-input"  id="fechVPS" data-date-format="dd/mm/yyyy" value=""/>
 										<div class="input-group-append">
@@ -26,12 +26,10 @@
 										</div>
 									</div>
 								</div>
-							</fieldset>
-						</div>
-						<div class="col-lg-3">
-							<fieldset class="fieldFormHorizontal">
-								<legend class="tittle-box">Localidad</legend>
+							</div>
+							<div class="col-lg-6">
 								<div class="col-lg-12 form-group">
+									<label>Localidad</label>
 									<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="localidadVPS" id="localidadVPS" onchange="">
 										<?php
 											$tabla = "vtama_localidad";
@@ -45,21 +43,6 @@
 							</fieldset>
 						</div>
 					</div>
-					<!-- <fieldset class="fieldFormHorizontal">
-						<legend>&nbsp;</legend>
-						<div class="col-lg-12">
-							 <div class="table-responsive">
-								<table class="table table-responsive-m table-bordered" cellpadding="0" cellspacing="0" border="0">
-									<thead>
-										<th>Hora</th>
-										<th>Tipo de Autorización</th>
-										<th>Estado</th>
-										<th>Beneficiario (fallecido)</th>
-									</thead>
-								</table>
-							</div>
-						</div>
-					</fieldset> -->
 				</div>
 				<div class="col-lg-8">
 					<fieldset class="fieldFormHorizontal">
