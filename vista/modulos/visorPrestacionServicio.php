@@ -68,24 +68,24 @@
 										</div>
 									</li>
 									<li class="itemLista nav-item liListaKqPstImpar">
-										<div class="row">
-											<a href="" class="btnVerTrabArbVen">
+										<a href="" class="btnVerTrabArbVen">
+											<div class="row">
 												<div class="col-md-2"><b>13:00</b></div>
 												<div class="col-md-2"><b>ME</b></div>
 												<div class="col-md-2"><b>REG</b></div>
 												<div class="col-md-6"><b>QUINTANILLA ALVARADO VDA DE OLIVERA</b></div>
-											</a>
-										</div>
+											</div>
+										</a>
 									</li>
 									<li class="itemLista nav-item liListaKqPstPar">
-										<div class="row">
-											<a href="" class="btnVerTrabArbVen">
+										<a href="" class="btnVerTrabArbVen">
+											<div class="row">
 												<div class="col-md-2"><b>13:00</b></div>
 												<div class="col-md-2"><b>ME</b></div>
 												<div class="col-md-2"><b>REG</b></div>
 												<div class="col-md-6"><b>QUINTANILLA ALVARADO VDA DE OLIVERA</b></div>
-											</a>
-										</div>
+											</div>
+										</a>
 									</li>
 								</ul>
 							</div>
