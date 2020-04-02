@@ -35,14 +35,15 @@ $("#fechVPS").on("change", function(){
                 }else{
                     classPeriodo = 'liListaKqPstPar';
                 }
+                hora = respuesta['fch_servicio'].split(' ')[1];
                 $("#listaBenefVSP").append(
                     '<li class="nav-item '+classPeriodo+' itemLista ">'+
                         '<a href="#" class="btnVerTrabArbVen" onclick="mostrarSidebar();">'+
                         	'<div class="row">'+
-								'<div class="col-md-2">'+value['hora']+'</div>'+
-								'<div class="col-md-2">'+value['tipo']+'</div>'+
-								'<div class="col-md-2">'+value['esdtado']+'</div>'+
-								'<div class="col-md-6">'+value['dsc_apellido_paterno']+' '+value['dsc_apellido_materno']+', '+value['dsc_nombres']+'</div>'+
+								'<div class="col-md-2">'+hora+'</div>'+
+								'<div class="col-md-2">'+value['dsc_prefijo']+'</div>'+
+								'<div class="col-md-2">'+value['dsc_autorizacion']+'</div>'+
+								'<div class="col-md-6">'+value['dsc_nombres']+'</div>'+
 							'</div>'+
                         '</a>'+
                     '</li>'
