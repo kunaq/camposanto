@@ -67,6 +67,22 @@
 											<div class="col-md-4"><b>Beneficiario (fallecido)</b></div>
 										</div>
 									</li>
+									<li class="spanTextoActiveKq liListaKqPstTitulo">
+										<div class="row">
+											<div class="col-md-2"><b>13:00</b></div>
+											<div class="col-md-3"><b>ME</b></div>
+											<div class="col-md-3"><b>REG</b></div>
+											<div class="col-md-4"><b>QUINTANILLA ALVARADO VDA DE OLIVERA</b></div>
+										</div>
+									</li>
+									<li class="spanTextoActiveKq liListaKqPstTitulo">
+										<div class="row">
+											<div class="col-md-2"><b>13:00</b></div>
+											<div class="col-md-3"><b>ME</b></div>
+											<div class="col-md-3"><b>REG</b></div>
+											<div class="col-md-4"><b>QUINTANILLA ALVARADO VDA DE OLIVERA</b></div>
+										</div>
+									</li>
 								</ul>
 							</div>
 						</div>
