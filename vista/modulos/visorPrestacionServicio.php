@@ -40,8 +40,8 @@
 										?>
 									</select>
 								</div>
-							</fieldset>
-						</div>
+							</div>
+						</fieldset>
 					</div>
 				</div>
 				<div class="col-lg-8">
