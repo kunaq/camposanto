@@ -1,6 +1,6 @@
 <?php
 @session_start();
-class ControladorVSP{
+class ControladorVPS{
 
 	static public function ctrBuscaBenef(){
 		$tabla1 = "vtama_tipo_autorizacion";
@@ -9,7 +9,7 @@ class ControladorVSP{
 		$datos = array(	"cod_localidad" => $_POST['cod_localidad'],
 						"fecha" => $_POST['fecha']
 					);
-		$respuesta = ModeloVSP::mdlBuscaBenef($tabla1,$tabla2,$tabla3,$datos);
+		$respuesta = ModeloVPS::mdlBuscaBenef($tabla1,$tabla2,$tabla3,$datos);
 		return $respuesta;
 	}//ctrBuscaBenef
 
@@ -30,7 +30,7 @@ class ControladorVSP{
 						"usuario" => $_SESSION['user'],
 						"empresa" => $_SESSION['codEmpresa']
 					);
-		$respuesta = ModeloVSP::mdlActivaContrato($datos);
+		$respuesta = ModeloVPS::mdlActivaContrato($datos);
 		return $respuesta;
 	}//function ctrActivaContrato
 
