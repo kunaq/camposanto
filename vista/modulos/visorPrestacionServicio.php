@@ -108,13 +108,13 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td>AA</td>
-										<td>AA</td>
-										<td>AA</td>
-										<td>AA</td>
-										<td>AA</td>
-										<td>AA</td>
-										<td onclick="mostrarSidebar('0000000434',3);">ss</td>
+										<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
+										<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
+										<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
+										<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
+										<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
+										<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
+										<td onclick="mostrarSidebar('0000000434',3);">(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
 									</tr>
 								</tbody>
 								<tfoot>
