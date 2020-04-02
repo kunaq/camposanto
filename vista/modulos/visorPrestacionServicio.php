@@ -69,7 +69,7 @@
 									</li>
 									<li class="itemLista nav-item liListaKqPstImpar">
 										<div class="row">
-											<a href="">
+											<a href="" class="btnVerTrabArbVen">
 												<div class="col-md-2"><b>13:00</b></div>
 												<div class="col-md-2"><b>ME</b></div>
 												<div class="col-md-2"><b>REG</b></div>
@@ -79,7 +79,7 @@
 									</li>
 									<li class="itemLista nav-item liListaKqPstPar">
 										<div class="row">
-											<a href="">
+											<a href="" class="btnVerTrabArbVen">
 												<div class="col-md-2"><b>13:00</b></div>
 												<div class="col-md-2"><b>ME</b></div>
 												<div class="col-md-2"><b>REG</b></div>
