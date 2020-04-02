@@ -99,20 +99,30 @@
 							<table class="table">
 								<thead>
 									<th>Hora</th>
+									<th>FU</th>
 									<th>IN</th>
 									<th>ME</th>
 									<th>MI</th>
+									<th>TI</th>
+									<th>TE</th>
 								</thead>
 								<tbody>
 									<tr>
 										<td>AA</td>
 										<td>AA</td>
-										<td onclick="mostrarModalServicio();">ss</td>
+										<td>AA</td>
+										<td>AA</td>
+										<td>AA</td>
+										<td>AA</td>
+										<td onclick="mostrarSidebar('0000000434',3);">ss</td>
 									</tr>
 								</tbody>
 								<tfoot>
 									<tr>
 										<td>Total</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
 										<td>0</td>
 										<td>0</td>
 										<td>0</td>
