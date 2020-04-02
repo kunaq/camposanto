@@ -18,7 +18,7 @@
 								<div class="col-lg-12 form-group">
 									<label>Fecha de Servicio</label>
 									<div class="input-group date">
-										<input type="text" class="form-control form-control-sm m-input"  id="fechVPS" data-date-format="dd/mm/yyyy" value=""/>
+										<input type="text" class="form-control form-control-sm m-input"  id="fechVPS" data-date-format="dd/mm/yyyy" value="" autocomplete="off"/>
 										<div class="input-group-append">
 											<span class="input-group-text">
 												<i class="la la-calendar-check-o"></i>
