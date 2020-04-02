@@ -18,7 +18,7 @@
 								<legend class="tittle-box">Fecha de Servicio</legend>
 								<div class="col-lg-12 form-group">
 									<div class="input-group date">
-										<input type="text" class="form-control form-control-sm m-input"  id="m_datepicker_3" data-date-format="dd/mm/yyyy" value="<?php echo date('d/m/Y', strtotime(date('m/d/Y'))); ?>"/>
+										<input type="text" class="form-control form-control-sm m-input"  id="fechVPS" data-date-format="dd/mm/yyyy" value="<?php echo date('d/m/Y', strtotime(date('m/d/Y'))); ?>"/>
 										<div class="input-group-append">
 											<span class="input-group-text">
 												<i class="la la-calendar-check-o"></i>
@@ -32,7 +32,15 @@
 							<fieldset class="fieldFormHorizontal">
 								<legend class="tittle-box">Localidad</legend>
 								<div class="col-lg-12 form-group">
-									<select class="form-control form-control-sm m-input"></select>
+									<select class="form-control form-control-sm m-input custom-select custom-select-danger" name="localidadVPS" id="localidadVPS" onchange="">
+										<?php
+											$tabla = "vtama_localidad";
+											$item1 = "cod_localidad";
+											$item2 = "dsc_localidad";
+											$prueba = controladorEmpresa::
+											ctrSelects($tabla,$item1,$item2);
+										?>
+									</select>
 								</div>
 							</fieldset>
 						</div>
