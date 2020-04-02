@@ -35,7 +35,7 @@ $("#fechVPS").on("change", function(){
                 }else{
                     classPeriodo = 'liListaKqPstPar';
                 }
-                hora = respuesta['fch_servicio'].split(' ')[1];
+                hora = value['fch_servicio'].split(' ')[1];
                 $("#listaBenefVSP").append(
                     '<li class="nav-item '+classPeriodo+' itemLista ">'+
                         '<a href="#" class="btnVerTrabArbVen" onclick="mostrarSidebar();">'+
