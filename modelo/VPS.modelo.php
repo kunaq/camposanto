@@ -16,7 +16,7 @@ class ModeloVPS{
         $db->cerrar();
 	}//mdlBuscaBenef
 
-	static public function mdlBuscaDetBenef($tabla1,$tabla2,$tabla3,$tabla4,$tabla5,$tabla6,$tabla7,$datos);{
+	static public function mdlBuscaDetBenef($tabla1,$tabla2,$tabla3,$tabla4,$tabla5,$tabla6,$tabla7,$datos){
 		$db = new Conexion();
 		$sql = $db->consulta("SELECT $tabla1.dsc_tipo_autorizacion, $tabla2.cod_localidad, $tabla2.num_uso_servicio, $tabla2.cod_localidad_ctt, $tabla2.cod_tipo_ctt, $tabla2.cod_contrato, $tabla2.cod_tipo_programa, $tabla2.num_servicio, $tabla2.cod_plataforma_esp, $tabla2.cod_area_esp, $tabla2.cod_eje_horizontal_esp, $tabla2.cod_eje_vertical_esp, $tabla2.cod_espacio, 
 			(
