@@ -17,6 +17,7 @@ function hideSidebar(){
 }
 
 $("#fechVPS").on("change", function(){
+	$("li").remove('.itemLista');
 	var fecha = $(this).val();
 	var localidad = $("#localidadVPS").val();
 	$.ajax({
@@ -25,7 +26,7 @@ $("#fechVPS").on("change", function(){
         dataType: 'json',
         data: {'fecha' : fecha, 'localidad' : localidad, 'entrada':'buscaBenef'},
         success : function(respuesta){
-        	console.log(respuesta);
+        	// console.log(respuesta);
         	var classPeriodo = '';
             $.each(respuesta,function(index,value){
                 if(index == 0){

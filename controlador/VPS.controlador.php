@@ -13,26 +13,21 @@ class ControladorVPS{
 		return $respuesta;
 	}//ctrBuscaBenef
 
-	static public function ctrActivaContrato(){
-
-		$fecha = date('Y-m-d');
-		$hora = date('H:i:s');
-		$fechaActual = $fecha.' '.$hora;
-		$datos = array(	"cod_localidad" => $_POST['cod_localidad'],
-						"cod_contrato" => $_POST['cod_contrato'],
-						"num_servicio" => $_POST['num_servicio'],
-						"cod_tipo_ctt" => $_POST['cod_tipo_ctt'],
-						"cod_tipo_programa" => $_POST['cod_tipo_programa'],
-						"num_anno" => $_POST['num_anno'],
-						"cod_tipo_periodo" => $_POST['cod_tipo_periodo'],
-						"cod_periodo" => $_POST['cod_periodo'],
-						"fch_actual" => $fechaActual,
-						"usuario" => $_SESSION['user'],
-						"empresa" => $_SESSION['codEmpresa']
+	static public function ctrBuscaDetBenefctrBuscaDetBenef(){
+		$tabla1 = "vtama_tipo_autorizacion";
+		$tabla2 = "vtaca_autorizacion";
+		$tabla3 = "vtama_estado_autorizacion";
+		$tabla4 = "vtama_servicio";
+		$tabla5 = "vtade_contrato_servicio";
+		$tabla6 = "vtade_contrato";
+		$tabla7 = "vtama_cliente";
+		$datos = array(	"localidad" => $_POST['localidad'],
+						"autorizacion" => $_POST['autorizacion'],
+						"num_servicio" => $_POST['num_servicio']
 					);
-		$respuesta = ModeloVPS::mdlActivaContrato($datos);
+		$respuesta = ModeloVPS::mdlBuscaDetBenef($tabla1,$tabla2,$tabla3,$tabla4,$tabla5,$tabla6,$tabla7,$datos);
 		return $respuesta;
-	}//function ctrActivaContrato
+	}//function ctrBuscaDetBenef
 
 }//class ControladorVSP
 ?>

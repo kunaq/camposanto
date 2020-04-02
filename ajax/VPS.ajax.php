@@ -8,10 +8,10 @@ class AjaxVPS{
 		$respuesta = ControladorVPS::ctrBuscaBenef();
 		echo json_encode($respuesta);
 	}//function ajaxBuscaBenef
-	public function ajaxVerDetTrabajador(){
-		$respuesta = ControladorVPS::ctrVerDetTrabajador();
+	public function ajaxBuscaDetBenef(){
+		$respuesta = ControladorVPS::ctrBuscaDetBenef();
 		echo json_encode($respuesta);
-	}//function ajaxVerDetTrabajador
+	}//function ajaxBuscaDetBenef
 	public function ajaxNombreTrabajador(){
 		$respuesta = ControladorVPS::ctrNombreTrabajador();
 		echo json_encode($respuesta);
@@ -28,9 +28,9 @@ if(isset($_POST["entrada"]) && $_POST["entrada"] == 'buscaBenef'){
 	$cliente = new AjaxVPS();
 	$cliente -> ajaxBuscaBenef();
 }
-else if(isset($_POST["accion"]) && $_POST["accion"] == 'verDetTrabajador'){
+else if(isset($_POST["accion"]) && $_POST["accion"] == 'buscaDetBenef'){
 	$cliente = new AjaxVPS();
-	$cliente -> ajaxVerDetTrabajador();
+	$cliente -> ajaxBuscaDetBenef();
 }
 else if(isset($_POST["accion"]) && $_POST["accion"] == 'nombreTrabajador'){
 	$cliente = new AjaxVPS();

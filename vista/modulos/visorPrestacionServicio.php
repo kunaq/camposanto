@@ -67,26 +67,6 @@
 											<div class="col-md-6"><b>Beneficiario (fallecido)</b></div>
 										</div>
 									</li>
-									<!-- <li class="itemLista nav-item liListaKqPstImpar">
-										<a href="#" class="btnVerTrabArbVen" onclick="mostrarSidebar('0000000434',3);">
-											<div class="row">
-												<div class="col-md-2">13:00</div>
-												<div class="col-md-2">ME</div>
-												<div class="col-md-2">REG</div>
-												<div class="col-md-6">QUINTANILLA ALVARADO VDA DE OLIVERA</div>
-											</div>
-										</a>
-									</li>
-									<li class="itemLista nav-item liListaKqPstPar">
-										<a href="#" class="btnVerTrabArbVen" onclick="mostrarSidebar('0000000434',3);">
-											<div class="row">
-												<div class="col-md-2">13:00</div>
-												<div class="col-md-2">ME</div>
-												<div class="col-md-2">REG</div>
-												<div class="col-md-6">QUINTANILLA ALVARADO VDA DE OLIVERA</div>
-											</div>
-										</a>
-									</li> -->
 								</ul>
 							</div>
 						</div>
