@@ -36,10 +36,10 @@ $("#fechVPS").on("change", function(){
                     classPeriodo = 'liListaKqPstPar';
                 }
                 hora = value['fch_servicio'].split(' ')[1];
-                edo = value['dsc_autorizacion'].slice(0,2);
+                edo = value['dsc_autorizacion'].slice(0,3);
                 $("#listaBenefVSP").append(
                     '<li class="nav-item '+classPeriodo+' itemLista ">'+
-                        '<a href="#" class="btnVerTrabArbVen" onclick="mostrarSidebar();">'+
+                        '<a href="#" class="btnVerTrabArbVen" onclick="mostrarSidebar();" cod_aut="'+value['cod_tipo_autorizacion']+'" num_servicio="'+value['num_uso_servicio']+'">'+
                         	'<div class="row">'+
 								'<div class="col-md-2">'+hora+'</div>'+
 								'<div class="col-md-2">'+value['dsc_prefijo']+'</div>'+
