@@ -68,7 +68,7 @@
 										</div>
 									</li>
 									<li class="itemLista nav-item liListaKqPstImpar">
-										<a href="" class="btnVerTrabArbVen">
+										<a href="" class="btnVerTrabArbVen" onclick="mostrarSidebar('0000000434',3);">
 											<div class="row">
 												<div class="col-md-2"><b>13:00</b></div>
 												<div class="col-md-2"><b>ME</b></div>
@@ -78,7 +78,7 @@
 										</a>
 									</li>
 									<li class="itemLista nav-item liListaKqPstPar">
-										<a href="" class="btnVerTrabArbVen">
+										<a href="" class="btnVerTrabArbVen" onclick="mostrarSidebar('0000000434',3);">
 											<div class="row">
 												<div class="col-md-2"><b>13:00</b></div>
 												<div class="col-md-2"><b>ME</b></div>

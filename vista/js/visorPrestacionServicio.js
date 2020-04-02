@@ -6,3 +6,8 @@ $("#fechVPS").datepicker({
   autoclose: true,
   orientation:"bottom"
 });//datepicker
+
+function mostrarSidebar(numContrato,codServicio){
+    hideSidebar();
+    $("#m_quick_sidebar-contrato").addClass("m-quick-sidebar-contrato--on");
+}
