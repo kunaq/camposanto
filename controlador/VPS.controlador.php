@@ -6,7 +6,7 @@ class ControladorVPS{
 		$tabla1 = "vtama_tipo_autorizacion";
 		$tabla2 = "vtaca_autorizacion";
 		$tabla3 = "vtama_estado_autorizacion";
-		$datos = array(	"cod_localidad" => $_POST['cod_localidad'],
+		$datos = array(	"cod_localidad" => $_POST['localidad'],
 						"fecha" => $_POST['fecha']
 					);
 		$respuesta = ModeloVPS::mdlBuscaBenef($tabla1,$tabla2,$tabla3,$datos);
