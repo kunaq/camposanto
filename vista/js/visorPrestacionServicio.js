@@ -16,6 +16,9 @@ function mostrarSidebar(autorizacion,usoServicio){
         data: {'autorizacion' : autorizacion, 'num_servicio' : usoServicio, 'localidad' : localidad, 'entrada':'buscaDetBenef'},
         success : function(respuesta){
         	console.log(respuesta);
+        	var combo = document.getElementById("localidadVPS");
+			var selected = combo.options[combo.selectedIndex].text;
+			alert(selected);
         }//success
     });//ajax
     hideSidebar();
