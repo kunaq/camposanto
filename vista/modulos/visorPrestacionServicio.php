@@ -158,6 +158,34 @@
 					</div>
 				</div>
 				<div class="row">
+					<div class="col-lg-2">
+						<label>Autorización</label>
+					</div>
+					<div class="col-lg-5">
+						<input type="text" class="form-control form-control-sm m-input" id="localidadBenefVPS" name="localidadBenefVPS" disabled>
+					</div>
+					<div class="col-lg-5">
+						<input type="text" class="form-control form-control-sm m-input" id="numUsoServicioVPS" name="numUsoServicioVPS" disabled>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-2">
+						<label>Contrato</label>
+					</div>
+					<div class="col-lg-5">
+						<input type="text" class="form-control form-control-sm m-input" id="localidadCttoVPS" name="localidadCttoVPS" disabled>
+					</div>
+					<div class="col-lg-1">
+						<input type="text" class="form-control form-control-sm m-input" id="tipoNecVPS" name="tipoNecVPS" disabled>
+					</div>
+					<div class="col-lg-3">
+						<input type="text" class="form-control form-control-sm m-input" id="numCttoSideVPS" name="numCttoSideVPS" disabled>
+					</div>
+					<div class="col-lg-1">
+						<input type="text" class="form-control form-control-sm m-input" id="numServSideVPS" name="numServSideVPS" disabled>
+					</div>
+				</div>
+				<div class="row">
 					<div class="col-lg-5 button-box">
                         <a href="seguimientoContrato?localidad=00001&amp;contrato=0000001784" target="_blank">
                         	<button type="button" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="m-tooltip" data-container="body" data-placement="top" title="Seguimiento">
