@@ -14,7 +14,6 @@ class ControladorVPS{
 	}//ctrBuscaBenef
 
 	static public function ctrBuscaDetBenef(){
-		var_dump($_POST['autorizacion']);
 		$tabla1 = "vtama_tipo_autorizacion";
 		$tabla2 = "vtaca_autorizacion";
 		$tabla3 = "vtama_estado_autorizacion";

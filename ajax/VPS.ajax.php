@@ -28,19 +28,19 @@ if(isset($_POST["entrada"]) && $_POST["entrada"] == 'buscaBenef'){
 	$cliente = new AjaxVPS();
 	$cliente -> ajaxBuscaBenef();
 }
-else if(isset($_POST["accion"]) && $_POST["accion"] == 'buscaDetBenef'){
+else if(isset($_POST["entrada"]) && $_POST["entrada"] == 'buscaDetBenef'){
 	$cliente = new AjaxVPS();
 	$cliente -> ajaxBuscaDetBenef();
 }
-else if(isset($_POST["accion"]) && $_POST["accion"] == 'nombreTrabajador'){
+else if(isset($_POST["entrada"]) && $_POST["entrada"] == 'nombreTrabajador'){
 	$cliente = new AjaxVPS();
 	$cliente -> ajaxNombreTrabajador();
 }
-else if(isset($_POST["accion"]) && $_POST["accion"] == 'buscaCtto'){
+else if(isset($_POST["entrada"]) && $_POST["entrada"] == 'buscaCtto'){
 	$cliente = new AjaxVPS();
 	$cliente -> ajaxBuscarCtto();
 }
-else if(isset($_POST["accion"]) && $_POST["accion"] == 'listaFueVen'){
+else if(isset($_POST["entrada"]) && $_POST["entrada"] == 'listaFueVen'){
 	$cliente = new AjaxVPS();
 	$cliente -> ajaxBuscarFueVen();
 }
