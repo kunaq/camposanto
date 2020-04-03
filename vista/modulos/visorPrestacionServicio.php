@@ -150,8 +150,10 @@
 		<div class="tab-content">
 			<div class="tab-pane active m-scrollable" id="m_quick_sidebar_tabs_contrato" role="tabpanel">
 				<div class="row">
-					<div class="col-lg-12">
+					<div class="col-lg-2">
 						<label>Tipo</label>
+					</div>
+					<div class="col-lg-10">
 						<input type="text" class="form-control form-control-sm m-input" id="dsc_autorizacionVPS" name="dsc_autorizacionVPS" disabled>
 					</div>
 				</div>

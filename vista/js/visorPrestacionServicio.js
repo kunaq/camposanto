@@ -22,8 +22,8 @@ function mostrarSidebar(autorizacion,usoServicio){
 			$("#localidadCttoVPS").val(selected);
 			$("#localidadBenefVPS").val(selected);
 			$("#numUsoServicioVPS").val(respuesta[0]['num_uso_servicio']);
-			document.getElementById("codCttoVPS").innerHTML = respuesta[0]['cod_contrato'];
-			document.getElementById("numServicioVPS").innerHTML = (respuesta[0]['num_servicio']);
+			document.getElementById("codCttoVPS").innerText = respuesta[0]['cod_contrato'];
+			document.getElementById("numServicioVPS").innerText = (respuesta[0]['num_servicio']);
 			$("#platafrmaVPS").val(respuesta[0]['cod_plataforma_esp']);
 			$("#VPS").val(respuesta[0]['cod_area_esp']);
 			$("#VPS").val(respuesta[0]['cod_eje_horizontal_esp']);
