@@ -38,7 +38,7 @@ function mostrarSidebar(autorizacion,usoServicio){
 			$("#fchServicioVPS").val(respuesta[0]['fch_servicio']);
 			$("#sacerdoteVPS").val(respuesta[0]['dsc_sacerdote']);
 			$("#titularVPS").val(respuesta[0]['dsc_titular']);
-			enlace = 'seguimientoContrato?localidad='+respuesta[0]['cod_localidad']+'&contrato='+respuesta[0]['cod_contrato']+;
+			enlace = 'seguimientoContrato?localidad='+respuesta[0]['cod_localidad']+'&contrato='+respuesta[0]['cod_contrato'];
 			$("#btnVerCtto").attr("href",enlace);
         }//success
     });//ajax
