@@ -32,7 +32,7 @@ class ModeloVPS{
 
 	static public function mdlStoreTabla($datos){
 		$db = new Conexion();
-		$sql = $db->consulta("EXEC usp_vta_rpt_visor_servicios '".$datos['localidad']."', CONVERT(DATE, '".$datos['fecha']."',105)");
+		$sql = $db->consulta("EXEC usp_vta_rpt_visor_servicios '".$datos['localidad']."', '".$datos['fecha']."'");
 		$datos = array();
     	while($key = $db->recorrer($sql)){
     		// $key["fch_servicio"] = ($key["fch_servicio"] != '') ? dateTimeFormat($key["fch_servicio"]) : '-';

@@ -91,6 +91,7 @@ $("#fechVPS").on("change", function(){
 
 function ejecutaTabla(fecha){
 	var localidad = $("#localidadVPS").val();
+	fecha = fechaParaConsulta(fecha);
 	$.ajax({
         method:'POST',
         url: 'ajax/VPS.ajax.php',
@@ -100,4 +101,18 @@ function ejecutaTabla(fecha){
         	console.log(respuesta);
         }//success
     });//ajax
+}
+
+function fechaParaConsulta(dato){
+    fecha = new Date(dato);
+    var aux_dia = fecha.getDate();
+    var aux_mes1 = fecha.setMonth(fecha.getMonth() + 1);
+    var aux_mes = fecha.getMonth();
+    var  aux_anio = fecha.getFullYear();
+    if(aux_mes == '0'){
+        aux_mes = '12';
+        aux_anio = fecha.getFullYear()-1;
+    }               
+    var fechaConsulta = aux_mes+'/'+aux_dia+'/'+aux_anio;
+    return fechaConsulta;
 }
