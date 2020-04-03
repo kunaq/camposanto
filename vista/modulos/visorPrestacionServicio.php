@@ -183,6 +183,64 @@
 						<input type="text" style="padding-left: 0.5rem;width: 2rem;" class="form-control form-control-sm m-input" id="numServSideVPS" name="numServSideVPS" disabled>
 					</div>
 				</div>
+				<div class="row form-group">
+					<div class="col-lg-12">
+						<label>Titular</label>
+						<input type="text" class="form-control form-control-sm m-input" id="titularVPS" name="titularVPS" disabled>
+					</div>
+				</div>
+				<div class="row form-group">
+					<div class="col-lg-12">
+						<label>Benef. (fallecido)</label>
+						<input type="text" class="form-control form-control-sm m-input" id="dscFallecidoVPS" name="dscFallecidoVPS" disabled>
+					</div>
+				</div>
+				<div class="row form-group">
+					<div class="col-lg-12">
+						<label>Servicio</label>
+						<input type="text" class="form-control form-control-sm m-input" id="dscServicioVPS" name="dscServicioVPS" disabled>
+					</div>
+				</div>
+				<div class="row form-group">
+					<div class="col-lg-12">
+						<label>Plataforma</label>
+						<input type="text" class="form-control form-control-sm m-input" id="plataformaVPS" name="plataformaVPS" disabled>
+					</div>
+				</div>
+				<div class="row form-group">
+					<div class="col-lg-6">
+						<label>Espacio</label>
+						<input type="text" class="form-control form-control-sm m-input" id="areaVPS" name="areaVPS" disabled>
+					</div>
+					<div class="col-lg-2">
+						<label></label>
+						<input type="text" class="form-control form-control-sm m-input" id="ejeXVPS" name="ejeXVPS" disabled >
+					</div>
+					<div class="col-lg-2" >
+						<label></label>
+						<input type="text" class="form-control form-control-sm m-input" id="ejeYVPS" name="ejeYVPS" disabled>
+					</div>
+					<div class="col-lg-2">
+						<label></label>
+						<input type="text" class="form-control form-control-sm m-input" id="espacioVPS" name="espacioVPS" disabled>
+					</div>
+				</div>
+				<div class="row form-group">
+					<div class="col-lg-6">
+						<label>Fecha Deceso</label>
+						<input type="text" class="form-control form-control-sm m-input" id="fchDescesoVPS" name="fchDescesoVPS" disabled>
+					</div>
+					<div class="col-lg-6">
+						<label>Fecha Servicio</label>
+						<input type="text" class="form-control form-control-sm m-input" id="fchServicioVPS" name="fchServicioVPS" disabled>
+					</div>
+				</div>
+				<div class="row form-group">
+					<div class="col-lg-12">
+						<label>Sacerdote</label>
+						<input type="text" class="form-control form-control-sm m-input" id="sacerdoteVPS" name="sacerdoteVPS" disabled>
+					</div>
+				</div>
 				<div class="row">
 					<div class="col-lg-5 button-box">
                         <a href="seguimientoContrato?localidad=00001&amp;contrato=0000001784" target="_blank">
