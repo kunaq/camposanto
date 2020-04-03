@@ -172,16 +172,16 @@
 					<div class="col-lg-2">
 						<label>Contrato</label>
 					</div>
-					<div class="col-lg-5">
+					<div class="col-lg-3">
 						<input type="text" class="form-control form-control-sm m-input" id="localidadCttoVPS" name="localidadCttoVPS" disabled>
 					</div>
-					<div class="col-lg-1">
+					<div class="col-lg-2">
 						<input type="text" class="form-control form-control-sm m-input" id="tipoNecVPS" name="tipoNecVPS" disabled>
 					</div>
 					<div class="col-lg-3">
 						<input type="text" class="form-control form-control-sm m-input" id="numCttoSideVPS" name="numCttoSideVPS" disabled>
 					</div>
-					<div class="col-lg-1">
+					<div class="col-lg-2">
 						<input type="text" class="form-control form-control-sm m-input" id="numServSideVPS" name="numServSideVPS" disabled>
 					</div>
 				</div>
