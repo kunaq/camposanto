@@ -21,11 +21,13 @@ class ControladorVPS{
 		$tabla5 = "vtade_contrato_servicio";
 		$tabla6 = "vtade_contrato";
 		$tabla7 = "vtama_cliente";
+		$tabla8 = "vtama_area_plataforma";
+		$tabla9 = "vtama_plataforma";
 		$datos = array(	"localidad" => $_POST['localidad'],
 						"autorizacion" => $_POST['autorizacion'],
 						"num_servicio" => $_POST['num_servicio']
 					);
-		$respuesta = ModeloVPS::mdlBuscaDetBenef($tabla1,$tabla2,$tabla3,$tabla4,$tabla5,$tabla6,$tabla7,$datos);
+		$respuesta = ModeloVPS::mdlBuscaDetBenef($tabla1,$tabla2,$tabla3,$tabla4,$tabla5,$tabla6,$tabla7,$tabla8,$tabla9,$datos);
 		return $respuesta;
 	}//function ctrBuscaDetBenef
 

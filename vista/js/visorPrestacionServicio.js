@@ -18,7 +18,24 @@ function mostrarSidebar(autorizacion,usoServicio){
         	console.log(respuesta);
         	var combo = document.getElementById("localidadVPS");
 			var selected = combo.options[combo.selectedIndex].text;
-			alert(selected);
+			$("#dsc_autorizacionVPS").val(respuesta[0]['dsc_tipo_autorizacion']);
+			$("#localidadCttoVPS").val(selected);
+			$("#localidadVPS").val(selected);
+			$("#numUsoServicioVPS").val(respuesta[0]['num_uso_servicio']);
+			$("#codCttoVPS").val(respuesta[0]['cod_contrato']);
+			$("#numServicioVPS").val(respuesta[0]['num_servicio']);
+			$("#platafrmaVPS").val(respuesta[0]['cod_plataforma_esp']);
+			$("#VPS").val(respuesta[0]['cod_area_esp']);
+			$("#VPS").val(respuesta[0]['cod_eje_horizontal_esp']);
+			$("#VPS").val(respuesta[0]['cod_eje_vertical_esp']);
+			$("#VPS").val(respuesta[0]['cod_espacio']);
+			$("#VPS").val(respuesta[0]['dsc_servicio']);
+			$("#VPS").val(respuesta[0]['cod_tipo_necesidad']);
+			$("#VPS").val(respuesta[0]['dsc_nombres']);
+			$("#VPS").val(respuesta[0]['fch_deceso']);
+			$("#VPS").val(respuesta[0]['fch_servicio']);
+			$("#VPS").val(respuesta[0]['dsc_sacerdote']);
+			$("#VPS").val(respuesta[0]['dsc_titular']);
         }//success
     });//ajax
     hideSidebar();
