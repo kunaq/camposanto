@@ -150,38 +150,36 @@
 		<div class="tab-content">
 			<div class="tab-pane active m-scrollable" id="m_quick_sidebar_tabs_contrato" role="tabpanel">
 				<div class="row form-group">
-					<div class="col-lg-2">
+					<div class="col-lg-12">
 						<label>Tipo</label>
-					</div>
-					<div class="col-lg-10">
 						<input type="text" class="form-control form-control-sm m-input" id="dsc_autorizacionVPS" name="dsc_autorizacionVPS" disabled>
 					</div>
 				</div>
 				<div class="row form-group">
-					<div class="col-lg-2">
+					<div class="col-lg-6">
 						<label>Autorización</label>
-					</div>
-					<div class="col-lg-5">
 						<input type="text" class="form-control form-control-sm m-input" id="localidadBenefVPS" name="localidadBenefVPS" disabled>
 					</div>
-					<div class="col-lg-5">
+					<div class="col-lg-6">
+						<label></label>
 						<input type="text" class="form-control form-control-sm m-input" id="numUsoServicioVPS" name="numUsoServicioVPS" disabled>
 					</div>
 				</div>
 				<div class="row form-group">
-					<div class="col-lg-2">
+					<div class="col-lg-5">
 						<label>Contrato</label>
-					</div>
-					<div class="col-lg-3">
 						<input type="text" class="form-control form-control-sm m-input" id="localidadCttoVPS" name="localidadCttoVPS" disabled>
 					</div>
 					<div class="col-lg-2">
+						<label></label>
 						<input type="text" class="form-control form-control-sm m-input" id="tipoNecVPS" name="tipoNecVPS" disabled>
 					</div>
 					<div class="col-lg-3">
+						<label></label>
 						<input type="text" class="form-control form-control-sm m-input" id="numCttoSideVPS" name="numCttoSideVPS" disabled>
 					</div>
 					<div class="col-lg-2">
+						<label></label>
 						<input type="text" class="form-control form-control-sm m-input" id="numServSideVPS" name="numServSideVPS" disabled>
 					</div>
 				</div>
