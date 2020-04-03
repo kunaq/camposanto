@@ -13,7 +13,7 @@ function mostrarSidebar(autorizacion,usoServicio){
         method:'POST',
         url: 'ajax/VPS.ajax.php',
         dataType: 'json',
-        data: {'autorizacion' : autorizacion, 'usoServicio' : usoServicio, 'localidad' : localidad, 'entrada':'buscaDetBenef'},
+        data: {'autorizacion' : autorizacion, 'num_servicio' : usoServicio, 'localidad' : localidad, 'entrada':'buscaDetBenef'},
         success : function(respuesta){
         	console.log(respuesta);
         }//success
