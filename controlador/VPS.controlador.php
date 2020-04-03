@@ -13,7 +13,7 @@ class ControladorVPS{
 		return $respuesta;
 	}//ctrBuscaBenef
 
-	static public function ctrBuscaDetBenefctrBuscaDetBenef(){
+	static public function ctrBuscaDetBenef(){
 		$tabla1 = "vtama_tipo_autorizacion";
 		$tabla2 = "vtaca_autorizacion";
 		$tabla3 = "vtama_estado_autorizacion";
