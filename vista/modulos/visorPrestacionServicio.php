@@ -149,13 +149,13 @@
 		</ul>
 		<div class="tab-content">
 			<div class="tab-pane active m-scrollable" id="m_quick_sidebar_tabs_contrato" role="tabpanel">
-				<div class="row form-group">
+				<div class="row">
 					<div class="col-lg-12">
 						<label>Tipo</label>
 						<input type="text" class="form-control form-control-sm m-input" id="dsc_autorizacionVPS" name="dsc_autorizacionVPS" disabled>
 					</div>
 				</div>
-				<div class="row form-group">
+				<div class="row">
 					<div class="col-lg-6">
 						<label>Autorización</label>
 						<input type="text" class="form-control form-control-sm m-input" id="localidadBenefVPS" name="localidadBenefVPS" disabled>
@@ -165,7 +165,7 @@
 						<input type="text" class="form-control form-control-sm m-input" id="numUsoServicioVPS" name="numUsoServicioVPS" disabled>
 					</div>
 				</div>
-				<div class="row form-group">
+				<div class="row">
 					<div class="col-lg-6">
 						<label>Contrato</label>
 						<input type="text" class="form-control form-control-sm m-input" id="localidadCttoVPS" name="localidadCttoVPS" disabled>
@@ -183,31 +183,31 @@
 						<input type="text" style="padding-left: 0.5rem;width: 2rem;" class="form-control form-control-sm m-input" id="numServSideVPS" name="numServSideVPS" disabled>
 					</div>
 				</div>
-				<div class="row form-group">
+				<div class="row">
 					<div class="col-lg-12">
 						<label>Titular</label>
 						<input type="text" class="form-control form-control-sm m-input" id="titularVPS" name="titularVPS" disabled>
 					</div>
 				</div>
-				<div class="row form-group">
+				<div class="row">
 					<div class="col-lg-12">
 						<label>Benef. (fallecido)</label>
 						<input type="text" class="form-control form-control-sm m-input" id="dscFallecidoVPS" name="dscFallecidoVPS" disabled>
 					</div>
 				</div>
-				<div class="row form-group">
+				<div class="row">
 					<div class="col-lg-12">
 						<label>Servicio</label>
 						<input type="text" class="form-control form-control-sm m-input" id="dscServicioVPS" name="dscServicioVPS" disabled>
 					</div>
 				</div>
-				<div class="row form-group">
+				<div class="row">
 					<div class="col-lg-12">
 						<label>Plataforma</label>
 						<input type="text" class="form-control form-control-sm m-input" id="plataformaVPS" name="plataformaVPS" disabled>
 					</div>
 				</div>
-				<div class="row form-group">
+				<div class="row">
 					<div class="col-lg-6">
 						<label>Espacio</label>
 						<input type="text" class="form-control form-control-sm m-input" id="areaVPS" name="areaVPS" disabled>
@@ -225,7 +225,7 @@
 						<input type="text" class="form-control form-control-sm m-input" id="espacioVPS" name="espacioVPS" disabled>
 					</div>
 				</div>
-				<div class="row form-group">
+				<div class="row">
 					<div class="col-lg-6">
 						<label>Fecha Deceso</label>
 						<input type="text" class="form-control form-control-sm m-input" id="fchDescesoVPS" name="fchDescesoVPS" disabled>
@@ -235,7 +235,7 @@
 						<input type="text" class="form-control form-control-sm m-input" id="fchServicioVPS" name="fchServicioVPS" disabled>
 					</div>
 				</div>
-				<div class="row form-group">
+				<div class="row">
 					<div class="col-lg-12">
 						<label>Sacerdote</label>
 						<input type="text" class="form-control form-control-sm m-input" id="sacerdoteVPS" name="sacerdoteVPS" disabled>
