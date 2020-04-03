@@ -10,6 +10,16 @@ $("#fechVPS").datepicker({
 function mostrarSidebar(autorizacion,usoServicio){
 	console.log('autorizacion',autorizacion);
 	console.log('usoServicio',usoServicio);
+	var localidad = $("#localidadVPS").val();
+	$.ajax({
+        method:'POST',
+        url: 'ajax/VPS.ajax.php',
+        dataType: 'json',
+        data: {'autorizacion' : autorizacion, 'usoServicio' : usoServicio, 'localidad' : localidad, 'entrada':'buscaDetBenef'},
+        success : function(respuesta){
+        	console.log(respuesta);
+        }//success
+    });//ajax
     hideSidebar();
     $("#m_quick_sidebar-contrato").addClass("m-quick-sidebar-contrato--on");
 }
