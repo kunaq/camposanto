@@ -8,6 +8,8 @@ $("#fechVPS").datepicker({
 });//datepicker
 
 function mostrarSidebar(autorizacion,usoServicio){
+	console.log('autorizacion',autorizacion);
+	console.log('usoServicio',usoServicio);
     hideSidebar();
     $("#m_quick_sidebar-contrato").addClass("m-quick-sidebar-contrato--on");
 }
