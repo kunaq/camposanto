@@ -166,21 +166,21 @@
 					</div>
 				</div>
 				<div class="row form-group">
-					<div class="col-lg-5">
+					<div class="col-lg-6">
 						<label>Contrato</label>
 						<input type="text" class="form-control form-control-sm m-input" id="localidadCttoVPS" name="localidadCttoVPS" disabled>
 					</div>
-					<div class="col-lg-2">
+					<div class="col-lg-2" style="margin-right: -1rem;">
 						<label></label>
-						<input type="text" class="form-control form-control-sm m-input" id="tipoNecVPS" name="tipoNecVPS" disabled>
+						<input type="text" class="form-control form-control-sm m-input" id="tipoNecVPS" name="tipoNecVPS" disabled >
 					</div>
-					<div class="col-lg-3">
+					<div class="col-lg-3" style="margin-right: -1rem;">
 						<label></label>
 						<input type="text" class="form-control form-control-sm m-input" id="numCttoSideVPS" name="numCttoSideVPS" disabled>
 					</div>
-					<div class="col-lg-2">
+					<div class="col-lg-1">
 						<label></label>
-						<input type="text" class="form-control form-control-sm m-input" id="numServSideVPS" name="numServSideVPS" disabled>
+						<input type="text" style="padding-left: 0.5rem;width: 2rem;" class="form-control form-control-sm m-input" id="numServSideVPS" name="numServSideVPS" disabled>
 					</div>
 				</div>
 				<div class="row">
