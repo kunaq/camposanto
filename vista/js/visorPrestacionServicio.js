@@ -51,7 +51,7 @@ $("#fechVPS").on("change", function(){
 	$("li").remove('.itemLista');
 	var fecha = $(this).val();
 	var localidad = $("#localidadVPS").val();
-	ejecutaTabla();
+	ejecutaTabla(fecha);
 	$.ajax({
         method:'POST',
         url: 'ajax/VPS.ajax.php',
@@ -89,7 +89,8 @@ $("#fechVPS").on("change", function(){
     });//ajax
 });
 
-function ejecutaTabla(){
+function ejecutaTabla(fecha){
+	var localidad = $("#localidadVPS").val();
 	$.ajax({
         method:'POST',
         url: 'ajax/VPS.ajax.php',
