@@ -172,9 +172,9 @@
 					</div>
 					<div class="col-lg-1" style="margin-right: -1rem;">
 						<label></label>
-						<input type="text" padding-left: 0.5rem;width: 2rem; class="form-control form-control-sm m-input" id="tipoNecVPS" name="tipoNecVPS" disabled >
+						<input type="text" style="padding-left: 0.5rem;width: 2rem;" class="form-control form-control-sm m-input" id="tipoNecVPS" name="tipoNecVPS" disabled >
 					</div>
-					<div class="col-lg-3" style="margin-right: -1rem;">
+					<div class="col-lg-4" style="margin-right: -1rem;">
 						<label></label>
 						<input type="text" class="form-control form-control-sm m-input" id="numCttoSideVPS" name="numCttoSideVPS" disabled>
 					</div>
