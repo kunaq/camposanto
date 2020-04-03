@@ -12,7 +12,7 @@ function mostrarSidebar(autorizacion,usoServicio){
         dataType: 'json',
         data: {'autorizacion' : autorizacion, 'num_servicio' : usoServicio, 'localidad' : localidad, 'entrada':'buscaDetBenef'},
         success : function(respuesta){
-        	console.log(respuesta);
+        	// console.log(respuesta);
         	var combo = document.getElementById("localidadVPS");
 			var selected = combo.options[combo.selectedIndex].text;
 			$("#dsc_autorizacionVPS").val(respuesta[0]['dsc_tipo_autorizacion']);
@@ -49,7 +49,7 @@ function hideSidebar(){
 
 $("#fechVPS").on("change", function(){
 	$("li").remove('.itemLista');
-	var fecha = $(this).val();
+	var fecha = $(this).datepicker("getDate");
 	var localidad = $("#localidadVPS").val();
 	ejecutaTabla(fecha);
 	$.ajax({
