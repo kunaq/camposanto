@@ -49,10 +49,10 @@ function hideSidebar(){
 
 $("#fechVPS").on("change", function(){
 	$("li").remove('.itemLista');
-	var fecha = $(this).datepicker("getDate");
-	fecha = fechaParaConsulta(fecha);
+	var fecha = $(this).val();
+	var fecha1 = $(this).datepicker("getDate");
 	var localidad = $("#localidadVPS").val();
-	ejecutaTabla(fecha);
+	ejecutaTabla(fecha1);
 	$.ajax({
         method:'POST',
         url: 'ajax/VPS.ajax.php',
