@@ -170,7 +170,7 @@
 						<label>Contrato</label>
 						<input type="text" class="form-control form-control-sm m-input" id="localidadCttoVPS" name="localidadCttoVPS" disabled>
 					</div>
-					<div class="col-lg-1" style="margin-right: -1rem;">
+					<div class="col-lg-1" style="margin-right: -1.5rem;">
 						<label></label>
 						<input type="text" style="padding-left: 0.5rem;width: 2rem;" class="form-control form-control-sm m-input" id="tipoNecVPS" name="tipoNecVPS" disabled >
 					</div>
