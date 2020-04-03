@@ -20,7 +20,7 @@ function mostrarSidebar(autorizacion,usoServicio){
 			var selected = combo.options[combo.selectedIndex].text;
 			$("#dsc_autorizacionVPS").val(respuesta[0]['dsc_tipo_autorizacion']);
 			$("#localidadCttoVPS").val(selected);
-			$("#localidadVPS").val(selected);
+			$("#localidadBenefVPS").val(selected);
 			$("#numUsoServicioVPS").val(respuesta[0]['num_uso_servicio']);
 			$("#codCttoVPS").val(respuesta[0]['cod_contrato']);
 			$("#numServicioVPS").val(respuesta[0]['num_servicio']);
