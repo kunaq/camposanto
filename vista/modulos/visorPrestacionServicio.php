@@ -146,9 +146,9 @@
 					<h4 id="numCttSideBarVPS" style="display: inline;"></h4><h4 style="display: inline;"> - </h4><h4 id="codSerSideBarVPS" style="display: inline;"></h4>
 				</a>
 			</li>
-			<li class="nav-item m-tabs__item">
-				<a href="seguimientoContrato?localidad=00001&amp;contrato=0000001784" target="_blank">
-                	<button type="button" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="m-tooltip" data-container="body" data-placement="top" title="Seguimiento">
+			<li class="nav-item m-tabs__item" style="margin-top: 1rem;">
+				<a href="seguimientoContrato?localidad=00001&amp;contrato=0000001784" target="_blank" id="btnVerCtto">
+                	<button type="button" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="m-tooltip" data-container="body" data-placement="top" title="Ver contrato">
                         <i class="la la-eye"></i>
                     </button>
                 </a>
