@@ -40,9 +40,11 @@ $("#fechVPS").on("change", function(){
                 }
                 hora = value['fch_servicio'].split(' ')[1];
                 edo = value['dsc_autorizacion'].slice(0,3);
+                tipo_aut = "'"+value['cod_tipo_autorizacion']+"'";
+                num_sev = "'"+value['num_uso_servicio']+"'";
                 $("#listaBenefVSP").append(
                     '<li class="nav-item '+classPeriodo+' itemLista ">'+
-                        '<a href="#" class="btnVerDetBenef" onclick="mostrarSidebar('+value['cod_tipo_autorizacion']+','+value['num_uso_servicio']+');">'+
+                        '<a href="#" class="btnVerDetBenef" onclick="mostrarSidebar('+tipo_aut+','+num_sev+');">'+
                         	'<div class="row">'+
 								'<div class="col-md-2">'+hora+'</div>'+
 								'<div class="col-md-2">'+value['dsc_prefijo']+'</div>'+
