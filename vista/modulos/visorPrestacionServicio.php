@@ -140,7 +140,7 @@
 		<span id="m_quick_sidebar-contrato_close" class="m-quick-sidebar-contrato__close" onclick="hideSidebar();">
 			<i class="la la-close"></i>
 		</span>
-		<ul id="m_quick_sidebar-contrato_tabs" class="nav nav-tabs m-tabs m-tabs-line m-tabs-line--danger" role="tablist">
+		<ul id="m_quick_sidebar-contrato_tabs" class="nav nav-tabs m-tabs m-tabs-line m-tabs-line--danger" role="tablist" style="margin-bottom: 1rem;">
 			<li class="nav-item m-tabs__item">
 				<a class="nav-link m-tabs__link active" data-toggle="tab" href="#m_quick_sidebar_tabs_contrato" role="tab">
 					<h4 id="numCttSideBarVPS" style="display: inline;"></h4><h4 style="display: inline;"> - </h4><h4 id="codSerSideBarVPS" style="display: inline;"></h4>
