@@ -146,6 +146,13 @@
 					<h4 id="numCttSideBarVPS" style="display: inline;"></h4><h4 style="display: inline;"> - </h4><h4 id="codSerSideBarVPS" style="display: inline;"></h4>
 				</a>
 			</li>
+			<li class="nav-item m-tabs__item">
+				<a href="seguimientoContrato?localidad=00001&amp;contrato=0000001784" target="_blank">
+                	<button type="button" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="m-tooltip" data-container="body" data-placement="top" title="Seguimiento">
+                        <i class="la la-eye"></i>
+                    </button>
+                </a>
+			</li>
 		</ul>
 		<div class="tab-content">
 			<div class="tab-pane active m-scrollable" id="m_quick_sidebar_tabs_contrato" role="tabpanel">
@@ -239,15 +246,6 @@
 					<div class="col-lg-12">
 						<label>Sacerdote</label>
 						<input type="text" class="form-control form-control-sm m-input" id="sacerdoteVPS" name="sacerdoteVPS" disabled>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-lg-5 button-box">
-                        <a href="seguimientoContrato?localidad=00001&amp;contrato=0000001784" target="_blank">
-                        	<button type="button" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="m-tooltip" data-container="body" data-placement="top" title="Seguimiento">
-	                            <i class="la la-eye"></i>
-	                        </button>
-	                    </a>
 					</div>
 				</div>
 			</div>

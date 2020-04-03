@@ -36,7 +36,7 @@ function mostrarSidebar(autorizacion,usoServicio){
 			$("#dscFallecidoVPS").val(respuesta[0]['dsc_nombres']);
 			$("#fchDescesoVPS").val(respuesta[0]['fch_deceso']);
 			$("#fchServicioVPS").val(respuesta[0]['fch_servicio']);
-			$("#VPS").val(respuesta[0]['dsc_sacerdote']);
+			$("#sacerdoteVPS").val(respuesta[0]['dsc_sacerdote']);
 			$("#titularVPS").val(respuesta[0]['dsc_titular']);
         }//success
     });//ajax
