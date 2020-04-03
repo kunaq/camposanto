@@ -7,7 +7,7 @@ $("#fechVPS").datepicker({
   orientation:"bottom"
 });//datepicker
 
-function mostrarSidebar(){
+function mostrarSidebar(autorizacion,usoServicio){
     hideSidebar();
     $("#m_quick_sidebar-contrato").addClass("m-quick-sidebar-contrato--on");
 }
@@ -40,7 +40,7 @@ $("#fechVPS").on("change", function(){
                 edo = value['dsc_autorizacion'].slice(0,3);
                 $("#listaBenefVSP").append(
                     '<li class="nav-item '+classPeriodo+' itemLista ">'+
-                        '<a href="#" class="btnVerTrabArbVen" onclick="mostrarSidebar();" cod_aut="'+value['cod_tipo_autorizacion']+'" num_servicio="'+value['num_uso_servicio']+'">'+
+                        '<a href="#" class="btnVerDetBenef" onclick="mostrarSidebar('+value['cod_tipo_autorizacion']+','+value['num_uso_servicio']+');">'+
                         	'<div class="row">'+
 								'<div class="col-md-2">'+hora+'</div>'+
 								'<div class="col-md-2">'+value['dsc_prefijo']+'</div>'+
