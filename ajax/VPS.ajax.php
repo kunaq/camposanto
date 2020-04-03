@@ -12,14 +12,10 @@ class AjaxVPS{
 		$respuesta = ControladorVPS::ctrBuscaDetBenef();
 		echo json_encode($respuesta);
 	}//function ajaxBuscaDetBenef
-	public function ajaxNombreTrabajador(){
-		$respuesta = ControladorVPS::ctrNombreTrabajador();
+	public function ajaxStoreTabla(){
+		$respuesta = ControladorVPS::ctrStoreTabla();
 		echo json_encode($respuesta);
-	}//function ajaxNombreTrabajador
-	public function ajaxBuscarCtto(){
-		$respuesta = ControladorVPS::ctrBuscarCtto();
-		echo json_encode($respuesta);
-	}//function ajaxBuscarCtto
+	}//function ajaxStoreTabla
 }//class AjaxVPS
 /*=============================================
 ACCIONES
@@ -32,15 +28,7 @@ else if(isset($_POST["entrada"]) && $_POST["entrada"] == 'buscaDetBenef'){
 	$cliente = new AjaxVPS();
 	$cliente -> ajaxBuscaDetBenef();
 }
-else if(isset($_POST["entrada"]) && $_POST["entrada"] == 'nombreTrabajador'){
+else if(isset($_POST["entrada"]) && $_POST["entrada"] == 'storeTabla'){
 	$cliente = new AjaxVPS();
-	$cliente -> ajaxNombreTrabajador();
-}
-else if(isset($_POST["entrada"]) && $_POST["entrada"] == 'buscaCtto'){
-	$cliente = new AjaxVPS();
-	$cliente -> ajaxBuscarCtto();
-}
-else if(isset($_POST["entrada"]) && $_POST["entrada"] == 'listaFueVen'){
-	$cliente = new AjaxVPS();
-	$cliente -> ajaxBuscarFueVen();
+	$cliente -> ajaxStoreTabla();
 }

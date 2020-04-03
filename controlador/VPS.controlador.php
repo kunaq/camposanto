@@ -31,5 +31,13 @@ class ControladorVPS{
 		return $respuesta;
 	}//function ctrBuscaDetBenef
 
+	static public function ctrStoreTabla(){
+		$datos = array(	"localidad" => $_POST['localidad'],
+						"fecha" => $_POST['fecha']
+					);
+		$respuesta = ModeloVPS::mdlStoreTabla($datos);
+		return $respuesta;
+	}//ctrStoreTabla
+
 }//class ControladorVSP
 ?>

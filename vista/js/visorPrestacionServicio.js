@@ -1,6 +1,3 @@
-function mostrarModalServicio(){
-	$('#m_modal_visor_servicio').modal('show');
-}
 $("#fechVPS").datepicker({
   format: 'dd-mm-yyyy',
   autoclose: true,
@@ -54,6 +51,7 @@ $("#fechVPS").on("change", function(){
 	$("li").remove('.itemLista');
 	var fecha = $(this).val();
 	var localidad = $("#localidadVPS").val();
+	ejecutaTabla();
 	$.ajax({
         method:'POST',
         url: 'ajax/VPS.ajax.php',
@@ -90,3 +88,15 @@ $("#fechVPS").on("change", function(){
         }//success
     });//ajax
 });
+
+function ejecutaTabla(){
+	$.ajax({
+        method:'POST',
+        url: 'ajax/VPS.ajax.php',
+        dataType: 'json',
+        data: {'fecha' : fecha, 'localidad' : localidad, 'entrada':'storeTabla'},
+        success : function(respuesta){
+        	console.log(respuesta);
+        }//success
+    });//ajax
+}
