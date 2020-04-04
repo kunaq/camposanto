@@ -107,8 +107,8 @@ function ejecutaTabla(fecha){
         	$.each(respuesta,function(index,value){
         		console.log(value[2]);
         		aux_nombre = value[2].split(' ');
-        		console.log(aux_nombre);
-        		if(aux_nombre[2] == "" || !aux_nombre[2] || aux_nombre[2] == null){
+        		console.log(aux_nombre.length);
+        		if(aux_nombre.length == 1){
         			dsc_nombre = '';
         		}else{
         			dsc_nombre = value[2];
