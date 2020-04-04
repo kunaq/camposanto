@@ -100,12 +100,13 @@ function ejecutaTabla(fecha){
         dataType: 'json',
         data: {'fecha' : fecha, 'localidad' : localidad, 'entrada':'storeTabla'},
         success : function(respuesta){
-        	console.log(respuesta);
         	$.each(respuesta,function(index,value){
+        		if(value[2] == '()'){
+        			return;
+        		}
         		aux = value['fch_fecha'].split(' ')[1];
         		hora = aux.split(':')[0];
         		var li_find = cronograma.rows.item('#fila_'+hora).cells;
-        		console.log(li_find);
         		if(hora == '07'){
         			li_i = 0;
         		}else if(hora == '08'){
