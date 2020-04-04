@@ -105,7 +105,7 @@ $("#fechVPS").datepicker({
 				  aux = value['fch_fecha'].split(' ')[1];
 				  hora = aux.split(':')[0];
 				  var li_find = cronograma.rows.item('#fila_'+hora).cells;
-				  console.log(value[2]);
+				  console.log('value[2]',value[2]);
 				  if(hora == '07'){
 					  li_i = 0;
 				  }else if(hora == '08'){
@@ -132,7 +132,6 @@ $("#fechVPS").datepicker({
 					  li_i = 11;
 				  }
 				  var li_find = cronograma.rows.item(li_i).cells;
-				  //li_find.item().value="";
 				  tipo = value['dsc_prefijo'];
 				  if(tipo == 'FU'){
 					  li_find.item(1).innerHTML = value[2];
