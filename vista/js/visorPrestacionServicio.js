@@ -99,7 +99,11 @@ function ejecutaTabla(fecha){
         dataType: 'json',
         data: {'fecha' : fecha, 'localidad' : localidad, 'entrada':'storeTabla'},
         success : function(respuesta){
-        	console.log(respuesta);
+        	$.each(respuesta,function(index,value){
+        		hora = value['fch_fecha'].split(' ')[1];
+        		console.log(hora);
+
+        	});//each
         }//success
     });//ajax
 }
