@@ -97,7 +97,7 @@ function ejecutaTabla(fecha){
 	var container = document.querySelector('#bodyVisorVPS');
     container.querySelectorAll('td').forEach(function (i){ 
     	console.log(i);
-    	i.empty();
+    	i.innerText = '';
     });
 	$.ajax({
         method:'POST',
