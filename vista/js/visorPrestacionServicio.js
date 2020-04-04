@@ -105,7 +105,7 @@ function ejecutaTabla(fecha){
         		aux = value['fch_fecha'].split(' ')[1];
         		hora = aux.split(':')[0];
         		console.log(hora);
-        		var li_find = cronograma.rows.item(hora).cells;
+        		var li_find = cronograma.rows.item('#'+hora).cells;
         		li_find.item(4).innerHTML = 'algo';
         		tipo = value['dsc_prefijo'];
 
