@@ -108,17 +108,17 @@ function ejecutaTabla(fecha){
         		var li_find = cronograma.rows.item('#'+hora).cells;
         		tipo = value['dsc_prefijo'];
         		if(tipo == 'FU'){
-        			li_find.item(1).innerHTML = value['computed'];
+        			li_find.item(1).innerHTML = value[2];
         		}else if(tipo == 'IN'){
-        			li_find.item(2).innerHTML = value['computed'];;
+        			li_find.item(2).innerHTML = value[2];;
         		}else if(tipo == 'ME'){
-        			li_find.item(3).innerHTML = value['computed'];;
+        			li_find.item(3).innerHTML = value[2];;
         		}else if(tipo == 'MI'){
-        			li_find.item(4).innerHTML = value['computed'];;
+        			li_find.item(4).innerHTML = value[2];;
         		}else if(tipo == 'TI'){
-        			li_find.item(5).innerHTML = value['computed'];;
+        			li_find.item(5).innerHTML = value[2];;
         		}else if(tipo == 'TE'){
-        			li_find.item(6).innerHTML = value['computed'];;
+        			li_find.item(6).innerHTML = value[2];;
         		}
 
         	});//each
