@@ -105,9 +105,7 @@ function ejecutaTabla(fecha){
         data: {'fecha' : fecha, 'localidad' : localidad, 'entrada':'storeTabla'},
         success : function(respuesta){
         	$.each(respuesta,function(index,value){
-        		console.log(value[2]);
         		aux_nombre = value[2].split(' ');
-        		console.log(aux_nombre.length);
         		if(aux_nombre.length > 1){
         			dsc_nombre = value[2];
         		}else{
