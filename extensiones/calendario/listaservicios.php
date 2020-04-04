@@ -162,7 +162,7 @@ $db = new Conexion();
             $color = '#'.$key['num_color'];
             //---------------------------arreglo para event fullcalendar-----------------//
 
-             $eventos[] = array('id' => '', 'title' => $titulo1, 'titulo2' => $titulo2, 'description' => $description , 'start' => $date, 'allDay' => false, 'color' => $color, 'textColor' => '#ffffff');
+             $eventos[] = array('id' => '', 'title' => $titulo1, 'titulo2' => $titulo2, 'description' => $description , 'start' => $date, 'allDay' => false, 'color' => $color, 'textColor' => '#f8f9fa');
         }
 
        $arrayJson = json_encode($eventos, JSON_UNESCAPED_UNICODE);
