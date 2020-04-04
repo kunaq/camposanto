@@ -90,7 +90,7 @@
 										</thead>
 										<tbody id="bodyVisorVPS" style="font-size: 0.5rem;">
 											<tr id="07:00">
-												<td>07:00</td>
+												<th>07:00</th>
 												<td>(fu)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
 												<td>(in)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
 												<td>(me)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
@@ -99,7 +99,7 @@
 												<td onclick="mostrarSidebar('0000000434',3);">(te)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
 											</tr>
 											<tr id="08:00">
-												<td>8:00</td>
+												<th>8:00</th>
 												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
 												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
 												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
@@ -108,7 +108,7 @@
 												<td onclick="mostrarSidebar('0000000434',3);">(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
 											</tr>
 											<tr id="09:00">
-												<td>9:00</td>
+												<th>9:00</th>
 												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
 												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
 												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
@@ -117,7 +117,7 @@
 												<td onclick="mostrarSidebar('0000000434',3);">(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
 											</tr>
 											<tr id="10:00">
-												<td>10:00</td>
+												<th>10:00</th>
 												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
 												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
 												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
@@ -126,7 +126,7 @@
 												<td onclick="mostrarSidebar('0000000434',3);">(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
 											</tr>
 											<tr id="11:00">
-												<td>11:00</td>
+												<th>11:00</th>
 												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
 												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
 												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
@@ -135,7 +135,7 @@
 												<td onclick="mostrarSidebar('0000000434',3);">(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
 											</tr>
 											<tr id="12:00">
-												<td>12:00</td>
+												<th>12:00</th>
 												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
 												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
 												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
@@ -144,7 +144,7 @@
 												<td onclick="mostrarSidebar('0000000434',3);">(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
 											</tr>
 											<tr id="13:00">
-												<td>13:00</td>
+												<th>13:00</th>
 												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
 												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
 												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
@@ -153,7 +153,7 @@
 												<td onclick="mostrarSidebar('0000000434',3);">(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
 											</tr>
 											<tr id="14:00">
-												<td>14:00</td>
+												<th>14:00</th>
 												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
 												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
 												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
@@ -162,7 +162,7 @@
 												<td onclick="mostrarSidebar('0000000434',3);">(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
 											</tr>
 											<tr id="15:00">
-												<td>15:00</td>
+												<th>15:00</th>
 												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
 												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
 												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
@@ -171,7 +171,7 @@
 												<td onclick="mostrarSidebar('0000000434',3);">(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
 											</tr>
 											<tr id="16:00">
-												<td>16:00</td>
+												<th>16:00</th>
 												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
 												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
 												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
@@ -180,7 +180,7 @@
 												<td onclick="mostrarSidebar('0000000434',3);">(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
 											</tr>
 											<tr id="17:00">
-												<td>17:00</td>
+												<th>17:00</th>
 												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
 												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
 												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
@@ -189,7 +189,7 @@
 												<td onclick="mostrarSidebar('0000000434',3);">(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
 											</tr>
 											<tr id="18:00">
-												<td>18:00</td>
+												<th>18:00</th>
 												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
 												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
 												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>

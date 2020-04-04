@@ -104,6 +104,8 @@ function ejecutaTabla(fecha){
         	$.each(respuesta,function(index,value){
         		hora = value['fch_fecha'].split(' ')[1];
         		console.log(hora);
+        		var li_find = cronograma.rows.item("#07:00").cells;
+        		li_find.item(4).innerHTML = 'algo';
         		// fila = cronograma.rows.item(3).cells;
         		fila = document.getElementById(hora);
         		console.log(fila);
