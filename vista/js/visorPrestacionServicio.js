@@ -94,6 +94,11 @@ function ejecutaTabla(fecha){
 	var localidad = $("#localidadVPS").val();
 	fecha = fechaParaConsulta(fecha);
 	var cronograma = document.getElementById('bodyVisorVPS');
+	var container = document.querySelector('#bodyVisorVPS');
+    container.querySelectorAll('td').forEach(function (i){ 
+    	console.log(i);
+    	i.empty();
+    });
 	$.ajax({
         method:'POST',
         url: 'ajax/VPS.ajax.php',
