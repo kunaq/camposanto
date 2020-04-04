@@ -36,8 +36,7 @@ class ModeloVPS{
 		$datos = array();
     	while($key = $db->recorrer($sql)){
     		$key["fch_fecha"] = ($key["fch_fecha"] != '') ? dateTimeFormat($key["fch_fecha"]) : '-';
-    		// $datos[] = arrayMapUtf8Encode($key);
-    		$datos[] = $key;
+    		$datos[] = arrayMapUtf8Encode($key);
 		}
 		return $datos;
 		$db->liberar($sql);
