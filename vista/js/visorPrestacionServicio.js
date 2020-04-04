@@ -107,7 +107,9 @@ function ejecutaTabla(fecha){
         success : function(respuesta){
         	$.each(respuesta,function(index,value){
         		if(value[2] == '()'){
-        			value[2] = '';
+        			dsc_nombre = '';
+        		}else{
+        			dsc_nombre = value[2];
         		}
         		aux = value['fch_fecha'].split(' ')[1];
         		hora = aux.split(':')[0];

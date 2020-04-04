@@ -51858,3 +51858,13 @@ th{
 .activoListaServicioModif{
     background-color: #ebedf2;
 }
+
+#bodyvisorVPS{
+    border: 1px solid #f4f5f8 !important;
+}
+#bodyVisorVPS td{
+    width: 10rem;
+}
+#bodyVisorVPS th{
+    width: 5rem;
+}
