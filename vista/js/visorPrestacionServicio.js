@@ -106,7 +106,9 @@ function ejecutaTabla(fecha){
         success : function(respuesta){
         	$.each(respuesta,function(index,value){
         		console.log(value[2]);
-        		if(value[2] == "()\r"){
+        		aux_nombre = value[2].split(' ');
+        		console.log(aux_nombre);
+        		if(value[2] == "()"){
         			dsc_nombre = '';
         		}else{
         			dsc_nombre = value[2];
