@@ -88,7 +88,7 @@
 											<th>TI</th>
 											<th>TE</th>
 										</thead>
-										<tbody style="font-size: 0.5rem;">
+										<tbody id="bodyVisorVPS" style="font-size: 0.5rem;">
 											<tr id="07:00">
 												<td>07:00</td>
 												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>

@@ -93,15 +93,19 @@ $("#fechVPS").on("change", function(){
 function ejecutaTabla(fecha){
 	var localidad = $("#localidadVPS").val();
 	fecha = fechaParaConsulta(fecha);
+	var cronograma = document.getElementById('bodyVisorVPS');
 	$.ajax({
         method:'POST',
         url: 'ajax/VPS.ajax.php',
         dataType: 'json',
         data: {'fecha' : fecha, 'localidad' : localidad, 'entrada':'storeTabla'},
         success : function(respuesta){
+        	console.log(respuesta);
         	$.each(respuesta,function(index,value){
         		hora = value['fch_fecha'].split(' ')[1];
         		console.log(hora);
+        		cronograma.rows.item(3).cells = hora;
+        		// tipo = value[''];
 
         	});//each
         }//success
