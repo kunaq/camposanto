@@ -107,7 +107,6 @@ function ejecutaTabla(fecha){
         		console.log(hora);
         		var li_find = cronograma.rows.item(hora).cells;
         		li_find.item(4).innerHTML = 'algo';
-        		console.log(fila);
         		tipo = value['dsc_prefijo'];
 
         	});//each
