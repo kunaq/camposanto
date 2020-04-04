@@ -108,7 +108,7 @@ function ejecutaTabla(fecha){
         		console.log(value[2]);
         		aux_nombre = value[2].split(' ');
         		console.log(aux_nombre);
-        		if(aux_nombre[2] == ""){
+        		if(aux_nombre[2] == "" || !aux_nombre[2] || aux_nombre[2] == null){
         			dsc_nombre = '';
         		}else{
         			dsc_nombre = value[2];
