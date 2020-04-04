@@ -76,7 +76,7 @@
 					<fieldset class="fieldFormHorizontal">
 						<legend>&nbsp;</legend>
 						<div class="col-lg-12" style="height: 35rem;">
-							<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="400">
+							<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="450">
 								<div class="table-responsive">
 									<table class="table">
 										<thead>
