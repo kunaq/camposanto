@@ -106,8 +106,20 @@ function ejecutaTabla(fecha){
         		hora = aux.split(':')[0];
         		console.log(hora);
         		var li_find = cronograma.rows.item('#'+hora).cells;
-        		li_find.item(4).innerHTML = 'algo';
         		tipo = value['dsc_prefijo'];
+        		if(tipo == 'FU'){
+        			li_find.item(1).innerHTML = value['computed'];
+        		}else if(tipo == 'IN'){
+        			li_find.item(2).innerHTML = value['computed'];;
+        		}else if(tipo == 'ME'){
+        			li_find.item(3).innerHTML = value['computed'];;
+        		}else if(tipo == 'MI'){
+        			li_find.item(4).innerHTML = value['computed'];;
+        		}else if(tipo == 'TI'){
+        			li_find.item(5).innerHTML = value['computed'];;
+        		}else if(tipo == 'TE'){
+        			li_find.item(6).innerHTML = value['computed'];;
+        		}
 
         	});//each
         }//success
