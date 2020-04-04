@@ -102,12 +102,11 @@ function ejecutaTabla(fecha){
         success : function(respuesta){
         	console.log(respuesta);
         	$.each(respuesta,function(index,value){
-        		hora = value['fch_fecha'].split(' ')[1];
+        		aux = value['fch_fecha'].split(' ')[1];
+        		hora = aux.split(':')[0];
         		console.log(hora);
-        		var li_find = cronograma.rows.item("#07:00").cells;
+        		var li_find = cronograma.rows.item(hora).cells;
         		li_find.item(4).innerHTML = 'algo';
-        		// fila = cronograma.rows.item(3).cells;
-        		fila = document.getElementById(hora);
         		console.log(fila);
         		tipo = value['dsc_prefijo'];
 
