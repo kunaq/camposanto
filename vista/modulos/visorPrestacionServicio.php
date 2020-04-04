@@ -78,7 +78,7 @@
 						<div class="col-lg-12" style="height: 35rem;">
 							<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="450">
 								<div class="table-responsive">
-									<table class="table">
+									<table class="table" style="font-size: calc(0.5rem + 0.3vw);">
 										<thead>
 											<th>Hora</th>
 											<th>FU</th>
@@ -88,7 +88,7 @@
 											<th>TI</th>
 											<th>TE</th>
 										</thead>
-										<tbody id="bodyVisorVPS" style="font-size: 0.5rem;">
+										<tbody id="bodyVisorVPS">
 											<tr id="fila_07">
 												<th>07:00</th>
 												<td>(fu)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
