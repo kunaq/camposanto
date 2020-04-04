@@ -104,8 +104,8 @@ function ejecutaTabla(fecha){
         	$.each(respuesta,function(index,value){
         		aux = value['fch_fecha'].split(' ')[1];
         		hora = aux.split(':')[0];
-        		console.log(hora);
         		var li_find = cronograma.rows.item('#'+hora).cells;
+        		console.log(hora);
         		tipo = value['dsc_prefijo'];
         		if(tipo == 'FU'){
         			li_find.item(1).innerHTML = value[2];
