@@ -51859,11 +51859,9 @@ th{
     background-color: #ebedf2;
 }
 
-#bodyvisorVPS{
-    border: 1px solid #f4f5f8 !important;
-}
 #bodyVisorVPS td{
     width: 10rem;
+    border: 1px solid #f4f5f8 !important;
 }
 #bodyVisorVPS th{
     width: 5rem;

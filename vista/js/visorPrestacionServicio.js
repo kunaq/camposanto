@@ -96,7 +96,6 @@ function ejecutaTabla(fecha){
 	var cronograma = document.getElementById('bodyVisorVPS');
 	var container = document.querySelector('#bodyVisorVPS');
     container.querySelectorAll('td').forEach(function (i){ 
-    	console.log(i);
     	i.innerText = '';
     });
 	$.ajax({
@@ -106,6 +105,7 @@ function ejecutaTabla(fecha){
         data: {'fecha' : fecha, 'localidad' : localidad, 'entrada':'storeTabla'},
         success : function(respuesta){
         	$.each(respuesta,function(index,value){
+        		console.log(value[2]);
         		if(value[2] == '()'){
         			dsc_nombre = '';
         		}else{
