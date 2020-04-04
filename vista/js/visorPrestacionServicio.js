@@ -132,7 +132,7 @@ $("#fechVPS").datepicker({
 					  li_i = 11;
 				  }
 				  var li_find = cronograma.rows.item(li_i).cells;
-				  li_find.item().value="";
+				  //li_find.item().value="";
 				  tipo = value['dsc_prefijo'];
 				  if(tipo == 'FU'){
 					  li_find.item(1).innerHTML = value[2];
