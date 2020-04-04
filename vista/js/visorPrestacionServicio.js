@@ -106,6 +106,32 @@ function ejecutaTabla(fecha){
         		hora = aux.split(':')[0];
         		var li_find = cronograma.rows.item('#fila_'+hora).cells;
         		console.log(li_find);
+        		if(hora == '07'){
+        			li_i = 0;
+        		}else if(hora == '08'){
+        			li_i = 1;
+        		}else if(hora == '09'){
+        			li_i = 2;
+        		}else if(hora == '10'){
+        			li_i = 3;
+        		}else if(hora == '11'){
+        			li_i = 4;
+        		}else if(hora == '12'){
+        			li_i = 5;
+        		}else if(hora == '13'){
+        			li_i = 6;
+        		}else if(hora == '14'){
+        			li_i = 7;
+        		}else if(hora == '15'){
+        			li_i = 8;
+        		}else if(hora == '16'){
+        			li_i = 9;
+        		}else if(hora == '17'){
+        			li_i = 10;
+        		}else if(hora == '18'){
+        			li_i = 11;
+        		}
+        		var li_find = cronograma.rows.item(li_i).cells;
         		tipo = value['dsc_prefijo'];
         		if(tipo == 'FU'){
         			li_find.item(1).innerHTML = value[2];
