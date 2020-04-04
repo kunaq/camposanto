@@ -108,10 +108,10 @@ function ejecutaTabla(fecha){
         		console.log(value[2]);
         		aux_nombre = value[2].split(' ');
         		console.log(aux_nombre.length);
-        		if(aux_nombre.length == 1){
-        			dsc_nombre = '';
-        		}else{
+        		if(aux_nombre.length > 1){
         			dsc_nombre = value[2];
+        		}else{
+        			dsc_nombre = '';
         		}
         		aux = value['fch_fecha'].split(' ')[1];
         		hora = aux.split(':')[0];
