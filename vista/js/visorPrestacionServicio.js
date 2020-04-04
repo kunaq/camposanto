@@ -144,17 +144,17 @@ function ejecutaTabla(fecha){
         		var li_find = cronograma.rows.item(li_i).cells;
         		tipo = value['dsc_prefijo'];
         		if(tipo == 'FU'){
-        			li_find.item(1).innerHTML = value[2];
+        			li_find.item(1).innerHTML = dsc_nombre;
         		}else if(tipo == 'IN'){
-        			li_find.item(2).innerHTML = value[2];;
+        			li_find.item(2).innerHTML = dsc_nombre;
         		}else if(tipo == 'ME'){
-        			li_find.item(3).innerHTML = value[2];;
+        			li_find.item(3).innerHTML = dsc_nombre;
         		}else if(tipo == 'MI'){
-        			li_find.item(4).innerHTML = value[2];;
+        			li_find.item(4).innerHTML = dsc_nombre;
         		}else if(tipo == 'TI'){
-        			li_find.item(5).innerHTML = value[2];;
+        			li_find.item(5).innerHTML = dsc_nombre;
         		}else if(tipo == 'TE'){
-        			li_find.item(6).innerHTML = value[2];;
+        			li_find.item(6).innerHTML = dsc_nombre;
         		}
 
         	});//each
