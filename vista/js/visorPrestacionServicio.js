@@ -132,24 +132,19 @@ $("#fechVPS").datepicker({
 					  li_i = 11;
 				  }
 				  var li_find = cronograma.rows.item(li_i).cells;
+				  li_find.item().innerHTML="";
 				  tipo = value['dsc_prefijo'];
 				  if(tipo == 'FU'){
-					li_find.item(1).innerHTML="";
 					  li_find.item(1).innerHTML = value[2];
 				  }else if(tipo == 'IN'){
-					li_find.item(2).innerHTML ="";
 					li_find.item(2).innerHTML = value[2];;
 				  }else if(tipo == 'ME'){
-					li_find.item(3).innerHTML ="";
 					li_find.item(3).innerHTML = value[2];;
 				  }else if(tipo == 'MI'){
-					li_find.item(4).innerHTML ="";
 					li_find.item(4).innerHTML = value[2];;
 				  }else if(tipo == 'TI'){
-					li_find.item(5).innerHTML ="";
 					  li_find.item(5).innerHTML = value[2];;
 				  }else if(tipo == 'TE'){
-					li_find.item(6).innerHTML ="";
 					li_find.item(6).innerHTML = value[2];;
 				  }
   
