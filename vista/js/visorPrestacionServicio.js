@@ -104,8 +104,9 @@ function ejecutaTabla(fecha){
         	$.each(respuesta,function(index,value){
         		hora = value['fch_fecha'].split(' ')[1];
         		console.log(hora);
-        		cronograma.rows.item(3).cells = hora;
-        		// tipo = value[''];
+        		fila = cronograma.rows.item(3).cells;
+        		console.log(fila);
+        		tipo = value['dsc_prefijo'];
 
         	});//each
         }//success

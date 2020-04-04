@@ -91,12 +91,12 @@
 										<tbody id="bodyVisorVPS" style="font-size: 0.5rem;">
 											<tr id="07:00">
 												<td>07:00</td>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td onclick="mostrarSidebar('0000000434',3);">(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
+												<td>(fu)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
+												<td>(in)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
+												<td>(me)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
+												<td>(mi)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
+												<td>(ti)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
+												<td onclick="mostrarSidebar('0000000434',3);">(te)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
 											</tr>
 											<tr id="08:00">
 												<td>8:00</td>
