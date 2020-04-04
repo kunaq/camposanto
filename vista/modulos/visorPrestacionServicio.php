@@ -91,111 +91,111 @@
 										<tbody id="bodyVisorVPS">
 											<tr id="fila_07">
 												<th>07:00</th>
-												<td>(fu)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(in)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(me)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(mi)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(ti)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td onclick="mostrarSidebar('0000000434',3);">(te)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
 											</tr>
 											<tr id="fila_08">
 												<th>8:00</th>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td onclick="mostrarSidebar('0000000434',3);">(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
 											</tr>
 											<tr id="fila_09">
 												<th>9:00</th>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td onclick="mostrarSidebar('0000000434',3);">(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
 											</tr>
 											<tr id="fila_10">
 												<th>10:00</th>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td onclick="mostrarSidebar('0000000434',3);">(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
 											</tr>
 											<tr id="fila_11">
 												<th>11:00</th>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td onclick="mostrarSidebar('0000000434',3);">(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
 											</tr>
 											<tr id="fila_12">
 												<th>12:00</th>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td onclick="mostrarSidebar('0000000434',3);">(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
 											</tr>
 											<tr id="fila_13">
 												<th>13:00</th>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td onclick="mostrarSidebar('0000000434',3);">(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
 											</tr>
 											<tr id="fila_14">
 												<th>14:00</th>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td onclick="mostrarSidebar('0000000434',3);">(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
 											</tr>
 											<tr id="fila_15">
 												<th>15:00</th>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td onclick="mostrarSidebar('0000000434',3);">(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
 											</tr>
 											<tr id="fila_16">
 												<th>16:00</th>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td onclick="mostrarSidebar('0000000434',3);">(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
 											</tr>
 											<tr id="fila_17">
 												<th>17:00</th>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td onclick="mostrarSidebar('0000000434',3);">(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
 											</tr>
 											<tr id="fila_18">
 												<th>18:00</th>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td>(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
-												<td onclick="mostrarSidebar('0000000434',3);">(1)<br>QUINTANILLA ALVARADO VDA DE OLIVERA</td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
 											</tr>
 										</tbody>
 										<!-- <tfoot>
