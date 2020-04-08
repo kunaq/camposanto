@@ -2,7 +2,7 @@
 session_start();
 set_time_limit(0);
 date_default_timezone_set("America/Lima");
-define('DB_HOST','209.45.50.210');
+define('DB_HOST','192.141.42.144');
 define('DB_USER','userclient');
 define('DB_PASS','asociados517');
 define('DB_NAME','BDUS_CK000050_PRE00');
