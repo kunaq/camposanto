@@ -1508,7 +1508,7 @@
 							<div class="row form-group m-form__group">
 								<div class="col-lg-3">
 									<fieldset class="fieldFormHorizontal">
-										<legend>&nbsp;</legend>
+										<legend>Cuotas Iniciales</legend>
 										<div class="col-lg-12">
 											<div class="row form-group">
 												<div class="col-lg-6">
@@ -1544,18 +1544,12 @@
 													</div>
 												</div>
 												<div class="col-lg-6">
-													<label>Interes:</label>
-													<select class="form-control form-control-sm m-select2 m-select2-general" id="interesCUOI" name="interesCUOI" style="width: 100%">
+													<!-- <label>Interes:</label> -->
+													<!-- <select class="form-control form-control-sm m-select2 m-select2-general" id="interesCUOI" hidden="" name="interesCUOI" style="width: 100%">
 														<option>
 															Seleccione...
 														</option>
-														<?php
-															$tabla="vtama_interes";
-														  $item1="num_valor";
-														  $item2="dsc_interes";
-						 								 $prueba=controladorEmpresa::ctrSelects($tabla,$item1,$item2);
-														  ?>
-													</select>
+													</select> -->
 													<input type="hidden" id="codInteresCUOIModif" name="codInteresCUOIModif">
 												</div>
 											</div>
@@ -1571,7 +1565,7 @@
 								</div>
 								<div class="col-lg-3">
 									<fieldset class="fieldFormHorizontal">
-										<legend>&nbsp;</legend>
+										<legend>Cronograma</legend>
 										<div class="col-lg-12">
 											<div class="row form-group">
 												<div class="col-lg-6">

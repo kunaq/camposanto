@@ -8,15 +8,15 @@ class ModeloModifCtto{
 		$sql = $db->consulta("SELECT $tabla.*, $tabla2.dsc_cliente, $tabla3.*, $tabla4.dsc_camposanto, $tabla5.dsc_area, $tabla6.dsc_plataforma, $tabla7.dsc_tipo_espacio, $tabla8.dsc_tipo_servicio, $tabla8.flg_afecto_igv, $tabla8.flg_prevencion, $tablaViServ.flg_principal FROM $tabla LEFT JOIN $tabla2 ON $tabla.cod_cliente = $tabla2.cod_cliente LEFT JOIN $tabla3 ON $tabla.cod_contrato = $tabla3.cod_contrato LEFT JOIN $tabla4 ON $tabla4.cod_camposanto = $tabla.cod_empresa LEFT JOIN $tabla5 ON $tabla5.cod_area_plataforma = $tabla3.cod_areaplataforma_actual LEFT JOIN  $tabla6 ON $tabla6.cod_plataforma = $tabla3.cod_plataforma_actual LEFT JOIN $tabla7 ON $tabla7.cod_tipo_espacio = $tabla3.cod_tipoespacio_actual LEFT JOIN $tabla8 ON $tabla8.cod_tipo_servicio = $tabla.cod_tipo_servicio LEFT JOIN $tablaViServ ON ($tablaViServ.cod_contrato = $tabla.cod_contrato AND $tablaViServ.num_servicio = $tabla.num_servicio AND $tablaViServ.cod_localidad = $tabla.cod_localidad) WHERE $tabla.cod_contrato LIKE (RIGHT('0000000000'+'$codCtto',10)) AND $tabla.flg_fondo_mantenimiento = 'NO'");
 		$datos = array();
     	while($key = $db->recorrer($sql)){
-	    		$key["fch_generacion"] = dateFormat($key["fch_generacion"]);
-				$key["fch_anulacion"] = ($key["fch_anulacion"] != '') ? dateFormat($key["fch_anulacion"]) : '';
-				$key["fch_emision"] = ($key["fch_emision"] != '') ? dateFormat($key["fch_emision"]) : '';
-				$key["fch_activacion"] = ($key["fch_activacion"] != '') ? dateFormat($key["fch_activacion"]) : '';
-				$key["fch_resolucion"] = ($key["fch_resolucion"] != '') ? dateFormat($key["fch_resolucion"]) : '';
-				$key["fch_primer_vencimiento"] = ($key["fch_primer_vencimiento"] != '') ? dateFormat($key["fch_primer_vencimiento"]) : '';
-				$key["fch_termino_carencia"] = ($key["fch_termino_carencia"] != '') ? dateFormat($key["fch_termino_carencia"]) : '';
-				$key["fch_transferencia"] = ($key["fch_transferencia"] != '') ? dateFormat($key["fch_transferencia"]) : '';
-				$key["fch_real_generacion"] = ($key["fch_real_generacion"] != '') ? dateFormat($key["fch_real_generacion"]) : '';
+	    		$key["fch_generacion"] = date_format($key["fch_generacion"], 'd-m-Y');
+				$key["fch_anulacion"] = ($key["fch_anulacion"] != '') ? date_format($key['fch_anulacion'], 'd-m-Y') : '';
+				$key["fch_emision"] = ($key["fch_emision"] != '') ? date_format($key['fch_emision'], 'd-m-Y') : '';
+				$key["fch_activacion"] = ($key["fch_activacion"] != '') ? date_format($key['fch_activacion'], 'd-m-Y') : '';
+				$key["fch_resolucion"] = ($key["fch_resolucion"] != '') ? date_format($key['fch_resolucion'], 'd-m-Y') : '';
+				$key["fch_primer_vencimiento"] = ($key["fch_primer_vencimiento"] != '') ? date_format($key['fch_primer_vencimiento'], 'd-m-Y') : '';
+				$key["fch_termino_carencia"] = ($key["fch_termino_carencia"] != '') ? date_format($key['fch_termino_carencia'], 'd-m-Y') : '';
+				$key["fch_transferencia"] = ($key["fch_transferencia"] != '') ? date_format($key['fch_transferencia'], 'd-m-Y') : '';
+				$key["fch_real_generacion"] = ($key["fch_real_generacion"] != '') ? date_format($key['fch_real_generacion'], 'd-m-Y') : '';
 	    		$datos[] = arrayMapUtf8Encode($key);
 			}
 		return $datos;
@@ -28,6 +28,13 @@ class ModeloModifCtto{
 		$db = new Conexion();
 		$sql = $db->consulta("SELECT $tablaCtto.*, $tablaEnt.dsc_entidad, $tablaTipoSvcio.dsc_tipo_servicio, $tablaTipoSvcio.cod_tipo_servicio,$tablaTipoSvcio.flg_prevencion, $tablaViServ.flg_principal FROM $tablaCtto LEFT JOIN $tablaEnt ON $tablaEnt.cod_entidad = $tablaCtto.cod_convenio INNER JOIN $tablaTipoSvcio ON $tablaTipoSvcio.cod_tipo_servicio = $tablaCtto.cod_tipo_servicio LEFT JOIN $tablaViServ ON ($tablaViServ.cod_contrato = $tablaCtto.cod_contrato AND $tablaViServ.num_servicio = $tablaCtto.num_servicio) WHERE $tablaCtto.cod_contrato LIKE (RIGHT('0000000000'+'$codCtto',10)) AND $tablaCtto.num_servicio = $num_servicio");
 		$datos = arrayMapUtf8Encode($db->recorrer($sql));
+		$datos["fch_primer_vencimiento"] = ($datos["fch_primer_vencimiento"] != '') ? date_format($datos["fch_primer_vencimiento"], 'd-m-Y') : '';
+		$datos["fch_generacion"] = ($datos["fch_generacion"] != '') ? date_format($datos["fch_generacion"], 'd-m-Y') : '';
+		$datos["fch_anulacion"] = ($datos["fch_anulacion"] != '') ? date_format($datos["fch_anulacion"], 'd-m-Y') : '';
+		$datos["fch_emision"]= ($datos["fch_emision"] != '') ? date_format($datos["fch_emision"], 'd-m-Y') : '';
+		$datos["fch_activacion"] = ($datos["fch_activacion"] != '') ? date_format($datos["fch_activacion"], 'd-m-Y') : '';
+		$datos["fch_resolucion"] = ($datos["fch_resolucion"] != '') ? date_format($datos["fch_resolucion"], 'd-m-Y') : '';
+		// $datos['']
 		return $datos;
 		$db->liberar($sql);
         $db->cerrar();
@@ -38,11 +45,11 @@ class ModeloModifCtto{
 		$sql = $db->consulta("SELECT $tablaCttoSvcio.cod_servicio_principal, $tablaCttoSvcio.num_ctd, $tablaCttoSvcio.imp_precio_venta, $tablaCttoSvcio.imp_min_inhumar, $tablaCttoSvcio.imp_subtotal, $tablaCttoSvcio.imp_igv, $tablaCttoSvcio.imp_total,$tablaMaSvcio.dsc_servicio FROM $tablaCttoSvcio INNER JOIN $tablaMaSvcio ON $tablaCttoSvcio.cod_servicio_principal = $tablaMaSvcio.cod_servicio WHERE $tablaCttoSvcio.cod_contrato LIKE (RIGHT('0000000000'+'$codCtto',10)) AND $tablaCttoSvcio.num_servicio = $num_servicio");
 		$datos = array();
     	while($key = $db->recorrer($sql)){
-	    		$key["fch_generacion"] = ($key["fch_generacion"] != '') ? dateFormat($key["fch_generacion"]) : '';
-				$key["fch_anulacion"] = ($key["fch_anulacion"] != '') ? dateFormat($key["fch_anulacion"]) : '';
-				$key["fch_emision"]= ($key["fch_emision"] != '') ? dateFormat($key["fch_emision"]) : '';
-				$key["fch_activacion"] = ($key["fch_activacion"] != '') ? dateFormat($key["fch_activacion"]) : '';
-				$key["fch_resolucion"] = ($key["fch_resolucion"] != '') ? dateFormat($key["fch_resolucion"]) : '';
+	    		$key["fch_generacion"] = ($key["fch_generacion"] != '') ? date_format($key["fch_generacion"], 'd-m-Y') : '';
+				$key["fch_anulacion"] = ($key["fch_anulacion"] != '') ? date_format($key["fch_anulacion"], 'd-m-Y') : '';
+				$key["fch_emision"]= ($key["fch_emision"] != '') ? date_format($key["fch_emision"], 'd-m-Y') : '';
+				$key["fch_activacion"] = ($key["fch_activacion"] != '') ? date_format($key["fch_activacion"], 'd-m-Y') : '';
+				$key["fch_resolucion"] = ($key["fch_resolucion"] != '') ? date_format($key["fch_resolucion"], 'd-m-Y') : '';
 	    		$datos[] = arrayMapUtf8Encode($key);
 			}
 		return $datos;
@@ -55,7 +62,7 @@ class ModeloModifCtto{
 		$sql = $db->consulta("SELECT $tablaDscto.flg_tasa, $tablaMaDcsto.dsc_tipo_descuento, $tablaDscto.flg_libre, $tablaDscto.cod_usuario, $tablaDscto.fch_registro, $tablaDscto.imp_valor, $tablaDscto.imp_dscto FROM $tablaDscto LEFT JOIN $tablaMaDcsto ON $tablaMaDcsto.cod_tipo_descuento = $tablaDscto.cod_tipo_descuento WHERE $tablaDscto.cod_contrato LIKE (RIGHT('0000000000'+'$codCtto',10)) AND $tablaDscto.num_servicio = $num_servicio");
 		$datos = array();
     	while($key = $db->recorrer($sql)){
-    			$key["fch_registro"] = ($key["fch_registro"] != '') ? dateTimeFormat($key["fch_registro"]) : '';
+    			$key["fch_registro"] = ($key["fch_registro"] != '') ? date_format($key["fch_registro"], 'd-m-Y') : '';
 	    		$datos[] = arrayMapUtf8Encode($key);
 			}
 		return $datos;
@@ -68,9 +75,9 @@ class ModeloModifCtto{
 		$sql = $db->consulta("SELECT $tablaMaEnd.dsc_entidad, $tablaEndoso.imp_valor, $tablaEndoso.imp_saldo, $tablaEndoso.imp_total_emitido, $tablaEndoso.cod_usuario, $tablaEndoso.fch_registro, $tablaEndoso.cod_estado, $tablaEndoso.fch_vencimiento, $tablaEndoso.fch_cancelacion FROM $tablaEndoso INNER JOIN $tablaMaEnd ON $tablaMaEnd.cod_entidad = $tablaEndoso.cod_entidad WHERE $tablaEndoso.cod_contrato LIKE (RIGHT('0000000000'+'$codCtto',10)) AND $tablaEndoso.num_servicio = $num_servicio");
 		$datos = array();
     	while($key = $db->recorrer($sql)){
-    			$key["fch_registro"] = ($key["fch_registro"] != '') ? dateTimeFormat($key["fch_registro"]) : '';
-				$key["fch_vencimiento"] = ($key["fch_vencimiento"] != '') ? dateFormat($key["fch_vencimiento"]) : '';
-				$key["fch_cancelacion"] = ($key["fch_cancelacion"] != '') ? dateFormat($key["fch_cancelacion"]) : '';
+    			$key["fch_registro"] = ($key["fch_registro"] != '') ? date_format($key["fch_registro"], 'd-m-Y') : '';
+				$key["fch_vencimiento"] = ($key["fch_vencimiento"] != '') ? date_format($key["fch_vencimiento"], 'd-m-Y') : '';
+				$key["fch_cancelacion"] = ($key["fch_cancelacion"] != '') ? date_format($key["fch_cancelacion"], 'd-m-Y') : '';
 	    		$datos[] = arrayMapUtf8Encode($key);
 			}
 		return $datos;
@@ -82,6 +89,7 @@ class ModeloModifCtto{
 		$db = new Conexion();
 		$sql = $db->consulta("SELECT $tablaCliente.*, $tablaDireccion.*, $tablaPais.dsc_pais, $tablaDpto.dsc_departamento, $tablaProvi.dsc_provincia,$tablaDtto.dsc_distrito, $tablaZona.dsc_tipo_zona FROM $tablaCliente LEFT JOIN $tablaDireccion ON $tablaDireccion.cod_cliente = $tablaCliente.cod_cliente LEFT JOIN $tablaPais ON $tablaPais.cod_pais = $tablaDireccion.cod_pais LEFT JOIN $tablaDpto ON $tablaDpto.cod_departamento = $tablaDireccion.cod_departamento LEFT JOIN $tablaProvi ON $tablaProvi.cod_provincia = $tablaDireccion.cod_provincia LEFT JOIN $tablaDtto ON $tablaDtto.cod_distrito = $tablaDireccion.cod_distrito LEFT JOIN $tablaZona ON $tablaZona.cod_tipo_zona = $tablaDireccion.cod_tipo_zona WHERE $tablaCliente.cod_cliente = '$codCliente'");
 		$datos = arrayMapUtf8Encode($db->recorrer($sql));
+		$datos["fch_nacimiento"] = ($datos["fch_nacimiento"] != '') ? date_format($datos["fch_nacimiento"], 'd-m-Y') : '';
 		return $datos;
 		$db->liberar($sql);
         $db->cerrar();
@@ -92,7 +100,7 @@ class ModeloModifCtto{
 		$sql = $db->consulta("SELECT num_cuota, cod_estadocuota, fch_vencimiento, imp_principal, imp_interes, imp_igv, imp_saldo, imp_total, cod_tipo_cuota FROM $tablaCronograma WHERE cod_contrato LIKE (RIGHT('0000000000'+'$codCtto',10)) AND num_refinanciamiento = $num_refinanciamiento AND num_cuota != 0 AND cod_tipo_cuota != 'FMA' ORDER BY num_cuota ASC");
 		$datos = array();
     	while($key = $db->recorrer($sql)){
-    			$key["fch_vencimiento"] = ($key["fch_vencimiento"] != '') ? dateFormat($key["fch_vencimiento"]) : '';
+    			$key["fch_vencimiento"] = ($key["fch_vencimiento"] != '') ? date_format($key["fch_vencimiento"], 'd-m-Y') : '';
 	    		$datos[] = arrayMapUtf8Encode($key);
 			}
 		return $datos;
@@ -105,7 +113,7 @@ class ModeloModifCtto{
 		$sql = $db->consulta("SELECT num_cuota, cod_estadocuota, fch_vencimiento, imp_saldo, imp_total FROM $tablaCronograma WHERE cod_contrato LIKE (RIGHT('0000000000'+'$codCtto',10)) AND num_refinanciamiento = $num_refinanciamiento AND num_cuota != 0 AND cod_tipo_cuota = 'FMA' ORDER BY num_cuota ASC");
 		$datos = array();
     	while($key = $db->recorrer($sql)){
-    			$key["fch_vencimiento"] = ($key["fch_vencimiento"] != '') ? dateFormat($key["fch_vencimiento"]) : '';
+    			$key["fch_vencimiento"] = ($key["fch_vencimiento"] != '') ? date_format($key["fch_vencimiento"], 'd-m-Y') : '';
 	    		$datos[] = arrayMapUtf8Encode($key);
 			}
 		return $datos;
@@ -118,7 +126,7 @@ class ModeloModifCtto{
 		 $sql = $db->consulta("SELECT $tablaObservacion.num_linea, $tablaObservacion.dsc_observacion, $tablaObservacion.cod_usuario, $tablaObservacion.fch_registro, $tablaObservacion.flg_automatico FROM $tablaObservacion WHERE cod_contrato LIKE (RIGHT('0000000000'+'$codCtto',10)) AND num_servicio = $num_servicio");
 		$datos = array();
     	while($key = $db->recorrer($sql)){
-    			$key["fch_registro"] = ($key["fch_registro"] != '') ? dateTimeFormat($key["fch_registro"]) : '';
+    			$key["fch_registro"] = ($key["fch_registro"] != '') ? date_format($key["fch_registro"], 'd-m-Y') : '';
 	    		$datos[] = arrayMapUtf8Encode($key);
 			}
 		return $datos;
@@ -227,6 +235,9 @@ class ModeloModifCtto{
 		$sql = $db->consulta("SELECT * FROM $tablaBen WHERE (cod_contrato LIKE (RIGHT('0000000000'+'".$datos['codCtto']."',10)) AND cod_localidad = ".$datos['localidad'].")");
 		$datos = array();
     	while($key = $db->recorrer($sql)){
+    			$key["fch_nacimiento"] = ($key["fch_nacimiento"] != '') ? date_format($key["fch_nacimiento"], 'd-m-Y') : '';
+    			$key["fch_entierro"] = ($key["fch_entierro"] != '') ? date_format($key["fch_entierro"], 'd-m-Y') : '';
+    			$key["fch_deceso"] = ($key["fch_deceso"] != '') ? date_format($key["fch_deceso"], 'd-m-Y') : '';
 	    		$datos[] = arrayMapUtf8Encode($key);
 			}
 		return $datos;
@@ -254,7 +265,7 @@ class ModeloModifCtto{
 
 	static public function mdlBuscaCtdBenef($tabla,$localidad,$codCtto,$tipoCtto,$tipoProg){
 		$db = new Conexion();
-		$sql = $db->consulta("SELECT * FROM $tabla WHERE cod_localidad = '$localidad' AND cod_tipo_ctt = '$tipoCtto' AND cod_tipo_programa = '$tipoProg' AND cod_contrato LIKE (RIGHT('0000000000'+'".$codCtto."',10))");
+		$sql = $db->consulta("SELECT num_item FROM $tabla WHERE cod_localidad = '$localidad' AND cod_tipo_ctt = '$tipoCtto' AND cod_tipo_programa = '$tipoProg' AND cod_contrato LIKE (RIGHT('0000000000'+'".$codCtto."',10))");
 		$datos = array();
     	while($key = $db->recorrer($sql)){
 	    		$datos[] = arrayMapUtf8Encode($key);

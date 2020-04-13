@@ -4,6 +4,10 @@ $("#fechVPS").datepicker({
   orientation:"bottom"
 });//datepicker
 
+function decode_utf8(s) {
+  return decodeURIComponent(escape(s));
+}
+
 function mostrarSidebar(autorizacion,usoServicio){
 	var localidad = $("#localidadVPS").val();
 	$.ajax({
@@ -15,26 +19,26 @@ function mostrarSidebar(autorizacion,usoServicio){
         	// console.log(respuesta);
         	var combo = document.getElementById("localidadVPS");
 			var selected = combo.options[combo.selectedIndex].text;
-			$("#dsc_autorizacionVPS").val(respuesta[0]['dsc_tipo_autorizacion']);
+			$("#dsc_autorizacionVPS").val(decode_utf8(respuesta[0]['dsc_tipo_autorizacion']));
 			$("#localidadCttoVPS").val(selected);
 			$("#localidadBenefVPS").val(selected);
 			$("#numUsoServicioVPS").val(respuesta[0]['num_uso_servicio']);
 			document.getElementById("numCttSideBarVPS").innerText = respuesta[0]['cod_contrato'];
 			document.getElementById("codSerSideBarVPS").innerText = (respuesta[0]['num_servicio']);
-			$("#plataformaVPS").val(respuesta[0]['dsc_plataforma']);
+			$("#plataformaVPS").val(decode_utf8(respuesta[0]['dsc_plataforma']));
 			$("#numCttoSideVPS").val(respuesta[0]['cod_contrato']);
 			$("#numServSideVPS").val(respuesta[0]['num_servicio']);
-			$("#areaVPS").val(respuesta[0]['dsc_area']);
+			$("#areaVPS").val(decode_utf8(respuesta[0]['dsc_area']));
 			$("#ejeXVPS").val(respuesta[0]['cod_eje_horizontal_esp']);
 			$("#ejeYVPS").val(respuesta[0]['cod_eje_vertical_esp']);
 			$("#espacioVPS").val(respuesta[0]['cod_espacio']);
-			$("#dscServicioVPS").val(respuesta[0]['dsc_servicio']);
+			$("#dscServicioVPS").val(decode_utf8(respuesta[0]['dsc_servicio']));
 			$("#tipoNecVPS").val(respuesta[0]['cod_tipo_necesidad']);
-			$("#dscFallecidoVPS").val(respuesta[0]['dsc_nombres']);
+			$("#dscFallecidoVPS").val(decode_utf8(respuesta[0]['dsc_nombres']));
 			$("#fchDescesoVPS").val(respuesta[0]['fch_deceso']);
 			$("#fchServicioVPS").val(respuesta[0]['fch_servicio']);
-			$("#sacerdoteVPS").val(respuesta[0]['dsc_sacerdote']);
-			$("#titularVPS").val(respuesta[0]['dsc_titular']);
+			$("#sacerdoteVPS").val(decode_utf8(respuesta[0]['dsc_sacerdote']));
+			$("#titularVPS").val(decode_utf8(respuesta[0]['dsc_titular']));
 			enlace = 'seguimientoContrato?localidad='+respuesta[0]['cod_localidad']+'&contrato='+respuesta[0]['cod_contrato'];
 			$("#btnVerCtto").attr("href",enlace);
         }//success
@@ -80,7 +84,7 @@ $("#fechVPS").on("change", function(){
 								'<div class="col-md-2">'+hora+'</div>'+
 								'<div class="col-md-2">'+value['dsc_prefijo']+'</div>'+
 								'<div class="col-md-2">'+edo+'</div>'+
-								'<div class="col-md-6">'+value['dsc_nombres']+'</div>'+
+								'<div class="col-md-6">'+decode_utf8(value['dsc_nombres'])+'</div>'+
 							'</div>'+
                         '</a>'+
                     '</li>'
@@ -104,58 +108,68 @@ function ejecutaTabla(fecha){
         dataType: 'json',
         data: {'fecha' : fecha, 'localidad' : localidad, 'entrada':'storeTabla'},
         success : function(respuesta){
-        	$.each(respuesta,function(index,value){
-        		aux_nombre = value[2].split(' ');
-        		if(aux_nombre.length > 1){
-        			dsc_nombre = value[2];
-        		}else{
-        			dsc_nombre = '';
-        		}
-        		aux = value['fch_fecha'].split(' ')[1];
-        		hora = aux.split(':')[0];
-        		var li_find = cronograma.rows.item('#fila_'+hora).cells;
-        		if(hora == '07'){
-        			li_i = 0;
-        		}else if(hora == '08'){
-        			li_i = 1;
-        		}else if(hora == '09'){
-        			li_i = 2;
-        		}else if(hora == '10'){
-        			li_i = 3;
-        		}else if(hora == '11'){
-        			li_i = 4;
-        		}else if(hora == '12'){
-        			li_i = 5;
-        		}else if(hora == '13'){
-        			li_i = 6;
-        		}else if(hora == '14'){
-        			li_i = 7;
-        		}else if(hora == '15'){
-        			li_i = 8;
-        		}else if(hora == '16'){
-        			li_i = 9;
-        		}else if(hora == '17'){
-        			li_i = 10;
-        		}else if(hora == '18'){
-        			li_i = 11;
-        		}
-        		var li_find = cronograma.rows.item(li_i).cells;
-        		tipo = value['dsc_prefijo'];
-        		if(tipo == 'FU'){
-        			li_find.item(1).innerHTML = dsc_nombre;
-        		}else if(tipo == 'IN'){
-        			li_find.item(2).innerHTML = dsc_nombre;
-        		}else if(tipo == 'ME'){
-        			li_find.item(3).innerHTML = dsc_nombre;
-        		}else if(tipo == 'MI'){
-        			li_find.item(4).innerHTML = dsc_nombre;
-        		}else if(tipo == 'TI'){
-        			li_find.item(5).innerHTML = dsc_nombre;
-        		}else if(tipo == 'TE'){
-        			li_find.item(6).innerHTML = dsc_nombre;
-        		}
-
-        	});//each
+        	console.log(respuesta.length);
+        	if(respuesta.length > 0){
+	        	$.each(respuesta,function(index,value){
+	        		aux_nombre = value[''].split(' ');
+	        		if(aux_nombre.length > 1){
+	        			dsc_nombre = value[''];
+	        		}else{
+	        			dsc_nombre = '';
+	        		}
+	        		aux = value['fch_fecha'].split(' ')[1];
+	        		hora = aux.split(':')[0];
+	        		var li_find = cronograma.rows.item('#fila_'+hora).cells;
+	        		if(hora == '07'){
+	        			li_i = 0;
+	        		}else if(hora == '08'){
+	        			li_i = 1;
+	        		}else if(hora == '09'){
+	        			li_i = 2;
+	        		}else if(hora == '10'){
+	        			li_i = 3;
+	        		}else if(hora == '11'){
+	        			li_i = 4;
+	        		}else if(hora == '12'){
+	        			li_i = 5;
+	        		}else if(hora == '13'){
+	        			li_i = 6;
+	        		}else if(hora == '14'){
+	        			li_i = 7;
+	        		}else if(hora == '15'){
+	        			li_i = 8;
+	        		}else if(hora == '16'){
+	        			li_i = 9;
+	        		}else if(hora == '17'){
+	        			li_i = 10;
+	        		}else if(hora == '18'){
+	        			li_i = 11;
+	        		}
+	        		var li_find = cronograma.rows.item(li_i).cells;
+	        		tipo = value['dsc_prefijo'];
+	        		if(tipo == 'FU'){
+	        			li_find.item(1).innerHTML = dsc_nombre;
+	        		}else if(tipo == 'IN'){
+	        			li_find.item(2).innerHTML = dsc_nombre;
+	        		}else if(tipo == 'ME'){
+	        			li_find.item(3).innerHTML = dsc_nombre;
+	        		}else if(tipo == 'MI'){
+	        			li_find.item(4).innerHTML = dsc_nombre;
+	        		}else if(tipo == 'TI'){
+	        			li_find.item(5).innerHTML = dsc_nombre;
+	        		}else if(tipo == 'TE'){
+	        			li_find.item(6).innerHTML = dsc_nombre;
+	        		}
+	        	});//each
+        	}//respuesta != ''
+        	else{
+        		swal({
+		            title: "Error",
+		            text: "No existen registros para la fecha seleccionada.",
+		            type: "error",
+		            confirmButtonText: "Aceptar",
+		          });
+        	}
         }//success
     });//ajax
 }
@@ -170,6 +184,6 @@ function fechaParaConsulta(dato){
         aux_mes = '12';
         aux_anio = fecha.getFullYear()-1;
     }               
-    var fechaConsulta = aux_mes+'/'+aux_dia+'/'+aux_anio;
+    var fechaConsulta = '0'+aux_mes+'-0'+aux_dia+'-'+aux_anio;
     return fechaConsulta;
 }

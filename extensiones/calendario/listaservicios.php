@@ -2,6 +2,7 @@
 @session_start();
 require_once "../../core.php";
 require_once "../../modelo/conexion.php";
+require_once "../../funciones.php";
 
 $db = new Conexion();
 
@@ -9,17 +10,15 @@ $db = new Conexion();
 
 	$sql = $db->consulta('SELECT distinct TOP (800) vtaca_autorizacion.fch_servicio, vtaca_autorizacion.dsc_beneficiario_lapida, vtaca_autorizacion.dsc_nombres, vtaca_autorizacion.dsc_apellido_paterno,vtaca_autorizacion.dsc_apellido_materno, vtaca_autorizacion.cod_tipo_documento, vtaca_autorizacion.dsc_documento, vtaca_autorizacion.cod_plataforma_esp, vtaca_autorizacion.cod_eje_horizontal_esp, vtaca_autorizacion.cod_eje_vertical_esp, vtaca_autorizacion.cod_espacio, vtaca_autorizacion.num_nivel, vtaca_autorizacion.cod_contrato , vtama_tipo_autorizacion.dsc_tipo_autorizacion, vtama_tipo_autorizacion.num_color, vtama_tipo_autorizacion.dsc_prefijo, vtaca_autorizacion.dsc_sacerdote, vtaca_autorizacion.dsc_cantante, vtaca_autorizacion.dsc_motivo_conmemoracion, vtama_plataforma.dsc_plataforma, vtama_area_plataforma.dsc_area FROM vtaca_autorizacion INNER JOIN vtama_tipo_autorizacion ON vtaca_autorizacion.cod_tipo_autorizacion = vtama_tipo_autorizacion.cod_tipo_autorizacion LEFT JOIN vtama_plataforma ON vtama_plataforma.cod_plataforma = vtaca_autorizacion.cod_plataforma_esp LEFT JOIN vtama_area_plataforma ON vtama_area_plataforma.cod_area_plataforma = vtaca_autorizacion.cod_area_esp ORDER BY vtaca_autorizacion.fch_servicio desc');
 
-  echo 'SELECT distinct TOP (800) vtaca_autorizacion.fch_servicio, vtaca_autorizacion.dsc_beneficiario_lapida, vtaca_autorizacion.dsc_nombres, vtaca_autorizacion.dsc_apellido_paterno,vtaca_autorizacion.dsc_apellido_materno, vtaca_autorizacion.cod_tipo_documento, vtaca_autorizacion.dsc_documento, vtaca_autorizacion.cod_plataforma_esp, vtaca_autorizacion.cod_eje_horizontal_esp, vtaca_autorizacion.cod_eje_vertical_esp, vtaca_autorizacion.cod_espacio, vtaca_autorizacion.num_nivel, vtaca_autorizacion.cod_contrato , vtama_tipo_autorizacion.dsc_tipo_autorizacion, vtama_tipo_autorizacion.num_color, vtama_tipo_autorizacion.dsc_prefijo, vtaca_autorizacion.dsc_sacerdote, vtaca_autorizacion.dsc_cantante, vtaca_autorizacion.dsc_motivo_conmemoracion, vtama_plataforma.dsc_plataforma, vtama_area_plataforma.dsc_area FROM vtaca_autorizacion INNER JOIN vtama_tipo_autorizacion ON vtaca_autorizacion.cod_tipo_autorizacion = vtama_tipo_autorizacion.cod_tipo_autorizacion LEFT JOIN vtama_plataforma ON vtama_plataforma.cod_plataforma = vtaca_autorizacion.cod_plataforma_esp LEFT JOIN vtama_area_plataforma ON vtama_area_plataforma.cod_area_plataforma = vtaca_autorizacion.cod_area_esp ORDER BY vtaca_autorizacion.fch_servicio desc';
-
   $eventos = array(); 
 	$datos = array();
 	while($key = $db->recorrer($sql)){
             $datos[] =  $key;
 
-            $date = date('Y-m-d H:i:s',strtotime($key['fch_servicio']));//->format('Y-m-d H:i:s');
-            $fecha = date('d-m-Y', strtotime($key['fch_servicio']));//->format('d-m-Y');
-            $hora = date('H:i', strtotime($key['fch_servicio']));//->format('H:i');
-            
+            $date = date_format($key['fch_servicio'], 'Y-m-d H:i:s');
+            $fecha = date_format($key['fch_servicio'], 'd-m-Y');
+            $hora =date_format($key['fch_servicio'], 'H:i');
+
             //--------------------tipo de documento----------------------------//
 
             if($key['cod_tipo_documento'] == 'DI001'){
@@ -161,7 +160,7 @@ $db = new Conexion();
               
             }
             $description = utf8_encode($description);
-            $color = '#'.$key['num_color'];
+            $color = $key['num_color'];
             //---------------------------arreglo para event fullcalendar-----------------//
 
              $eventos[] = array('id' => '', 'title' => $titulo1, 'titulo2' => $titulo2, 'description' => $description , 'start' => $date, 'allDay' => false, 'color' => $color, 'textColor' => '#f8f9fa');

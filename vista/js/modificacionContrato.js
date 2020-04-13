@@ -497,7 +497,8 @@ function cantidadBeneficiario(codCtto,tipoCtto,tipoProg){
         method: "POST",
         data: { 'accion' : 'ctdBenef', 'codCtto' : codCtto, 'ls_tipo_ctt' : tipoCtto, 'ls_tipo_programa' : tipoProg },
         success : function(respuesta){
-            $("#numBeneficiarios").val(respuesta);
+            valor = respuesta.length;
+            $("#numBeneficiarios").val(valor);
         }//success
     });//ajax
 }// cantidadBeneficiario
