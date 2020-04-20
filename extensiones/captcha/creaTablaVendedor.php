@@ -65,6 +65,8 @@ require_once "../../modelo/conexion.php";
            $funcion = 'llamaDatosVendedor('.$cod.','."'cobrador'".')';
         }elseif ($tipobtn == "generaComprobante" || $tipobtn == 'registro'){
             $funcion = "cambiaCodigo(".$cod.");";
+        }elseif ($tipobtn == "bloqueo"){
+            $funcion = 'nombreTrabajador('.$cod.','."'dscSolicitanteBloqEsp'".')';
         }
        echo 
        '<tr>

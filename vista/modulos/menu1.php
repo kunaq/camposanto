@@ -225,56 +225,65 @@
 							</span>
 						</li>
 						<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  m-menu-submenu-toggle="hover" m-menu-link-redirect="1">
-									<a  href="javascript:;" class="m-menu__link m-menu__toggle">
-										<i class="m-menu__link-bullet m-menu__link-bullet--dot">
-											<span></span>
-										</i>
-										<span class="m-menu__link-text">
-											Espacios
-										</span>
-										<i class="m-menu__ver-arrow la la-angle-right"></i>
-									</a>
-									<div class="m-menu__submenu ">
-										<span class="m-menu__arrow" style="color:#DF0101;"></span>
-										<ul class="m-menu__subnav" style="background:#DF0101;">
-											<li class="m-menu__item " aria-haspopup="true"  m-menu-link-redirect="1">
-												<a  href="creaEspacio" class="m-menu__link ">
-													<span class="m-menu__link-title">
-														<span class="m-menu__link-wrap">
-															<span class="m-menu__link-text">
-																Creación de espacio
-															</span>
-														</span>
+							<a  href="javascript:;" class="m-menu__link m-menu__toggle">
+								<i class="m-menu__link-bullet m-menu__link-bullet--dot">
+									<span></span>
+								</i>
+								<span class="m-menu__link-text">
+									Espacios
+								</span>
+								<i class="m-menu__ver-arrow la la-angle-right"></i>
+							</a>
+							<div class="m-menu__submenu ">
+								<span class="m-menu__arrow"></span>
+								<ul class="m-menu__subnav">
+									<li class="m-menu__item " aria-haspopup="true"  m-menu-link-redirect="1">
+										<a  href="creaEspacio" class="m-menu__link ">
+											<span class="m-menu__link-title">
+												<span class="m-menu__link-wrap">
+													<i class="m-menu__link-bullet m-menu__link-bullet--dot" style="padding-right: 1rem;">
+														<span></span>
+													</i>
+													<span class="m-menu__link-text">
+														Creación de espacio
 													</span>
-												</a>
-											</li>
-											<li class="m-menu__item " aria-haspopup="true"  m-menu-link-redirect="1">
-												<a  href="mttoEspacio" class="m-menu__link ">
-													<span class="m-menu__link-title">
-														<span class="m-menu__link-wrap">
-															<span class="m-menu__link-text">
-																Mantenimiento de espacio
-															</span>
-															<span class="m-menu__link-badge"></span>
-														</span>
+												</span>
+											</span>
+										</a>
+									</li>
+									<li class="m-menu__item " aria-haspopup="true"  m-menu-link-redirect="1">
+										<a  href="mttoEspacio" class="m-menu__link ">
+											<span class="m-menu__link-title">
+												<span class="m-menu__link-wrap">
+													<i class="m-menu__link-bullet m-menu__link-bullet--dot" style="padding-right: 1rem;">
+														<span></span>
+													</i>
+													<span class="m-menu__link-text">
+														Mantenimiento de espacio
 													</span>
-												</a>
-											</li>
-											<li class="m-menu__item " aria-haspopup="true"  m-menu-link-redirect="1">
-												<a  href="bloqueoEspacio" class="m-menu__link ">
-													<span class="m-menu__link-title">
-														<span class="m-menu__link-wrap">
-															<span class="m-menu__link-text">
-																Bloqueo de espacio
-															</span>
-															<span class="m-menu__link-badge"></span>
-														</span>
+													<span class="m-menu__link-badge"></span>
+												</span>
+											</span>
+										</a>
+									</li>
+									<li class="m-menu__item " aria-haspopup="true"  m-menu-link-redirect="1">
+										<a  href="bloqueoEspacio" class="m-menu__link ">
+											<span class="m-menu__link-title">
+												<span class="m-menu__link-wrap">
+													<i class="m-menu__link-bullet m-menu__link-bullet--dot" style="padding-right: 1rem;">
+														<span></span>
+													</i>
+													<span class="m-menu__link-text">
+														Bloqueo de espacio
 													</span>
-												</a>
-											</li>
-										</ul>
-									</div>
-								</li>
+													<span class="m-menu__link-badge"></span>
+												</span>
+											</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</li>
 						<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  m-menu-submenu-toggle="hover">
 							<a  href="mapaEspacios" class="m-menu__link m-menu__toggle">
 								<i class="m-menu__link-bullet m-menu__link-bullet--dot">

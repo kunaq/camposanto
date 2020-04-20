@@ -87,7 +87,10 @@ $_SESSION['captcha'] = simple_php_captcha();
 		        			$_GET["ruta"] == 'led' ||
 		        			$_GET["ruta"] == 'visorPrestacionServicio' ||
 		        			$_GET["ruta"] == 'clientes' ||
-		        			$_GET["ruta"] == 'listadoClientes'){
+		        			$_GET["ruta"] == 'listadoClientes' ||
+		        			$_GET["ruta"] == 'bloqueoEspacio' ||
+		        			$_GET["ruta"] == 'creaEspacio' ||
+		        			$_GET["ruta"] == 'mttoEspacio'){
 
 		           		   	include "modulos/".$_GET["ruta"].".php";
 
@@ -179,7 +182,10 @@ $_SESSION['captcha'] = simple_php_captcha();
         		$_GET["ruta"] == 'led' ||
         		$_GET["ruta"] == 'visorPrestacionServicio' ||
         		$_GET["ruta"] == 'clientes' ||
-        		$_GET["ruta"] == 'listadoClientes'){  
+        		$_GET["ruta"] == 'listadoClientes' ||
+        		$_GET["ruta"] == 'bloqueoEspacio' ||
+    			$_GET["ruta"] == 'creaEspacio' ||
+    			$_GET["ruta"] == 'mttoEspacio'){  
                 echo '<script type="text/javascript" src="vista/js/'.$_GET["ruta"].'.js"></script>';
             }
         }

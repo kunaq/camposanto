@@ -51,6 +51,7 @@ class ModeloEmpresa{
  
                 $datos = array();
 
+                echo '<option value="">Seleccione...</option>';
                 while($key = $db->recorrer($sql)){
                     $datos[] =  $key;
                     echo '<option value="'.$key[$item1].'">'.utf8_encode($key[$item2]).'</option>';
@@ -474,7 +475,7 @@ class ModeloEmpresa{
         $datos = array();
 
         while($key = $db->recorrer($sql)){
-            echo '<option value="'.$key['cod_tipo_plataforma'].'">'.$key['dsc_tipo_plataforma'].'</option>';
+            echo '<option value="'.$key['cod_tipo_plataforma'].'">'.utf8_encode($key['dsc_tipo_plataforma']).'</option>';
         }
 
         $db->liberar($sql);
