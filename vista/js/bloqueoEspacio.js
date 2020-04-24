@@ -261,8 +261,8 @@ $("#espacioBloqEsp").on('change', function(){
 					        data: { 'value' : value['cod_tipo_bloqueo'], 'entrada' : 'dscBloqueo' },
 					        success : function(dscBloq){
 					        	dscBloqueo = dscBloq;
-						        fila = '<tr class="listaServicio inactivo" id="'+value['num_linea']+'" data-placement="top" data-toggle="m-tooltip" data-container="body" data-original-title="'+value['dsc_observacion']+'">'+
-			    					'<td class="text-center">'+value['fch_evento']+'</td>'+
+						        fila = '<tr class="listaServicio inactivo" id="'+value['num_linea']+'">'+
+			    					'<td class="text-center"><a class="btn btn-metal m-btn m-btn--icon btn-sm m-btn--icon-only  m-btn--pill" data-placement="top" data-toggle="m-tooltip" data-container="body" data-original-title="'+value['dsc_observacion']+'"><i class="fa fa-question"></i></a>'+value['fch_evento']+'</td>'+
 			    					'<td class="text-left">'+dscBloqueo+'</td>'+
 			    					'<td class="text-center">'+value['cod_usuario']+'</td>'+
 			    					'<td class="text-center">'+solicitante+'</td>'+
@@ -646,6 +646,21 @@ function ejecutaBloqueo(ls_camposanto,ls_plataforma,ls_area,ls_eje_horizontal,ls
         data: { 'ls_camposanto' : ls_camposanto, 'ls_plataforma' : ls_plataforma, 'ls_area' : ls_area, 'ls_eje_horizontal' : ls_eje_horizontal, 'ls_eje_vertical' : ls_eje_vertical, 'ls_espacio' : ls_espacio, 'ls_tipo_bloqueo' : ls_tipo_bloqueo, 'ls_solicitante' : ls_solicitante, 'ls_bloqueo' : ls_bloqueo, 'ls_desbloqueo' : ls_desbloqueo, 'ls_dsc_observacion' : ls_dsc_observacion, 'ls_tipo_espacio' : ls_tipo_espacio, 'entrada' : 'ejecutaBloqueo' },
         success : function(respuesta){
         	console.log('respuesta',respuesta);
+
+			if (ls_desbloqueo == 'SI') {
+				mensaje = "se ha DESBLOQUEANDO el espacio con exito.";
+			}else{
+				mensaje = "se ha BLOQUEANDO el espacio con exito.";
+			}
+        	if(respuesta == 1){
+        		swal({
+		            title: "",
+		            text: mensaje,
+		            type: "success",
+		            confirmButtonText: "Aceptar",
+		            onBeforeOpen: window.location.assign('bloqueoEspacio')
+		        })
+        	}
 
         }//success
     });//ajax flg_bloqueo_resolucion

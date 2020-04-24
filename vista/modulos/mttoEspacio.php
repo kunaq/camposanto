@@ -6,17 +6,17 @@
 		<div class="sidebar-wrapper stickButtons" id="container-button">
 			<ul>
 				<li style="list-style: none;">
-					<a href="#container" class="btn btn-metal m-btn--square m-btn m-btn--icon btn-lg m-btn--icon-only" style="border-top-left-radius: .25rem !important;" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Buscar" id="new-button" onclick="resetForm();">
+					<a href="#container" class="btn btn-metal m-btn--square m-btn m-btn--icon btn-lg m-btn--icon-only" style="border-top-left-radius: .25rem !important;" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Buscar" id="btnBuscarMttoEsp">
 						<i class="fa fa-search"></i>
 					</a>
 				</li>
 				<li style="list-style: none;">
-					<a href="#container" class="btn btnGuardarKqPst m-btn--square m-btn m-btn--icon btn-lg m-btn--icon-only" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Guardar cambios" onclick="ValidaModificaCtto();" id="save-button">
+					<a href="#container" class="btn btnGuardarKqPst m-btn--square m-btn m-btn--icon btn-lg m-btn--icon-only" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Guardar cambios" onclick="ValidaModificaCtto();" id="btnGuardaMttoEsp">
 						<i class="fa fa-save"></i>
 					</a>
 				</li>
 				<li style="list-style: none;" >
-					<a href="#container" class="btn btnEditarKqPst2 m-btn--square m-btn m-btn--icon btn-lg m-btn--icon-only" style="border-bottom-left-radius: .25rem !important;" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Nueva busqueda" id="anularBoton" onclick="anularCtto(this.name);">
+					<a href="#container" class="btn btnEditarKqPst2 m-btn--square m-btn m-btn--icon btn-lg m-btn--icon-only" style="border-bottom-left-radius: .25rem !important;" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Nueva busqueda" id="btnReseMttoEsp" >
 						<i class="fa fa-refresh"></i>
 					</a>
 				</li>
@@ -68,13 +68,13 @@
 					<div class="row form-group">
 						<div class="col-lg-6">
 							<label>Plataforma: </label>
-							<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="plataformaCreaEsp" id="plataformaCreaEsp"  onchange="buscaArea(this.value);">
+							<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="plataformaMttoEsp" id="plataformaMttoEsp"  onchange="buscaArea(this.value);">
 								<option disabled value="">Plataforma</option>
 							</select>
 						</div>
 						<div class="col-lg-6">
 							<label>Área: </label>
-							<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="areaCreaEsp" id="areaCreaEsp" >
+							<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="areaMttoEsp" id="areaMttoEsp" >
 								<option value="">Área</option>
 							</select>			
 						</div>
@@ -82,20 +82,19 @@
 					<div class="row form-group">
 						<div class="col-lg-4">
 							<label>Eje Horiz (X):</label>
-							<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="ejex" id="ejex" disabled="disabled" onchange="buscaEjey(this.value);">
+							<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="ejexMttoEsp" id="ejexMttoEsp" disabled="disabled" onchange="buscaEjey(this.value);">
 								<option disabled value="">Eje Hor.</option>
 							</select>
 						</div>
 						<div class="col-lg-4">
 							<label>Eje Vert (Y):</label>
-							<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="ejex" id="ejex" disabled="disabled" onchange="buscaEjey(this.value);">
+							<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="ejexMttoEsp" id="ejexMttoEsp" disabled="disabled" onchange="buscaEjey(this.value);">
 								<option disabled value="">Eje Hor.</option>
 							</select>
 						</div>
 						<div class="col-lg-4">
 							<label>Espacio:</label>
-							<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="ejex" id="ejex" disabled="disabled" onchange="buscaEjey(this.value);">
-								<option disabled value="">Eje Hor.</option>
+							<select class="form-control form-control-sm m-input" name="espacioMttoEsp" id="espacioMttoEsp">
 							</select>
 						</div>
 					</div>
