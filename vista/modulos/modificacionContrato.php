@@ -7,7 +7,7 @@
 			<ul>
 				<li style="list-style: none;">
 					<a href="#container" class="btn btn-metal m-btn--square m-btn m-btn--icon btn-lg m-btn--icon-only" style="border-top-left-radius: .25rem !important;" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Nueva busqueda" id="new-button" onclick="resetForm();">
-						<i class="fa fa-search"></i>
+						<i class="fa fa-sticky-note"></i>
 					</a>
 				</li>
 				<li style="list-style: none;">
@@ -1506,7 +1506,7 @@
 						</div>
 						<div class="tab-pane" id="m_tabs_2_7" role="tabpanel">
 							<div class="row form-group m-form__group">
-								<div class="col-lg-3">
+								<div class="col-lg-3" style="padding-right: 0;">
 									<fieldset class="fieldFormHorizontal">
 										<legend>Cuotas Iniciales</legend>
 										<div class="col-lg-12">
@@ -1563,7 +1563,7 @@
 										</div>
 									</fieldset>
 								</div>
-								<div class="col-lg-3">
+								<div class="col-lg-3" style="padding-right: 0;">
 									<fieldset class="fieldFormHorizontal">
 										<legend>Cronograma</legend>
 										<div class="col-lg-12">
@@ -1572,7 +1572,7 @@
 													<label>Saldo a financiar: </label>
 													<input type="text" class="form-control form-control-sm m-input" placeholder="00.00" id="saldoFinCronograma" name="saldoFinCronograma">
 												</div>
-												<div class="col-lg-6">
+												<div class="col-lg-6" style="padding-left: 0;">
 													<label> N° de cuotas:</label>
 													<select  data-tags="true" class="form-control form-control-sm m-select2 m-select2-general" name="numCuoCronograma" id="numCuoCronograma" style="width: 100%">
 														<option>
@@ -1600,7 +1600,7 @@
 														</div>
 													</div>
 												</div>
-												<div class="col-lg-6">
+												<div class="col-lg-6" style="padding-left: 0;">
 													<label>Interes:</label>
 													<select class="form-control form-control-sm m-select2 m-select2-general" id="interesCronograma" name="interesCronograma" style="width: 100%">
 														<option>
@@ -1626,7 +1626,7 @@
 										</div>
 									</fieldset>
 								</div>
-								<div class="col-lg-3">
+								<div class="col-lg-3" style="padding-right: 0;">
 									<fieldset class="fieldFormHorizontal">
 										<legend>&nbsp;</legend>
 										<legend class="sidecheck" style="right: auto">
@@ -1644,7 +1644,7 @@
 												</div>
 											</div>
 										</legend>
-										<div class="col-lg-12 mt25">
+										<div class="col-lg-12">
 											<div class="row form-group">	
 												<div class="col-lg-6">
 													<label>Cuota inicial: </label>
@@ -1660,8 +1660,10 @@
 													<label>Valor de cuota: </label>
 													<input type="text" id="valCuo" class="form-control form-control-sm m-input" disabled="" placeholder="0.00">			
 												</div>
+											</div>
+											<div class="row form-group">
 												<div class="col-lg-6">
-													<button type="button" id="btnCuoDef" onclick="CuoDefinidas();" disabled class="btn btn-sm btnEditarKqPst2 mt25">
+													<button type="button" id="btnCuoDef" onclick="CuoDefinidas();" disabled class="btn btn-sm btnEditarKqPst2">
 														Generar cuotas
 													</button>
 												</div>
@@ -1670,7 +1672,7 @@
 									</fieldset>
 								</div>
 								<div class="col-lg-3">
-									<fieldset class="fieldFormHorizontal">
+									<fieldset class="fieldFormHorizontal" style="height: 15.8rem;">
 										<legend>Conformación de saldo</legend>
 											<div class="col-lg-12">
 												<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="160">

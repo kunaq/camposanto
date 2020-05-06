@@ -44,7 +44,7 @@
 								</fieldset>
 							</div>
 							<div class="col-lg-12">
-								<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="490" style="border: 1px solid #e4e1e1;">
+								<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="560" style="border: 1px solid #e4e1e1;">
 									<ul class="nav nav-tabs nav-tabs-simple nav-tabs-left bg-white ulListaKqPst ulListaVerTrabArbVen col-sm-2 col-md-12" id="listaTrabArbVen" style="border-radius: 3px;margin-bottom: 0; padding-right: 0; overflow-x:hidden; height: auto;">
 										<li class="spanTextoActiveKq liListaKqPstTitulo">
 											<div class="row">
@@ -196,6 +196,30 @@
 														</div>
 														<div class="col-lg-8">
 															<input type="text" disabled class="form-control form-control-sm m-input" name="dscJefeVentaArbVen" id="dscJefeVentaArbVen">
+														</div>
+													</div>
+													<div class="form-group row">
+														<div class="col-lg-3" style="padding-right: 0;">
+															<label>Supervisor</label>
+														</div>
+														<div class="col-lg-3">
+															<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--yellow">
+																<label>
+																	<input type="checkbox" disabled name="supCheckGral" id="supCheckGral">
+																	<span></span>
+																</label>
+															</span>
+														</div>
+														<div class="col-lg-3" style="padding-right: 0;">
+															<label>Jefe de Ventas</label>
+														</div>
+														<div class="col-lg-3">
+															<span class="m-switch m-switch--sm m-switch--outline m-switch--icon m-switch--yellow">
+																<label>
+																	<input type="checkbox" disabled name="jefeCheckGral" id="jefeCheckGral">
+																	<span></span>
+																</label>
+															</span>
 														</div>
 													</div>
 												</div>

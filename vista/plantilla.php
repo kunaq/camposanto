@@ -161,7 +161,7 @@ $_SESSION['captcha'] = simple_php_captcha();
     	<script src="vista/assets/demo/demo3/base/typeahead.js" type="text/javascript"></script>
     	<script src="vista/js/login.js" type="text/javascript"></script>
     	<script src="vista/js/lafuncion.js" type="text/javascript"></script>
-    	<script src="vista/js/cronoModif.js" type="text/javascript"></script>
+    	<!-- <script src="vista/js/cronoModif.js" type="text/javascript"></script> -->
     	<?php
         if(isset($_GET["ruta"])){
             if($_GET["ruta"] == 'wizard' ||
@@ -187,6 +187,7 @@ $_SESSION['captcha'] = simple_php_captcha();
     			$_GET["ruta"] == 'creaEspacio' ||
     			$_GET["ruta"] == 'mttoEspacio'){  
                 echo '<script type="text/javascript" src="vista/js/'.$_GET["ruta"].'.js"></script>';
+                if($_GET["ruta"] == 'modificacionContrato'){echo '<script type="text/javascript" src="vista/js/cronoModif.js"></script>';}
             }
         }
         ?>

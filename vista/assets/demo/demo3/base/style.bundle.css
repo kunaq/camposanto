@@ -51862,6 +51862,7 @@ th{
 #bodyVisorVPS td{
     width: 10rem;
     border: 1px solid #f4f5f8 !important;
+    border-right: 1px solid #ddd !important;
 }
 #bodyVisorVPS th{
     width: 5rem;

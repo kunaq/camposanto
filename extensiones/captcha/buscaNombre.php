@@ -12,7 +12,7 @@ require_once "../../funciones.php";
 
 		while($key = $db->recorrer($sql)){
             $datos[] =  $key;
-            $respuesta = utf8_encode($key['dsc_nombres']).' '.utf8_encode($key['dsc_apellido_paterno']).' '.utf8_encode($key['dsc_apellido_materno']);    
+            $respuesta = utf8_encode($key['dsc_apellido_paterno']).' '.utf8_encode($key['dsc_apellido_materno']).', '. utf8_encode($key['dsc_nombres']);    
              
 		}    
 		//print_r($db);     

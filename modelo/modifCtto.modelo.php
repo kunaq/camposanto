@@ -5,7 +5,7 @@ class ModeloModifCtto{
 
 	static public function mdlBuscaCttos($tabla,$tabla2,$tabla3,$tabla4,$tabla5,$tabla6,$tabla7,$tabla8,$tablaViServ,$codCtto){
 		$db = new Conexion();
-		$sql = $db->consulta("SELECT $tabla.*, $tabla2.dsc_cliente, $tabla3.*, $tabla4.dsc_camposanto, $tabla5.dsc_area, $tabla6.dsc_plataforma, $tabla7.dsc_tipo_espacio, $tabla8.dsc_tipo_servicio, $tabla8.flg_afecto_igv, $tabla8.flg_prevencion, $tablaViServ.flg_principal FROM $tabla LEFT JOIN $tabla2 ON $tabla.cod_cliente = $tabla2.cod_cliente LEFT JOIN $tabla3 ON $tabla.cod_contrato = $tabla3.cod_contrato LEFT JOIN $tabla4 ON $tabla4.cod_camposanto = $tabla.cod_empresa LEFT JOIN $tabla5 ON $tabla5.cod_area_plataforma = $tabla3.cod_areaplataforma_actual LEFT JOIN  $tabla6 ON $tabla6.cod_plataforma = $tabla3.cod_plataforma_actual LEFT JOIN $tabla7 ON $tabla7.cod_tipo_espacio = $tabla3.cod_tipoespacio_actual LEFT JOIN $tabla8 ON $tabla8.cod_tipo_servicio = $tabla.cod_tipo_servicio LEFT JOIN $tablaViServ ON ($tablaViServ.cod_contrato = $tabla.cod_contrato AND $tablaViServ.num_servicio = $tabla.num_servicio AND $tablaViServ.cod_localidad = $tabla.cod_localidad) WHERE $tabla.cod_contrato LIKE (RIGHT('0000000000'+'$codCtto',10)) AND $tabla.flg_fondo_mantenimiento = 'NO'");
+		$sql = $db->consulta("SELECT DISTINCT $tabla.*, $tabla2.dsc_cliente, $tabla3.*, $tabla4.dsc_camposanto, $tabla5.dsc_area, $tabla6.dsc_plataforma, $tabla7.dsc_tipo_espacio, $tabla8.dsc_tipo_servicio, $tabla8.flg_afecto_igv, $tabla8.flg_prevencion, $tablaViServ.flg_principal FROM $tabla LEFT JOIN $tabla2 ON $tabla.cod_cliente = $tabla2.cod_cliente LEFT JOIN $tabla3 ON $tabla.cod_contrato = $tabla3.cod_contrato LEFT JOIN $tabla4 ON $tabla4.cod_camposanto = $tabla.cod_empresa LEFT JOIN $tabla5 ON $tabla5.cod_area_plataforma = $tabla3.cod_areaplataforma_actual LEFT JOIN  $tabla6 ON $tabla6.cod_plataforma = $tabla3.cod_plataforma_actual LEFT JOIN $tabla7 ON $tabla7.cod_tipo_espacio = $tabla3.cod_tipoespacio_actual LEFT JOIN $tabla8 ON $tabla8.cod_tipo_servicio = $tabla.cod_tipo_servicio LEFT JOIN $tablaViServ ON ($tablaViServ.cod_contrato = $tabla.cod_contrato AND $tablaViServ.num_servicio = $tabla.num_servicio AND $tablaViServ.cod_localidad = $tabla.cod_localidad) WHERE $tabla.cod_contrato LIKE (RIGHT('0000000000'+'$codCtto',10)) AND $tabla.flg_fondo_mantenimiento = 'NO'");
 		$datos = array();
     	while($key = $db->recorrer($sql)){
 	    		$key["fch_generacion"] = date_format($key["fch_generacion"], 'd-m-Y');
@@ -27,13 +27,14 @@ class ModeloModifCtto{
 	static public function mdlBuscaDatosServicio($tablaCtto,$tablaEnt,$tablaTipoSvcio,$tablaViServ,$codCtto,$num_servicio){
 		$db = new Conexion();
 		$sql = $db->consulta("SELECT $tablaCtto.*, $tablaEnt.dsc_entidad, $tablaTipoSvcio.dsc_tipo_servicio, $tablaTipoSvcio.cod_tipo_servicio,$tablaTipoSvcio.flg_prevencion, $tablaViServ.flg_principal FROM $tablaCtto LEFT JOIN $tablaEnt ON $tablaEnt.cod_entidad = $tablaCtto.cod_convenio INNER JOIN $tablaTipoSvcio ON $tablaTipoSvcio.cod_tipo_servicio = $tablaCtto.cod_tipo_servicio LEFT JOIN $tablaViServ ON ($tablaViServ.cod_contrato = $tablaCtto.cod_contrato AND $tablaViServ.num_servicio = $tablaCtto.num_servicio) WHERE $tablaCtto.cod_contrato LIKE (RIGHT('0000000000'+'$codCtto',10)) AND $tablaCtto.num_servicio = $num_servicio");
-		$datos = arrayMapUtf8Encode($db->recorrer($sql));
-		$datos["fch_primer_vencimiento"] = ($datos["fch_primer_vencimiento"] != '') ? date_format($datos["fch_primer_vencimiento"], 'd-m-Y') : '';
-		$datos["fch_generacion"] = ($datos["fch_generacion"] != '') ? date_format($datos["fch_generacion"], 'd-m-Y') : '';
-		$datos["fch_anulacion"] = ($datos["fch_anulacion"] != '') ? date_format($datos["fch_anulacion"], 'd-m-Y') : '';
-		$datos["fch_emision"]= ($datos["fch_emision"] != '') ? date_format($datos["fch_emision"], 'd-m-Y') : '';
-		$datos["fch_activacion"] = ($datos["fch_activacion"] != '') ? date_format($datos["fch_activacion"], 'd-m-Y') : '';
-		$datos["fch_resolucion"] = ($datos["fch_resolucion"] != '') ? date_format($datos["fch_resolucion"], 'd-m-Y') : '';
+		$datos = $db->recorrer($sql);
+		$datos["fch_primer_vencimiento"] = ($datos["fch_primer_vencimiento"] != '') ? dateFormat($datos["fch_primer_vencimiento"]) : '';
+		$key["fch_vencimiento_cuoi"] = ($key["fch_vencimiento_cuoi"] != '') ? date_format($key['fch_vencimiento_cuoi'], 'd-m-Y') : '';
+		$datos["fch_generacion"] = ($datos["fch_generacion"] != '') ? dateFormat($datos["fch_generacion"]) : '';
+		$datos["fch_anulacion"] = ($datos["fch_anulacion"] != '') ? dateFormat($datos["fch_anulacion"]) : '';
+		$datos["fch_emision"]= ($datos["fch_emision"] != '') ? dateFormat($datos["fch_emision"]) : '';
+		$datos["fch_activacion"] = ($datos["fch_activacion"] != '') ? dateFormat($datos["fch_activacion"]) : '';
+		$datos["fch_resolucion"] = ($datos["fch_resolucion"] != '') ? dateFormat($datos["fch_resolucion"]) : '';
 		// $datos['']
 		return $datos;
 		$db->liberar($sql);

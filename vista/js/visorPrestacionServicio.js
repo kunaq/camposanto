@@ -119,6 +119,7 @@ function ejecutaTabla(fecha){
 	        		}
 	        		aux = value['fch_fecha'].split(' ')[1];
 	        		hora = aux.split(':')[0];
+	        		li_i = '';
 	        		var li_find = cronograma.rows.item('#fila_'+hora).cells;
 	        		if(hora == '07'){
 	        			li_i = 0;

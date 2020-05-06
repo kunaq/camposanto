@@ -157,17 +157,18 @@ class ModeloBloqueoEspacio{
       $sql = $db->consulta("SELECT MAX(vtade_bloqueo_x_espacio.num_linea) FROM vtade_bloqueo_x_espacio WHERE vtade_bloqueo_x_espacio.cod_camposanto = '$ls_camposanto' AND vtade_bloqueo_x_espacio.cod_plataforma = '$ls_plataforma' AND vtade_bloqueo_x_espacio.cod_area_plataforma = '$ls_area' AND vtade_bloqueo_x_espacio.cod_eje_horizontal = '$ls_eje_horizontal' AND vtade_bloqueo_x_espacio.cod_eje_vertical = '$ls_eje_vertical' AND vtade_bloqueo_x_espacio.cod_espacio = '$ls_espacio'");
       $ll_max_reg = arrayMapUtf8Encode($db->recorrer($sql));
 
-      if(is_null($ll_max_reg[0]) || $ll_max_reg[0] == ''){
+      if(is_null($ll_max_reg['']) || $ll_max_reg[''] == ''){
        $ll_max_reg = 0;
       }
-      $ll_max_reg = floatval($ll_max_reg);
+      $ll_max_reg = floatval($ll_max_reg['']);
 
       $ll_reg_new = $ll_max_reg + 1;
 
       // -- Recupera el estado del espacio -- //
 
       $sql1 = $db->consulta("SELECT  vtama_estadoespacio.cod_estado FROM vtama_estadoespacio WHERE ( CASE   WHEN '$ls_bloqueo' = 'SI' THEN vtama_estadoespacio.flg_bloqueado WHEN '$ls_desbloqueo' = 'SI' THEN vtama_estadoespacio.flg_libre END) = 'SI'");
-      $ls_estado = arrayMapUtf8Encode($db->recorrer($sql1)); 
+      $respuesta = arrayMapUtf8Encode($db->recorrer($sql1)); 
+      $ls_estado = $respuesta['cod_estado'];
 
       // -- Inserta en la tabla -- //
 
@@ -184,8 +185,8 @@ class ModeloBloqueoEspacio{
       // -- Bloquea el espacio -- //
 
       $sql4 = $db->consulta("UPDATE vtaca_espacio SET vtaca_espacio.cod_estado = '$ls_estado' WHERE vtaca_espacio.cod_camposanto = '$ls_camposanto' AND vtaca_espacio.cod_plataforma = '$ls_plataforma' AND vtaca_espacio.cod_area_plataforma = '$ls_area' AND vtaca_espacio.cod_eje_horizontal = '$ls_eje_horizontal' AND vtaca_espacio.cod_eje_vertical = '$ls_eje_vertical' AND vtaca_espacio.cod_espacio = '$ls_espacio' AND vtaca_espacio.cod_tipo_espacio = '$ls_tipo_espacio'");
-      
-      if ($sql2 && $sql3 && $sql4) {
+        
+      if ($sql4) {
          return 1;
       }else{
          return 0;

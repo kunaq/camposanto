@@ -36,9 +36,28 @@ $("#chkProComPerVen").on('change', function(){
 	}
 });
 
+$( "#periodoPerVen" ).change(function (){
+    if ($("#periodoPerVen").val() == "30D"){
+        $(".ulListaConfigPeriodo li").each(function() {
+            $(".periodo_Q").attr("hidden", true);
+            $(".periodo_M").attr("hidden", false);             
+        });
+    }else if ($("#periodoPerVen").val() == "15D"){
+        $(".ulListaConfigPeriodo li").each(function() { 
+            $(".periodo_Q").attr("hidden", false);
+            $(".periodo_M").attr("hidden", true);              
+        });   
+    }else{
+        $(".ulListaConfigPeriodo li").each(function() {     
+            $(".periodo_Q").attr("hidden", false);
+            $(".periodo_M").attr("hidden", false);             
+        });
+    }       
+});
+
 function buscaPeriodo(){
 	var anio = document.getElementById("anioPerVen").value;
-	var periodo = document.getElementById("periodoPerVen").value;
+	var periodo = 'todos';
 	$("li").remove('.itemLista');
 	$.ajax({
         url:"ajax/periodoVenta.ajax.php",
@@ -46,10 +65,15 @@ function buscaPeriodo(){
         dataType: 'json',
         data: {'anio':anio,'tipoPeriodo':periodo,'accion':'listaPeriodo'},
         success: function(respuesta){
-            // console.log('respuesta',respuesta);
+            // console.log('respuesta',respuesta[0]['cod_periodo'][0]);
             var estado = '';
             var classPeriodo = '';
             color = '';
+            if(respuesta[0]['cod_periodo'][0] == 'Q'){
+                $("#periodoPerVen").val('15D').trigger('change');
+            }else{
+                $("#periodoPerVen").val('30D').trigger('change');
+            }
             $.each(respuesta,function(index,value){
                 if(index == 0){
                     classPeriodo = 'liListaKqPstImpar';
@@ -67,7 +91,7 @@ function buscaPeriodo(){
                 	color = 'red';
                 }
                 $("#listaPeriodoVenta").append(
-                    '<li class="nav-item '+classPeriodo+' itemLista">'+
+                    '<li class="nav-item '+classPeriodo+' itemLista periodo_'+value['cod_periodo'][0]+'">'+
                         '<a href="#" class="btnVerPeriodo" codAnio="'+value["num_anno"]+'" codPeriodo="'+value['cod_periodo']+'">'+
                         	'<div class="row" style="color:'+color+'">'+
 								'<div class="col-md-4">'+value['cod_periodo']+'</div>'+
@@ -105,13 +129,13 @@ $("#listaPeriodoVenta").on("click","a.btnVerPeriodo",function(){
             $("#edoPerVen").val(respuesta[0]["flg_estado"]).trigger("change");
             if(respuesta[0]['flg_estado'] == 'CE'){
                 $("#detCierre").removeAttr('hidden');
-                if(respuesta[0]['fch_cierre'] != null){
-                    document.getElementById("fechCierre").innerHTML = respuesta[0]['fch_cierre'];
-                    document.getElementById("motivoCierre").innerHTML = 'Usuario: '+respuesta[0]['cod_usuario'];
-                }else{
-                    document.getElementById("fechCierre").innerHTML = respuesta[0]['fch_fin'];
-                    document.getElementById("motivoCierre").innerHTML = 'Caducó';
-                }
+                // if(respuesta[0]['fch_cierre'] != null){
+                //     document.getElementById("fechCierre").innerHTML = respuesta[0]['fch_cierre'];
+                //     document.getElementById("motivoCierre").innerHTML = 'Usuario: '+respuesta[0]['cod_usuario'];
+                // }else{
+                //     document.getElementById("fechCierre").innerHTML = respuesta[0]['fch_fin'];
+                //     document.getElementById("motivoCierre").innerHTML = 'Caducó';
+                // }
             }else{
                 $("#detCierre").attr('hidden',true);
             }

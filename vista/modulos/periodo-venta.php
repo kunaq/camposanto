@@ -43,8 +43,8 @@
 								<label>Periodo:</label>
 							</div>
 							<div class="col-md-3">
-								<select class="form-control form-control-sm m-input m-select2 m-select2-general" style="width: 100%" name="periodoPerVen" id="periodoPerVen" onchange="buscaPeriodo();">
-									<option selected="selected" value="todos">TODOS</option>
+								<select class="form-control form-control-sm m-input m-select2 m-select2-general" style="width: 100%" name="periodoPerVen" id="periodoPerVen">
+									<option value="todos">TODOS</option>
 									<option value="15D">15D</option>
 									<option value="30D">30D</option>
 								</select>
@@ -157,11 +157,11 @@
 										<input type="text" disabled="" class="form-control form-control-sm m-input" name="fchProComPerVen" id="fchProComPerVen">
 									</div>
 								</div>
-								<div class="form-group row">
+								<!-- <div class="form-group row">
 									<div class="col-lg-12" id="detCierre" hidden style="text-align: center;">
 										<p>Fecha Cierre: <span id="fechCierre"></span>&nbsp;<span id="motivoCierre"></span></p>
 									</div>
-								</div>	
+								</div>	 -->
 							</form>
 						</div>
 					</div>

@@ -11,7 +11,7 @@ require_once "../../modelo/conexion.php";
        	$sql = $db->consulta("SELECT distinct cod_eje_vertical  FROM vtaca_espacio where cod_camposanto = '$camps' and cod_plataforma = '$plat' and cod_area_plataforma = '$area' and cod_eje_horizontal = '$cod'");
 
         $datos = array();
-        echo "<option value = 0>Eje Ver.</option>";
+        echo "<option value = ''>Eje Ver.</option>";
 		while($key = $db->recorrer($sql)){
 
             $datos[] =  $key;

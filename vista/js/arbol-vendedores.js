@@ -12,6 +12,10 @@ $(".mayuscula").keyup(function() {
     this.value = this.value.toLocaleUpperCase();
 });
 
+function decode_utf8(s) {
+  return decodeURIComponent(escape(s));
+}
+
 $("#nombreTrabajador").on("keyup", function() {
   var patron = $(this).val();
   // si el campo está vacío
@@ -119,7 +123,7 @@ function creaTablaTrabajadoresArbVend(){
 	                        '<a href="#" class="btnVerTrabArbVen" codTrabajador="'+value['cod_trabajador']+'" flg_activo="'+value['flg_activo']+'">'+
 	                        	'<div class="row" style = "color:'+color+'">'+
 									'<div class="col-md-4">'+value['cod_trabajador']+'</div>'+
-									'<div class="col-md-8">'+value['dsc_apellido_paterno']+' '+value['dsc_apellido_materno']+', '+value['dsc_nombres']+'</div>'+
+									'<div class="col-md-8">'+decode_utf8(value['dsc_apellido_paterno'])+' '+decode_utf8(value['dsc_apellido_materno'])+', '+decode_utf8(value['dsc_nombres'])+'</div>'+
 								'</div>'+
 	                        '</a>'+
 	                    '</li>'
@@ -201,6 +205,7 @@ function llenaHistorial(codTrabajador,anio){
 }
 
 $("#listaHistConf").on("click","a.btnVerHistConf",function(){
+    $("#edoCttoArbVen").val('0').trigger('change');
 	$(".ulListaHistConf li").removeClass('liListaKqPstActive');
 	$(this).parent('li').addClass('liListaKqPstActive');
 	var annio = $(this).attr("numAnio");
@@ -216,8 +221,18 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
 	var vendedor = $(this).attr("codTrabajador");
     $("#cod_trabajador").val(vendedor);
 	var supervisor = $(this).attr("codsup");
+    if(supervisor == vendedor ){
+        $("#supCheckGral").prop("checked", true);
+    }else{
+        $("#supCheckGral").prop("checked", false);
+    }
 	$("#codSupVenArbVen").val(supervisor);
 	var jefeVentas = $(this).attr("jefeventas");
+    if(jefeVentas == vendedor){
+        $("#jefeCheckGral").prop("checked", true);
+    }else{
+        $("#jefeCheckGral").prop("checked", false);
+    }
 	$("#codJefeVenArbVen").val(jefeVentas);
     var flg_estado = $(this).attr("flg_estado");
     $("#flgEstado").val(flg_estado);
@@ -232,7 +247,7 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
         dataType: 'json',
         data: {'codTrabajador':jefeVentas,'accion':'nombreTrabajador'},
         success: function(respuesta){
-        	nombre = respuesta['dsc_apellido_paterno']+' '+respuesta['dsc_apellido_materno']+', '+respuesta['dsc_nombres'];
+        	nombre = decode_utf8(respuesta['dsc_apellido_paterno'])+' '+decode_utf8(respuesta['dsc_apellido_materno'])+', '+decode_utf8(respuesta['dsc_nombres']);
         	$("#dscJefeVentaArbVen").val(nombre);
         }//succes
     });//ajax
@@ -242,7 +257,7 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
         dataType: 'json',
         data: {'codTrabajador':supervisor,'accion':'nombreTrabajador'},
         success: function(respuesta){
-        	nombre = respuesta['dsc_apellido_paterno']+' '+respuesta['dsc_apellido_materno']+', '+respuesta['dsc_nombres'];
+        	nombre = decode_utf8(respuesta['dsc_apellido_paterno'])+' '+decode_utf8(respuesta['dsc_apellido_materno'])+', '+decode_utf8(respuesta['dsc_nombres']);
         	$("#dscSupArbVen").val(nombre);
         }//succes
     });//ajax
@@ -257,7 +272,8 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
         	var estatus = '';
         	var fecha_fin = '';
         	var fecha = '';
-             $("#tieneCttoEmi").val();
+             $("#tieneCttoEmi").val('NO');
+             $("#tieneCttoAct").val('NO');
         	$.each(respuesta,function(index,value){
             	if(index == 0){
                     classCtto = 'liListaKqPstImpar';
@@ -298,6 +314,11 @@ $("#listaHistConf").on("click","a.btnVerHistConf",function(){
                     $("#tieneCttoEmi").val('SI');
                 }else if (estatus == 'Resuelto') {
                     flg_activo="resuelto";
+                    $("#tieneCttoAct").val('NO');
+                    $("#tieneCttoEmi").val('NO');
+                }else{
+                    $("#tieneCttoAct").val('NO');
+                    $("#tieneCttoEmi").val('NO');
                 }
             	$("#listaCttos").append(
                     '<li class="nav-item '+classCtto+' itemLista ctr_'+flg_activo+'">'+
@@ -331,7 +352,7 @@ function buscanombre(campo,codTrabajador){
         dataType: 'json',
         data: {'codTrabajador':codTrabajador,'accion':'nombreTrabajador'},
         success: function(respuesta){
-            nombre = codTrabajador+' / '+respuesta['dsc_apellido_paterno']+' '+respuesta['dsc_apellido_materno']+', '+respuesta['dsc_nombres'];
+            nombre = codTrabajador+' / '+decode_utf8(respuesta['dsc_apellido_paterno'])+' '+decode_utf8(respuesta['dsc_apellido_materno'])+', '+decode_utf8(respuesta['dsc_nombres']);
             document.getElementById(campo).value=nombre;
         }//succes
     });//ajax
@@ -921,38 +942,40 @@ function eliminaArbol(){
         text: "¿Esta seguro que desea eliminar el registro seleccionado? Esta operación es irreversible",
         type: "question",
         showCancelButton:!0,
-        confirmButtonText: "Anular",
+        confirmButtonText: "Aceptar",
         cancelButtonText:"Cancelar"
-    }).then(function(){
-        setTimeout(function () { 
+    }).then((result) => {
+        if (result.value) {
+            setTimeout(function () { 
 
-            // -- Eliminar -- //
+                // -- Eliminar -- //
 
-            $.ajax({
-                url:"ajax/ArbolVendedores.ajax.php",
-                method: "POST",
-                dataType: 'json',
-                data: {'codTrabajador':ls_codigo, 'anno' : li_anno, 'tipo_periodo' : ls_tipo, 'periodo' : ls_periodo, 'accion':'eliminar'},
-                success: function(respuesta){
-                    if(respuesta == true){
-                        swal({
-                            title: "",
-                            text: "Se elimino el registro satisfactoriamente.",
-                            type: "success",
-                            confirmButtonText: "Aceptar",
-                            onBeforeOpen: window.location.assign('arbol-vendedores')
-                        })
+                $.ajax({
+                    url:"ajax/ArbolVendedores.ajax.php",
+                    method: "POST",
+                    dataType: 'json',
+                    data: {'codTrabajador':ls_codigo, 'anno' : li_anno, 'tipo_periodo' : ls_tipo, 'periodo' : ls_periodo, 'accion':'eliminar'},
+                    success: function(respuesta){
+                        if(respuesta == true){
+                            swal({
+                                title: "",
+                                text: "Se elimino el registro satisfactoriamente.",
+                                type: "success",
+                                confirmButtonText: "Aceptar",
+                                onBeforeOpen: window.location.assign('arbol-vendedores')
+                            })
 
-                    }else{
-                        swal({
-                            title: "",
-                            text: "Error en la actualización de la base de datos.",
-                            type: "error",
-                            confirmButtonText: "Aceptar",
-                        })
-                    }
-                }//success
-            });//ajax
-        },1000);//setTimeout
+                        }else{
+                            swal({
+                                title: "",
+                                text: "Error en la actualización de la base de datos.",
+                                type: "error",
+                                confirmButtonText: "Aceptar",
+                            })
+                        }
+                    }//success
+                });//ajax
+            },1000);//setTimeout
+        }//result.value
     })//then
 }//eliminaArbol

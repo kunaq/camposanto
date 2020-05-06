@@ -8,7 +8,7 @@ require_once "../../modelo/conexion.php";
        	$sql = $db->consulta("SELECT cod_area_plataforma, dsc_area  FROM vtama_area_plataforma WHERE cod_plataforma = '$cod' AND flg_activo = 'SI' ORDER BY dsc_area");
 
         $datos = array();
-        echo "<option value = 0>Seleccione el área</option>";
+        echo "<option value = ''>Seleccione el área</option>";
 		while($key = $db->recorrer($sql)){
 
             $datos[] =  $key;

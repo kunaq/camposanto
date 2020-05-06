@@ -1,6 +1,25 @@
 <div class="m-content" id="bodyArbVend"  style="width: calc(100%);">
 	<!--Begin::Main Portlet-->
 	<div class="m-portlet m-portlet--space">
+		<div class="sidebar-wrapper stickButtons" id="container-button">
+			<ul>
+				<li style="list-style: none;">
+					<a href="#container" class="btn btnGuardarKqPst m-btn--square m-btn m-btn--icon btn-lg m-btn--icon-only" style="border-top-left-radius: .25rem !important;" data-toggle="m-tooltip" data-container="body" disabled data-placement="left" title="" data-original-title="Guardar cliente" id="guardarbtn" onclick="registrarProspecto('guarda');">
+						<i class="fa fa-save"></i>
+					</a>
+				</li>
+				<li style="list-style: none;">
+					<a href="#container" class="btn btnGuardarKqPst m-btn--square m-btn m-btn--icon btn-lg m-btn--icon-only" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Guardar y generar contrato" onclick="registrarProspecto('genera');" id="save-button">
+						<i class="fa fa-star"></i>
+					</a>
+				</li>
+				<li style="list-style: none;" >
+					<a href="#container" class="btn btnEditarKqPst2 m-btn--square m-btn m-btn--icon btn-lg m-btn--icon-only" style="border-bottom-left-radius: .25rem !important;" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Nueva registro" id="btnReseBloqEsp" onclick="resetForm();">
+						<i class="fa fa-sticky-note"></i>
+					</a>
+				</li>
+			</ul> 					
+		</div>
 		<!--begin: Portlet Head-->
 		<div class="m-portlet__head">
 			<div class="m-portlet__head-caption">
@@ -371,30 +390,6 @@
 						</div>
 						<div class="col-lg-10">
 							<textarea class="form-control m-input" id="refNvoCliRegCli" name="refNvoCliRegCli" rows="3"></textarea>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-lg-9 m--align-right">
-							<button  class="btn btnGuardarKqPst m-btn m-btn--custom m-btn--icon" data-wizard-action="submit" id="guardaClienteRegCli">
-								<span>
-									<i class="fa fa-save"></i>
-									&nbsp;&nbsp;
-									<span>
-										Guardar
-									</span>
-								</span>
-							</button>
-						</div>
-						<div class="col-lg-2 m--align-right">
-							<button  class="btn btnGuardarKqPst m-btn m-btn--custom m-btn--icon" data-wizard-action="submit" id="guardaCliGenCttoRegCli">
-								<span>
-									<i class="fa fa-star"></i>
-									&nbsp;&nbsp;
-									<span>
-										Guardar y generar contrato
-									</span>
-								</span>
-							</button>
 						</div>
 					</div>
 				</form>

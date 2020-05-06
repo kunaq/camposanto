@@ -4,7 +4,7 @@ require_once "../funciones.php";
 class ModeloArbolVen{
 	static public function mdlMostrarTraArbolVen($tabla){
 		$db = new Conexion();
-		$sql = $db->consulta("SELECT cod_trabajador, dsc_apellido_paterno, dsc_apellido_materno, dsc_nombres, flg_activo FROM $tabla");
+		$sql = $db->consulta("SELECT cod_trabajador, dsc_apellido_paterno, dsc_apellido_materno, dsc_nombres, flg_activo FROM $tabla ORDER BY dsc_apellido_paterno ASC");
 		$datos = array();
     	while($key = $db->recorrer($sql)){
 	    		$datos[] = arrayMapUtf8Encode($key);
@@ -39,7 +39,7 @@ class ModeloArbolVen{
 
 	static public function mdlBuscarCtto($tabla,$tabla2,$codTrabajador,$periodo,$tipoPeriodo,$annio){
 		$db = new Conexion();
-		$sql = $db->consulta("SELECT $tabla.cod_contrato, $tabla.cod_vendedor, $tabla.cod_periodo_recep, $tabla.cod_tipo_periodo_recep, $tabla.num_anno_recep, $tabla.flg_activado, $tabla.flg_anulado, $tabla.flg_emitido, $tabla.flg_resuelto, $tabla.cod_localidad, $tabla.cod_tipo_necesidad, $tabla.fch_activacion, $tabla.fch_emision, $tabla.fch_resolucion, $tabla2.dsc_localidad from $tabla inner join $tabla2 on $tabla.cod_localidad = $tabla2.cod_localidad where cod_vendedor = '$codTrabajador' AND $tabla.cod_periodo_recep='$periodo' AND $tabla.cod_tipo_periodo_recep ='$tipoPeriodo' AND $tabla.num_anno_recep = '$annio'");
+		$sql = $db->consulta("SELECT DISTINCT $tabla.cod_contrato, $tabla.cod_vendedor, $tabla.cod_periodo_recep, $tabla.cod_tipo_periodo_recep, $tabla.num_anno_recep, $tabla.flg_activado, $tabla.flg_anulado, $tabla.flg_emitido, $tabla.flg_resuelto, $tabla.cod_localidad, $tabla.cod_tipo_necesidad, $tabla.fch_activacion, $tabla.fch_emision, $tabla.fch_resolucion, $tabla2.dsc_localidad from $tabla inner join $tabla2 on $tabla.cod_localidad = $tabla2.cod_localidad where cod_vendedor = '$codTrabajador' AND $tabla.cod_periodo_recep='$periodo' AND $tabla.cod_tipo_periodo_recep ='$tipoPeriodo' AND $tabla.num_anno_recep = '$annio'");
 		$datos = array();
     	while($key = $db->recorrer($sql)){
 	    		$key["fch_activacion"] = ($key["fch_activacion"] != null) ? dateFormat($key["fch_activacion"]) : $key["fch_activacion"];

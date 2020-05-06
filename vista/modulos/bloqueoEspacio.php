@@ -5,8 +5,13 @@
 		<div class="sidebar-wrapper stickButtons" id="container-button">
 			<ul>
 				<li style="list-style: none;">
-					<a href="#container" class="btn btnGuardarKqPst m-btn--square m-btn m-btn--icon btn-lg m-btn--icon-only" style="border-top-left-radius: .25rem !important; border-bottom-left-radius: .25rem !important;"" data-toggle="m-tooltip" data-container="body" disabled data-placement="left" title="" data-original-title="Grabar cambios" id="guardarbtn" onclick="btnGuardarBloqueo();">
+					<a href="#container" class="btn btnGuardarKqPst m-btn--square m-btn m-btn--icon btn-lg m-btn--icon-only" style="border-top-left-radius: .25rem !important;" data-toggle="m-tooltip" data-container="body" disabled data-placement="left" title="" data-original-title="Grabar cambios" id="guardarbtn" onclick="btnGuardarBloqueo();">
 						<i class="fa fa-save"></i>
+					</a>
+				</li>
+				<li style="list-style: none;" >
+					<a href="#container" class="btn btnEditarKqPst2 m-btn--square m-btn m-btn--icon btn-lg m-btn--icon-only" style="border-bottom-left-radius: .25rem !important;" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Nueva busqueda" id="btnReseBloqEsp" onclick="resetBusqueda();">
+						<i class="fa fa-sticky-note"></i>
 					</a>
 				</li>
 			</ul> 					
@@ -106,6 +111,7 @@
 						<div class="col-lg-4">
 							<label>Tipo bloqueo</label>
 							<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="tipoBloqueo" required id="tipoBloqueo">
+								<option value="">Seleccione...</option>
 								<?php
 									$tabla = "vtama_tipo_bloqueo";
 									$item1 = "cod_tipo_bloqueo";

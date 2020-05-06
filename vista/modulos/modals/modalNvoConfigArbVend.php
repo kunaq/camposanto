@@ -1,5 +1,5 @@
 <div class="modal fade" id="m_modal_nvoConfigArbVen" tabindex="-1" role="dialog" aria-labelledby="ArbVenModalLabel" aria-hidden="true">
-	<div class="modal-dialog modal-lg" style="width: 50rem;" role="document">
+	<div class="modal-dialog modal-lg" style="width: 40rem;" role="document">
 		<div class="modal-content">
 		<form id="configuracionesModal">
 			<div class="modal-header">
@@ -65,7 +65,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-lg-7">
+						<div class="col-lg-7" style="padding-left:0;">
 							<input type="text" disabled class="form-control form-control-sm m-input" name="dscGrupoModConfArbVen" id="dscGrupoModConfArbVen">
 						</div>
 					</div>
@@ -86,7 +86,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-lg-7">
+						<div class="col-lg-7" style="padding-left:0;">
 							<input type="text" disabled class="form-control form-control-sm m-input" name="dscComisionistaArbVen" id="dscComisionistaArbVen">
 						</div>
 					</div>
@@ -107,7 +107,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-lg-7">
+						<div class="col-lg-7" style="padding-left:0;">
 							<input type="text" disabled class="form-control form-control-sm m-input" name="dscSpervisorArbVen" id="dscSpervisorArbVen">
 						</div>
 					</div>
@@ -128,7 +128,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-lg-7">
+						<div class="col-lg-7" style="padding-left:0;">
 							<input type="text" disabled class="form-control form-control-sm m-input" name="dscJefeVentaModArbVen" id="dscJefeVentaModArbVen">
 						</div>
 					</div>

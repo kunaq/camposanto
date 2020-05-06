@@ -479,7 +479,7 @@ function cronogramaModifi(){
                             if( ls_tipo_cuota != 'CUI' ){
 
                                 lde_sumcapital = lde_sumcapital + pasaAnumero($("#imp_principal_2_"+li_i).val());
-                                console.log(li_i,lde_sumcapital);
+                                // console.log(li_i,lde_sumcapital);
                                 lde_sumtotal = lde_sumtotal + pasaAnumero($("#imp_total_2_"+li_i).val());
 
                             }            
@@ -560,7 +560,7 @@ function cronogramaModifi(){
                         else{
                             var cronograma = document.getElementById('bodyCronogramaModif');
                             var li_find = cronograma.rows.item(li_i-1).cells;
-                            console.log('lde_amortizacion',lde_amortizacion);
+                            // console.log('lde_amortizacion',lde_amortizacion);
 
                             imp_principal  = li_find.item(4).innerHTML.trim();
                             imp_principal = pasaAnumero(imp_principal);
@@ -595,6 +595,8 @@ function cronogramaModifi(){
                         }
                               
                     }//if lde_saldo_detalle > 0
+                    lda_vencimiento = editar_fecha_30(lda_vencimiento, '+30', 'd', "",ldt_fch_ven1,0);
+                    $("#fchVenCronoFOMA").datepicker({ dateFormat: 'dd-mm-yy' }).datepicker("setDate", lda_vencimiento);
                               
                 });//foreach serv vin
 
@@ -846,8 +848,12 @@ function cronogramaModifi(){
                     '<td style="text-align: right;">'+Number(lde_cuota).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 })+'</td>'+
                     '<input type="hidden" id="flg_generar_mora_'+(li_find+1)+'" value="SI">'+
                 '</tr>';
-                document.getElementById("bodyCronogramaModif").insertAdjacentHTML("beforeEnd" ,filaCrono);                
-                          
+                document.getElementById("bodyCronogramaModif").insertAdjacentHTML("beforeEnd" ,filaCrono);
+
+                // -- FOMA -- //  
+
+                lda_vencimiento = editar_fecha_30(lda_vencimiento, '+30', 'd', "",ldt_fch_ven1,0);
+                $("#fchVenCronoFOMA").datepicker({ dateFormat: 'dd-mm-yy' }).datepicker("setDate", lda_vencimiento);        
             }//if integrales
           
             // -- Recupera -- //
@@ -875,23 +881,10 @@ function cronogramaModifi(){
                 }
             }
           
-            // -- FOMA -- //
-
-            aux_dia = ldt_fch_ven.getDate();
-            aux_mes1 = ldt_fch_ven.setMonth(ldt_fch_ven.getMonth() + 1);
-            var aux_mes = ldt_fch_ven.getMonth();
-            aux_anio = ldt_fch_ven.getFullYear();
-            if(aux_mes == '0'){
-              aux_mes = '12';
-              aux_anio = ldt_fch_ven.getFullYear()-1;
-            }               
-            lda_vencimiento = aux_dia+'-'+aux_mes+'-'+aux_anio;
-
-            $("#fchVenCronoFOMA").datepicker({ dateFormat: 'dd-mm-yy' }).datepicker("setDate", lda_vencimiento);
         //fin case 3 de aqui en adelante segui caso el remanso y jde
     }//switch
     // -- Filas -- //
-    $("#fchVenCronoFOMA").datepicker({ dateFormat: 'dd-mm-yy' }).datepicker("setDate", lda_vencimiento);
+
     $("#cambioCronograma").val('SI');
     calcular();
     $("#bodyCronogramaFomaModif").empty();
@@ -1528,9 +1521,9 @@ function modificaFOMA(){
     // -- Cuota Final -- //
 
     lde_amortizacion = lde_total - lde_sumtotal;
-    console.log('lde_total',lde_total);
-    console.log('lde_amortizacion',lde_amortizacion);
-    console.log('lde_sumtotal',lde_sumtotal);
+    // console.log('lde_total',lde_total);
+    // console.log('lde_amortizacion',lde_amortizacion);
+    // console.log('lde_sumtotal',lde_sumtotal);
 
     // -- Redondeo -- //
 
@@ -1576,7 +1569,7 @@ function creaCUOI(){
     // -- Datos -- //
 
     var ls_cuota = $("#codCuotaCUOIModif").val();
-    var ls_interes = $("#codInteresCUOIModif").val();
+    // var ls_interes = $("#codInteresCUOIModif").val();
     var ldt_fch_vencimiento = $("#fchVenCUOI").val();
     var ldt_fch_ven1 = $("#fchVenCUOI").val();
     var lde_saldo = $("#saldoFinCUOI").val();
@@ -1585,7 +1578,31 @@ function creaCUOI(){
     var is_origen = '';
     var is_flg_integral = $("#flg_ctt_integral").val(); 
     var is_origen = 'EMI';
-    var lde_porc_total = 0;;
+    var lde_porc_total = 0;
+
+    var cronograma = document.getElementById('bodyCronogramaModif');
+    var cronogramaLenght = cronograma.rows.length;
+    if( cronogramaLenght > 0 ){
+        var li_valida = 0;
+        for( li_i = 0 ; li_i < cronogramaLenght ; li_i++ ){               
+            var oCells = cronograma.rows.item(li_i).cells;
+            ls_estado = oCells.item(1).innerHTML.trim();
+            
+            if( ls_estado != 'REGISTRADO'){
+                li_valida = li_valida + 1;
+            }
+        }           
+
+        if( li_valida > 0 ){
+            swal({
+                title: "",
+                text: "No puede regenerar el cronograma, ya fue modificado.",
+                type: "warning",
+                confirmButtonText: "Aceptar",
+            })
+           return;
+        }              
+    }
 
     if(lde_saldo == '' || lde_saldo == null){ lde_saldo = 0; }
     ldt_fch_emision = new Date();
@@ -1828,7 +1845,7 @@ function creaCUOI(){
 
     // -- Interes -- //
     
-    var lde_valor = $("#interesCUOI").val();
+    var lde_valor = 0;
     lde_valor = pasaAnumero(lde_valor);                     
 
     if (lde_valor == '' || lde_valor == null) { lde_valor = 0.00;}

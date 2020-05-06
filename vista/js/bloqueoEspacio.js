@@ -1,3 +1,11 @@
+function decode_utf8(s) {
+  return decodeURIComponent(escape(s));
+}
+
+$(function () {
+  $('.tooltipObsrv').tooltip()
+})
+
 $("#espacioBloqEsp").select2({
     placeholder: "Selecciona una opción",
     templateResult: function(data) { 
@@ -14,17 +22,39 @@ $("#espacioBloqEsp").select2({
         return $result;
     } 
 });
+
+function resetBusqueda(){
+    $("#tipoPlatBloqEsp").val();
+    $("#plataformaBloqEsp").empty();
+    $("#areaBloqEsp").empty();
+    $("#ejexBloqEsp").empty();
+    $("#ejeyBloqEsp").empty();
+    $("#espacioBloqEsp").val();
+    document.getElementById('estadoBloqEsp').innerHTML='';
+    $("#tipoEspacioBloqEsp").val();
+    $("#bodyHistorialBloq").empty();
+}
+
 function buscaPlataforma(valor){
+    $("#plataformaBloqEsp").val();
+    $("#areaBloqEsp").empty();
+    $("#ejexBloqEsp").empty();
+    $("#ejeyBloqEsp").empty();
+    $("#espacioBloqEsp").empty();
+    $("#tipoEspacioBloqEsp").val();
+    $("#bodyHistorialBloq").empty();
+    document.getElementById('estadoBloqEsp').innerHTML='';
     $.ajax({
         type: 'GET',
         url: 'extensiones/captcha/buscaPlataforma.php',
         dataType: 'text',
         data: { 'value' : valor },
         success : function(respuesta){
-            $("#plataformaBloqEsp").html(respuesta);
+            $("#plataformaBloqEsp").html(decode_utf8(respuesta));
         }
     });
 }
+
 function buscaArea(valor){
 	var camposanto = $("#camposantoBloqEsp").val();
     $.ajax({
@@ -106,6 +136,7 @@ function buscaEspacio(valor){
 }
 
 function buscanomEspacio(valor){
+    document.getElementById('estadoBloqEsp').innerHTML='';
     $.ajax({
         type: 'GET',
         url: 'extensiones/captcha/buscaNomEspacio.php',
@@ -262,7 +293,7 @@ $("#espacioBloqEsp").on('change', function(){
 					        success : function(dscBloq){
 					        	dscBloqueo = dscBloq;
 						        fila = '<tr class="listaServicio inactivo" id="'+value['num_linea']+'">'+
-			    					'<td class="text-center"><a class="btn btn-metal m-btn m-btn--icon btn-sm m-btn--icon-only  m-btn--pill" data-placement="top" data-toggle="m-tooltip" data-container="body" data-original-title="'+value['dsc_observacion']+'"><i class="fa fa-question"></i></a>'+value['fch_evento']+'</td>'+
+			    					'<td class="text-center"><a href="#container" class="btn btn-metal m-btn m-btn--icon btn-sm m-btn--icon-only  m-btn--pill tooltipObsrv" data-placement="top" data-toggle="tooltip" data-container="body" title="'+decode_utf8(value['dsc_observacion'])+'"><i class="fa fa-eye"></i></a> '+value['fch_evento']+'</td>'+
 			    					'<td class="text-left">'+dscBloqueo+'</td>'+
 			    					'<td class="text-center">'+value['cod_usuario']+'</td>'+
 			    					'<td class="text-center">'+solicitante+'</td>'+
@@ -624,8 +655,7 @@ function btnGuardarBloqueo(){
         type: "question",
         confirmButtonText: "Aceptar",
         showCancelButton: true,
-        cancelButtonText: 'Cancelar',
-        reverseButtons: true
+        cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.value) {
        ejecutaBloqueo(ls_camposanto,ls_plataforma,ls_area,ls_eje_horizontal,ls_eje_vertical,ls_espacio,ls_tipo_espacio,ls_tipo_bloqueo,ls_solicitante,ls_bloqueo,ls_desbloqueo,ls_dsc_observacion);
@@ -658,9 +688,17 @@ function ejecutaBloqueo(ls_camposanto,ls_plataforma,ls_area,ls_eje_horizontal,ls
 		            text: mensaje,
 		            type: "success",
 		            confirmButtonText: "Aceptar",
-		            onBeforeOpen: window.location.assign('bloqueoEspacio')
+		            onAfterClose: window.location.assign('bloqueoEspacio')
 		        })
-        	}
+        	}else{
+                swal({
+                    title: "",
+                    text: "Ha ocurrido un´problema, por favor vuelva a intentar.",
+                    type: "error",
+                    confirmButtonText: "Aceptar",
+                    onAfterClose: window.location.assign('bloqueoEspacio')
+                })
+            }
 
         }//success
     });//ajax flg_bloqueo_resolucion

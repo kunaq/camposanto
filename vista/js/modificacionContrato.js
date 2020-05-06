@@ -50,6 +50,10 @@ $("#fchVenCUOI").datepicker({
     format : 'dd-mm-yyyy'
 });//datepicker
 
+function decode_utf8(s) {
+  return decodeURIComponent(escape(s));
+}
+
 function justNumbers(e){
   var keynum = window.event ? window.event.keyCode : e.which;
   if ((keynum == 8) || (keynum == 46))
@@ -229,7 +233,7 @@ function llenaDatos(codCtto){
             	$("#modC").val(respuesta[0]['cod_tipo_ctt']);
             	$("#nomCliContrato").val(respuesta[0]['dsc_cliente']);
             	$("#campoContrato").val(respuesta[0]['dsc_camposanto']);
-            	$("#platContrato").val(respuesta[0]['dsc_plataforma']);
+            	$("#platContrato").val(decode_utf8(respuesta[0]['dsc_plataforma']));
             	$("#areaContrato").val(respuesta[0]['dsc_area']);
             	$("#ejeHCotrato").val(respuesta[0]['cod_ejehorizontal_actual']);
             	$("#ejeVContrato").val(respuesta[0]['cod_ejevertical_actual']);
@@ -294,10 +298,14 @@ function llenaDatos(codCtto){
                         // console.log('fila2',fila2);
                         document.getElementById("bodyServicioVin").insertAdjacentHTML("beforeEnd" ,fila2);
                         document.getElementById("totalServicioVin").innerText = Number(totalVin).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
+                        // $("#saldoFinCronograma").val(totalVin);
+                        // $("#saldoFinCUOI").val(totalCUOI);
                     }
                     $("#saldoFinCronograma").val(totalVin);
+                    $("#saldoFinCUOI").val(totalCUOI);
+                    // $("#saldoFinCronograma").val(parseFloatvalue['imp_saldofinanciar']);
+                    // $("#saldoFinCUOI").val(parseFloatvalue['imp_cuoi']);
             	});//each
-                $("#saldoFinCUOI").val(totalCUOI);
                 muestraInfo(respuesta[0]['num_servicio']);
             }
         }//success
@@ -317,7 +325,7 @@ function muestraInfo(id){
         method: "POST",
         data: { 'accion' : 'DetServ', 'codCtto' : codCtto, 'num_servicio' : id },
         success : function(respuesta){
-        	// console.log('respuesta',respuesta);
+        	console.log('respuesta',respuesta);
         	if(respuesta['cod_tipo_necesidad'] == 'NF'){
         		var tipoNec = 'NECESIDAD FUTURA';
         	}else{
@@ -358,7 +366,6 @@ function muestraInfo(id){
         		cargaCronograma(codCtto,respuesta['num_refinanciamiento']);
         		cargaFoma(codCtto,respuesta['num_refinanciamiento']);
         	}
-            // console.log($("#flg_ctt_integral").val());
             if ($("#flg_ctt_integral").val() == 'NO') {
                     $("#bodyServicioVin").empty();
                     if(respuesta['flg_principal'] == 'SI'){
@@ -373,11 +380,16 @@ function muestraInfo(id){
                     document.getElementById("bodyServicioVin").insertAdjacentHTML("beforeEnd" ,fila2);
                     document.getElementById("totalServicioVin").innerText = Number(respuesta['imp_saldofinanciar']).toLocaleString('en-US',{ style: 'decimal', maximumFractionDigits : 2, minimumFractionDigits : 2 });
                 }
+            fch_cuoi = respuesta['fch_vencimiento_cuoi']['date'].split(' ')[0];
+            aux_fch = fch_cuoi.split('-');
+            fecha_cuoi = aux_fch[2]+'-'+aux_fch[1]+'-'+aux_fch[0];
+            // console.log(fecha_cuoi);
             $("#anularBoton").attr('name',id);
         	$("#numCuoCronograma").val(respuesta['num_cuotas']);
             $("#numCuoCronograma").trigger('change');
+            $("#numCuoCUOI").val(respuesta['num_cuotas_cuoi']).trigger('change');
             $("#fchVenCronograma").datepicker({ dateFormat: 'dd-mm-yy' }).datepicker("setDate", respuesta['fch_primer_vencimiento']);
-            $("#fchVenCUOI").datepicker({ dateFormat: 'dd-mm-yy' }).datepicker("setDate", respuesta['fch_primer_vencimiento']);
+            $("#fchVenCUOI").datepicker({ dateFormat: 'dd-mm-yy' }).datepicker("setDate", fecha_cuoi);
         	$("#interesCronograma").val(respuesta['imp_interes']);
             $("#interesCronograma").trigger('change');
         	$("#codCobrador").val(respuesta['cod_cobrador']).trigger('change');
@@ -899,7 +911,7 @@ function cargaCronograma(codCtto,numRefi){
         		totalIGV = totalIGV + parseFloat(value['imp_igv']);
         		totalTotal = totalTotal + parseFloat(value['imp_principal']);
         		totalSaldo = totalSaldo + parseFloat(value['imp_saldo']);
-                //console.log(value['cod_estadocuota']);
+                // console.log(value['cod_estadocuota']);
         		if(value['cod_estadocuota'] == 'REG'){
         			edoCuota = 'REGISTRADO';
         		}else if (value['cod_estadocuota'] == 'CAN'){
@@ -908,6 +920,10 @@ function cargaCronograma(codCtto,numRefi){
                     edoCuota = 'ANULADO';
                 }else if(value['cod_estadocuota'] == 'RES'){
                     edoCuota = 'RESUELTO';
+                }else if(value['cod_estadocuota'] == 'REF'){
+                    edoCuota = 'REFINANCIADO';
+                }else if(value['cod_estadocuota'] == 'EMI'){
+                    edoCuota = 'EMITIDO';
                 }else{
                     edoCuota = '';
                 }

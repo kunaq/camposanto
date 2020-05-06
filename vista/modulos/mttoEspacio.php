@@ -11,13 +11,13 @@
 					</a>
 				</li>
 				<li style="list-style: none;">
-					<a href="#container" class="btn btnGuardarKqPst m-btn--square m-btn m-btn--icon btn-lg m-btn--icon-only" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Guardar cambios" onclick="ValidaModificaCtto();" id="btnGuardaMttoEsp">
+					<a href="#container" class="btn btnGuardarKqPst m-btn--square m-btn m-btn--icon btn-lg m-btn--icon-only" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Guardar cambios" onclick="guardarMttoEsp();" id="btnGuardaMttoEsp">
 						<i class="fa fa-save"></i>
 					</a>
 				</li>
 				<li style="list-style: none;" >
-					<a href="#container" class="btn btnEditarKqPst2 m-btn--square m-btn m-btn--icon btn-lg m-btn--icon-only" style="border-bottom-left-radius: .25rem !important;" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Nueva busqueda" id="btnReseMttoEsp" >
-						<i class="fa fa-refresh"></i>
+					<a href="#container" class="btn btnEditarKqPst2 m-btn--square m-btn m-btn--icon btn-lg m-btn--icon-only" style="border-bottom-left-radius: .25rem !important;" data-toggle="m-tooltip" data-container="body" data-placement="left" title="" data-original-title="Nueva busqueda" id="btnReseMttoEsp" onclick="resetBusqueda();">
+						<i class="fa fa-sticky-note"></i>
 					</a>
 				</li>
 			</ul> 					
@@ -36,6 +36,7 @@
 		<div class="m-portlet__body" style="padding-top: 0">
 
 			<fieldset class="fieldFormHorizontal">
+			<form id="formMttoEsp">
 			<legend class="tittle-box">Filtros</legend>
 			<div class="row form-group" style="padding-left: 1rem; padding-right: 1rem;">
 				<div class="col-lg-4" style="border-right:solid 1px #e4e1e1;">
@@ -74,7 +75,7 @@
 						</div>
 						<div class="col-lg-6">
 							<label>Área: </label>
-							<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="areaMttoEsp" id="areaMttoEsp" >
+							<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="areaMttoEsp" id="areaMttoEsp" onchange="buscaEjex(this.value);">
 								<option value="">Área</option>
 							</select>			
 						</div>
@@ -82,37 +83,38 @@
 					<div class="row form-group">
 						<div class="col-lg-4">
 							<label>Eje Horiz (X):</label>
-							<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="ejexMttoEsp" id="ejexMttoEsp" disabled="disabled" onchange="buscaEjey(this.value);">
+							<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="ejexMttoEsp" id="ejexMttoEsp" onchange="buscaEjey(this.value);">
 								<option disabled value="">Eje Hor.</option>
 							</select>
 						</div>
 						<div class="col-lg-4">
 							<label>Eje Vert (Y):</label>
-							<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="ejexMttoEsp" id="ejexMttoEsp" disabled="disabled" onchange="buscaEjey(this.value);">
+							<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="ejeyMttoEsp" id="ejeyMttoEsp" onchange="buscaEspacio(this.value);">
 								<option disabled value="">Eje Hor.</option>
 							</select>
 						</div>
 						<div class="col-lg-4">
 							<label>Espacio:</label>
-							<select class="form-control form-control-sm m-input" name="espacioMttoEsp" id="espacioMttoEsp">
+							<select class="form-control form-control-sm m-input m-select2 m-select2-general" name="espacioMttoEsp" id="espacioMttoEsp">
 							</select>
 						</div>
 					</div>
 				</div>
 			</div>	
+			</form>
 			</fieldset>
 			<fieldset class="fieldFormHorizontal">
 			<legend class="tittle-box">Espacio generado</legend>
 				<div class="col-lg-12">
-					<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="200">
+					<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-max-height="400">
 						<div class="table-responsive">
-							<table class="table m-table">
+							<table class="table m-table" id="tablaMttoEsp">
 								<thead>
-									<th>Plataforma</th>
-									<th>Area</th>
-									<th>Eje Horiz.</th>
-									<th>Eje Vert.</th>
-									<th>Codigo Espacio</th>
+									<th style="width: 12rem;">Plataforma</th>
+									<th style="width: 9rem;">Area</th>
+									<th style="width: 4rem;">Eje Horiz.</th>
+									<th style="width: 4rem;">Eje Vert.</th>
+									<th style="width: 5rem;">Codigo Espacio</th>
 									<th>Tipo</th>
 									<th>Espacio</th>
 									<th>Estado</th>

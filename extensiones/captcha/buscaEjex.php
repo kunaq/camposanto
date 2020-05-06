@@ -10,7 +10,7 @@ require_once "../../modelo/conexion.php";
        	$sql = $db->consulta("SELECT distinct cod_eje_horizontal  FROM vtaca_espacio where cod_camposanto = '$camps' and cod_plataforma = '$plat' and cod_area_plataforma = '$cod'");
 
         $datos = array();
-        echo "<option value = 0>Eje Hor.</option>";
+        echo "<option value = ''>Eje Hor.</option>";
 		while($key = $db->recorrer($sql)){
 
             $datos[] =  $key;
